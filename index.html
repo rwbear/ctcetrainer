@@ -1198,10 +1198,16 @@ function recordAnswer(blockKey, blockLabel, qId, userAns, correctAns, isCorrect,
   if (!stats.byTopic[blockKey]) {
     stats.byTopic[blockKey] = { label: blockLabel, correct: 0, total: 0 };
   }
-  stats.byTopic[blockKey].total++;
+  // In "Practice Mistakes" mode: do NOT add to total (the attempt was already counted
+  // when the user first answered this question). Only update correct if they get it right.
+  const isMistakePractice = (currentTopic === '__mistakes__');
+  if (!isMistakePractice) {
+    stats.byTopic[blockKey].total++;
+  }
   if (isCorrect) {
     stats.byTopic[blockKey].correct++;
-  } else {
+  } else if (!isMistakePractice) {
+    // Only push a new mistake entry during normal practice, not during mistake re-practice
     stats.mistakes.push({
       id: qId,
       blockKey,
