@@ -1,0 +1,897 @@
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FIREBASE AUTH & SYNC MODULE (v9.12)
+   ───────────────────────────────────────────────────────────────────────
+   Architecture (v9.12, replaces v9.3):
+   • Anonymous sign-in REMOVED. Only real accounts sync.
+   • Event-driven push (no save-wrapper auto-push). The 5 meaningful
+     events are: variant submit, learn topic completion, variant delete,
+     clear-all-stats, and sign-out final flush.
+   • Firestore structure: flat subcollections under users/{uid} —
+        practice_original_variantResults / {entryUid}
+        practice_original_mistakes       / {entryUid}
+        practice_original_topicStats     / {topicKey}
+        practice_analogue_*              (same three)
+        learn_topicStats                 / {topicId}
+        learn_subtopicStats              / {subtopicId}
+        learn_mistakes                   / {entryUid}
+        learn_totals                     (single doc)
+        meta_sync                        (single doc: lastSyncAt)
+   • Login flow: if both local and cloud have data → modal asks Merge vs
+     Download. If cloud empty → silent push. If local empty → silent pull.
+   • Sign-out: final flush, then wipe local stats (per user decision 2),
+     then reload.
+   • Manual buttons in Statistics screen: Upload to cloud / Download from
+     cloud (full replacement, confirm dialog on each).
+   ═══════════════════════════════════════════════════════════════════════ */
+(function() {
+  'use strict';
+
+  /* ─── Firebase Config ─────────────────────────────────────────────── */
+  const FIREBASE_CONFIG = {
+    apiKey: "AIzaSyDWan2l5eIz0K-nzwm5TmUL4XzTTb5_oJ8",
+    authDomain: "ct-ce-trainer.firebaseapp.com",
+    projectId: "ct-ce-trainer",
+    storageBucket: "ct-ce-trainer.firebasestorage.app",
+    messagingSenderId: "342668381634",
+    appId: "1:342668381634:web:3a51bf415b9794de43da5b",
+    measurementId: "G-P83YM34R0G"
+  };
+
+  var _fbConfigured = !FIREBASE_CONFIG.apiKey.startsWith('YOUR_');
+  var _auth = null, _db = null, _currentUser = null;
+  /* Push-state machine: queued events are processed one at a time so two
+     near-simultaneous events never race. Failures leave _syncPending=true
+     and surface the "Not synced" indicator. */
+  var _syncQueue = [];
+  var _syncProcessing = false;
+  var _syncPending = false;          // true while we have unpushed changes
+  var _syncFailed = false;           // true after a push failed
+  var _lastSyncAt = 0;               // epoch ms of last successful push/pull
+  var _manualBtnLockUntil = 0;       // rate-limit for manual buttons (5s)
+
+  /* Persist "choice has been made on this device" so a re-login doesn't
+     re-prompt. The flag is keyed by uid so different accounts on the same
+     device each get the prompt once. */
+  function _choiceKey(uid) { return 'ct_cloud_choice_made_' + (uid || ''); }
+
+  if (_fbConfigured && typeof firebase !== 'undefined') {
+    try {
+      firebase.initializeApp(FIREBASE_CONFIG);
+      _auth = firebase.auth();
+      _db = firebase.firestore();
+      _auth.onAuthStateChanged(_onAuthStateChanged);
+    } catch(e) { console.warn('Firebase init failed:', e); }
+  }
+
+  /* ─── Expose internal signals that other UI code can observe ──────── */
+  window.__ctCloud = {
+    isSignedIn: function() { return !!(_currentUser && !_currentUser.isAnonymous); },
+    lastSyncAt: function() { return _lastSyncAt; },
+    syncState:  function() {
+      if (!_currentUser || _currentUser.isAnonymous) return 'signed-out';
+      if (!navigator.onLine) return 'offline';
+      if (_syncFailed) return 'failed';
+      if (_syncPending || _syncProcessing) return 'pending';
+      return 'synced';
+    },
+    requestRender: function() { try { if (typeof renderCloudSyncCard === 'function') renderCloudSyncCard(); } catch(e) {} },
+  };
+
+  /* ─── Auth state handler ──────────────────────────────────────────── */
+  function _onAuthStateChanged(user) {
+    _currentUser = user;
+    _updateAccountUI();
+    _refreshCloudSyncCard();
+    if (user && !user.isAnonymous) {
+      /* Run the login-time decision flow. */
+      _handlePostLogin().catch(function(e){ console.warn('post-login flow failed', e); });
+    }
+  }
+
+  /* ─── Account popup UI ─────────────────────────────────────────────── */
+  window.toggleAccountPopup = function() {
+    var popup = document.getElementById('accountPopup');
+    document.getElementById('themePopup').classList.remove('open');
+    popup.classList.toggle('open');
+  };
+  document.getElementById('accountPopup').addEventListener('click', function(e){ e.stopPropagation(); });
+  document.addEventListener('click', function(e){
+    var btn = document.getElementById('accountBtn');
+    var popup = document.getElementById('accountPopup');
+    if (btn && popup && !btn.contains(e.target)) popup.classList.remove('open');
+  });
+
+  function _setStatus(msg, isError) {
+    var el = document.getElementById('apStatus'); if (!el) return;
+    el.textContent = msg || '';
+    el.style.color = isError ? 'var(--incorrect-text,#c33)' : 'var(--text-muted,#666)';
+  }
+
+  function _updateAccountUI() {
+    var btn = document.getElementById('accountBtn');
+    var content = document.getElementById('accountContent');
+    if (!btn || !content) return;
+    if (!_fbConfigured) {
+      btn.classList.remove('signed-in');
+      content.innerHTML = '<div class="ap-status">Account system not configured yet.</div>';
+      return;
+    }
+    if (_currentUser && !_currentUser.isAnonymous) {
+      btn.classList.add('signed-in');
+      var method = _currentUser.providerData.length > 0 ? _currentUser.providerData[0].providerId : 'unknown';
+      var methodLabel = method === 'google.com' ? 'Google' : method === 'password' ? 'Email' : method;
+      var email = _currentUser.email || 'No email';
+      content.innerHTML =
+        '<div class="account-popup-signed">' +
+          '<div><div class="ap-email">' + _escHtml(email) + '</div>' +
+          '<div class="ap-method">Signed in via ' + _escHtml(methodLabel) + '</div></div>' +
+        '</div>' +
+        '<div class="ap-sync-info">' +
+          '<span class="ap-sync-dot ' + (navigator.onLine ? 'online' : 'offline') + '"></span>' +
+          (navigator.onLine ? 'Cloud sync active' : 'Offline — will sync when online') +
+        '</div>' +
+        '<button class="ap-signout-btn" onclick="_fbSignOut()" style="margin-top:8px">Sign out</button>';
+    } else {
+      btn.classList.remove('signed-in');
+      content.innerHTML =
+        '<div class="ap-status">Sign in to save your progress across devices.</div>' +
+        '<div style="margin-top:10px">' +
+          _googleBtnHtml() +
+          '<div class="ap-divider">or</div>' +
+          '<button class="ap-signin-btn" onclick="_showEmailForm()">Sign in with email</button>' +
+        '</div>' +
+        '<div id="apStatus"></div>';
+    }
+  }
+
+  function _googleBtnHtml() {
+    return '<button class="ap-signin-btn google" onclick="_fbSignInGoogle()">' +
+      '<svg width="16" height="16" viewBox="0 0 48 48"><path fill="#FFF" d="M43.6 20.5h-1.9v-.1H24v7.1h11.3c-1.5 4.1-5.4 7.1-10 7.1-6 0-10.8-4.8-10.8-10.8s4.8-10.8 10.8-10.8c2.7 0 5.2 1 7.1 2.7l5.1-5.1C33.8 7.5 29.1 5.5 24 5.5 13.8 5.5 5.5 13.8 5.5 24S13.8 42.5 24 42.5c10.8 0 19.5-8.7 19.5-19.5 0-1.3-.1-2.4-.4-3.5z"/></svg>' +
+      'Continue with Google</button>';
+  }
+  function _escHtml(s){ return String(s||'').replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  window._showEmailForm = function() {
+    var c = document.getElementById('accountContent'); if (!c) return;
+    c.innerHTML =
+      '<div class="ap-email-form">' +
+        '<input type="email" id="apEmail" placeholder="Email" autocomplete="email">' +
+        '<input type="password" id="apPassword" placeholder="Password" autocomplete="current-password">' +
+        '<button class="ap-signin-btn" onclick="_fbSignInEmail()" style="justify-content:center;font-weight:600">Sign in</button>' +
+        '<button class="ap-toggle-link" onclick="_showSignUpForm()">No account? Create one</button>' +
+      '</div>' +
+      '<div id="apStatus"></div>';
+  };
+  window._showSignUpForm = function() {
+    var c = document.getElementById('accountContent'); if (!c) return;
+    c.innerHTML =
+      '<div class="ap-email-form">' +
+        '<input type="email" id="apEmail" placeholder="Email" autocomplete="email">' +
+        '<input type="password" id="apPassword" placeholder="Password (min 6 chars)" autocomplete="new-password">' +
+        '<button class="ap-signin-btn" onclick="_fbSignUpEmail()" style="justify-content:center;font-weight:600">Create account</button>' +
+        '<button class="ap-toggle-link" onclick="_showEmailForm()">Already have an account? Sign in</button>' +
+      '</div>' +
+      '<div id="apStatus"></div>';
+  };
+
+  /* ─── Sign-in / Sign-up ────────────────────────────────────────────── */
+  window._fbSignInGoogle = async function() {
+    if (!_auth) return;
+    try {
+      _setStatus('Signing in...', false);
+      var provider = new firebase.auth.GoogleAuthProvider();
+      await _auth.signInWithPopup(provider);
+      _setStatus('');
+    } catch(e) { console.error('Google sign-in error:', e); _setStatus(e.message || 'Sign-in failed', true); }
+  };
+  window._fbSignInEmail = async function() {
+    if (!_auth) return;
+    var email = (document.getElementById('apEmail')||{}).value || '';
+    var password = (document.getElementById('apPassword')||{}).value || '';
+    if (!email || !password) { _setStatus('Email and password required', true); return; }
+    try {
+      _setStatus('Signing in...', false);
+      await _auth.signInWithEmailAndPassword(email, password);
+      _setStatus('');
+    } catch(e) {
+      var msg = e.code === 'auth/user-not-found' ? 'No account with this email' :
+                e.code === 'auth/wrong-password' ? 'Incorrect password' :
+                e.code === 'auth/invalid-email' ? 'Invalid email address' :
+                e.message || 'Sign-in failed';
+      _setStatus(msg, true);
+    }
+  };
+  window._fbSignUpEmail = async function() {
+    if (!_auth) return;
+    var email = (document.getElementById('apEmail')||{}).value || '';
+    var password = (document.getElementById('apPassword')||{}).value || '';
+    if (!email || !password) { _setStatus('Email and password required', true); return; }
+    if (password.length < 6) { _setStatus('Password must be at least 6 characters', true); return; }
+    try {
+      _setStatus('Creating account...', false);
+      await _auth.createUserWithEmailAndPassword(email, password);
+      _setStatus('');
+    } catch(e) {
+      var msg = e.code === 'auth/email-already-in-use' ? 'Account already exists — try signing in' :
+                e.code === 'auth/weak-password' ? 'Password is too weak' :
+                e.code === 'auth/invalid-email' ? 'Invalid email address' :
+                e.message || 'Sign-up failed';
+      _setStatus(msg, true);
+    }
+  };
+
+  /* ─── Sign-out (final flush + wipe local per user decision) ───────── */
+  window._fbSignOut = async function() {
+    if (!_auth) return;
+    try {
+      /* Final flush: drain the event queue, then sign out. */
+      if (_currentUser && !_currentUser.isAnonymous) {
+        try { await _drainSyncQueue(); } catch(e) {}
+      }
+      await _auth.signOut();
+      /* Per user decision 2: wipe local stats on sign-out. User starts
+         clean as a guest afterwards. Theme / UI prefs stay. */
+      localStorage.removeItem('ct_stats');
+      localStorage.removeItem('ct_stats_analogue');
+      localStorage.removeItem('learnStats');
+      localStorage.removeItem('goldUnlocked');
+      localStorage.removeItem('ct_variant_progress');
+      localStorage.removeItem('ct_learn_live_session');
+      /* Don't remove the entryUid-migration flag or per-uid choice flags;
+         they are version markers / per-account preferences. */
+      location.reload();
+    } catch(e) { console.error('Sign-out error:', e); }
+  };
+
+  /* ═══════════════════════════════════════════════════════════════════
+     FIRESTORE HELPERS
+     ═══════════════════════════════════════════════════════════════════ */
+  function _userRef() {
+    if (!_db || !_currentUser) return null;
+    return _db.collection('users').doc(_currentUser.uid);
+  }
+  /* Subcollection name convention — flat, per the approved schema. */
+  function _coll(name) { var u = _userRef(); return u ? u.collection(name) : null; }
+  /* Map mode key. 'analogue' → 'practice_analogue', else → 'practice_original' */
+  function _modePrefix(mode) { return mode === 'analogue' ? 'practice_analogue' : 'practice_original'; }
+
+  async function _collIsEmpty(name) {
+    var c = _coll(name); if (!c) return true;
+    var snap = await c.limit(1).get();
+    return snap.empty;
+  }
+  async function _userHasAnyCloudData() {
+    /* Cheap check: look at one doc in each major collection. */
+    var checks = [
+      'practice_original_variantResults',
+      'practice_analogue_variantResults',
+      'learn_topicStats',
+      'learn_mistakes'
+    ];
+    for (var i=0;i<checks.length;i++) {
+      if (!(await _collIsEmpty(checks[i]))) return true;
+    }
+    /* Also check the totals doc. */
+    var t = _userRef();
+    if (t) {
+      var totals = await t.collection('learn_totals').doc('main').get();
+      if (totals.exists && (totals.data()||{}).totalAnswered) return true;
+    }
+    return false;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     POST-LOGIN FLOW — Merge vs Download
+     ═══════════════════════════════════════════════════════════════════ */
+  async function _handlePostLogin() {
+    if (!_currentUser || _currentUser.isAnonymous) return;
+    var k = _choiceKey(_currentUser.uid);
+    if (localStorage.getItem(k) === '1') {
+      /* Already chose on this device for this account — no prompt. */
+      return;
+    }
+    var hasLocal = _hasAnyLocalData();
+    var hasCloud = false;
+    try { hasCloud = await _userHasAnyCloudData(); } catch(e) { console.warn('cloud-check failed', e); }
+    if (!hasLocal && !hasCloud) {
+      /* Nothing anywhere. Mark chosen and we're done. */
+      localStorage.setItem(k, '1');
+      return;
+    }
+    if (hasLocal && !hasCloud) {
+      /* Device has data, cloud is empty → push silently. */
+      try { await _uploadAllToCloud(); } catch(e) { _markFailed(e); }
+      localStorage.setItem(k, '1');
+      _toast('Statistics uploaded to cloud.');
+      return;
+    }
+    if (!hasLocal && hasCloud) {
+      /* Device empty, cloud has data → pull silently. */
+      try { await _downloadAllFromCloud(); } catch(e) { _markFailed(e); }
+      localStorage.setItem(k, '1');
+      _toast('Statistics downloaded from cloud.');
+      _refreshAllStatsUi();
+      return;
+    }
+    /* Both have data — modal. */
+    _showPostLoginModal(k);
+  }
+
+  function _hasAnyLocalData() {
+    try {
+      var a = JSON.parse(localStorage.getItem('ct_stats') || '{}');
+      if ((a.variantResults || []).length || (a.mistakes || []).length) return true;
+      if (Object.keys(a.byTopic || {}).length) return true;
+      var b = JSON.parse(localStorage.getItem('ct_stats_analogue') || '{}');
+      if ((b.variantResults || []).length || (b.mistakes || []).length) return true;
+      if (Object.keys(b.byTopic || {}).length) return true;
+      var c = JSON.parse(localStorage.getItem('learnStats') || '{}');
+      if (c.totalAnswered || (c.mistakes || []).length) return true;
+      if (Object.keys(c.byTopic || {}).length) return true;
+    } catch(e) {}
+    return false;
+  }
+
+  function _showPostLoginModal(choiceKey) {
+    var m = document.createElement('div');
+    m.className = 'ct-cloud-modal';
+    m.innerHTML =
+      '<div class="ct-cloud-modal-backdrop"></div>' +
+      '<div class="ct-cloud-modal-card" role="dialog" aria-modal="true" aria-labelledby="ctCloudTitle">' +
+        '<div class="ct-cloud-modal-title" id="ctCloudTitle">Welcome back</div>' +
+        '<div class="ct-cloud-modal-body">' +
+          'You have statistics on this device and in your cloud account. Choose how to combine them.' +
+        '</div>' +
+        '<button class="ct-cloud-modal-btn primary" id="ctCloudMergeBtn">' +
+          '<div class="ct-cloud-modal-btn-title">Merge with cloud</div>' +
+          '<div class="ct-cloud-modal-btn-sub">Keep every attempt from both sides.</div>' +
+        '</button>' +
+        '<button class="ct-cloud-modal-btn" id="ctCloudDownloadBtn">' +
+          '<div class="ct-cloud-modal-btn-title">Download from cloud</div>' +
+          '<div class="ct-cloud-modal-btn-sub">Replace this device with cloud data.</div>' +
+        '</button>' +
+      '</div>';
+    document.body.appendChild(m);
+    function finish() {
+      if (m.parentNode) m.parentNode.removeChild(m);
+      localStorage.setItem(choiceKey, '1');
+      _refreshAllStatsUi();
+    }
+    m.querySelector('#ctCloudMergeBtn').onclick = async function() {
+      var btn = this; btn.disabled = true; btn.classList.add('syncing');
+      try {
+        await _mergeLocalWithCloud();
+        await _uploadAllToCloud(); /* make cloud reflect merged state */
+        _toast('Merged with cloud.');
+      } catch(e) { _markFailed(e); _toast('Merge failed — try again.', true); }
+      finish();
+    };
+    m.querySelector('#ctCloudDownloadBtn').onclick = async function() {
+      var btn = this; btn.disabled = true; btn.classList.add('syncing');
+      try {
+        await _downloadAllFromCloud();
+        _toast('Downloaded from cloud.');
+      } catch(e) { _markFailed(e); _toast('Download failed — try again.', true); }
+      finish();
+    };
+  }
+
+  function _toast(msg, isError) {
+    var t = document.createElement('div');
+    t.className = 'ct-cloud-toast' + (isError ? ' error' : '');
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(function(){ t.classList.add('show'); }, 10);
+    setTimeout(function(){ t.classList.remove('show'); setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 300); }, 2800);
+  }
+
+  function _refreshAllStatsUi() {
+    try { if (typeof renderStats === 'function') renderStats(); } catch(e) {}
+    try { if (typeof renderPracticeStats === 'function') renderPracticeStats(); } catch(e) {}
+    try { if (typeof renderLearnStats === 'function') renderLearnStats(); } catch(e) {}
+    try { if (typeof buildVariantSelector === 'function') buildVariantSelector(); } catch(e) {}
+    try { if (typeof buildVariantGrid === 'function') buildVariantGrid(); } catch(e) {}
+    _refreshCloudSyncCard();
+  }
+  function _refreshCloudSyncCard() {
+    try { if (typeof renderCloudSyncCard === 'function') renderCloudSyncCard(); } catch(e) {}
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     EVENT-DRIVEN PUSH QUEUE
+     Each event is an object { type, payload }. Processed serially.
+     ═══════════════════════════════════════════════════════════════════ */
+  function _enqueue(evt) {
+    if (!_currentUser || _currentUser.isAnonymous) return; /* signed-out: no sync */
+    _syncQueue.push(evt);
+    _syncPending = true;
+    _refreshCloudSyncCard();
+    _processQueue();
+  }
+  async function _processQueue() {
+    if (_syncProcessing) return;
+    _syncProcessing = true;
+    _refreshCloudSyncCard();
+    while (_syncQueue.length > 0) {
+      var evt = _syncQueue.shift();
+      try {
+        await _handleEvent(evt);
+        _syncFailed = false;
+        _lastSyncAt = Date.now();
+        try { localStorage.setItem('ct_last_sync_at', String(_lastSyncAt)); } catch(e) {}
+      } catch(e) {
+        console.warn('push failed', evt, e);
+        _syncFailed = true;
+        _syncQueue.unshift(evt); /* put it back */
+        break; /* stop draining, wait for online/manual retry */
+      }
+    }
+    _syncProcessing = false;
+    _syncPending = _syncQueue.length > 0 || _syncFailed;
+    _refreshCloudSyncCard();
+    /* Update meta/sync once per drain. */
+    try { if (!_syncFailed) await _writeMetaSync(); } catch(e) {}
+  }
+  async function _drainSyncQueue() {
+    /* Called on sign-out to flush remaining events before auth.signOut.
+       Throws nothing — best-effort. */
+    if (_syncQueue.length === 0 && !_syncProcessing) return;
+    /* Wait until the queue is idle, max 5s. */
+    var start = Date.now();
+    while ((_syncQueue.length > 0 || _syncProcessing) && (Date.now() - start) < 5000) {
+      _processQueue();
+      await new Promise(function(r){ setTimeout(r, 100); });
+    }
+  }
+  async function _writeMetaSync() {
+    var u = _userRef(); if (!u) return;
+    var deviceTag = localStorage.getItem('ct_device_tag');
+    if (!deviceTag) { deviceTag = newEntryUid(); try { localStorage.setItem('ct_device_tag', deviceTag); } catch(e) {} }
+    await u.collection('meta_sync').doc('main').set({
+      lastSyncAt: firebase.firestore.FieldValue.serverTimestamp(),
+      lastDevice: deviceTag,
+      appVersion: '9.12'
+    }, { merge: true });
+  }
+
+  function _markFailed(e) {
+    _syncFailed = true;
+    _syncPending = true;
+    _refreshCloudSyncCard();
+    console.warn('cloud op failed', e);
+  }
+
+  async function _handleEvent(evt) {
+    switch (evt.type) {
+      case 'variantSubmit':     return _pushVariantSubmit(evt.payload);
+      case 'variantDelete':     return _pushVariantDelete(evt.payload);
+      case 'clearAllPractice':  return _pushClearAllPractice(evt.payload);
+      case 'learnUpdate':       return _pushLearnUpdate(evt.payload);
+      case 'clearAllLearn':     return _pushClearAllLearn();
+      default: return;
+    }
+  }
+
+  /* ─── Variant submit push ─────────────────────────────────────────── */
+  async function _pushVariantSubmit(p) {
+    /* p = { mode, entry, topicDeltas[], newMistakes[] }
+       - entry: the variantResults record just added locally
+       - topicDeltas: [{ key, label, correct, total }] counter deltas to apply
+       - newMistakes: mistake objects just added to local stats.mistakes
+    */
+    var prefix = _modePrefix(p.mode);
+    var batch = _db.batch();
+    var u = _userRef();
+    /* 1) variantResults doc */
+    batch.set(u.collection(prefix + '_variantResults').doc(p.entry.entryUid), _cleanForCloud(p.entry));
+    /* 2) mistakes docs */
+    (p.newMistakes || []).forEach(function(m){
+      batch.set(u.collection(prefix + '_mistakes').doc(m.entryUid), _cleanForCloud(m));
+    });
+    await batch.commit();
+    /* 3) topicStats — these must be a transaction read-modify-write per topic
+       so concurrent pushes from another device sum correctly rather than
+       overwrite. */
+    for (var i=0; i<(p.topicDeltas||[]).length; i++) {
+      var d = p.topicDeltas[i];
+      await _applyTopicDelta(prefix + '_topicStats', d);
+    }
+  }
+  async function _applyTopicDelta(collName, d) {
+    var u = _userRef(); if (!u) return;
+    var ref = u.collection(collName).doc(d.key);
+    await _db.runTransaction(async function(tx) {
+      var doc = await tx.get(ref);
+      var cur = doc.exists ? (doc.data() || {}) : { label: d.label || d.key, correct: 0, total: 0 };
+      var next = {
+        label: cur.label || d.label || d.key,
+        correct: (cur.correct || 0) + (d.correct || 0),
+        total:   (cur.total   || 0) + (d.total   || 0),
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      };
+      tx.set(ref, next);
+    });
+  }
+  function _cleanForCloud(obj) {
+    /* Strip undefined and functions; Firestore rejects undefined. */
+    var out = {};
+    Object.keys(obj || {}).forEach(function(k){
+      var v = obj[k]; if (typeof v === 'undefined' || typeof v === 'function') return;
+      out[k] = v;
+    });
+    return out;
+  }
+
+  /* ─── Variant delete push ─────────────────────────────────────────── */
+  async function _pushVariantDelete(p) {
+    /* p = { mode, entryUid, topicDeltas[] }  — topicDeltas are NEGATIVE deltas */
+    var prefix = _modePrefix(p.mode);
+    var u = _userRef();
+    await u.collection(prefix + '_variantResults').doc(p.entryUid).delete().catch(function(){});
+    /* Apply negative deltas via the same transaction helper. */
+    for (var i=0; i<(p.topicDeltas||[]).length; i++) {
+      await _applyTopicDelta(prefix + '_topicStats', p.topicDeltas[i]);
+    }
+  }
+
+  /* ─── Clear-all practice (current mode) push ──────────────────────── */
+  async function _pushClearAllPractice(p) {
+    var prefix = _modePrefix(p.mode);
+    await _wipeCollection(prefix + '_variantResults');
+    await _wipeCollection(prefix + '_mistakes');
+    await _wipeCollection(prefix + '_topicStats');
+  }
+  async function _wipeCollection(name) {
+    var c = _coll(name); if (!c) return;
+    /* Batched deletes, 400 at a time (Firestore limit 500). */
+    while (true) {
+      var snap = await c.limit(400).get();
+      if (snap.empty) break;
+      var batch = _db.batch();
+      snap.docs.forEach(function(d){ batch.delete(d.ref); });
+      await batch.commit();
+      if (snap.size < 400) break;
+    }
+  }
+
+  /* ─── Learn update push ───────────────────────────────────────────── */
+  async function _pushLearnUpdate(p) {
+    /* p = { topicDeltas, subtopicDeltas, newMistakes, totalsDelta } */
+    var u = _userRef();
+    var batch = _db.batch();
+    (p.newMistakes || []).forEach(function(m){
+      batch.set(u.collection('learn_mistakes').doc(m.entryUid), _cleanForCloud(m));
+    });
+    await batch.commit();
+    for (var i=0; i<(p.topicDeltas||[]).length; i++) await _applyTopicDelta('learn_topicStats', p.topicDeltas[i]);
+    for (var j=0; j<(p.subtopicDeltas||[]).length; j++) await _applyTopicDelta('learn_subtopicStats', p.subtopicDeltas[j]);
+    /* totals */
+    var td = p.totalsDelta || { totalAnswered: 0, totalCorrect: 0 };
+    var tRef = u.collection('learn_totals').doc('main');
+    await _db.runTransaction(async function(tx) {
+      var doc = await tx.get(tRef);
+      var cur = doc.exists ? (doc.data() || {}) : { totalAnswered: 0, totalCorrect: 0 };
+      tx.set(tRef, {
+        totalAnswered: (cur.totalAnswered || 0) + (td.totalAnswered || 0),
+        totalCorrect:  (cur.totalCorrect  || 0) + (td.totalCorrect  || 0),
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    });
+  }
+  async function _pushClearAllLearn() {
+    await _wipeCollection('learn_mistakes');
+    await _wipeCollection('learn_topicStats');
+    await _wipeCollection('learn_subtopicStats');
+    var u = _userRef();
+    await u.collection('learn_totals').doc('main').delete().catch(function(){});
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     BULK UPLOAD / DOWNLOAD / MERGE
+     ═══════════════════════════════════════════════════════════════════ */
+  async function _uploadAllToCloud() {
+    /* Wipe cloud, then write the local state in full. */
+    await _wipeCollection('practice_original_variantResults');
+    await _wipeCollection('practice_original_mistakes');
+    await _wipeCollection('practice_original_topicStats');
+    await _wipeCollection('practice_analogue_variantResults');
+    await _wipeCollection('practice_analogue_mistakes');
+    await _wipeCollection('practice_analogue_topicStats');
+    await _wipeCollection('learn_mistakes');
+    await _wipeCollection('learn_topicStats');
+    await _wipeCollection('learn_subtopicStats');
+    var u = _userRef();
+    await u.collection('learn_totals').doc('main').delete().catch(function(){});
+
+    var s1 = JSON.parse(localStorage.getItem('ct_stats') || '{"byTopic":{},"mistakes":[],"variantResults":[]}');
+    var s2 = JSON.parse(localStorage.getItem('ct_stats_analogue') || '{"byTopic":{},"mistakes":[],"variantResults":[]}');
+    var ls = JSON.parse(localStorage.getItem('learnStats') || '{"byTopic":{},"bySubtopic":{},"mistakes":[],"totalAnswered":0,"totalCorrect":0}');
+    await _writeFullMode('practice_original', s1);
+    await _writeFullMode('practice_analogue', s2);
+    await _writeFullLearn(ls);
+    await _writeMetaSync();
+    _lastSyncAt = Date.now();
+    try { localStorage.setItem('ct_last_sync_at', String(_lastSyncAt)); } catch(e) {}
+    _syncFailed = false; _syncPending = false;
+    _refreshCloudSyncCard();
+  }
+  async function _writeFullMode(prefix, s) {
+    var u = _userRef();
+    /* Chunk to stay under the 500-write batch limit. */
+    var vrs = (s.variantResults || []).slice();
+    while (vrs.length) {
+      var chunk = vrs.splice(0, 400); var b = _db.batch();
+      chunk.forEach(function(r){
+        if (!r.entryUid) r.entryUid = legacyEntryUid('vr', r.time, r.variantId);
+        b.set(u.collection(prefix + '_variantResults').doc(r.entryUid), _cleanForCloud(r));
+      });
+      await b.commit();
+    }
+    var ms = (s.mistakes || []).slice();
+    while (ms.length) {
+      var chunk2 = ms.splice(0, 400); var b2 = _db.batch();
+      chunk2.forEach(function(m){
+        if (!m.entryUid) m.entryUid = legacyEntryUid('m', m.time, (m.id||'')+'_'+(m.blockKey||''));
+        b2.set(u.collection(prefix + '_mistakes').doc(m.entryUid), _cleanForCloud(m));
+      });
+      await b2.commit();
+    }
+    var keys = Object.keys(s.byTopic || {});
+    while (keys.length) {
+      var kChunk = keys.splice(0, 400); var b3 = _db.batch();
+      kChunk.forEach(function(k){
+        var t = s.byTopic[k] || {};
+        b3.set(u.collection(prefix + '_topicStats').doc(k), {
+          label: t.label || k, correct: t.correct || 0, total: t.total || 0
+        });
+      });
+      await b3.commit();
+    }
+  }
+  async function _writeFullLearn(ls) {
+    var u = _userRef();
+    var ms = (ls.mistakes || []).slice();
+    while (ms.length) {
+      var chunk = ms.splice(0, 400); var b = _db.batch();
+      chunk.forEach(function(m){
+        if (!m.entryUid) m.entryUid = legacyEntryUid('lm', m.timestamp, (m.taskId||'')+'_'+(m.subtopicId||''));
+        b.set(u.collection('learn_mistakes').doc(m.entryUid), _cleanForCloud(m));
+      });
+      await b.commit();
+    }
+    var topics = Object.keys(ls.byTopic || {});
+    while (topics.length) {
+      var tc = topics.splice(0, 400); var bt = _db.batch();
+      tc.forEach(function(k){
+        var t = ls.byTopic[k] || {};
+        bt.set(u.collection('learn_topicStats').doc(k), { label: t.label || k, correct: t.correct || 0, total: t.total || 0 });
+      });
+      await bt.commit();
+    }
+    var subs = Object.keys(ls.bySubtopic || {});
+    while (subs.length) {
+      var sc = subs.splice(0, 400); var bs = _db.batch();
+      sc.forEach(function(k){
+        var t = ls.bySubtopic[k] || {};
+        bs.set(u.collection('learn_subtopicStats').doc(k), { label: t.label || k, topicId: t.topicId || '', correct: t.correct || 0, total: t.total || 0 });
+      });
+      await bs.commit();
+    }
+    await u.collection('learn_totals').doc('main').set({
+      totalAnswered: ls.totalAnswered || 0,
+      totalCorrect:  ls.totalCorrect  || 0,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+  }
+
+  async function _downloadAllFromCloud() {
+    /* Replace local with whatever is in the cloud. */
+    var p1 = await _readFullMode('practice_original');
+    var p2 = await _readFullMode('practice_analogue');
+    var ls = await _readFullLearn();
+    localStorage.setItem('ct_stats', JSON.stringify(p1));
+    localStorage.setItem('ct_stats_analogue', JSON.stringify(p2));
+    localStorage.setItem('learnStats', JSON.stringify(ls));
+    /* Reset in-memory cache. */
+    if (typeof _store !== 'undefined') {
+      _store['ct_stats'] = p1; _store['ct_stats_analogue'] = p2;
+    }
+    _lastSyncAt = Date.now();
+    try { localStorage.setItem('ct_last_sync_at', String(_lastSyncAt)); } catch(e) {}
+    _syncFailed = false; _syncPending = false;
+    _refreshCloudSyncCard();
+  }
+  async function _readFullMode(prefix) {
+    var u = _userRef();
+    var vrSnap = await u.collection(prefix + '_variantResults').get();
+    var mSnap  = await u.collection(prefix + '_mistakes').get();
+    var tSnap  = await u.collection(prefix + '_topicStats').get();
+    var s = { byTopic: {}, mistakes: [], variantResults: [] };
+    vrSnap.forEach(function(d){ s.variantResults.push(d.data()); });
+    s.variantResults.sort(function(a,b){ return (a.time||0) - (b.time||0); });
+    mSnap.forEach(function(d){ s.mistakes.push(d.data()); });
+    s.mistakes.sort(function(a,b){ return (a.time||0) - (b.time||0); });
+    tSnap.forEach(function(d){
+      var t = d.data(); s.byTopic[d.id] = { label: t.label || d.id, correct: t.correct || 0, total: t.total || 0 };
+    });
+    return s;
+  }
+  async function _readFullLearn() {
+    var u = _userRef();
+    var mSnap = await u.collection('learn_mistakes').get();
+    var tSnap = await u.collection('learn_topicStats').get();
+    var sSnap = await u.collection('learn_subtopicStats').get();
+    var totalsDoc = await u.collection('learn_totals').doc('main').get();
+    var ls = { byTopic: {}, bySubtopic: {}, mistakes: [], totalAnswered: 0, totalCorrect: 0 };
+    mSnap.forEach(function(d){ ls.mistakes.push(d.data()); });
+    ls.mistakes.sort(function(a,b){ return (a.timestamp||a.time||0) - (b.timestamp||b.time||0); });
+    tSnap.forEach(function(d){
+      var t = d.data(); ls.byTopic[d.id] = { label: t.label || d.id, correct: t.correct || 0, total: t.total || 0 };
+    });
+    sSnap.forEach(function(d){
+      var t = d.data(); ls.bySubtopic[d.id] = { label: t.label || d.id, topicId: t.topicId || '', correct: t.correct || 0, total: t.total || 0 };
+    });
+    if (totalsDoc.exists) {
+      var td = totalsDoc.data() || {};
+      ls.totalAnswered = td.totalAnswered || 0;
+      ls.totalCorrect  = td.totalCorrect  || 0;
+    }
+    return ls;
+  }
+
+  async function _mergeLocalWithCloud() {
+    /* Read cloud, read local, compute merged, write to local. The merged
+       state will then be pushed back via _uploadAllToCloud. */
+    var cloudP1 = await _readFullMode('practice_original');
+    var cloudP2 = await _readFullMode('practice_analogue');
+    var cloudL  = await _readFullLearn();
+    var localP1 = JSON.parse(localStorage.getItem('ct_stats') || '{"byTopic":{},"mistakes":[],"variantResults":[]}');
+    var localP2 = JSON.parse(localStorage.getItem('ct_stats_analogue') || '{"byTopic":{},"mistakes":[],"variantResults":[]}');
+    var localL  = JSON.parse(localStorage.getItem('learnStats') || '{"byTopic":{},"bySubtopic":{},"mistakes":[],"totalAnswered":0,"totalCorrect":0}');
+    localStorage.setItem('ct_stats', JSON.stringify(_mergePractice(localP1, cloudP1)));
+    localStorage.setItem('ct_stats_analogue', JSON.stringify(_mergePractice(localP2, cloudP2)));
+    localStorage.setItem('learnStats', JSON.stringify(_mergeLearn(localL, cloudL)));
+    /* Reset in-memory cache. */
+    _store['ct_stats'] = JSON.parse(localStorage.getItem('ct_stats'));
+    _store['ct_stats_analogue'] = JSON.parse(localStorage.getItem('ct_stats_analogue'));
+  }
+  function _mergePractice(a, b) {
+    var out = { byTopic: {}, mistakes: [], variantResults: [] };
+    /* variantResults: union by entryUid */
+    var seen = {};
+    (a.variantResults || []).concat(b.variantResults || []).forEach(function(r){
+      var k = r.entryUid || legacyEntryUid('vr', r.time, r.variantId);
+      if (!seen[k]) { seen[k] = true; r.entryUid = k; out.variantResults.push(r); }
+    });
+    out.variantResults.sort(function(x,y){ return (x.time||0) - (y.time||0); });
+    if (out.variantResults.length > 200) out.variantResults = out.variantResults.slice(-200);
+    /* mistakes: union by entryUid */
+    var seenM = {};
+    (a.mistakes || []).concat(b.mistakes || []).forEach(function(m){
+      var k = m.entryUid || legacyEntryUid('m', m.time, (m.id||'')+'_'+(m.blockKey||''));
+      if (!seenM[k]) { seenM[k] = true; m.entryUid = k; out.mistakes.push(m); }
+    });
+    out.mistakes.sort(function(x,y){ return (x.time||0) - (y.time||0); });
+    /* byTopic: max(a, b) per topic. Simple and safe. */
+    var keys = {};
+    Object.keys(a.byTopic || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(b.byTopic || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(keys).forEach(function(k){
+      var l = (a.byTopic || {})[k] || { label: k, correct: 0, total: 0 };
+      var c = (b.byTopic || {})[k] || { label: k, correct: 0, total: 0 };
+      out.byTopic[k] = {
+        label: l.label || c.label || k,
+        correct: Math.max(l.correct || 0, c.correct || 0),
+        total:   Math.max(l.total   || 0, c.total   || 0)
+      };
+    });
+    return out;
+  }
+  function _mergeLearn(a, b) {
+    var out = { byTopic: {}, bySubtopic: {}, mistakes: [], totalAnswered: 0, totalCorrect: 0 };
+    var seenM = {};
+    (a.mistakes || []).concat(b.mistakes || []).forEach(function(m){
+      var k = m.entryUid || legacyEntryUid('lm', m.timestamp, (m.taskId||'')+'_'+(m.subtopicId||''));
+      if (!seenM[k]) { seenM[k] = true; m.entryUid = k; out.mistakes.push(m); }
+    });
+    out.mistakes.sort(function(x,y){ return (x.timestamp||x.time||0) - (y.timestamp||y.time||0); });
+    var tKeys = {};
+    Object.keys(a.byTopic || {}).forEach(function(k){ tKeys[k] = true; });
+    Object.keys(b.byTopic || {}).forEach(function(k){ tKeys[k] = true; });
+    Object.keys(tKeys).forEach(function(k){
+      var l = (a.byTopic || {})[k] || { correct: 0, total: 0, label: k };
+      var c = (b.byTopic || {})[k] || { correct: 0, total: 0, label: k };
+      out.byTopic[k] = {
+        label: l.label || c.label || k,
+        correct: Math.max(l.correct || 0, c.correct || 0),
+        total:   Math.max(l.total   || 0, c.total   || 0)
+      };
+    });
+    var sKeys = {};
+    Object.keys(a.bySubtopic || {}).forEach(function(k){ sKeys[k] = true; });
+    Object.keys(b.bySubtopic || {}).forEach(function(k){ sKeys[k] = true; });
+    Object.keys(sKeys).forEach(function(k){
+      var l = (a.bySubtopic || {})[k] || { correct: 0, total: 0, label: k };
+      var c = (b.bySubtopic || {})[k] || { correct: 0, total: 0, label: k };
+      out.bySubtopic[k] = {
+        label: l.label || c.label || k,
+        topicId: l.topicId || c.topicId || '',
+        correct: Math.max(l.correct || 0, c.correct || 0),
+        total:   Math.max(l.total   || 0, c.total   || 0)
+      };
+    });
+    out.totalAnswered = Math.max(a.totalAnswered || 0, b.totalAnswered || 0);
+    out.totalCorrect  = Math.max(a.totalCorrect  || 0, b.totalCorrect  || 0);
+    return out;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     MANUAL BUTTONS — Upload to cloud / Download from cloud
+     ═══════════════════════════════════════════════════════════════════ */
+  window._fbManualUpload = async function() {
+    if (!_currentUser || _currentUser.isAnonymous) return;
+    if (Date.now() < _manualBtnLockUntil) return;
+    _manualBtnLockUntil = Date.now() + 5000;
+    if (!confirm('Upload statistics to cloud?\n\nThis will REPLACE your cloud statistics with this device\'s data. Any data from other devices that has not been downloaded here will be lost. Continue?')) return;
+    var ok = true;
+    try { await _uploadAllToCloud(); } catch(e) { ok = false; _markFailed(e); }
+    _toast(ok ? 'Uploaded to cloud.' : 'Upload failed — try again.', !ok);
+    _refreshCloudSyncCard();
+  };
+  window._fbManualDownload = async function() {
+    if (!_currentUser || _currentUser.isAnonymous) return;
+    if (Date.now() < _manualBtnLockUntil) return;
+    _manualBtnLockUntil = Date.now() + 5000;
+    if (!confirm('Download statistics from cloud?\n\nThis will REPLACE this device\'s statistics with your cloud data. Any unsynced local changes will be lost. Continue?')) return;
+    var ok = true;
+    try { await _downloadAllFromCloud(); _refreshAllStatsUi(); } catch(e) { ok = false; _markFailed(e); }
+    _toast(ok ? 'Downloaded from cloud.' : 'Download failed — try again.', !ok);
+    _refreshCloudSyncCard();
+  };
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PUBLIC EVENT-DISPATCH HOOKS (called from main app code)
+     ═══════════════════════════════════════════════════════════════════ */
+  window.__ctCloud.onVariantSubmit = function(mode, entry, topicDeltas, newMistakes) {
+    _enqueue({ type: 'variantSubmit', payload: { mode: mode, entry: entry, topicDeltas: topicDeltas || [], newMistakes: newMistakes || [] } });
+  };
+  window.__ctCloud.onVariantDelete = function(mode, entryUid, topicDeltas) {
+    _enqueue({ type: 'variantDelete', payload: { mode: mode, entryUid: entryUid, topicDeltas: topicDeltas || [] } });
+  };
+  window.__ctCloud.onClearAllPractice = function(mode) {
+    _enqueue({ type: 'clearAllPractice', payload: { mode: mode } });
+  };
+  window.__ctCloud.onLearnUpdate = function(topicDeltas, subtopicDeltas, newMistakes, totalsDelta) {
+    _enqueue({ type: 'learnUpdate', payload: { topicDeltas: topicDeltas || [], subtopicDeltas: subtopicDeltas || [], newMistakes: newMistakes || [], totalsDelta: totalsDelta || { totalAnswered:0, totalCorrect:0 } } });
+  };
+  window.__ctCloud.onClearAllLearn = function() {
+    _enqueue({ type: 'clearAllLearn' });
+  };
+
+  /* ─── Load cached last-sync timestamp ──────────────────────────────── */
+  try { _lastSyncAt = Number(localStorage.getItem('ct_last_sync_at') || 0) || 0; } catch(e) {}
+
+  /* ─── Online / offline ─────────────────────────────────────────────── */
+  window.addEventListener('online', function(){
+    _refreshCloudSyncCard();
+    if (_currentUser && !_currentUser.isAnonymous && _syncFailed) {
+      _processQueue(); /* retry */
+    }
+  });
+  window.addEventListener('offline', _refreshCloudSyncCard);
+
+  /* ─── Beforeunload: flush the event queue ──────────────────────────── */
+  window.addEventListener('beforeunload', function(){
+    if (_currentUser && !_currentUser.isAnonymous && (_syncQueue.length > 0 || _syncProcessing)) {
+      /* Fire-and-forget; browser may cancel, but Firestore offline
+         persistence will carry it over. */
+      _processQueue();
+    }
+  });
+
+  /* ─── Init UI on load ─────────────────────────────────────────────── */
+  _updateAccountUI();
+  _refreshCloudSyncCard();
+
+})();
