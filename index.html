@@ -1263,11 +1263,8 @@ body{
   margin-bottom:24px;transition:border-color .2s,background .2s;
   box-shadow:0 1px 3px rgba(0,0,0,.04);
 }
-/* Task-switch crossfade (shared with .lpr-card) — v7: fade only, no slide */
-.q-card.slide-out-left{animation:cardFadeOut .18s ease forwards;}
-.q-card.slide-out-right{animation:cardFadeOut .18s ease forwards;}
-.q-card.slide-in-left{animation:cardFadeIn .18s ease forwards;}
-.q-card.slide-in-right{animation:cardFadeIn .18s ease forwards;}
+/* v10.7 Rebuild #2: legacy slide-in/out classes removed — card shell stays
+   visible at all times; only inner .v107-card-cont fades via v107Morph. */
 .q-card.correct{border-color:var(--correct);background:var(--correct-bg);}
 .q-card.wrong{border-color:var(--wrong);background:var(--wrong-bg);}
 
@@ -2741,13 +2738,8 @@ mark.gap-sentence-hl{
   margin-bottom:20px;transition:border-color .2s,background .2s;
   box-shadow:0 1px 3px rgba(0,0,0,.04);
 }
-/* Task-switch crossfade — v7: fade only */
-.lpr-card.slide-out-left{animation:cardFadeOut .18s ease forwards;}
-.lpr-card.slide-out-right{animation:cardFadeOut .18s ease forwards;}
-.lpr-card.slide-in-left{animation:cardFadeIn .18s ease forwards;}
-.lpr-card.slide-in-right{animation:cardFadeIn .18s ease forwards;}
-@keyframes cardFadeOut{to{opacity:0;}}
-@keyframes cardFadeIn{from{opacity:0;}to{opacity:1;}}
+/* v10.7 Rebuild #2: legacy task-switch crossfade removed — card shell stays
+   visible at all times; only #lprCardContent fades via v107Morph. */
 .lpr-card.correct{border-color:var(--correct);background:var(--correct-bg);}
 .lpr-card.wrong{border-color:var(--wrong);background:var(--wrong-bg);}
 
@@ -2843,12 +2835,14 @@ mark.gap-sentence-hl{
 .lpr-typein-submit:disabled{opacity:.4;cursor:default;}
 
 /* Feedback line */
+/* v10.8 Rebuild: NO CSS height/opacity/margin transition. All driven inline by JS
+   so v107Morph and _explSlide can pre-flush + measure without racing CSS. */
 .lpr-feedback{
   font-size:.83rem;font-weight:600;line-height:1.4;
-  overflow:hidden;height:0;opacity:0;margin-top:0;
-  transition:height .28s cubic-bezier(.22,.61,.36,1),opacity .22s ease,margin .28s ease;
+  overflow:hidden;height:0;opacity:0;
+  padding-top:10px;
 }
-.lpr-feedback.show{opacity:1;margin-top:10px;/* height set by JS */}
+.lpr-feedback.show{opacity:1;height:auto;}
 .lpr-feedback.ok{color:var(--correct);}
 .lpr-feedback.err{color:var(--wrong);}
 
@@ -2856,32 +2850,36 @@ mark.gap-sentence-hl{
 .lpr-expl-wrap{margin-top:10px;}
 .lpr-expl-compact{
   font-size:.82rem;color:var(--text-sub);line-height:1.5;
-  overflow:hidden;height:0;opacity:0;margin-top:0;
-  transition:height .28s cubic-bezier(.22,.61,.36,1),opacity .22s ease,margin .28s ease;
+  overflow:hidden;height:0;opacity:0;
+  /* v10.8 Rebuild: height + opacity driven inline by lprToggleExpl. No margins —
+     spacing comes from inner #lprExplCompactText padding-top so it is clipped
+     when height:0 (no instant margin pop on .show). */
 }
-.lpr-expl-compact.show{
-  opacity:1;margin-top:6px;
-  /* height set by JS */
-}
+.lpr-expl-compact.show{opacity:1;height:auto;}
+#lprExplCompactText{padding-top:6px;}
 .lpr-expl-full{
   font-size:.82rem;color:var(--text);line-height:1.6;
   background:var(--bg);border:1px solid transparent;
   border-radius:var(--radius-sm);
-  margin-top:0;word-break:break-word;
+  margin-top:8px;word-break:break-word;
   overflow:hidden;height:0;opacity:0;
-  transition:height .28s cubic-bezier(.22,.61,.36,1),opacity .22s ease,padding .28s ease,margin .28s ease,border-color .28s ease;
   padding:0 12px;
+  /* v10.8 polish: 8 px gap between "Show full explanation" button and the full card. Vertical padding still on inner children so height:0 collapses cleanly. */
 }
 .lpr-expl-full.show{
-  opacity:1;padding:10px 12px;margin-top:6px;
+  opacity:1;height:auto;
   border-color:var(--border);
-  /* height set by JS */
 }
+#lprExplFullText{display:block;padding-top:10px;}
 .lpr-expl-source{
   font-size:.72rem;color:var(--text-sub);margin-top:6px;
-  font-style:italic;
+  font-style:italic;padding-bottom:10px;
 }
-.lpr-expl-toggle-btn,.lpr-expl-full-btn{
+/* v10.8 Rebuild: "Show explanation" button is the only one with display toggle.
+   "Show full explanation" button now lives INSIDE .lpr-expl-compact, so its
+   visibility is naturally controlled by the compact body's height:0 / overflow:hidden
+   — no display:none switching, no separate .show class on it. */
+.lpr-expl-toggle-btn{
   margin-top:8px;padding:0;
   background:none;border:none;
   font-size:.78rem;color:var(--accent-dk);font-family:inherit;
@@ -2889,7 +2887,15 @@ mark.gap-sentence-hl{
   -webkit-tap-highlight-color:transparent;
   display:none;
 }
-.lpr-expl-toggle-btn.show,.lpr-expl-full-btn.show{display:inline-block;}
+.lpr-expl-toggle-btn.show{display:inline-block;}
+.lpr-expl-full-btn{
+  margin-top:8px;padding:0;
+  background:none;border:none;
+  font-size:.78rem;color:var(--accent-dk);font-family:inherit;
+  cursor:pointer;text-decoration:underline;
+  -webkit-tap-highlight-color:transparent;
+  display:block;
+}
 
 /* Navigation row (Prev / Next) */
 .lpr-nav-row{
@@ -3192,24 +3198,26 @@ mark.gap-sentence-hl{
   display:none;
 }
 .practice-expl-toggle-btn.show,.practice-expl-full-btn.show{display:inline-block;}
+/* v10.8 R2 (Change F): NO CSS transitions on these elements. v107Morph drives
+   the visible reveal via the parent card's height. Static padding + margin
+   bake into the base rule so the .show flip is visually inert (it happens
+   while the parent card is locked at fixed height with content invisible). */
 .practice-expl-compact{
   font-size:.82rem;color:var(--text-sub);line-height:1.5;
-  overflow:hidden;height:0;opacity:0;margin-top:0;
-  transition:height .28s cubic-bezier(.22,.61,.36,1),opacity .22s ease,margin .28s ease;
+  overflow:hidden;height:0;opacity:0;margin-top:6px;
+  transition:none;
 }
-.practice-expl-compact.show{opacity:1;margin-top:6px;/* height set by JS */}
+.practice-expl-compact.show{opacity:1;/* height set by JS */}
 .practice-expl-full{
   font-size:.82rem;color:var(--text);line-height:1.6;
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:var(--radius-sm);padding:0 12px;
-  margin-top:0;word-break:break-word;
+  background:var(--bg);border:1px solid transparent;
+  border-radius:var(--radius-sm);padding:10px 12px;
+  margin-top:6px;word-break:break-word;
   overflow:hidden;height:0;opacity:0;
-  transition:height .32s cubic-bezier(.22,.61,.36,1),opacity .22s ease,padding .3s ease,margin .3s ease,border-color .3s ease;
-  border-color:transparent;
+  transition:none;
 }
 .practice-expl-full.show{
-  opacity:1;padding:10px 12px;margin-top:6px;
-  border-color:var(--border);/* height set by JS */
+  opacity:1;border-color:var(--border);/* height set by JS */
 }
 .practice-expl-source{
   font-size:.72rem;color:var(--text-sub);margin-top:6px;
@@ -3608,14 +3616,11 @@ textarea:focus-visible,
   text-align:center;
 }
 
-/* Stable Next/Prev anchor: card never collapses below the typical task
-   height, and any height change eases instead of snapping. */
+/* v10.7 Rebuild #2: card shell stays calm — only border/bg transition.
+   Height is fully driven by v107Morph + the toggleExpl flows. No min-height
+   so the card hugs its content (mockup parity). */
 .lpr-card{
-  min-height:340px;
-  transition:border-color .2s, background .2s, min-height .28s var(--ease-spring);
-}
-@media (min-width: 720px){
-  .lpr-card{ min-height:400px; }
+  transition:border-color .2s, background .2s;
 }
 
 /* ═══════════════════ end v10.5 fixes (v10.6 trimmed) ═══════════════════ */
@@ -3784,7 +3789,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.7</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.8</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -4111,34 +4116,43 @@ textarea:focus-visible,
 
     <!-- Question card -->
     <div class="lpr-card" id="lprCard">
-      <div class="lpr-subtopic-label" id="lprSubtopicLabel"></div>
-      <div class="lpr-stem" id="lprStem"></div>
-      <div class="lpr-hint" id="lprHint" style="display:none"></div>
+      <!-- v10.7 card-morph inner wrapper — ONLY this fades on Next/Prev; shell (border/bg) stays calm. Mirrors mockup #pC wrapping #pStack. -->
+      <div class="v107-card-cont" id="lprCardContent">
+        <div class="lpr-subtopic-label" id="lprSubtopicLabel"></div>
+        <div class="lpr-stem" id="lprStem"></div>
+        <div class="lpr-hint" id="lprHint" style="display:none"></div>
 
-      <!-- MCQ options -->
-      <div class="lpr-mcq-chips" id="lprMcqChips" style="display:none"></div>
+        <!-- MCQ options -->
+        <div class="lpr-mcq-chips" id="lprMcqChips" style="display:none"></div>
 
-      <!-- Type-in input -->
-      <div class="lpr-typein-wrap" id="lprTypeinWrap" style="display:none">
-        <input type="text" class="lpr-typein-input" id="lprTypeinInput" placeholder="Type your answer&hellip;"
-               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-               onkeydown="if(event.key==='Enter')lprSubmitTypein()">
-        <button class="lpr-typein-submit" id="lprTypeinSubmit" onclick="lprSubmitTypein()">Check</button>
-      </div>
-
-      <!-- Feedback -->
-      <div class="lpr-feedback" id="lprFeedback"></div>
-
-      <!-- Explanation -->
-      <div class="lpr-expl-wrap">
-        <button class="lpr-expl-toggle-btn" id="lprExplToggleBtn" onclick="lprToggleExpl()">Show explanation</button>
-        <div class="lpr-expl-compact" id="lprExplCompact"></div>
-        <button class="lpr-expl-full-btn" id="lprExplFullBtn" onclick="lprToggleFullExpl()">Show full explanation</button>
-        <div class="lpr-expl-full" id="lprExplFull">
-          <span id="lprExplFullText"></span>
-          <div class="lpr-expl-source" id="lprExplSource"></div>
+        <!-- Type-in input -->
+        <div class="lpr-typein-wrap" id="lprTypeinWrap" style="display:none">
+          <input type="text" class="lpr-typein-input" id="lprTypeinInput" placeholder="Type your answer&hellip;"
+                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                 onkeydown="if(event.key==='Enter')lprSubmitTypein()">
+          <button class="lpr-typein-submit" id="lprTypeinSubmit" onclick="lprSubmitTypein()">Check</button>
         </div>
-      </div>
+
+        <!-- Feedback -->
+        <div class="lpr-feedback" id="lprFeedback"></div>
+
+        <!-- v10.8 Rebuild: Explanation section — flawless single-timeline motion.
+             Full-explanation button lives INSIDE #lprExplCompact so it rides
+             the compact height animation (no separate display:none/inline-block
+             toggle that would cause a layout shift). Text goes into an inner
+             wrapper so clearing it never nukes the button. -->
+        <div class="lpr-expl-wrap">
+          <button class="lpr-expl-toggle-btn" id="lprExplToggleBtn" onclick="lprToggleExpl()">Show explanation</button>
+          <div class="lpr-expl-compact" id="lprExplCompact">
+            <div id="lprExplCompactText"></div>
+            <button class="lpr-expl-full-btn" id="lprExplFullBtn" onclick="lprToggleFullExpl()">Show full explanation</button>
+          </div>
+          <div class="lpr-expl-full" id="lprExplFull">
+            <span id="lprExplFullText"></span>
+            <div class="lpr-expl-source" id="lprExplSource"></div>
+          </div>
+        </div>
+      </div><!-- /lprCardContent -->
     </div>
 
     <!-- Prev / Next navigation -->
@@ -4359,7 +4373,7 @@ try { migrateEntryUidsIfNeeded(); } catch(e) {}
  *
  * No user-visible behaviour changes in Phase 0.
  * ═══════════════════════════════════════════════════════════════════════ */
-var APP_VERSION = 'v10.7';
+var APP_VERSION = 'v10.8';
 
 /* ════════════════════════════════════════════════════════════════════════════════════
  * v10.7 — pre-measured smart card-morph engine
@@ -4376,6 +4390,21 @@ var APP_VERSION = 'v10.7';
  *
  * Guards against concurrent runs per-card via data-v107-busy.
  * ════════════════════════════════════════════════════════════════════════ */
+/* v10.8 Rebuild — flawless single-timeline morph.
+ *
+ * Discipline (the rebuild rules, applied here):
+ *  1. Lock card + sizer FIRST, before any class/display/margin changes inside mutate().
+ *  2. No CSS transitions on any animated element during the morph. All
+ *     transitions inline, set by JS, cleared on release.
+ *  3. Math.ceil all measurements to eliminate sub-pixel mismatch between
+ *     scrollHeight (integer) and getBoundingClientRect().height (float).
+ *  4. Pre-flush sibling transitions (e.g. .lpr-feedback) before measuring tgtH —
+ *     snap them to their final inline state with transition:none + reflow.
+ *  5. Release on transitionend of the LATER-finishing element + 500ms safety fallback.
+ *  6. No-snap unlock: pre-set style.height = tgtH + 'px' with transition:none,
+ *     flush, then style.height = '' so the natural height takes over with
+ *     zero visual jump.
+ */
 function v107Morph(opts){
   if (!opts || !opts.card || typeof opts.mutate !== 'function') return;
   var card  = opts.card;
@@ -4391,19 +4420,32 @@ function v107Morph(opts){
   // shell, so the border/background stays calm.
   var cont = opts.content || card;
 
-  // 1. Capture current heights
-  var curH = card.getBoundingClientRect().height;
+  // 1. Capture current heights — EXACT fractional BCR so the lock applies the
+  //    element's actual rendered height and causes zero visual movement.
+  //    Rounding up here would expand the element by up to 1 px at lock time
+  //    and snap back on release. Targets still use Math.ceil below.
+  //    Card and sizer must be measured independently because the sizer's
+  //    overflow:hidden contains the card's bottom margin.
+  var curHcard  = card.getBoundingClientRect().height;
+  var curHsizer = sizer ? sizer.getBoundingClientRect().height : curHcard;
 
-  // 2. Lock current heights so layout doesn't shift during mutation
-  card.style.height   = curH + 'px';
-  card.style.overflow = 'hidden';
+  // 2. Lock card + sizer FIRST, before any mutation. transition:none on both
+  //    so any CSS height transition that may have been left on the element is
+  //    neutralised for the duration of the morph.
+  //    v10.8 R2 (Change A): defer card.overflow='hidden' to *after* the fade-out
+  //    completes when fadeContent:true. Setting it here clips child box-shadows
+  //    (e.g. .q-card box-shadow) for the duration of the fade-out and reads as
+  //    "the rectangle's bottom edge cuts off" in navigateTopicVariant. When
+  //    !fadeContent, the body element itself is the clipping target so we keep
+  //    the immediate behaviour.
+  card.style.transition = 'none';
+  card.style.height     = curHcard + 'px';
+  if (!fadeContent) card.style.overflow = 'hidden';
   if (sizer){
-    sizer.style.height = curH + 'px';
-    // Ensure no transition leaks from a previous run
     sizer.style.transition = 'none';
-    // force style flush
-    void sizer.offsetHeight;
+    sizer.style.height     = curHsizer + 'px';
   }
+  void card.offsetHeight;   // single style flush for both
 
   // 3. Fade content out
   if (fadeContent){
@@ -4414,22 +4456,84 @@ function v107Morph(opts){
   var FADE_OUT_MS = fadeContent ? 160 : 0;
 
   setTimeout(function(){
-    // 4. Perform the DOM mutation while content is invisible
+    // 4. Perform the DOM mutation while content is invisible.
     try { opts.mutate(); } catch(e){ console.warn('[v107Morph] mutate threw', e); }
 
-    // 5. Measure target height (content is invisible so user sees nothing)
+    // 5. Pre-flush any sibling element that might still be mid-transition
+    //    (most importantly #lprFeedback, which mutate() may have just shown
+    //    via _lShowFeedback). v10.8 R2 hardening: if fb is .show, we MUST
+    //    pin to its NATURAL height (measured with height:'auto') — not its
+    //    current BCR — because _explSlide's 280 ms height animation may
+    //    still be in flight, in which case the current BCR is a mid-
+    //    animation value. Pinning at that mid-value causes the upcoming
+    //    tgtHcard measurement to underestimate, producing a release snap
+    //    as fb settles to its natural height after unlock.
+    var fb = card.querySelector ? card.querySelector('#lprFeedback') : null;
+    if (fb){
+      fb.style.transition = 'none';
+      var fbH;
+      if (fb.classList.contains('show')){
+        // Cancel any in-flight slide animation by reading the settled height.
+        var fbPrevInlineH = fb.style.height;
+        fb.style.height = 'auto';
+        fbH = fb.getBoundingClientRect().height + 'px';
+      } else {
+        fbH = '0px';
+      }
+      fb.style.height = fbH;
+      void fb.offsetHeight;
+    }
+
+    // 6. Measure target heights using EXACT fractional BCR (not scrollHeight).
+    //    scrollHeight is an integer truncation of the real layout height, so
+    //    Math.ceil(scrollHeight) can land 0-1 px above the element's actual
+    //    natural resting height. The animation would then end at e.g. 348 px
+    //    while the unlocked element settles at 347.75 — a visible release-snap.
+    //    BCR after height:'auto' gives the exact natural height the element
+    //    will rest at when we clear the inline height, so the no-snap unlock
+    //    is mathematically a no-op.
+    //    NOTE: must clear locked height to 'auto' before measuring (the lock
+    //    would otherwise be returned back).
+    //    v10.8 R2 (Change A hardening): measurement MUST happen before we set
+    //    card.overflow:'hidden'. Applying overflow:hidden to the card disables
+    //    child margin-collapse (the last .q-card's 24 px margin-bottom), which
+    //    inflates the measured natural height of the card by 24 px and produces
+    //    a visible release-snap. Measure first, then clip.
     card.style.height = 'auto';
-    var tgtH = card.scrollHeight;
-    card.style.height = curH + 'px';      // re-lock
+    if (sizer) sizer.style.height = 'auto';
+    var tgtHcard  = card.getBoundingClientRect().height;
+    var tgtHsizer = sizer ? sizer.getBoundingClientRect().height : tgtHcard;
+    card.style.height = curHcard + 'px';
+    if (sizer) sizer.style.height = curHsizer + 'px';
+    // Now that the target heights are recorded, engage clipping for the
+    // animation phase. Content is already invisible (fade-out completed) so
+    // the child-shadow clipping that Bug 1 was about is imperceptible.
+    if (fadeContent) card.style.overflow = 'hidden';
+    void card.offsetHeight;
 
-    var expanding = tgtH > curH + 0.5;
-    var shrinking = tgtH < curH - 0.5;
+    // Treat sub-pixel diffs as no-change. Both curH and tgtH are now exact
+    // fractional values, so a 0.5 px tolerance is safely conservative.
+    var expanding = (tgtHcard - curHcard) > 0.5;
+    var shrinking = (curHcard - tgtHcard) > 0.5;
 
-    // If no size change, just swap content immediately
+    // If no size change, release with the no-snap pattern: write target, flush,
+    // clear. This matches the expanding/shrinking release so the element's
+    // inline height lands exactly on its natural height with zero visible snap.
     if (!expanding && !shrinking){
-      if (sizer){ sizer.style.transition = ''; sizer.style.height = ''; }
-      card.style.height = '';
-      card.style.overflow = '';
+      card.style.transition = 'none';
+      card.style.height     = tgtHcard + 'px';
+      void card.offsetHeight;
+      card.style.transition = '';
+      card.style.height     = '';
+      card.style.overflow   = '';
+      if (sizer){
+        sizer.style.transition = 'none';
+        sizer.style.height     = tgtHsizer + 'px';
+        void sizer.offsetHeight;
+        sizer.style.transition = '';
+        sizer.style.height     = '';
+      }
+      if (fb){ fb.style.transition = ''; if (fb.classList.contains('show')) fb.style.height = ''; }
       if (fadeContent){
         cont.classList.remove('v107-fade-out');
         cont.classList.add('v107-fade-in');
@@ -4440,71 +4544,97 @@ function v107Morph(opts){
       return;
     }
 
-    if (expanding){
-      // EXPAND — nav leads. If sizer exists, animate it first; card starts 80 ms later.
+    var released = false;
+    var safetyTimer = null;
+    var releaseEl = null;   // the LATER-finishing element we listen on
+
+    function release(){
+      if (released) return;
+      released = true;
+      if (safetyTimer){ clearTimeout(safetyTimer); safetyTimer = null; }
+      if (releaseEl){ releaseEl.removeEventListener('transitionend', onEnd); }
+
+      // No-snap unlock: pre-set each element's own natural target as inline
+      // height with transition:none, flush, then clear so it settles on its
+      // intrinsic content height with zero visual jump.
+      card.style.transition = 'none';
+      card.style.height     = tgtHcard + 'px';
+      void card.offsetHeight;
+      card.style.transition = '';
+      card.style.height     = '';
+      card.style.overflow   = '';
+
       if (sizer){
-        requestAnimationFrame(function(){
-          sizer.style.transition = 'height 260ms cubic-bezier(.32,.72,0,1)';
-          sizer.style.height = tgtH + 'px';
-        });
-        setTimeout(function(){
-          card.style.transition = 'height 220ms cubic-bezier(.32,.72,0,1)';
-          card.style.height = tgtH + 'px';
-        }, 80);
-        if (fadeContent){
-          setTimeout(function(){
-            cont.classList.remove('v107-fade-out');
-            cont.classList.add('v107-fade-in');
-          }, 120);
-        }
-      } else {
-        // No sizer — just grow the card.
-        requestAnimationFrame(function(){
-          card.style.transition = 'height 260ms cubic-bezier(.32,.72,0,1)';
-          card.style.height = tgtH + 'px';
-        });
-        if (fadeContent){
-          setTimeout(function(){
-            cont.classList.remove('v107-fade-out');
-            cont.classList.add('v107-fade-in');
-          }, 80);
-        }
+        sizer.style.transition = 'none';
+        sizer.style.height     = tgtHsizer + 'px';
+        void sizer.offsetHeight;
+        sizer.style.transition = '';
+        sizer.style.height     = '';
       }
+
+      if (fb){
+        fb.style.transition = '';
+        if (fb.classList.contains('show')) fb.style.height = '';
+      }
+
+      if (fadeContent){
+        cont.classList.remove('v107-fade-in');
+      }
+      delete card.dataset.v107Busy;
+      if (onDone) try { onDone(); } catch(e){}
+    }
+
+    function onEnd(e){
+      if (e.target !== releaseEl) return;
+      if (e.propertyName !== 'height') return;
+      release();
+    }
+
+    if (expanding){
+      // v10.8 R2 (Change B): EXPAND — sizer + card animate SIMULTANEOUSLY
+      // at 260ms in a single RAF. Eliminates the 80ms stagger that produced
+      // the "2-step open" feel and the slow nav-row settle on Practice-by-
+      // Topic Next/Prev.
+      requestAnimationFrame(function(){
+        if (sizer){
+          sizer.style.transition = 'height 260ms cubic-bezier(.32,.72,0,1)';
+          sizer.style.height     = tgtHsizer + 'px';
+        }
+        card.style.transition = 'height 260ms cubic-bezier(.32,.72,0,1)';
+        card.style.height     = tgtHcard + 'px';
+      });
+      if (fadeContent){
+        setTimeout(function(){
+          cont.classList.remove('v107-fade-out');
+          cont.classList.add('v107-fade-in');
+        }, 120);
+      }
+      releaseEl = sizer || card;
     } else {
-      // SHRINK — card first, sizer follows 90 ms later.
+      // v10.8 R2 (Change C): SHRINK — card + sizer animate SIMULTANEOUSLY
+      // at 240ms in a single RAF. Eliminates the 90ms lag that left the
+      // nav row hanging in its old position after the card had collapsed.
       requestAnimationFrame(function(){
         card.style.transition = 'height 240ms cubic-bezier(.32,.72,0,1)';
-        card.style.height = tgtH + 'px';
+        card.style.height     = tgtHcard + 'px';
+        if (sizer){
+          sizer.style.transition = 'height 240ms cubic-bezier(.32,.72,0,1)';
+          sizer.style.height     = tgtHsizer + 'px';
+        }
       });
-      if (sizer){
-        setTimeout(function(){
-          sizer.style.transition = 'height 200ms cubic-bezier(.32,.72,0,1)';
-          sizer.style.height = tgtH + 'px';
-        }, 90);
-      }
       if (fadeContent){
         setTimeout(function(){
           cont.classList.remove('v107-fade-out');
           cont.classList.add('v107-fade-in');
         }, 190);
       }
+      releaseEl = sizer || card;
     }
 
-    // 6. Release all locks after the full sequence
-    setTimeout(function(){
-      card.style.height = '';
-      card.style.transition = '';
-      card.style.overflow = '';
-      if (sizer){
-        sizer.style.height = '';
-        sizer.style.transition = '';
-      }
-      if (fadeContent){
-        cont.classList.remove('v107-fade-in');
-      }
-      delete card.dataset.v107Busy;
-      if (onDone) try { onDone(); } catch(e){}
-    }, 420);
+    // Listen on the later-finishing element + 500ms safety fallback in case
+    // the browser swallows the transitionend event (rare but possible).
+    releaseEl.addEventListener('transitionend', onEnd);
+    safetyTimer = setTimeout(release, 500);
   }, FADE_OUT_MS);
 }
 window.v107Morph = v107Morph;
@@ -6090,6 +6220,10 @@ let topicTotalAnswered = 0;
 let _rndItems = [];
 let _rndIndex = 0;
 let _rndAnswered = {};
+/* v10.7 fix: keep a reference to the persistent random .q-card shell so the
+   card's border/background does NOT get destroyed on Next/Prev. Only the
+   inner .v107-card-cont wrapper is rewritten. Mirrors mockup #pCard + #pC. */
+let _rndCardEl = null;
 
 /* Step 1 → 2: topic card clicked — show variant picker */
 function openTopic(blockKey) {
@@ -6196,7 +6330,57 @@ function navigateTopicVariant(direction) {
   const newIndex = currentTopicVariantIndex + direction;
   if (newIndex < 0 || newIndex >= currentTopicVariantIds.length) return;
   const newId = currentTopicVariantIds[newIndex];
-  startTopicVariant(currentTopic, newId);
+
+  /* v10.7 rebuild: run the morph engine on #topicQuestionContainer so the
+     variant-to-variant swap feels identical to the approved mockup.
+     - card / sizer target = the container (so #varNavRow below tracks its bottom)
+     - content = #varCardContent (the inner wrapper renderTopicQuestions mounts)
+     - mutate() does the minimum: reset per-variant state, re-render questions,
+       refresh stats + nav buttons. No _viewFade (we're already on practice view).*/
+  const container = document.getElementById('topicQuestionContainer');
+  if (!container || typeof window.v107Morph !== 'function') {
+    startTopicVariant(currentTopic, newId);
+    return;
+  }
+
+  /* Premium check: if locked, bounce to purchase modal (matches startTopicVariant). */
+  if (newId && !_isVariantUnlockedForUser(newId)) {
+    showVariantPurchaseModal(newId);
+    return;
+  }
+
+  const sizer = window.v107EnsureSizer(container);
+  const inner = document.getElementById('varCardContent') || container;
+
+  window.v107Morph({
+    card: container,
+    sizer: sizer,
+    content: inner,
+    fadeContent: true,
+    mutate: function() {
+      /* Sync state that startTopicVariant resets on variant change. */
+      setAnalogueSessionLock(true);
+      topicAnswered = {};
+      topicCorrectCount = 0;
+      topicTotalAnswered = 0;
+      updateTopicStats._mistakeMode = false;
+      currentTopicVariantIds = getVariantIds(currentTopic);
+      currentTopicVariantIndex = currentTopicVariantIds.indexOf(newId);
+
+      const info = topicIndex[currentTopic];
+      const v = getActiveVariants().find(x => x.id === newId);
+      const _dispVId = isAnalogueMode ? newId + '.1' : newId;
+      const titleEl = document.getElementById('topicPracticeTitle');
+      if (titleEl) {
+        titleEl.textContent = `${info.label} \u2014 Variant ${_dispVId} (${v.year})`;
+        _updateAnalogueBadge(titleEl.parentElement);
+      }
+
+      renderTopicQuestions(currentTopic, newId);
+      updateTopicStats(newId);
+      updateVarNavButtons();
+    }
+  });
 }
 
 function updateVarNavButtons() {
@@ -6234,6 +6418,17 @@ function backToVariantPicker() {
 function renderTopicQuestions(blockKey, filterVariantId) {
   const container = document.getElementById('topicQuestionContainer');
   container.innerHTML = '';
+  /* v10.7: leaving random mode wipes the persistent random shell — invalidate
+     the reference so the next random session rebuilds it cleanly. */
+  _rndCardEl = null;
+  /* v10.7: mount everything inside a .v107-card-cont wrapper so navigateTopic-
+     Variant() can fade ONLY this block via the morph engine — the container
+     itself stays mounted (its height is what the engine animates).
+     #varCardContent is recreated on every render. */
+  const mount = document.createElement('div');
+  mount.id = 'varCardContent';
+  mount.className = 'v107-card-cont';
+  container.appendChild(mount);
   const info = topicIndex[blockKey];
   const hasOptions = info.part === 'A';
 
@@ -6276,7 +6471,7 @@ function renderTopicQuestions(blockKey, filterVariantId) {
       vHeader.className = 'variant-header';
       const _vhDispId = isAnalogueMode ? v.id + '.1' : v.id;
       vHeader.textContent = `Variant ${_vhDispId} (${v.year})`;
-      container.appendChild(vHeader);
+      mount.appendChild(vHeader);
     }
 
     // ── Render text according to rule ──────────────────────────────────────
@@ -6295,7 +6490,7 @@ function renderTopicQuestions(blockKey, filterVariantId) {
           _explSlide(el, !isOpen, 'open');
           this.textContent = !isOpen ? 'Hide full text ▾' : 'Show full text ▸';
         };
-        container.appendChild(toggle);
+        mount.appendChild(toggle);
       }
 
       const textBlock = document.createElement('div');
@@ -6314,7 +6509,7 @@ function renderTopicQuestions(blockKey, filterVariantId) {
         textBlock.style.height = 'auto';
         textBlock.innerHTML = _tShowLink ? highlightTextLinked(block.text, _tGapPfx, _tCardPfx) : highlightText(block.text);
       }
-      container.appendChild(textBlock);
+      mount.appendChild(textBlock);
     }
 
     // ── Questions ─────────────────────────────────────────────────────────
@@ -6449,7 +6644,7 @@ function renderTopicQuestions(blockKey, filterVariantId) {
         ${inputHtml}
         <div class="feedback" id="fb-${uid}"></div>
       `;
-      container.appendChild(card);
+      mount.appendChild(card);
     });
   });
 }
@@ -6749,8 +6944,16 @@ function showPracticeExplanation(uid, variantId, questionId, cardPrefix) {
   const card = document.getElementById(prefix + uid);
   if (!card) return;
 
+  /* v10.7 fix: in Random mode, the card has a persistent inner .v107-card-cont
+     wrapper that fades on Next/Prev. Append the explanation INSIDE that wrapper
+     so it fades together with the rest of the content (mirrors mockup explSec
+     being a sibling of pStack inside pC). In Variant mode the card contains its
+     children directly (no inner wrapper) so we fall back to appending on the
+     card as before. */
+  const target = card.querySelector(':scope > .v107-card-cont') || card;
+
   // Don't add twice
-  if (card.querySelector('.practice-expl-wrap')) return;
+  if (target.querySelector(':scope > .practice-expl-wrap')) return;
 
   const wrap = document.createElement('div');
   wrap.className = 'practice-expl-wrap';
@@ -6769,7 +6972,7 @@ function showPracticeExplanation(uid, variantId, questionId, cardPrefix) {
     html += '</div>';
   }
   wrap.innerHTML = html;
-  card.appendChild(wrap);
+  target.appendChild(wrap);
 }
 
 function topicChipClick(chipEl, uid, idx) {
@@ -8850,15 +9053,14 @@ function startMistakePractice(opts) {
 }
 
 /* ─── RANDOM TOPIC ──────────────────────────────────────────────────── */
-/* v10.7: Use the smart-morph engine on the container itself.
-   showRandomCard() rewrites container.innerHTML, so we cannot pass a card
-   reference (it gets destroyed mid-flight). Instead we treat
-   #topicQuestionContainer as the card: it is the element whose height we
-   animate, AND its child contents fade out / in around the swap. #rndNavRow
-   is a sibling below the container, so it physically follows the container's
-   bottom edge during the height animation — giving the same "nav leads on
-   expand" feel as the Learn page (where the nav row tracks the sizer's
-   bottom). No sizer wrap needed. */
+/* v10.7 (rebuilt): use the smart-morph engine the same way the mockup does.
+   - The persistent .q-card shell (kept across Next/Prev as #_rndCardEl) is the
+     element whose border/padding/background must STAY mounted.
+   - Only its inner .v107-card-cont child has its innerHTML rewritten, so only
+     that inner wrapper fades opacity + translateY — matching mockup #pC.
+   - The sizer wraps #topicQuestionContainer; #rndNavRow is a sibling of the
+     sizer, so the nav row physically tracks the sizer's bottom ("nav leads
+     on expand, follows on shrink"). */
 function navigateRandom(dir) {
   const nextIdx = _rndIndex + dir;
   if (nextIdx < 0 || nextIdx >= _rndItems.length) return;
@@ -8866,20 +9068,16 @@ function navigateRandom(dir) {
   const container = document.getElementById('topicQuestionContainer');
   if (!container) { showRandomCard(nextIdx); return; }
 
-  /* showRandomCard() rewrites container.innerHTML, so the .q-card is
-     destroyed mid-flight — we cannot use the card as the morph target.
-     Instead we treat #topicQuestionContainer as the "card" (height target +
-     fade target) and add an outer .v107-sizer wrap around it so the morph
-     engine can run its asymmetric expand/shrink (sizer leads on expand,
-     follows on shrink). #rndNavRow is a sibling of the container's parent
-     wrap, so the nav-row physically tracks the sizer bottom — mirroring the
-     Learn page feel. */
   const sizer = window.v107EnsureSizer(container);
+  /* Resolve the inner content wrapper. It exists because showRandomCard
+     created it on the initial render. If for any reason it's missing, fall
+     back to fading the container so the engine still runs. */
+  const inner = (_rndCardEl && _rndCardEl.querySelector('.v107-card-cont')) || container;
 
   window.v107Morph({
     card: container,
     sizer: sizer,
-    content: container,
+    content: inner,
     fadeContent: true,
     mutate: function(){
       showRandomCard(nextIdx);
@@ -9023,19 +9221,32 @@ function showRandomCard(idx) {
   if (answered) cardCls += answered.isCorrect ? ' correct' : ' wrong';
 
   const container = document.getElementById('topicQuestionContainer');
-  container.innerHTML = '';
-  const card = document.createElement('div');
-  card.className = cardCls;
-  card.id = `tq-${uid}`;
+  /* v10.7 fix: maintain a PERSISTENT .q-card shell + .v107-card-cont inner
+     wrapper across Next/Prev. Only the inner wrapper's innerHTML is rewritten,
+     so the card's border/background never blinks during morph. The card's id
+     is updated to `tq-${uid}` each call so showPracticeExplanation /
+     scrollToTarget DOM lookups still resolve. Mirrors mockup #pCard + #pC. */
+  let card = (_rndCardEl && _rndCardEl.parentNode === container) ? _rndCardEl : null;
+  let inner = card ? card.querySelector('.v107-card-cont') : null;
+  if (!card || !inner) {
+    container.innerHTML = '';
+    card = document.createElement('div');
+    inner = document.createElement('div');
+    inner.className = 'v107-card-cont';
+    card.appendChild(inner);
+    container.appendChild(card);
+    _rndCardEl = card;
+  }
+  card.className = cardCls;        // refresh correct/wrong state class
+  card.id = `tq-${uid}`;            // refresh id for explanation/scroll lookups
   const _rHasText = item.blockText && item.blockKey !== 'reading';
   const _rqCls = _rHasText ? 'q-code q-code-link' : 'q-code';
   const _rqAttr = _rHasText ? ` onclick="scrollToTarget('gap-rnd-${item.variantId}-${item.qId}','gap-flash')"` : '';
-  card.innerHTML =
+  inner.innerHTML =
     `<div class="q-header">` +
     `<span class="${_rqCls}"${_rqAttr}>${escHtml(item.displayId)}</span>` +
     `<span class="q-type">${escHtml(item.blockLabel)}</span></div>` +
     contextHtml + toggleHtml + stemHtml + inputHtml + fbHtml;
-  container.appendChild(card);
 
   // Show explanation if already answered (v6)
   if (answered) {
@@ -11150,10 +11361,17 @@ function lprRenderTask(index) {
 
   // Hide feedback & explanation
   const feedback = document.getElementById('lprFeedback');
-  if (feedback) { feedback.className = 'lpr-feedback'; feedback.textContent = ''; feedback.style.height = '0'; }
+  if (feedback) {
+    feedback.className = 'lpr-feedback';
+    feedback.textContent = '';
+    feedback.style.transition = 'none';
+    feedback.style.height = '0px';
+    feedback.style.opacity = '';
+  }
 
   const explToggle = document.getElementById('lprExplToggleBtn');
   const explCompact = document.getElementById('lprExplCompact');
+  const explCompactText = document.getElementById('lprExplCompactText');
   const explFullBtn = document.getElementById('lprExplFullBtn');
   const explFull = document.getElementById('lprExplFull');
   if (explToggle) {
@@ -11165,9 +11383,23 @@ function lprRenderTask(index) {
        _lShowExplanationToggle). */
     if (!_lstore('challengeMode', true)) explToggle.classList.add('show');
   }
-  if (explCompact) { explCompact.className = 'lpr-expl-compact'; explCompact.textContent = ''; explCompact.style.height = '0'; }
-  if (explFullBtn) { explFullBtn.className = 'lpr-expl-full-btn'; }
-  if (explFull) { explFull.className = 'lpr-expl-full'; explFull.style.height = '0'; }
+  /* v10.8 Rebuild: clear inner text only (preserves #lprExplFullBtn child).
+     Reset compact + full to fully-collapsed state with NO inline transition
+     so v107Morph can pre-measure cleanly. */
+  if (explCompactText) explCompactText.textContent = '';
+  if (explCompact) {
+    explCompact.className = 'lpr-expl-compact';
+    explCompact.style.transition = 'none';
+    explCompact.style.height = '0px';
+    explCompact.style.opacity = '';
+  }
+  if (explFullBtn) explFullBtn.textContent = 'Show full explanation';
+  if (explFull) {
+    explFull.className = 'lpr-expl-full';
+    explFull.style.transition = 'none';
+    explFull.style.height = '0px';
+    explFull.style.opacity = '';
+  }
 
   // Prev button: disabled on first task
   const prevBtn = document.getElementById('lprPrevBtn');
@@ -11655,67 +11887,109 @@ function _lShowExplanationToggle() {
 }
 
 function _lPopulateExplanation(task) {
-  const compact = document.getElementById('lprExplCompact');
+  /* v10.8 Rebuild: write into the inner #lprExplCompactText so we never wipe
+     the #lprExplFullBtn that now lives inside #lprExplCompact. */
+  const compactText = document.getElementById('lprExplCompactText');
   const fullText = document.getElementById('lprExplFullText');
   const source = document.getElementById('lprExplSource');
-  if (compact) compact.textContent = task.explanation || '';
+  if (compactText) compactText.textContent = task.explanation || '';
   if (fullText) fullText.textContent = task.fullExplanation || '';
   if (source) source.textContent = task.source ? 'Source: ' + task.source : '';
 }
 
-/* Smoothly animate an element open or closed by measuring scrollHeight.
-   cls defaults to 'show'; pass 'open' for .full-text-block elements. */
+/* v10.8 Rebuild: drive height + opacity transitions inline, never via CSS.
+   This is critical for #lprFeedback — v107Morph pre-flushes feedback before
+   measuring tgtH, and a CSS transition would race that flush. */
 function _explSlide(el, open, cls) {
   if (!el) return;
   const c = cls || 'show';
+  const TRANS = 'height .28s cubic-bezier(.22,.61,.36,1), opacity .22s ease';
   if (open) {
     /* Disable transition, apply final state, measure true height */
     el.style.transition = 'none';
     el.classList.add(c);
     el.style.height = 'auto';
-    const h = el.scrollHeight;
+    const h = Math.ceil(el.scrollHeight);
     /* Reset to closed state */
     el.classList.remove(c);
-    el.style.height = '0';
+    el.style.height = '0px';
     void el.offsetHeight; /* force reflow so browser registers closed state */
-    el.style.transition = '';
-    /* Animate open: class + height transition fire together */
+    /* Apply explicit inline transition and animate open under one timeline */
+    el.style.transition = TRANS;
     el.classList.add(c);
     el.style.height = h + 'px';
-    const onEnd = (e) => { if (e.propertyName !== 'height') return; if (el.classList.contains(c)) el.style.height = 'auto'; el.removeEventListener('transitionend', onEnd); };
+    const onEnd = (e) => {
+      if (e.target !== el) return;
+      if (e.propertyName !== 'height') return;
+      el.removeEventListener('transitionend', onEnd);
+      if (el.classList.contains(c)) {
+        /* No-snap settle: keep the integer pixel height we animated to. */
+        el.style.transition = '';
+      }
+    };
     el.addEventListener('transitionend', onEnd);
   } else {
-    /* Fix height to current value, then next frame collapse to 0 */
-    el.style.height = el.scrollHeight + 'px';
+    /* Lock to current height, then collapse to 0 under explicit inline transition. */
+    const curH = Math.ceil(el.getBoundingClientRect().height);
+    el.style.transition = 'none';
+    el.style.height = curH + 'px';
+    void el.offsetHeight;
+    el.style.transition = TRANS;
     requestAnimationFrame(() => {
-      el.style.height = '0';
+      el.style.height = '0px';
       el.classList.remove(c);
     });
+    const onEnd2 = (e) => {
+      if (e.target !== el) return;
+      if (e.propertyName !== 'height') return;
+      el.removeEventListener('transitionend', onEnd2);
+      el.style.transition = '';
+    };
+    el.addEventListener('transitionend', onEnd2);
   }
 }
 
+/* v10.8 Rebuild — flawless single-timeline Show/Hide explanation.
+ *
+ * Discipline:
+ *   1. LOCK card + sizer FIRST, BEFORE any class / display / margin change.
+ *   2. The "Show full explanation" button now lives INSIDE #lprExplCompact,
+ *      so it rides the compact height animation with no separate display:none
+ *      toggle — that single change kills the layout shift that used to cause
+ *      the 2-step feel on open.
+ *   3. Math.ceil curH, tgtH, bodyTarget so sub-pixel mismatch can't snap.
+ *   4. Pre-flush #lprFeedback to its inline height before measuring tgtH.
+ *   5. Composite close: when full is also open, ALL FOUR (compact, full, card,
+ *      sizer) animate together to closed in ONE timeline — no instant snap of
+ *      full to height:0 before the rest catch up.
+ *   6. Release on transitionend of the LATER-finishing element + 500ms safety.
+ *   7. No-snap unlock: re-pin tgtH inline with transition:none, flush, clear.
+ */
 function lprToggleExpl() {
-  const queue = _lstore('queue', []);
-  const cursor = _lstore('cursor', 0);
-  const task = queue[cursor];
+  const queue   = _lstore('queue', []);
+  const cursor  = _lstore('cursor', 0);
+  const task    = queue[cursor];
 
-  const compact = document.getElementById('lprExplCompact');
+  const compact   = document.getElementById('lprExplCompact');
   const toggleBtn = document.getElementById('lprExplToggleBtn');
-  const fullBtn = document.getElementById('lprExplFullBtn');
-  const fullEl = document.getElementById('lprExplFull');
-  const card = document.getElementById('lprCard');
-  const isOpen = compact && compact.classList.contains('show');
+  const fullBtn   = document.getElementById('lprExplFullBtn');
+  const fullEl    = document.getElementById('lprExplFull');
+  const card      = document.getElementById('lprCard');
+  if (!card || !compact) return;
+
+  /* Concurrent guard — same key as v107Morph so toggle and Next/Prev are mutex. */
+  if (card.dataset.v107Busy === '1') return;
+
+  const isOpen = compact.classList.contains('show');
 
   /* v10 Phase 4 (Challenge OFF "give up" path): if the user opens the
      explanation while the current task has not been recorded, lock the
-     question and count it as wrong. The recorded chosen value is the latest
-     wrong attempt (if any), otherwise an empty string. */
+     question and count it as wrong. */
   if (!isOpen && task) {
     const answered = _lstore('answeredSet', new Set());
     if (!answered.has(task.id)) {
       const chosen = task._lastAttempt || '';
       _lRecordAnswer(task.id, false, chosen);
-      /* Lock the input surface to match the answered state. */
       const mcqContainer = document.getElementById('lprMcqChips');
       if (mcqContainer) {
         mcqContainer.querySelectorAll('.lpr-mcq-chip').forEach(btn => {
@@ -11727,7 +12001,7 @@ function lprToggleExpl() {
           }
         });
       }
-      const tInput = document.getElementById('lprTypeinInput');
+      const tInput  = document.getElementById('lprTypeinInput');
       const tSubmit = document.getElementById('lprTypeinSubmit');
       if (tInput && tInput.style.display !== 'none' && !tInput.disabled) {
         tInput.disabled = true;
@@ -11739,56 +12013,433 @@ function lprToggleExpl() {
     }
   }
 
-  /* v10.7: use the smart-morph engine. Pre-measure target height with the
-     explanation visible/hidden, then animate card + sizer with the asymmetric
-     delays so Prev/Next leads on expand and follows on shrink. */
-  const sizer = card ? window.v107EnsureSizer(card) : null;
+  card.dataset.v107Busy = '1';
+  const sizer = window.v107EnsureSizer(card);
 
-  window.v107Morph({
-    card: card,
-    sizer: sizer,
-    fadeContent: false,   // explanation toggle: don't fade the whole card
-    mutate: function(){
-      if (!isOpen) {
-        if (task) _lPopulateExplanation(task);
-        if (compact){ compact.classList.add('show'); compact.style.height = 'auto'; }
-        if (fullBtn) fullBtn.classList.add('show');
-        if (toggleBtn) toggleBtn.textContent = 'Close explanation';
-      } else {
-        if (compact){ compact.classList.remove('show'); compact.style.height = ''; }
-        if (fullBtn) { fullBtn.classList.remove('show'); fullBtn.textContent = 'Show full explanation'; }
-        if (fullEl){ fullEl.classList.remove('show'); fullEl.style.height = ''; }
-        if (toggleBtn) toggleBtn.textContent = 'Show explanation';
-      }
+  /* === LOCK FIRST: pin card + sizer with transition:none BEFORE any
+         class change. EXACT fractional BCR — NEVER round here, otherwise the
+         lock itself expands the element by up to 1 px and the bottom of the
+         card visibly jumps before the animation begins. Targets below ALSO
+         use exact BCR (not Math.ceil(scrollHeight)) so the animation lands
+         exactly on the element's natural resting height with zero release-snap.
+         Card and sizer are measured independently because the sizer's
+         overflow:hidden contains the card's bottom margin.
+         v10.8 R2 hardening (discipline rule #9): card.style.overflow='hidden'
+         is DEFERRED until AFTER the natural target height has been measured.
+         Setting overflow:hidden on the card disables internal margin-collapse
+         (the last child's margin-bottom no longer collapses out of the card),
+         which would inflate tgtHcard by ~24 px and produce a visible release
+         snap. Order: lock height → measure → clip. === */
+  const curHcard  = card.getBoundingClientRect().height;
+  const curHsizer = sizer.getBoundingClientRect().height;
+  card.style.transition  = 'none';
+  card.style.height      = curHcard + 'px';
+  sizer.style.transition = 'none';
+  sizer.style.height     = curHsizer + 'px';
+
+  /* Pre-flush feedback so its inline height is settled before we measure.
+     v10.8 R2 hardening: if fb is .show and _explSlide's 280 ms slide is
+     still in flight, the current BCR is a mid-animation value. Pin to
+     the NATURAL height (measured with height:'auto') so the upcoming
+     tgtHcard measurement doesn't underestimate, which would otherwise
+     cause a release snap as fb settles after unlock. */
+  const fb = document.getElementById('lprFeedback');
+  if (fb) {
+    fb.style.transition = 'none';
+    if (fb.classList.contains('show')) {
+      fb.style.height = 'auto';
+      fb.style.height = fb.getBoundingClientRect().height + 'px';
+    } else {
+      fb.style.height = '0px';
     }
-  });
+  }
+  void card.offsetHeight;
+
+  if (isOpen) {
+    /* ─── CLOSE explanation (composite when full is also open) ─── */
+    const fullIsOpen = !!(fullEl && fullEl.classList.contains('show'));
+    /* Exact BCR for the FROM-state pin so we don't expand the element by
+       up to 1 px before the close animation starts (which would visibly
+       push the card down on click). */
+    const compactNaturalH = compact.getBoundingClientRect().height;
+    const fullNaturalH    = fullIsOpen ? fullEl.getBoundingClientRect().height : 0;
+
+    /* Pin compact + (optionally) full at their natural rendered heights. */
+    compact.style.transition = 'none';
+    compact.style.height     = compactNaturalH + 'px';
+    compact.style.opacity    = '1';
+    if (fullIsOpen) {
+      fullEl.style.transition = 'none';
+      fullEl.style.height     = fullNaturalH + 'px';
+      fullEl.style.opacity    = '1';
+    }
+    void compact.offsetHeight;
+
+    /* Measure card target with everything collapsed (still transition:none).
+       Use exact BCR so target = natural resting height (no release-snap). */
+    compact.classList.remove('show');
+    compact.style.height = '0px';
+    if (fullIsOpen) {
+      fullEl.classList.remove('show');
+      fullEl.style.height = '0px';
+    }
+    card.style.height = 'auto';
+    sizer.style.height = 'auto';
+    const tgtHcard  = card.getBoundingClientRect().height;
+    const tgtHsizer = sizer.getBoundingClientRect().height;
+    card.style.height  = curHcard + 'px';
+    sizer.style.height = curHsizer + 'px';
+
+    /* Restore animation FROM-state. */
+    compact.classList.add('show');
+    compact.style.height = compactNaturalH + 'px';
+    if (fullIsOpen) {
+      fullEl.classList.add('show');
+      fullEl.style.height = fullNaturalH + 'px';
+    }
+    /* Engage clipping AFTER all measurements are done (discipline rule #9). */
+    card.style.overflow = 'hidden';
+    void compact.offsetHeight;
+
+    if (toggleBtn) toggleBtn.textContent = 'Show explanation';
+    if (fullBtn)   fullBtn.textContent   = 'Show full explanation';
+
+    /* Composite close: compact + full + card together (240ms),
+       sizer follows at +90ms (200ms). Sizer is the later finisher. */
+    let released = false, safetyTimer = null;
+    function release() {
+      if (released) return;
+      released = true;
+      if (safetyTimer) clearTimeout(safetyTimer);
+      sizer.removeEventListener('transitionend', onEnd);
+      /* No-snap unlock */
+      card.style.transition = 'none';
+      card.style.height     = tgtHcard + 'px';
+      void card.offsetHeight;
+      card.style.transition = '';
+      card.style.height     = '';
+      card.style.overflow   = '';
+      sizer.style.transition = 'none';
+      sizer.style.height     = tgtHsizer + 'px';
+      void sizer.offsetHeight;
+      sizer.style.transition = '';
+      sizer.style.height     = '';
+      compact.style.transition = '';
+      compact.style.height     = '';
+      compact.style.opacity    = '';
+      compact.classList.remove('show');
+      if (fullEl) {
+        fullEl.style.transition = '';
+        fullEl.style.height     = '';
+        fullEl.style.opacity    = '';
+        fullEl.classList.remove('show');
+      }
+      if (fb) { fb.style.transition = ''; if (fb.classList.contains('show')) fb.style.height = ''; }
+      delete card.dataset.v107Busy;
+    }
+    function onEnd(e) {
+      if (e.target !== sizer) return;
+      if (e.propertyName !== 'height') return;
+      release();
+    }
+    sizer.addEventListener('transitionend', onEnd);
+    safetyTimer = setTimeout(release, 500);
+
+    requestAnimationFrame(function () {
+      compact.style.transition = 'height 240ms cubic-bezier(.32,.72,0,1), opacity .22s ease';
+      compact.style.height     = '0px';
+      compact.style.opacity    = '0';
+      if (fullIsOpen) {
+        fullEl.style.transition = 'height 240ms cubic-bezier(.32,.72,0,1), opacity .22s ease';
+        fullEl.style.height     = '0px';
+        fullEl.style.opacity    = '0';
+      }
+      card.style.transition = 'height 240ms cubic-bezier(.32,.72,0,1)';
+      card.style.height     = tgtHcard + 'px';
+    });
+    setTimeout(function () {
+      sizer.style.transition = 'height 200ms cubic-bezier(.32,.72,0,1)';
+      sizer.style.height     = tgtHsizer + 'px';
+    }, 90);
+
+  } else {
+    /* ─── OPEN explanation ─── */
+    if (task) _lPopulateExplanation(task);
+
+    /* Pre-measure compact body height with .show + invisible + transition:none.
+       Exact BCR so the body target is the natural fractional height. */
+    compact.style.transition = 'none';
+    compact.style.height     = 'auto';
+    compact.style.opacity    = '0';
+    compact.classList.add('show');
+    const bodyTarget = compact.getBoundingClientRect().height;
+    compact.style.height = '0px';
+    void compact.offsetHeight;
+
+    /* Measure card + sizer targets with compact at bodyTarget (still invisible).
+       v10.8 R2 hardening: sizer must also be set to 'auto' during measurement,
+       otherwise its locked curHsizer height carries through and tgtHsizer ===
+       curHsizer (sizer never animates, then snaps on release). */
+    compact.style.height = bodyTarget + 'px';
+    card.style.height    = 'auto';
+    sizer.style.height   = 'auto';
+    const tgtHcard  = card.getBoundingClientRect().height;
+    const tgtHsizer = sizer.getBoundingClientRect().height;
+    card.style.height    = curHcard + 'px';
+    sizer.style.height   = curHsizer + 'px';
+    compact.style.height = '0px';
+    /* Engage clipping AFTER all measurements are done (discipline rule #9). */
+    card.style.overflow  = 'hidden';
+    void compact.offsetHeight;
+
+    if (toggleBtn) toggleBtn.textContent = 'Close explanation';
+    /* fullBtn lives inside compact and stays display:block — no class change. */
+
+    /* v10.8 R2 (Change D): sizer + card + compact ALL animate simultaneously
+       at 260ms in a single RAF. Eliminates the 80ms stagger that produced
+       the rigid "2-step open" feel. Listener stays on card. */
+    let released = false, safetyTimer = null;
+    function release() {
+      if (released) return;
+      released = true;
+      if (safetyTimer) clearTimeout(safetyTimer);
+      card.removeEventListener('transitionend', onEnd);
+      /* No-snap unlock */
+      card.style.transition = 'none';
+      card.style.height     = tgtHcard + 'px';
+      void card.offsetHeight;
+      card.style.transition = '';
+      card.style.height     = '';
+      card.style.overflow   = '';
+      sizer.style.transition = 'none';
+      sizer.style.height     = tgtHsizer + 'px';
+      void sizer.offsetHeight;
+      sizer.style.transition = '';
+      sizer.style.height     = '';
+      compact.style.transition = 'none';
+      compact.style.height     = bodyTarget + 'px';
+      void compact.offsetHeight;
+      compact.style.transition = '';
+      compact.style.height     = '';
+      compact.style.opacity    = '';
+      if (fb) { fb.style.transition = ''; if (fb.classList.contains('show')) fb.style.height = ''; }
+      delete card.dataset.v107Busy;
+    }
+    function onEnd(e) {
+      if (e.target !== card) return;
+      if (e.propertyName !== 'height') return;
+      release();
+    }
+    card.addEventListener('transitionend', onEnd);
+    safetyTimer = setTimeout(release, 500);
+
+    requestAnimationFrame(function () {
+      sizer.style.transition   = 'height 260ms cubic-bezier(.32,.72,0,1)';
+      sizer.style.height       = tgtHsizer + 'px';
+      compact.style.transition = 'height 260ms cubic-bezier(.32,.72,0,1), opacity .22s ease';
+      compact.style.height     = bodyTarget + 'px';
+      compact.style.opacity    = '1';
+      card.style.transition    = 'height 260ms cubic-bezier(.32,.72,0,1)';
+      card.style.height        = tgtHcard + 'px';
+    });
+  }
 }
 
+/* v10.8 Rebuild — flawless single-timeline Show/Hide full explanation.
+   Same discipline as lprToggleExpl: lock first, Math.ceil, pre-flush feedback,
+   transitionend release on later-finishing element, no-snap unlock. */
 function lprToggleFullExpl() {
-  const fullEl = document.getElementById('lprExplFull');
+  const fullEl  = document.getElementById('lprExplFull');
   const fullBtn = document.getElementById('lprExplFullBtn');
-  const card = document.getElementById('lprCard');
-  const isOpen = fullEl && fullEl.classList.contains('show');
+  const card    = document.getElementById('lprCard');
+  if (!card || !fullEl) return;
 
-  /* v10.7: morph engine for full-explanation toggle too. */
-  const sizer = card ? window.v107EnsureSizer(card) : null;
+  if (card.dataset.v107Busy === '1') return;
 
-  window.v107Morph({
-    card: card,
-    sizer: sizer,
-    fadeContent: false,
-    mutate: function(){
-      if (!isOpen){
-        fullEl.classList.add('show');
-        fullEl.style.height = 'auto';
-        if (fullBtn) fullBtn.textContent = 'Hide full explanation';
-      } else {
-        fullEl.classList.remove('show');
-        fullEl.style.height = '';
-        if (fullBtn) fullBtn.textContent = 'Show full explanation';
-      }
+  card.dataset.v107Busy = '1';
+  const sizer  = window.v107EnsureSizer(card);
+
+  /* === LOCK FIRST. EXACT fractional BCR for lock AND targets — using
+         Math.ceil(scrollHeight) for targets would land on an integer 0-1 px
+         off the element's true natural height, producing a visible snap on
+         release. Independent card vs sizer measurement.
+         v10.8 R2 hardening (discipline rule #9): card.style.overflow='hidden'
+         is DEFERRED until AFTER the natural target height has been measured
+         (overflow:hidden disables internal margin-collapse and would inflate
+         tgtHcard, producing a release snap). === */
+  const curHcard  = card.getBoundingClientRect().height;
+  const curHsizer = sizer.getBoundingClientRect().height;
+  card.style.transition  = 'none';
+  card.style.height      = curHcard + 'px';
+  sizer.style.transition = 'none';
+  sizer.style.height     = curHsizer + 'px';
+
+  /* v10.8 R2 hardening: if fb is .show and _explSlide is mid-flight,
+     pin to NATURAL height (height:'auto' then BCR) so tgtHcard is
+     measured against fb's settled height — prevents release snap. */
+  const fb = document.getElementById('lprFeedback');
+  if (fb) {
+    fb.style.transition = 'none';
+    if (fb.classList.contains('show')) {
+      fb.style.height = 'auto';
+      fb.style.height = fb.getBoundingClientRect().height + 'px';
+    } else {
+      fb.style.height = '0px';
     }
-  });
+  }
+  void card.offsetHeight;
+
+  const isOpen = fullEl.classList.contains('show');
+
+  if (isOpen) {
+    /* ─── CLOSE full ─── */
+    /* Exact BCR for the FROM-state pin (same reasoning as compact close). */
+    const fullNaturalH = fullEl.getBoundingClientRect().height;
+
+    fullEl.style.transition = 'none';
+    fullEl.style.height     = fullNaturalH + 'px';
+    fullEl.style.opacity    = '1';
+    void fullEl.offsetHeight;
+
+    /* Measure card + sizer targets with full collapsed (exact BCR). */
+    fullEl.classList.remove('show');
+    fullEl.style.height = '0px';
+    card.style.height  = 'auto';
+    sizer.style.height = 'auto';
+    const tgtHcard  = card.getBoundingClientRect().height;
+    const tgtHsizer = sizer.getBoundingClientRect().height;
+    card.style.height  = curHcard + 'px';
+    sizer.style.height = curHsizer + 'px';
+
+    /* Restore FROM-state. */
+    fullEl.classList.add('show');
+    fullEl.style.height = fullNaturalH + 'px';
+    /* Engage clipping AFTER all measurements are done (discipline rule #9). */
+    card.style.overflow = 'hidden';
+    void fullEl.offsetHeight;
+
+    if (fullBtn) fullBtn.textContent = 'Show full explanation';
+
+    /* Card first (240ms), sizer follows at +90ms (200ms). Sizer later finisher. */
+    let released = false, safetyTimer = null;
+    function release() {
+      if (released) return;
+      released = true;
+      if (safetyTimer) clearTimeout(safetyTimer);
+      sizer.removeEventListener('transitionend', onEnd);
+      card.style.transition = 'none';
+      card.style.height     = tgtHcard + 'px';
+      void card.offsetHeight;
+      card.style.transition = '';
+      card.style.height     = '';
+      card.style.overflow   = '';
+      sizer.style.transition = 'none';
+      sizer.style.height     = tgtHsizer + 'px';
+      void sizer.offsetHeight;
+      sizer.style.transition = '';
+      sizer.style.height     = '';
+      fullEl.style.transition = '';
+      fullEl.style.height     = '';
+      fullEl.style.opacity    = '';
+      fullEl.classList.remove('show');
+      if (fb) { fb.style.transition = ''; if (fb.classList.contains('show')) fb.style.height = ''; }
+      delete card.dataset.v107Busy;
+    }
+    function onEnd(e) {
+      if (e.target !== sizer) return;
+      if (e.propertyName !== 'height') return;
+      release();
+    }
+    sizer.addEventListener('transitionend', onEnd);
+    safetyTimer = setTimeout(release, 500);
+
+    requestAnimationFrame(function () {
+      fullEl.style.transition = 'height 240ms cubic-bezier(.32,.72,0,1), opacity .22s ease';
+      fullEl.style.height     = '0px';
+      fullEl.style.opacity    = '0';
+      card.style.transition   = 'height 240ms cubic-bezier(.32,.72,0,1)';
+      card.style.height       = tgtHcard + 'px';
+    });
+    setTimeout(function () {
+      sizer.style.transition = 'height 200ms cubic-bezier(.32,.72,0,1)';
+      sizer.style.height     = tgtHsizer + 'px';
+    }, 90);
+
+  } else {
+    /* ─── OPEN full ─── */
+    fullEl.style.transition = 'none';
+    fullEl.style.height     = 'auto';
+    fullEl.style.opacity    = '0';
+    fullEl.classList.add('show');
+    const bodyTarget = fullEl.getBoundingClientRect().height;
+    fullEl.style.height = '0px';
+    void fullEl.offsetHeight;
+
+    /* Measure card + sizer targets with full at bodyTarget (still invisible).
+       v10.8 R2 hardening: sizer must also be set to 'auto' during measurement,
+       otherwise its locked curHsizer height carries through and tgtHsizer ===
+       curHsizer (sizer never animates, then snaps on release). */
+    fullEl.style.height = bodyTarget + 'px';
+    card.style.height   = 'auto';
+    sizer.style.height  = 'auto';
+    const tgtHcard  = card.getBoundingClientRect().height;
+    const tgtHsizer = sizer.getBoundingClientRect().height;
+    card.style.height   = curHcard + 'px';
+    sizer.style.height  = curHsizer + 'px';
+    fullEl.style.height = '0px';
+    /* Engage clipping AFTER all measurements are done (discipline rule #9). */
+    card.style.overflow = 'hidden';
+    void fullEl.offsetHeight;
+
+    if (fullBtn) fullBtn.textContent = 'Hide full explanation';
+
+    /* v10.8 R2 (Change E): sizer + card + full body ALL animate simultaneously
+       at 260ms in a single RAF. Eliminates the 80ms stagger that produced the
+       "2-step open" feel. Listener stays on card. */
+    let released = false, safetyTimer = null;
+    function release() {
+      if (released) return;
+      released = true;
+      if (safetyTimer) clearTimeout(safetyTimer);
+      card.removeEventListener('transitionend', onEnd);
+      card.style.transition = 'none';
+      card.style.height     = tgtHcard + 'px';
+      void card.offsetHeight;
+      card.style.transition = '';
+      card.style.height     = '';
+      card.style.overflow   = '';
+      sizer.style.transition = 'none';
+      sizer.style.height     = tgtHsizer + 'px';
+      void sizer.offsetHeight;
+      sizer.style.transition = '';
+      sizer.style.height     = '';
+      fullEl.style.transition = 'none';
+      fullEl.style.height     = bodyTarget + 'px';
+      void fullEl.offsetHeight;
+      fullEl.style.transition = '';
+      fullEl.style.height     = '';
+      fullEl.style.opacity    = '';
+      if (fb) { fb.style.transition = ''; if (fb.classList.contains('show')) fb.style.height = ''; }
+      delete card.dataset.v107Busy;
+    }
+    function onEnd(e) {
+      if (e.target !== card) return;
+      if (e.propertyName !== 'height') return;
+      release();
+    }
+    card.addEventListener('transitionend', onEnd);
+    safetyTimer = setTimeout(release, 500);
+
+    requestAnimationFrame(function () {
+      sizer.style.transition  = 'height 260ms cubic-bezier(.32,.72,0,1)';
+      sizer.style.height      = tgtHsizer + 'px';
+      fullEl.style.transition = 'height 260ms cubic-bezier(.32,.72,0,1), opacity .22s ease';
+      fullEl.style.height     = bodyTarget + 'px';
+      fullEl.style.opacity    = '1';
+      card.style.transition   = 'height 260ms cubic-bezier(.32,.72,0,1)';
+      card.style.height       = tgtHcard + 'px';
+    });
+  }
 }
 
 /* v10.7: Navigate prev/next with pre-measured smart morph.
@@ -11811,10 +12462,17 @@ function lprNavigate(dir) {
   if (!card) { _lset('cursor', newCursor); try { _lsSave(); } catch(e){} lprRenderTask(newCursor); return; }
 
   const sizer = window.v107EnsureSizer(card);
+  /* v10.7 Rebuild #2: fade ONLY the inner content wrapper (#lprCardContent),
+     so the card shell — border, padding, background — stays calm during the
+     swap. .lpr-expl-wrap is INSIDE #lprCardContent (mockup parity: #pC
+     contains both #pStack and #explSec). It fades with the content and is
+     reset to collapsed by lprRenderTask before the target height is measured. */
+  const inner = document.getElementById('lprCardContent');
 
   window.v107Morph({
     card: card,
     sizer: sizer,
+    content: inner || card,
     mutate: function(){
       _lset('cursor', newCursor);
       /* v9.10 Fix 2b: persist cursor on every navigation so reload resumes here. */
