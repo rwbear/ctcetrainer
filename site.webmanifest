@@ -1,0 +1,16 @@
+{
+  "name": "ЦТ/ЦЭ English Trainer — подготовка онлайн",
+  "short_name": "ЦТ/ЦЭ Trainer",
+  "description": "Бесплатный тренажёр для подготовки к ЦТ и ЦЭ по английскому языку. Уровни B1, B2, C1, CT/CE: времена, условные предложения, страдательный залог, модальные глаголы, артикли, словообразование.",
+  "lang": "ru",
+  "start_url": "/ctcetrainer/",
+  "scope": "/ctcetrainer/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F6F7F9",
+  "theme_color": "#393E46",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
