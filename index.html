@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>ЦТ/ЦЭ English Trainer · v10.1</title>
+<title>ЦТ/ЦЭ English Trainer · v10.9.10</title>
+<!-- Yandex Webmaster ownership verification (added v10.9.10). -->
+<meta name="yandex-verification" content="7db83415e771ce1b" />
 <script src="ct-trainer-v3-data.js"></script>
 <script src="analogue-variants-data.js"></script>
 <script src="learn-topics-data.js"></script>
@@ -16,48 +18,57 @@
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <style>
-/* ─── PALETTE — Slate (default) ─────────────────────────────────────── */
+/* ─── PALETTE — Stone (default, v10.9) ──────────────────────────────────
+   Replaces the previous Slate default. Light + Dark A (“Soft lift”) are
+   the new default theme pair. Theme IDs remain ‘’ and ‘slate-dark’ for
+   backward compatibility with saved preferences. */
 :root {
-  --bg:        #F7F7F7;
-  --surface:   #EEEEEE;
-  --border:    #DCDCDC;
-  --accent:    #929AAB;
-  --accent-dk: #393E46;
-  --text:      #1E1E1E;
-  --text-sub:  #6E7582;
-  --correct:   #3D8A7A;
-  --correct-bg:#EDF5F3;
-  --wrong:     #A85868;
-  --wrong-bg:  #F6ECF0;
+  --bg:        #F6F7F9;
+  --surface:   #ECEDF0;
+  --border:    #D4D6DB;
+  --accent:    #393E46;
+  --accent-dk: #1F232A;
+  --text:      #1B1D21;
+  --text-sub:  #6C7280;
+  --correct:   #2F8A6B;
+  --correct-bg:#EAF5F0;
+  --wrong:     #B5596A;
+  --wrong-bg:  #FAEDF0;
   --chip-sel:  #393E46;
-  --chip-sel-t:#F7F7F7;
+  --chip-sel-t:#F6F7F9;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --radius:    10px;
   --radius-sm: 6px;
   --nav-h:     52px;
   --bot-h:     0px; /* v9.14: was 60px for bottom tab bar; bar removed */
   /* v10.1 nav tokens (gradient-shadow recipe applied universally) */
-  --nav:        #FBFBFB;
-  --nav-border: rgba(30,30,30,.05);
-  --nav-shadow: linear-gradient(180deg, rgba(30,30,30,.13) 0%, rgba(30,30,30,.05) 50%, rgba(30,30,30,0) 100%);
+  --nav:        #F1F2F5;
+  --nav-border: rgba(27,29,33,.06);
+  --nav-shadow: linear-gradient(180deg, rgba(27,29,33,.13) 0%, rgba(27,29,33,.05) 50%, rgba(27,29,33,0) 100%);
+  /* v10.9 shared motion easing for all new Learn surfaces. */
+  --ease:      cubic-bezier(.22,.61,.36,1);
 }
-/* ─── Slate Dark ─── */
+/* ─── Stone Dark · A · Soft Lift (v10.9, default dark) ───
+   Kept under the legacy selector so saved ‘slate-dark’ preferences still
+   resolve to the new default dark without a data migration. */
 [data-theme="slate-dark"] {
-  --bg:        #1A1C20;
-  --surface:   #24272C;
-  --border:    #363A42;
-  --accent:    #929AAB;
-  --accent-dk: #C8CDD6;
-  --text:      #E6E8EC;
-  --text-sub:  #828896;
-  --correct:   #5CB8A0;
-  --correct-bg:#122824;
-  --wrong:     #CC7888;
-  --wrong-bg:  #2A1820;
-  --chip-sel:  #929AAB;
-  --chip-sel-t:#1A1C20;
-  --nav:        #222529;
+  --bg:        #1E2026;
+  --surface:   #252830;
+  --border:    #323640;
+  --accent:    #E2E4EA;
+  --accent-dk: #F0F2F6;
+  --text:      #E2E4EA;
+  --text-sub:  #858B9A;
+  --correct:   #4DB88A;
+  --correct-bg:#1A2924;
+  --wrong:     #CC7080;
+  --wrong-bg:  #291B21;
+  --chip-sel:  #E2E4EA;
+  --chip-sel-t:#1E2026;
+  --on-accent:#1E2026;  /* v10.9: text-on-accent for color:var(--accent) bg */
+  --nav:        #252830;
   --nav-border: rgba(255,255,255,.05);
-  --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
+  --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
 }
 /* ─── Sand Light ─── */
 [data-theme="sand"] {
@@ -74,6 +85,7 @@
   --wrong-bg:  #FAF2EE;
   --chip-sel:  #7A6340;
   --chip-sel-t:#F8F4EE;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #FBF8F3;
   --nav-border: rgba(42,36,24,.06);
   --nav-shadow: linear-gradient(180deg, rgba(42,36,24,.13) 0%, rgba(42,36,24,.05) 50%, rgba(42,36,24,0) 100%);
@@ -93,6 +105,7 @@
   --wrong-bg:  #2E1C16;
   --chip-sel:  #C4A46E;
   --chip-sel-t:#1E1B16;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #26221B;
   --nav-border: rgba(255,255,255,.05);
   --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
@@ -112,6 +125,7 @@
   --wrong-bg:  #FAF2F0;
   --chip-sel:  #1E4A6A;
   --chip-sel-t:#F5F7FA;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #F9FBFC;
   --nav-border: rgba(20,32,48,.06);
   --nav-shadow: linear-gradient(180deg, rgba(20,32,48,.13) 0%, rgba(20,32,48,.05) 50%, rgba(20,32,48,0) 100%);
@@ -131,6 +145,7 @@
   --wrong-bg:  #2E1A18;
   --chip-sel:  #5A9ABE;
   --chip-sel-t:#101820;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #171F28;
   --nav-border: rgba(255,255,255,.05);
   --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
@@ -150,6 +165,7 @@
   --wrong-bg:  #F0E2EC;
   --chip-sel:  #4A4E69;
   --chip-sel-t:#F2E9E4;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #F7EFEA;
   --nav-border: rgba(34,34,59,.06);
   --nav-shadow: linear-gradient(180deg, rgba(34,34,59,.13) 0%, rgba(34,34,59,.05) 50%, rgba(34,34,59,0) 100%);
@@ -169,6 +185,7 @@
   --wrong-bg:  #2C182A;
   --chip-sel:  #9A8C98;
   --chip-sel-t:#1C1A24;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #23212B;
   --nav-border: rgba(255,255,255,.05);
   --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
@@ -188,6 +205,7 @@
   --wrong-bg:  #FAF2EE;
   --chip-sel:  #4A6A3A;
   --chip-sel-t:#F5F6F2;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #F9FAF6;
   --nav-border: rgba(30,36,24,.06);
   --nav-shadow: linear-gradient(180deg, rgba(30,36,24,.13) 0%, rgba(30,36,24,.05) 50%, rgba(30,36,24,0) 100%);
@@ -207,6 +225,7 @@
   --wrong-bg:  #2E1E14;
   --chip-sel:  #88AE70;
   --chip-sel-t:#161A14;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #1C211A;
   --nav-border: rgba(255,255,255,.05);
   --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
@@ -226,6 +245,7 @@
   --wrong-bg:  #F6E4EA;
   --chip-sel:  #612D53;
   --chip-sel-t:#F3F4F4;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #F7F8F8;
   --nav-border: rgba(44,44,44,.06);
   --nav-shadow: linear-gradient(180deg, rgba(44,44,44,.13) 0%, rgba(44,44,44,.05) 50%, rgba(44,44,44,0) 100%);
@@ -245,6 +265,7 @@
   --wrong-bg:  #2E1822;
   --chip-sel:  #B06080;
   --chip-sel-t:#1E181C;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #251E22;
   --nav-border: rgba(255,255,255,.05);
   --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
@@ -264,6 +285,7 @@
   --wrong-bg:  #FAEAEA;
   --chip-sel:  #806808;
   --chip-sel-t:#FAFAF5;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #FCFCF8;
   --nav-border: rgba(42,36,8,.06);
   --nav-shadow: linear-gradient(180deg, rgba(42,36,8,.14) 0%, rgba(42,36,8,.05) 50%, rgba(42,36,8,0) 100%);
@@ -283,6 +305,7 @@
   --wrong-bg:  #2E1414;
   --chip-sel:  #CCAA30;
   --chip-sel-t:#1C1A10;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #242113;
   --nav-border: rgba(255,255,255,.05);
   --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
@@ -302,6 +325,7 @@
   --wrong-bg:  #E8D3C2;
   --chip-sel:  #8C5640;
   --chip-sel-t:#ECDFCC;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #EFE3D0;
   --nav-border: rgba(60,65,50,.08);
   --nav-shadow: linear-gradient(180deg, rgba(60,65,50,.14) 0%, rgba(60,65,50,.05) 50%, rgba(60,65,50,0) 100%);
@@ -321,6 +345,7 @@
   --wrong-bg:  #3D2A1E;
   --chip-sel:  #B17457;
   --chip-sel-t:#1E201E;
+  --on-accent:#fff;  /* v10.9: text-on-accent for color:var(--accent) bg */
   --nav:        #262824;
   --nav-border: rgba(255,255,255,.05);
   --nav-shadow: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 100%);
@@ -603,10 +628,10 @@ body{
   cursor:pointer;transition:all .15s;
   -webkit-tap-highlight-color:transparent;
 }
-.wallet-shop-tile .wst-btn:hover:not(:disabled){background:var(--accent);color:#fff;border-color:var(--accent);}
+.wallet-shop-tile .wst-btn:hover:not(:disabled){background:var(--accent);color:var(--on-accent);border-color:var(--accent);}
 .wallet-shop-tile .wst-btn:disabled{opacity:.55;cursor:not-allowed;}
 .wallet-shop-tile.confirming .wst-btn{
-  background:var(--accent);color:#fff;border-color:var(--accent);
+  background:var(--accent);color:var(--on-accent);border-color:var(--accent);
   font-weight:600;
 }
 .wallet-shop-tile .wst-hint{
@@ -663,7 +688,9 @@ body{
 
 /* ─── v10 TOASTS ─────────────────────────────────────────────────────── */
 #v10ToastHost{
-  position:fixed;z-index:500;
+  /* v10.9.5: z-index 1200 so premium tooltips and all other toasts render
+     above the mobile settings sheet (z-index 1000) and any popovers. */
+  position:fixed;z-index:1200;
   pointer-events:none;
   display:flex;flex-direction:column;gap:8px;
   /* Desktop default: top-right */
@@ -679,6 +706,17 @@ body{
     max-width:calc(100vw - 24px);
     width:max-content;
   }
+  /* v10.9.5: when the settings sheet is open, move the toast to the TOP of
+     the viewport so it isn't hidden behind the sheet panel. Without this,
+     a premium tooltip triggered inside the sheet would render under the
+     sheet (z-index isn't enough when the sheet's panel covers the bottom
+     half of the screen). */
+  body.lt9-locked #v10ToastHost{
+    top:max(16px,env(safe-area-inset-top));
+    bottom:auto;
+  }
+  body.lt9-locked .v10-toast{transform:translateY(-8px);}
+  body.lt9-locked .v10-toast.show{transform:translateY(0);}
 }
 .v10-toast{
   display:inline-flex;align-items:center;gap:8px;
@@ -909,7 +947,7 @@ body{
 .ap-primary-btn{
   display:inline-flex;align-items:center;justify-content:center;
   width:100%;padding:10px 14px;margin-top:2px;
-  background:var(--accent);color:#fff;
+  background:var(--accent);color:var(--on-accent);
   border:1px solid var(--accent);border-radius:var(--radius-sm);
   font-size:.88rem;font-weight:600;cursor:pointer;
   transition:background .12s,border-color .12s,transform .08s;
@@ -937,7 +975,7 @@ body{
 .ap-code-form input.ap-code-input:focus{border-color:var(--accent);}
 .ap-code-form .ap-code-apply{
   padding:8px 14px;border-radius:var(--radius-sm);
-  border:1px solid var(--accent);background:var(--accent);color:#fff;
+  border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);
   font-size:.82rem;font-weight:600;cursor:pointer;
   transition:filter .12s,opacity .12s;
   flex-shrink:0;
@@ -1006,7 +1044,7 @@ body{
 }
 .ap-modal-btn.danger:hover{filter:brightness(1.08);background:#c33;}
 .ap-modal-btn.primary{
-  border-color:var(--accent);background:var(--accent);color:#fff;
+  border-color:var(--accent);background:var(--accent);color:var(--on-accent);
 }
 .ap-modal-btn.primary:hover{filter:brightness(1.06);background:var(--accent);}
 .ap-modal-btn.primary[disabled],.ap-modal-btn[disabled]{
@@ -1526,7 +1564,7 @@ mark.gap-sentence-hl{
 }
 .btn:active{opacity:.8;}
 .btn-primary{
-  background:var(--accent);border-color:var(--accent);color:#fff;
+  background:var(--accent);border-color:var(--accent);color:var(--on-accent);
 }
 [data-theme="slate-dark"] .btn-primary,
 [data-theme="sand-dark"] .btn-primary,
@@ -1542,7 +1580,7 @@ mark.gap-sentence-hl{
 .submit-block-btn{
   display:block;width:100%;
   padding:14px;border-radius:var(--radius);
-  background:var(--accent);border:none;color:#fff;
+  background:var(--accent);border:none;color:var(--on-accent);
   font-size:.95rem;font-weight:600;cursor:pointer;
   margin-top:16px;transition:background .15s;
   -webkit-tap-highlight-color:transparent;
@@ -1629,7 +1667,7 @@ mark.gap-sentence-hl{
 .ct-cloud-modal-btn:hover{border-color:var(--accent);}
 .ct-cloud-modal-btn:active{transform:scale(.99);}
 .ct-cloud-modal-btn.primary{background:var(--accent);border-color:var(--accent);}
-.ct-cloud-modal-btn.primary .ct-cloud-modal-btn-title{color:#fff;}
+.ct-cloud-modal-btn.primary .ct-cloud-modal-btn-title{color:var(--on-accent);}
 .ct-cloud-modal-btn.primary .ct-cloud-modal-btn-sub{color:rgba(255,255,255,.85);}
 .ct-cloud-modal-btn.primary:hover{filter:brightness(1.05);}
 .ct-cloud-modal-btn.syncing{opacity:.6;pointer-events:none;}
@@ -1764,7 +1802,7 @@ mark.gap-sentence-hl{
   border-color:var(--accent);background:var(--bg);
 }
 .var-chip:active{
-  background:var(--accent);color:#fff;
+  background:var(--accent);color:var(--on-accent);
 }
 /* v10.3: variant chip is no longer dimmed — it stays clickable to open the
    purchase modal. Lock glyph still indicates locked state. */
@@ -2585,10 +2623,16 @@ mark.gap-sentence-hl{
 .lsel-topic-section{
   border-top:1px solid var(--border);
   margin:0;
+  position:relative;
+  transition:background-color 200ms ease, box-shadow 200ms ease;
 }
 .lsel-topic-header{
+  /* v10.9.8: fixed-height row (42 px desktop / 40 px mobile) to match mockup
+     §4 spec exactly. Replaces the padding-based height, which was rendering
+     41 px on mobile and creating asymmetric top/bottom breathing room. */
   display:flex;align-items:center;gap:8px;
-  padding:11px 14px;cursor:pointer;
+  height:42px;padding:0 14px;box-sizing:border-box;
+  cursor:pointer;
   -webkit-tap-highlight-color:transparent;
   user-select:none;
 }
@@ -2616,14 +2660,66 @@ mark.gap-sentence-hl{
   border-color:var(--accent);background:rgba(201,181,156,.15);color:var(--accent-dk);
 }
 .lsel-topic-body{
-  padding:0 14px 12px;display:flex;flex-wrap:wrap;gap:7px;
-  overflow:hidden;
-  height:0;opacity:0;
-  transition:height .28s cubic-bezier(.22,.61,.36,1),opacity .22s ease;
+  /* v10.9.9: CSS Grid accordion. The outer body is a single-row grid that
+     interpolates `grid-template-rows: 0fr → 1fr`, so the visible height
+     animates purely from layout — no JS scrollHeight read, no padding
+     double-count, no auto-snap at the end. The chips live in an inner
+     wrapper (`.lsel-topic-body-inner`) whose padding stays put through
+     the entire animation, which kills the previous "chips jump left on
+     close" snap caused by left/right padding being removed instantly.
+     `min-height:0` on the inner is required so the grid track can
+     actually collapse to zero. */
+  display:grid;
+  /* `minmax(0, 0fr)` forces the track's MIN size to 0; a plain `0fr`
+     would resolve to the row's min-content (10 px of padding-bottom
+     even with overflow:hidden), which is exactly what was bleeding
+     into our collapsed rows on first measure. */
+  grid-template-rows:minmax(0, 0fr);
+  opacity:0;
+  padding:0;
+  transition:grid-template-rows .28s cubic-bezier(.22,.61,.36,1),
+             opacity .22s ease;
 }
 .lsel-topic-body.open{
+  grid-template-rows:minmax(0, 1fr);
   opacity:1;
-  /* height set by JS */
+}
+.lsel-topic-body-inner{
+  /* `min-height:0` lets the grid item shrink below its intrinsic content
+     height. `box-sizing:border-box` constrains the padding within whatever
+     height the row track allots, so when the parent grid is at 0fr the
+     padding can't bleed an extra 10 px into the layout. */
+  min-height:0;
+  box-sizing:border-box;
+  overflow:hidden;
+  display:flex;flex-wrap:wrap;gap:7px;
+  padding:0 14px 10px;
+}
+
+/* ── v10.9.7 §3 — selection-driven tint (mobile + desktop) ─────────────────
+   When at least one subtopic is selected, the topic row gets a faint
+   --accent tint and a 2 px accent left border (via inset shadow so it
+   does not push content). The state persists whether the section is
+   open or collapsed. To prevent a duplicate hairline above a tinted
+   block, we suppress its own border-top and restore the border on the
+   following sibling so the divider visually sits below the tinted row. */
+.lsel-topic-section.has-selection{
+  background:color-mix(in srgb, var(--accent) 4%, transparent);
+  box-shadow:inset 2px 0 0 0 var(--accent);
+  border-top-color:transparent;
+}
+.lsel-topic-section.has-selection + .lsel-topic-section{
+  border-top-color:var(--border);
+}
+
+/* ── v10.9.9 — mobile row height + inner-body padding shift ─────────────
+   Rows are 40 px on mobile per mockup §4. The +12 px left padding aligns
+   chips with the 2 px accent border shown on selected sections. The 8 px
+   gap is the mockup's chip rhythm for mobile. Padding now lives on the
+   inner wrapper so it never animates and never snaps. */
+@media (max-width:719px){
+  .lsel-topic-header{height:40px;}
+  .lsel-topic-body-inner{padding:0 14px 10px 12px;gap:8px;}
 }
 
 /* Subtopic chips in selection */
@@ -3032,6 +3128,468 @@ mark.gap-sentence-hl{
   .lsel-seg-full{display:inline;}
   .lsel-seg-short{display:none;}
   .lsel-top-row .lsel-seg-control .lsel-mode-btn{padding:6px 14px;font-size:.82rem;}
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   v10.9 LEARN TOOLBAR — mobile chip row (Phase B §1)
+   3 chips (Mode · Level · Flavor) + ••• More button anchored right.
+   Visible at <720 px only. Desktop keeps the existing top/scope rows for now
+   (Phase B §5 will redesign desktop separately).
+   ───────────────────────────────────────────────────────────────────────── */
+/* v10.9.5: Mobile chip redesign — Option A+ (rectangle, surface fill,
+   hairline border). 6 px corners match the desktop segments and the
+   in-sheet section blocks, so the toolbar reads as compact previews of
+   the sheet sections. Vertical padding fixed so descenders ("y", "p")
+   in "Type-in" are no longer clipped. Width is transitioned so size
+   changes animate smoothly instead of snapping. */
+.lt-bar{
+  display:flex;align-items:center;gap:7px;
+  padding:10px 14px 6px;background:var(--bg);
+}
+.lt-chip{
+  /* Vertical sizing: drop fixed height in favor of padding-driven sizing,
+     so descenders are never clipped. line-height 1.2 leaves room. */
+  padding:7px 11px;
+  border-radius:var(--radius-sm);
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text);font-size:12.5px;font-weight:500;font-family:inherit;
+  display:inline-flex;align-items:center;gap:5px;
+  white-space:nowrap;flex-shrink:0;max-width:160px;min-width:0;
+  cursor:pointer;line-height:1.2;-webkit-tap-highlight-color:transparent;
+  /* Smooth chip width when labels change (e.g. "4/4" → "All", level toggle).
+     Combined with the lt-roll/_lt9SetTextFaded mechanisms in JS, label swaps
+     no longer cause a snap. */
+  transition:background 140ms ease-out,border-color 140ms ease-out,
+             color 140ms ease-out,width 220ms cubic-bezier(.4,0,.2,1);
+}
+.lt-chip .lt-lbl{
+  display:inline-block;line-height:1.2;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:120px;
+}
+.lt-chip .lt-car{
+  font-size:8px;color:var(--text-sub);margin-left:1px;flex:0 0 auto;
+  /* The caret animation already exists for desktop; keep mobile in sync. */
+  transition:transform 180ms ease-out;
+}
+.lt-chip:active{background:var(--surface-2,var(--surface));}
+.lt-chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* v10.9.5: ••• chip uses an inline SVG (three perfectly-centered dots)
+   instead of a text glyph, since text bullets sit above baseline and look
+   off-center. Same rectangular surface-filled style as other chips. */
+.lt-more{
+  width:36px;min-height:31px;padding:0;
+  border-radius:var(--radius-sm);
+  background:var(--surface);border:1px solid var(--border);
+  display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--text-sub);
+  flex-shrink:0;margin-left:auto;font-family:inherit;
+  -webkit-tap-highlight-color:transparent;
+  transition:background 140ms ease-out,border-color 140ms ease-out,color 140ms ease-out;
+}
+.lt-more svg{display:block;}
+.lt-more:active{background:var(--surface-2,var(--surface));}
+.lt-more:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){
+  .lt-chip,.lt-more,.lt-chip .lt-car{transition-duration:1ms !important;}
+}
+/* Default: hide on desktop (≥720 px) */
+.lt-bar{display:none;}
+@media (max-width:719px){
+  /* Show new toolbar */
+  .lt-bar{display:flex;}
+  /* Hide legacy top-row + scope rows on mobile only — desktop keeps them */
+  #lsel-screen > .lsel-top-row,
+  #lsel-screen > .lsel-scope-row{display:none !important;}
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   v10.9 LEARN BOTTOM SHEET — Phase B §2 + §4
+   Single reusable sheet rendered for sections: mode | level | flavor | more.
+   320 ms cubic-bezier(.32,.72,0,1) open/close (iOS-weighted).
+   Backdrop: rgba(0,0,0,0.30) + 4 px backdrop-filter blur.
+   Dismiss: backdrop tap, drag past 30 % panel height, or downward flick.
+   Rows: 40 px collapsed, hairline divider, 2 px accent + tint when active.
+   ───────────────────────────────────────────────────────────────────────── */
+.lt9-sheet{
+  position:fixed;inset:0;z-index:1000;
+  pointer-events:none;visibility:hidden;
+  /* v10.9.6: hold visibility for the full 320 ms close so the panel slide-
+     down and the backdrop fade can complete before the sheet disappears. On
+     open we want visibility to flip instantly (delay 0 via .open below). */
+  transition:visibility 0s linear 320ms;
+}
+.lt9-sheet.open{pointer-events:auto;visibility:visible;transition:visibility 0s linear 0s;}
+.lt9-backdrop{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.30);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  opacity:0;
+  transition:opacity 320ms cubic-bezier(.32,.72,0,1);
+}
+.lt9-sheet.open .lt9-backdrop{opacity:1;}
+.lt9-panel{
+  position:absolute;left:0;right:0;bottom:0;
+  background:var(--bg);
+  border-top:1px solid var(--border);
+  border-radius:18px 18px 0 0;
+  max-height:85vh;overflow:hidden;
+  display:flex;flex-direction:column;
+  transform:translateY(100%);
+  transition:transform 320ms cubic-bezier(.32,.72,0,1);
+  box-shadow:0 -8px 28px rgba(0,0,0,.10);
+  touch-action:pan-y;
+  will-change:transform;
+}
+.lt9-sheet.open .lt9-panel{transform:translateY(0);}
+.lt9-sheet.dragging .lt9-panel{transition:none;}
+.lt9-sheet.dragging .lt9-backdrop{transition:none;}
+.lt9-grabber{
+  width:40px;height:4px;border-radius:99px;
+  background:var(--border);
+  margin:8px auto 0;flex-shrink:0;
+}
+.lt9-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 18px 8px;flex-shrink:0;
+}
+.lt9-head-title{
+  font-size:12px;font-weight:600;color:var(--text-sub);
+  text-transform:uppercase;letter-spacing:.7px;
+}
+.lt9-all{
+  height:26px;padding:0 12px;border-radius:99px;
+  background:var(--bg);border:1px solid var(--border);
+  color:var(--text);font-size:11.5px;font-weight:500;font-family:inherit;
+  display:inline-flex;align-items:center;cursor:pointer;line-height:1;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .12s,border-color .12s,color .12s;
+}
+.lt9-all:active{opacity:.85;}
+.lt9-all.active{background:var(--accent);color:var(--bg);border-color:var(--accent);}
+.lt9-all[hidden]{display:none !important;}
+.lt9-list{
+  list-style:none;margin:0;padding:0 0 8px;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+}
+.lt9-row{
+  position:relative;
+  display:flex;align-items:center;gap:10px;
+  height:40px;padding:0 18px;
+  border-top:1px solid var(--border);
+  background:transparent;cursor:pointer;
+  font-size:14px;color:var(--text);
+  -webkit-tap-highlight-color:transparent;
+  transition:background 200ms ease-out;
+  user-select:none;
+}
+.lt9-row:first-child{border-top:none;}
+.lt9-row:active{background:var(--surface);}
+.lt9-row::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;
+  width:0;background:var(--accent);
+  transition:width 200ms ease-out;
+}
+.lt9-row.active::before{width:2px;}
+.lt9-row.active{background:color-mix(in srgb,var(--accent) 8%,transparent);}
+.lt9-row-lbl{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lt9-row-mark{
+  flex-shrink:0;width:18px;height:18px;
+  display:grid;place-items:center;
+  color:var(--text-sub);font-size:14px;
+}
+.lt9-row.active .lt9-row-mark{color:var(--accent);}
+.lt9-row-mark svg{width:13px;height:13px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.lt9-row.locked{opacity:.55;}
+.lt9-row.locked .lt9-row-mark{color:var(--text-sub);}
+
+/* Settings sheet (•••): segmented controls */
+.lt9-set-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 18px;
+  border-top:1px solid var(--border);
+}
+.lt9-set-row:first-child{border-top:none;}
+.lt9-set-lbl{font-size:13px;color:var(--text);font-weight:500;}
+.lt9-seg{display:inline-flex;border-radius:99px;background:var(--surface);padding:3px;gap:2px;}
+.lt9-seg button{
+  height:26px;padding:0 12px;border-radius:99px;
+  background:transparent;border:none;
+  color:var(--text-sub);font-size:12px;font-weight:500;font-family:inherit;
+  cursor:pointer;line-height:1;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .12s,color .12s;
+}
+.lt9-seg button.active{background:var(--accent);color:var(--bg);}
+
+/* v10.9.3: unified settings sheet — sections, rect segments, pills */
+.lt9-section{
+  border-top:1px solid var(--border);
+  padding:14px 20px 16px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.lt9-section:first-child{border-top:none;}
+.lt9-section-label{
+  font-size:.7rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text-sub);
+}
+.lt9-seg-rect{
+  display:flex;gap:4px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:3px;
+}
+.lt9-seg-rect button{
+  flex:1 1 0;padding:8px 14px;
+  background:transparent;border:none;
+  border-radius:calc(var(--radius-sm) - 2px);
+  color:var(--text-sub);
+  font-size:13px;font-weight:500;font-family:inherit;
+  cursor:pointer;line-height:1.2;
+  -webkit-tap-highlight-color:transparent;
+  transition:background 140ms ease-out,color 140ms ease-out;
+}
+.lt9-seg-rect button.active{background:var(--accent);color:var(--on-accent);}
+.lt9-seg-rect button.locked{opacity:.38;cursor:default;}
+.lt9-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.lt9-pill{
+  padding:7px 14px;border-radius:999px;
+  background:var(--bg);border:1px solid var(--border);
+  color:var(--text);
+  font-size:13px;font-weight:500;font-family:inherit;
+  cursor:pointer;line-height:1;
+  -webkit-tap-highlight-color:transparent;
+  transition:background 140ms ease-out,color 140ms ease-out,border-color 140ms ease-out,opacity 140ms ease-out;
+}
+.lt9-pill.active{
+  background:var(--accent);color:var(--on-accent);border-color:var(--accent);
+}
+.lt9-pill.locked{opacity:.38;cursor:default;}
+@media (prefers-reduced-motion: reduce){
+  .lt9-seg-rect button,
+  .lt9-pill{transition-duration:1ms !important;}
+}
+
+/* Disable body scroll when sheet open */
+body.lt9-locked{overflow:hidden;}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   v10.9 PHASE B §3 — Mode-chip roll & unified Select/Clear button
+   Roll: 240 ms cubic-bezier(.22,.61,.36,1). New label slides in from TOP,
+   current label drops DOWN. Mode chip only.
+   Select/Clear: single button. 130 ms fade-out → swap text → measure →
+   220 ms width animate → fade in. Tap-only.
+   ───────────────────────────────────────────────────────────────────────── */
+.lt-roll{
+  position:relative;display:inline-block;
+  height:1em;line-height:1;overflow:hidden;
+  vertical-align:bottom;
+}
+.lt-roll-cur,
+.lt-roll-nxt{
+  display:inline-block;line-height:1;
+  white-space:nowrap;
+}
+.lt-roll-nxt{
+  position:absolute;left:0;top:0;
+  transform:translateY(-100%);
+  opacity:0;
+}
+.lt-roll.rolling .lt-roll-cur{
+  animation:lt9RollDown 240ms cubic-bezier(.22,.61,.36,1) both;
+}
+.lt-roll.rolling .lt-roll-nxt{
+  animation:lt9RollIn 240ms cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes lt9RollDown{
+  from{transform:translateY(0);opacity:1;}
+  to  {transform:translateY(100%);opacity:0;}
+}
+@keyframes lt9RollIn{
+  from{transform:translateY(-100%);opacity:0;}
+  to  {transform:translateY(0);opacity:1;}
+}
+@media (prefers-reduced-motion: reduce){
+  .lt-roll.rolling .lt-roll-cur,
+  .lt-roll.rolling .lt-roll-nxt{animation-duration:1ms !important;}
+}
+
+/* v10.9.5: Start Practice label — prefix is rock-steady, only the count
+   suffix softly crossfades. A tiny margin keeps them visually joined. */
+/* v10.9.6: single label span; the parent button uses lt9-num-fade. */
+.lsel-start-label{display:inline-block;}
+
+/* v10.9.4: shared crossfade helper for any text element whose value changes
+   (count of tasks selected, per-topic header count, etc.). 140 ms fade-out
+   → swap text → 140 ms fade-in. No scale, per spec. */
+.lt9-num-fade{
+  display:inline-block;
+  transition:opacity 140ms ease-out;
+}
+.lt9-num-fade.fading{opacity:0;}
+@media (prefers-reduced-motion: reduce){
+  .lt9-num-fade{transition-duration:1ms !important;}
+}
+
+/* Unified Select/Clear toggle (replaces two adjacent buttons) */
+.lsel-meta-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:none;border:none;padding:0;margin:0;
+  font:inherit;color:var(--accent);cursor:pointer;
+  text-decoration:underline;text-underline-offset:2px;
+  line-height:1.2;white-space:nowrap;overflow:hidden;
+  transition:width 220ms cubic-bezier(.22,.61,.36,1),
+             opacity 130ms ease-out;
+  font-family:inherit;
+}
+.lsel-meta-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.lsel-meta-toggle.fading{opacity:0;}
+@media (prefers-reduced-motion: reduce){
+  .lsel-meta-toggle{transition-duration:1ms !important;}
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   v10.9 PHASE B §5 — Desktop single-row toolbar (≥ 720 px)
+   Mode · Correction · Topic · Level · Flavor in priority order.
+   Flex-wrap: everything on one line when room, wraps gracefully otherwise.
+   Visible ≥ 720 px. At < 720 px the mobile chip-row (.lt-bar) renders.
+   ═════════════════════════════════════════════════════════════════════════ */
+.d-tool{display:none;}
+@media (min-width:720px){
+  .d-tool{
+    display:flex;flex-wrap:wrap;align-items:center;
+    gap:16px;row-gap:12px;
+    padding:14px 18px 10px;
+    background:var(--bg);
+  }
+  .d-grp{display:flex;align-items:center;gap:10px;min-width:0;}
+  .d-lb{
+    font-size:.7rem;font-weight:600;color:var(--text-sub);
+    letter-spacing:.04em;text-transform:uppercase;
+    white-space:nowrap;flex:0 0 auto;
+  }
+  .d-div{
+    width:1px;height:22px;background:var(--border);
+    flex:0 0 auto;
+  }
+  /* Segmented control (Mode / Correction / Topic)
+     v10.9.1: rectangle shape (radius-sm) per redesign mockup. Level pills
+     keep their fully-rounded pill form below. */
+  .d-seg{
+    display:inline-flex;
+    border:1px solid var(--border);border-radius:var(--radius-sm);
+    background:var(--bg);padding:2px;
+    flex:0 0 auto;
+  }
+  .d-seg > button{
+    appearance:none;-webkit-appearance:none;
+    background:transparent;border:none;
+    padding:5px 14px;border-radius:calc(var(--radius-sm) - 2px);
+    color:var(--text);font-size:.82rem;font-weight:500;
+    font-family:inherit;cursor:pointer;line-height:1;
+    transition:background .14s ease,color .14s ease;
+    white-space:nowrap;-webkit-tap-highlight-color:transparent;
+  }
+  .d-seg > button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .d-seg > button.active{background:var(--accent);color:var(--bg);}
+  /* Level pills — direct toggles */
+  .d-lv{
+    appearance:none;-webkit-appearance:none;
+    padding:5px 12px;border-radius:999px;
+    border:1px solid var(--border);background:var(--bg);
+    color:var(--text);font-size:.78rem;font-weight:600;
+    font-family:inherit;cursor:pointer;line-height:1;
+    transition:background .14s ease,border-color .14s ease,color .14s ease,opacity .14s ease;
+    white-space:nowrap;-webkit-tap-highlight-color:transparent;
+    flex:0 0 auto;
+  }
+  .d-lv:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .d-lv.active{background:var(--accent);border-color:var(--accent);color:var(--bg);}
+  .d-lv.locked{opacity:.45;cursor:pointer;}
+  .d-lv.locked:hover{opacity:.6;}
+  /* Flavor dropdown button */
+  /* v10.9.2: rectangle trigger matching .d-seg aesthetic, with width
+     transition for smooth flavor-label size change. */
+  .d-dd{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:5px 12px;border-radius:var(--radius-sm);
+    border:1px solid var(--border);background:var(--bg);
+    color:var(--text);font-size:.82rem;font-weight:500;
+    font-family:inherit;cursor:pointer;line-height:1;
+    transition:background .14s ease,border-color .14s ease,
+               width 220ms cubic-bezier(.4,0,.2,1);
+    white-space:nowrap;-webkit-tap-highlight-color:transparent;
+    flex:0 0 auto;min-height:30px;
+    box-sizing:border-box;
+  }
+  .d-dd:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .d-dd[aria-expanded="true"]{border-color:var(--accent);}
+  .d-dd-chev{
+    flex:0 0 auto;color:var(--text-sub);
+    transition:transform .2s ease;
+    transform-origin:center;
+  }
+  .d-dd[aria-expanded="true"] .d-dd-chev{transform:rotate(180deg);}
+  /* Hide legacy desktop rows when new toolbar is active */
+  #lsel-screen > .lsel-top-row,
+  #lsel-screen > .lsel-scope-row{display:none !important;}
+}
+
+/* Flavor popover — v10.9.2: position:fixed (viewport-anchored) so it
+   sits tightly 4px below the trigger without being pushed down by a
+   positioned ancestor. Radius matches .d-dd trigger for a cohesive look. */
+.d-pop{
+  position:fixed;z-index:900;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  box-shadow:0 8px 24px rgba(0,0,0,0.12),0 2px 6px rgba(0,0,0,0.06);
+  padding:6px;
+  min-width:200px;
+  display:flex;flex-direction:column;gap:2px;
+  opacity:0;transform:translateY(-4px);pointer-events:none;
+  transition:opacity 180ms ease-out,transform 180ms ease-out;
+}
+.d-pop.open{opacity:1;transform:translateY(0);pointer-events:auto;}
+.d-pop-row{
+  appearance:none;-webkit-appearance:none;
+  display:flex;align-items:center;gap:10px;
+  padding:8px 12px;border-radius:calc(var(--radius-sm) - 2px);
+  border:none;background:transparent;
+  color:var(--text);font-size:.85rem;font-weight:500;
+  font-family:inherit;cursor:pointer;line-height:1.2;
+  text-align:left;width:100%;
+  transition:background .12s ease,transform .08s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.d-pop-row:hover{background:color-mix(in srgb,var(--accent) 6%,transparent);}
+.d-pop-row:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+.d-pop-row:active{transform:scale(.97);}
+.d-pop-row.active{background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--text);}
+.d-pop-row .mk{
+  flex:0 0 auto;width:14px;text-align:center;
+  color:var(--accent);font-weight:700;
+}
+/* v10.9.4: checkmark pop animation now only fires on the row that just
+   toggled ON. _lRenderFlavorPopover diffs in-place and adds .mk-anim only
+   to the clicked row. Other active rows retain their checkmark with no
+   animation, so opening the popover or toggling a different row no longer
+   replays a global animation. */
+@keyframes d-mk-pop{
+  from{opacity:0;transform:scale(.4);}
+  60%{opacity:1;transform:scale(1.15);}
+  to{opacity:1;transform:scale(1);}
+}
+.d-pop-row .mk{display:inline-block;transform-origin:center;}
+.d-pop-row.mk-anim .mk{
+  animation:d-mk-pop 220ms cubic-bezier(.4,0,.2,1);
+}
+.d-pop-row.locked{opacity:.5;}
+@media (prefers-reduced-motion: reduce){
+  .d-pop{transition-duration:1ms !important;}
+  .d-dd{transition-duration:1ms !important;}
+  .d-pop-row.mk-anim .mk{animation:none !important;}
 }
 
 /* ─── Phase 4.1: collapsed mobile flavor pill + accordion ───────────── */
@@ -3789,7 +4347,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.8</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.9</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -3826,11 +4384,11 @@ textarea:focus-visible,
           <div class="theme-swatch-lbl" style="width:36px;text-align:center">Light</div>
           <div class="theme-swatch-lbl" style="width:36px;text-align:center">Dark</div>
         </div>
-        <!-- Slate (default) -->
+        <!-- Stone (v10.9 default; legacy ids ‘’ / ‘slate-dark’ retained) -->
         <div class="theme-pair">
-          <div class="theme-pair-name">Slate <span style="font-size:.65rem;color:var(--text-sub)">(default)</span></div>
-          <div class="theme-swatch" data-t="" onclick="applyTheme('','Slate')"><span style="background:#F7F7F7"></span><span style="background:#929AAB"></span></div>
-          <div class="theme-swatch" data-t="slate-dark" onclick="applyTheme('slate-dark','Slate Dark')"><span style="background:#1A1C20"></span><span style="background:#929AAB"></span></div>
+          <div class="theme-pair-name">Stone <span style="font-size:.65rem;color:var(--text-sub)">(default)</span></div>
+          <div class="theme-swatch" data-t="" onclick="applyTheme('','Stone')"><span style="background:#F6F7F9"></span><span style="background:#393E46"></span></div>
+          <div class="theme-swatch" data-t="slate-dark" onclick="applyTheme('slate-dark','Stone Dark')"><span style="background:#1E2026"></span><span style="background:#E2E4EA"></span></div>
         </div>
         <!-- Sand -->
         <div class="theme-pair">
@@ -4031,6 +4589,81 @@ textarea:focus-visible,
   <!-- ═══ SCREEN 1: SELECTION ═══ -->
   <div class="learn-screen active" id="lsel-screen">
 
+    <!-- v10.9 Phase B §1: Mobile chip toolbar (3 chips + •••). Visible <720 px only.
+         Tapping a chip opens the bottom sheet (§2). The ••• button opens the full sheet.
+         Labels populated by lt9UpdateChipLabels(). -->
+    <div class="lt-bar" id="ltBar" role="toolbar" aria-label="Learn options">
+      <!-- v10.9.3: Mode chip is a CYCLER (no sheet). Tapping flips MCQ↔Type-in
+           and the existing roll-from-top animation plays via _lt9SetModeLabel. -->
+      <button class="lt-chip" id="ltChipMode"   type="button" onclick="lt9CycleMode(event)"   aria-label="Cycle answer mode"><span class="lt-lbl" id="ltLblMode"><span class="lt-roll" id="ltModeRoll"><span class="lt-roll-cur">MCQ</span><span class="lt-roll-nxt" aria-hidden="true"></span></span></span></button>
+      <button class="lt-chip" id="ltChipLevel"  type="button" onclick="lt9OpenSheet('level')"  aria-haspopup="dialog"><span class="lt-lbl" id="ltLblLevel">CT/CE</span><span class="lt-car" aria-hidden="true">▾</span></button>
+      <button class="lt-chip" id="ltChipFlavor" type="button" onclick="lt9OpenSheet('flavor')" aria-haspopup="dialog"><span class="lt-lbl" id="ltLblFlavor">All</span><span class="lt-car" aria-hidden="true">▾</span></button>
+      <button class="lt-more" id="ltChipMore"  type="button" onclick="lt9OpenSheet('more')"   aria-label="More options" aria-haspopup="dialog"><svg width="16" height="4" viewBox="0 0 16 4" fill="currentColor" aria-hidden="true"><circle cx="2" cy="2" r="1.6"/><circle cx="8" cy="2" r="1.6"/><circle cx="14" cy="2" r="1.6"/></svg></button>
+    </div>
+
+    <!-- v10.9 Phase B §2+§4: Bottom sheet (single reusable container).
+         Rendered for sections: mode | level | flavor | more.
+         Mounted once, content swapped by lt9OpenSheet(). -->
+    <div class="lt9-sheet" id="lt9Sheet" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lt9SheetTitle">
+      <div class="lt9-backdrop" id="lt9Backdrop"></div>
+      <div class="lt9-panel" id="lt9Panel">
+        <div class="lt9-grabber" aria-hidden="true"></div>
+        <div class="lt9-head">
+          <div class="lt9-head-title" id="lt9SheetTitle">Mode</div>
+          <button class="lt9-all" id="lt9SheetAll" type="button" hidden></button>
+        </div>
+        <ul class="lt9-list" id="lt9SheetList" role="listbox"></ul>
+      </div>
+    </div>
+
+    <!-- v10.9 Phase B §5: Desktop single flex-wrap toolbar.
+         Visible at ≥720 px; legacy .lsel-top-row + .lsel-scope-row are hidden
+         at the same breakpoint via CSS. Mode · Correction · Topic · Level ·
+         Flavor in priority order with vertical 1px dividers between groups. -->
+    <div class="d-tool" id="lselDesktopTool" role="toolbar" aria-label="Practice settings">
+      <div class="d-grp">
+        <span class="d-lb">Mode</span>
+        <div class="d-seg" id="dtMode">
+          <button type="button" data-mode="mcq" onclick="lselSetMode('mcq')">MCQ</button>
+          <button type="button" data-mode="typein" onclick="lselSetMode('typein')">Type-in</button>
+        </div>
+      </div>
+      <div class="d-div" aria-hidden="true"></div>
+      <div class="d-grp">
+        <span class="d-lb">Correction</span>
+        <div class="d-seg" id="dtCorr">
+          <button type="button" data-on="false" onclick="lselSetChallenge(false)">Off</button>
+          <button type="button" data-on="true" onclick="lselSetChallenge(true)">On</button>
+        </div>
+      </div>
+      <div class="d-div" aria-hidden="true"></div>
+      <div class="d-grp">
+        <span class="d-lb">Topic</span>
+        <div class="d-seg" id="dtTopic">
+          <button type="button" data-show="true" onclick="lselSetTopicHint(true)">Show</button>
+          <button type="button" data-show="false" onclick="lselSetTopicHint(false)">Hide</button>
+        </div>
+      </div>
+      <div class="d-div" aria-hidden="true"></div>
+      <div class="d-grp" id="dtLevels">
+        <span class="d-lb">Level</span>
+        <!-- 4 .d-lv pills rendered by _lRenderDesktopToolbar() -->
+      </div>
+      <div class="d-div" aria-hidden="true"></div>
+      <div class="d-grp">
+        <span class="d-lb">Flavor</span>
+        <button type="button" class="d-dd" id="dtFlavor"
+                aria-haspopup="listbox" aria-expanded="false"
+                onclick="lt9ToggleFlavorPop(event)">
+          <span id="dtFlavorLbl">All flavors</span>
+          <svg class="d-dd-chev" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><polyline points="2,3.5 5,6.5 8,3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Floating Flavor popover (anchored under #dtFlavor at open time). -->
+    <div class="d-pop" id="dtFlavorPop" role="listbox" aria-label="Choose flavors"></div>
+
     <!-- v10 Phase 4: Top row — three segmented controls (Mode, Challenge, Topic) -->
     <div class="lsel-top-row" id="lselTopRow">
       <div class="lsel-seg-group" data-key="mode">
@@ -4083,11 +4716,11 @@ textarea:focus-visible,
       </div>
     </div>
 
-    <!-- Select All / Clear + task count -->
+    <!-- v10.9 Phase B §3: Unified Select/Clear button (single button, label
+         flips by selection count with width-animate crossfade). -->
     <div class="lsel-meta-row">
-      <span class="lsel-meta-count"><strong id="lselTaskCount">0</strong> tasks selected</span>
-      <button class="lsel-meta-btn" onclick="lselSelectAll()">Select All</button>
-      <button class="lsel-meta-btn" onclick="lselClearAll()">Clear All</button>
+      <span class="lsel-meta-count"><strong id="lselTaskCount" class="lt9-num-fade">0</strong> tasks selected</span>
+      <button class="lsel-meta-toggle" id="lselMetaToggle" type="button" onclick="lselMetaToggleClick()">Select All</button>
     </div>
 
     <!-- Topic sections (rendered by JS) -->
@@ -4095,8 +4728,13 @@ textarea:focus-visible,
 
     <!-- Sticky start footer -->
     <div class="lsel-footer">
+      <!-- v10.9.5: split label so the static prefix never fades.
+           Only the count suffix uses the gentle 140 ms crossfade. -->
       <button class="lsel-start-btn" id="lselStartBtn" onclick="lselStartSession()" disabled>
-        Start Practice
+        <!-- v10.9.6: single span carries the full label; both prefix and
+             count crossfade together. The whole label is treated as one
+             string so the entire button text fades cohesively. -->
+        <span class="lsel-start-label lt9-num-fade" id="lselStartLabel">Start Practice</span>
       </button>
     </div>
   </div><!-- /lsel-screen -->
@@ -4373,7 +5011,7 @@ try { migrateEntryUidsIfNeeded(); } catch(e) {}
  *
  * No user-visible behaviour changes in Phase 0.
  * ═══════════════════════════════════════════════════════════════════════ */
-var APP_VERSION = 'v10.8';
+var APP_VERSION = 'v10.9';
 
 /* ════════════════════════════════════════════════════════════════════════════════════
  * v10.7 — pre-measured smart card-morph engine
@@ -6266,7 +6904,7 @@ function openTopic(blockKey) {
       if (_chipLocked) {
         chip.classList.add('locked');
         chip.setAttribute('aria-disabled', 'true');
-        chip.title = 'Upgrade to premium to unlock all features.\nContact ctcetrainer@gmail.com for access.';
+        chip.title = 'Upgrade to premium to unlock all features';
         chip.innerHTML = (isAnalogueMode ? `${vid}.1` : `${vid}`) + '<span class="vc-lock" aria-hidden="true">' + _LOCK_SVG + '</span>';
         chip.removeAttribute('title');
         chip.onclick = (e) => { try{ if(e&&e.stopPropagation) e.stopPropagation(); }catch(err){}; showVariantPurchaseModal(vid); };
@@ -7281,7 +7919,7 @@ function backToVariantGrid() {
 function _premiumLockedClick(e){
   try { if (e && e.stopPropagation) e.stopPropagation(); } catch(err) {}
   try {
-    var msg = 'Upgrade to premium to unlock all features.\nContact ctcetrainer@gmail.com for access.';
+    var msg = 'Upgrade to premium to unlock all features';
     if (window.v10UI && typeof window.v10UI.showToast === 'function') {
       window.v10UI.showToast(msg, 'info');
     } else if (typeof showToast === 'function') {
@@ -8606,7 +9244,7 @@ function _refreshMistakeLock() {
     var unlocked = false;
     try { unlocked = !!_isPremiumUnlocked(); } catch(e) { unlocked = false; }
     var ids = ['practiceMistakesBtn', 'learnPracticeMistakesBtn'];
-    var tip = 'Upgrade to premium to unlock all features.\nContact ctcetrainer@gmail.com for access.';
+    var tip = 'Upgrade to premium to unlock all features';
     ids.forEach(function(id){
       var btn = document.getElementById(id);
       if (!btn) return;
@@ -10302,6 +10940,7 @@ function initLearnSelection() {
   _lRenderLevelPills();
   _lRenderFlavorPills();
   _lRenderTopicSections();
+  try { lt9UpdateChipLabels(); } catch(e) {}
 
   /* v9.18: ensure all currently active level banks are loaded so the count
      bar and per-subtopic badges reflect the full bank size. Re-render once
@@ -10382,7 +11021,7 @@ function _lRenderLevelPills() {
   const active = _lstore('activeLevels', new Set(_LP4_DEFAULT_LEVELS));
   /* v10.1 Premium gate: only the CT/CE level is unlocked for non-premium. */
   const _premiumOK = (function(){ try { return _isPremiumUnlocked(); } catch(e){ return false; } })();
-  const _tip = 'Upgrade to premium to unlock all features.\nContact ctcetrainer@gmail.com for access.';
+  const _tip = 'Upgrade to premium to unlock all features';
   container.innerHTML = '';
   cfg.levels.forEach(l => {
     const btn = document.createElement('button');
@@ -10499,7 +11138,7 @@ function _lRenderFlavorPills() {
      is redundant. */
   /* v10.1 Premium gate: only the 'social' flavor is unlocked for non-premium. */
   const _premiumOK = (function(){ try { return _isPremiumUnlocked(); } catch(e){ return false; } })();
-  const _tip = 'Upgrade to premium to unlock all features.\nContact ctcetrainer@gmail.com for access.';
+  const _tip = 'Upgrade to premium to unlock all features';
   function paint(container, idPrefix, includeAll) {
     container.innerHTML = '';
     cfg.flavors.forEach(f => {
@@ -10696,6 +11335,7 @@ function lselSetMode(mode) {
     _lUpdateModeToggle();
     _lUpdateChipModeStates();
   }
+  try { lt9UpdateChipLabels(); } catch(e) {}
 }
 
 /* v10 Phase 4: Challenge segmented control */
@@ -10706,6 +11346,8 @@ function lselSetChallenge(on) {
   const offBtn = document.getElementById('lselChallengeOff');
   if (onBtn)  onBtn.classList.toggle('active',  !!on);
   if (offBtn) offBtn.classList.toggle('active', !on);
+  /* v10.9 §5: refresh desktop toolbar segmented states. */
+  try { _lRenderDesktopToolbar(); } catch (e) {}
 }
 
 /* v8: legacy alias kept for any external callers — compute via the new map. */
@@ -10780,6 +11422,966 @@ function lselSetTopicHint(show) {
   const offBtn = document.getElementById('lselTopicOff');
   if (onBtn) onBtn.classList.toggle('active', !!show);
   if (offBtn) offBtn.classList.toggle('active', !show);
+  /* v10.9 §5: refresh desktop toolbar segmented states. */
+  try { _lRenderDesktopToolbar(); } catch (e) {}
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   v10.9 PHASE B §1 — MOBILE TOOLBAR LABEL ENGINE
+   ══════════════════════════════════════════════════════════════════════════ */
+const _LT9_LEVEL_ORDER = ['ctce', 'b1', 'b2', 'c1'];
+const _LT9_FLAVOR_ORDER = ['social', 'personalities', 'history', 'science'];
+const _LT9_FLAVOR_SHORT = {
+  social: 'Social', personalities: 'Famous',
+  history: 'Historical', science: 'Science',
+};
+function lt9ComputeChipLabels() {
+  const cfg = window.LEARN_TOPICS_CONFIG || { levels: [], flavors: [] };
+  const mode = _lstore('answerMode', 'mcq');
+  const modeLabel = (mode === 'typein') ? 'Type-in' : 'MCQ';
+  const activeLevels = _lstore('activeLevels', new Set(_LP4_DEFAULT_LEVELS));
+  const levelById = {};
+  cfg.levels.forEach(l => { levelById[l.id] = l; });
+  const levelLabel = _LT9_LEVEL_ORDER
+    .filter(id => activeLevels.has(id) && levelById[id])
+    .map(id => levelById[id].displayShort)
+    .join('+') || '\u2014';
+  const activeFlavors = _lstore('activeFlavors', new Set());
+  const total = cfg.flavors.length || 4;
+  const n = activeFlavors.size;
+  let flavorLabel;
+  if (n === 0) flavorLabel = 'All';
+  else if (n === 1) {
+    const id = [...activeFlavors][0];
+    const flav = cfg.flavors.find(f => f.id === id);
+    flavorLabel = _LT9_FLAVOR_SHORT[id] || ((flav && flav.name) || 'Flavor').split(/\s|\u2013|\u2014|&/)[0];
+  } else flavorLabel = n + '/' + total;
+  return { mode: modeLabel, level: levelLabel, flavor: flavorLabel };
+}
+/* v10.9.3: Mode chip cycler. Tapping the Mode chip flips MCQ↔Type-in.
+   The roll-from-top animation is then played by _lt9SetModeLabel on the
+   downstream render. If the target mode is locked (premium), show the
+   standard premium-unlock tooltip/modal instead. */
+function lt9CycleMode(ev){
+  var avail = (typeof _lAvailableModesForSelection === 'function')
+    ? _lAvailableModesForSelection() : new Set(['mcq','typein']);
+  var cur = _lstore('answerMode','mcq');
+  var next = (cur === 'mcq') ? 'typein' : 'mcq';
+  if (!avail.has(next)) {
+    try { _premiumLockedClick(ev || {}); } catch(e){}
+    return;
+  }
+  try { window.lselSetMode(next); } catch(e){}
+}
+/* v10.9 §3: Mode chip uses a vertical-roll on label change.
+   New label slides in from TOP, current label drops DOWN, 240 ms.
+   Level + Flavor chips use plain textContent swap. */
+let _lt9ModeRollBusy = false;
+let _lt9ModeRollPending = null;
+function _lt9SetModeLabel(next) {
+  const roll = document.getElementById('ltModeRoll');
+  if (!roll) return;
+  const cur = roll.querySelector('.lt-roll-cur');
+  const nxt = roll.querySelector('.lt-roll-nxt');
+  if (!cur || !nxt) return;
+  if (cur.textContent === next) return;
+  if (_lt9ModeRollBusy) { _lt9ModeRollPending = next; return; }
+  _lt9ModeRollBusy = true;
+  nxt.textContent = next;
+  // Force reflow then add .rolling so animations run from frame 0.
+  void roll.offsetWidth;
+  roll.classList.add('rolling');
+  let finished = false;
+  let safetyTimer = null;
+  const onEnd = () => {
+    if (finished) return;
+    finished = true;
+    if (safetyTimer) { clearTimeout(safetyTimer); safetyTimer = null; }
+    cur.removeEventListener('animationend', onEnd);
+    roll.classList.remove('rolling');
+    cur.textContent = next;
+    nxt.textContent = '';
+    _lt9ModeRollBusy = false;
+    if (_lt9ModeRollPending !== null) {
+      const p = _lt9ModeRollPending; _lt9ModeRollPending = null;
+      _lt9SetModeLabel(p);
+    }
+  };
+  cur.addEventListener('animationend', onEnd);
+  // Safety timer scoped to this invocation — cleared when the real
+  // animationend fires. Prevents stale timers from a prior roll firing
+  // into a newer one.
+  safetyTimer = setTimeout(onEnd, 360);
+}
+/* v10.9.5: animate a mobile chip's width when its label changes. Same
+   measure-snap-back-then-transition pattern as the desktop flavor button —
+   the chip CSS already has `transition: width 220ms`, so all we need is
+   inline `width: <pxBefore>` → reflow → `width: <pxAfter>`. The label is
+   swapped during the snap so users never see a half-baked transition.
+   The chip is found via the lblId; the chip is its closest .lt-chip. */
+function _lt9AnimChipLabel(lblId, nextText) {
+  const lbl = document.getElementById(lblId);
+  if (!lbl) return;
+  if (lbl.textContent === nextText) return;
+  const chip = lbl.closest('.lt-chip');
+  if (!chip) { lbl.textContent = nextText; return; }
+
+  /* Cancel any in-flight animation by clearing the inline width before
+     measuring. Otherwise a rapid second toggle would measure mid-animation. */
+  const fromW = chip.offsetWidth;
+  const prevTr = chip.style.transition;
+  chip.style.transition = 'none';
+  lbl.textContent = nextText;
+  chip.style.width = 'auto';
+  const toW = chip.offsetWidth;
+  if (toW === fromW) {
+    chip.style.width = '';
+    chip.style.transition = prevTr;
+    return;
+  }
+  chip.style.width = fromW + 'px';
+  /* Force reflow so the next inline width takes the transition. */
+  void chip.offsetWidth;
+  chip.style.transition = prevTr || '';
+  chip.style.width = toW + 'px';
+  /* When the transition ends, drop the inline width so the chip can
+     resize naturally on subsequent renders. */
+  const cleanup = (e) => {
+    if (e && e.propertyName !== 'width') return;
+    chip.style.width = '';
+    chip.removeEventListener('transitionend', cleanup);
+    clearTimeout(chip._chipWT);
+  };
+  chip.addEventListener('transitionend', cleanup);
+  /* Safety: cleanup even if transitionend doesn't fire. */
+  clearTimeout(chip._chipWT);
+  chip._chipWT = setTimeout(cleanup, 320);
+}
+
+/* v10.9.6: coordinated FLIP across the entire mobile toolbar.
+   Why: when only the changing chip animates its own width, neighboring
+   chips snap to their new x positions because flex layout reflows
+   instantly. That snap is the "rigid" feel the user reported. With FLIP
+   we measure every chip's rect before the swaps, apply them, measure
+   after, then animate every chip from its old rect to its new rect using
+   a single 220 ms cubic-bezier(.4,0,.2,1) tween. All chips glide together. */
+function lt9UpdateChipLabels() {
+  try {
+    const lab = lt9ComputeChipLabels();
+    /* v10.9.6: snapshot positions BEFORE the mode roll begins so the Mode
+       chip's width change is part of the same coordinated FLIP. The mode
+       roll itself remains the existing roll-from-top animation. */
+    const bar = document.querySelector('.lt-bar');
+    const tracked = bar ? Array.from(bar.querySelectorAll('.lt-chip, .lt-more')) : [];
+    /* v10.9.6 fix: if a prior FLIP is still mid-animation, capture each
+       chip's CURRENT visual rect (which getBoundingClientRect reports
+       during a CSS transform transition) BEFORE we clear inline styles.
+       Otherwise clearing transform snaps the chip to its layout position
+       and the new FLIP starts from the wrong origin — producing the
+       "rigid" instant-jump the user reported when toggling levels in
+       quick succession. */
+    const fromRects = tracked.map(c => c.getBoundingClientRect());
+    /* Now clear stale inline state and stop any in-flight transition
+       cleanly so the layout reflows to the pre-swap natural position. */
+    tracked.forEach(c => {
+      if (c._chipWT) { clearTimeout(c._chipWT); c._chipWT = 0; }
+      c.style.transition = 'none';
+      c.style.width = '';
+      c.style.transform = '';
+    });
+    if (bar) void bar.offsetWidth;
+
+    /* Apply all label changes in one synchronous batch: mode roll (which
+       updates chip width via its own .lt-roll-cur swap once finished, but
+       text content for measurement uses .lt-roll-nxt during animation —
+       we use a temp measurement override below) and direct level/flavor. */
+    _lt9SetModeLabel(lab.mode);
+    const lvl = document.getElementById('ltLblLevel');
+    const flv = document.getElementById('ltLblFlavor');
+    let didLvl = false, didFlv = false;
+    if (lvl && lvl.textContent !== lab.level) { lvl.textContent = lab.level; didLvl = true; }
+    if (flv && flv.textContent !== lab.flavor) { flv.textContent = lab.flavor; didFlv = true; }
+
+    /* Snapshot post-swap rects. The Mode chip's natural width here
+       reflects the new label because .lt-roll-nxt now sets the geometry
+       once the .rolling class is added (the chip width comes from the
+       widest of cur/nxt). */
+    const toRects = tracked.map(c => c.getBoundingClientRect());
+
+    /* Run the FLIP only if at least one chip moved or resized. */
+    let anyMoved = false;
+    for (let i = 0; i < tracked.length; i++) {
+      const f = fromRects[i], t = toRects[i];
+      if (Math.abs(f.left - t.left) > 0.5 || Math.abs(f.width - t.width) > 0.5) { anyMoved = true; break; }
+    }
+    if (!anyMoved) {
+      tracked.forEach(c => { c.style.transition = ''; });
+    } else {
+      tracked.forEach((c, i) => {
+        const f = fromRects[i], t = toRects[i];
+        const dx = f.left - t.left;
+        if (Math.abs(dx) < 0.5 && Math.abs(f.width - t.width) < 0.5) return;
+        c.style.width = f.width + 'px';
+        c.style.transform = 'translateX(' + dx + 'px)';
+      });
+      if (bar) void bar.offsetWidth;
+      tracked.forEach((c, i) => {
+        const f = fromRects[i], t = toRects[i];
+        const dx = f.left - t.left;
+        if (Math.abs(dx) < 0.5 && Math.abs(f.width - t.width) < 0.5) {
+          c.style.transition = '';
+          return;
+        }
+        c.style.transition = 'transform 220ms cubic-bezier(.4,0,.2,1), width 220ms cubic-bezier(.4,0,.2,1)';
+        c.style.width = t.width + 'px';
+        c.style.transform = '';
+      });
+      tracked.forEach((c) => {
+        const cleanup = (e) => {
+          if (e && e.propertyName !== 'transform' && e.propertyName !== 'width') return;
+          c.style.width = '';
+          c.style.transform = '';
+          c.style.transition = '';
+          c.removeEventListener('transitionend', cleanup);
+          clearTimeout(c._chipWT);
+          c._chipWT = 0;
+        };
+        c.addEventListener('transitionend', cleanup);
+        clearTimeout(c._chipWT);
+        c._chipWT = setTimeout(cleanup, 320);
+      });
+    }
+  } catch (e) {}
+  /* v10.9 §5: keep desktop toolbar in sync on the same update cadence as the
+     mobile chip labels. Single-source render that touches Mode/Correction/
+     Topic active states, Level pills, and the Flavor dropdown label. */
+  try { _lRenderDesktopToolbar(); } catch (e) {}
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   v10.9 PHASE B §5 — DESKTOP TOOLBAR RENDERER (≥ 720 px)
+   Single flex-wrap row: Mode · Correction · Topic · Level · Flavor.
+   Source of truth for state is the same store the mobile toolbar reads.
+   ══════════════════════════════════════════════════════════════════════════ */
+const _LT9_FLAVOR_FULL = {
+  social: 'Social Situations',
+  personalities: 'Famous Personalities',
+  history: 'Historical Facts',
+  science: 'Science & Discovery',
+};
+const _LT9_FLAVOR_SHORT_DESK = {
+  social: 'Social',
+  personalities: 'Fam Per',
+  history: 'Hist',
+  science: 'Sci & Disc',
+};
+
+/* Compute desktop Flavor dropdown label per spec:
+   1 → full name / 2 → "A + B" / 3 → "A + B + C" / 4 → "All flavors". */
+/* v10.9.2: animate the Flavor trigger button between sizes when its label
+   changes. Uses a measure-snap-back-then-transition pattern for a clean,
+   solid CSS-driven width animation that never ends in an inline width. */
+function _lt9AnimFlavorBtn(newText) {
+  const btn = document.getElementById('dtFlavor');
+  const lbl = document.getElementById('dtFlavorLbl');
+  if (!lbl) return;
+  if (lbl.textContent === newText) return;
+  if (!btn) { lbl.textContent = newText; return; }
+
+  /* Snapshot starting width. */
+  const from = btn.offsetWidth;
+
+  /* Apply the new label. Then briefly let the button take its natural
+     width to read the target size. */
+  lbl.textContent = newText;
+  const prevInlineW = btn.style.width;
+  const prevInlineTr = btn.style.transition;
+  btn.style.transition = 'none';
+  btn.style.width = 'auto';
+  const to = btn.offsetWidth;
+
+  /* If sizes match, just clean up. */
+  if (to === from) {
+    btn.style.width = prevInlineW;
+    btn.style.transition = prevInlineTr;
+    return;
+  }
+
+  /* Snap back to the starting width with no transition, force reflow,
+     then animate to the target width via the .d-dd width transition. */
+  btn.style.width = from + 'px';
+  void btn.offsetWidth;
+  btn.style.transition = prevInlineTr;
+  btn.style.width = to + 'px';
+
+  const onEnd = (e) => {
+    if (e.propertyName !== 'width') return;
+    btn.removeEventListener('transitionend', onEnd);
+    btn.style.width = '';
+  };
+  btn.addEventListener('transitionend', onEnd);
+  /* Safety: if transitionend never fires (e.g. interrupted), clear after
+     the animation duration + a small buffer. */
+  setTimeout(() => {
+    btn.removeEventListener('transitionend', onEnd);
+    if (btn.style.width === to + 'px') btn.style.width = '';
+  }, 320);
+}
+
+function _lt9DesktopFlavorLabel() {
+  const cfg = window.LEARN_TOPICS_CONFIG || { flavors: [] };
+  const total = cfg.flavors.length || 4;
+  const active = _lstore('activeFlavors', new Set());
+  const ordered = _LT9_FLAVOR_ORDER.filter(id => active.has(id));
+  const n = ordered.length;
+  if (n === 0) return 'All flavors';
+  if (n === total) return 'All flavors';
+  if (n === 1) return _LT9_FLAVOR_FULL[ordered[0]] || ordered[0];
+  return ordered.map(id => _LT9_FLAVOR_SHORT_DESK[id] || id).join(' + ');
+}
+
+function _lRenderDesktopToolbar() {
+  const tool = document.getElementById('lselDesktopTool');
+  if (!tool || !window.LEARN_TOPICS_CONFIG) return;
+  const cfg = window.LEARN_TOPICS_CONFIG;
+
+  /* Mode segmented — sync against current store + availability. */
+  const curMode = _lstore('answerMode', 'mcq');
+  const avail = (typeof _lAvailableModesForSelection === 'function')
+    ? _lAvailableModesForSelection() : new Set(['mcq','typein']);
+  document.querySelectorAll('#dtMode > button').forEach(btn => {
+    const m = btn.getAttribute('data-mode');
+    btn.classList.toggle('active', curMode === m);
+    const locked = !avail.has(m);
+    btn.classList.toggle('disabled', locked);
+    btn.title = locked ? 'Not supported by current selection' : '';
+  });
+
+  /* Correction segmented. */
+  const curChal = !!_lstore('challengeMode', false);
+  document.querySelectorAll('#dtCorr > button').forEach(btn => {
+    const want = btn.getAttribute('data-on') === 'true';
+    btn.classList.toggle('active', curChal === want);
+  });
+
+  /* Topic-hint segmented. */
+  const curHint = !!_lstore('showTopicLabel', true);
+  document.querySelectorAll('#dtTopic > button').forEach(btn => {
+    const want = btn.getAttribute('data-show') === 'true';
+    btn.classList.toggle('active', curHint === want);
+  });
+
+  /* Level pills — opacity-only locked (no emojis), per mockup. */
+  const dtLevels = document.getElementById('dtLevels');
+  if (dtLevels) {
+    /* Wipe existing .d-lv buttons (keep the .d-lb label). */
+    dtLevels.querySelectorAll('.d-lv').forEach(el => el.remove());
+    const activeLvls = _lstore('activeLevels', new Set(_LP4_DEFAULT_LEVELS));
+    const premiumOK = (function(){ try { return _isPremiumUnlocked(); } catch(e){ return false; } })();
+    const tip = 'Upgrade to premium to unlock all features';
+    cfg.levels.forEach(l => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      const locked = !premiumOK && l.id !== 'ctce';
+      btn.className = 'd-lv' + (activeLvls.has(l.id) ? ' active' : '') + (locked ? ' locked' : '');
+      btn.textContent = l.displayShort || l.id;
+      if (locked) {
+        btn.title = tip;
+        btn.setAttribute('aria-disabled', 'true');
+        btn.onclick = (e) => _premiumLockedClick(e);
+      } else {
+        btn.onclick = () => _lToggleLevel(l.id);
+      }
+      dtLevels.appendChild(btn);
+    });
+  }
+
+  /* v10.9.2: animate the Flavor trigger width as its label changes. */
+  _lt9AnimFlavorBtn(_lt9DesktopFlavorLabel());
+
+  /* If popover is open, refresh its rows so checkmarks track state. */
+  const pop = document.getElementById('dtFlavorPop');
+  if (pop && pop.classList.contains('open')) _lRenderFlavorPopover();
+}
+
+/* Render full-name vertical rows in the popover; each row toggles its flavor.
+   v10.9.4: animation fix — do a FULL build only on first paint. On subsequent
+   renders, diff the active class per existing row and only play the checkmark
+   pop animation on the row whose state actually changed. This makes the mk
+   pop appear only on the clicked flavor instead of every active row. */
+function _lRenderFlavorPopover() {
+  const pop = document.getElementById('dtFlavorPop');
+  if (!pop || !window.LEARN_TOPICS_CONFIG) return;
+  const cfg = window.LEARN_TOPICS_CONFIG;
+  /* v10.9.4: align with the rest of the UI — an empty activeFlavors Set is
+     interpreted as "all flavors on" (this is what the trigger label, the
+     mobile sheet, and the toolbar count already do). Without this, opening
+     the popover for the first time on a fresh state shows everything as
+     unchecked even though the trigger reads "All flavors". */
+  const storedActive = _lstore('activeFlavors', new Set());
+  const allIds = cfg.flavors.map(f => f.id);
+  const active = (storedActive.size === 0)
+    ? new Set(allIds)
+    : storedActive;
+  const premiumOK = (function(){ try { return _isPremiumUnlocked(); } catch(e){ return false; } })();
+  const tip = 'Upgrade to premium to unlock all features';
+
+  /* First paint (or mismatch) — build from scratch without animation. */
+  const existing = pop.querySelectorAll('.d-pop-row');
+  const expectedIds = _LT9_FLAVOR_ORDER.filter(id => cfg.flavors.some(f => f.id === id));
+  const needRebuild = existing.length !== expectedIds.length
+    || Array.from(existing).some((r, i) => r.getAttribute('data-flavor') !== expectedIds[i]);
+
+  if (needRebuild) {
+    pop.innerHTML = '';
+    expectedIds.forEach(id => {
+      const flav = cfg.flavors.find(f => f.id === id);
+      const row = document.createElement('button');
+      row.type = 'button';
+      row.setAttribute('data-flavor', id);
+      const locked = !premiumOK && id !== 'social';
+      const isOn = active.has(id);
+      row.className = 'd-pop-row no-anim' + (isOn ? ' active' : '') + (locked ? ' locked' : '');
+      row.setAttribute('role', 'option');
+      row.setAttribute('aria-selected', String(isOn));
+      row.innerHTML = '<span class="mk">' + (isOn ? '\u2713' : '') + '</span>'
+                    + '<span class="nm">' + (_LT9_FLAVOR_FULL[id] || flav.name) + '</span>';
+      if (locked) {
+        row.title = tip;
+        row.setAttribute('aria-disabled', 'true');
+        row.onclick = (e) => _premiumLockedClick(e);
+      } else {
+        row.onclick = () => _lToggleFlavor(id);
+      }
+      pop.appendChild(row);
+    });
+    return;
+  }
+
+  /* Diff-in-place: flip active state per row, replay mk pop only where it
+     toggled ON, strip the suppression on any other row so subsequent state
+     flips still animate on their own. */
+  existing.forEach(row => {
+    const id = row.getAttribute('data-flavor');
+    const wasOn = row.classList.contains('active');
+    const isOn  = active.has(id);
+    const locked = !premiumOK && id !== 'social';
+    row.classList.toggle('locked', locked);
+    row.setAttribute('aria-selected', String(isOn));
+    if (wasOn === isOn) {
+      /* Ensure subsequent toggles animate cleanly. */
+      row.classList.remove('mk-anim');
+      return;
+    }
+    row.classList.toggle('active', isOn);
+    const mk = row.querySelector('.mk');
+    if (mk) mk.textContent = isOn ? '\u2713' : '';
+    /* Retrigger the keyframe animation by toggling the class off -> reflow -> on.
+       Only the clicked row gets .mk-anim, so only its checkmark pops. */
+    row.classList.remove('mk-anim', 'no-anim');
+    if (isOn) {
+      void row.offsetWidth;
+      row.classList.add('mk-anim');
+    }
+  });
+}
+
+/* Anchor + open the popover under the Flavor button. */
+function lt9OpenFlavorPop() {
+  const btn = document.getElementById('dtFlavor');
+  const pop = document.getElementById('dtFlavorPop');
+  if (!btn || !pop) return;
+  _lRenderFlavorPopover();
+  /* v10.9.2: popover is now position:fixed. Use raw viewport coords from
+     getBoundingClientRect — no scroll offsets. 4px gap under the trigger. */
+  const r = btn.getBoundingClientRect();
+  pop.style.top  = (r.bottom + 4) + 'px';
+  pop.style.left = r.left + 'px';
+  pop.style.minWidth = Math.max(r.width, 200) + 'px';
+  /* Reflow then animate (.open triggers fade + drop transition). */
+  void pop.offsetWidth;
+  pop.classList.add('open');
+  btn.setAttribute('aria-expanded', 'true');
+  /* Click-outside-only dismiss. Defer attach to next tick so the opening click
+     itself doesn't immediately close the popover. */
+  setTimeout(() => {
+    document.addEventListener('mousedown', _lt9FlavorPopOutside, true);
+  }, 0);
+}
+function lt9CloseFlavorPop() {
+  const pop = document.getElementById('dtFlavorPop');
+  const btn = document.getElementById('dtFlavor');
+  if (!pop) return;
+  pop.classList.remove('open');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+  document.removeEventListener('mousedown', _lt9FlavorPopOutside, true);
+}
+function _lt9FlavorPopOutside(e) {
+  const pop = document.getElementById('dtFlavorPop');
+  const btn = document.getElementById('dtFlavor');
+  if (!pop) return;
+  if (pop.contains(e.target)) return;          /* clicks inside popover keep it open (multi-select) */
+  if (btn && btn.contains(e.target)) return;   /* button toggle handles itself */
+  lt9CloseFlavorPop();
+}
+function lt9ToggleFlavorPop(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  const pop = document.getElementById('dtFlavorPop');
+  if (!pop) return;
+  if (pop.classList.contains('open')) lt9CloseFlavorPop();
+  else lt9OpenFlavorPop();
+}
+window.lt9ToggleFlavorPop  = lt9ToggleFlavorPop;
+window.lt9OpenFlavorPop    = lt9OpenFlavorPop;
+window.lt9CloseFlavorPop   = lt9CloseFlavorPop;
+window._lRenderDesktopToolbar = _lRenderDesktopToolbar;
+window._lRenderFlavorPopover  = _lRenderFlavorPopover;
+
+/* v10.9.6: viewport breakpoint helper. Mirrors the CSS @media (max-width:719px)
+   used to switch the toolbar layout. Returns a fresh value each call so any
+   subsequent resize correctly switches the row meta long/short form. */
+function _lt9IsMobile() {
+  try { return window.matchMedia('(max-width:719px)').matches; }
+  catch (e) { return window.innerWidth <= 719; }
+}
+/* On resize: re-pick long/short row meta without a full re-render. */
+(function _lt9MetaResize(){
+  let _last = _lt9IsMobile();
+  let _t;
+  window.addEventListener('resize', () => {
+    clearTimeout(_t);
+    _t = setTimeout(() => {
+      const cur = _lt9IsMobile();
+      if (cur === _last) return;
+      _last = cur;
+      document.querySelectorAll('.lsel-topic-sel-count').forEach(el => {
+        const next = cur ? el.getAttribute('data-short') : el.getAttribute('data-long');
+        if (next != null && el.textContent !== next) el.textContent = next;
+      });
+    }, 120);
+  });
+})();
+
+/* v10.9.4: small reusable helper — crossfade an element's text in place.
+   Used for the header "N tasks selected" count and each per-topic header
+   count. 140 ms fade-out → swap textContent → 140 ms fade-in. */
+function _lt9SetTextFaded(el, next) {
+  if (!el) return;
+  const cur = el.textContent;
+  if (cur === next) return;
+  /* Coalesce rapid changes: cancel any in-flight fade timer and start fresh. */
+  if (el._fadeT) { clearTimeout(el._fadeT); el._fadeT = 0; }
+  el.classList.add('fading');
+  /* The CSS .fading rule sets opacity 0 with a 140 ms transition. Wait that
+     long, then swap text and remove the class so opacity transitions back. */
+  el._fadeT = setTimeout(() => {
+    el.textContent = next;
+    el.classList.remove('fading');
+    el._fadeT = 0;
+  }, 140);
+}
+
+/* Unified Select/Clear toggle. Label is derived from selectedSubtopics size:
+   0 → "Select All", ≥1 → "Clear All".
+   Tap fires the matching action AND triggers a width-animated crossfade. */
+function lt9MetaToggleLabel() {
+  const sel = _lstore('selectedSubtopics', new Set());
+  return sel.size === 0 ? 'Select All' : 'Clear All';
+}
+function lt9SyncMetaToggle() {
+  /* v10.9.4: always animate the label crossfade when the state flips, even
+     when the change originates from a different code path (topic chip click,
+     level toggle, flavor change, etc.). The prior implementation did a hard
+     text swap here, so "Select All" → "Clear All" only animated on its own
+     click. Now it shares the same fade + width sequence as the direct click. */
+  const btn = document.getElementById('lselMetaToggle');
+  if (!btn) return;
+  if (btn._animating) return;
+  const want = lt9MetaToggleLabel();
+  if (btn.textContent === want) return;
+  _lt9CrossfadeMetaToggle(btn, want);
+}
+
+/* Shared crossfade helper for the Select All / Clear All button.
+   130 ms fade-out → swap text + measure → 220 ms width animate + fade in. */
+function _lt9CrossfadeMetaToggle(btn, nextLabel) {
+  btn._animating = true;
+  const startW = btn.getBoundingClientRect().width;
+  btn.style.width = startW + 'px';
+  void btn.offsetWidth;
+  btn.classList.add('fading');
+
+  setTimeout(() => {
+    btn.textContent = nextLabel;
+    btn.style.width = 'auto';
+    const targetW = btn.getBoundingClientRect().width;
+    btn.style.width = startW + 'px';
+    void btn.offsetWidth;
+    btn.style.width = targetW + 'px';
+    btn.classList.remove('fading');
+    setTimeout(() => {
+      btn.style.width = '';
+      btn._animating = false;
+      /* Re-sync: state may have flipped again mid-animation. */
+      const final = lt9MetaToggleLabel();
+      if (btn.textContent !== final) _lt9CrossfadeMetaToggle(btn, final);
+    }, 230);
+  }, 130);
+}
+function lselMetaToggleClick() {
+  /* v10.9.4: the click now simply fires the matching action. The label
+     crossfade is handled by lt9SyncMetaToggle() via _lUpdateCount(), which
+     routes through _lt9CrossfadeMetaToggle for any state flip regardless of
+     its origin. This keeps the animation logic in one place. */
+  const btn = document.getElementById('lselMetaToggle');
+  if (!btn) return;
+  if (btn._animating) return;
+  const before = btn.textContent;
+  if (before === 'Select All') {
+    try { lselSelectAll(); } catch (e) {}
+  } else {
+    try { lselClearAll(); } catch (e) {}
+  }
+}
+/* ══════════════════════════════════════════════════════════════════════════
+   v10.9 PHASE B §2+§4 — BOTTOM SHEET ENGINE
+   Single reusable sheet (#lt9Sheet) rendered for: mode | level | flavor | more.
+   Open/close 320 ms cubic-bezier(.32,.72,0,1). Drag-to-dismiss with velocity.
+   Rows: 40 px collapsed, hairline divider, 2 px accent + tint when active.
+   ══════════════════════════════════════════════════════════════════════════ */
+let _lt9CurrentSection = null;
+let _lt9DragState = null;
+
+function _lt9LockIcon(text) {
+  return '\u00A0' + (text || '\u{1F512}');
+}
+
+/* v10.9.3: ONE unified settings sheet rendered into #lt9SheetList.
+   Five sections, in this order, matching the mockup:
+     1. MODE                 — rectangle segment [MCQ | Type-in]
+     2. IMMEDIATE CORRECTION — rectangle segment [Off | On]
+     3. TOPIC DISPLAY        — rectangle segment [Show | Hide]
+     4. PRACTICE LEVEL       — pill row [CT/CE][B1][B2][C1]
+     5. FLAVOR               — pill wrap-row [Social][Famous][...]
+   The chip triggers (Level/Flavor/•••) all open this same sheet; the
+   section argument controls post-open scroll-into-view. */
+function _lt9RenderSettingsSheet() {
+  const title = document.getElementById('lt9SheetTitle');
+  const allBtn = document.getElementById('lt9SheetAll');
+  const list = document.getElementById('lt9SheetList');
+  const cfg = window.LEARN_TOPICS_CONFIG;
+  if (!title || !allBtn || !list || !cfg) return;
+  title.textContent = 'Settings';
+  allBtn.hidden = true;
+  list.innerHTML = '';
+
+  const mkSection = (id, labelText) => {
+    const li = document.createElement('li');
+    li.className = 'lt9-section';
+    li.id = 'lt9Sec' + id;
+    const lbl = document.createElement('div');
+    lbl.className = 'lt9-section-label';
+    lbl.textContent = labelText;
+    li.appendChild(lbl);
+    list.appendChild(li);
+    return li;
+  };
+
+  /* v10.9.7 §1: each seg button gets data-id so click handlers can toggle
+     .active in place across the seg without re-rendering the whole sheet. */
+  const mkSeg = (section, opts, currentId, onPick) => {
+    const seg = document.createElement('div');
+    seg.className = 'lt9-seg-rect';
+    opts.forEach(o => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = o.label;
+      b.dataset.id = o.id;
+      if (o.id === currentId) b.classList.add('active');
+      if (o.locked) { b.classList.add('locked'); }
+      b.addEventListener('click', (ev) => {
+        if (o.locked) { try { _premiumLockedClick(ev); } catch(e){} return; }
+        onPick(o.id);
+        /* In-place: only the clicked seg's .active flips. CSS transitions
+           on the seg buttons keep the visual feel from v10.9.6. */
+        seg.querySelectorAll('button').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.id === o.id);
+        });
+      });
+      seg.appendChild(b);
+    });
+    section.appendChild(seg);
+  };
+
+  /* ── 1. MODE ──────────────────────────────────────────────── */
+  const avail = (typeof _lAvailableModesForSelection === 'function')
+    ? _lAvailableModesForSelection() : new Set(['mcq','typein']);
+  const curMode = _lstore('answerMode','mcq');
+  const modeSec = mkSection('Mode', 'MODE');
+  mkSeg(modeSec, [
+    { id:'mcq',    label:'MCQ',     locked: !avail.has('mcq')    },
+    { id:'typein', label:'Type-in', locked: !avail.has('typein') },
+  ], curMode, (id) => { try { window.lselSetMode(id); } catch(e){} });
+
+  /* ── 2. IMMEDIATE CORRECTION ───────────────────────────────────── */
+  const corrOn = !!_lstore('challengeMode', false);
+  const corrSec = mkSection('Correction', 'IMMEDIATE CORRECTION');
+  mkSeg(corrSec, [
+    { id:'off', label:'Off' },
+    { id:'on',  label:'On'  },
+  ], corrOn ? 'on' : 'off',
+    (id) => { try { window.lselSetChallenge(id === 'on'); } catch(e){} });
+
+  /* ── 3. TOPIC DISPLAY ────────────────────────────────────────── */
+  const topicOn = !!_lstore('showTopicLabel', false);
+  const topicSec = mkSection('Topic', 'TOPIC DISPLAY');
+  mkSeg(topicSec, [
+    { id:'show', label:'Show' },
+    { id:'hide', label:'Hide' },
+  ], topicOn ? 'show' : 'hide',
+    (id) => { try { window.lselSetTopicHint(id === 'show'); } catch(e){} });
+
+  /* ── 4. PRACTICE LEVEL ──────────────────────────────────────── */
+  const levelSec = mkSection('Level', 'PRACTICE LEVEL');
+  const activeLevels = _lstore('activeLevels', new Set(_LP4_DEFAULT_LEVELS));
+  const levelOrder = (typeof _LT9_LEVEL_ORDER !== 'undefined')
+    ? _LT9_LEVEL_ORDER : cfg.levels.map(l => l.id);
+  const levelById = {};
+  cfg.levels.forEach(l => { levelById[l.id] = l; });
+  const levelPills = document.createElement('div');
+  levelPills.className = 'lt9-pills';
+  levelOrder.forEach(id => {
+    const lvl = levelById[id]; if (!lvl) return;
+    const isActive = activeLevels.has(id);
+    const locked = !_isPremiumUnlocked() && id !== 'ctce';
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'lt9-pill' + (isActive ? ' active' : '') + (locked ? ' locked' : '');
+    b.textContent = lvl.displayShort || lvl.displayLong || lvl.id;
+    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    if (locked) {
+      b.title = 'Upgrade to premium to unlock all features';
+      b.addEventListener('click', (ev) => { try { _premiumLockedClick(ev); } catch(e){} });
+    } else {
+      b.addEventListener('click', () => {
+        try { window._lToggleLevel(id); } catch(e){}
+        /* In-place: toggle this pill's .active to match new state. */
+        const nowActive = _lstore('activeLevels', new Set(_LP4_DEFAULT_LEVELS)).has(id);
+        b.classList.toggle('active', nowActive);
+        b.setAttribute('aria-pressed', nowActive ? 'true' : 'false');
+        /* v10.9.7 §1: changing levels can change which answer-modes are
+           available (because subtopic eligibility shifts). Refresh the
+           MODE segment's .locked state in place so MCQ/Type-in greys
+           correctly without rebuilding the whole sheet. */
+        try { _lt9RefreshSheetModeLocks(); } catch(e){}
+      });
+    }
+    levelPills.appendChild(b);
+  });
+  levelSec.appendChild(levelPills);
+
+  /* ── 5. FLAVOR ──────────────────────────────────────────────── */
+  const flavorSec = mkSection('Flavor', 'FLAVOR');
+  const activeFlavors = _lstore('activeFlavors', new Set());
+  const flavorOrder = (typeof _LT9_FLAVOR_ORDER !== 'undefined')
+    ? _LT9_FLAVOR_ORDER : cfg.flavors.map(f => f.id);
+  const flavorById = {};
+  cfg.flavors.forEach(f => { flavorById[f.id] = f; });
+  const flavorPills = document.createElement('div');
+  flavorPills.className = 'lt9-pills';
+  flavorOrder.forEach(id => {
+    const flv = flavorById[id]; if (!flv) return;
+    /* Empty activeFlavors means “all on” per existing convention. */
+    const isActive = activeFlavors.size === 0 || activeFlavors.has(id);
+    const locked = !_isPremiumUnlocked() && id !== 'social';
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'lt9-pill' + (isActive ? ' active' : '') + (locked ? ' locked' : '');
+    b.textContent = flv.name || flv.id;
+    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    if (locked) {
+      b.title = 'Upgrade to premium to unlock all features';
+      b.addEventListener('click', (ev) => { try { _premiumLockedClick(ev); } catch(e){} });
+    } else {
+      b.addEventListener('click', () => {
+        try { window._lToggleFlavor(id); } catch(e){}
+        /* In-place: re-derive active state for every flavor pill in this row,
+           because the “empty set means all on” convention means a single
+           toggle can flip multiple pills (e.g. when going from “all on”
+           into single-pill mode). Cheap: ~5 nodes. */
+        const cur = _lstore('activeFlavors', new Set());
+        flavorPills.querySelectorAll('button').forEach(btn => {
+          const fid = btn.dataset.id;
+          if (!fid) return;
+          const isActive = cur.size === 0 || cur.has(fid);
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      });
+    }
+    /* v10.9.7 §1: tag pill so the in-place updater above can find it. */
+    b.dataset.id = id;
+    flavorPills.appendChild(b);
+  });
+  flavorSec.appendChild(flavorPills);
+}
+
+/* v10.9.7 §1: in-place refresh of the MODE seg's .locked + .active state.
+   Called after a level toggle so the Mode buttons reflect the new
+   availability/lock without rebuilding the sheet DOM. */
+function _lt9RefreshSheetModeLocks() {
+  const sec = document.getElementById('lt9SecMode');
+  if (!sec) return;
+  const seg = sec.querySelector('.lt9-seg-rect');
+  if (!seg) return;
+  const avail = (typeof _lAvailableModesForSelection === 'function')
+    ? _lAvailableModesForSelection() : new Set(['mcq','typein']);
+  const curMode = _lstore('answerMode','mcq');
+  seg.querySelectorAll('button').forEach(btn => {
+    const id = btn.dataset.id;
+    if (!id) return;
+    btn.classList.toggle('locked', !avail.has(id));
+    btn.classList.toggle('active', id === curMode);
+  });
+}
+
+/* v10.9.3: all chip triggers render the same sheet — section only picks
+   which subsection gets scrolled into view after the sheet opens. */
+function _lt9RenderSheet(section) {
+  _lt9RenderSettingsSheet();
+}
+
+function lt9OpenSheet(section) {
+  const sheet = document.getElementById('lt9Sheet');
+  const panel = document.getElementById('lt9Panel');
+  const backdrop = document.getElementById('lt9Backdrop');
+  if (!sheet || !panel || !backdrop) return;
+  _lt9CurrentSection = section;
+  _lt9RenderSheet(section);
+  // Reset any leftover transforms
+  panel.style.transform = '';
+  backdrop.style.opacity = '';
+  sheet.classList.remove('dragging');
+  sheet.setAttribute('aria-hidden', 'false');
+  // Force reflow then add .open so transition runs
+  void sheet.offsetWidth;
+  sheet.classList.add('open');
+  document.body.classList.add('lt9-locked');
+  /* v10.9.3: scroll to relevant section after the sheet has expanded.
+     Mode chip never opens the sheet; level/flavor scroll to their section;
+     anything else (•••) starts at the top. */
+  const list = document.getElementById('lt9SheetList');
+  const scrollTarget =
+    section === 'level'  ? document.getElementById('lt9SecLevel')  :
+    section === 'flavor' ? document.getElementById('lt9SecFlavor') : null;
+  requestAnimationFrame(() => {
+    if (!list) return;
+    if (scrollTarget) {
+      const top = scrollTarget.offsetTop - 4;
+      list.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      list.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  });
+}
+
+function lt9CloseSheet() {
+  const sheet = document.getElementById('lt9Sheet');
+  const panel = document.getElementById('lt9Panel');
+  const backdrop = document.getElementById('lt9Backdrop');
+  if (!sheet) return;
+  sheet.classList.remove('open');
+  sheet.classList.remove('dragging');
+  if (panel) panel.style.transform = '';
+  if (backdrop) backdrop.style.opacity = '';
+  sheet.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('lt9-locked');
+  _lt9CurrentSection = null;
+}
+
+/* Drag-to-dismiss: threshold 30 % of panel height OR downward velocity > 0.5 px/ms */
+function _lt9InitSheetDrag() {
+  const sheet = document.getElementById('lt9Sheet');
+  const panel = document.getElementById('lt9Panel');
+  const backdrop = document.getElementById('lt9Backdrop');
+  if (!sheet || !panel || !backdrop) return;
+
+  // Backdrop tap dismiss
+  backdrop.addEventListener('click', () => lt9CloseSheet());
+
+  const onDown = (e) => {
+    if (!sheet.classList.contains('open')) return;
+    // Only initiate drag from grabber/head; rows handle their own clicks
+    const target = e.target;
+    const isHandle = target.closest && (target.closest('.lt9-grabber') || target.closest('.lt9-head'));
+    // Allow drag from anywhere on the panel BUT ignore interactive children
+    const isInteractive = target.closest && target.closest('button, .lt9-row, .lt9-seg, .lt9-all');
+    if (isInteractive && !isHandle) return;
+    const t = (e.touches && e.touches[0]) || e;
+    _lt9DragState = {
+      startY: t.clientY,
+      startT: Date.now(),
+      lastY: t.clientY,
+      lastT: Date.now(),
+      height: panel.getBoundingClientRect().height,
+      moved: false,
+    };
+  };
+  const onMove = (e) => {
+    if (!_lt9DragState) return;
+    const t = (e.touches && e.touches[0]) || e;
+    const dy = t.clientY - _lt9DragState.startY;
+    if (dy <= 0) {
+      panel.style.transform = '';
+      backdrop.style.opacity = '';
+      _lt9DragState.lastY = t.clientY;
+      _lt9DragState.lastT = Date.now();
+      return;
+    }
+    if (!_lt9DragState.moved) {
+      _lt9DragState.moved = true;
+      sheet.classList.add('dragging');
+    }
+    panel.style.transform = 'translateY(' + dy + 'px)';
+    const ratio = Math.min(1, dy / _lt9DragState.height);
+    backdrop.style.opacity = String(1 - ratio);
+    _lt9DragState.lastY = t.clientY;
+    _lt9DragState.lastT = Date.now();
+  };
+  const onUp = () => {
+    if (!_lt9DragState) return;
+    const ds = _lt9DragState;
+    _lt9DragState = null;
+    sheet.classList.remove('dragging');
+    const dy = ds.lastY - ds.startY;
+    const dt = Math.max(1, ds.lastT - ds.startT);
+    const velocity = dy / dt; // px/ms (positive = down)
+    const overThreshold = dy > ds.height * 0.30;
+    const fastFlick = velocity > 0.5;
+    if (overThreshold || fastFlick) {
+      lt9CloseSheet();
+    } else {
+      panel.style.transform = '';
+      backdrop.style.opacity = '';
+    }
+  };
+  panel.addEventListener('touchstart', onDown, { passive: true });
+  panel.addEventListener('touchmove', onMove, { passive: true });
+  panel.addEventListener('touchend', onUp);
+  panel.addEventListener('touchcancel', onUp);
+  panel.addEventListener('mousedown', onDown);
+  document.addEventListener('mousemove', (e) => { if (_lt9DragState) onMove(e); });
+  document.addEventListener('mouseup', onUp);
+
+  // Esc closes
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sheet.classList.contains('open')) lt9CloseSheet();
+  });
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', _lt9InitSheetDrag);
+} else {
+  _lt9InitSheetDrag();
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -10822,12 +12424,23 @@ function _lRenderTopicSections() {
     const selectedTasks = selectedSts.reduce((n, st) => n + _lCountTasksForCanonical(st.id), 0);
 
     const section = document.createElement('div');
-    section.className = 'lsel-topic-section' + (selectedSts.length > 0 ? ' open' : '');
+    /* v10.9.7 §3: .has-selection drives the tint+accent border independently
+       of .open, so the visual cue persists when the row is collapsed. */
+    const hasSel = selectedSts.length > 0;
+    section.className = 'lsel-topic-section'
+      + (hasSel ? ' open' : '')
+      + (hasSel ? ' has-selection' : '');
     section.id = 'lsel-section-' + topic.id;
 
-    const headerCount = selectedSts.length
+    /* v10.9.6: short form on mobile ("9 · 27 tasks") and long form on
+       desktop ("9 subtopics · 27 tasks"), per mockup §4 row spec. The
+       selected state already uses the short "1/9 · 6 tasks" form on both. */
+    const headerCountLong = selectedSts.length
       ? `${selectedSts.length}/${topic.subtopics.length} · ${selectedTasks} tasks`
       : `${topic.subtopics.length} subtopics · ${totalTasks} tasks`;
+    const headerCountShort = selectedSts.length
+      ? `${selectedSts.length}/${topic.subtopics.length} · ${selectedTasks} tasks`
+      : `${topic.subtopics.length} · ${totalTasks} tasks`;
     const allBtnLabel = allSelected ? 'Clear' : 'All';
 
     section.innerHTML = `
@@ -10837,22 +12450,25 @@ function _lRenderTopicSections() {
           <polyline points="9 18 15 12 9 6"/>
         </svg>
         <span class="lsel-topic-title">${topic.name}</span>
-        <span class="lsel-topic-sel-count" id="lsel-count-${topic.id}">${headerCount}</span>
+        <span class="lsel-topic-sel-count lt9-num-fade" id="lsel-count-${topic.id}"
+              data-long="${headerCountLong}" data-short="${headerCountShort}">${_lt9IsMobile() ? headerCountShort : headerCountLong}</span>
         <button class="lsel-topic-all-btn${allSelected ? ' active' : ''}" id="lsel-all-${topic.id}"
                 onclick="event.stopPropagation(); _lToggleTopicAll('${topic.id}')">${allBtnLabel}</button>
       </div>
-      <div class="lsel-topic-body${selectedSts.length > 0 ? ' open' : ''}" id="lsel-body-${topic.id}" style="${selectedSts.length > 0 ? 'height:auto' : ''}">
-        ${topic.subtopics.map(st => {
-          const chipsHtml = showChips
-            ? '<span class="lsel-chip-level">' + helpers.activeLevelChips(st.id, active).join(' • ') + '</span>'
-            : '';
-          return `
-            <button class="lsel-chip${sel.has(st.id) ? ' active' : ''}"
-                    id="lsel-chip-${st.id}"
-                    onclick="_lToggleSubtopic('${topic.id}', '${st.id}')">
-              ${st.name}${chipsHtml}
-            </button>`;
-        }).join('')}
+      <div class="lsel-topic-body${selectedSts.length > 0 ? ' open' : ''}" id="lsel-body-${topic.id}">
+        <div class="lsel-topic-body-inner">
+          ${topic.subtopics.map(st => {
+            const chipsHtml = showChips
+              ? '<span class="lsel-chip-level">' + helpers.activeLevelChips(st.id, active).join(' • ') + '</span>'
+              : '';
+            return `
+              <button class="lsel-chip${sel.has(st.id) ? ' active' : ''}"
+                      id="lsel-chip-${st.id}"
+                      onclick="_lToggleSubtopic('${topic.id}', '${st.id}')">
+                ${st.name}${chipsHtml}
+              </button>`;
+          }).join('')}
+        </div>
       </div>
     `;
     container.appendChild(section);
@@ -10864,21 +12480,16 @@ function _lRenderTopicSections() {
   container.classList.add('stagger-in');
 }
 
-/* Smoothly animate subtopic body open/closed using scrollHeight */
+/* v10.9.9: Smoothly open/close the subtopic body using a CSS Grid track
+   (grid-template-rows 0fr ↔ 1fr) defined in CSS. No JS height measurement,
+   no scrollHeight read, no padding manipulation — the class toggle is the
+   entire animation. This eliminates two long-standing bugs: (1) the late
+   "jump" at the end of open caused by padding-bottom being double-counted
+   in scrollHeight, and (2) the left-snap of chips at the start of close
+   caused by padding-left/right being removed instantly. */
 function _lTopicSlide(body, open) {
   if (!body) return;
-  if (open) {
-    body.classList.add('open');
-    body.style.height = body.scrollHeight + 'px';
-    const onEnd = (e) => { if (e.propertyName !== 'height') return; if (body.classList.contains('open')) body.style.height = 'auto'; body.removeEventListener('transitionend', onEnd); };
-    body.addEventListener('transitionend', onEnd);
-  } else {
-    body.style.height = body.scrollHeight + 'px';
-    requestAnimationFrame(() => {
-      body.style.height = '0';
-      body.classList.remove('open');
-    });
-  }
+  body.classList.toggle('open', !!open);
 }
 
 /* Expand/collapse section */
@@ -10980,14 +12591,36 @@ function _lUpdateTopicMeta(topicId) {
   const countEl = document.getElementById('lsel-count-' + topicId);
   const allBtn  = document.getElementById('lsel-all-' + topicId);
   if (countEl) {
-    countEl.textContent = selectedSts.length
+    /* v10.9.6: short form on mobile ("9 · 27 tasks"), long on desktop
+       ("9 subtopics · 27 tasks"). Selected state uses the short form on
+       both viewports. The data-long/data-short attrs let a viewport
+       resize re-pick the right form without a full re-render. */
+    const longForm = selectedSts.length
       ? selectedSts.length + '/' + topic.subtopics.length + ' · ' + selectedTasks + ' tasks'
       : topic.subtopics.length + ' subtopics · ' + totalTasks + ' tasks';
+    const shortForm = selectedSts.length
+      ? selectedSts.length + '/' + topic.subtopics.length + ' · ' + selectedTasks + ' tasks'
+      : topic.subtopics.length + ' · ' + totalTasks + ' tasks';
+    countEl.setAttribute('data-long', longForm);
+    countEl.setAttribute('data-short', shortForm);
+    const next = _lt9IsMobile() ? shortForm : longForm;
+    if (countEl.classList.contains('lt9-num-fade')) {
+      _lt9SetTextFaded(countEl, next);
+    } else {
+      countEl.textContent = next;
+    }
   }
   if (allBtn) {
     allBtn.classList.toggle('active', allSelected);
     allBtn.textContent = allSelected ? 'Clear' : 'All';
   }
+
+  /* v10.9.7 §3: keep .has-selection in sync with the selection state.
+     This runs on every subtopic toggle and every All/Clear toggle, so
+     both mobile and desktop reflect the selection tint immediately and
+     keep it when the section is collapsed. */
+  const sectionEl = document.getElementById('lsel-section-' + topicId);
+  if (sectionEl) sectionEl.classList.toggle('has-selection', selectedSts.length > 0);
 }
 
 /* Refresh all visible topic metas in-place after a state change that doesn't
@@ -11033,80 +12666,53 @@ function _lUpdateCount() {
   sel.forEach(canonId => { count += _lCountTasksForCanonical(canonId); });
 
   const countEl = document.getElementById('lselTaskCount');
-  if (countEl) countEl.textContent = count;
+  if (countEl) {
+    /* v10.9.4: animate the number change instead of a hard swap. */
+    if (countEl.classList.contains('lt9-num-fade')) {
+      _lt9SetTextFaded(countEl, String(count));
+    } else {
+      countEl.textContent = count;
+    }
+  }
 
   const startBtn = document.getElementById('lselStartBtn');
   if (startBtn) {
+    /* v10.9.6: unified-label model.
+       The whole button text ("Start Practice (N tasks)" / "Continue Practice
+       (N left)") fades together as a single string so the action and the
+       count read as one cohesive label, not two pieces flickering at
+       different moments. The button's width also smoothly animates between
+       the old and the new label width. */
     const canContinue = _lsCurrentMatchesSnapshot();
-    let nextLabel;
+    let label;
     if (count === 0) {
       startBtn.disabled = true;
-      nextLabel = 'Start Practice';
-      /* v10.6 fix #1: when disabled, clear any forced inline opacity so the
-         CSS rule .lsel-start-btn:disabled{opacity:.4} can take effect.
-         (The self-heal block above sets opacity:1 unconditionally, which was
-         masking the disabled state visually.) */
+      label = 'Start Practice';
       startBtn.style.opacity = '';
+      startBtn.style.transition = '';
     } else if (canContinue) {
       const saved = _lsLoad();
       const remaining = Math.max(0, (saved.queue.length || 0) - (saved.cursor || 0));
       startBtn.disabled = false;
-      nextLabel = `Continue Practice (${remaining} left)`;
+      label = `Continue Practice (${remaining} left)`;
+      startBtn.style.opacity = '';
+      startBtn.style.transition = '';
     } else {
       startBtn.disabled = false;
-      nextLabel = `Start Practice (${count} tasks)`;
+      label = `Start Practice (${count} tasks)`;
+      startBtn.style.opacity = '';
+      startBtn.style.transition = '';
     }
-    if (startBtn.textContent !== nextLabel) {
-      /* v9 Fix 7: previous implementation could leave the button stuck
-         at opacity 0 when _lUpdateCount fired again before the 160 ms
-         timer ran (clearTimeout cancelled the restore). The fix is a
-         self-healing crossfade that always ends at opacity 1, even if
-         interrupted, by:
-           • cancelling any pending rAF/timeouts before starting,
-           • always swapping the text and restoring opacity in the same
-             rAF chain so an interruption either finishes the previous
-             swap (text + opacity 1) or starts a new one,
-           • enforcing opacity 1 at the end with both rAF and a safety
-             timeout fallback. */
-      if (!startBtn.style.transition) {
-        startBtn.style.transition = 'opacity .18s ease';
-      }
-      cancelAnimationFrame(startBtn._labelRAF1 || 0);
-      cancelAnimationFrame(startBtn._labelRAF2 || 0);
-      clearTimeout(startBtn._labelTimer);
-      clearTimeout(startBtn._labelSafety);
-      startBtn.style.opacity = '0';
-      startBtn._labelTimer = setTimeout(() => {
-        startBtn.textContent = nextLabel;
-        startBtn._labelRAF1 = requestAnimationFrame(() => {
-          startBtn._labelRAF2 = requestAnimationFrame(() => {
-            /* v10.6 fix #1: only restore opacity if not disabled. When
-               disabled, leave inline empty so :disabled{opacity:.4} wins. */
-            startBtn.style.opacity = startBtn.disabled ? '' : '1';
-          });
-        });
-        /* Safety: if anything ate the rAF chain, force opacity back. */
-        startBtn._labelSafety = setTimeout(() => {
-          if (startBtn.disabled) {
-            startBtn.style.opacity = '';
-          } else if (startBtn.style.opacity !== '1') {
-            startBtn.style.opacity = '1';
-          }
-        }, 240);
-      }, 160);
-    } else {
-      /* v9 Fix 7: same label — ensure the button is fully visible.
-         v10.6: respect the disabled state so the .4 opacity rule shows. */
-      if (startBtn.disabled) {
-        startBtn.style.opacity = '';
-      } else if (startBtn.style.opacity && startBtn.style.opacity !== '1') {
-        startBtn.style.opacity = '1';
-      }
+    const labelEl = document.getElementById('lselStartLabel');
+    if (labelEl) {
+      _lt9SetTextFaded(labelEl, label);
     }
     startBtn.classList.toggle('continue-mode', canContinue && count > 0);
   }
   _lUpdateModeToggle();
   _lUpdateChipModeStates();
+  try { lt9UpdateChipLabels(); } catch(e) {}
+  try { lt9SyncMetaToggle(); } catch(e) {}
 }
 
 /* Select All — every visible canonical sub under current active levels.
@@ -11138,6 +12744,11 @@ function lselClearAll() {
     const body = s.querySelector('.lsel-topic-body');
     _lTopicSlide(body, false);
   });
+  /* v10.9.7 §3: also drop the .has-selection tint when the user clears
+     everything, so the rows return to their neutral collapsed look. */
+  document.querySelectorAll('.lsel-topic-section.has-selection').forEach(s => {
+    s.classList.remove('has-selection');
+  });
   _lUpdateCount();
 }
 
@@ -11154,8 +12765,10 @@ function _lUpdateAllChipsInPlace() {
       if (chip) chip.classList.toggle('active', sel.has(st.id));
     });
     const section = document.getElementById('lsel-section-' + topic.id);
-    if (section && sel.size > 0) {
+    if (section) {
       const hasSelected = topic.subtopics.some(st => sel.has(st.id));
+      /* v10.9.7 §3: tint mirrors selection regardless of expand state. */
+      section.classList.toggle('has-selection', hasSelected);
       if (hasSelected && !section.classList.contains('open')) {
         section.classList.add('open');
         const body = document.getElementById('lsel-body-' + topic.id);
