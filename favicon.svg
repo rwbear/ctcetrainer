@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <style>
+    .bg   { fill: #F6F7F9; }
+    .page { fill: #1E2026; }
+    @media (prefers-color-scheme: dark) {
+      .bg   { fill: #1E2026; }
+      .page { fill: #F6F7F9; }
+    }
+  </style>
+  <rect class="bg" x="0" y="0" width="512" height="512"/>
+  <path class="page" d="M 132 116 L 240 116 L 240 396 L 132 396 A 36 36 0 0 1 96 360 L 96 152 A 36 36 0 0 1 132 116 Z"/>
+  <path class="page" d="M 272 116 L 380 116 A 36 36 0 0 1 416 152 L 416 360 A 36 36 0 0 1 380 396 L 272 396 Z"/>
+</svg>
