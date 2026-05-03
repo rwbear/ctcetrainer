@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.9.11 · Logo + meta refresh
+     v10.10 · Bug fixes + Premium UX
      Brand chip in-app stays “v10.9”. Build version is in the comment below.
-     Build: v10.9.11
+     Build: v10.10
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
-<meta name="description" content="Бесплатный тренажёр по английскому языку.">
+<meta name="description" content="Бесплатный тренажёр по английскому для подготовки к ЦТ и ЦЭ. Уровни B1, B2, C1, CT/CE: времена, условные предложения, страдательный залог, модальные глаголы, артикли, словообразование.">
 <meta name="keywords" content="ЦТ английский, ЦЭ английский, подготовка к ЦТ, подготовка к ЦЭ, тренажёр английского, централизованный экзамен, B1, B2, C1, English grammar trainer">
 <meta name="author" content="rwbear">
 <link rel="canonical" href="https://rwbear.github.io/ctcetrainer/">
@@ -26,7 +26,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ЦТ/ЦЭ English Trainer">
 <meta property="og:title" content="ЦТ/ЦЭ English Trainer — подготовка онлайн">
-<meta property="og:description" content="Бесплатный тренажёр по английскому языку.">
+<meta property="og:description" content="Бесплатный тренажёр по английскому языку. Уровни B1, B2, C1, CT/CE — все основные темы грамматики для ЦТ и ЦЭ.">
 <meta property="og:url" content="https://rwbear.github.io/ctcetrainer/">
 <meta property="og:image" content="https://rwbear.github.io/ctcetrainer/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -38,16 +38,14 @@
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ЦТ/ЦЭ English Trainer — подготовка онлайн">
-<meta name="twitter:description" content="Бесплатный тренажёр по английскому языку.">
+<meta name="twitter:description" content="Бесплатный тренажёр по английскому языку. Уровни B1, B2, C1, CT/CE.">
 <meta name="twitter:image" content="https://rwbear.github.io/ctcetrainer/og-image.png">
 <meta name="twitter:image:alt" content="ЦТ/ЦЭ English Trainer">
 
-<!-- Favicon set — adaptive light/dark via prefers-color-scheme -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg?v=10911">
-<link rel="icon" type="image/x-icon" href="favicon.ico?v=10911">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32-light.png?v=10911" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32-dark.png?v=10911" media="(prefers-color-scheme: dark)">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=10911">
+<!-- Favicon set -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
 <!-- Structured data: EducationalApplication schema (Google rich result) -->
@@ -456,6 +454,10 @@ html{
      clean. Scrolling still works via wheel/touch/keyboard. */
   scrollbar-width:none;       /* Firefox */
   -ms-overflow-style:none;    /* IE / old Edge */
+  /* v10.10: disable double-tap zoom site-wide. Pinch-zoom is preserved
+     (touch-action:manipulation only kills the 350ms double-tap delay
+     and the synthetic zoom gesture). */
+  touch-action:manipulation;
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar{ display:none; }     /* Chromium / WebKit — main page */
@@ -471,6 +473,9 @@ body{
   /* v9.14: prevent overscroll bounce that caused page-jumps at the bottom
      of mobile pages. Vertical chain stops at the body edge. */
   overscroll-behavior-y:contain;
+  /* v10.10: see html rule above. Same touch-action so iOS doesn't
+     fall back to default 350ms tap delay on body-level taps. */
+  touch-action:manipulation;
 }
 
 /* ─── TOP NAV ────────────────────────────────────────────────────────── */
@@ -953,6 +958,8 @@ body{
    removed. The new .ap-sync-section above owns all sync-panel styles. */
 
 /* v10 Phase 3: Creator pill, action rows, inline code form, clear-all modal */
+/* v10.10: legacy .ap-creator-pill kept (still used by sign-out fallback in
+   anonymous state below). Visible status now lives in .ap-premium-card. */
 .ap-creator-pill{
   display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.06em;
   text-transform:uppercase;color:#AA8A10;
@@ -960,14 +967,216 @@ body{
   border:1px solid color-mix(in srgb,#AA8A10 40%,transparent);
   padding:2px 7px;border-radius:8px;margin-top:4px;
 }
-[data-theme="gold-dark"] .ap-creator-pill,
-[data-theme="slate-dark"] .ap-creator-pill,
-[data-theme="sand-dark"] .ap-creator-pill,
-[data-theme="ocean-dark"] .ap-creator-pill,
-[data-theme="moss-dark"] .ap-creator-pill,
-[data-theme="lavender-dark"] .ap-creator-pill,
-[data-theme="rose-dark"] .ap-creator-pill,
-[data-theme="pine-forest-dark"] .ap-creator-pill{}
+
+/* ─── v10.10: Premium card (3-state banner inside Account dropdown) ──── */
+/* Champagne accent token: warm gold that reads as "premium" in every theme.
+   We use one base color with theme-aware tints rather than swapping per theme
+   so the brand identity stays consistent. */
+:root{
+  --premium-gold:#C9A96E;          /* champagne base */
+  --premium-gold-strong:#B7913F;   /* slightly deeper for text/icon */
+  --premium-gold-tint:rgba(201,169,110,.10);
+  --premium-gold-tint-strong:rgba(201,169,110,.18);
+}
+/* Dark themes get a brighter champagne so it reads on dark surfaces. */
+[data-theme="slate-dark"],
+[data-theme="sand-dark"],
+[data-theme="ocean-dark"],
+[data-theme="lavender-dark"],
+[data-theme="moss-dark"],
+[data-theme="rose-dark"],
+[data-theme="pine-forest-dark"],
+[data-theme="gold-dark"]{
+  --premium-gold:#D9BD86;
+  --premium-gold-strong:#E5CFA0;
+  --premium-gold-tint:rgba(217,189,134,.12);
+  --premium-gold-tint-strong:rgba(217,189,134,.22);
+}
+
+.ap-premium-card{
+  display:flex;align-items:center;gap:12px;
+  width:100%;box-sizing:border-box;
+  padding:11px 14px;margin:10px 0 12px;
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  background:var(--bg);
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:background .15s ease,border-color .15s ease,transform .12s ease;
+  user-select:none;text-align:left;
+  font:inherit;color:inherit;
+}
+.ap-premium-card:hover{
+  border-color:var(--premium-gold);
+  background:var(--premium-gold-tint);
+}
+.ap-premium-card:active{transform:scale(.99);}
+.ap-premium-card .apc-glyph{
+  flex-shrink:0;width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.05rem;color:var(--premium-gold-strong);
+  line-height:1;
+}
+.ap-premium-card .apc-text{flex:1;min-width:0;line-height:1.25;}
+.ap-premium-card .apc-title{
+  display:block;
+  font-size:.86rem;font-weight:700;color:var(--text);
+  letter-spacing:-.005em;margin-bottom:1px;
+}
+.ap-premium-card .apc-sub{
+  display:block;
+  font-size:.72rem;color:var(--text-sub);
+}
+.ap-premium-card .apc-tail{
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  width:18px;height:18px;color:var(--text-sub);opacity:.7;
+  transition:transform .15s ease,color .15s ease,opacity .15s ease;
+}
+.ap-premium-card:hover .apc-tail{
+  transform:translateX(2px);
+  color:var(--premium-gold-strong);opacity:1;
+}
+
+/* Premium state — filled tint, gold border, check tail. */
+.ap-premium-card.is-premium{
+  background:var(--premium-gold-tint);
+  border-color:var(--premium-gold);
+}
+.ap-premium-card.is-premium .apc-title{color:var(--text);}
+.ap-premium-card.is-premium .apc-tail{
+  color:var(--premium-gold-strong);opacity:1;
+}
+.ap-premium-card.is-premium:hover{background:var(--premium-gold-tint-strong);}
+
+/* Creator state — inverted tile (deep stone with champagne glyph + text).
+   Visibly outranks Premium. Uses --accent so it auto-adapts on every theme. */
+.ap-premium-card.is-creator{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:var(--on-accent);
+}
+.ap-premium-card.is-creator .apc-glyph{color:var(--premium-gold);}
+.ap-premium-card.is-creator .apc-title{color:var(--on-accent);}
+.ap-premium-card.is-creator .apc-sub{color:var(--on-accent);opacity:.72;}
+.ap-premium-card.is-creator .apc-tail{color:var(--premium-gold);opacity:1;}
+.ap-premium-card.is-creator:hover{
+  filter:brightness(1.05);
+  background:var(--accent);
+}
+
+/* ─── v10.10: Premium info modal (extends .ap-modal) ──────────────────── */
+.ap-premium-modal-head{
+  display:flex;flex-direction:column;align-items:flex-start;
+  margin-bottom:14px;
+}
+.ap-premium-modal-glyph{
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;line-height:1;
+  color:var(--premium-gold-strong);
+  margin-bottom:8px;
+}
+.ap-premium-modal-head .ap-modal-title{margin-bottom:2px;}
+.ap-premium-modal-head .ap-modal-sub{margin-bottom:0;}
+.ap-premium-section-label{
+  font-size:.65rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text-sub);
+  margin:14px 0 8px;
+}
+.ap-premium-section-label:first-child{margin-top:0;}
+.ap-premium-feature-list{
+  list-style:none;padding:0;margin:0 0 12px;
+}
+.ap-premium-feature-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:5px 0;font-size:.83rem;color:var(--text);line-height:1.45;
+}
+.ap-premium-feature-list li .apf-tick{
+  flex-shrink:0;color:var(--premium-gold-strong);
+  font-size:.85rem;line-height:1.45;width:14px;text-align:center;
+}
+.ap-premium-feature-list li.coming{color:var(--text-sub);font-style:italic;}
+.ap-premium-feature-list li.coming .apf-tick{color:var(--premium-gold);}
+.ap-premium-modal-status{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 14px;margin:6px 0 4px;
+  border-radius:var(--radius-sm);
+  background:var(--premium-gold-tint);
+  border:1px solid var(--premium-gold);
+  font-size:.86rem;color:var(--text);font-weight:600;
+}
+.ap-premium-modal-status.is-creator{
+  background:var(--accent);border-color:var(--accent);color:var(--on-accent);
+}
+.ap-premium-modal-status .apms-glyph{
+  color:var(--premium-gold-strong);font-size:1rem;line-height:1;
+}
+.ap-premium-modal-status.is-creator .apms-glyph{color:var(--premium-gold);}
+.ap-premium-modal-invite{
+  font-size:.83rem;color:var(--text);line-height:1.55;
+  margin:6px 0 8px;
+}
+.ap-premium-modal-contact{
+  font-size:.7rem;color:var(--text-sub);
+  font-style:italic;line-height:1.5;
+  opacity:.75;
+}
+.ap-premium-modal-contact a{
+  color:var(--text-sub);text-decoration:underline;text-underline-offset:2px;
+}
+.ap-premium-modal-contact a:hover{color:var(--premium-gold-strong);}
+.ap-modal-close{
+  position:absolute;top:10px;right:10px;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  border:none;background:none;cursor:pointer;
+  color:var(--text-sub);border-radius:6px;
+  transition:background .12s ease,color .12s ease;
+  padding:0;
+}
+.ap-modal-close:hover{background:var(--border);color:var(--text);}
+.ap-modal.has-close{position:relative;}
+
+/* ─── v10.10: Account dropdown structure (Idea A) ────────────────────── */
+.ap-section{
+  padding-top:12px;margin-top:12px;
+  border-top:1px solid var(--border);
+}
+.ap-section:first-child{padding-top:0;margin-top:0;border-top:none;}
+.ap-section-label{
+  font-size:.62rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text-sub);
+  margin-bottom:8px;
+}
+.ap-profile-head{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:0;
+}
+.ap-profile-avatar{
+  flex-shrink:0;width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--accent);color:var(--on-accent);
+  font-size:.92rem;font-weight:700;
+  letter-spacing:-.02em;
+  text-transform:uppercase;
+}
+.ap-profile-info{flex:1;min-width:0;line-height:1.25;}
+.ap-profile-info .ap-email{
+  display:block;font-size:.82rem;color:var(--text);
+  word-break:break-all;line-height:1.3;
+}
+.ap-profile-info .ap-method{
+  display:block;font-size:.66rem;color:var(--text-sub);margin-top:2px;
+}
+.ap-signout-link{
+  display:inline-flex;align-items:center;gap:6px;
+  background:none;border:none;padding:6px 0;
+  font:inherit;color:var(--text-sub);cursor:pointer;
+  font-size:.78rem;text-decoration:none;
+  transition:color .12s ease;
+  -webkit-tap-highlight-color:transparent;
+  margin-top:4px;
+}
+.ap-signout-link:hover{color:var(--text);text-decoration:underline;text-underline-offset:2px;}
+.ap-signout-link svg{width:13px;height:13px;}
+
 .ap-actions{
   border-top:1px solid var(--border);
   margin-top:10px;padding-top:4px;
@@ -3838,20 +4047,35 @@ body.lt9-locked{overflow:hidden;}
    while the parent card is locked at fixed height with content invisible). */
 .practice-expl-compact{
   font-size:.82rem;color:var(--text-sub);line-height:1.5;
-  overflow:hidden;height:0;opacity:0;margin-top:6px;
+  overflow:hidden;height:0;opacity:0;
+  /* v10.10: outer margin-top removed. When collapsed (height:0) the
+     leaking 6 px below the toggle button is gone. Margin reappears
+     only with .show — v107Morph animates the parent card's height
+     so the inner snap is invisible. */
+  margin-top:0;
   transition:none;
 }
-.practice-expl-compact.show{opacity:1;/* height set by JS */}
+.practice-expl-compact.show{
+  opacity:1;margin-top:6px;
+  /* height set by JS */
+}
 .practice-expl-full{
   font-size:.82rem;color:var(--text);line-height:1.6;
   background:var(--bg);border:1px solid transparent;
-  border-radius:var(--radius-sm);padding:10px 12px;
-  margin-top:6px;word-break:break-word;
+  border-radius:var(--radius-sm);
+  /* v10.10: vertical padding + outer margin only when shown.
+     Collapsed state has zero vertical contribution so it stops
+     pushing the toggle row down. */
+  padding:0 12px;
+  margin-top:0;
+  word-break:break-word;
   overflow:hidden;height:0;opacity:0;
   transition:none;
 }
 .practice-expl-full.show{
-  opacity:1;border-color:var(--border);/* height set by JS */
+  opacity:1;border-color:var(--border);
+  padding:10px 12px;margin-top:6px;
+  /* height set by JS */
 }
 .practice-expl-source{
   font-size:.72rem;color:var(--text-sub);margin-top:6px;
@@ -14543,67 +14767,163 @@ function lresBackToSelection() {
       var methodLabel = method === 'google.com' ? 'Google' : method === 'password' ? 'Email' : method;
       var email = _currentUser.email || 'No email';
       var isCreator = (window.v10Get && window.v10Get('ct_v10_creator') === true);
-      var creatorPillHtml = isCreator ? '<div class="ap-creator-pill">Creator</div>' : '';
-      /* v9.13: Cloud sync lives inside the Account dropdown now.
-         _renderAccountSync() paints the status + buttons into the
-         section below whenever sync state changes.
-         v10 Phase 3: Creator pill + action rows (creator code, clear-all). */
-      content.innerHTML =
-        '<div class="account-popup-signed">' +
-          '<div><div class="ap-email">' + _escHtml(email) + '</div>' +
-          '<div class="ap-method">Signed in via ' + _escHtml(methodLabel) + '</div>' +
-          creatorPillHtml +
+      var isPremium = (window.v10Get && window.v10Get('ct_v10_premium') === true);
+      /* v10.10: avatar = first letter of email. */
+      var avatarLetter = (email && email[0]) ? email[0].toUpperCase() : '?';
+      /* v10.10: Premium card — 3 states (free / premium / creator). Tap opens modal. */
+      var pcClass, pcGlyph, pcTitle, pcSub, pcTail;
+      if (isCreator){
+        pcClass = 'is-creator';
+        pcGlyph = '\u2605';
+        pcTitle = 'Creator';
+        pcSub   = 'Lifetime access · all features';
+        pcTail  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
+      } else if (isPremium){
+        pcClass = 'is-premium';
+        pcGlyph = '\u2726';
+        pcTitle = 'Premium member';
+        pcSub   = 'All features unlocked';
+        pcTail  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
+      } else {
+        pcClass = '';
+        pcGlyph = '\u2726';
+        pcTitle = 'Premium';
+        pcSub   = 'Unlock all topics & variants';
+        pcTail  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>';
+      }
+      var premiumCardHtml =
+        '<button type="button" class="ap-premium-card ' + pcClass + '" ' +
+          'onclick="v10UI.showPremiumInfo()" ' +
+          'aria-label="Premium details">' +
+          '<span class="apc-glyph" aria-hidden="true">' + pcGlyph + '</span>' +
+          '<span class="apc-text">' +
+            '<span class="apc-title">' + pcTitle + '</span>' +
+            '<span class="apc-sub">' + pcSub + '</span>' +
+          '</span>' +
+          '<span class="apc-tail" aria-hidden="true">' + pcTail + '</span>' +
+        '</button>';
+
+      /* v10.10: Profile section with avatar + email + sign-out link.
+         Sign out collapsed to a small text link — the dropdown footer
+         no longer competes with primary actions. */
+      var profileHtml =
+        '<div class="ap-section">' +
+          '<div class="ap-profile-head">' +
+            '<div class="ap-profile-avatar" aria-hidden="true">' + _escHtml(avatarLetter) + '</div>' +
+            '<div class="ap-profile-info">' +
+              '<span class="ap-email">' + _escHtml(email) + '</span>' +
+              '<span class="ap-method">Signed in via ' + _escHtml(methodLabel) + '</span>' +
+            '</div>' +
           '</div>' +
-        '</div>' +
-        '<div class="ap-sync-section" id="apSyncSection">' +
-          '<div class="ap-sync-status" id="apSyncStatus"><span class="ap-status-dot"></span><span class="ap-sync-status-text">—</span></div>' +
-          '<div class="ap-sync-meta" id="apSyncMeta">—</div>' +
-          '<div class="ap-sync-buttons">' +
-            '<button class="ap-sync-action" id="apUploadBtn" onclick="_fbManualUpload()">Upload to cloud</button>' +
-            '<button class="ap-sync-action" id="apDownloadBtn" onclick="_fbManualDownload()">Download from cloud</button>' +
+          '<button class="ap-signout-link" type="button" onclick="_fbSignOut()">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+              '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>' +
+            '</svg>' +
+            'Sign out' +
+          '</button>' +
+        '</div>';
+
+      /* v10.10: Sync section as its own labeled card. Buttons stay equal
+         width — the icons make their direction clear. */
+      var syncHtml =
+        '<div class="ap-section">' +
+          '<div class="ap-section-label">Cloud sync</div>' +
+          '<div class="ap-sync-section" id="apSyncSection" style="margin-top:0;padding-top:0;border-top:none">' +
+            '<div class="ap-sync-status" id="apSyncStatus"><span class="ap-status-dot"></span><span class="ap-sync-status-text">—</span></div>' +
+            '<div class="ap-sync-meta" id="apSyncMeta">—</div>' +
+            '<div class="ap-sync-buttons">' +
+              '<button class="ap-sync-action" id="apUploadBtn" onclick="_fbManualUpload()">↑ Backup</button>' +
+              '<button class="ap-sync-action" id="apDownloadBtn" onclick="_fbManualDownload()">↓ Restore</button>' +
+            '</div>' +
           '</div>' +
-        '</div>' +
-        '<div class="ap-actions">' +
-          (isCreator
-            ? ''
-            : '<div class="ap-action-row v107-code-row" id="apCreatorRow" onclick="v10UI.showCreatorCodeForm(this)">' +
-                '<span class="ap-action-glyph">' + _AP_KEY_SVG + '</span>' +
-                '<div class="v107-code-cell">' +
-                  '<span class="v107-code-closed">Enter special code</span>' +
-                  '<div class="v107-code-open">' +
-                    '<div class="v107-code-inp-reveal">' +
-                      '<input type="password" class="v107-code-input" id="apCreatorInput" placeholder="Enter code" autocomplete="off" spellcheck="false">' +
-                    '</div>' +
-                    '<button type="button" class="v107-sub-key" id="apCreatorApply" aria-label="Submit code" tabindex="-1">' +
-                      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>' +
-                    '</button>' +
+        '</div>';
+
+      /* v10.10: Settings group (special code).
+         If creator, hide — nothing more to enter. */
+      var settingsHtml = isCreator ? '' :
+        '<div class="ap-section">' +
+          '<div class="ap-section-label">Settings</div>' +
+          '<div class="ap-actions" style="border-top:none;margin-top:0;padding-top:0">' +
+            '<div class="ap-action-row v107-code-row" id="apCreatorRow" onclick="v10UI.showCreatorCodeForm(this)">' +
+              '<span class="ap-action-glyph">' + _AP_KEY_SVG + '</span>' +
+              '<div class="v107-code-cell">' +
+                '<span class="v107-code-closed">Enter special code</span>' +
+                '<div class="v107-code-open">' +
+                  '<div class="v107-code-inp-reveal">' +
+                    '<input type="password" class="v107-code-input" id="apCreatorInput" placeholder="Enter code" autocomplete="off" spellcheck="false">' +
                   '</div>' +
+                  '<button type="button" class="v107-sub-key" id="apCreatorApply" aria-label="Submit code" tabindex="-1">' +
+                    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>' +
+                  '</button>' +
                 '</div>' +
-              '</div>') +
-          '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
-            '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
-            '<span>Clear all statistics</span>' +
+              '</div>' +
+            '</div>' +
           '</div>' +
-        '</div>' +
-        '<button class="ap-signout-btn" onclick="_fbSignOut()" style="margin-top:10px">Sign out</button>';
+        '</div>';
+
+      /* v10.10: Destructive group on its own. */
+      var dangerHtml =
+        '<div class="ap-section">' +
+          '<div class="ap-actions" style="border-top:none;margin-top:0;padding-top:0">' +
+            '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
+              '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
+              '<span>Clear all statistics</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+
+      content.innerHTML =
+        profileHtml +
+        premiumCardHtml +
+        syncHtml +
+        settingsHtml +
+        dangerHtml;
       _renderAccountSync();
     } else {
       btn.classList.remove('signed-in');
       var isCreatorOut = (window.v10Get && window.v10Get('ct_v10_creator') === true);
-      var creatorPillOut = isCreatorOut ? '<div class="ap-creator-pill">Creator</div>' : '';
+      var isPremiumOut = (window.v10Get && window.v10Get('ct_v10_premium') === true);
+      /* v10.10: Premium card for the signed-out state too — lets anonymous
+         users discover what Premium is, and reflects it if they entered
+         a code while not signed in. */
+      var pcOutClass, pcOutGlyph, pcOutTitle, pcOutSub, pcOutTail;
+      if (isCreatorOut){
+        pcOutClass = 'is-creator'; pcOutGlyph = '\u2605';
+        pcOutTitle = 'Creator'; pcOutSub = 'Lifetime access · all features';
+        pcOutTail = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
+      } else if (isPremiumOut){
+        pcOutClass = 'is-premium'; pcOutGlyph = '\u2726';
+        pcOutTitle = 'Premium member'; pcOutSub = 'All features unlocked';
+        pcOutTail = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
+      } else {
+        pcOutClass = ''; pcOutGlyph = '\u2726';
+        pcOutTitle = 'Premium'; pcOutSub = 'Unlock all topics & variants';
+        pcOutTail = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>';
+      }
+      var premiumCardOutHtml =
+        '<button type="button" class="ap-premium-card ' + pcOutClass + '" ' +
+          'onclick="v10UI.showPremiumInfo()" aria-label="Premium details">' +
+          '<span class="apc-glyph" aria-hidden="true">' + pcOutGlyph + '</span>' +
+          '<span class="apc-text">' +
+            '<span class="apc-title">' + pcOutTitle + '</span>' +
+            '<span class="apc-sub">' + pcOutSub + '</span>' +
+          '</span>' +
+          '<span class="apc-tail" aria-hidden="true">' + pcOutTail + '</span>' +
+        '</button>';
+
       content.innerHTML =
         '<div class="ap-status">Sign in to save your progress across devices.</div>' +
-        creatorPillOut +
         '<div style="margin-top:10px">' +
           _googleBtnHtml() +
           '<div class="ap-divider">or</div>' +
           '<button class="ap-signin-btn" onclick="_showEmailForm()">Sign in with email</button>' +
         '</div>' +
         '<div id="apStatus"></div>' +
-        '<div class="ap-actions">' +
-          (isCreatorOut
-            ? ''
-            : '<div class="ap-action-row v107-code-row" id="apCreatorRow" onclick="v10UI.showCreatorCodeForm(this)">' +
+        premiumCardOutHtml +
+        (isCreatorOut
+          ? ''
+          : '<div class="ap-actions" style="margin-top:0">' +
+              '<div class="ap-action-row v107-code-row" id="apCreatorRow" onclick="v10UI.showCreatorCodeForm(this)">' +
                 '<span class="ap-action-glyph">' + _AP_KEY_SVG + '</span>' +
                 '<div class="v107-code-cell">' +
                   '<span class="v107-code-closed">Enter special code</span>' +
@@ -14616,12 +14936,20 @@ function lresBackToSelection() {
                     '</button>' +
                   '</div>' +
                 '</div>' +
-              '</div>') +
-          '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
-            '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
-            '<span>Clear all statistics</span>' +
-          '</div>' +
-        '</div>';
+              '</div>' +
+              '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
+                '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
+                '<span>Clear all statistics</span>' +
+              '</div>' +
+            '</div>') +
+        (isCreatorOut
+          ? '<div class="ap-actions" style="margin-top:0">' +
+              '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
+                '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
+                '<span>Clear all statistics</span>' +
+              '</div>' +
+            '</div>'
+          : '');
     }
   }
 
@@ -16424,6 +16752,10 @@ function lresBackToSelection() {
     try { if (typeof _lRenderLevelPills === 'function') _lRenderLevelPills(); } catch(e){}
     try { if (typeof _lRenderFlavorPills === 'function') _lRenderFlavorPills(); } catch(e){}
     try { if (typeof _refreshMistakeLock === 'function') _refreshMistakeLock(); } catch(e){}
+    /* v10.10: also rerender the Practice topic grid + Learn topic tree so
+       newly unlocked topics/sub-topics appear immediately without a reload. */
+    try { if (typeof renderTopicGrid === 'function') renderTopicGrid(); } catch(e){}
+    try { if (typeof _lRenderTopicSections === 'function') _lRenderTopicSections(); } catch(e){}
   }
 
   var _modalEl = null;
@@ -16441,6 +16773,74 @@ function lresBackToSelection() {
   function _modalKeyHandler(e){
     if (e.key === 'Escape') _closeModal();
   }
+  /* v10.10: Premium info modal. Reuses _modalEl + _closeModal infrastructure.
+     3 user states drive the body:
+       • Free       → invite-only message + muted contact line.
+       • Premium    → status box "\u2726 You're a Premium member".
+       • Creator    → status box "\u2605 Creator member".
+     The What's-included list is the same in all 3 — the differentiator is
+     the status block / invite line that follows it. */
+  function showPremiumInfo(){
+    if (_modalEl) return;
+    var isCreator = _isCreator();
+    var isPremium = _isPremium();
+    var features = [
+      '<li><span class="apf-tick">\u2713</span>All Practice topics &amp; variants</li>' +
+      '<li><span class="apf-tick">\u2713</span>Learn levels (B1 / B2 / C1)</li>' +
+      '<li><span class="apf-tick">\u2713</span>Flavored topics in Learn</li>' +
+      '<li><span class="apf-tick">\u2713</span>Mistake review and practice</li>' +
+      '<li><span class="apf-tick">\u2713</span>Coin \u00d72 multiplier</li>' +
+      '<li class="coming"><span class="apf-tick">\u2726</span>\u2026only more is coming soon</li>'
+    ].join('');
+    var stateBlock;
+    if (isCreator){
+      stateBlock =
+        '<div class="ap-premium-modal-status is-creator">' +
+          '<span class="apms-glyph" aria-hidden="true">\u2605</span>' +
+          '<span>Creator member</span>' +
+        '</div>';
+    } else if (isPremium){
+      stateBlock =
+        '<div class="ap-premium-modal-status">' +
+          '<span class="apms-glyph" aria-hidden="true">\u2726</span>' +
+          '<span>You\u2019re a Premium member</span>' +
+        '</div>';
+    } else {
+      stateBlock =
+        '<div class="ap-premium-modal-invite">' +
+          'Premium is currently invite-only. Stay tuned \u2014 public access coming soon.' +
+        '</div>' +
+        '<div class="ap-premium-modal-contact">' +
+          'contact <a href="mailto:rwbear@gmail.com">rwbear@gmail.com</a> if you feel lucky\u2026' +
+        '</div>';
+    }
+    _modalEl = document.createElement('div');
+    _modalEl.className = 'ap-modal-backdrop';
+    _modalEl.innerHTML =
+      '<div class="ap-modal has-close" role="dialog" aria-modal="true" aria-labelledby="apPremiumModalTitle">' +
+        '<button type="button" class="ap-modal-close" id="apPremiumModalClose" aria-label="Close">' +
+          '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>' +
+        '</button>' +
+        '<div class="ap-premium-modal-head">' +
+          '<div class="ap-premium-modal-glyph" aria-hidden="true">\u2726</div>' +
+          '<div class="ap-modal-title" id="apPremiumModalTitle">Premium</div>' +
+          '<div class="ap-modal-sub">Full access to \u0426\u0422/\u0426\u042d Trainer</div>' +
+        '</div>' +
+        '<div class="ap-premium-section-label">What\u2019s included</div>' +
+        '<ul class="ap-premium-feature-list">' + features + '</ul>' +
+        stateBlock +
+      '</div>';
+    document.body.appendChild(_modalEl);
+    void _modalEl.offsetWidth;
+    _modalEl.classList.add('open');
+    _modalEl.addEventListener('click', function(e){
+      if (e.target === _modalEl) _closeModal();
+    });
+    var closeBtn = document.getElementById('apPremiumModalClose');
+    if (closeBtn) closeBtn.addEventListener('click', _closeModal);
+    document.addEventListener('keydown', _modalKeyHandler, true);
+  }
+
   function showClearAllModal(){
     if (_modalEl) return;
     var total = _pointsTotal();
@@ -16571,6 +16971,7 @@ function lresBackToSelection() {
     applyOwnedTheme:     applyOwnedTheme,
     showToast:           showToast,
     showCreatorCodeForm: showCreatorCodeForm,
+    showPremiumInfo:     showPremiumInfo,
     showClearAllModal:   showClearAllModal,
     _refreshLocks:                _refreshLegacyThemePopupLocks,
     _refreshLegacyThemePopupLocks:_refreshLegacyThemePopupLocks,
