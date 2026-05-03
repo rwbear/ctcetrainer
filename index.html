@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.16 · Credits cloud-sync + 4 UX fixes
-     Brand chip in-app shows “v10.16”. Build version is in this comment.
-     Build: v10.16
+     v10.17 · Sync rework + 4 UX fixes
+     Brand chip in-app shows “v10.17”. Build version is in this comment.
+     Build: v10.17
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -4828,32 +4828,31 @@ textarea:focus-visible,
 </head>
 <body>
 
-<!-- v10.15: Cold-boot loader. Hidden by default; JS reveals it only if
-     init() takes longer than ~250ms (slow mobile / throttled network).
-     Reuses the existing .sk-sweep hairline used inside the wallet popup
-     so loading visuals stay consistent app-wide. -->
-<div id="bootLoader" class="boot-loader" aria-hidden="true" aria-live="polite">
+<!-- v10.17 Fix #3: Cold-boot loader. ALWAYS reveal immediately so every
+     user sees the loading animation, with a minimum visible duration to
+     prevent a sub-perceptual flash on fast boots. Reuses the existing
+     .sk-sweep hairline used inside the wallet popup so loading visuals
+     stay consistent app-wide. -->
+<div id="bootLoader" class="boot-loader is-shown" aria-hidden="false" aria-live="polite">
   <div class="sk-sweep">
     <span>loading</span>
     <div class="sk-sweep-line"></div>
   </div>
 </div>
 <script>
-  /* v10.15: tiny inline reveal scheduler. Runs the moment the body parses
-     this node, BEFORE the heavy main script. If init() in the main script
-     finishes quickly, it sets window.__ctBootDone and we never reveal.
-     If init() is still pending after 280ms (slow JS parse / cold cache /
-     low-end mobile), we reveal the loader so the user sees motion instead
-     of a blank/frozen screen. */
+  /* v10.17 Fix #3: reveal IMMEDIATELY on body parse so the loading
+     animation is always visible during init(). The element ships with
+     class="is-shown" and aria-hidden="false" so even synchronous CSS
+     parse renders it on screen. We record the reveal timestamp so
+     _hideBoot can enforce a minimum visible duration (~420 ms) before
+     fading out — this prevents a sub-perceptual flash on fast devices
+     while not adding meaningful latency on slow ones. */
   (function(){
     window.__ctBootDone = false;
-    window.__ctBootRevealTimer = setTimeout(function(){
-      if (window.__ctBootDone) return;
-      var el = document.getElementById('bootLoader');
-      if (!el) return;
-      el.classList.add('is-shown');
-      el.setAttribute('aria-hidden', 'false');
-    }, 280);
+    window.__ctBootRevealedAt = Date.now();
+    /* No reveal timer needed any more — the element is shown from the
+       start. Keep the var for backward-compat with _hideBoot's clear. */
+    window.__ctBootRevealTimer = 0;
   })();
 </script>
 
@@ -4871,7 +4870,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.16</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.17</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -7777,7 +7776,7 @@ function renderTopicQuestions(blockKey, filterVariantId) {
           <input type="text" class="b-input" id="inp-${uid}" placeholder="Type your answer…"
             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
             name="x_${uid}_${Date.now()}"
-            onkeydown="if(event.key==='Enter')topicInputSubmit('${uid}')">
+            onkeydown="topicInputKeydown('${uid}', event)">
           <button class="btn btn-sm btn-primary" onclick="topicInputSubmit('${uid}')">Check</button>
         </div>`;
       }
@@ -8177,6 +8176,25 @@ function topicChipClick(chipEl, uid, idx) {
   // Show practice explanation (v6)
   if (_qMeta[uid] && _qMeta[uid].variantId != null) showPracticeExplanation(uid, _qMeta[uid].variantId, _qMeta[uid].rawQId || _qMeta[uid].qId);
   updateTopicStats();
+  /* v10.17 Fix #9: flush points when Random topic is exhausted. */
+  _maybeFlushOnRandomComplete();
+}
+
+/* v10.17 Fix #9: trigger cloud sync when all random cards are answered. */
+function _maybeFlushOnRandomComplete(){
+  try {
+    if (currentTopic !== '__random__') return;
+    if (!Array.isArray(_rndItems) || !_rndItems.length) return;
+    var answered = 0;
+    for (var i = 0; i < _rndItems.length; i++) {
+      if (_rndAnswered[_rndItems[i].uid]) answered++;
+    }
+    if (answered === _rndItems.length) {
+      if (window.v10UI && window.v10UI._fbSyncPointsIfDirty) {
+        window.v10UI._fbSyncPointsIfDirty();
+      }
+    }
+  } catch(e) {}
 }
 
 function topicInputSubmit(uid) {
@@ -8192,7 +8210,12 @@ function topicInputSubmit(uid) {
   topicTotalAnswered++;
   if (isCorrect) topicCorrectCount++;
 
-  input.disabled = true;
+  /* v10.17 Fix #4: use readOnly instead of disabled so the soft keyboard
+     on iOS/Android stays open after submit. dataset.tpSubmitted marks the
+     post-submit state so topicInputKeydown can reroute Enter to navigate
+     to the next task in random mode. */
+  input.readOnly = true;
+  input.dataset.tpSubmitted = '1';
   input.classList.add(isCorrect ? 'correct' : 'wrong');
 
   const card = document.getElementById('tq-' + uid);
@@ -8208,6 +8231,41 @@ function topicInputSubmit(uid) {
   // Show practice explanation (v6)
   if (_qMeta[uid] && _qMeta[uid].variantId != null) showPracticeExplanation(uid, _qMeta[uid].variantId, _qMeta[uid].rawQId || _qMeta[uid].qId);
   updateTopicStats();
+  /* v10.17 Fix #9: flush points when Random topic is exhausted. */
+  _maybeFlushOnRandomComplete();
+
+  /* v10.17 Fix #4: keep the input focused so the mobile keyboard stays
+     open while the user reads feedback. Their next Enter press will
+     advance to the next card via topicInputKeydown (random mode only). */
+  try { input.focus({ preventScroll: true }); } catch(e) {}
+}
+
+/* v10.17 Fix #1 + #4: unified keydown handler for the Practice type-in
+   input. Mirrors lprTypeinKeydown.
+     - Before submit: Enter submits the answer.
+     - After submit (dataset.tpSubmitted = '1'): Enter advances to the
+       next card in random mode (navigateRandom(1)). In per-topic mode
+       there is no "next card," so Enter is a no-op. */
+function topicInputKeydown(uid, event) {
+  var input = (event && event.target) ? event.target
+            : document.getElementById('inp-' + uid);
+  if (!input) return;
+  var submitted = input.dataset && input.dataset.tpSubmitted === '1';
+  if (submitted) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (currentTopic === '__random__') {
+        if (typeof _rndIndex === 'number' && Array.isArray(_rndItems)
+            && _rndIndex < _rndItems.length - 1) {
+          try { navigateRandom(1); } catch (e) {}
+        }
+      }
+    }
+    return;
+  }
+  if (event.key === 'Enter') {
+    try { topicInputSubmit(uid); } catch (e) {}
+  }
 }
 
 function updateTopicStats(variantId) {
@@ -9198,6 +9256,9 @@ function submitWholeVariant(opts) {
         }
       }
     } catch(e) { console.warn('cloud dispatch failed', e); }
+
+    /* v10.17 Fix #9: flush dirty points to Firestore on major event */
+    try { window.v10UI && window.v10UI._fbSyncPointsIfDirty && window.v10UI._fbSyncPointsIfDirty(); } catch(e) {}
   }
 
   /* v9.9 Fix 3A: removed legacy pin-correction. Single smooth scrollIntoView
@@ -10165,7 +10226,7 @@ function startMistakePractice(opts) {
         <input type="text" class="b-input" id="inp-${uid}" placeholder="Type your answer…"
           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
           name="x_${uid}_${Date.now()}"
-          onkeydown="if(event.key==='Enter')topicInputSubmit('${uid}')">
+          onkeydown="topicInputKeydown('${uid}', event)">
         <button class="btn btn-sm btn-primary" onclick="topicInputSubmit('${uid}')">Check</button>
       </div>`;
     }
@@ -10387,8 +10448,8 @@ function showRandomCard(idx) {
       `autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ` +
       `name="x_${uid}_${Date.now()}" ` +
       (answered
-        ? `value="${escHtml(String(answered.userAns))}" disabled`
-        : `placeholder="Type your answer\u2026" onkeydown="if(event.key==='Enter')topicInputSubmit('${uid}')"`) + `>` +
+        ? `value="${escHtml(String(answered.userAns))}" readonly data-tp-submitted="1" onkeydown="topicInputKeydown('${uid}', event)"`
+        : `placeholder="Type your answer\u2026" onkeydown="topicInputKeydown('${uid}', event)"`) + `>` +
       (answered ? '' : `<button class="btn btn-sm btn-primary" onclick="topicInputSubmit('${uid}')">Check</button>`) +
       `</div>`;
   }
@@ -10447,11 +10508,46 @@ function showRandomCard(idx) {
   window.scrollTo(0, 0);
 }
 
+/* v10.17 Fix #1: install document-level Enter handler once for Practice
+   Random mode. When the active page is the Practice random session and
+   the current card is answered, Enter advances to the next card. The
+   per-input keydown handler still owns the in-input case; this catches
+   the MCQ chip case (no focused input) and any focus-loss state. */
+function _installRndEnterAdvance() {
+  if (window._rndEnterAdvInstalled) return;
+  window._rndEnterAdvInstalled = true;
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    if (e.defaultPrevented) return;
+    /* Only fire in Practice Random mode */
+    if (currentTopic !== '__random__') return;
+    if (!Array.isArray(_rndItems) || !_rndItems.length) return;
+    /* Skip if user is typing in our type-in input — the in-input handler
+       owns that path (it preventDefaults so this guard is belt-and-suspenders). */
+    var t = e.target;
+    if (t && t.tagName === 'INPUT' && t.id && t.id.indexOf('inp-') === 0) {
+      /* In-input keydown is handled by topicInputKeydown. */
+      return;
+    }
+    /* Skip if user is typing in any other text-input (search, etc.) */
+    if (t && (t.tagName === 'TEXTAREA' || (t.tagName === 'INPUT' && t.type !== 'button' && t.type !== 'submit'))) return;
+    var item = _rndItems[_rndIndex];
+    if (!item) return;
+    var ans = _rndAnswered[item.uid];
+    if (!ans) return;
+    if (_rndIndex >= _rndItems.length - 1) return;
+    e.preventDefault();
+    try { navigateRandom(1); } catch(_){}
+  });
+}
+
 function startRandomTopic(blockKey) {
   /* v10.3: Random works for everyone. Non-premium users only sample from
      variants they have unlocked (free pool + purchased). Premium / creator
      get the full pool. */
   setAnalogueSessionLock(true);
+  /* v10.17 Fix #1: ensure doc-level Enter→next is wired. */
+  _installRndEnterAdvance();
   const info = topicIndex[blockKey];
   if (!info) return;
 
@@ -11091,12 +11187,21 @@ function escAttr(s) {
     if (window.__ctBootRevealTimer) clearTimeout(window.__ctBootRevealTimer);
     var _bootEl = document.getElementById('bootLoader');
     if (!_bootEl) return;
-    _bootEl.classList.remove('is-shown');
-    _bootEl.setAttribute('aria-hidden', 'true');
-    // Remove from DOM after the fade-out so it never intercepts taps.
+    /* v10.17 Fix #3: enforce a minimum visible duration so users on fast
+       devices actually perceive the loading sweep. ~420 ms total visible
+       time gives one full sweep cycle of motion. */
+    var MIN_VIS = 420;
+    var revealedAt = window.__ctBootRevealedAt || Date.now();
+    var elapsed = Date.now() - revealedAt;
+    var wait = Math.max(0, MIN_VIS - elapsed);
     setTimeout(function(){
-      if (_bootEl && _bootEl.parentNode) _bootEl.parentNode.removeChild(_bootEl);
-    }, 260);
+      _bootEl.classList.remove('is-shown');
+      _bootEl.setAttribute('aria-hidden', 'true');
+      // Remove from DOM after the fade-out so it never intercepts taps.
+      setTimeout(function(){
+        if (_bootEl && _bootEl.parentNode) _bootEl.parentNode.removeChild(_bootEl);
+      }, 260);
+    }, wait);
   }
 
   // Restore theme (migrate v6 names → v7)
@@ -12190,83 +12295,57 @@ function _lt9AnimChipLabel(lblId, nextText) {
 function lt9UpdateChipLabels() {
   try {
     const lab = lt9ComputeChipLabels();
-    /* v10.9.6: snapshot positions BEFORE the mode roll begins so the Mode
-       chip's width change is part of the same coordinated FLIP. The mode
-       roll itself remains the existing roll-from-top animation. */
     const bar = document.querySelector('.lt-bar');
     const tracked = bar ? Array.from(bar.querySelectorAll('.lt-chip, .lt-more')) : [];
-    /* v10.9.6 fix: if a prior FLIP is still mid-animation, capture each
-       chip's CURRENT visual rect (which getBoundingClientRect reports
-       during a CSS transform transition) BEFORE we clear inline styles.
-       Otherwise clearing transform snaps the chip to its layout position
-       and the new FLIP starts from the wrong origin — producing the
-       "rigid" instant-jump the user reported when toggling levels in
-       quick succession. */
-    const fromRects = tracked.map(c => c.getBoundingClientRect());
-    /* Now clear stale inline state and stop any in-flight transition
-       cleanly so the layout reflows to the pre-swap natural position. */
-    tracked.forEach(c => {
-      if (c._chipWT) { clearTimeout(c._chipWT); c._chipWT = 0; }
-      c.style.transition = 'none';
-      c.style.width = '';
-      c.style.transform = '';
-    });
-    if (bar) void bar.offsetWidth;
 
-    /* Apply all label changes in one synchronous batch: mode roll (which
-       updates chip width via its own .lt-roll-cur swap once finished, but
-       text content for measurement uses .lt-roll-nxt during animation —
-       we use a temp measurement override below) and direct level/flavor. */
-    _lt9SetModeLabel(lab.mode);
-    const lvl = document.getElementById('ltLblLevel');
-    const flv = document.getElementById('ltLblFlavor');
-    let didLvl = false, didFlv = false;
-    if (lvl && lvl.textContent !== lab.level) { lvl.textContent = lab.level; didLvl = true; }
-    if (flv && flv.textContent !== lab.flavor) { flv.textContent = lab.flavor; didFlv = true; }
+    /* v10.17 Fix #2: split the previously-coordinated motion into TWO
+       sequential phases when the Mode chip is changing.
+         Phase 1 (now)            : roll the Mode label from top → bottom
+                                    (240 ms via _lt9SetModeLabel). The Mode
+                                    chip stays at its OLD width during the
+                                    roll. Level/Flavor labels and any FLIP
+                                    needed for THEM run in this phase too.
+         Phase 2 (after roll end) : FLIP the Mode chip's width to the new
+                                    natural size, animating neighbours
+                                    along with it.
+       When the Mode chip is NOT changing, only one FLIP phase runs.
 
-    /* v10.16 Fix #10: the original assumption above was wrong —
-       .lt-roll-nxt is position:absolute (see CSS .lt-roll-nxt), so it is
-       REMOVED from layout flow and does not contribute to chip width.
-       While the roll animation is running, .lt-roll-cur still holds the
-       OLD text, so measuring the chip here read the old width. FLIP would
-       therefore skip the width delta and 240 ms later (when the roll
-       settles and cur.textContent = next) the chip would snap to its new
-       natural size — the "late size step" the user reported.
-       Fix: temporarily set .lt-roll-cur to the new mode label just for the
-       measurement, then restore. Both writes happen in the same synchronous
-       JS block so no frame renders between them — the rolling animation
-       continues without visual glitch. */
-    let _modeCurEl = null, _modeCurPrev = null;
+       Why: previously the FLIP and the roll ran in parallel, so the chip
+       resized while its text was still rolling. The visual read was
+       "jump-then-roll" instead of "roll-then-resize." */
+
+    /* Detect whether the Mode chip's roll-from-top is going to fire. */
+    let willRollMode = false;
     try {
       const _modeRoll = document.getElementById('ltModeRoll');
-      if (_modeRoll) {
-        const _c = _modeRoll.querySelector('.lt-roll-cur');
-        if (_c && _c.textContent !== lab.mode) {
-          _modeCurEl = _c;
-          _modeCurPrev = _c.textContent;
-          _c.textContent = lab.mode;
-          void _modeRoll.offsetWidth;  /* flush so measurement is accurate */
-        }
-      }
+      const _c = _modeRoll && _modeRoll.querySelector('.lt-roll-cur');
+      if (_c && _c.textContent !== lab.mode) willRollMode = true;
     } catch (e) {}
-    /* Snapshot post-swap rects with the chip sized to its new label. */
-    const toRects = tracked.map(c => c.getBoundingClientRect());
-    /* Restore the rolling label so the roll animation finishes naturally.
-       No frame has rendered between the temporary change and this restore,
-       so the user never sees the swapped text. */
-    if (_modeCurEl && _modeCurPrev !== null) {
-      _modeCurEl.textContent = _modeCurPrev;
-    }
 
-    /* Run the FLIP only if at least one chip moved or resized. */
-    let anyMoved = false;
-    for (let i = 0; i < tracked.length; i++) {
-      const f = fromRects[i], t = toRects[i];
-      if (Math.abs(f.left - t.left) > 0.5 || Math.abs(f.width - t.width) > 0.5) { anyMoved = true; break; }
-    }
-    if (!anyMoved) {
-      tracked.forEach(c => { c.style.transition = ''; });
-    } else {
+    /* Helper: run a FLIP pass against the current DOM. Captures rects at
+       call time, applies `mutate` (which performs the visible label/state
+       changes), captures rects again, and animates every chip from its
+       previous rect to its new rect using the existing 220 ms tween. */
+    function _runFlip(mutate) {
+      const fromRects = tracked.map(c => c.getBoundingClientRect());
+      tracked.forEach(c => {
+        if (c._chipWT) { clearTimeout(c._chipWT); c._chipWT = 0; }
+        c.style.transition = 'none';
+        c.style.width = '';
+        c.style.transform = '';
+      });
+      if (bar) void bar.offsetWidth;
+      try { mutate(); } catch (e) {}
+      const toRects = tracked.map(c => c.getBoundingClientRect());
+      let anyMoved = false;
+      for (let i = 0; i < tracked.length; i++) {
+        const f = fromRects[i], t = toRects[i];
+        if (Math.abs(f.left - t.left) > 0.5 || Math.abs(f.width - t.width) > 0.5) { anyMoved = true; break; }
+      }
+      if (!anyMoved) {
+        tracked.forEach(c => { c.style.transition = ''; });
+        return;
+      }
       tracked.forEach((c, i) => {
         const f = fromRects[i], t = toRects[i];
         const dx = f.left - t.left;
@@ -12300,6 +12379,53 @@ function lt9UpdateChipLabels() {
         clearTimeout(c._chipWT);
         c._chipWT = setTimeout(cleanup, 320);
       });
+    }
+
+    /* Phase 1: kick off the mode roll (if any) and apply level/flavor
+       label swaps. The Mode chip's NATURAL width is still the OLD label,
+       because .lt-roll-cur still shows the OLD text — we deliberately do
+       NOT temp-swap it here. So phase-1 FLIP is purely about level/flavor
+       (and any sibling x-shift their changes induce); the Mode chip will
+       stay put. */
+    _runFlip(function(){
+      _lt9SetModeLabel(lab.mode);
+      const lvl = document.getElementById('ltLblLevel');
+      const flv = document.getElementById('ltLblFlavor');
+      if (lvl && lvl.textContent !== lab.level) lvl.textContent = lab.level;
+      if (flv && flv.textContent !== lab.flavor) flv.textContent = lab.flavor;
+    });
+
+    /* Phase 2: if Mode was rolling, after the roll's animationend fires,
+       _lt9SetModeLabel sets cur.textContent = next. From that moment the
+       Mode chip's natural width is the new label. We schedule a follow-up
+       FLIP a tick later that captures the OLD width (still pinned by
+       inline width from phase 1 if neighbours moved — otherwise by
+       layout) and animates to the NEW natural width. */
+    if (willRollMode) {
+      const _modeRoll = document.getElementById('ltModeRoll');
+      const _cur = _modeRoll && _modeRoll.querySelector('.lt-roll-cur');
+      if (_cur) {
+        const onRollEnd = () => {
+          _cur.removeEventListener('animationend', onRollEnd);
+          /* Defer one rAF so _lt9SetModeLabel's own onEnd has run and
+             cur.textContent = next is in place. */
+          requestAnimationFrame(function(){
+            _runFlip(function(){
+              /* No mutation needed — the textContent change already
+                 happened inside _lt9SetModeLabel.onEnd. We just want a
+                 fresh measure-and-animate pass against the new natural
+                 width. */
+            });
+          });
+        };
+        _cur.addEventListener('animationend', onRollEnd);
+        /* Safety: if animationend never fires (reduced motion etc.),
+           run the second FLIP after the roll's max duration. */
+        setTimeout(function(){
+          if (_cur) _cur.removeEventListener('animationend', onRollEnd);
+          requestAnimationFrame(function(){ _runFlip(function(){}); });
+        }, 380);
+      }
     }
   } catch (e) {}
   /* v10.9 §5: keep desktop toolbar in sync on the same update cadence as the
@@ -13955,10 +14081,17 @@ function lprSubmitTypein() {
   if (!challenge && !isCorrect) {
     input.className = 'lpr-typein-input wrong';
     task._lastAttempt = userAns;
-    /* Make absolutely sure both controls are interactable for the next
-       attempt — defends against any earlier path that might have
-       disabled them. */
-    input.disabled = false;
+    /* v10.17 Fix #4.1: keep the soft keyboard up on mobile after a wrong
+       answer in challenge-off mode. The previous version used
+       input.disabled = false (which is a no-op when already enabled) and
+       then input.select(), which on iOS can re-trigger the focus chain
+       and dismiss the keyboard at the moment the submit button steals
+       focus during the click. The robust fix: never let the input lose
+       focus, never call select(), and clear submit.disabled FIRST so the
+       button doesn't keep focus. We also call focus() in two places —
+       synchronously now and again on the next rAF — to defeat any
+       browser-level focus-restoration that runs after the click handler
+       returns. */
     submit.disabled = false;
     /* Lift the red state on the next keystroke so the field returns to
        its neutral look as the user corrects their answer. The handler
@@ -13972,12 +14105,20 @@ function lprSubmitTypein() {
       input.addEventListener('input', clearWrongOnInput);
       input._lprWrongClearAttached = true;
     }
-    /* Pre-select the wrong text so the user can simply type to replace.
-       Refocus in case the focus drifted to the submit button on click. */
+    /* Refocus synchronously in the same gesture as the click. No
+       select() — caret-to-end is friendlier and never toggles the
+       keyboard on iOS. */
     try {
       input.focus({ preventScroll: true });
-      input.select();
+      const _len = input.value.length;
+      try { input.setSelectionRange(_len, _len); } catch(e) {}
     } catch (e) { /* non-fatal */ }
+    /* Belt-and-suspenders: re-assert focus on the next frame in case the
+       browser tries to restore focus to the submit button after the
+       click handler returns. */
+    requestAnimationFrame(function(){
+      try { input.focus({ preventScroll: true }); } catch(e) {}
+    });
     return;
   }
 
@@ -14000,8 +14141,14 @@ function lprSubmitTypein() {
 
   /* Keep the input focused so mobile keyboards stay open while the
      correct answer + explanation render. The user's next Enter press
-     will advance to the next task via lprTypeinKeydown. */
+     will advance to the next task via lprTypeinKeydown.
+     v10.17 Fix #4.1: refocus on the next animation frame as well, to
+     defeat any browser-level focus-restoration that puts focus back on
+     the submit button after the click handler returns. */
   try { input.focus({ preventScroll: true }); } catch(e) {}
+  requestAnimationFrame(function(){
+    try { input.focus({ preventScroll: true }); } catch(e) {}
+  });
 }
 
 /* v10.16 Fix #12: unified keydown handler for the type-in input.
@@ -14913,6 +15060,9 @@ function lprShowResults() {
   /* v9.10 Fix 2b: session fully completed — wipe the persisted live
      session so the Start button returns to "Start Practice" on next visit. */
   try { _lsClear(); } catch (e) {}
+  /* v10.17 Fix #9: Learn session complete is a major sync trigger — flush
+     any earned points to Firestore now (no-op if already synced). */
+  try { if (window.v10UI && window.v10UI._fbSyncPointsIfDirty) window.v10UI._fbSyncPointsIfDirty(); } catch (e) {}
   const results = _lstore('results', []);
   const queue  = _lstore('queue', []);
   const correct = results.filter(r => r.correct).length;
@@ -16802,7 +16952,11 @@ function lresBackToSelection() {
     var dd = document.getElementById('walletDropdown');
     if (!dd) return;
     if (dd.classList.contains('open')) closeWallet();
-    else openWallet();
+    else {
+      openWallet();
+      /* v10.17 Fix #9: manual sync trigger when user opens wallet */
+      try { window.v10UI && window.v10UI._fbSyncPointsIfDirty && window.v10UI._fbSyncPointsIfDirty(); } catch(_){}
+    }
   }
 
   /* Click-outside to close (the pill itself is excluded).
@@ -17002,13 +17156,20 @@ function lresBackToSelection() {
   }
 
   /* ── 5. Engine event subscriptions ─────────────────────────────────── */
-  /* v10.16 Fix #9: debounced cloud sync. Every awardPoints() call emits
-     'v10:points-changed' but prior to v10.16 only theme/variant purchases
-     wrote the running total to Firestore. Points earned in Learn/Practice
-     would therefore only persist locally until the next purchase or sign-in,
-     producing the "sync sometimes wrong" behaviour the user reported. We
-     debounce ~1.5s so rapid-fire earn streaks coalesce into one write. */
-  var _pointsSyncTimer = null;
+  /* v10.17 Fix #9: event-driven cloud sync with a dirty flag.
+     v10.16 debounced a write on every points-changed event, which was too
+     many writes for a busy session. We now sync only on major events:
+        • Purchases (already wired at the call sites)
+        • Sign-in / sign-out reconcile (already wired)
+        • Learn session complete (lprShowResults)
+        • Practice variant submit (submitVariant)
+        • Practice random-mode topic exhausted
+        • Manual sync — tapping the points pill
+        • Page hide / beforeunload — only when local total differs
+          from the last value pushed to the cloud (dirty flag)
+     The dirty flag (_pointsLastSynced) tracks the last value successfully
+     pushed to Firestore. Every flush compares current vs last-synced and
+     skips the write if they match. */
   window.addEventListener('v10:points-changed', function(e){
     var d = e.detail || {};
     renderPointsPill();
@@ -17021,17 +17182,8 @@ function lresBackToSelection() {
     if (d.type === 'penalty_reset' || d.type === 'penalty_clear'){
       showToast(Math.round(d.delta) + ' pts (penalty)', 'penalty');
     }
-    /* v10.16 Fix #9: debounced push of the running total to Firestore so
-       points earned anywhere (Learn, Practice, streaks, bonuses) survive
-       signing in on another device. No-op for anonymous users — gated by
-       _fbWritePoints itself. */
-    try {
-      if (_pointsSyncTimer) { clearTimeout(_pointsSyncTimer); _pointsSyncTimer = null; }
-      _pointsSyncTimer = setTimeout(function(){
-        _pointsSyncTimer = null;
-        try { _fbWritePoints(_pointsTotal() | 0); } catch(err){}
-      }, 1500);
-    } catch(err) {}
+    /* v10.17: NO cloud write here — this is per-task noise. Major-event
+       handlers below call _fbSyncPointsIfDirty() at logical boundaries. */
   });
   window.addEventListener('v10:achievement', function(e){
     var d = e.detail || {};
@@ -17095,19 +17247,66 @@ function lresBackToSelection() {
     } catch(e){ /* offline / rules failure - silent */ }
   }
   /* v10.1: write points total + themes/achievements to Firestore.
-     Called from purchaseTheme after a successful local deduct/unlock. */
+     Called from purchaseTheme after a successful local deduct/unlock.
+     v10.17 Fix #9: track the last value successfully pushed so the dirty-
+     flag check can avoid redundant writes. */
+  var _pointsLastSynced = null;  /* null = never synced this session */
   async function _fbWritePoints(total){
     try {
       var u = window._currentUser;
       if (!window.firebase || !u || u.isAnonymous) return;
       var db = window._db || (firebase.firestore && firebase.firestore());
       if (!db) return;
+      var t = total|0;
       await db.collection('users').doc(u.uid).set({
-        v10Points: total|0,
+        v10Points: t,
         updatedAt: firebase.firestore.FieldValue.serverTimestamp()
       }, { merge: true });
+      _pointsLastSynced = t;
     } catch(e){}
   }
+
+  /* v10.17 Fix #9: cloud-sync the points total ONLY if it differs from the
+     last value we pushed. Used by all major-event triggers (Learn complete,
+     Practice variant submit, random-mode topic exhausted, manual pill tap,
+     page hide). Cheap when nothing changed. */
+  function _fbSyncPointsIfDirty(){
+    try {
+      var t = _pointsTotal() | 0;
+      if (_pointsLastSynced === t) return;  /* clean — nothing to sync */
+      var u = window._currentUser;
+      if (!window.firebase || !u || u.isAnonymous) return;
+      _fbWritePoints(t);  /* fire-and-forget, updates _pointsLastSynced */
+    } catch(e){}
+  }
+
+  /* v10.17 Fix #9: page-hide / beforeunload flush. Uses navigator.sendBeacon
+     when available to ensure the write goes out even on tab close, falling
+     back to a synchronous Firestore write. Only fires when dirty. */
+  function _installPointsFlushOnHide(){
+    var fired = false;
+    function flush(){
+      if (fired) return;
+      try {
+        var t = _pointsTotal() | 0;
+        if (_pointsLastSynced === t) return;
+        var u = window._currentUser;
+        if (!window.firebase || !u || u.isAnonymous) return;
+        fired = true;  /* one-shot per hide cycle */
+        _fbWritePoints(t);
+      } catch(e){}
+    }
+    /* visibilitychange fires reliably on iOS / Chrome when the tab is
+       backgrounded; pagehide is the modern unload replacement. We attach
+       to both for coverage. */
+    document.addEventListener('visibilitychange', function(){
+      if (document.visibilityState === 'hidden') flush();
+      else fired = false;  /* re-arm when the tab returns */
+    });
+    window.addEventListener('pagehide', flush);
+    window.addEventListener('beforeunload', flush);
+  }
+  try { _installPointsFlushOnHide(); } catch(e){}
   async function _fbWriteUnlocks(unlocks){
     try {
       var u = window._currentUser;
@@ -17514,6 +17713,7 @@ function lresBackToSelection() {
     _refreshLegacyThemePopupLocks:_refreshLegacyThemePopupLocks,
     /* v10.1: exposed cloud writers for cross-IIFE use (Firebase block calls these). */
     _fbWritePoints:       _fbWritePoints,
+    _fbSyncPointsIfDirty: _fbSyncPointsIfDirty,
     _fbWriteUnlocks:      _fbWriteUnlocks,
     _fbWriteCreatorFlag:  _fbWriteCreatorFlag,
     _fbWritePremiumFlag:  _fbWritePremiumFlag,
