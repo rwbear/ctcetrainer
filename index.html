@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.10 · Bug fixes + Premium UX
-     Brand chip in-app stays “v10.9”. Build version is in the comment below.
-     Build: v10.10
+     v10.11 · Small fixes + account-linked premium
+     Brand chip in-app shows “v10.10”. Build version is in this comment.
+     Build: v10.11
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -916,8 +916,15 @@ body{
 }
 .ap-signin-btn:hover{background:var(--border);}
 .ap-signin-btn svg{flex-shrink:0;}
-.ap-signin-btn.google{border-color:transparent;background:#4285f4;color:#fff;}
-.ap-signin-btn.google:hover{background:#3367d6;}
+/* v10.11: Google button now matches the email button surface — theme
+   colors, 1px border, no brand blue fill. Only the G glyph keeps its
+   colors for recognizability. */
+.ap-signin-btn.google{
+  border-color:var(--border);
+  background:var(--bg);
+  color:var(--text);
+}
+.ap-signin-btn.google:hover{background:var(--border);}
 .ap-divider{
   display:flex;align-items:center;gap:8px;
   margin:10px 0;font-size:.7rem;color:var(--text-sub);
@@ -1140,6 +1147,10 @@ body{
   border-top:1px solid var(--border);
 }
 .ap-section:first-child{padding-top:0;margin-top:0;border-top:none;}
+/* v10.11: a tighter section variant with less breathing room — used to
+   sit the “Enter special code” row directly under the premium card
+   without an obvious gap. */
+.ap-section-compact{padding-top:8px;margin-top:0;border-top:none;}
 .ap-section-label{
   font-size:.62rem;font-weight:700;letter-spacing:.08em;
   text-transform:uppercase;color:var(--text-sub);
@@ -1158,6 +1169,11 @@ body{
   text-transform:uppercase;
 }
 .ap-profile-info{flex:1;min-width:0;line-height:1.25;}
+/* v10.11: avatar-less variant — the email + method block is its own row
+   instead of sitting next to a circle. */
+.ap-profile-info-full{display:block;width:100%;line-height:1.3;}
+.ap-profile-info-full .ap-email{font-size:.86rem;}
+.ap-profile-info-full .ap-method{font-size:.7rem;margin-top:3px;}
 .ap-profile-info .ap-email{
   display:block;font-size:.82rem;color:var(--text);
   word-break:break-all;line-height:1.3;
@@ -1932,6 +1948,11 @@ mark.gap-sentence-hl{
 .ap-sync-status.offline .ap-status-dot{background:#9aa0a6;}
 .ap-sync-status.blocked .ap-status-dot{background:#ef4444;}
 .ap-sync-meta{font-size:.7rem;color:var(--text-sub);margin-bottom:10px;line-height:1.35;}
+/* v10.11: centered variant of the sync block. The dot + status line and
+   the cloud-version meta line both center horizontally so the block
+   reads as a quiet status under the section header. */
+.ap-sync-centered .ap-sync-status{justify-content:center;text-align:center;}
+.ap-sync-centered .ap-sync-meta{text-align:center;}
 .ap-sync-buttons{display:flex;gap:6px;margin-bottom:6px;}
 .ap-sync-buttons .ap-sync-action{
   flex:1 1 0;padding:7px 8px;
@@ -4647,7 +4668,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.9</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.10</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -14693,6 +14714,32 @@ function lresBackToSelection() {
   };
 
   /* ─── Auth state handler ──────────────────────────────────────────── */
+  /* v10.11 task 1.5: Premium / creator flags are linked to a real account.
+     If the device is in a signed-out (or anonymous) state, any local flags
+     left over must be revoked immediately. _pullV10ProfileFromCloud
+     reinstates legitimate flags on next login. */
+  function _revokeAnonPremiumFlags() {
+    try {
+      var hadCreator = !!(window.v10Get && window.v10Get('ct_v10_creator'));
+      var hadPremium = !!(window.v10Get && window.v10Get('ct_v10_premium'));
+      if (!hadCreator && !hadPremium) return false;
+      if (typeof window.v10Delete === 'function') {
+        window.v10Delete('ct_v10_creator');
+        window.v10Delete('ct_v10_premium');
+      } else {
+        localStorage.removeItem('ct_v10_creator');
+        localStorage.removeItem('ct_v10_premium');
+      }
+      try { if (window.v10UI && window.v10UI._refreshLegacyThemePopupLocks) window.v10UI._refreshLegacyThemePopupLocks(); } catch(e){}
+      try { if (typeof _lPrunePremiumLocked === 'function') _lPrunePremiumLocked(); } catch(e){}
+      try { if (typeof buildVariantSelector === 'function') buildVariantSelector(); } catch(e){}
+      try { if (typeof _lRenderLevelPills === 'function') _lRenderLevelPills(); } catch(e){}
+      try { if (typeof _lRenderFlavorPills === 'function') _lRenderFlavorPills(); } catch(e){}
+      try { if (typeof _refreshMistakeLock === 'function') _refreshMistakeLock(); } catch(e){}
+      return true;
+    } catch(e) { return false; }
+  }
+
   function _onAuthStateChanged(user) {
     _currentUser = user;
     /* v10 Phase 3: mirror to window so v10UI's _fbWriteCreatorFlag can read it. */
@@ -14702,6 +14749,12 @@ function lresBackToSelection() {
       _rulesBlocked = false;
       _lastErrorMessage = '';
       _syncFailed = false;
+      /* v10.11: revoke any premium/creator flags on the device the moment
+         we observe a signed-out / anonymous state. Catches: page reload
+         after sign-out, app boot with stale flags from a previous account,
+         or codes entered without a real account. Legitimate users get
+         their flags restored by _pullV10ProfileFromCloud on next login. */
+      _revokeAnonPremiumFlags();
     }
     _updateAccountUI();
     _refreshAccountSync();
@@ -14803,17 +14856,14 @@ function lresBackToSelection() {
           '<span class="apc-tail" aria-hidden="true">' + pcTail + '</span>' +
         '</button>';
 
-      /* v10.10: Profile section with avatar + email + sign-out link.
-         Sign out collapsed to a small text link — the dropdown footer
-         no longer competes with primary actions. */
+      /* v10.11: Profile section (no avatar). Email stacks above the
+         small sign-out text link. Nothing competes with the primary
+         actions below. */
       var profileHtml =
         '<div class="ap-section">' +
-          '<div class="ap-profile-head">' +
-            '<div class="ap-profile-avatar" aria-hidden="true">' + _escHtml(avatarLetter) + '</div>' +
-            '<div class="ap-profile-info">' +
-              '<span class="ap-email">' + _escHtml(email) + '</span>' +
-              '<span class="ap-method">Signed in via ' + _escHtml(methodLabel) + '</span>' +
-            '</div>' +
+          '<div class="ap-profile-info ap-profile-info-full">' +
+            '<span class="ap-email">' + _escHtml(email) + '</span>' +
+            '<span class="ap-method">Signed in via ' + _escHtml(methodLabel) + '</span>' +
           '</div>' +
           '<button class="ap-signout-link" type="button" onclick="_fbSignOut()">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -14823,26 +14873,11 @@ function lresBackToSelection() {
           '</button>' +
         '</div>';
 
-      /* v10.10: Sync section as its own labeled card. Buttons stay equal
-         width — the icons make their direction clear. */
-      var syncHtml =
-        '<div class="ap-section">' +
-          '<div class="ap-section-label">Cloud sync</div>' +
-          '<div class="ap-sync-section" id="apSyncSection" style="margin-top:0;padding-top:0;border-top:none">' +
-            '<div class="ap-sync-status" id="apSyncStatus"><span class="ap-status-dot"></span><span class="ap-sync-status-text">—</span></div>' +
-            '<div class="ap-sync-meta" id="apSyncMeta">—</div>' +
-            '<div class="ap-sync-buttons">' +
-              '<button class="ap-sync-action" id="apUploadBtn" onclick="_fbManualUpload()">↑ Backup</button>' +
-              '<button class="ap-sync-action" id="apDownloadBtn" onclick="_fbManualDownload()">↓ Restore</button>' +
-            '</div>' +
-          '</div>' +
-        '</div>';
-
-      /* v10.10: Settings group (special code).
-         If creator, hide — nothing more to enter. */
-      var settingsHtml = isCreator ? '' :
-        '<div class="ap-section">' +
-          '<div class="ap-section-label">Settings</div>' +
+      /* v10.11: Enter special code row. If creator, hide — nothing
+         more to enter. No section header — sits directly under the
+         Premium card as a compact row with the key icon. */
+      var codeHtml = isCreator ? '' :
+        '<div class="ap-section ap-section-compact">' +
           '<div class="ap-actions" style="border-top:none;margin-top:0;padding-top:0">' +
             '<div class="ap-action-row v107-code-row" id="apCreatorRow" onclick="v10UI.showCreatorCodeForm(this)">' +
               '<span class="ap-action-glyph">' + _AP_KEY_SVG + '</span>' +
@@ -14861,7 +14896,22 @@ function lresBackToSelection() {
           '</div>' +
         '</div>';
 
-      /* v10.10: Destructive group on its own. */
+      /* v10.11: Sync section — status dot + meta line are centered now
+         so the block reads as a quiet status rather than a header. */
+      var syncHtml =
+        '<div class="ap-section">' +
+          '<div class="ap-section-label">Cloud sync</div>' +
+          '<div class="ap-sync-section ap-sync-centered" id="apSyncSection" style="margin-top:0;padding-top:0;border-top:none">' +
+            '<div class="ap-sync-status" id="apSyncStatus"><span class="ap-status-dot"></span><span class="ap-sync-status-text">—</span></div>' +
+            '<div class="ap-sync-meta" id="apSyncMeta">—</div>' +
+            '<div class="ap-sync-buttons">' +
+              '<button class="ap-sync-action" id="apUploadBtn" onclick="_fbManualUpload()">↑ Backup</button>' +
+              '<button class="ap-sync-action" id="apDownloadBtn" onclick="_fbManualDownload()">↓ Restore</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+
+      /* v10.11: Destructive group on its own. */
       var dangerHtml =
         '<div class="ap-section">' +
           '<div class="ap-actions" style="border-top:none;margin-top:0;padding-top:0">' +
@@ -14872,45 +14922,22 @@ function lresBackToSelection() {
           '</div>' +
         '</div>';
 
+      /* v10.11 order (signed-in):
+         profile → Premium → Enter code → Cloud sync → Clear stats */
       content.innerHTML =
         profileHtml +
         premiumCardHtml +
+        codeHtml +
         syncHtml +
-        settingsHtml +
         dangerHtml;
       _renderAccountSync();
     } else {
       btn.classList.remove('signed-in');
-      var isCreatorOut = (window.v10Get && window.v10Get('ct_v10_creator') === true);
-      var isPremiumOut = (window.v10Get && window.v10Get('ct_v10_premium') === true);
-      /* v10.10: Premium card for the signed-out state too — lets anonymous
-         users discover what Premium is, and reflects it if they entered
-         a code while not signed in. */
-      var pcOutClass, pcOutGlyph, pcOutTitle, pcOutSub, pcOutTail;
-      if (isCreatorOut){
-        pcOutClass = 'is-creator'; pcOutGlyph = '\u2605';
-        pcOutTitle = 'Creator'; pcOutSub = 'Lifetime access · all features';
-        pcOutTail = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
-      } else if (isPremiumOut){
-        pcOutClass = 'is-premium'; pcOutGlyph = '\u2726';
-        pcOutTitle = 'Premium member'; pcOutSub = 'All features unlocked';
-        pcOutTail = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
-      } else {
-        pcOutClass = ''; pcOutGlyph = '\u2726';
-        pcOutTitle = 'Premium'; pcOutSub = 'Unlock all topics & variants';
-        pcOutTail = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>';
-      }
-      var premiumCardOutHtml =
-        '<button type="button" class="ap-premium-card ' + pcOutClass + '" ' +
-          'onclick="v10UI.showPremiumInfo()" aria-label="Premium details">' +
-          '<span class="apc-glyph" aria-hidden="true">' + pcOutGlyph + '</span>' +
-          '<span class="apc-text">' +
-            '<span class="apc-title">' + pcOutTitle + '</span>' +
-            '<span class="apc-sub">' + pcOutSub + '</span>' +
-          '</span>' +
-          '<span class="apc-tail" aria-hidden="true">' + pcOutTail + '</span>' +
-        '</button>';
-
+      /* v10.11: Signed-out users see registration first. No Premium card,
+         no Enter-code row — those live behind sign-in. The boot revocation
+         (_revokeAnonPremiumFlags) has already wiped any stray flags so we
+         can render this branch unconditionally. Clear stats stays so users
+         can reset a guest device without signing in. */
       content.innerHTML =
         '<div class="ap-status">Sign in to save your progress across devices.</div>' +
         '<div style="margin-top:10px">' +
@@ -14919,43 +14946,25 @@ function lresBackToSelection() {
           '<button class="ap-signin-btn" onclick="_showEmailForm()">Sign in with email</button>' +
         '</div>' +
         '<div id="apStatus"></div>' +
-        premiumCardOutHtml +
-        (isCreatorOut
-          ? ''
-          : '<div class="ap-actions" style="margin-top:0">' +
-              '<div class="ap-action-row v107-code-row" id="apCreatorRow" onclick="v10UI.showCreatorCodeForm(this)">' +
-                '<span class="ap-action-glyph">' + _AP_KEY_SVG + '</span>' +
-                '<div class="v107-code-cell">' +
-                  '<span class="v107-code-closed">Enter special code</span>' +
-                  '<div class="v107-code-open">' +
-                    '<div class="v107-code-inp-reveal">' +
-                      '<input type="password" class="v107-code-input" id="apCreatorInput" placeholder="Enter code" autocomplete="off" spellcheck="false">' +
-                    '</div>' +
-                    '<button type="button" class="v107-sub-key" id="apCreatorApply" aria-label="Submit code" tabindex="-1">' +
-                      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>' +
-                    '</button>' +
-                  '</div>' +
-                '</div>' +
-              '</div>' +
-              '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
-                '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
-                '<span>Clear all statistics</span>' +
-              '</div>' +
-            '</div>') +
-        (isCreatorOut
-          ? '<div class="ap-actions" style="margin-top:0">' +
-              '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
-                '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
-                '<span>Clear all statistics</span>' +
-              '</div>' +
-            '</div>'
-          : '');
+        '<div class="ap-actions" style="margin-top:0">' +
+          '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
+            '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
+            '<span>Clear all statistics</span>' +
+          '</div>' +
+        '</div>';
     }
   }
 
   function _googleBtnHtml() {
+    /* v10.11: full-color official Google “G” (4 brand paths) to stay
+       recognizable now that the button surface is theme-neutral. */
     return '<button class="ap-signin-btn google" onclick="_fbSignInGoogle()">' +
-      '<svg width="16" height="16" viewBox="0 0 48 48"><path fill="#FFF" d="M43.6 20.5h-1.9v-.1H24v7.1h11.3c-1.5 4.1-5.4 7.1-10 7.1-6 0-10.8-4.8-10.8-10.8s4.8-10.8 10.8-10.8c2.7 0 5.2 1 7.1 2.7l5.1-5.1C33.8 7.5 29.1 5.5 24 5.5 13.8 5.5 5.5 13.8 5.5 24S13.8 42.5 24 42.5c10.8 0 19.5-8.7 19.5-19.5 0-1.3-.1-2.4-.4-3.5z"/></svg>' +
+      '<svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true">' +
+        '<path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>' +
+        '<path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>' +
+        '<path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>' +
+        '<path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-0.792 2.237-2.231 4.166-4.087 5.571.001-.001.002-.001.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>' +
+      '</svg>' +
       'Continue with Google</button>';
   }
   function _escHtml(s){ return String(s||'').replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
@@ -15061,6 +15070,19 @@ function lresBackToSelection() {
       localStorage.removeItem('goldUnlocked');
       localStorage.removeItem('ct_variant_progress');
       localStorage.removeItem('ct_learn_live_session');
+      /* v10.11 task 1.5: Premium and Creator flags are bound to the
+         signed-in account. Wipe them on sign-out so the device drops back
+         to the free tier immediately. _pullV10ProfileFromCloud will
+         restore them on the next legitimate login. */
+      try {
+        if (typeof window.v10Delete === 'function') {
+          window.v10Delete('ct_v10_creator');
+          window.v10Delete('ct_v10_premium');
+        } else {
+          localStorage.removeItem('ct_v10_creator');
+          localStorage.removeItem('ct_v10_premium');
+        }
+      } catch(e) {}
       /* Don't remove the entryUid-migration flag or per-uid choice flags;
          they are version markers / per-account preferences. */
       location.reload();
@@ -16833,11 +16855,19 @@ function lresBackToSelection() {
     document.body.appendChild(_modalEl);
     void _modalEl.offsetWidth;
     _modalEl.classList.add('open');
+    /* v10.11: also stopPropagation on every click inside the backdrop so the
+       account dropdown's outside-click listener (on `document`) does not
+       see the modal click and close itself. The first click closes the
+       modal only — the dropdown stays open. */
     _modalEl.addEventListener('click', function(e){
+      e.stopPropagation();
       if (e.target === _modalEl) _closeModal();
     });
     var closeBtn = document.getElementById('apPremiumModalClose');
-    if (closeBtn) closeBtn.addEventListener('click', _closeModal);
+    if (closeBtn) closeBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      _closeModal();
+    });
     document.addEventListener('keydown', _modalKeyHandler, true);
   }
 
