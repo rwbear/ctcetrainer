@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.12 · Sign-out wipe + sticky bottom nav + smooth scroll
-     Brand chip in-app shows “v10.12”. Build version is in this comment.
-     Build: v10.12
+     v10.13 · Code-row line + landing shadow + 5-col mobile chips + Learn fixes
+     Brand chip in-app shows “v10.13”. Build version is in this comment.
+     Build: v10.13
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -2134,6 +2134,23 @@ mark.gap-sentence-hl{
 .var-chip-row{
   display:flex;flex-wrap:wrap;gap:8px;
 }
+/* v10.13 Issue 6: on mobile (<=720px), variant chips lay out as a fixed
+   5-column grid — cleaner alignment than the wrap-flex behaviour, which
+   left the last row half-empty for years with 7–10 variants. Chips share
+   width equally so the picker reads as a tidy block. */
+@media(max-width:720px){
+  .var-chip-row{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+  }
+  .var-chip{
+    /* tighten horizontal padding so 5 chips comfortably fit narrow phones */
+    padding-left:4px;padding-right:4px;min-width:0;
+  }
+  .var-chip.locked{padding-right:18px;}
+  .var-chip .vc-lock{right:4px;}
+}
 .var-chip{
   display:inline-flex;align-items:center;justify-content:center;
   min-width:42px;min-height:38px;
@@ -2602,6 +2619,19 @@ mark.gap-sentence-hl{
   font-size:1.7rem;font-weight:800;
   color:var(--text);letter-spacing:-.02em;
   line-height:1.15;
+  /* v10.13 Issue 5: subtle text-shadow gives the words physical weight,
+     echoing the topnav drop-shadow language without adding any geometry. */
+  text-shadow:
+    0 2px 4px rgba(39,38,42,.06),
+    0 6px 18px rgba(39,38,42,.10);
+}
+/* v10.13 Issue 5: dark themes need a different shadow tint — dark text on
+   a dark background can't cast a darker shadow visibly, so use a faint
+   white halo instead, just enough to lift the title off the surface. */
+[data-theme$="-dark"] .landing-brand-title{
+  text-shadow:
+    0 2px 4px rgba(255,255,255,.04),
+    0 6px 18px rgba(255,255,255,.06);
 }
 .landing-brand-sub{
   font-size:.9rem;color:var(--text-sub);margin-top:6px;
@@ -2620,13 +2650,27 @@ mark.gap-sentence-hl{
   border-radius:calc(var(--radius) + 2px);
   padding:28px 24px;
   cursor:pointer;
-  transition:border-color .2s,background .2s,transform .18s ease,box-shadow .2s;
+  /* v10.13 Issue 5: soft resting shadow lifts the cards off the page. The
+     hover shadow deepens further. Same drop-shadow language as the topnav,
+     scaled up for the hero cards. */
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.03),
+    0 8px 24px rgba(39,38,42,.05);
+  transition:border-color .2s,background .2s,transform .18s ease,box-shadow .25s ease;
   text-align:center;
   -webkit-tap-highlight-color:transparent;
   position:relative;
   overflow:hidden;
   opacity:0;filter:blur(12px);transform:scale(.97);
   animation:landBlurReveal .6s cubic-bezier(.16,1,.3,1) forwards;
+}
+/* v10.13 Issue 5: dark themes — lift comes from a slightly stronger black
+   shadow (the surface is dark so the spread reads as depth, not as a
+   colored halo). */
+[data-theme$="-dark"] .mode-card{
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.20),
+    0 10px 28px rgba(0,0,0,.28);
 }
 .mode-card:nth-child(1){animation-delay:.25s;}
 .mode-card:nth-child(2){animation-delay:.25s;}
@@ -2635,8 +2679,16 @@ mark.gap-sentence-hl{
 }
 .mode-card:hover{
   border-color:var(--accent);
-  box-shadow:0 6px 24px rgba(0,0,0,.07);
-  transform:translateY(-3px);
+  /* v10.13 Issue 5: hover deepens both layers — 4 px lift + bigger spread. */
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.04),
+    0 16px 40px rgba(39,38,42,.10);
+  transform:translateY(-4px);
+}
+[data-theme$="-dark"] .mode-card:hover{
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.30),
+    0 18px 44px rgba(0,0,0,.40);
 }
 .mode-card:active{transform:scale(.97);}
 .mode-card-icon{
@@ -4323,6 +4375,32 @@ body.lt9-locked{overflow:hidden;}
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
+/* v10.13 Issue 5 OVERRIDE: the polish layer above uses --shadow-sm/--shadow-md
+   which are intentionally weak system tokens (also used by topic-card, vs-box,
+   ap-modal). The landing hero needs a deeper drop-shadow language to feel
+   premium without changing those other surfaces, so we re-state the mode-card
+   shadows here with explicit values that match the v10.13 mockup. */
+.mode-card{
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.03),
+    0 8px 24px rgba(39,38,42,.05);
+}
+[data-theme$="-dark"] .mode-card{
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.20),
+    0 10px 28px rgba(0,0,0,.28);
+}
+.mode-card:hover{
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.04),
+    0 16px 40px rgba(39,38,42,.10);
+  transform: translateY(-4px);
+}
+[data-theme$="-dark"] .mode-card:hover{
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.30),
+    0 18px 44px rgba(0,0,0,.40);
+}
 .topic-card{
   box-shadow: var(--shadow-sm);
   transition:
@@ -4711,7 +4789,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.12</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.13</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -10076,17 +10154,22 @@ function navigateRandom(dir) {
   const container = document.getElementById('topicQuestionContainer');
   if (!container) { showRandomCard(nextIdx); return; }
 
-  /* v10.12 Issue 4.2: when the user has scrolled below the card top (typical
-     after submitting an answer and reading the explanation), tapping Next
-     causes a hard browser scroll-clamp jump as the card height shrinks during
-     v107Morph. Smoothly scroll up to just above the card first, then run the
-     morph. We deliberately layer this OUTSIDE v107Morph — the engine itself
-     is left untouched. */
+  /* v10.12 Issue 4.2 / v10.13 Issue 2: when the user has scrolled below the
+     card top (typical after submitting and reading the explanation), tapping
+     Next would cause a browser scroll-clamp jump as the card height shrinks
+     during v107Morph. We reposition the viewport to just above the card
+     BEFORE the morph runs.
+
+     v10.12 used behavior:'smooth' here, but the smooth scroll animation ran
+     in parallel with the 260 ms height morph — the two animations collided
+     and the morph felt sluggish vs. Learn (which has no pre-scroll). v10.13:
+     instant scroll. The viewport is repositioned in one frame, then the
+     morph runs uncontested — matching Learn's feel. */
   try {
     const card = _rndCardEl || container;
     const cardTop = card.getBoundingClientRect().top + window.scrollY - 16;
     if (window.scrollY > cardTop + 4) {
-      window.scrollTo({ top: Math.max(0, cardTop), behavior: 'smooth' });
+      window.scrollTo({ top: Math.max(0, cardTop), behavior: 'instant' });
     }
   } catch(e) {}
 
@@ -11287,6 +11370,31 @@ function _lCountTasksForCanonical(canonicalSubId) {
 
 /* Called by showPage('learn') — initialise if first time */
 function initLearnSelection() {
+  /* v10.13 Issue 7.1: guard against double-load. The showPage('learn') hook
+     can fire twice during cold boot (first via the hash router pre-hydrate,
+     then again after the bank index resolves). Re-running every selector
+     within 300 ms of itself caused the visible double-render. The guard
+     keeps user-driven re-entries (navigate away, come back) working since
+     those are always >300 ms apart. */
+  if (window._lInitTs && (Date.now() - window._lInitTs) < 300) return;
+  window._lInitTs = Date.now();
+
+  /* v10.13 Issue 7: replay the .lsel-footer fade-in animation. The keyframe
+     is `forwards` so once it completes the engine treats it as done; some
+     Chromium/iOS Safari builds then skip the animation when the element
+     toggles display:none→block, leaving the sticky footer (and Start Practice
+     inside it) at opacity 0, translateY 8 px — invisible. The remove + reflow
+     + re-add pattern forces a replay on every entry. We schedule it next
+     frame so the screen has actually been painted. */
+  requestAnimationFrame(() => {
+    const footer = document.querySelector('#lsel-screen .lsel-footer');
+    if (footer) {
+      footer.style.animation = 'none';
+      /* trigger reflow */ void footer.offsetWidth;
+      footer.style.animation = '';
+    }
+  });
+
   if (!_store.learn) {
     _store.learn = {
       selectedSubtopics: new Set(),                // canonical sub ids now
@@ -13049,6 +13157,19 @@ function _lUpdateCount() {
       _hardBtn._labelRAF1 = 0;
       _hardBtn._labelRAF2 = 0;
       _hardBtn.style.opacity = '1';
+    }
+    /* v10.13 Issue 7: harden the LABEL element too. The label uses
+       .lt9-num-fade which sets opacity 0 while .fading is on. If a prior
+       _lt9SetTextFaded call had its setTimeout cancelled mid-fade (page
+       swap, race), the label could be stuck at opacity 0 even though the
+       button itself is visible — result: a blank rectangle the user can't
+       click meaningfully. Clear the fade state and force opacity back. */
+    const _hardLbl = document.getElementById('lselStartLabel');
+    if (_hardLbl) {
+      try { clearTimeout(_hardLbl._fadeT); } catch(e) {}
+      _hardLbl._fadeT = 0;
+      _hardLbl.classList.remove('fading');
+      _hardLbl.style.opacity = '';
     }
   }
 
@@ -14943,11 +15064,11 @@ function lresBackToSelection() {
           '</button>' +
         '</div>';
 
-      /* v10.11: Enter special code row. If creator, hide — nothing
-         more to enter. No section header — sits directly under the
-         Premium card as a compact row with the key icon. */
+      /* v10.13: Enter special code row sits between Cloud sync and
+         Clear stats. The standard .ap-section border-top supplies the
+         existing tiny separator line above it — no extra divider needed. */
       var codeHtml = isCreator ? '' :
-        '<div class="ap-section ap-section-compact">' +
+        '<div class="ap-section">' +
           '<div class="ap-actions" style="border-top:none;margin-top:0;padding-top:0">' +
             '<div class="ap-action-row v107-code-row" id="apCreatorRow" onclick="v10UI.showCreatorCodeForm(this)">' +
               '<span class="ap-action-glyph">' + _AP_KEY_SVG + '</span>' +
