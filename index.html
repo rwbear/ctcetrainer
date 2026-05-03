@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.14 · Icon-jiggle fix + flush code/clear rows + solid Learn reveal
-     Brand chip in-app shows “v10.14”. Build version is in this comment.
-     Build: v10.14
+     v10.15 · Title fix + real Issue 7.1 fix + cold-boot loader
+     Brand chip in-app shows “v10.15”. Build version is in this comment.
+     Build: v10.15
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -2610,10 +2610,18 @@ mark.gap-sentence-hl{
   padding:32px 20px 40px;
   max-width:600px;margin:0 auto;width:100%;
 }
+/* v10.15 Issue A: title was invisible in v10.14. Root cause was that v10.14
+   changed @keyframes landBlurReveal to drop its `to` block (since .mode-card
+   now owns its resting state through fill-mode: backwards). But .landing-brand
+   still used fill-mode: forwards, so the animation ended at the keyframe's
+   implicit end-state — which is the element's resting style — BUT during the
+   animation the `from` state (opacity:0) was held, and the element's own
+   baseline `opacity:0` stayed after. Fix: match .mode-card's pattern exactly:
+   resting style IS the final state (opacity:1, no transform), and the
+   animation uses `backwards` fill so it only owns the pre-animation period. */
 .landing-brand{
   text-align:center;margin-bottom:36px;
-  opacity:0;filter:blur(12px);transform:scale(.97);
-  animation:landBlurReveal .7s cubic-bezier(.16,1,.3,1) forwards;
+  animation:landBlurReveal .7s cubic-bezier(.16,1,.3,1) backwards;
 }
 .landing-brand-title{
   font-size:1.7rem;font-weight:800;
@@ -2722,7 +2730,9 @@ mark.gap-sentence-hl{
   width:36px;height:36px;
   margin:-36px auto 0;padding:0;
   cursor:pointer;color:var(--text-sub);
-  opacity:0;filter:blur(6px);animation:landBlurReveal .5s cubic-bezier(.16,1,.3,1) .6s forwards;
+  /* v10.15 Issue A: same backwards-fill pattern as .landing-brand so the arrow
+     lands at its resting style (opacity:1) once the reveal ends. */
+  animation:landBlurReveal .5s cubic-bezier(.16,1,.3,1) .6s backwards;
   -webkit-tap-highlight-color:transparent;
   transition:opacity .3s,color .15s;
   border:none;background:none;
@@ -4545,6 +4555,40 @@ body.lt9-locked{overflow:hidden;}
   }
 }
 
+/* ─── 8b. Cold-boot loader (v10.15) ────────────────────────────────────
+   Full-viewport overlay shown ONLY on slow boots (mobile, throttled
+   networks). Reuses the existing .sk-sweep hairline so the visual
+   language is consistent. Hidden by default; JS reveals it after a
+   ~250ms delay so fast boots never see it, and hides it as soon as
+   init() finishes. Once dismissed, it stays gone for the session. */
+.boot-loader{
+  position: fixed; inset: 0;
+  z-index: 100000;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms var(--ease-spring);
+}
+.boot-loader.is-shown{
+  opacity: 1;
+  pointer-events: auto;
+}
+.boot-loader .sk-sweep{
+  align-items: center;
+  text-align: center;
+}
+.boot-loader .sk-sweep > span{
+  font-size: .82rem;
+  color: var(--text-sub);
+  letter-spacing: .04em;
+  text-transform: lowercase;
+}
+.boot-loader .sk-sweep-line{ width: 160px; }
+@media (prefers-reduced-motion: reduce){
+  .boot-loader{ transition: none; }
+}
+
 /* ─── 9. Paper grain overlay (body level, non-interactive) ─── */
 body::before{
   content: "";
@@ -4777,6 +4821,35 @@ textarea:focus-visible,
 </head>
 <body>
 
+<!-- v10.15: Cold-boot loader. Hidden by default; JS reveals it only if
+     init() takes longer than ~250ms (slow mobile / throttled network).
+     Reuses the existing .sk-sweep hairline used inside the wallet popup
+     so loading visuals stay consistent app-wide. -->
+<div id="bootLoader" class="boot-loader" aria-hidden="true" aria-live="polite">
+  <div class="sk-sweep">
+    <span>loading</span>
+    <div class="sk-sweep-line"></div>
+  </div>
+</div>
+<script>
+  /* v10.15: tiny inline reveal scheduler. Runs the moment the body parses
+     this node, BEFORE the heavy main script. If init() in the main script
+     finishes quickly, it sets window.__ctBootDone and we never reveal.
+     If init() is still pending after 280ms (slow JS parse / cold cache /
+     low-end mobile), we reveal the loader so the user sees motion instead
+     of a blank/frozen screen. */
+  (function(){
+    window.__ctBootDone = false;
+    window.__ctBootRevealTimer = setTimeout(function(){
+      if (window.__ctBootDone) return;
+      var el = document.getElementById('bootLoader');
+      if (!el) return;
+      el.classList.add('is-shown');
+      el.setAttribute('aria-hidden', 'false');
+    }, 280);
+  })();
+</script>
+
 <!-- v9.14: Mobile bottom tab bar removed. Navigation between Home / Practice /
      Learn on mobile is via the home icon in the top-left + landing-page mode
      cards. Top-nav stays visually clean and the bottom of the viewport is
@@ -4791,7 +4864,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.14</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.15</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -11001,6 +11074,24 @@ function escAttr(s) {
 
 /* ─── INIT ───────────────────────────────────────────────────────────── */
 (function init() {
+  // v10.15: Cold-boot loader hide-hook. The reveal scheduler lives in
+  // an inline <script> right after the loader element near the top of
+  // <body>, so it can fire even when this main script is still parsing
+  // on a slow phone. Here we just mark boot as done and fade the
+  // overlay out (whether it ever became visible or not).
+  function _hideBoot(){
+    window.__ctBootDone = true;
+    if (window.__ctBootRevealTimer) clearTimeout(window.__ctBootRevealTimer);
+    var _bootEl = document.getElementById('bootLoader');
+    if (!_bootEl) return;
+    _bootEl.classList.remove('is-shown');
+    _bootEl.setAttribute('aria-hidden', 'true');
+    // Remove from DOM after the fade-out so it never intercepts taps.
+    setTimeout(function(){
+      if (_bootEl && _bootEl.parentNode) _bootEl.parentNode.removeChild(_bootEl);
+    }, 260);
+  }
+
   // Restore theme (migrate v6 names → v7)
   const _themeMigrate = {'dark':'slate-dark','paper-dark':'slate-dark','warm':'sand','warm-dark':'sand-dark','forest':'moss','forest-dark':'moss-dark','dusk':'lavender','dusk-dark':'lavender-dark','navy':'ocean','navy-dark':'ocean-dark','sage':'','sage-dark':'slate-dark','berry':'rose','berry-dark':'rose-dark'};
   let savedTheme = storeGet('theme', '');
@@ -11014,6 +11105,14 @@ function escAttr(s) {
   // V5: Start on landing page
   // All pages start hidden (no 'active' class in HTML except landing)
   showPage('landing');
+
+  // Hide the boot loader on the next frame so the landing-reveal
+  // animation begins simultaneously with the fade-out.
+  if (window.requestAnimationFrame) {
+    requestAnimationFrame(_hideBoot);
+  } else {
+    _hideBoot();
+  }
 })();
 </script>
 <script data-pplx-inline-edit>
@@ -12892,19 +12991,26 @@ if (document.readyState === 'loading') {
 /* ══════════════════════════════════════════════════════════════════════════
    CANONICAL TOPIC ACCORDION
    ══════════════════════════════════════════════════════════════════════════ */
-/* v10.14 Issue 7.1 solid fix: skipStagger opt-out.
-   The flash/play-twice was NOT a loading-speed issue (the user's hypothesis
-   of "it just doesn't load fast enough, add a tiny delay" was close but not
-   the actual root cause). The real cause was structural: initLearnSelection
-   calls _lRenderTopicSections() immediately to render with whatever bank data
-   is available, then calls it AGAIN inside the _lEnsureLevelBanks promise
-   resolution (~80–200 ms later) to reflect updated bank counts. Each call
-   re-added `.stagger-in`, so the topics animated in, then instantly reset
-   and animated in a second time — the flash.
-   A delay alone would not fix it (both renders would still stagger, just
-   both shifted later). The correct fix is to ONLY stagger on the first
-   render per visit; the bank-load re-render updates counts silently, with
-   no animation, so the topics stay put and counts just refresh in place. */
+/* v10.15 Issue 7.1 — third attempt, real fix this time.
+
+   v10.14's `skipStagger` flag wasn't enough. Even when it was true, the
+   function still ran `container.innerHTML = ''` and rebuilt every section.
+   The container itself still carried the `.stagger-in` class, so CSS rule
+   `.stagger-in > *` immediately fired on the freshly-inserted children:
+   they got `opacity: 0` and animated to 1 a second time. That's the flash
+   the user saw on cold-boot — reproduced here on a 390×844 mobile viewport,
+   sample timeline shows opacity going 0 → 0.087 → 0.000 → 0.228 → … 1.
+
+   v10.15 fix: when `skipStagger` is true, do NOT touch DOM nodes at all.
+   Just walk visibleTopics and patch the count badge + 'All/Clear' button
+   text + selection classes in place. The bank-load only ever changes the
+   numeric counts — the structure of sections, headers, chips never changes
+   between the first render and the bank-loaded re-render. So there's no
+   need to rebuild anything; we just refresh the numbers.
+
+   This guarantees zero re-render flash: no nodes are removed/added, the
+   `.stagger-in > *` rule never re-fires, opacity stays at 1 the entire
+   time the bank load is pending. */
 function _lRenderTopicSections(skipStagger) {
   const container = document.getElementById('lselTopicSections');
   if (!container) return;
@@ -12915,6 +13021,35 @@ function _lRenderTopicSections(skipStagger) {
   const sel    = _lstore('selectedSubtopics', new Set());
   const active = [..._lstore('activeLevels', new Set(_LP4_DEFAULT_LEVELS))];
   const visibleTopics = helpers.topicsForLevels(active);
+
+  /* v10.15 Issue 7.1: in-place refresh path — no DOM swap, no flash. */
+  if (skipStagger && container.children.length === visibleTopics.length
+                  && container.querySelector('.lsel-topic-section')) {
+    visibleTopics.forEach(topic => {
+      const totalTasks    = topic.subtopics.reduce((n, st) => n + _lCountTasksForCanonical(st.id), 0);
+      const selectedSts   = topic.subtopics.filter(st => sel.has(st.id));
+      const allSelected   = selectedSts.length === topic.subtopics.length;
+      const selectedTasks = selectedSts.reduce((n, st) => n + _lCountTasksForCanonical(st.id), 0);
+      const headerCountLong = selectedSts.length
+        ? `${selectedSts.length}/${topic.subtopics.length} · ${selectedTasks} tasks`
+        : `${topic.subtopics.length} subtopics · ${totalTasks} tasks`;
+      const headerCountShort = selectedSts.length
+        ? `${selectedSts.length}/${topic.subtopics.length} · ${selectedTasks} tasks`
+        : `${topic.subtopics.length} · ${totalTasks} tasks`;
+      const cnt = document.getElementById('lsel-count-' + topic.id);
+      if (cnt) {
+        cnt.setAttribute('data-long',  headerCountLong);
+        cnt.setAttribute('data-short', headerCountShort);
+        cnt.textContent = _lt9IsMobile() ? headerCountShort : headerCountLong;
+      }
+      const allBtn = document.getElementById('lsel-all-' + topic.id);
+      if (allBtn) {
+        allBtn.textContent = allSelected ? 'Clear' : 'All';
+        allBtn.classList.toggle('active', allSelected);
+      }
+    });
+    return;
+  }
 
   container.innerHTML = '';
 
