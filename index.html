@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.13 · Code-row line + landing shadow + 5-col mobile chips + Learn fixes
-     Brand chip in-app shows “v10.13”. Build version is in this comment.
-     Build: v10.13
+     v10.14 · Icon-jiggle fix + flush code/clear rows + solid Learn reveal
+     Brand chip in-app shows “v10.14”. Build version is in this comment.
+     Build: v10.14
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -2661,8 +2661,15 @@ mark.gap-sentence-hl{
   -webkit-tap-highlight-color:transparent;
   position:relative;
   overflow:hidden;
-  opacity:0;filter:blur(12px);transform:scale(.97);
-  animation:landBlurReveal .6s cubic-bezier(.16,1,.3,1) forwards;
+  /* v10.14 Issue 1 fix: resting state IS the final state. The reveal animation
+     uses fill-mode `backwards` so it only owns the pre-animation period — once
+     it ends, transform is handed back to regular CSS where :hover and :active
+     win cleanly. (Previously `forwards` locked the keyframe transform at the
+     animation cascade level, suppressing :hover entirely and producing
+     mismatched matrix interpolation when the browser tried to override it —
+     that was the actual cause of the icon "jiggle".) */
+  transform:translateY(0) scale(1);
+  animation:landBlurReveal .6s cubic-bezier(.16,1,.3,1) backwards;
 }
 /* v10.13 Issue 5: dark themes — lift comes from a slightly stronger black
    shadow (the surface is dark so the spread reads as depth, not as a
@@ -2683,14 +2690,17 @@ mark.gap-sentence-hl{
   box-shadow:
     0 2px 4px rgba(0,0,0,.04),
     0 16px 40px rgba(39,38,42,.10);
-  transform:translateY(-4px);
+  /* v10.14 Issue 1 fix: keep same transform function list as resting state. */
+  transform:translateY(-4px) scale(1);
 }
 [data-theme$="-dark"] .mode-card:hover{
   box-shadow:
     0 2px 4px rgba(0,0,0,.30),
     0 18px 44px rgba(0,0,0,.40);
 }
-.mode-card:active{transform:scale(.97);}
+/* v10.14 Issue 1 fix: active state matches the function list too, so the
+   click-press scale animates cleanly instead of fighting with hover. */
+.mode-card:active{transform:translateY(0) scale(.97);}
 .mode-card-icon{
   display:flex;align-items:center;justify-content:center;
   margin-bottom:14px;color:var(--accent-dk);
@@ -2764,7 +2774,13 @@ mark.gap-sentence-hl{
 
 /* ── Load animations ── */
 @keyframes landBlurReveal{
-  to{opacity:1;filter:blur(0);transform:scale(1);}
+  /* v10.14 Issue 1 fix: only `from` is declared. Implicit `to` is the
+     element's resting style, so when the animation ends (with fill-mode
+     `backwards` on the element) transform reverts to the regular cascade
+     and :hover/:active take over cleanly. Same function list across all
+     keyframes + resting state + :hover + :active means no matrix
+     interpolation shimmer. */
+  from{opacity:0;filter:blur(12px);transform:translateY(0) scale(.97);}
 }
 /* Mobile: skip expensive blur filter — use plain fade+scale instead */
 @media(max-width:600px){
@@ -2772,8 +2788,7 @@ mark.gap-sentence-hl{
   .mode-card,
   .landing-scroll-arrow{filter:none !important;}
   @keyframes landBlurReveal{
-    from{opacity:0;transform:scale(.97);}
-    to{opacity:1;transform:scale(1);}
+    from{opacity:0;transform:translateY(0) scale(.97);}
   }
 }
 /* Reusable stagger-in — v7: row-by-row, refined bezier */
@@ -3168,6 +3183,20 @@ mark.gap-sentence-hl{
 }
 
 /* Sticky start button */
+/* v10.14 Issue 7 solid fix: the previous implementation used
+   `animation: lselFooterFadeIn .3s ease .35s forwards`, which left the
+   final visible state dependent on `animationend` firing reliably. If the
+   footer was display:none at the moment the animation scheduled (cold-boot
+   race, fast re-entry, tab backgrounded mid-transition), Chromium/Safari
+   could skip the animation entirely, leaving the footer stuck at opacity 0
+   with translateY 8 px — invisible. That's why Start Practice "usually
+   doesn't appear."
+   New model: the footer defaults to the hidden state. On every entry, JS
+   adds `.is-ready` on the next animation frame, which triggers a plain
+   transition to the visible state. No animation-fill-mode, no keyframe
+   dependency, no races with display-toggling. The final visible state is
+   a class toggle — if the transition is dropped, the element still ends up
+   visible because the class alone satisfies the rule. */
 .lsel-footer{
   position:fixed;bottom:0;left:0;right:0; /* v9.14: was bottom:var(--bot-h) */
   padding:10px 14px;
@@ -3175,9 +3204,12 @@ mark.gap-sentence-hl{
   z-index:40;
   opacity:0;
   transform:translateY(8px);
-  animation:lselFooterFadeIn .3s ease .35s forwards;
+  transition:opacity .3s ease, transform .3s ease;
 }
-@keyframes lselFooterFadeIn{to{opacity:1;transform:translateY(0);}}
+.lsel-footer.is-ready{
+  opacity:1;
+  transform:translateY(0);
+}
 @media(min-width:601px){
   .lsel-footer{bottom:0;}
 }
@@ -4363,44 +4395,13 @@ body.lt9-locked{overflow:hidden;}
 }
 
 /* ─── 1. Layered shadows + hover lift ─── */
-.mode-card{
-  box-shadow: var(--shadow-sm);
-  transition:
-    border-color var(--dur-base) var(--ease-spring),
-    background   var(--dur-base) var(--ease-spring),
-    transform    var(--dur-base) var(--ease-spring),
-    box-shadow   var(--dur-base) var(--ease-spring);
-}
-.mode-card:hover{
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-/* v10.13 Issue 5 OVERRIDE: the polish layer above uses --shadow-sm/--shadow-md
-   which are intentionally weak system tokens (also used by topic-card, vs-box,
-   ap-modal). The landing hero needs a deeper drop-shadow language to feel
-   premium without changing those other surfaces, so we re-state the mode-card
-   shadows here with explicit values that match the v10.13 mockup. */
-.mode-card{
-  box-shadow:
-    0 1px 2px rgba(0,0,0,.03),
-    0 8px 24px rgba(39,38,42,.05);
-}
-[data-theme$="-dark"] .mode-card{
-  box-shadow:
-    0 1px 2px rgba(0,0,0,.20),
-    0 10px 28px rgba(0,0,0,.28);
-}
-.mode-card:hover{
-  box-shadow:
-    0 2px 4px rgba(0,0,0,.04),
-    0 16px 40px rgba(39,38,42,.10);
-  transform: translateY(-4px);
-}
-[data-theme$="-dark"] .mode-card:hover{
-  box-shadow:
-    0 2px 4px rgba(0,0,0,.30),
-    0 18px 44px rgba(0,0,0,.40);
-}
+/* v10.14 cleanup: .mode-card rules removed from this polish layer. The
+   primary .mode-card declaration near line 2650 owns shadows + transform +
+   transition for the landing hero cards (with v10.13's deeper drop-shadow
+   language). Keeping two rule-sets here previously produced the confusing
+   "which one wins?" specificity puzzle and created visual drift whenever
+   --shadow-sm/--shadow-md were tweaked. topic-card, vs-box, ap-modal still
+   use the shared tokens below. */
 .topic-card{
   box-shadow: var(--shadow-sm);
   transition:
@@ -4497,8 +4498,9 @@ body.lt9-locked{overflow:hidden;}
 }
 
 /* ─── 6. Active-press scale ─── */
-/* Large hero cards — gentler .992 */
-.mode-card:active{ transform: scale(.992); }
+/* .mode-card:active is owned by the primary rule above (translateY(0) scale(.97))
+   to keep the transform function list identical across idle/hover/active and
+   avoid matrix-interpolation shimmer. */
 /* Standard .985 for everything else */
 .topic-card:active,
 .vs-box:active,
@@ -4789,7 +4791,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.13</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.14</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -11379,20 +11381,20 @@ function initLearnSelection() {
   if (window._lInitTs && (Date.now() - window._lInitTs) < 300) return;
   window._lInitTs = Date.now();
 
-  /* v10.13 Issue 7: replay the .lsel-footer fade-in animation. The keyframe
-     is `forwards` so once it completes the engine treats it as done; some
-     Chromium/iOS Safari builds then skip the animation when the element
-     toggles display:none→block, leaving the sticky footer (and Start Practice
-     inside it) at opacity 0, translateY 8 px — invisible. The remove + reflow
-     + re-add pattern forces a replay on every entry. We schedule it next
-     frame so the screen has actually been painted. */
+  /* v10.14 Issue 7 solid fix: reveal the .lsel-footer by adding the
+     .is-ready class on the next animation frame. This is the entire reveal
+     mechanism — no animation-fill-mode race, no rAF + reflow gymnastics.
+     The class flip plus the CSS transition does the work. We also strip
+     the class first so re-entries always replay cleanly even if a previous
+     visit left .is-ready on. */
   requestAnimationFrame(() => {
     const footer = document.querySelector('#lsel-screen .lsel-footer');
-    if (footer) {
-      footer.style.animation = 'none';
-      /* trigger reflow */ void footer.offsetWidth;
-      footer.style.animation = '';
-    }
+    if (!footer) return;
+    footer.classList.remove('is-ready');
+    /* trigger reflow so the next class addition starts a fresh transition */
+    void footer.offsetWidth;
+    /* Add on the FOLLOWING frame so the browser sees the off→on transition. */
+    requestAnimationFrame(() => footer.classList.add('is-ready'));
   });
 
   if (!_store.learn) {
@@ -11443,11 +11445,15 @@ function initLearnSelection() {
 
   /* v9.18: ensure all currently active level banks are loaded so the count
      bar and per-subtopic badges reflect the full bank size. Re-render once
-     they finish so any previously-zero counts upgrade in place. */
+     they finish so any previously-zero counts upgrade in place.
+     v10.14 Issue 7.1: the re-render now passes skipStagger=true so the
+     already-visible topics don't replay their entrance animation. This is
+     the core of the flash-fix: counts refresh silently instead of restarting
+     the whole stagger sequence. */
   try {
     const __activeLvls = [..._lstore('activeLevels', new Set(_LP4_DEFAULT_LEVELS))];
     _lEnsureLevelBanks(__activeLvls).then(() => {
-      _lRenderTopicSections();
+      _lRenderTopicSections(true);
       _lUpdateCount();
     });
   } catch (e) {}
@@ -12886,7 +12892,20 @@ if (document.readyState === 'loading') {
 /* ══════════════════════════════════════════════════════════════════════════
    CANONICAL TOPIC ACCORDION
    ══════════════════════════════════════════════════════════════════════════ */
-function _lRenderTopicSections() {
+/* v10.14 Issue 7.1 solid fix: skipStagger opt-out.
+   The flash/play-twice was NOT a loading-speed issue (the user's hypothesis
+   of "it just doesn't load fast enough, add a tiny delay" was close but not
+   the actual root cause). The real cause was structural: initLearnSelection
+   calls _lRenderTopicSections() immediately to render with whatever bank data
+   is available, then calls it AGAIN inside the _lEnsureLevelBanks promise
+   resolution (~80–200 ms later) to reflect updated bank counts. Each call
+   re-added `.stagger-in`, so the topics animated in, then instantly reset
+   and animated in a second time — the flash.
+   A delay alone would not fix it (both renders would still stagger, just
+   both shifted later). The correct fix is to ONLY stagger on the first
+   render per visit; the bank-load re-render updates counts silently, with
+   no animation, so the topics stay put and counts just refresh in place. */
+function _lRenderTopicSections(skipStagger) {
   const container = document.getElementById('lselTopicSections');
   if (!container) return;
   const helpers = window.LEARN_TAXONOMY_HELPERS;
@@ -12973,10 +12992,15 @@ function _lRenderTopicSections() {
     container.appendChild(section);
   });
 
-  /* Trigger stagger-in animation */
-  container.classList.remove('stagger-in');
-  void container.offsetWidth;
-  container.classList.add('stagger-in');
+  /* v10.14 Issue 7.1: only stagger when explicitly asked to. Bank-load
+     re-renders pass skipStagger=true so the topics stay visually still
+     while their counts refresh. First-visit renders leave it falsy and
+     get the full stagger animation like before. */
+  if (!skipStagger) {
+    container.classList.remove('stagger-in');
+    void container.offsetWidth;
+    container.classList.add('stagger-in');
+  }
 }
 
 /* v10.9.9: Smoothly open/close the subtopic body using a CSS Grid track
@@ -15064,12 +15088,14 @@ function lresBackToSelection() {
           '</button>' +
         '</div>';
 
-      /* v10.13: Enter special code row sits between Cloud sync and
-         Clear stats. The standard .ap-section border-top supplies the
-         existing tiny separator line above it — no extra divider needed. */
+      /* v10.14 Issue 2: the code row and Clear-stats row live in the SAME
+         .ap-section now. Previously each was its own section, so .ap-section
+         draped a border-top separator between them. Merging into one section
+         removes that divider and lets the two action rows sit flush — which
+         is what the user asked for ("no separator, same size, close").
+         Both rows share the standard .ap-action-row styling already, so
+         their height, padding, and glyph sizing now match automatically. */
       var codeHtml = isCreator ? '' :
-        '<div class="ap-section">' +
-          '<div class="ap-actions" style="border-top:none;margin-top:0;padding-top:0">' +
             '<div class="ap-action-row v107-code-row" id="apCreatorRow" onclick="v10UI.showCreatorCodeForm(this)">' +
               '<span class="ap-action-glyph">' + _AP_KEY_SVG + '</span>' +
               '<div class="v107-code-cell">' +
@@ -15083,9 +15109,7 @@ function lresBackToSelection() {
                   '</button>' +
                 '</div>' +
               '</div>' +
-            '</div>' +
-          '</div>' +
-        '</div>';
+            '</div>';
 
       /* v10.11: Sync section — status dot + meta line are centered now
          so the block reads as a quiet status rather than a header. */
@@ -15102,10 +15126,15 @@ function lresBackToSelection() {
           '</div>' +
         '</div>';
 
-      /* v10.11: Destructive group on its own. */
-      var dangerHtml =
+      /* v10.14 Issue 2: the utility section now holds BOTH the Enter-code
+         row and the Clear-stats row, flush, no divider between them. One
+         .ap-section wrapper = one border-top (above the group) = no
+         internal separator. Both rows inherit the same .ap-action-row
+         height/padding so they visually read as a matched pair. */
+      var utilityHtml =
         '<div class="ap-section">' +
           '<div class="ap-actions" style="border-top:none;margin-top:0;padding-top:0">' +
+            codeHtml +
             '<div class="ap-action-row danger" onclick="v10UI.showClearAllModal()">' +
               '<span class="ap-action-glyph">' + _AP_TRASH_SVG + '</span>' +
               '<span>Clear all statistics</span>' +
@@ -15113,17 +15142,15 @@ function lresBackToSelection() {
           '</div>' +
         '</div>';
 
-      /* v10.12 order (signed-in):
-         profile → Premium → Cloud sync → Enter code → Clear stats
-         Per user feedback: code row sits with the other utility actions
-         right above Clear stats; sync stays directly under the Premium
-         card so the primary status area reads top-to-bottom cleanly. */
+      /* v10.14 order (signed-in):
+         profile → Premium → Cloud sync → [Enter code + Clear stats grouped]
+         The Enter-code and Clear-stats rows now share a single .ap-section
+         wrapper so there's no divider between them, per v10.14 Issue 2. */
       content.innerHTML =
         profileHtml +
         premiumCardHtml +
         syncHtml +
-        codeHtml +
-        dangerHtml;
+        utilityHtml;
       _renderAccountSync();
     } else {
       btn.classList.remove('signed-in');
