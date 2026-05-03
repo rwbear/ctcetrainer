@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.11 · Small fixes + account-linked premium
-     Brand chip in-app shows “v10.10”. Build version is in this comment.
-     Build: v10.11
+     v10.12 · Sign-out wipe + sticky bottom nav + smooth scroll
+     Brand chip in-app shows “v10.12”. Build version is in this comment.
+     Build: v10.12
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -2068,6 +2068,49 @@ mark.gap-sentence-hl{
 }
 @media(max-width:600px){
   .var-nav-btn{font-size:.8rem;padding:8px 10px;}
+}
+
+/* v10.12 Issue 4 + 4.1: RANDOM MODE MOBILE LAYOUT
+   When Random mode is active on mobile, give the question card the
+   maximum amount of vertical real estate, and pin the Prev/Next bar
+   to the viewport bottom so navigation is always in the thumb zone.
+
+   The .rnd-mode-mobile class is added to #topic-practice-view by
+   startRandomTopic and removed by backToVariantPicker / backToTopics.
+   It scopes every override to Random mode only — Variant mode keeps
+   its inline header + nav row exactly as before. */
+@media(max-width:720px){
+  /* 4.1: hide back-row (← Variants + title) and stats-strip in Random. */
+  #topic-practice-view.rnd-mode-mobile > .back-row,
+  #topic-practice-view.rnd-mode-mobile > .stats-strip{
+    display:none !important;
+  }
+  /* Tighten progress bar so the card sits near the top of the viewport. */
+  #topic-practice-view.rnd-mode-mobile > .progress-bar-wrap{
+    margin-top:0;margin-bottom:14px;
+  }
+  /* 4: pin Prev/Next bar to the bottom of the viewport.
+     Backdrop blur over a translucent surface ties it to the topnav
+     visual language without dropping a heavy toolbar shadow. */
+  #topic-practice-view.rnd-mode-mobile #rndNavRow{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    z-index:60;
+    margin-top:0;
+    padding:10px 14px max(10px, env(safe-area-inset-bottom));
+    border-top:1px solid var(--border);
+    background:var(--surface);
+    background:color-mix(in srgb, var(--surface) 90%, transparent);
+    -webkit-backdrop-filter:blur(10px) saturate(140%);
+    backdrop-filter:blur(10px) saturate(140%);
+  }
+  /* Reserve space at the bottom of the page so the last lines of the
+     question card / explanation never sit beneath the fixed bar. The
+     value matches the bar's intrinsic height (≈62 px) plus a small
+     gap, plus safe-area for iOS / Android home indicators. */
+  #topic-practice-view.rnd-mode-mobile{
+    padding-bottom:calc(72px + env(safe-area-inset-bottom));
+  }
 }
 
 /* ─── VARIANT PICKER (topic mode) ───────────────────────────────────── */
@@ -4668,7 +4711,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.10</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.12</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -7358,7 +7401,11 @@ function backToTopics() {
   setAnalogueSessionLock(false);
   const fromEl = document.getElementById('topic-variant-view');
   const toEl = document.getElementById('topic-select-view');
-  document.getElementById('topic-practice-view').style.display = 'none';
+  const pv = document.getElementById('topic-practice-view');
+  pv.style.display = 'none';
+  /* v10.12 Issue 4: clear the random-mobile class so the next session
+     (which may be Variant mode, not Random) starts with normal chrome. */
+  pv.classList.remove('rnd-mode-mobile');
   _viewFade(fromEl, toEl, () => { currentTopic = null; });
 }
 
@@ -7371,6 +7418,8 @@ function backToVariantPicker() {
   _rndItems = [];
   const fromEl = document.getElementById('topic-practice-view');
   const toEl = document.getElementById('topic-variant-view');
+  /* v10.12 Issue 4: leaving Random mode — drop the random-mobile class. */
+  fromEl.classList.remove('rnd-mode-mobile');
   _viewFade(fromEl, toEl);
 }
 
@@ -10027,6 +10076,20 @@ function navigateRandom(dir) {
   const container = document.getElementById('topicQuestionContainer');
   if (!container) { showRandomCard(nextIdx); return; }
 
+  /* v10.12 Issue 4.2: when the user has scrolled below the card top (typical
+     after submitting an answer and reading the explanation), tapping Next
+     causes a hard browser scroll-clamp jump as the card height shrinks during
+     v107Morph. Smoothly scroll up to just above the card first, then run the
+     morph. We deliberately layer this OUTSIDE v107Morph — the engine itself
+     is left untouched. */
+  try {
+    const card = _rndCardEl || container;
+    const cardTop = card.getBoundingClientRect().top + window.scrollY - 16;
+    if (window.scrollY > cardTop + 4) {
+      window.scrollTo({ top: Math.max(0, cardTop), behavior: 'smooth' });
+    }
+  } catch(e) {}
+
   const sizer = window.v107EnsureSizer(container);
   /* Resolve the inner content wrapper. It exists because showRandomCard
      created it on the initial render. If for any reason it's missing, fall
@@ -10333,6 +10396,13 @@ function startRandomTopic(blockKey) {
   // Hide variant nav, show random nav
   document.getElementById('varNavRow').style.display = 'none';
   document.getElementById('rndNavRow').style.display = 'flex';
+
+  /* v10.12 Issue 4: mark practice view as random-on-mobile so the CSS
+     overrides (hide back-row + stats, sticky bottom bar) apply. The
+     class is removed in backToVariantPicker / backToTopics so Variant
+     mode never inherits Random's chrome. */
+  var _rndPracticeView = document.getElementById('topic-practice-view');
+  if (_rndPracticeView) _rndPracticeView.classList.add('rnd-mode-mobile');
 
   // Reset stats display
   document.getElementById('tSolved').textContent = 0;
@@ -14922,13 +14992,16 @@ function lresBackToSelection() {
           '</div>' +
         '</div>';
 
-      /* v10.11 order (signed-in):
-         profile → Premium → Enter code → Cloud sync → Clear stats */
+      /* v10.12 order (signed-in):
+         profile → Premium → Cloud sync → Enter code → Clear stats
+         Per user feedback: code row sits with the other utility actions
+         right above Clear stats; sync stays directly under the Premium
+         card so the primary status area reads top-to-bottom cleanly. */
       content.innerHTML =
         profileHtml +
         premiumCardHtml +
-        codeHtml +
         syncHtml +
+        codeHtml +
         dangerHtml;
       _renderAccountSync();
     } else {
@@ -15057,34 +15130,76 @@ function lresBackToSelection() {
   window._fbSignOut = async function() {
     if (!_auth) return;
     try {
-      /* Final flush: drain the event queue, then sign out. */
+      /* v10.12 Issue 1: Sign-out is a clean break.
+         Order:
+           1. Drain the sync queue — every pending event is safely in cloud.
+           2. auth.signOut() — token revoked.
+           3. Wipe ALL local user-scoped data so the device returns to a
+              true blank-guest state. The next anonymous boot has no
+              residual stats, no points, no streaks, no perfect-variant
+              records, no premium/creator flags, nothing.
+           4. Theme: keep IF it's a free default; otherwise downgrade to
+              Slate (preserving light/dark mode of what was active).
+           5. Reload — boot fresh as guest.
+         _pullV10ProfileFromCloud rehydrates everything on the next login. */
       if (_currentUser && !_currentUser.isAnonymous) {
         try { await _drainSyncQueue(); } catch(e) {}
       }
       await _auth.signOut();
-      /* Per user decision 2: wipe local stats on sign-out. User starts
-         clean as a guest afterwards. Theme / UI prefs stay. */
-      localStorage.removeItem('ct_stats');
-      localStorage.removeItem('ct_stats_analogue');
-      localStorage.removeItem('learnStats');
-      localStorage.removeItem('goldUnlocked');
-      localStorage.removeItem('ct_variant_progress');
-      localStorage.removeItem('ct_learn_live_session');
-      /* v10.11 task 1.5: Premium and Creator flags are bound to the
-         signed-in account. Wipe them on sign-out so the device drops back
-         to the free tier immediately. _pullV10ProfileFromCloud will
-         restore them on the next legitimate login. */
+
+      /* Theme downgrade rule (per spec):
+         - Free themes stay (default Slate + Sand, light + dark).
+         - Anything else → Slate, preserving the light/dark axis.
+           e.g. gold       → slate (will be ''/empty since slate is default)
+                gold-dark  → slate-dark.
+         The theme is read BEFORE the wipe and re-applied AFTER. */
+      var _FREE_THEMES = ['', 'slate', 'slate-dark', 'sand', 'sand-dark'];
+      var prevThemeRaw = null;
+      try { prevThemeRaw = localStorage.getItem('theme'); } catch(e) {}
+      var prevTheme = '';
+      try { prevTheme = prevThemeRaw ? JSON.parse(prevThemeRaw) : ''; } catch(e) { prevTheme = ''; }
+      var keepTheme = _FREE_THEMES.indexOf(prevTheme) !== -1;
+      var newTheme;
+      if (keepTheme) {
+        newTheme = prevTheme;
+      } else {
+        /* Downgrade to Slate, keep dark/light axis. */
+        newTheme = (typeof prevTheme === 'string' && /-dark$/.test(prevTheme)) ? 'slate-dark' : '';
+      }
+
+      /* Wipe sweep: every key that belongs to the user's data lives
+         under one of these prefixes / exact names. Anything else
+         (Firebase SDK internals, browser-set keys) is left alone. */
+      var KEEP_KEYS = {
+        'theme': true,                          /* re-set below */
+        'ct_entryUid_migrated_v912': true,      /* one-time migration marker */
+        'ct_device_tag': true                   /* device id; harmless */
+      };
+      var WIPE_PREFIXES = ['ct_', 'learn'];     /* covers ct_*, ct_v10_*, learnStats, learn_* */
+      var EXTRA_WIPE = ['goldUnlocked'];
       try {
-        if (typeof window.v10Delete === 'function') {
-          window.v10Delete('ct_v10_creator');
-          window.v10Delete('ct_v10_premium');
-        } else {
-          localStorage.removeItem('ct_v10_creator');
-          localStorage.removeItem('ct_v10_premium');
+        var toRemove = [];
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (!k || KEEP_KEYS[k]) continue;
+          var match = false;
+          for (var p = 0; p < WIPE_PREFIXES.length; p++) {
+            if (k.indexOf(WIPE_PREFIXES[p]) === 0) { match = true; break; }
+          }
+          if (!match && EXTRA_WIPE.indexOf(k) !== -1) match = true;
+          if (match) toRemove.push(k);
         }
+        toRemove.forEach(function(k){ try { localStorage.removeItem(k); } catch(e){} });
+      } catch(e) { console.warn('[signout] wipe failed:', e); }
+
+      /* Re-apply the resolved theme so the next boot reads it (not the
+         old value we just wiped via the ct_ sweep — 'theme' was kept,
+         but we still rewrite it here so a paid theme becomes Slate). */
+      try {
+        if (newTheme === '' || newTheme == null) localStorage.removeItem('theme');
+        else localStorage.setItem('theme', JSON.stringify(newTheme));
       } catch(e) {}
-      /* Don't remove the entryUid-migration flag or per-uid choice flags;
-         they are version markers / per-account preferences. */
+
       location.reload();
     } catch(e) { console.error('Sign-out error:', e); }
   };
