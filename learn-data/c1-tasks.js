@@ -143,6 +143,42 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 42",
         hint: "regrind",
         flavor: "science"
+      },
+      {
+        id: "c1-pass-have-done-13",
+        stem: "Every champion ___ his ego broken at some point in his life — that is what makes him useful.",
+        options: ["has had", "has", "had had"],
+        answer: "has had",
+        explanation: "Causative 'have something done' in Present Perfect: have had + object + past participle.",
+        fullExplanation: "Present Perfect of the causative pattern uses 'has had + object + past participle'. 'Has' alone gives only one auxiliary. 'Had had' is Past Perfect, which would not match the present-relevance of the statement.",
+        source: "Adapted, attributed to Mike Tyson",
+        hint: "have",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "c1-pass-have-done-14",
+        stem: "She ___ her vocals re-recorded in three different studios before she finally felt the album was ready.",
+        options: ["had", "got", "made"],
+        answer: "had",
+        explanation: "Causative 'have something done' for arranging professional service.",
+        fullExplanation: "'Have something done' is the causative pattern for arranging others to perform a task. 'Got' is a colloquial alternative but less precise here. 'Made' implies forcing someone, which changes the meaning.",
+        source: "Adapted, attributed to Beyoncé",
+        hint: "have",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "c1-pass-have-done-15",
+        stem: "Banksy ___ his graffiti documented by a film crew long before the world knew his name.",
+        options: ["had", "made", "did"],
+        answer: "had",
+        explanation: "Causative passive arrangement uses 'have + object + past participle'.",
+        fullExplanation: "'Have something done' is the standard causative passive arrangement. 'Made' implies coercion and forces a different meaning. 'Did' breaks the pattern entirely.",
+        source: "Adapted, attributed to Banksy",
+        hint: "have",
+        flavor: "quotes",
+        author: "Banksy"
       }
     ]
   },
@@ -284,6 +320,42 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 49",
         hint: "constitute",
         flavor: "science"
+      },
+      {
+        id: "c1-pass-rep-verb-13",
+        stem: "It ___ widely accepted that no other artist has shaped twentieth-century music as deeply as he did.",
+        options: ["is", "has", "had"],
+        answer: "is",
+        explanation: "Impersonal passive 'It is + past participle' for current consensus.",
+        fullExplanation: "Impersonal passive 'It is widely accepted/believed/thought' is the C1 reporting structure. 'Has' would form a different tense. 'Had' would shift to past, contradicting the present consensus.",
+        source: "Adapted, attributed to Michael Jackson",
+        hint: "be",
+        flavor: "quotes",
+        author: "Michael Jackson"
+      },
+      {
+        id: "c1-pass-rep-verb-14",
+        stem: "Frida Kahlo ___ to be one of the most influential female painters of the twentieth century.",
+        options: ["is considered", "considers", "is considering"],
+        answer: "is considered",
+        explanation: "Subject + be + past participle + to-infinitive for impersonal reporting.",
+        fullExplanation: "Personal passive: subject + be + past participle + to-infinitive. 'Considers' is active and changes who is doing the thinking. 'Is considering' is Present Continuous and inappropriate with a stative verb.",
+        source: "Adapted, attributed to Frida Kahlo",
+        hint: "consider",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "c1-pass-rep-verb-15",
+        stem: "Tarantino ___ to draw inspiration from the most obscure corners of cinema history.",
+        options: ["is known", "knows", "is knowing"],
+        answer: "is known",
+        explanation: "Personal passive with reporting verb: be + past participle + to-infinitive.",
+        fullExplanation: "'Be known to' is the standard personal passive reporting form. 'Knows' is active and incorrect. 'Is knowing' is ungrammatical with this stative verb.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        hint: "know",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
       }
     ]
   },
@@ -425,6 +497,39 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 25",
         hint: "must",
         flavor: "science"
+      },
+      {
+        id: "c1-mod-shades-13",
+        stem: "You ___ as well admit it: the only person who can stop you is yourself.",
+        options: ["might", "must", "should"],
+        answer: "might",
+        explanation: "'Might as well' = 'there is no good reason not to'.",
+        fullExplanation: "'Might as well' suggests a reluctant acceptance or no-better-option. 'Must as well' is not a fixed expression. 'Should as well' is non-standard and would mean a moral obligation.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "c1-mod-shades-14",
+        stem: "I ___ as well stop pretending and admit that I want to win more than anything else.",
+        options: ["may", "must", "would"],
+        answer: "may",
+        explanation: "'May as well' expresses concession or no-better-option.",
+        fullExplanation: "'May as well' / 'might as well' indicates concession. 'Must as well' is not standard. 'Would as well' is ungrammatical.",
+        source: "Adapted, attributed to Conor McGregor",
+        flavor: "quotes",
+        author: "Conor McGregor"
+      },
+      {
+        id: "c1-mod-shades-15",
+        stem: "He ___ well be the most underrated rapper of his entire generation.",
+        options: ["may", "must", "shall"],
+        answer: "may",
+        explanation: "'May well' expresses likely possibility.",
+        fullExplanation: "'May well' indicates strong possibility tinged with concession. 'Must well' is not idiomatic. 'Shall well' is ungrammatical.",
+        source: "Adapted, attributed to Kendrick Lamar",
+        flavor: "quotes",
+        author: "Kendrick Lamar"
       }
     ]
   },
@@ -566,6 +671,42 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 15",
         hint: "congregate",
         flavor: "science"
+      },
+      {
+        id: "c1-mod-historical-13",
+        stem: "Mandela ___ have walked out of that prison angrier than anyone, but he chose forgiveness instead.",
+        options: ["could", "can", "must"],
+        answer: "could",
+        explanation: "'Could have + past participle' expresses unrealised past possibility.",
+        fullExplanation: "'Could have walked out' indicates a past possibility that did not happen. 'Can' is present tense and incompatible. 'Must have' would express past certainty, but the action was not taken.",
+        source: "Adapted, attributed to Nelson Mandela",
+        hint: "walk",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "c1-mod-historical-14",
+        stem: "Picasso ___ have continued in his blue period for the rest of his life, but he kept reinventing himself.",
+        options: ["might", "might be", "must"],
+        answer: "might",
+        explanation: "'Might have + past participle' expresses possible past direction not taken.",
+        fullExplanation: "'Might have continued' indicates a possible past path not actually taken. 'Might be' is present and ungrammatical with 'continued'. 'Must have' would express certainty, contradicting 'but he kept reinventing'.",
+        source: "Adapted, attributed to Pablo Picasso",
+        hint: "continue",
+        flavor: "quotes",
+        author: "Pablo Picasso"
+      },
+      {
+        id: "c1-mod-historical-15",
+        stem: "Kobe ___ have retired earlier and saved his body, but he chose to play through the pain.",
+        options: ["could", "must", "would"],
+        answer: "could",
+        explanation: "'Could have + past participle' for unrealised past option.",
+        fullExplanation: "'Could have retired' expresses an option that existed but wasn't taken. 'Must have' would express certainty. 'Would have' would normally need an if-clause for a counterfactual.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "retire",
+        flavor: "quotes",
+        author: "Kobe Bryant"
       }
     ]
   },
@@ -707,6 +848,39 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 38",
         hint: "transmit",
         flavor: "science"
+      },
+      {
+        id: "c1-cond-implied-13",
+        stem: "Without my mother's belief in me, I ___ not be standing on this stage tonight.",
+        options: ["would", "did", "had"],
+        answer: "would",
+        explanation: "'Without' + noun phrase implies a conditional; main clause uses 'would'.",
+        fullExplanation: "An implied conditional with 'without' takes 'would + base form' for present unreal result. 'Did' is past tense. 'Had' belongs in a past-perfect if-clause, not the result clause.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "c1-cond-implied-14",
+        stem: "But for my coach, I ___ never have made it through that final round of the title fight.",
+        options: ["would", "could", "must"],
+        answer: "would",
+        explanation: "'But for' implies a counterfactual; main clause uses 'would have + past participle'.",
+        fullExplanation: "'But for + noun' is a past counterfactual: 'would have + past participle'. 'Could' would be modal. 'Must' would express deduction, not counterfactual.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "c1-cond-implied-15",
+        stem: "Given another decade, this generation of artists ___ define an entirely new genre of music.",
+        options: ["could", "must", "had"],
+        answer: "could",
+        explanation: "'Given X' implies a conditional; main clause uses 'could / would'.",
+        fullExplanation: "'Given + noun' implies a hypothetical condition. 'Could define' indicates a possible result. 'Must' would force certainty. 'Had' is past tense and unfit.",
+        source: "Adapted, attributed to Pharrell Williams",
+        flavor: "quotes",
+        author: "Pharrell Williams"
       }
     ]
   },
@@ -848,6 +1022,42 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 37",
         hint: "prove",
         flavor: "science"
+      },
+      {
+        id: "c1-cond-without-if-13",
+        stem: "___ I known then what I know now, I would have walked away from that contract.",
+        options: ["Had", "If", "Have"],
+        answer: "Had",
+        explanation: "Inversion replaces 'if' in past unreal: Had + subject + past participle.",
+        fullExplanation: "Inverted Past Perfect 'Had I known' replaces 'If I had known'. 'If' would require its own clause. 'Have' is Present Perfect and ungrammatical here.",
+        source: "Adapted, attributed to Mike Tyson",
+        hint: "know",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "c1-cond-without-if-14",
+        stem: "___ it not been for his belief in me, I would never have reached the world title.",
+        options: ["Had", "If", "Have"],
+        answer: "Had",
+        explanation: "Inversion 'Had it not been for' replaces 'If it had not been for'.",
+        fullExplanation: "Past unreal counterfactual inverts: 'Had it not been for'. 'If' would require the standard order. 'Have' is Present Perfect and incompatible.",
+        source: "Adapted, attributed to Anthony Joshua",
+        hint: "be",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "c1-cond-without-if-15",
+        stem: "___ I to start over again, I would still take the harder road every single time.",
+        options: ["Were", "Was", "Am"],
+        answer: "Were",
+        explanation: "Subjunctive inversion 'Were I to' replaces 'If I were to'.",
+        fullExplanation: "Formal subjunctive uses 'were' for all persons in inversion. 'Was' is the indicative form, ungrammatical in this construction. 'Am' is Present Simple and ungrammatical.",
+        source: "Adapted, attributed to David Goggins",
+        hint: "be",
+        flavor: "quotes",
+        author: "David Goggins"
       }
     ]
   },
@@ -977,6 +1187,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "'Strong resistance' is the established collocation in medical and biological English for substantial ability to resist a substance. 'Powerful resistance' is used in political/military contexts. 'High resistance' collocates better with electrical engineering contexts. 'Great resistance' is grammatically possible but less idiomatic in scientific discourse.",
         source: "CEFR C1 reference; Oxford Collocations Dictionary",
         flavor: "science"
+      },
+      {
+        id: "c1-collocation-adv-13",
+        stem: "Every champion has to ___ painful sacrifices to reach the top of the mountain.",
+        options: ["make", "do", "take"],
+        answer: "make",
+        explanation: "Collocation: 'make sacrifices' (not 'do' or 'take').",
+        fullExplanation: "Standard English collocation is 'make sacrifices'. 'Do sacrifices' is a learner error. 'Take sacrifices' is ungrammatical.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "c1-collocation-adv-14",
+        stem: "I ___ a fortune from a single idea that everyone around me thought was crazy.",
+        options: ["made", "did", "earned"],
+        answer: "made",
+        explanation: "Collocation: 'make a fortune' (informal but standard).",
+        fullExplanation: "'Make a fortune' is the standard collocation for becoming wealthy from an opportunity. 'Did a fortune' is ungrammatical. 'Earned a fortune' is acceptable but less idiomatic in this context.",
+        source: "Adapted, attributed to Naval Ravikant",
+        flavor: "quotes",
+        author: "Naval Ravikant"
+      },
+      {
+        id: "c1-collocation-adv-15",
+        stem: "We need to ___ a deep impression on the people who watch us play.",
+        options: ["make", "do", "leave"],
+        answer: "make",
+        explanation: "Collocation: 'make an impression'.",
+        fullExplanation: "'Make an impression' is the established collocation. 'Do an impression' refers to imitation. 'Leave an impression' is acceptable but the established phrase is 'make an impression'.",
+        source: "Adapted, attributed to Pep Guardiola",
+        flavor: "quotes",
+        author: "Pep Guardiola"
       }
     ]
   },
@@ -1106,6 +1349,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "'Submit' is the standard formal and academic verb for delivering a document or report. 'Hand in' is semi-formal and more typical of classroom contexts. 'Send off' is informal/phrasal. 'Pass on' implies forwarding to another party, not delivering a formal assessment.",
         source: "CEFR C1 reference; Hewings, Advanced Grammar in Use (3e), Unit 115",
         flavor: "science"
+      },
+      {
+        id: "c1-register-formal-13",
+        stem: "We ___ no opportunity for victory if our preparation is anything less than meticulous.",
+        options: ["concede", "give", "let"],
+        answer: "concede",
+        explanation: "Formal register prefers Latinate verbs ('concede') over plain Anglo-Saxon ones in writing.",
+        fullExplanation: "'Concede' is formal and precise. 'Give' is too plain for this register. 'Let' is informal and changes meaning.",
+        source: "Adapted, attributed to Pep Guardiola",
+        flavor: "quotes",
+        author: "Pep Guardiola"
+      },
+      {
+        id: "c1-register-formal-14",
+        stem: "He ___ the criticism with quiet dignity and answered only with his next performance.",
+        options: ["received", "got", "took"],
+        answer: "received",
+        explanation: "Formal register: 'received the criticism'.",
+        fullExplanation: "'Received' is the formal register. 'Got' is informal. 'Took' would mean tolerated, but is less precise here.",
+        source: "Adapted, attributed to Roger Federer",
+        flavor: "quotes",
+        author: "Roger Federer"
+      },
+      {
+        id: "c1-register-formal-15",
+        stem: "The decision was ___ after weeks of careful consideration by the entire coaching staff.",
+        options: ["reached", "got", "done"],
+        answer: "reached",
+        explanation: "Formal register: 'a decision is reached'.",
+        fullExplanation: "'Reached' is the standard formal verb with 'decision'. 'Got' is informal. 'Done' is incorrect collocation.",
+        source: "Adapted, attributed to Phil Jackson",
+        flavor: "quotes",
+        author: "Phil Jackson"
       }
     ]
   },
@@ -1247,6 +1523,42 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 107",
         hint: "can",
         flavor: "science"
+      },
+      {
+        id: "c1-inv-neg-13",
+        stem: "Not only ___ I refuse to give up — I refused to even slow down.",
+        options: ["did", "do", "have"],
+        answer: "did",
+        explanation: "Negative adverbial 'not only' triggers inversion with do-support in past simple.",
+        fullExplanation: "Past Simple inversion with 'not only' uses 'did + subject + base'. 'Do' is present tense and clashes. 'Have' is the wrong auxiliary for Past Simple.",
+        source: "Adapted, attributed to David Goggins",
+        hint: "refuse",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "c1-inv-neg-14",
+        stem: "Under no circumstances ___ I ever betray the people who stayed loyal to me.",
+        options: ["will", "do", "have"],
+        answer: "will",
+        explanation: "'Under no circumstances' triggers full inversion with future modal.",
+        fullExplanation: "Negative adverbial inversion with future intention uses 'will + subject + base'. 'Do' would be present simple. 'Have' is the wrong auxiliary for a future statement.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        hint: "betray",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "c1-inv-neg-15",
+        stem: "Little ___ I know that one phone call would change my entire career.",
+        options: ["did", "do", "have"],
+        answer: "did",
+        explanation: "'Little' as negative adverbial triggers do-inversion in Past Simple.",
+        fullExplanation: "'Little' triggers inversion with do-support in past tense. 'Do' is present tense. 'Have' is the wrong auxiliary for Past Simple narrative.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        hint: "know",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
       }
     ]
   },
@@ -1388,6 +1700,42 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 108",
         hint: "had",
         flavor: "personalities"
+      },
+      {
+        id: "c1-inv-cond-13",
+        stem: "___ you wish to compete at the highest level, you must accept that pain is part of the contract.",
+        options: ["Should", "If", "Were"],
+        answer: "Should",
+        explanation: "Formal conditional inversion: Should + subject + base.",
+        fullExplanation: "'Should you wish' is the inverted form of 'If you should wish' / 'If you wish'. 'If' uses standard word order. 'Were' is for hypothetical present, but with infinitive needs 'were + to'.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        hint: "wish",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "c1-inv-cond-14",
+        stem: "___ I to face him again tomorrow, the result would be exactly the same.",
+        options: ["Were", "If", "Was"],
+        answer: "Were",
+        explanation: "Formal subjunctive inversion: Were + subject + to-infinitive.",
+        fullExplanation: "'Were I to face' is the inverted subjunctive form. 'If' uses non-inverted order. 'Was' is indicative and ungrammatical in inversion.",
+        source: "Adapted, attributed to Anthony Joshua",
+        hint: "face",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "c1-inv-cond-15",
+        stem: "___ he received better coaching as a teenager, his ceiling would have been much higher.",
+        options: ["Had", "If", "Have"],
+        answer: "Had",
+        explanation: "Past unreal inversion: Had + subject + past participle.",
+        fullExplanation: "Past Perfect inversion drops 'if': 'Had he received'. 'If' uses standard order. 'Have' is Present Perfect and incompatible with past unreal meaning.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "receive",
+        flavor: "quotes",
+        author: "Kobe Bryant"
       }
     ]
   },
@@ -1517,6 +1865,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "In it-clefts, 'that' follows the focused noun phrase to introduce the predicate clause. 'Which' could introduce a defining relative clause but this would lose the cleft emphasis. 'What' is a pseudo-cleft introducer and cannot function as the cleft connector here.",
         source: "Hewings, Advanced Grammar in Use (3e), Unit 91",
         flavor: "science"
+      },
+      {
+        id: "c1-cleft-it-13",
+        stem: "It ___ pressure that exposes who you really are when nothing else can.",
+        options: ["is", "has", "does"],
+        answer: "is",
+        explanation: "It-cleft: 'It is X that…' for emphasis.",
+        fullExplanation: "It-cleft sentences emphasise a constituent: 'It is X that …'. 'Has' would form a possessive structure. 'Does' is do-support, not a cleft.",
+        source: "Adapted, attributed to Vince Lombardi",
+        flavor: "quotes",
+        author: "Vince Lombardi"
+      },
+      {
+        id: "c1-cleft-it-14",
+        stem: "It ___ his discipline, more than his talent, that made Kobe a legend.",
+        options: ["was", "has been", "did"],
+        answer: "was",
+        explanation: "It-cleft for a past identification: 'It was X that…'.",
+        fullExplanation: "'It was X that…' is the cleft form for past emphasis. 'Has been' shifts to a different aspect. 'Did' breaks the cleft pattern.",
+        source: "Adapted, attributed to Kobe Bryant",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "c1-cleft-it-15",
+        stem: "It ___ in 1985 that Tyson became the youngest heavyweight champion in history.",
+        options: ["was", "is", "had"],
+        answer: "was",
+        explanation: "It-cleft used to highlight the time when something happened.",
+        fullExplanation: "Time-focused it-cleft uses 'It was X that…'. 'Is' is present and clashes with the past event. 'Had' is wrong auxiliary for cleft pattern.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
       }
     ]
   },
@@ -1646,6 +2027,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "'What enables [X] to … is [NP]' — 'a sensitivity to the Earth's magnetic field' is singular. Present 'is' matches the general scientific claim. 'Are' is for plural complements. 'Was' wrongly restricts this general scientific fact to the past.",
         source: "Hewings, Advanced Grammar in Use (3e), Unit 91",
         flavor: "science"
+      },
+      {
+        id: "c1-cleft-what-13",
+        stem: "___ I learned from defeat is worth more than every belt I ever won.",
+        options: ["What", "That", "Which"],
+        answer: "What",
+        explanation: "Pseudo-cleft (what-cleft): 'What X is/was Y'.",
+        fullExplanation: "What-clefts begin with 'What' to highlight new information. 'That' would form a noun clause without cleft emphasis. 'Which' is a relative pronoun, inappropriate here.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "c1-cleft-what-14",
+        stem: "___ matters most is how you respond when nothing seems to be going your way.",
+        options: ["What", "That", "Which"],
+        answer: "What",
+        explanation: "What-cleft for emphasis on the subject.",
+        fullExplanation: "'What matters most' is the standard pseudo-cleft form. 'That' would create a different structure. 'Which' is a relative pronoun and inappropriate.",
+        source: "Adapted, attributed to LeBron James",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "c1-cleft-what-15",
+        stem: "___ this generation is missing is the patience to play the long game.",
+        options: ["What", "That", "Which"],
+        answer: "What",
+        explanation: "What-cleft sentence emphasising the missing element.",
+        fullExplanation: "'What X is missing' is the pseudo-cleft pattern. 'That' would not begin a cleft. 'Which' is a relative pronoun.",
+        source: "Adapted, attributed to Naval Ravikant",
+        flavor: "quotes",
+        author: "Naval Ravikant"
       }
     ]
   },
@@ -1787,6 +2201,42 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 98",
         hint: "be",
         flavor: "science"
+      },
+      {
+        id: "c1-subj-basic-13",
+        stem: "I demand that every player ___ at the gym thirty minutes before every practice.",
+        options: ["be", "is", "to be"],
+        answer: "be",
+        explanation: "After 'demand', the subordinate verb is bare base form (present subjunctive).",
+        fullExplanation: "Mandative verbs ('demand', 'insist', 'require') trigger the bare base form. 'Is' is indicative. 'To be' is infinitive and ungrammatical after 'that'.",
+        source: "Adapted, attributed to Phil Jackson",
+        hint: "be",
+        flavor: "quotes",
+        author: "Phil Jackson"
+      },
+      {
+        id: "c1-subj-basic-14",
+        stem: "It is essential that every athlete ___ his recovery as seriously as his training.",
+        options: ["take", "takes", "to take"],
+        answer: "take",
+        explanation: "Mandative subjunctive after 'essential that …': bare base form.",
+        fullExplanation: "Mandative subjunctive after 'essential that' takes the bare base form. 'Takes' is indicative. 'To take' is infinitive and ungrammatical here.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        hint: "take",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "c1-subj-basic-15",
+        stem: "I insist that the contract ___ rewritten before any signature touches the page.",
+        options: ["be", "is", "to be"],
+        answer: "be",
+        explanation: "Mandative subjunctive: bare base form after 'insist that'.",
+        fullExplanation: "Mandative verbs use bare base form, including in passive ('be rewritten'). 'Is' is indicative. 'To be' is infinitive.",
+        source: "Adapted, attributed to Jay-Z",
+        hint: "be",
+        flavor: "quotes",
+        author: "Jay-Z"
       }
     ]
   },
@@ -1928,6 +2378,42 @@ window.LEARN_TASKS_C1 = {
         source: "Hewings, Advanced Grammar in Use (3e), Unit 39",
         hint: "be",
         flavor: "science"
+      },
+      {
+        id: "c1-subj-wish-13",
+        stem: "I wish I ___ my younger self never to let other people define his limits.",
+        options: ["could tell", "can tell", "could told"],
+        answer: "could tell",
+        explanation: "After 'wish' for present unreal: 'could + base'.",
+        fullExplanation: "Wish + could + base form expresses present unreal ability. 'Can' is indicative present and clashes with the unreal wish. 'Could told' mixes a modal with a past form, ungrammatical.",
+        source: "Adapted, attributed to LeBron James",
+        hint: "tell",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "c1-subj-wish-14",
+        stem: "I wish I ___ never agreed to that interview — it cost me far more than it gave me.",
+        options: ["had", "have", "did"],
+        answer: "had",
+        explanation: "Past regret with 'wish': Past Perfect.",
+        fullExplanation: "'Wish + Past Perfect' expresses regret for a past action. 'Have' would be present perfect and break the unreal-past sense. 'Did' is past simple but incomplete here.",
+        source: "Adapted, attributed to Kanye West",
+        hint: "agree",
+        flavor: "quotes",
+        author: "Kanye West"
+      },
+      {
+        id: "c1-subj-wish-15",
+        stem: "I wish people ___ stop comparing artists from different eras of music.",
+        options: ["would", "will", "did"],
+        answer: "would",
+        explanation: "'Wish + would + base' expresses irritation with present behaviour.",
+        fullExplanation: "'Wish + would' expresses annoyance with present behaviour. 'Will' is indicative and ungrammatical with wish. 'Did' would imply present unreal — possible but less natural for this annoyance.",
+        source: "Adapted, attributed to Pharrell Williams",
+        hint: "stop",
+        flavor: "quotes",
+        author: "Pharrell Williams"
       }
     ]
   },
@@ -2069,6 +2555,42 @@ window.LEARN_TASKS_C1 = {
         source: "Swan, Practical English Usage (4e), §416",
         hint: "recycle",
         flavor: "science"
+      },
+      {
+        id: "c1-part-clause-pres-13",
+        stem: "___ a knockout, the champion crouched and waited for the right opening.",
+        options: ["Sensing", "Sense", "Sensed"],
+        answer: "Sensing",
+        explanation: "Reduced adverbial clause uses present participle (-ing).",
+        fullExplanation: "'Sensing' = 'as he sensed'. 'Sense' is bare infinitive and ungrammatical. 'Sensed' is past participle and would form a passive sense, not appropriate here.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        hint: "sense",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "c1-part-clause-pres-14",
+        stem: "___ that the album would never sell, the label tried to bury it on a Friday afternoon.",
+        options: ["Believing", "Believe", "Believed"],
+        answer: "Believing",
+        explanation: "Present participle clause for active reduced clause.",
+        fullExplanation: "'Believing' = 'because they believed'. 'Believe' is bare infinitive. 'Believed' would be past participle (passive sense), inappropriate here.",
+        source: "Adapted, attributed to Lana Del Rey",
+        hint: "believe",
+        flavor: "quotes",
+        author: "Lana Del Rey"
+      },
+      {
+        id: "c1-part-clause-pres-15",
+        stem: "___ from the gym every night past midnight, he refused to admit he was overtraining.",
+        options: ["Returning", "Return", "Returned"],
+        answer: "Returning",
+        explanation: "Present participle reduced clause.",
+        fullExplanation: "'Returning' = 'when he returned'. 'Return' is bare infinitive. 'Returned' would be past participle, requiring a passive sense not present here.",
+        source: "Adapted, attributed to David Goggins",
+        hint: "return",
+        flavor: "quotes",
+        author: "David Goggins"
       }
     ]
   },
@@ -2210,6 +2732,42 @@ window.LEARN_TASKS_C1 = {
         source: "Swan, Practical English Usage (4e), §417",
         hint: "transfer",
         flavor: "science"
+      },
+      {
+        id: "c1-part-clause-perf-13",
+        stem: "___ his body to the limit for years, he finally accepted that he had to retire.",
+        options: ["Having pushed", "Pushing", "Pushed"],
+        answer: "Having pushed",
+        explanation: "Perfect participle clause indicates an action completed before the main verb.",
+        fullExplanation: "'Having pushed' = 'after he had pushed'. 'Pushing' would imply simultaneous action. 'Pushed' alone is past participle but lacks the perfect aspect of completion.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "push",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "c1-part-clause-perf-14",
+        stem: "___ never been formally trained, he taught himself the language of cinema by watching every film he could find.",
+        options: ["Having", "Have", "Had"],
+        answer: "Having",
+        explanation: "Perfect participle: 'Having + past participle' for prior completed action.",
+        fullExplanation: "Perfect participle clause uses 'Having + past participle'. 'Have' alone is finite. 'Had' is past finite.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        hint: "be",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "c1-part-clause-perf-15",
+        stem: "___ studied under three different masters, she finally felt ready to open her own gallery.",
+        options: ["Having", "She had", "Have"],
+        answer: "Having",
+        explanation: "Reduced perfect participle clause.",
+        fullExplanation: "Perfect participle clauses begin with 'Having + past participle' for sequenced anteriority. 'She had' creates a full clause, not reduced. 'Have' alone is finite.",
+        source: "Adapted, attributed to Frida Kahlo",
+        hint: "study",
+        flavor: "quotes",
+        author: "Frida Kahlo"
       }
     ]
   },
@@ -2339,6 +2897,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "'Nevertheless' acknowledges the efficacy as a positive fact but signals that the following action (requiring further testing) occurred in spite of it. 'Consequently' would imply further testing resulted from the drug's success, reversing the logical relationship. 'Furthermore' would add another point in the same direction. 'Accordingly' would imply regulators acted in conformity with the positive results, not cautiously despite them.",
         source: "Swan, Practical English Usage (4e), §161",
         flavor: "science"
+      },
+      {
+        id: "c1-disc-markers-13",
+        stem: "I want to win this title; ___, I do not need to break my body in the process.",
+        options: ["however", "therefore", "moreover"],
+        answer: "however",
+        explanation: "'However' marks contrast.",
+        fullExplanation: "'However' introduces contrast. 'Therefore' introduces consequence. 'Moreover' adds further information.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "c1-disc-markers-14",
+        stem: "He grew up with nothing; ___, his hunger to succeed was greater than anyone in his generation.",
+        options: ["consequently", "however", "nevertheless"],
+        answer: "consequently",
+        explanation: "'Consequently' marks logical result.",
+        fullExplanation: "'Consequently' shows result. 'However' would mark contrast. 'Nevertheless' would also mark contrast, opposite to the meaning here.",
+        source: "Adapted, attributed to 50 Cent",
+        flavor: "quotes",
+        author: "50 Cent"
+      },
+      {
+        id: "c1-disc-markers-15",
+        stem: "His training is brutal; ___, his diet is even more demanding than the workouts themselves.",
+        options: ["furthermore", "however", "nonetheless"],
+        answer: "furthermore",
+        explanation: "'Furthermore' adds emphasis to the same direction.",
+        fullExplanation: "'Furthermore' adds another reinforcing point. 'However' would introduce contrast. 'Nonetheless' would also imply contrast.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
       }
     ]
   },
@@ -2468,6 +3059,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "'Do so' is the standard substitute for a repeated verb phrase following 'to' in a to-infinitive construction. Here it replaces 'navigate using magnetic fields' after 'are thought to'. Full repetition is possible but inelegant. 'Have done' shifts to the perfect aspect without justification and also cannot directly follow 'to' in this parallel structure.",
         source: "Swan, Practical English Usage (4e), §182",
         flavor: "science"
+      },
+      {
+        id: "c1-ellipsis-13",
+        stem: "Some fighters train when they want to; champions train when they ___.",
+        options: ["have to", "are", "must"],
+        answer: "have to",
+        explanation: "Ellipsis after 'have to': the verb is left out.",
+        fullExplanation: "After modal phrases like 'have to', the main verb can be omitted to avoid repetition. 'Are' would form a different structure. 'Must' is a different modal that doesn't need 'to' and breaks the parallelism.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "c1-ellipsis-14",
+        stem: "We could have given up after the third loss; we should have ___, but pride kept us going.",
+        options: ["done", "to", "did"],
+        answer: "done",
+        explanation: "Ellipsis with substitute 'done' after a perfect modal.",
+        fullExplanation: "After 'should have', the substitute 'done' replaces the elided main verb in British usage. 'To' is incorrect. 'Did' breaks the perfect modal aspect.",
+        source: "Adapted, attributed to Pep Guardiola",
+        flavor: "quotes",
+        author: "Pep Guardiola"
+      },
+      {
+        id: "c1-ellipsis-15",
+        stem: "I never wanted the spotlight; my brother ___, but he was never given the chance.",
+        options: ["did", "had", "was"],
+        answer: "did",
+        explanation: "Ellipsis with do-support: replaces the full predicate.",
+        fullExplanation: "Do-support replaces the predicate via ellipsis ('did' = 'wanted the spotlight'). 'Had' would imply possession or perfect tense. 'Was' suggests a state, not the act of wanting.",
+        source: "Adapted, attributed to Liam Gallagher",
+        flavor: "quotes",
+        author: "Liam Gallagher"
       }
     ]
   },
@@ -2597,6 +3221,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "'This' refers immediately back to the hypothesis just stated and frames it as the subject of evaluation. 'Hypothesising it would fold asymmetrically' is a verbal substitute that is grammatically awkward in subject position here. 'That' typically refers back at greater discourse distance; 'this' is preferred when referring to the immediately preceding clause as the current focus.",
         source: "Swan, Practical English Usage (4e), §553",
         flavor: "science"
+      },
+      {
+        id: "c1-substitution-13",
+        stem: "Will the team make the playoffs this year? I think ___.",
+        options: ["so", "yes", "it"],
+        answer: "so",
+        explanation: "'Think so' / 'hope so' uses 'so' as a substitution for the clause.",
+        fullExplanation: "'So' substitutes for an entire affirmative clause after verbs like 'think', 'hope', 'believe'. 'Yes' is a direct answer. 'It' would need a full predicate.",
+        source: "Adapted, attributed to Steph Curry",
+        flavor: "quotes",
+        author: "Steph Curry"
+      },
+      {
+        id: "c1-substitution-14",
+        stem: "Did he really retire at the peak of his career? It seems ___.",
+        options: ["so", "that", "it"],
+        answer: "so",
+        explanation: "Substitution with 'so' replaces a clause after 'seems'.",
+        fullExplanation: "After 'seems', 'so' substitutes for a full clause. 'That' would introduce a new clause. 'It' is incomplete.",
+        source: "Adapted, attributed to Michael Jordan",
+        flavor: "quotes",
+        author: "Michael Jordan"
+      },
+      {
+        id: "c1-substitution-15",
+        stem: "Will Elon ever be satisfied with what he has built? I do not think ___.",
+        options: ["so", "that", "it"],
+        answer: "so",
+        explanation: "Negative substitution with 'so'.",
+        fullExplanation: "'I do not think so' substitutes for the full clause with 'so'. 'That' introduces a new clause. 'It' is incomplete.",
+        source: "Adapted, attributed to Elon Musk",
+        flavor: "quotes",
+        author: "Elon Musk"
       }
     ]
   },
@@ -2738,6 +3395,42 @@ window.LEARN_TASKS_C1 = {
         source: "Swan, Practical English Usage (4e), §606",
         hint: "degrade",
         flavor: "science"
+      },
+      {
+        id: "c1-nominal-13",
+        stem: "His ___ to detail is what separates him from every other player in the league.",
+        options: ["attention", "attend", "attentive"],
+        answer: "attention",
+        explanation: "Nominalisation: noun form of 'attend'.",
+        fullExplanation: "'Attention to detail' is the standard noun phrase. 'Attend' is the verb. 'Attentive' is the adjective.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "attend",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "c1-nominal-14",
+        stem: "The ___ of basketball is fundamentally a story about teaching the body to ignore the mind.",
+        options: ["mastery", "master", "masterful"],
+        answer: "mastery",
+        explanation: "Nominalisation: 'mastery' is the abstract noun.",
+        fullExplanation: "'Mastery' is the abstract noun for skilful command. 'Master' is the verb or person. 'Masterful' is the adjective.",
+        source: "Adapted, attributed to Phil Jackson",
+        hint: "master",
+        flavor: "quotes",
+        author: "Phil Jackson"
+      },
+      {
+        id: "c1-nominal-15",
+        stem: "The ___ of his return to the ring shocked even his closest friends.",
+        options: ["announcement", "announce", "announced"],
+        answer: "announcement",
+        explanation: "Nominalisation: noun derived from the verb.",
+        fullExplanation: "'Announcement' is the noun form. 'Announce' is the verb. 'Announced' is past participle.",
+        source: "Adapted, attributed to Mike Tyson",
+        hint: "announce",
+        flavor: "quotes",
+        author: "Mike Tyson"
       }
     ]
   },
@@ -2866,6 +3559,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "'Given that' introduces a reason clause meaning 'since / considering that'. The ongoing monitoring is justified by the known possibility of further mutations. 'Lest' introduces precaution about something that might happen, followed by 'should' or subjunctive, and would need restructuring. 'Inasmuch as' means 'to the extent that' and introduces a degree clause, not a straightforward reason.",
         source: "Swan, PEU (4e), §243",
         flavor: "science"
+      },
+      {
+        id: "c1-sub-gen-13",
+        stem: "The number of injuries this season ___ shocked the entire league.",
+        options: ["has", "have", "having"],
+        answer: "has",
+        explanation: "'The number of + plural' takes a singular verb.",
+        fullExplanation: "'The number' is singular and governs the verb. 'Have' would treat 'injuries' as the subject. 'Having' is a participle, not a finite verb.",
+        source: "Adapted, attributed to LeBron James",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "c1-sub-gen-14",
+        stem: "A number of players ___ refused to take the field after the controversial referee decision.",
+        options: ["have", "has", "having"],
+        answer: "have",
+        explanation: "'A number of + plural' takes a plural verb.",
+        fullExplanation: "'A number of + plural' is plural and governs a plural verb. 'Has' is singular. 'Having' is a participle.",
+        source: "Adapted, attributed to Pep Guardiola",
+        flavor: "quotes",
+        author: "Pep Guardiola"
+      },
+      {
+        id: "c1-sub-gen-15",
+        stem: "Either of those rookies ___ capable of taking the starting role next season.",
+        options: ["is", "are", "were"],
+        answer: "is",
+        explanation: "'Either of + plural' takes singular agreement.",
+        fullExplanation: "'Either of' is grammatically singular even with a plural noun. 'Are' would treat the plural noun as the subject. 'Were' is past tense and inappropriate.",
+        source: "Adapted, attributed to Phil Jackson",
+        flavor: "quotes",
+        author: "Phil Jackson"
       }
     ]
   },
@@ -2994,6 +3720,39 @@ window.LEARN_TASKS_C1 = {
         fullExplanation: "'None of which' = 'none of those twelve compounds'. 'Of which' refers to things or substances. 'Of whom' refers to people, not compounds. 'In which' would describe something happening inside the compounds, not a null result.",
         source: "Murphy, EGU (4e), Unit 93",
         flavor: "science"
+      },
+      {
+        id: "c1-rel-adv-13",
+        stem: "The day ___ I lost that fight was the day I really learned how to win.",
+        options: ["when", "where", "what"],
+        answer: "when",
+        explanation: "'When' introduces a relative clause referring to a time.",
+        fullExplanation: "'When' is the relative adverb for time. 'Where' refers to place. 'What' is not a relative adverb.",
+        source: "Adapted, attributed to Muhammad Ali",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "c1-rel-adv-14",
+        stem: "There is a place inside the gym ___ no doubt and no excuse can ever survive.",
+        options: ["where", "when", "which"],
+        answer: "where",
+        explanation: "'Where' is the relative adverb for place.",
+        fullExplanation: "'Where' refers to a location. 'When' refers to time. 'Which' would need a preposition like 'in which'.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "c1-rel-adv-15",
+        stem: "The reason ___ I keep training is not the trophies; it is the silence after the buzzer.",
+        options: ["why", "where", "when"],
+        answer: "why",
+        explanation: "'Why' is the relative adverb for reason.",
+        fullExplanation: "'Why' is the relative adverb for reasons. 'Where' refers to place. 'When' refers to time.",
+        source: "Adapted, attributed to Kobe Bryant",
+        flavor: "quotes",
+        author: "Kobe Bryant"
       }
     ]
   }

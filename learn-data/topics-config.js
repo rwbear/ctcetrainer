@@ -50,7 +50,8 @@
       { id: 'social',        name: 'Social Situations'    },
       { id: 'personalities', name: 'Famous Personalities' },
       { id: 'history',       name: 'Historical Facts'     },
-      { id: 'science',       name: 'Science & Discovery'  }
+      { id: 'science',       name: 'Science & Discovery'  },
+      { id: 'quotes',        name: 'Quotes'                }
     ],
 
     topics: [

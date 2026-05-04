@@ -275,6 +275,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 1",
         hint: "absorb",
         flavor: "science"
+      },
+      {
+        id: "vt-prs-s-25",
+        stem: "Greatness ___ from the willingness to do what others refuse to do.",
+        options: ["comes", "is coming", "has come"],
+        answer: "comes",
+        explanation: "Universal truth uses Present Simple.",
+        fullExplanation: "Permanent truths take Present Simple. 'Is coming' suggests an action right now. 'Has come' would emphasise present relevance of a past event, not the timeless principle.",
+        source: "Adapted, attributed to David Goggins",
+        hint: "come",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "vt-prs-s-26",
+        stem: "Real love ___ to be earned, every single day, with patience and presence.",
+        options: ["has", "is having", "had"],
+        answer: "has",
+        explanation: "General truths about life use Present Simple.",
+        fullExplanation: "Present Simple states permanent principles. 'Is having' is ungrammatical with stative 'have to'. 'Had' would imply past relevance only.",
+        source: "Adapted, attributed to Frank Ocean",
+        hint: "have",
+        flavor: "quotes",
+        author: "Frank Ocean"
+      },
+      {
+        id: "vt-prs-s-27",
+        stem: "A real artist ___ what nobody else dares to imagine yet.",
+        options: ["paints", "is painting", "painted"],
+        answer: "paints",
+        explanation: "Defining characteristic — Present Simple.",
+        fullExplanation: "Present Simple describes essential traits. 'Is painting' is momentary. 'Painted' is past and breaks the timeless statement.",
+        source: "Adapted, attributed to Frida Kahlo",
+        hint: "paint",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "vt-prs-s-28",
+        stem: "The ring ___ the truth about every fighter who steps inside it.",
+        options: ["reveals", "is revealing", "revealed"],
+        answer: "reveals",
+        explanation: "General truth uses Present Simple.",
+        fullExplanation: "Present Simple states a permanent fact. 'Is revealing' is momentary action. 'Revealed' is past and limits the truth to a single past event.",
+        source: "Adapted, attributed to Mike Tyson",
+        hint: "reveal",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "vt-prs-s-29",
+        stem: "True style ___ everywhere, from the streets to the runway.",
+        options: ["lives", "is living", "lived"],
+        answer: "lives",
+        explanation: "Permanent truth uses Present Simple.",
+        fullExplanation: "Permanent traits take Present Simple. 'Is living' is momentary. 'Lived' is past and contradicts the timeless claim.",
+        source: "Adapted, attributed to Pharrell Williams",
+        hint: "live",
+        flavor: "quotes",
+        author: "Pharrell Williams"
+      },
+      {
+        id: "vt-prs-s-30",
+        stem: "Hard work ___ what talent leaves behind on the table.",
+        options: ["takes", "is taking", "took"],
+        answer: "takes",
+        explanation: "General truth — Present Simple.",
+        fullExplanation: "Present Simple states a universal observation. 'Is taking' suggests one action now. 'Took' confines the truth to a closed past.",
+        source: "Adapted, attributed to Kevin Hart",
+        hint: "take",
+        flavor: "quotes",
+        author: "Kevin Hart"
       }
     ]
   },
@@ -548,6 +620,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 3",
         hint: "evaluate",
         flavor: "science"
+      },
+      {
+        id: "vt-prs-c-25",
+        stem: "These days I ___ harder than I have ever trained in my entire career.",
+        options: ["am training", "train", "have trained"],
+        answer: "am training",
+        explanation: "Temporary period around now uses Present Continuous.",
+        fullExplanation: "'These days' marks a temporary current period. 'Train' is Present Simple for routines. 'Have trained' would emphasise duration up to now.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        hint: "train",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "vt-prs-c-26",
+        stem: "Right now I ___ on a project that will change how the world sees rockets.",
+        options: ["am working", "work", "worked"],
+        answer: "am working",
+        explanation: "Action in progress at this moment — Present Continuous.",
+        fullExplanation: "'Right now' triggers Present Continuous. 'Work' is a habit. 'Worked' is past and ungrammatical with 'right now'.",
+        source: "Adapted, attributed to Elon Musk",
+        hint: "work",
+        flavor: "quotes",
+        author: "Elon Musk"
+      },
+      {
+        id: "vt-prs-c-27",
+        stem: "The whole industry ___ around streaming, and I am leading that change.",
+        options: ["is shifting", "shifts", "shifted"],
+        answer: "is shifting",
+        explanation: "Process in progress uses Present Continuous.",
+        fullExplanation: "Ongoing process around the present takes Present Continuous. 'Shifts' is a permanent habit. 'Shifted' confines the change to the past.",
+        source: "Adapted, attributed to Drake",
+        hint: "shift",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "vt-prs-c-28",
+        stem: "I ___ become someone my younger self would have looked up to.",
+        options: ["am becoming", "become", "became"],
+        answer: "am becoming",
+        explanation: "Personal change in progress — Present Continuous.",
+        fullExplanation: "Present Continuous shows a process unfolding now. 'Become' is general/habitual. 'Became' is past and complete.",
+        source: "Adapted, attributed to LeBron James",
+        hint: "become",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "vt-prs-c-29",
+        stem: "More and more young artists ___ to me for advice on staying real in the industry.",
+        options: ["are coming", "come", "came"],
+        answer: "are coming",
+        explanation: "Trending current behaviour uses Present Continuous.",
+        fullExplanation: "Increasing tendency around the present takes Present Continuous. 'Come' would describe a permanent habit. 'Came' is past.",
+        source: "Adapted, attributed to Snoop Dogg",
+        hint: "come",
+        flavor: "quotes",
+        author: "Snoop Dogg"
+      },
+      {
+        id: "vt-prs-c-30",
+        stem: "I ___ pieces that nobody asked for, because that is the only honest way to make art.",
+        options: ["am painting", "paint", "painted"],
+        answer: "am painting",
+        explanation: "Current ongoing project — Present Continuous.",
+        fullExplanation: "Present Continuous fits an ongoing project of the moment. 'Paint' is generic. 'Painted' is past.",
+        source: "Adapted, attributed to Banksy",
+        hint: "paint",
+        flavor: "quotes",
+        author: "Banksy"
       }
     ]
   },
@@ -821,6 +965,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 5",
         hint: "demonstrate",
         flavor: "science"
+      },
+      {
+        id: "vt-pst-s-25",
+        stem: "I ___ the heavyweight title at twenty years old in 1986.",
+        options: ["won", "have won", "was winning"],
+        answer: "won",
+        explanation: "Definite past time uses Past Simple.",
+        fullExplanation: "'In 1986' fixes the time, requiring Past Simple. 'Have won' clashes with definite past time. 'Was winning' implies an unfinished action.",
+        source: "Adapted, attributed to Mike Tyson",
+        hint: "win",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "vt-pst-s-26",
+        stem: "Apollo ___ Rocky in fifteen rounds, but Rocky never went down for the count.",
+        options: ["beat", "had beaten", "has beaten"],
+        answer: "beat",
+        explanation: "Past Simple for a single completed past event.",
+        fullExplanation: "Past Simple for a finished past event. 'Had beaten' would need a later past reference. 'Has beaten' is Present Perfect, incompatible with closed past time.",
+        source: "Adapted, attributed to Sylvester Stallone",
+        hint: "beat",
+        flavor: "quotes",
+        author: "Sylvester Stallone"
+      },
+      {
+        id: "vt-pst-s-27",
+        stem: "Frida Kahlo ___ over fifty self-portraits during her short and painful life.",
+        options: ["painted", "was painting", "has painted"],
+        answer: "painted",
+        explanation: "Closed past period uses Past Simple.",
+        fullExplanation: "Her life is a closed period — Past Simple. 'Was painting' is Past Continuous, suggesting ongoing process. 'Has painted' is incompatible with a closed life span.",
+        source: "Adapted, attributed to Frida Kahlo",
+        hint: "paint",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "vt-pst-s-28",
+        stem: "Steve Jobs ___ NeXT in 1985 after he was forced out of Apple.",
+        options: ["founded", "was founding", "has founded"],
+        answer: "founded",
+        explanation: "Past Simple with definite time marker.",
+        fullExplanation: "Past Simple for a definite past event. 'Was founding' would imply long ongoing process. 'Has founded' clashes with 'in 1985'.",
+        source: "Adapted, attributed to Steve Jobs",
+        hint: "found",
+        flavor: "quotes",
+        author: "Steve Jobs"
+      },
+      {
+        id: "vt-pst-s-29",
+        stem: "Diego Maradona ___ the goal of the century at the 1986 World Cup.",
+        options: ["scored", "was scoring", "has scored"],
+        answer: "scored",
+        explanation: "Definite past event — Past Simple.",
+        fullExplanation: "'At the 1986 World Cup' fixes time — Past Simple. 'Was scoring' implies process, not the single act. 'Has scored' clashes with definite past time.",
+        source: "Adapted, attributed to Diego Maradona",
+        hint: "score",
+        flavor: "quotes",
+        author: "Diego Maradona"
+      },
+      {
+        id: "vt-pst-s-30",
+        stem: "Tupac ___ his last interview just hours before he was shot in Las Vegas.",
+        options: ["gave", "has given", "was giving"],
+        answer: "gave",
+        explanation: "Past Simple with specific past time.",
+        fullExplanation: "Past Simple for completed past event before another past event. 'Has given' is Present Perfect. 'Was giving' implies unfinished action.",
+        source: "Adapted, attributed to Tupac Shakur",
+        hint: "give",
+        flavor: "quotes",
+        author: "Tupac Shakur"
       }
     ]
   },
@@ -1094,6 +1310,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 6",
         hint: "capture",
         flavor: "science"
+      },
+      {
+        id: "vt-pst-c-25",
+        stem: "While I ___ for the Liston fight, I knew that something historic was about to happen.",
+        options: ["was preparing", "prepared", "had prepared"],
+        answer: "was preparing",
+        explanation: "Background past activity — Past Continuous.",
+        fullExplanation: "Past Continuous sets the backdrop. 'Prepared' is Past Simple, single event. 'Had prepared' wrongly puts the preparation before the awareness.",
+        source: "Adapted, attributed to Muhammad Ali",
+        hint: "prepare",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "vt-pst-c-26",
+        stem: "When the news broke, Tarantino ___ a new script in a Los Angeles diner.",
+        options: ["was writing", "wrote", "had written"],
+        answer: "was writing",
+        explanation: "Past Continuous for action interrupted by another past event.",
+        fullExplanation: "Past Continuous frames an action interrupted by a single past event. 'Wrote' would describe a separate completed event. 'Had written' wrongly places it before the news.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        hint: "write",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "vt-pst-c-27",
+        stem: "Picasso ___ a portrait when the bombs began to fall on Spain.",
+        options: ["was painting", "painted", "had painted"],
+        answer: "was painting",
+        explanation: "Background past activity interrupted — Past Continuous.",
+        fullExplanation: "Past Continuous for ongoing past activity interrupted by another event. 'Painted' is Past Simple, completed. 'Had painted' wrongly orders the events.",
+        source: "Adapted, attributed to Pablo Picasso",
+        hint: "paint",
+        flavor: "quotes",
+        author: "Pablo Picasso"
+      },
+      {
+        id: "vt-pst-c-28",
+        stem: "Kobe ___ 60 points in his final game while the world ___ in disbelief.",
+        options: ["was watching", "watched", "had watched"],
+        answer: "was watching",
+        explanation: "Simultaneous ongoing past actions — Past Continuous.",
+        fullExplanation: "Past Continuous shows simultaneous ongoing actions. 'Watched' would imply a single act. 'Had watched' would be earlier than Kobe's 60.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "watch",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "vt-pst-c-29",
+        stem: "While Banksy ___ a new mural, the council was already painting over the old one.",
+        options: ["was creating", "created", "had created"],
+        answer: "was creating",
+        explanation: "Two parallel past actions — Past Continuous in both clauses.",
+        fullExplanation: "Past Continuous expresses simultaneity. 'Created' is single past event. 'Had created' wrongly places creation before the council's action.",
+        source: "Adapted, attributed to Banksy",
+        hint: "create",
+        flavor: "quotes",
+        author: "Banksy"
+      },
+      {
+        id: "vt-pst-c-30",
+        stem: "Mandela ___ in his cell when the news of his release reached the world.",
+        options: ["was reading", "read", "had read"],
+        answer: "was reading",
+        explanation: "Background activity interrupted by news — Past Continuous.",
+        fullExplanation: "Past Continuous sets the scene; the news interrupts. 'Read' is Past Simple. 'Had read' would put the reading before the news.",
+        source: "Adapted, attributed to Nelson Mandela",
+        hint: "read",
+        flavor: "quotes",
+        author: "Nelson Mandela"
       }
     ]
   },
@@ -1367,6 +1655,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 9",
         hint: "gather",
         flavor: "science"
+      },
+      {
+        id: "vt-pp-s-25",
+        stem: "I ___ in this game long enough to know that nothing lasts forever.",
+        options: ["have been", "am", "was"],
+        answer: "have been",
+        explanation: "Duration up to now uses Present Perfect.",
+        fullExplanation: "'Long enough' marks duration to the present — Present Perfect. 'Am' is Present Simple, ignoring duration. 'Was' is Past Simple, breaking the present link.",
+        source: "Adapted, attributed to Jay-Z",
+        hint: "be",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "vt-pp-s-26",
+        stem: "I ___ never been more focused than I am right now, before this fight.",
+        options: ["have", "did", "was"],
+        answer: "have",
+        explanation: "Experience up to the present — Present Perfect.",
+        fullExplanation: "Present Perfect describes life experience up to now. 'Did' is Past Simple and breaks the present relevance. 'Was' is also past and incomplete.",
+        source: "Adapted, attributed to Anthony Joshua",
+        hint: "be",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "vt-pp-s-27",
+        stem: "Ed Sheeran ___ more than a hundred songs since he started writing as a teenager.",
+        options: ["has written", "wrote", "is writing"],
+        answer: "has written",
+        explanation: "Action over a period reaching the present — Present Perfect.",
+        fullExplanation: "'Since he started' sets a starting point continuing to now. 'Wrote' would close the action. 'Is writing' describes only the present moment.",
+        source: "Adapted, attributed to Ed Sheeran",
+        hint: "write",
+        flavor: "quotes",
+        author: "Ed Sheeran"
+      },
+      {
+        id: "vt-pp-s-28",
+        stem: "Beyoncé ___ multiple Grammys throughout her remarkable career so far.",
+        options: ["has won", "won", "is winning"],
+        answer: "has won",
+        explanation: "Career-to-date achievement — Present Perfect.",
+        fullExplanation: "Career still in progress takes Present Perfect. 'Won' would suggest a closed period. 'Is winning' is in progress at this moment.",
+        source: "Adapted, attributed to Beyoncé",
+        hint: "win",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "vt-pp-s-29",
+        stem: "I ___ ever known anyone with as much love for the game as he had.",
+        options: ["have not", "did not", "had not"],
+        answer: "have not",
+        explanation: "Lifetime experience up to now — Present Perfect.",
+        fullExplanation: "Present Perfect for life experience up to now. 'Did not' confines it to past time. 'Had not' would need another past reference.",
+        source: "Adapted, attributed to Pat Riley",
+        hint: "know",
+        flavor: "quotes",
+        author: "Pat Riley"
+      },
+      {
+        id: "vt-pp-s-30",
+        stem: "MrBeast ___ given away millions of dollars in just a few short years.",
+        options: ["has", "had", "is having"],
+        answer: "has",
+        explanation: "Recent accumulation of action — Present Perfect.",
+        fullExplanation: "Present Perfect emphasises accumulation up to now. 'Had' would need another past reference. 'Is having' is Present Continuous and ungrammatical with this stative use.",
+        source: "Adapted, attributed to MrBeast",
+        hint: "have",
+        flavor: "quotes",
+        author: "MrBeast"
       }
     ]
   },
@@ -1640,6 +2000,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Swan, PEU (4e), §421.2",
         hint: "diminish",
         flavor: "science"
+      },
+      {
+        id: "vt-pp-c-25",
+        stem: "I ___ pushing my body to its absolute limit for over thirty straight years.",
+        options: ["have been", "am", "was"],
+        answer: "have been",
+        explanation: "Duration up to now — Present Perfect Continuous.",
+        fullExplanation: "Long-running activity continuing to now takes Present Perfect Continuous. 'Am' is Present Continuous, missing duration. 'Was' breaks the present relevance.",
+        source: "Adapted, attributed to David Goggins",
+        hint: "be",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "vt-pp-c-26",
+        stem: "Lana Del Rey ___ writing music that captures a uniquely American sadness for a decade now.",
+        options: ["has been", "is", "was"],
+        answer: "has been",
+        explanation: "Duration to the present moment uses Present Perfect Continuous.",
+        fullExplanation: "Present Perfect Continuous emphasises ongoing duration. 'Is' loses the duration. 'Was' breaks present relevance.",
+        source: "Adapted, attributed to Lana Del Rey",
+        hint: "be",
+        flavor: "quotes",
+        author: "Lana Del Rey"
+      },
+      {
+        id: "vt-pp-c-27",
+        stem: "Naval ___ writing about wealth and happiness for decades and is only just becoming famous.",
+        options: ["has been", "is", "had been"],
+        answer: "has been",
+        explanation: "Long ongoing activity ending now — Present Perfect Continuous.",
+        fullExplanation: "Present Perfect Continuous links duration to the present. 'Is' loses the duration. 'Had been' would need a closed past reference.",
+        source: "Adapted, attributed to Naval Ravikant",
+        hint: "be",
+        flavor: "quotes",
+        author: "Naval Ravikant"
+      },
+      {
+        id: "vt-pp-c-28",
+        stem: "I ___ studying chess for years, and the deeper I go, the less I think I know.",
+        options: ["have been", "am", "was"],
+        answer: "have been",
+        explanation: "Duration up to the present — Present Perfect Continuous.",
+        fullExplanation: "Activity over years reaching now uses Present Perfect Continuous. 'Am' loses the duration. 'Was' is Past Continuous and breaks present link.",
+        source: "Adapted, attributed to Magnus Carlsen",
+        hint: "be",
+        flavor: "quotes",
+        author: "Magnus Carlsen"
+      },
+      {
+        id: "vt-pp-c-29",
+        stem: "Ronaldo ___ scoring goals at every club he has played for since he was a teenager.",
+        options: ["has been", "is", "had been"],
+        answer: "has been",
+        explanation: "Continuous achievement reaching now — Present Perfect Continuous.",
+        fullExplanation: "Present Perfect Continuous fits ongoing accomplishment up to now. 'Is' loses the time span. 'Had been' would need a closed past frame.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        hint: "be",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "vt-pp-c-30",
+        stem: "I ___ telling young rappers the same thing for two decades: protect your peace.",
+        options: ["have been", "am", "was"],
+        answer: "have been",
+        explanation: "Repeated ongoing action up to now — Present Perfect Continuous.",
+        fullExplanation: "Present Perfect Continuous fits ongoing duration to now. 'Am' lacks duration. 'Was' breaks present relevance.",
+        source: "Adapted, attributed to Snoop Dogg",
+        hint: "be",
+        flavor: "quotes",
+        author: "Snoop Dogg"
       }
     ]
   },
@@ -1913,6 +2345,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Swan, PEU (4e), §421.4",
         hint: "enter",
         flavor: "science"
+      },
+      {
+        id: "vt-pastperf-25",
+        stem: "By the time Mandela was released, he ___ in prison for twenty-seven years.",
+        options: ["had been", "was", "has been"],
+        answer: "had been",
+        explanation: "Action completed before another past event — Past Perfect.",
+        fullExplanation: "Past Perfect for completion before a past reference point. 'Was' is Past Simple, parallel rather than prior. 'Has been' is Present Perfect, incompatible with closed past.",
+        source: "Adapted, attributed to Nelson Mandela",
+        hint: "be",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "vt-pastperf-26",
+        stem: "When Picasso painted Guernica, he ___ already revolutionised modern art.",
+        options: ["had", "has", "was having"],
+        answer: "had",
+        explanation: "Earlier completed action before another past event — Past Perfect.",
+        fullExplanation: "Past Perfect places one past event before another. 'Has' would be Present Perfect. 'Was having' would imply a continuous activity.",
+        source: "Adapted, attributed to Pablo Picasso",
+        hint: "have",
+        flavor: "quotes",
+        author: "Pablo Picasso"
+      },
+      {
+        id: "vt-pastperf-27",
+        stem: "By the time Tupac was twenty-five, he ___ recorded enough material for a dozen albums.",
+        options: ["had", "has", "was"],
+        answer: "had",
+        explanation: "Past Perfect for completion before a past reference.",
+        fullExplanation: "Past Perfect emphasises completion by a past point. 'Has' is Present Perfect. 'Was' is Past Simple, lacking the prior-completion sense.",
+        source: "Adapted, attributed to Tupac Shakur",
+        hint: "record",
+        flavor: "quotes",
+        author: "Tupac Shakur"
+      },
+      {
+        id: "vt-pastperf-28",
+        stem: "Muhammad Ali ___ already changed boxing forever before his thirtieth birthday.",
+        options: ["had", "has", "was"],
+        answer: "had",
+        explanation: "Earlier completion before a past reference — Past Perfect.",
+        fullExplanation: "Past Perfect signals completion before another past time. 'Has' is Present Perfect. 'Was' is Past Simple and loses the prior-completion frame.",
+        source: "Adapted, attributed to Muhammad Ali",
+        hint: "change",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "vt-pastperf-29",
+        stem: "When Jobs returned to Apple in 1997, the company ___ nearly run out of cash.",
+        options: ["had", "has", "was"],
+        answer: "had",
+        explanation: "Past Perfect for prior near-completion.",
+        fullExplanation: "Past Perfect places the financial crisis before Jobs's return. 'Has' is Present Perfect. 'Was' is Past Simple, parallel rather than prior.",
+        source: "Adapted, attributed to Steve Jobs",
+        hint: "run",
+        flavor: "quotes",
+        author: "Steve Jobs"
+      },
+      {
+        id: "vt-pastperf-30",
+        stem: "The judges felt that Pacquiao ___ won the fight before the final bell rang.",
+        options: ["had", "has", "was"],
+        answer: "had",
+        explanation: "Past Perfect for completion before a past observation.",
+        fullExplanation: "Past Perfect signals what was true before another past moment. 'Has' is Present Perfect. 'Was' is Past Simple and loses the prior-completion sense.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        hint: "win",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
       }
     ]
   },
@@ -2186,6 +2690,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 19",
         hint: "revolutionise",
         flavor: "science"
+      },
+      {
+        id: "vt-fut-will-25",
+        stem: "I ___ shock the world again, and again, and again until they finally believe me.",
+        options: ["will", "am going to", "am"],
+        answer: "will",
+        explanation: "Spontaneous prediction or promise uses 'will'.",
+        fullExplanation: "'Will' for promises and confident future statements. 'Am going to' implies a planned intention. 'Am' is Present Simple and ungrammatical here.",
+        source: "Adapted, attributed to Muhammad Ali",
+        hint: "shock",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "vt-fut-will-26",
+        stem: "Mark my words: Mars ___ have a self-sustaining colony within thirty years.",
+        options: ["will", "is going to", "is"],
+        answer: "will",
+        explanation: "Strong prediction uses 'will'.",
+        fullExplanation: "'Will' for confident prediction. 'Is going to' suggests current evidence. 'Is' is present tense, ungrammatical with future meaning.",
+        source: "Adapted, attributed to Elon Musk",
+        hint: "have",
+        flavor: "quotes",
+        author: "Elon Musk"
+      },
+      {
+        id: "vt-fut-will-27",
+        stem: "I ___ never bow down to anyone who tries to silence my voice.",
+        options: ["will", "do", "am"],
+        answer: "will",
+        explanation: "Promise / personal determination uses 'will'.",
+        fullExplanation: "'Will' expresses determined future. 'Do' is Present Simple and not future. 'Am' is also present tense.",
+        source: "Adapted, attributed to Tupac Shakur",
+        hint: "bow",
+        flavor: "quotes",
+        author: "Tupac Shakur"
+      },
+      {
+        id: "vt-fut-will-28",
+        stem: "He ___ remember that night for the rest of his life, no matter what happens after.",
+        options: ["will", "is", "does"],
+        answer: "will",
+        explanation: "Confident future prediction — 'will'.",
+        fullExplanation: "'Will' for confident future. 'Is' and 'does' are present and ungrammatical for the future meaning.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        hint: "remember",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "vt-fut-will-29",
+        stem: "The next album ___ be unlike anything anyone has ever heard from me before.",
+        options: ["will", "is", "does"],
+        answer: "will",
+        explanation: "Future statement — 'will'.",
+        fullExplanation: "'Will' for predictive statements. 'Is' is present. 'Does' is do-support, not future.",
+        source: "Adapted, attributed to Kanye West",
+        hint: "be",
+        flavor: "quotes",
+        author: "Kanye West"
+      },
+      {
+        id: "vt-fut-will-30",
+        stem: "I ___ keep training until they finally hand me that championship belt.",
+        options: ["will", "am", "do"],
+        answer: "will",
+        explanation: "Personal determination — 'will'.",
+        fullExplanation: "'Will' for determined future intention. 'Am' is present. 'Do' is do-support, not future.",
+        source: "Adapted, attributed to Anthony Joshua",
+        hint: "keep",
+        flavor: "quotes",
+        author: "Anthony Joshua"
       }
     ]
   },
@@ -2459,6 +3035,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 21",
         hint: "worsen",
         flavor: "science"
+      },
+      {
+        id: "vt-fut-going-25",
+        stem: "I ___ knock him out in the second round, just watch.",
+        options: ["am going to", "will", "am"],
+        answer: "am going to",
+        explanation: "'Going to' for plan based on present intention.",
+        fullExplanation: "'Going to' indicates a present-decided plan. 'Will' is more spontaneous. 'Am' is Present Simple.",
+        source: "Adapted, attributed to Conor McGregor",
+        hint: "knock",
+        flavor: "quotes",
+        author: "Conor McGregor"
+      },
+      {
+        id: "vt-fut-going-26",
+        stem: "We ___ change the way people listen to music, whether the industry is ready or not.",
+        options: ["are going to", "will", "are"],
+        answer: "are going to",
+        explanation: "'Going to' for an already-formed intention.",
+        fullExplanation: "'Going to' shows a present plan. 'Will' is more spontaneous. 'Are' is Present Simple.",
+        source: "Adapted, attributed to Daft Punk",
+        hint: "change",
+        flavor: "quotes",
+        author: "Daft Punk"
+      },
+      {
+        id: "vt-fut-going-27",
+        stem: "The way she trains, she ___ break every record in women's tennis.",
+        options: ["is going to", "will", "is"],
+        answer: "is going to",
+        explanation: "'Going to' for prediction based on present evidence.",
+        fullExplanation: "Predictions from current evidence use 'going to'. 'Will' is for less-evidenced predictions. 'Is' is present tense.",
+        source: "Adapted, attributed to Serena Williams",
+        hint: "break",
+        flavor: "quotes",
+        author: "Serena Williams"
+      },
+      {
+        id: "vt-fut-going-28",
+        stem: "Trust me — that kid ___ take over the entire industry in a few short years.",
+        options: ["is going to", "will", "is"],
+        answer: "is going to",
+        explanation: "'Going to' for a confident prediction.",
+        fullExplanation: "'Going to' for a predicted outcome based on present indicators. 'Will' is more general. 'Is' is present.",
+        source: "Adapted, attributed to Diddy",
+        hint: "take",
+        flavor: "quotes",
+        author: "Diddy"
+      },
+      {
+        id: "vt-fut-going-29",
+        stem: "I ___ start a label that gives artists a fairer share of their own work.",
+        options: ["am going to", "will", "am"],
+        answer: "am going to",
+        explanation: "'Going to' for an already-formed plan.",
+        fullExplanation: "Pre-existing plan takes 'going to'. 'Will' suggests spontaneous decision. 'Am' is present tense.",
+        source: "Adapted, attributed to Jay-Z",
+        hint: "start",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "vt-fut-going-30",
+        stem: "MrBeast ___ keep giving away money until people realise that's the point.",
+        options: ["is going to", "will", "is"],
+        answer: "is going to",
+        explanation: "'Going to' for a stated continuing intention.",
+        fullExplanation: "Pre-existing continuing intention uses 'going to'. 'Will' is more spontaneous. 'Is' is Present Simple.",
+        source: "Adapted, attributed to MrBeast",
+        hint: "keep",
+        flavor: "quotes",
+        author: "MrBeast"
       }
     ]
   },
@@ -2732,6 +3380,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Swan, PEU (4e), §417",
         hint: "capture",
         flavor: "science"
+      },
+      {
+        id: "vt-pass-prs-25",
+        stem: "Real respect ___ earned, never demanded by force.",
+        options: ["is", "has", "does"],
+        answer: "is",
+        explanation: "Present passive: be + past participle.",
+        fullExplanation: "Present passive structure is 'is + past participle'. 'Has' would form a Present Perfect. 'Does' is do-support.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        hint: "earn",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "vt-pass-prs-26",
+        stem: "Talent ___ given to you; effort is what you have to find inside yourself.",
+        options: ["is", "has", "does"],
+        answer: "is",
+        explanation: "Present passive: be + past participle.",
+        fullExplanation: "Present passive uses 'is + past participle'. 'Has' would form a Present Perfect. 'Does' is do-support.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "give",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "vt-pass-prs-27",
+        stem: "The greatest paintings ___ created out of pain that nobody else can see.",
+        options: ["are", "have", "do"],
+        answer: "are",
+        explanation: "Present passive: be + past participle.",
+        fullExplanation: "Present passive uses 'are + past participle'. 'Have' would shift to Present Perfect. 'Do' is do-support.",
+        source: "Adapted, attributed to Frida Kahlo",
+        hint: "create",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "vt-pass-prs-28",
+        stem: "Records ___ broken every single day by people willing to outwork everyone else.",
+        options: ["are", "have", "do"],
+        answer: "are",
+        explanation: "Present passive: be + past participle.",
+        fullExplanation: "'Are broken' is the present passive form. 'Have' is Present Perfect. 'Do' is do-support.",
+        source: "Adapted, attributed to Usain Bolt",
+        hint: "break",
+        flavor: "quotes",
+        author: "Usain Bolt"
+      },
+      {
+        id: "vt-pass-prs-29",
+        stem: "Champions ___ built in the hours nobody else is willing to put in.",
+        options: ["are", "have", "do"],
+        answer: "are",
+        explanation: "Present passive: be + past participle.",
+        fullExplanation: "'Are built' is the standard present passive. 'Have' would be Present Perfect. 'Do' is do-support.",
+        source: "Adapted, attributed to Vince Lombardi",
+        hint: "build",
+        flavor: "quotes",
+        author: "Vince Lombardi"
+      },
+      {
+        id: "vt-pass-prs-30",
+        stem: "True legacy ___ measured in the people you lift on the way up.",
+        options: ["is", "has", "does"],
+        answer: "is",
+        explanation: "Present passive: be + past participle.",
+        fullExplanation: "Present passive uses 'is + past participle'. 'Has' would form Present Perfect. 'Does' is do-support.",
+        source: "Adapted, attributed to Magic Johnson",
+        hint: "measure",
+        flavor: "quotes",
+        author: "Magic Johnson"
       }
     ]
   },
@@ -3005,6 +3725,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 22",
         hint: "honour",
         flavor: "personalities"
+      },
+      {
+        id: "vt-pass-pst-25",
+        stem: "Guernica ___ painted by Picasso in just a few weeks of frantic work.",
+        options: ["was", "has been", "is"],
+        answer: "was",
+        explanation: "Past passive: was/were + past participle.",
+        fullExplanation: "Past passive uses 'was + past participle'. 'Has been' is Present Perfect passive. 'Is' is Present Passive.",
+        source: "Adapted, attributed to Pablo Picasso",
+        hint: "paint",
+        flavor: "quotes",
+        author: "Pablo Picasso"
+      },
+      {
+        id: "vt-pass-pst-26",
+        stem: "I ___ counted out so many times that I lost track of who doubted me first.",
+        options: ["was", "have been", "am"],
+        answer: "was",
+        explanation: "Past passive: was/were + past participle.",
+        fullExplanation: "Past passive uses 'was/were + past participle'. 'Have been' would be Present Perfect Passive. 'Am' is present.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        hint: "count",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "vt-pass-pst-27",
+        stem: "Tupac ___ shot in Las Vegas and the whole world stood still that week.",
+        options: ["was", "has been", "is"],
+        answer: "was",
+        explanation: "Past passive: was + past participle.",
+        fullExplanation: "Past passive uses 'was + past participle'. 'Has been' is Present Perfect. 'Is' is Present Passive.",
+        source: "Adapted, attributed to Tupac Shakur",
+        hint: "shoot",
+        flavor: "quotes",
+        author: "Tupac Shakur"
+      },
+      {
+        id: "vt-pass-pst-28",
+        stem: "Mandela ___ imprisoned for twenty-seven years before he was finally set free.",
+        options: ["was", "has been", "is"],
+        answer: "was",
+        explanation: "Past passive: was + past participle.",
+        fullExplanation: "Past passive uses 'was + past participle'. 'Has been' is Present Perfect, incompatible with closed past. 'Is' is Present Passive.",
+        source: "Adapted, attributed to Nelson Mandela",
+        hint: "imprison",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "vt-pass-pst-29",
+        stem: "Rocky ___ rejected by every major studio before someone finally took a chance on it.",
+        options: ["was", "has been", "is"],
+        answer: "was",
+        explanation: "Past passive: was + past participle.",
+        fullExplanation: "Past passive uses 'was + past participle'. 'Has been' is Present Perfect. 'Is' is Present Passive.",
+        source: "Adapted, attributed to Sylvester Stallone",
+        hint: "reject",
+        flavor: "quotes",
+        author: "Sylvester Stallone"
+      },
+      {
+        id: "vt-pass-pst-30",
+        stem: "The album ___ recorded in two weeks with nothing but a borrowed microphone.",
+        options: ["was", "has been", "is"],
+        answer: "was",
+        explanation: "Past passive: was + past participle.",
+        fullExplanation: "Past passive uses 'was + past participle'. 'Has been' is Present Perfect. 'Is' is Present Passive.",
+        source: "Adapted, attributed to Frank Ocean",
+        hint: "record",
+        flavor: "quotes",
+        author: "Frank Ocean"
       }
     ]
   },
@@ -3278,6 +4070,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 22",
         hint: "modify",
         flavor: "science"
+      },
+      {
+        id: "vt-pass-mix-25",
+        stem: "By the time the album dropped, every track ___ already leaked online by hackers.",
+        options: ["had been", "was", "has been"],
+        answer: "had been",
+        explanation: "Past Perfect Passive for prior completion before a past event.",
+        fullExplanation: "Past Perfect Passive ('had been + past participle') signals completion before a past event. 'Was' is Past Simple Passive. 'Has been' is Present Perfect Passive.",
+        source: "Adapted, attributed to Kanye West",
+        hint: "leak",
+        flavor: "quotes",
+        author: "Kanye West"
+      },
+      {
+        id: "vt-pass-mix-26",
+        stem: "Every champion in this gym ___ broken at some point before they were rebuilt.",
+        options: ["has been", "was", "is"],
+        answer: "has been",
+        explanation: "Present Perfect Passive: have/has + been + past participle.",
+        fullExplanation: "Present Perfect Passive emphasises experience up to now. 'Was' confines it to past. 'Is' is Present Passive.",
+        source: "Adapted, attributed to Mike Tyson",
+        hint: "break",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "vt-pass-mix-27",
+        stem: "His talent ___ recognised by every coach who has ever watched him train.",
+        options: ["has been", "was", "is"],
+        answer: "has been",
+        explanation: "Present Perfect Passive — experience up to now.",
+        fullExplanation: "Present Perfect Passive shows experience reaching now. 'Was' confines to past. 'Is' is Present Passive.",
+        source: "Adapted, attributed to LeBron James",
+        hint: "recognise",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "vt-pass-mix-28",
+        stem: "By the end of next year, every record ___ broken by this generation.",
+        options: ["will have been", "will be", "has been"],
+        answer: "will have been",
+        explanation: "Future Perfect Passive: will have been + past participle.",
+        fullExplanation: "Future Perfect Passive marks completion before a future deadline. 'Will be' is Future Passive without the perfect aspect. 'Has been' is Present Perfect Passive.",
+        source: "Adapted, attributed to Usain Bolt",
+        hint: "break",
+        flavor: "quotes",
+        author: "Usain Bolt"
+      },
+      {
+        id: "vt-pass-mix-29",
+        stem: "I ___ being told I am too small to play in this league for fifteen years now.",
+        options: ["have been", "am", "was"],
+        answer: "have been",
+        explanation: "Present Perfect Continuous Passive — duration to now.",
+        fullExplanation: "Present Perfect Continuous Passive emphasises ongoing experience. 'Am' lacks duration. 'Was' breaks present relevance.",
+        source: "Adapted, attributed to Allen Iverson",
+        hint: "be",
+        flavor: "quotes",
+        author: "Allen Iverson"
+      },
+      {
+        id: "vt-pass-mix-30",
+        stem: "Every fight ___ analysed by my team for hours before we step into the cage.",
+        options: ["is", "has been", "was"],
+        answer: "is",
+        explanation: "Present Passive for habitual procedure.",
+        fullExplanation: "Habitual present passive uses 'is + past participle'. 'Has been' is Present Perfect. 'Was' is past, inappropriate for current routine.",
+        source: "Adapted, attributed to Conor McGregor",
+        hint: "analyse",
+        flavor: "quotes",
+        author: "Conor McGregor"
       }
     ]
   },
@@ -3551,6 +4415,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Swan, PEU (4e), §348",
         hint: "fly",
         flavor: "science"
+      },
+      {
+        id: "mg-mod-obl-25",
+        stem: "If you want greatness, you ___ pay its price every single day of your life.",
+        options: ["must", "can", "may"],
+        answer: "must",
+        explanation: "Strong obligation uses 'must'.",
+        fullExplanation: "'Must' for strong necessity. 'Can' is ability. 'May' is permission/possibility.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "pay",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "mg-mod-obl-26",
+        stem: "A real artist ___ keep creating, even when the whole world stops watching.",
+        options: ["must", "can", "may"],
+        answer: "must",
+        explanation: "Necessity uses 'must'.",
+        fullExplanation: "'Must' for inner imperative. 'Can' is ability. 'May' is permission.",
+        source: "Adapted, attributed to Frida Kahlo",
+        hint: "keep",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "mg-mod-obl-27",
+        stem: "Young fighters ___ listen to their coaches before they even think of stepping into the ring.",
+        options: ["should", "can", "may"],
+        answer: "should",
+        explanation: "Strong advice uses 'should'.",
+        fullExplanation: "'Should' for strong recommendation. 'Can' is ability. 'May' is permission.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        hint: "listen",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "mg-mod-obl-28",
+        stem: "You ___ to learn discipline before you ever learn ambition.",
+        options: ["have", "can", "may"],
+        answer: "have",
+        explanation: "External obligation: 'have to'.",
+        fullExplanation: "'Have to' expresses external necessity. 'Can' is ability. 'May' is permission.",
+        source: "Adapted, attributed to David Goggins",
+        hint: "learn",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "mg-mod-obl-29",
+        stem: "Every founder ___ do uncomfortable things if they want to build anything that lasts.",
+        options: ["must", "can", "may"],
+        answer: "must",
+        explanation: "Strong necessity — 'must'.",
+        fullExplanation: "'Must' marks internal necessity. 'Can' is ability. 'May' is permission.",
+        source: "Adapted, attributed to Naval Ravikant",
+        hint: "do",
+        flavor: "quotes",
+        author: "Naval Ravikant"
+      },
+      {
+        id: "mg-mod-obl-30",
+        stem: "The team ___ trust the process even when results are not coming yet.",
+        options: ["should", "can", "may"],
+        answer: "should",
+        explanation: "Strong recommendation — 'should'.",
+        fullExplanation: "'Should' for strong advice. 'Can' is ability. 'May' is permission.",
+        source: "Adapted, attributed to Phil Jackson",
+        hint: "trust",
+        flavor: "quotes",
+        author: "Phil Jackson"
       }
     ]
   },
@@ -3824,6 +4760,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 29",
         hint: "weigh",
         flavor: "science"
+      },
+      {
+        id: "mg-mod-pos-25",
+        stem: "He ___ be the best fighter of his generation, but only time will tell.",
+        options: ["might", "must", "should"],
+        answer: "might",
+        explanation: "Tentative possibility uses 'might'.",
+        fullExplanation: "'Might' for weak possibility. 'Must' is strong deduction. 'Should' is expectation.",
+        source: "Adapted, attributed to Anthony Joshua",
+        hint: "be",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "mg-mod-pos-26",
+        stem: "It ___ rain at any moment, so make sure your performance is rain-proof.",
+        options: ["might", "must", "should"],
+        answer: "might",
+        explanation: "Possibility — 'might'.",
+        fullExplanation: "'Might' for present possibility. 'Must' is strong deduction. 'Should' is expectation.",
+        source: "Adapted, attributed to Beyoncé",
+        hint: "rain",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "mg-mod-pos-27",
+        stem: "She ___ be the next great voice of her generation, given the way she writes.",
+        options: ["could", "must", "should"],
+        answer: "could",
+        explanation: "Possibility — 'could'.",
+        fullExplanation: "'Could' for present possibility. 'Must' is strong deduction. 'Should' is expectation.",
+        source: "Adapted, attributed to Billie Eilish",
+        hint: "be",
+        flavor: "quotes",
+        author: "Billie Eilish"
+      },
+      {
+        id: "mg-mod-pos-28",
+        stem: "He ___ be working on a new track right now; he never seems to stop.",
+        options: ["may", "must", "should"],
+        answer: "may",
+        explanation: "Tentative deduction — 'may'.",
+        fullExplanation: "'May' for present possibility. 'Must' would be strong deduction. 'Should' is expectation.",
+        source: "Adapted, attributed to Kanye West",
+        hint: "work",
+        flavor: "quotes",
+        author: "Kanye West"
+      },
+      {
+        id: "mg-mod-pos-29",
+        stem: "He ___ have been the best to ever lace up the gloves, but he chose to walk away.",
+        options: ["could", "must", "should"],
+        answer: "could",
+        explanation: "Past possibility unrealised — 'could have'.",
+        fullExplanation: "'Could have' for unrealised past possibility. 'Must have' would be certainty. 'Should have' would be expectation.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        hint: "be",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "mg-mod-pos-30",
+        stem: "It ___ be true that he sleeps only four hours a night and lifts at four in the morning.",
+        options: ["may", "must", "should"],
+        answer: "may",
+        explanation: "Tentative possibility — 'may'.",
+        fullExplanation: "'May' for tentative deduction. 'Must' would imply certainty. 'Should' is expectation.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        hint: "be",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
       }
     ]
   },
@@ -4097,6 +5105,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Hewings, AGU (3e), Unit 37",
         hint: "form",
         flavor: "science"
+      },
+      {
+        id: "mg-cond-0-25",
+        stem: "If you ___ hard enough, the universe always finds a way to reward you.",
+        options: ["work", "worked", "will work"],
+        answer: "work",
+        explanation: "Zero Conditional: if + Present Simple, Present Simple.",
+        fullExplanation: "Zero Conditional for general truth. 'Worked' is past. 'Will work' is future and breaks the structure.",
+        source: "Adapted, attributed to Will Smith",
+        hint: "work",
+        flavor: "quotes",
+        author: "Will Smith"
+      },
+      {
+        id: "mg-cond-0-26",
+        stem: "If a fighter ___ his ego at the door, he gives himself a real chance to win.",
+        options: ["leaves", "left", "will leave"],
+        answer: "leaves",
+        explanation: "Zero Conditional: if + Present Simple, Present Simple.",
+        fullExplanation: "Zero Conditional for principle. 'Left' is past. 'Will leave' is future and breaks the structure.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        hint: "leave",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "mg-cond-0-27",
+        stem: "If you ___ what you do, the work itself becomes the reward.",
+        options: ["love", "loved", "will love"],
+        answer: "love",
+        explanation: "Zero Conditional: if + Present Simple, Present Simple.",
+        fullExplanation: "Zero Conditional for general truth. 'Loved' is past. 'Will love' is future, ungrammatical here.",
+        source: "Adapted, attributed to Steve Jobs",
+        hint: "love",
+        flavor: "quotes",
+        author: "Steve Jobs"
+      },
+      {
+        id: "mg-cond-0-28",
+        stem: "If a song ___ true, the whole world can hear it whether they speak the language or not.",
+        options: ["is", "was", "will be"],
+        answer: "is",
+        explanation: "Zero Conditional: if + Present Simple, Present Simple.",
+        fullExplanation: "Zero Conditional for principle. 'Was' is past. 'Will be' is future.",
+        source: "Adapted, attributed to Bob Marley",
+        hint: "be",
+        flavor: "quotes",
+        author: "Bob Marley"
+      },
+      {
+        id: "mg-cond-0-29",
+        stem: "If you ___ to greatness, your body always answers a little louder than your mind.",
+        options: ["listen", "listened", "will listen"],
+        answer: "listen",
+        explanation: "Zero Conditional: if + Present Simple, Present Simple.",
+        fullExplanation: "Zero Conditional for principle. 'Listened' is past. 'Will listen' is future.",
+        source: "Adapted, attributed to Allen Iverson",
+        hint: "listen",
+        flavor: "quotes",
+        author: "Allen Iverson"
+      },
+      {
+        id: "mg-cond-0-30",
+        stem: "If a man ___ a clear vision, he never looks at the noise around him.",
+        options: ["has", "had", "will have"],
+        answer: "has",
+        explanation: "Zero Conditional: if + Present Simple, Present Simple.",
+        fullExplanation: "Zero Conditional for general truth. 'Had' is past. 'Will have' is future.",
+        source: "Adapted, attributed to Elon Musk",
+        hint: "have",
+        flavor: "quotes",
+        author: "Elon Musk"
       }
     ]
   },
@@ -4370,6 +5450,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Hewings, AGU (3e), Unit 38",
         hint: "continue",
         flavor: "science"
+      },
+      {
+        id: "mg-cond-1-25",
+        stem: "If you ___ everything you have, the gods of the game will give you what you deserve.",
+        options: ["give", "will give", "gave"],
+        answer: "give",
+        explanation: "First Conditional: if + Present Simple, will + base.",
+        fullExplanation: "First Conditional uses Present Simple in the if-clause. 'Will give' would form double future. 'Gave' is past.",
+        source: "Adapted, attributed to Vince Lombardi",
+        hint: "give",
+        flavor: "quotes",
+        author: "Vince Lombardi"
+      },
+      {
+        id: "mg-cond-1-26",
+        stem: "If you ___ to my next album with an open mind, I promise it will move you.",
+        options: ["listen", "will listen", "listened"],
+        answer: "listen",
+        explanation: "First Conditional: if + Present Simple, will + base.",
+        fullExplanation: "First Conditional uses Present Simple in if-clause. 'Will listen' would be ungrammatical there. 'Listened' is past.",
+        source: "Adapted, attributed to Drake",
+        hint: "listen",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "mg-cond-1-27",
+        stem: "If we ___ harder than every team in the league, the championship will follow.",
+        options: ["work", "will work", "worked"],
+        answer: "work",
+        explanation: "First Conditional: if + Present Simple, will + base.",
+        fullExplanation: "First Conditional structure. 'Will work' would form double future. 'Worked' is past.",
+        source: "Adapted, attributed to Phil Jackson",
+        hint: "work",
+        flavor: "quotes",
+        author: "Phil Jackson"
+      },
+      {
+        id: "mg-cond-1-28",
+        stem: "If he ___ that opportunity, he will never get another shot at the title.",
+        options: ["misses", "will miss", "missed"],
+        answer: "misses",
+        explanation: "First Conditional: if + Present Simple, will + base.",
+        fullExplanation: "First Conditional structure. 'Will miss' is wrong in if-clause. 'Missed' is past.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        hint: "miss",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "mg-cond-1-29",
+        stem: "If you ___ to me, I will tell you exactly how to fix that swing.",
+        options: ["come", "will come", "came"],
+        answer: "come",
+        explanation: "First Conditional: if + Present Simple, will + base.",
+        fullExplanation: "First Conditional structure. 'Will come' is wrong in if-clause. 'Came' is past.",
+        source: "Adapted, attributed to Tiger Woods",
+        hint: "come",
+        flavor: "quotes",
+        author: "Tiger Woods"
+      },
+      {
+        id: "mg-cond-1-30",
+        stem: "If you ___ in yourself, the rest of the world will eventually catch up.",
+        options: ["believe", "will believe", "believed"],
+        answer: "believe",
+        explanation: "First Conditional: if + Present Simple, will + base.",
+        fullExplanation: "First Conditional structure. 'Will believe' is wrong in if-clause. 'Believed' is past.",
+        source: "Adapted, attributed to Conor McGregor",
+        hint: "believe",
+        flavor: "quotes",
+        author: "Conor McGregor"
       }
     ]
   },
@@ -4643,6 +5795,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Hewings, AGU (3e), Unit 38",
         hint: "be",
         flavor: "science"
+      },
+      {
+        id: "mg-cond-2-25",
+        stem: "If I ___ you, I would protect my peace before I protected my image.",
+        options: ["were", "was", "am"],
+        answer: "were",
+        explanation: "Second Conditional with formal 'were' for hypothetical present.",
+        fullExplanation: "Second Conditional uses 'were' for all persons in formal style. 'Was' is informal indicative. 'Am' is Present Simple.",
+        source: "Adapted, attributed to Jay-Z",
+        hint: "be",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "mg-cond-2-26",
+        stem: "If success ___ easy, every kid with a dream would already be on top of the world.",
+        options: ["were", "is", "had been"],
+        answer: "were",
+        explanation: "Second Conditional: if + Past Simple, would + base.",
+        fullExplanation: "Second Conditional uses Past Simple for unreal present. 'Is' is Present Simple, contradicting unreal. 'Had been' is Past Perfect.",
+        source: "Adapted, attributed to Snoop Dogg",
+        hint: "be",
+        flavor: "quotes",
+        author: "Snoop Dogg"
+      },
+      {
+        id: "mg-cond-2-27",
+        stem: "If we ___ courage from external praise, we would never take a single risk.",
+        options: ["got", "get", "had got"],
+        answer: "got",
+        explanation: "Second Conditional: if + Past Simple, would + base.",
+        fullExplanation: "Second Conditional structure. 'Get' is Present Simple, contradicting unreal. 'Had got' is Past Perfect.",
+        source: "Adapted, attributed to Pharrell Williams",
+        hint: "get",
+        flavor: "quotes",
+        author: "Pharrell Williams"
+      },
+      {
+        id: "mg-cond-2-28",
+        stem: "If I ___ scared of failure, I would never have stepped on stage in the first place.",
+        options: ["were", "am", "had been"],
+        answer: "were",
+        explanation: "Second Conditional with subjunctive 'were'.",
+        fullExplanation: "Second Conditional for unreal present uses 'were'. 'Am' is Present Simple. 'Had been' is Past Perfect.",
+        source: "Adapted, attributed to Lady Gaga",
+        hint: "be",
+        flavor: "quotes",
+        author: "Lady Gaga"
+      },
+      {
+        id: "mg-cond-2-29",
+        stem: "If money ___ the goal, I would have stopped a long time ago.",
+        options: ["were", "is", "had been"],
+        answer: "were",
+        explanation: "Second Conditional with formal 'were'.",
+        fullExplanation: "Second Conditional uses 'were' for all persons. 'Is' is indicative present. 'Had been' is Past Perfect.",
+        source: "Adapted, attributed to MrBeast",
+        hint: "be",
+        flavor: "quotes",
+        author: "MrBeast"
+      },
+      {
+        id: "mg-cond-2-30",
+        stem: "If the world ___ a little kinder, half of my songs would not exist.",
+        options: ["were", "is", "had been"],
+        answer: "were",
+        explanation: "Second Conditional with formal 'were'.",
+        fullExplanation: "Second Conditional uses 'were'. 'Is' is indicative. 'Had been' is Past Perfect.",
+        source: "Adapted, attributed to Lana Del Rey",
+        hint: "be",
+        flavor: "quotes",
+        author: "Lana Del Rey"
       }
     ]
   },
@@ -4916,6 +6140,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Hewings, AGU (3e), Unit 39",
         hint: "enter",
         flavor: "science"
+      },
+      {
+        id: "mg-cond-3-25",
+        stem: "If I ___ listened to every doubter, I would never have made it out of Brooklyn.",
+        options: ["had", "have", "would have"],
+        answer: "had",
+        explanation: "Third Conditional: if + Past Perfect, would have + past participle.",
+        fullExplanation: "Third Conditional uses Past Perfect in if-clause. 'Have' is Present Perfect. 'Would have' belongs in main clause.",
+        source: "Adapted, attributed to Jay-Z",
+        hint: "listen",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "mg-cond-3-26",
+        stem: "If Apple ___ taken Jobs back in 1997, the company might never have survived.",
+        options: ["had not", "did not", "has not"],
+        answer: "had not",
+        explanation: "Third Conditional: Past Perfect in if-clause.",
+        fullExplanation: "Third Conditional uses Past Perfect. 'Did not' would form Second Conditional. 'Has not' is Present Perfect.",
+        source: "Adapted, attributed to Steve Jobs",
+        hint: "take",
+        flavor: "quotes",
+        author: "Steve Jobs"
+      },
+      {
+        id: "mg-cond-3-27",
+        stem: "If we ___ played that final differently, the championship would have been ours.",
+        options: ["had", "have", "would have"],
+        answer: "had",
+        explanation: "Third Conditional: if + Past Perfect, would have + past participle.",
+        fullExplanation: "Past Perfect required in if-clause. 'Have' is Present Perfect. 'Would have' belongs in main clause.",
+        source: "Adapted, attributed to LeBron James",
+        hint: "play",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "mg-cond-3-28",
+        stem: "If I ___ trained smarter in my twenties, my career would have lasted ten more years.",
+        options: ["had", "have", "would have"],
+        answer: "had",
+        explanation: "Third Conditional: if + Past Perfect.",
+        fullExplanation: "Past Perfect required. 'Have' is Present Perfect. 'Would have' belongs in main clause.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        hint: "train",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "mg-cond-3-29",
+        stem: "If they ___ believed in him from day one, his peak would have come even sooner.",
+        options: ["had", "have", "would have"],
+        answer: "had",
+        explanation: "Third Conditional: if + Past Perfect.",
+        fullExplanation: "Past Perfect required. 'Have' is Present Perfect. 'Would have' belongs in main clause.",
+        source: "Adapted, attributed to Pep Guardiola",
+        hint: "believe",
+        flavor: "quotes",
+        author: "Pep Guardiola"
+      },
+      {
+        id: "mg-cond-3-30",
+        stem: "If money ___ been the goal, half the songs on that album would never exist.",
+        options: ["had", "have", "would have"],
+        answer: "had",
+        explanation: "Third Conditional: if + Past Perfect.",
+        fullExplanation: "Past Perfect required. 'Have' is Present Perfect. 'Would have' belongs in main clause.",
+        source: "Adapted, attributed to Frank Ocean",
+        hint: "be",
+        flavor: "quotes",
+        author: "Frank Ocean"
       }
     ]
   },
@@ -5189,6 +6485,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 55",
         hint: "reboot",
         flavor: "science"
+      },
+      {
+        id: "mg-ger-inf-25",
+        stem: "I enjoy ___ before sunrise; the streets feel like they belong to me.",
+        options: ["running", "to run", "run"],
+        answer: "running",
+        explanation: "After 'enjoy', use gerund.",
+        fullExplanation: "'Enjoy' takes -ing only. 'To run' is infinitive. 'Run' is bare base.",
+        source: "Adapted, attributed to Eliud Kipchoge",
+        hint: "run",
+        flavor: "quotes",
+        author: "Eliud Kipchoge"
+      },
+      {
+        id: "mg-ger-inf-26",
+        stem: "He decided ___ his entire fortune away while he was still alive to see it.",
+        options: ["to give", "giving", "give"],
+        answer: "to give",
+        explanation: "After 'decide', use to-infinitive.",
+        fullExplanation: "'Decide' takes to-infinitive. 'Giving' is gerund. 'Give' is bare base.",
+        source: "Adapted, attributed to MrBeast",
+        hint: "give",
+        flavor: "quotes",
+        author: "MrBeast"
+      },
+      {
+        id: "mg-ger-inf-27",
+        stem: "I cannot stand ___ to people who never felt the streets I came from.",
+        options: ["explaining", "to explain", "explain"],
+        answer: "explaining",
+        explanation: "After 'can't stand', use gerund.",
+        fullExplanation: "'Can't stand' takes -ing. 'To explain' is infinitive. 'Explain' is bare base.",
+        source: "Adapted, attributed to 50 Cent",
+        hint: "explain",
+        flavor: "quotes",
+        author: "50 Cent"
+      },
+      {
+        id: "mg-ger-inf-28",
+        stem: "Every champion learns ___ the noise that has nothing to teach him.",
+        options: ["to ignore", "ignoring", "ignore"],
+        answer: "to ignore",
+        explanation: "After 'learn', use to-infinitive.",
+        fullExplanation: "'Learn' takes to-infinitive. 'Ignoring' is gerund. 'Ignore' is bare base.",
+        source: "Adapted, attributed to Anthony Joshua",
+        hint: "ignore",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "mg-ger-inf-29",
+        stem: "She kept ___ even when every coach said she would never make it on the court.",
+        options: ["working", "to work", "work"],
+        answer: "working",
+        explanation: "After 'keep', use gerund.",
+        fullExplanation: "'Keep' takes -ing. 'To work' is infinitive. 'Work' is bare base.",
+        source: "Adapted, attributed to Serena Williams",
+        hint: "work",
+        flavor: "quotes",
+        author: "Serena Williams"
+      },
+      {
+        id: "mg-ger-inf-30",
+        stem: "I want ___ a life that my children will be proud to talk about.",
+        options: ["to build", "building", "build"],
+        answer: "to build",
+        explanation: "After 'want', use to-infinitive.",
+        fullExplanation: "'Want' takes to-infinitive. 'Building' is gerund. 'Build' is bare base.",
+        source: "Adapted, attributed to LeBron James",
+        hint: "build",
+        flavor: "quotes",
+        author: "LeBron James"
       }
     ]
   },
@@ -5438,6 +6806,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'That' correctly introduces a defining relative clause about antibodies (a thing). 'Who' is for people. 'Which' is also grammatically possible in defining clauses but 'that' is the preferred choice when the clause is restrictive and essential to the meaning.",
         source: "Murphy, EGU (4e), Unit 91",
         flavor: "science"
+      },
+      {
+        id: "mg-rel-25",
+        stem: "A coach ___ believes in you can change your entire life trajectory.",
+        options: ["who", "which", "where"],
+        answer: "who",
+        explanation: "Defining relative clause for a person — 'who'.",
+        fullExplanation: "'Who' is for people. 'Which' is for things. 'Where' refers to place.",
+        source: "Adapted, attributed to Phil Jackson",
+        flavor: "quotes",
+        author: "Phil Jackson"
+      },
+      {
+        id: "mg-rel-26",
+        stem: "The album ___ I recorded in Tokyo became the most personal work of my career.",
+        options: ["that", "who", "where"],
+        answer: "that",
+        explanation: "Defining relative for things — 'that'.",
+        fullExplanation: "'That' for things. 'Who' for people. 'Where' for place.",
+        source: "Adapted, attributed to Frank Ocean",
+        flavor: "quotes",
+        author: "Frank Ocean"
+      },
+      {
+        id: "mg-rel-27",
+        stem: "There is something inside the ring ___ no man can ever truly escape.",
+        options: ["that", "who", "what"],
+        answer: "that",
+        explanation: "Relative for things — 'that'.",
+        fullExplanation: "'That' for things. 'Who' for people. 'What' is not a relative pronoun.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "mg-rel-28",
+        stem: "Every artist ___ I admire has paid a price most people would refuse to pay.",
+        options: ["whom", "which", "what"],
+        answer: "whom",
+        explanation: "Object relative for people — 'whom' (formal).",
+        fullExplanation: "'Whom' is the formal object form for people. 'Which' is for things. 'What' is not a relative pronoun.",
+        source: "Adapted, attributed to Pharrell Williams",
+        flavor: "quotes",
+        author: "Pharrell Williams"
+      },
+      {
+        id: "mg-rel-29",
+        stem: "The day ___ I lost my first fight was the day my real career began.",
+        options: ["when", "where", "what"],
+        answer: "when",
+        explanation: "Relative adverb for time — 'when'.",
+        fullExplanation: "'When' for time. 'Where' for place. 'What' is not a relative adverb.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "mg-rel-30",
+        stem: "She is the only person ___ voice can stop me when I am about to do something stupid.",
+        options: ["whose", "who", "which"],
+        answer: "whose",
+        explanation: "Possessive relative — 'whose'.",
+        fullExplanation: "'Whose' for possession. 'Who' is subject. 'Which' is for things.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
       }
     ]
   },
@@ -5711,6 +7145,77 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 99",
         hint: "deep",
         flavor: "science"
+      },
+      {
+        id: "mg-comp-25",
+        stem: "The harder you train, the ___ pain you will feel when the lights come on.",
+        options: ["less", "least", "fewer"],
+        answer: "less",
+        explanation: "Comparative 'less' with uncountable noun in correlative.",
+        fullExplanation: "'Less' is comparative for uncountable. 'Least' is superlative. 'Fewer' is for countable.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "mg-comp-26",
+        stem: "Picasso painted ___ original pieces than any other artist of his century.",
+        options: ["more", "most", "much"],
+        answer: "more",
+        explanation: "Comparative 'more' for countable.",
+        fullExplanation: "'More' for comparative. 'Most' for superlative. 'Much' is not comparative form.",
+        source: "Adapted, attributed to Pablo Picasso",
+        hint: "more",
+        flavor: "quotes",
+        author: "Pablo Picasso"
+      },
+      {
+        id: "mg-comp-27",
+        stem: "Beyoncé works ___ than any artist who has ever stepped on a stage.",
+        options: ["harder", "hardest", "more hard"],
+        answer: "harder",
+        explanation: "Comparative of one-syllable adjective: -er.",
+        fullExplanation: "'Harder' is comparative. 'Hardest' is superlative. 'More hard' is non-standard.",
+        source: "Adapted, attributed to Beyoncé",
+        hint: "hard",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "mg-comp-28",
+        stem: "His next album sounded ___ honest than anything he had recorded before.",
+        options: ["more", "most", "much"],
+        answer: "more",
+        explanation: "Comparative for two-or-more-syllable adjective: 'more'.",
+        fullExplanation: "'More' for comparative. 'Most' for superlative. 'Much' is not comparative.",
+        source: "Adapted, attributed to Kendrick Lamar",
+        hint: "more",
+        flavor: "quotes",
+        author: "Kendrick Lamar"
+      },
+      {
+        id: "mg-comp-29",
+        stem: "Mandela emerged from prison far ___ than the man who first walked in.",
+        options: ["wiser", "wisest", "more wise"],
+        answer: "wiser",
+        explanation: "Comparative of two-syllable adjective ending in -e: -er.",
+        fullExplanation: "'Wiser' is comparative. 'Wisest' is superlative. 'More wise' is non-standard.",
+        source: "Adapted, attributed to Nelson Mandela",
+        hint: "wise",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "mg-comp-30",
+        stem: "I have seen ___ talent in the gym than ever made it to the championship belt.",
+        options: ["more", "most", "much"],
+        answer: "more",
+        explanation: "Comparative for countable noun.",
+        fullExplanation: "'More' for comparative. 'Most' for superlative. 'Much' is not comparative.",
+        source: "Adapted, attributed to Mike Tyson",
+        hint: "more",
+        flavor: "quotes",
+        author: "Mike Tyson"
       }
     ]
   },
@@ -5984,6 +7489,75 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 100",
         hint: "complex",
         flavor: "science"
+      },
+      {
+        id: "mg-sup-25",
+        stem: "I want to be the ___ of all time, and I will never apologise for saying that out loud.",
+        options: ["greatest", "greater", "great"],
+        answer: "greatest",
+        explanation: "Superlative of 'great' — 'greatest'.",
+        fullExplanation: "'Greatest' is superlative. 'Greater' is comparative. 'Great' is base.",
+        source: "Adapted, attributed to Muhammad Ali",
+        hint: "great",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "mg-sup-26",
+        stem: "Picasso may be the ___ artist of the twentieth century by sheer volume alone.",
+        options: ["most prolific", "more prolific", "prolific"],
+        answer: "most prolific",
+        explanation: "Superlative for multi-syllable adjective: 'most'.",
+        fullExplanation: "'Most prolific' is superlative. 'More prolific' is comparative. 'Prolific' is base.",
+        source: "Adapted, attributed to Pablo Picasso",
+        flavor: "quotes",
+        author: "Pablo Picasso"
+      },
+      {
+        id: "mg-sup-27",
+        stem: "She is the ___ singer to ever come out of Houston, Texas.",
+        options: ["best", "better", "good"],
+        answer: "best",
+        explanation: "Superlative of 'good' — 'best'.",
+        fullExplanation: "'Best' is superlative. 'Better' is comparative. 'Good' is base.",
+        source: "Adapted, attributed to Beyoncé",
+        hint: "good",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "mg-sup-28",
+        stem: "Tarantino made the ___ film of his career using a script he wrote in a bar.",
+        options: ["most original", "more original", "original"],
+        answer: "most original",
+        explanation: "Superlative for multi-syllable adjective.",
+        fullExplanation: "'Most original' is superlative. 'More original' is comparative. 'Original' is base.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "mg-sup-29",
+        stem: "Brad Pitt is the ___ actor of his generation, by his own admission.",
+        options: ["luckiest", "luckier", "lucky"],
+        answer: "luckiest",
+        explanation: "Superlative of 'lucky' — 'luckiest'.",
+        fullExplanation: "'Luckiest' is superlative. 'Luckier' is comparative. 'Lucky' is base.",
+        source: "Adapted, attributed to Brad Pitt",
+        hint: "lucky",
+        flavor: "quotes",
+        author: "Brad Pitt"
+      },
+      {
+        id: "mg-sup-30",
+        stem: "Nolan has made some of the ___ films ever shot on actual celluloid film.",
+        options: ["most ambitious", "more ambitious", "ambitious"],
+        answer: "most ambitious",
+        explanation: "Superlative for multi-syllable adjective: 'most'.",
+        fullExplanation: "'Most ambitious' is superlative. 'More ambitious' is comparative. 'Ambitious' is base.",
+        source: "Adapted, attributed to Christopher Nolan",
+        flavor: "quotes",
+        author: "Christopher Nolan"
       }
     ]
   },
@@ -6233,6 +7807,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Some minerals' is correct; 'some' works with countable plural nouns in affirmative statements. 'Much' is for uncountable nouns. 'Little' is for uncountable nouns and means 'not much'.",
         source: "Murphy, EGU (4e), Unit 85",
         flavor: "science"
+      },
+      {
+        id: "mg-quant-25",
+        stem: "I have ___ time for people who do not show up when it gets hard.",
+        options: ["little", "few", "many"],
+        answer: "little",
+        explanation: "'Little' for uncountable nouns ('time').",
+        fullExplanation: "'Little' for uncountable. 'Few' for countable. 'Many' for countable plural.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "mg-quant-26",
+        stem: "There are ___ champions who have suffered more than they ever talked about.",
+        options: ["many", "much", "little"],
+        answer: "many",
+        explanation: "'Many' for countable plural.",
+        fullExplanation: "'Many' for countable plural. 'Much' for uncountable. 'Little' for uncountable.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "mg-quant-27",
+        stem: "There is ___ truth in what older fighters tell you, even when you do not want to hear it.",
+        options: ["much", "many", "few"],
+        answer: "much",
+        explanation: "'Much' for uncountable.",
+        fullExplanation: "'Much' for uncountable ('truth'). 'Many' for countable. 'Few' for countable.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "mg-quant-28",
+        stem: "I have ___ regrets, but I learned something from each one.",
+        options: ["a few", "much", "little"],
+        answer: "a few",
+        explanation: "'A few' for countable plural.",
+        fullExplanation: "'A few' for countable plural. 'Much' for uncountable. 'Little' for uncountable.",
+        source: "Adapted, attributed to Frank Sinatra",
+        flavor: "quotes",
+        author: "Frank Sinatra"
+      },
+      {
+        id: "mg-quant-29",
+        stem: "I have ___ patience for fakes pretending to grind in the studio.",
+        options: ["little", "few", "many"],
+        answer: "little",
+        explanation: "'Little' for uncountable ('patience').",
+        fullExplanation: "'Little' for uncountable. 'Few' for countable. 'Many' for countable.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "mg-quant-30",
+        stem: "There are ___ artists who can sustain my level of obsession for thirty straight years.",
+        options: ["few", "little", "much"],
+        answer: "few",
+        explanation: "'Few' for countable plural.",
+        fullExplanation: "'Few' for countable plural. 'Little' for uncountable. 'Much' for uncountable.",
+        source: "Adapted, attributed to Kanye West",
+        flavor: "quotes",
+        author: "Kanye West"
       }
     ]
   },
@@ -6482,6 +8122,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Lots of freshwater' is correct because 'freshwater' is uncountable and 'lots of' means 'a large amount of'. 'A number of' is for countable plural nouns. 'A couple of' implies roughly two. 'A great number of' is for countable plural nouns.",
         source: "Swan, PEU (4e), §467",
         flavor: "science"
+      },
+      {
+        id: "owg-quant-25",
+        stem: "___ of my albums has been recorded in a different country, on purpose.",
+        options: ["Each", "Every", "All"],
+        answer: "Each",
+        explanation: "'Each + of + plural' takes singular verb.",
+        fullExplanation: "'Each of' is grammatically singular. 'Every' cannot precede 'of'. 'All of' would take plural verb.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "owg-quant-26",
+        stem: "___ of us has made mistakes that we would erase if we could.",
+        options: ["Every one", "Everyone", "All"],
+        answer: "Every one",
+        explanation: "'Every one of' takes singular verb.",
+        fullExplanation: "'Every one of' is singular. 'Everyone' is one word and has a different role. 'All' would force plural agreement.",
+        source: "Adapted, attributed to Tupac Shakur",
+        flavor: "quotes",
+        author: "Tupac Shakur"
+      },
+      {
+        id: "owg-quant-27",
+        stem: "___ of the great fighters has lost at least one battle nobody saw coming.",
+        options: ["Each", "Every", "Both"],
+        answer: "Each",
+        explanation: "'Each + of' takes singular verb.",
+        fullExplanation: "'Each of' is grammatically singular. 'Every' cannot precede 'of'. 'Both' is dual only.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "owg-quant-28",
+        stem: "We need ___ effort and patience if we want to build something timeless.",
+        options: ["both", "either", "neither"],
+        answer: "both",
+        explanation: "'Both A and B' for two together.",
+        fullExplanation: "'Both' for affirmative pairing. 'Either' is one or the other. 'Neither' is none.",
+        source: "Adapted, attributed to Pep Guardiola",
+        flavor: "quotes",
+        author: "Pep Guardiola"
+      },
+      {
+        id: "owg-quant-29",
+        stem: "___ a great song nor a great album can save a dishonest artist.",
+        options: ["Neither", "Either", "Both"],
+        answer: "Neither",
+        explanation: "'Neither A nor B' for negative pairing.",
+        fullExplanation: "'Neither...nor' for negative pairing. 'Either...or' for positive choice. 'Both...and' for positive pairing.",
+        source: "Adapted, attributed to Kanye West",
+        flavor: "quotes",
+        author: "Kanye West"
+      },
+      {
+        id: "owg-quant-30",
+        stem: "He could have chosen ___ path, but he chose the harder one.",
+        options: ["either", "neither", "both"],
+        answer: "either",
+        explanation: "'Either' for one or the other.",
+        fullExplanation: "'Either' for one of two. 'Neither' for negative. 'Both' for two together.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
       }
     ]
   },
@@ -6731,6 +8437,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Amount' begins with the vowel sound /ə/, so 'an amount' is required. The article 'an' is used before any word with a vowel initial sound regardless of spelling. 'A amount' is incorrect. 'The amount' would specify a previously quantified amount.",
         source: "Murphy, EGU (4e), Unit 69",
         flavor: "science"
+      },
+      {
+        id: "art-indef-25",
+        stem: "I want to live ___ life that nobody else could ever copy or repeat.",
+        options: ["a", "the", "—"],
+        answer: "a",
+        explanation: "First-mention countable singular takes 'a'.",
+        fullExplanation: "Indefinite 'a' for first mention of countable singular. 'The' would specify a known life. Zero article ungrammatical with countable singular.",
+        source: "Adapted, attributed to Frida Kahlo",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "art-indef-26",
+        stem: "Becoming ___ champion means accepting that the road never really ends.",
+        options: ["a", "the", "—"],
+        answer: "a",
+        explanation: "First-mention or generic countable singular: 'a'.",
+        fullExplanation: "'A champion' uses indefinite for generic class. 'The' would point to a specific known champion. Zero is ungrammatical here.",
+        source: "Adapted, attributed to Kobe Bryant",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "art-indef-27",
+        stem: "Every artist needs ___ studio that feels more like home than home itself.",
+        options: ["a", "the", "—"],
+        answer: "a",
+        explanation: "First-mention countable singular: 'a'.",
+        fullExplanation: "'A studio' for first mention. 'The' would point to a specific known studio. Zero is ungrammatical.",
+        source: "Adapted, attributed to Pharrell Williams",
+        flavor: "quotes",
+        author: "Pharrell Williams"
+      },
+      {
+        id: "art-indef-28",
+        stem: "I built ___ empire from nothing but a microphone and an obsession.",
+        options: ["an", "the", "—"],
+        answer: "an",
+        explanation: "Vowel sound first letter — 'an'.",
+        fullExplanation: "'An' before vowel sounds: 'an empire'. 'The' would specify a known empire. Zero is ungrammatical with countable singular.",
+        source: "Adapted, attributed to Jay-Z",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "art-indef-29",
+        stem: "I am ___ proud husband first, and a hall-of-famer second.",
+        options: ["a", "an", "—"],
+        answer: "a",
+        explanation: "Consonant sound — 'a'.",
+        fullExplanation: "'A proud' starts with consonant sound. 'An' is for vowel sounds. Zero is ungrammatical with countable singular.",
+        source: "Adapted, attributed to Stephen Curry",
+        flavor: "quotes",
+        author: "Stephen Curry"
+      },
+      {
+        id: "art-indef-30",
+        stem: "Every great song is ___ honest letter to someone the writer never had the courage to face.",
+        options: ["an", "a", "—"],
+        answer: "an",
+        explanation: "Vowel sound — 'an'.",
+        fullExplanation: "'An honest' starts with a vowel sound (silent h). 'A' is for consonant sounds. Zero is ungrammatical here.",
+        source: "Adapted, attributed to Adele",
+        flavor: "quotes",
+        author: "Adele"
       }
     ]
   },
@@ -6980,6 +8752,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'The' is required before the names of oceans and seas (the Pacific, the Atlantic). The superlative 'largest' further confirms 'the'. 'A Pacific Ocean' is incorrect. 'An' is incorrect because 'Pacific' begins with the consonant sound /p/.",
         source: "Murphy, EGU (4e), Unit 72",
         flavor: "science"
+      },
+      {
+        id: "art-def-25",
+        stem: "I want to be ___ greatest fighter the world has ever seen.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Superlative requires 'the'.",
+        fullExplanation: "Superlatives ('greatest') always take 'the'. 'A' contradicts uniqueness. Zero ungrammatical.",
+        source: "Adapted, attributed to Muhammad Ali",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "art-def-26",
+        stem: "She is ___ only person who can keep me grounded when the world is loud.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "'Only' marks uniqueness — 'the'.",
+        fullExplanation: "'Only' demands 'the' for uniqueness. 'A' contradicts singularity. Zero is ungrammatical.",
+        source: "Adapted, attributed to John Legend",
+        flavor: "quotes",
+        author: "John Legend"
+      },
+      {
+        id: "art-def-27",
+        stem: "I climbed ___ Everest of my own ego before I ever climbed a real mountain.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Famous unique landmark takes 'the' even with figurative use.",
+        fullExplanation: "Unique reference takes 'the'. 'A' would contradict its uniqueness. Zero is ungrammatical here.",
+        source: "Adapted, attributed to Conor McGregor",
+        flavor: "quotes",
+        author: "Conor McGregor"
+      },
+      {
+        id: "art-def-28",
+        stem: "We sailed across ___ Atlantic on a yacht I could barely afford at the time.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Names of oceans take 'the'.",
+        fullExplanation: "Bodies of water like oceans take 'the'. 'A' contradicts uniqueness. Zero is ungrammatical.",
+        source: "Adapted, attributed to DJ Khaled",
+        flavor: "quotes",
+        author: "DJ Khaled"
+      },
+      {
+        id: "art-def-29",
+        stem: "I am ___ best version of myself when I am working on something nobody believes in.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Superlative requires 'the'.",
+        fullExplanation: "Superlatives ('best') take 'the'. 'A' contradicts uniqueness. Zero is ungrammatical.",
+        source: "Adapted, attributed to Elon Musk",
+        flavor: "quotes",
+        author: "Elon Musk"
+      },
+      {
+        id: "art-def-30",
+        stem: "We learned to play ___ guitar before we ever learned to read music properly.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Musical instruments take 'the' in this construction.",
+        fullExplanation: "'Play the + instrument' is the standard pattern. 'A guitar' would mean a single guitar. Zero is ungrammatical with this verb.",
+        source: "Adapted, attributed to Eric Clapton",
+        flavor: "quotes",
+        author: "Eric Clapton"
       }
     ]
   },
@@ -7229,6 +9067,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "When making a general statement about an entire species, the plural noun takes zero article (penguins, eagles, tigers). 'The penguins' would refer to a specific group. 'A penguins' is ungrammatical because 'a' cannot precede plural nouns.",
         source: "Murphy, EGU (4e), Unit 74",
         flavor: "science"
+      },
+      {
+        id: "art-zero-25",
+        stem: "___ love is the only weapon strong enough to disarm hate.",
+        options: ["—", "The", "A"],
+        answer: "—",
+        explanation: "Generic uncountable abstract — zero article.",
+        fullExplanation: "Generic abstract uncountables take zero article. 'The' would point to a specific love. 'A' is ungrammatical with uncountable.",
+        source: "Adapted, attributed to Martin Luther King Jr.",
+        flavor: "quotes",
+        author: "Martin Luther King Jr."
+      },
+      {
+        id: "art-zero-26",
+        stem: "___ life punishes you for the things you refused to do, more than for the things you did.",
+        options: ["—", "The", "A"],
+        answer: "—",
+        explanation: "Generic uncountable abstract — zero article.",
+        fullExplanation: "Generic abstract uncountables take zero article. 'The' would specify a particular life. 'A' is ungrammatical here.",
+        source: "Adapted, attributed to Mark Twain",
+        flavor: "quotes",
+        author: "Mark Twain"
+      },
+      {
+        id: "art-zero-27",
+        stem: "___ patience is the silent superpower of every champion who outlasts the rest.",
+        options: ["—", "The", "A"],
+        answer: "—",
+        explanation: "Generic uncountable abstract — zero article.",
+        fullExplanation: "Abstract general nouns take zero. 'The' would specify. 'A' is ungrammatical with uncountable.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "art-zero-28",
+        stem: "___ silence sometimes communicates more wisdom than every word ever spoken.",
+        options: ["—", "The", "A"],
+        answer: "—",
+        explanation: "Generic uncountable abstract — zero article.",
+        fullExplanation: "Generic abstract uncountables take zero article. 'The' would specify. 'A' is ungrammatical with uncountable.",
+        source: "Adapted, attributed to Lana Del Rey",
+        flavor: "quotes",
+        author: "Lana Del Rey"
+      },
+      {
+        id: "art-zero-29",
+        stem: "I always travel by ___ train when I want to remember what slowness feels like.",
+        options: ["—", "the", "a"],
+        answer: "—",
+        explanation: "Mode of transport with 'by' takes zero article.",
+        fullExplanation: "'By + transport' takes zero article ('by train', 'by car'). 'The' would specify a particular train. 'A' would mean any one train.",
+        source: "Adapted, attributed to Wes Anderson",
+        flavor: "quotes",
+        author: "Wes Anderson"
+      },
+      {
+        id: "art-zero-30",
+        stem: "___ home for me is wherever my microphone and my mother's voice can reach me.",
+        options: ["—", "The", "A"],
+        answer: "—",
+        explanation: "Generic abstract — zero article.",
+        fullExplanation: "'Home' as general concept takes zero article. 'The' would specify a known home. 'A' would mean one of many homes.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
       }
     ]
   },
@@ -7478,6 +9382,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Essential' begins with the vowel sound /ɪ/, so 'an essential compound' is correct. 'The atmosphere' uses 'the' because Earth has one specific, identifiable atmosphere. 'A / a' uses 'a' before a vowel sound and fails to identify the atmosphere. 'The / a' wrongly treats 'essential' as already defined.",
         source: "Swan, PEU (4e), §68–73",
         flavor: "science"
+      },
+      {
+        id: "art-mixed-25",
+        stem: "I went to ___ school in Brooklyn, not far from where I sleep tonight.",
+        options: ["—", "a", "the"],
+        answer: "—",
+        explanation: "Institutional 'school' for purpose takes zero article.",
+        fullExplanation: "'Go to school' takes zero article when meaning attendance. 'A school' would mean a building. 'The school' would specify a known one.",
+        source: "Adapted, attributed to Jay-Z",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "art-mixed-26",
+        stem: "On ___ Sundays we used to gather as a family before the world tore us apart.",
+        options: ["—", "a", "the"],
+        answer: "—",
+        explanation: "Plural day with regularity takes zero article.",
+        fullExplanation: "Plural days for habit take zero article. 'The Sundays' would specify particular ones. 'A Sundays' is ungrammatical.",
+        source: "Adapted, attributed to Tupac Shakur",
+        flavor: "quotes",
+        author: "Tupac Shakur"
+      },
+      {
+        id: "art-mixed-27",
+        stem: "I don't play ___ piano very well, but it is the way I think most clearly.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Musical instruments with 'play' take 'the'.",
+        fullExplanation: "'Play the + instrument'. 'A piano' would mean any piano (a building). Zero is ungrammatical here.",
+        source: "Adapted, attributed to John Legend",
+        flavor: "quotes",
+        author: "John Legend"
+      },
+      {
+        id: "art-mixed-28",
+        stem: "Coming back from ___ injury was the hardest year of my entire life.",
+        options: ["—", "the", "a"],
+        answer: "—",
+        explanation: "General abstract / experience takes zero article.",
+        fullExplanation: "'Coming back from injury' is generic. 'The injury' would specify. 'An injury' could work but as listed feels less generic.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "art-mixed-29",
+        stem: "I lived in ___ Paris for three years before I felt I had earned the right to be there.",
+        options: ["—", "the", "a"],
+        answer: "—",
+        explanation: "City names take zero article.",
+        fullExplanation: "Most city names take zero article. 'The Paris' is incorrect. 'A Paris' is ungrammatical.",
+        source: "Adapted, attributed to Frida Kahlo",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "art-mixed-30",
+        stem: "I went to ___ hospital after the fight, and they told me to consider retirement.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Hospital as building (visited as patient by another) — context-dependent.",
+        fullExplanation: "American English uses 'the hospital' for visiting; British may use zero. 'A hospital' would imply 'any one'. The article matches the speaker context.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
       }
     ]
   },
@@ -7727,6 +9697,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'For' + a time span states how long something has been happening (4.6 billion years is a measurable duration). 'Since' marks a starting point, not a length. 'During' names a background period but does not specify its length.",
         source: "Murphy, EGU (4e), Unit 13",
         flavor: "science"
+      },
+      {
+        id: "prep-time-25",
+        stem: "I started boxing ___ the age of fourteen, on a hard concrete floor.",
+        options: ["at", "in", "on"],
+        answer: "at",
+        explanation: "'At + age' is the standard collocation.",
+        fullExplanation: "'At the age of' is fixed. 'In' would imply a year. 'On' is for specific dates.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "prep-time-26",
+        stem: "I finished my first album ___ 1989, before I even believed I would survive my twenties.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In + year' is the standard collocation.",
+        fullExplanation: "'In + year' is fixed. 'On' is for dates. 'At' is for points in time.",
+        source: "Adapted, attributed to Tupac Shakur",
+        flavor: "quotes",
+        author: "Tupac Shakur"
+      },
+      {
+        id: "prep-time-27",
+        stem: "We landed in Tokyo ___ a Friday morning that smelled like rain and street food.",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "'On + day / specific date' is the standard collocation.",
+        fullExplanation: "'On + day' is fixed. 'In' is for months/years. 'At' is for points in time.",
+        source: "Adapted, attributed to Anthony Bourdain",
+        flavor: "quotes",
+        author: "Anthony Bourdain"
+      },
+      {
+        id: "prep-time-28",
+        stem: "I woke up ___ midnight and wrote the chorus that changed my entire life.",
+        options: ["at", "in", "on"],
+        answer: "at",
+        explanation: "'At + clock time / midnight / noon' is fixed.",
+        fullExplanation: "'At + midnight' is fixed. 'In' is for periods. 'On' is for days.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "prep-time-29",
+        stem: "I trained every single day ___ winter that year, in the empty gym before sunrise.",
+        options: ["during", "in", "at"],
+        answer: "during",
+        explanation: "'During + period' for an event taking place within a longer span.",
+        fullExplanation: "'During' for activity within a span. 'In' for inside a period (also acceptable but less specific). 'At' is for points.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "prep-time-30",
+        stem: "I started recording the album ___ March and finished it before the autumn leaves fell.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In + month' is the standard collocation.",
+        fullExplanation: "'In + month' is fixed. 'On' is for days. 'At' is for points in time.",
+        source: "Adapted, attributed to Frank Ocean",
+        flavor: "quotes",
+        author: "Frank Ocean"
       }
     ]
   },
@@ -7976,6 +10012,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "Layers of the atmosphere (the stratosphere, the troposphere) are treated as three-dimensional enclosed zones, so 'in' is correct. 'On' would suggest a surface. 'At' would mark a precise single point rather than a zone.",
         source: "Murphy, EGU (4e), Unit 110",
         flavor: "science"
+      },
+      {
+        id: "prep-place-25",
+        stem: "I sat ___ the corner of the gym and watched the older fighters destroy each other.",
+        options: ["in", "at", "on"],
+        answer: "in",
+        explanation: "'In the corner' (inside) is the standard collocation.",
+        fullExplanation: "'In the corner' for inside. 'At the corner' is for street corners. 'On' is for surfaces.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "prep-place-26",
+        stem: "I wrote my best lyrics ___ a notebook I bought at a corner store on Broadway.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In + a notebook' is the standard collocation.",
+        fullExplanation: "'In a book' for the contents. 'On' is for surfaces. 'At' is for locations.",
+        source: "Adapted, attributed to Jay-Z",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "prep-place-27",
+        stem: "I grew up ___ a small town in eastern Belarus where there was nothing to do but train.",
+        options: ["in", "at", "on"],
+        answer: "in",
+        explanation: "'In + town/city' is the standard collocation.",
+        fullExplanation: "'In + town' for inside a place. 'At' is for points. 'On' is for surfaces.",
+        source: "Adapted, attributed to Aliaksandr Hleb",
+        flavor: "quotes",
+        author: "Aliaksandr Hleb"
+      },
+      {
+        id: "prep-place-28",
+        stem: "I painted my best work ___ a wall I found in an abandoned factory in Bristol.",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "'On + a wall' (surface) is the standard collocation.",
+        fullExplanation: "'On a wall' for surfaces. 'In' is inside. 'At' is for points.",
+        source: "Adapted, attributed to Banksy",
+        flavor: "quotes",
+        author: "Banksy"
+      },
+      {
+        id: "prep-place-29",
+        stem: "I stood ___ the top of the world the night I knocked him out in twelve rounds.",
+        options: ["at", "on", "in"],
+        answer: "at",
+        explanation: "'At the top of' is the standard collocation.",
+        fullExplanation: "'At the top of' is fixed. 'On' would suggest a surface. 'In' is for inside.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "prep-place-30",
+        stem: "I trained ___ home every day during lockdown, in a garage with one bench and a will to win.",
+        options: ["at", "in", "on"],
+        answer: "at",
+        explanation: "'At + home' is the standard collocation.",
+        fullExplanation: "'At home' is fixed. 'In' is incorrect with 'home' alone. 'On' is for surfaces.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
       }
     ]
   },
@@ -8225,6 +10327,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Across' expresses movement spanning wide distances or large areas. 'Along' would imply following a specific edge or line. 'Into' would mean entering a space, not spanning a wide distance to a destination.",
         source: "Swan, PEU (4e), §420",
         flavor: "science"
+      },
+      {
+        id: "prep-dir-25",
+        stem: "Walk ___ your fears as if they were nothing more than tired old shadows.",
+        options: ["through", "on", "in"],
+        answer: "through",
+        explanation: "'Through + obstacle' is the standard collocation.",
+        fullExplanation: "'Walk through' for passing into and out of an obstacle. 'On' is for surfaces. 'In' is static.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "prep-dir-26",
+        stem: "Run ___ the storm, not away from it, if you really want to grow.",
+        options: ["into", "on", "at"],
+        answer: "into",
+        explanation: "'Run into + storm' for entering.",
+        fullExplanation: "'Run into' for entering. 'On' is for surfaces. 'At' is direction toward but here entering is meant.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "prep-dir-27",
+        stem: "Climb ___ the mountain that scares you the most, because that is where you will find yourself.",
+        options: ["up", "on", "into"],
+        answer: "up",
+        explanation: "'Climb up' is the standard pairing.",
+        fullExplanation: "'Climb up' for upward direction. 'On' is for surfaces. 'Into' is for entering.",
+        source: "Adapted, attributed to Conor McGregor",
+        flavor: "quotes",
+        author: "Conor McGregor"
+      },
+      {
+        id: "prep-dir-28",
+        stem: "He moved ___ the goal with the kind of certainty only champions ever possess.",
+        options: ["towards", "on", "in"],
+        answer: "towards",
+        explanation: "'Towards' for direction.",
+        fullExplanation: "'Towards' for direction. 'On' is for surfaces. 'In' is for inside.",
+        source: "Adapted, attributed to Lionel Messi",
+        flavor: "quotes",
+        author: "Lionel Messi"
+      },
+      {
+        id: "prep-dir-29",
+        stem: "Jump ___ the deep end and let the cold water teach you what you are made of.",
+        options: ["into", "on", "at"],
+        answer: "into",
+        explanation: "'Jump into' for entering.",
+        fullExplanation: "'Jump into' for entering. 'On' is for surfaces. 'At' is direction toward.",
+        source: "Adapted, attributed to Sylvester Stallone",
+        flavor: "quotes",
+        author: "Sylvester Stallone"
+      },
+      {
+        id: "prep-dir-30",
+        stem: "Get ___ the train, the boat, the plane — but never sit still while the world keeps moving.",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "'On + public transport' is fixed.",
+        fullExplanation: "'Get on a train/plane/boat' is the standard form. 'In' is for cars and small spaces. 'At' is for locations.",
+        source: "Adapted, attributed to Anthony Bourdain",
+        flavor: "quotes",
+        author: "Anthony Bourdain"
       }
     ]
   },
@@ -8474,6 +10642,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Experiment with' means to try out or test something. 'Experiment on' is used when experimenting on a subject (experiment on animals). 'Experiment in' is not a standard collocation.",
         source: "Swan, PEU (4e), §13",
         flavor: "science"
+      },
+      {
+        id: "prep-verb-25",
+        stem: "Listen ___ your body before you ever listen to your trainer or your manager.",
+        options: ["to", "at", "for"],
+        answer: "to",
+        explanation: "'Listen to' is fixed.",
+        fullExplanation: "'Listen to' is the fixed combination. 'At' is for hostile listening. 'For' is for purpose.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "prep-verb-26",
+        stem: "I depend ___ my team in ways most people will never understand.",
+        options: ["on", "of", "in"],
+        answer: "on",
+        explanation: "'Depend on' is fixed.",
+        fullExplanation: "'Depend on' is the standard prepositional pairing. 'Of' is wrong. 'In' is incorrect with this verb.",
+        source: "Adapted, attributed to LeBron James",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "prep-verb-27",
+        stem: "Believe ___ yourself, because nobody else will believe in you on the days you need it most.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'Believe in' is fixed.",
+        fullExplanation: "'Believe in' is the standard pairing. 'On' is wrong. 'At' is wrong.",
+        source: "Adapted, attributed to Conor McGregor",
+        flavor: "quotes",
+        author: "Conor McGregor"
+      },
+      {
+        id: "prep-verb-28",
+        stem: "Apologise ___ the people you actually hurt, not the people who watched you do it.",
+        options: ["to", "at", "on"],
+        answer: "to",
+        explanation: "'Apologise to + person' is fixed.",
+        fullExplanation: "'Apologise to' is the standard pairing. 'At' is wrong. 'On' is wrong.",
+        source: "Adapted, attributed to Jay-Z",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "prep-verb-29",
+        stem: "I look ___ to fights against opponents who refuse to back down.",
+        options: ["forward", "for", "at"],
+        answer: "forward",
+        explanation: "'Look forward to' is fixed.",
+        fullExplanation: "'Look forward to + noun/-ing' is the fixed expression. 'Look for' means search. 'Look at' is direction.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "prep-verb-30",
+        stem: "He insisted ___ training every single day, no matter how broken his body felt.",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "'Insist on + -ing' is fixed.",
+        fullExplanation: "'Insist on' is the standard prepositional pairing. 'In' is wrong. 'At' is wrong.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
       }
     ]
   },
@@ -8723,6 +10957,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Tolerant of' is the fixed collocation meaning able to accept or endure something without damage. 'Tolerant to' is sometimes used informally but is non-standard. 'Tolerant with' is used for people (tolerant with students) rather than environmental conditions.",
         source: "Swan, PEU (4e), §13",
         flavor: "science"
+      },
+      {
+        id: "prep-adj-25",
+        stem: "I am proud ___ the kid I once was, because he was tougher than I am now.",
+        options: ["of", "for", "with"],
+        answer: "of",
+        explanation: "'Proud of' is fixed.",
+        fullExplanation: "'Proud of' is the standard collocation. 'For' is wrong. 'With' is wrong.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "prep-adj-26",
+        stem: "I am tired ___ explaining myself to people who will never understand the road I walked.",
+        options: ["of", "with", "for"],
+        answer: "of",
+        explanation: "'Tired of' is fixed.",
+        fullExplanation: "'Tired of' is the standard collocation. 'With' is wrong with 'tired' in this sense. 'For' is wrong.",
+        source: "Adapted, attributed to Frank Ocean",
+        flavor: "quotes",
+        author: "Frank Ocean"
+      },
+      {
+        id: "prep-adj-27",
+        stem: "I am responsible ___ every single one of my decisions, the good and the catastrophic.",
+        options: ["for", "of", "to"],
+        answer: "for",
+        explanation: "'Responsible for' is fixed.",
+        fullExplanation: "'Responsible for' is the standard collocation. 'Of' is wrong. 'To' would mean answerable to a person.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "prep-adj-28",
+        stem: "I am afraid ___ losing the people who saw me when nobody else did.",
+        options: ["of", "for", "from"],
+        answer: "of",
+        explanation: "'Afraid of' is fixed.",
+        fullExplanation: "'Afraid of' is the standard collocation. 'For' is incorrect. 'From' is wrong.",
+        source: "Adapted, attributed to Snoop Dogg",
+        flavor: "quotes",
+        author: "Snoop Dogg"
+      },
+      {
+        id: "prep-adj-29",
+        stem: "I was good ___ school but great at watching every film the library had to offer.",
+        options: ["at", "in", "with"],
+        answer: "at",
+        explanation: "'Good at' is fixed.",
+        fullExplanation: "'Good at + activity/skill' is the standard collocation. 'In' is wrong. 'With' is for tools.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "prep-adj-30",
+        stem: "I am grateful ___ every coach who refused to let me quit on my worst day.",
+        options: ["to", "for", "with"],
+        answer: "to",
+        explanation: "'Grateful to + person' is the standard collocation.",
+        fullExplanation: "'Grateful to + person' for the recipient of gratitude. 'For' is for the thing one is grateful for. 'With' is wrong.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
       }
     ]
   },
@@ -8996,6 +11296,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Hewings, AGU (3e), Unit 68",
         hint: "soluble",
         flavor: "science"
+      },
+      {
+        id: "wf-noun-25",
+        stem: "His ___ to the game taught a generation what it means to give everything for a jersey.",
+        options: ["dedication", "dedicate", "dedicated"],
+        answer: "dedication",
+        explanation: "Noun form of 'dedicate' is 'dedication'.",
+        fullExplanation: "'Dedication' is the noun. 'Dedicate' is the verb. 'Dedicated' is past participle / adjective.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "dedicate",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "wf-noun-26",
+        stem: "His ___ to silence after the loss spoke louder than any interview ever could.",
+        options: ["choice", "choose", "chose"],
+        answer: "choice",
+        explanation: "Noun form of 'choose' is 'choice'.",
+        fullExplanation: "'Choice' is the noun. 'Choose' is the verb. 'Chose' is past tense.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        hint: "choose",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "wf-noun-27",
+        stem: "The ___ of his discipline is what made him impossible to beat over fifteen rounds.",
+        options: ["consistency", "consistent", "consistently"],
+        answer: "consistency",
+        explanation: "Noun form of 'consistent' is 'consistency'.",
+        fullExplanation: "'Consistency' is the noun. 'Consistent' is the adjective. 'Consistently' is the adverb.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        hint: "consistent",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "wf-noun-28",
+        stem: "His ___ to the people of Africa changed how the world saw the continent forever.",
+        options: ["contribution", "contribute", "contributed"],
+        answer: "contribution",
+        explanation: "Noun form of 'contribute' is 'contribution'.",
+        fullExplanation: "'Contribution' is the noun. 'Contribute' is the verb. 'Contributed' is past tense.",
+        source: "Adapted, attributed to Nelson Mandela",
+        hint: "contribute",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "wf-noun-29",
+        stem: "His ___ as an actor came from years of obsession most directors will never understand.",
+        options: ["greatness", "great", "greatly"],
+        answer: "greatness",
+        explanation: "Noun form of 'great' is 'greatness'.",
+        fullExplanation: "'Greatness' is the noun. 'Great' is the adjective. 'Greatly' is the adverb.",
+        source: "Adapted, attributed to Daniel Day-Lewis",
+        hint: "great",
+        flavor: "quotes",
+        author: "Daniel Day-Lewis"
+      },
+      {
+        id: "wf-noun-30",
+        stem: "He showed real ___ when he refused to retaliate during the press conference.",
+        options: ["maturity", "mature", "matured"],
+        answer: "maturity",
+        explanation: "Noun form of 'mature' is 'maturity'.",
+        fullExplanation: "'Maturity' is the noun. 'Mature' is the adjective/verb. 'Matured' is past tense.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        hint: "mature",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
       }
     ]
   },
@@ -9269,6 +11641,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Hewings, AGU (3e), Unit 68",
         hint: "afford",
         flavor: "science"
+      },
+      {
+        id: "wf-adj-25",
+        stem: "Every ___ moment in the studio cost me a little piece of my sleep.",
+        options: ["creative", "creation", "create"],
+        answer: "creative",
+        explanation: "Adjective form is 'creative'.",
+        fullExplanation: "'Creative' is the adjective. 'Creation' is the noun. 'Create' is the verb.",
+        source: "Adapted, attributed to Pharrell Williams",
+        hint: "create",
+        flavor: "quotes",
+        author: "Pharrell Williams"
+      },
+      {
+        id: "wf-adj-26",
+        stem: "He has the most ___ work ethic of any player I have ever coached.",
+        options: ["impressive", "impress", "impression"],
+        answer: "impressive",
+        explanation: "Adjective form is 'impressive'.",
+        fullExplanation: "'Impressive' is the adjective. 'Impress' is the verb. 'Impression' is the noun.",
+        source: "Adapted, attributed to Phil Jackson",
+        hint: "impress",
+        flavor: "quotes",
+        author: "Phil Jackson"
+      },
+      {
+        id: "wf-adj-27",
+        stem: "She is one of the most ___ singers of her entire generation, period.",
+        options: ["talented", "talent", "talentful"],
+        answer: "talented",
+        explanation: "Adjective form of 'talent' is 'talented'.",
+        fullExplanation: "'Talented' is the adjective. 'Talent' is the noun. 'Talentful' is non-standard.",
+        source: "Adapted, attributed to Beyoncé",
+        hint: "talent",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "wf-adj-28",
+        stem: "The most ___ part of the comeback was watching him laugh through the pain.",
+        options: ["beautiful", "beauty", "beautify"],
+        answer: "beautiful",
+        explanation: "Adjective form of 'beauty' is 'beautiful'.",
+        fullExplanation: "'Beautiful' is the adjective. 'Beauty' is the noun. 'Beautify' is the verb.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        hint: "beauty",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "wf-adj-29",
+        stem: "His ___ approach to filmmaking changed how an entire generation thinks about cinema.",
+        options: ["radical", "radically", "radicalise"],
+        answer: "radical",
+        explanation: "Adjective form is 'radical'.",
+        fullExplanation: "'Radical' is the adjective. 'Radically' is the adverb. 'Radicalise' is the verb.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        hint: "radical",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "wf-adj-30",
+        stem: "She is the most ___ artist I have ever shared a stage with in my entire life.",
+        options: ["fearless", "fear", "fearful"],
+        answer: "fearless",
+        explanation: "Adjective '-less' suffix means 'without fear'.",
+        fullExplanation: "'Fearless' (without fear) is the adjective. 'Fear' is the noun. 'Fearful' means full of fear.",
+        source: "Adapted, attributed to Lady Gaga",
+        hint: "fear",
+        flavor: "quotes",
+        author: "Lady Gaga"
       }
     ]
   },
@@ -9542,6 +11986,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Swan, PEU (4e), §18",
         hint: "approximate",
         flavor: "science"
+      },
+      {
+        id: "wf-adv-25",
+        stem: "I trained ___ every single day, even when nobody was watching me do it.",
+        options: ["consistently", "consistent", "consistency"],
+        answer: "consistently",
+        explanation: "Adverb form ends in -ly.",
+        fullExplanation: "'Consistently' is the adverb describing manner. 'Consistent' is the adjective. 'Consistency' is the noun.",
+        source: "Adapted, attributed to Kobe Bryant",
+        hint: "consistent",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "wf-adv-26",
+        stem: "He moved ___ around the ring as if his feet had never touched the ground.",
+        options: ["effortlessly", "effortless", "effort"],
+        answer: "effortlessly",
+        explanation: "Adverb form ends in -ly.",
+        fullExplanation: "'Effortlessly' is the adverb. 'Effortless' is the adjective. 'Effort' is the noun.",
+        source: "Adapted, attributed to Muhammad Ali",
+        hint: "effortless",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "wf-adv-27",
+        stem: "He lost the title ___ , without making a single excuse afterwards.",
+        options: ["gracefully", "graceful", "grace"],
+        answer: "gracefully",
+        explanation: "Adverb form ends in -ly.",
+        fullExplanation: "'Gracefully' is the adverb. 'Graceful' is the adjective. 'Grace' is the noun.",
+        source: "Adapted, attributed to Roger Federer",
+        hint: "graceful",
+        flavor: "quotes",
+        author: "Roger Federer"
+      },
+      {
+        id: "wf-adv-28",
+        stem: "I came back ___ stronger than the version of me that left the gym last year.",
+        options: ["significantly", "significant", "significance"],
+        answer: "significantly",
+        explanation: "Adverb form ends in -ly.",
+        fullExplanation: "'Significantly' is the adverb. 'Significant' is the adjective. 'Significance' is the noun.",
+        source: "Adapted, attributed to LeBron James",
+        hint: "significant",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "wf-adv-29",
+        stem: "He answered every reporter ___ even though they had been brutal all week long.",
+        options: ["politely", "polite", "politeness"],
+        answer: "politely",
+        explanation: "Adverb form ends in -ly.",
+        fullExplanation: "'Politely' is the adverb. 'Polite' is the adjective. 'Politeness' is the noun.",
+        source: "Adapted, attributed to Anthony Joshua",
+        hint: "polite",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "wf-adv-30",
+        stem: "I dance ___ when I am happy and even harder when I am secretly broken.",
+        options: ["wildly", "wild", "wildness"],
+        answer: "wildly",
+        explanation: "Adverb form ends in -ly.",
+        fullExplanation: "'Wildly' is the adverb. 'Wild' is the adjective. 'Wildness' is the noun.",
+        source: "Adapted, attributed to Lady Gaga",
+        hint: "wild",
+        flavor: "quotes",
+        author: "Lady Gaga"
       }
     ]
   },
@@ -9815,6 +12331,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 74",
         hint: "stable",
         flavor: "science"
+      },
+      {
+        id: "wf-neg-25",
+        stem: "It is ___ to win every single fight in your career; even the greatest have lost at least once.",
+        options: ["impossible", "unpossible", "dispossible"],
+        answer: "impossible",
+        explanation: "Negative prefix for 'possible' is 'im-' (before /p/).",
+        fullExplanation: "'Impossible' uses 'im-' prefix. 'Unpossible' is non-standard. 'Dispossible' is not English.",
+        source: "Adapted, attributed to Muhammad Ali",
+        hint: "possible",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "wf-neg-26",
+        stem: "Every great career is full of ___ moments that nobody likes to talk about.",
+        options: ["uncomfortable", "discomfortable", "incomfortable"],
+        answer: "uncomfortable",
+        explanation: "Negative prefix for 'comfortable' is 'un-'.",
+        fullExplanation: "'Uncomfortable' uses 'un-'. 'Discomfortable' is non-standard. 'Incomfortable' is non-standard.",
+        source: "Adapted, attributed to Conor McGregor",
+        hint: "comfortable",
+        flavor: "quotes",
+        author: "Conor McGregor"
+      },
+      {
+        id: "wf-neg-27",
+        stem: "He has an ___ ability to find weakness in any opponent's defence, no matter how good.",
+        options: ["uncanny", "incanny", "discanny"],
+        answer: "uncanny",
+        explanation: "Lexicalised form: 'uncanny'.",
+        fullExplanation: "'Uncanny' is the established lexical form. 'Incanny' and 'discanny' are not English words.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        hint: "canny",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "wf-neg-28",
+        stem: "His ___ to compromise his vision destroyed many partnerships but built his entire legacy.",
+        options: ["unwillingness", "disunwillingness", "inunwillingness"],
+        answer: "unwillingness",
+        explanation: "Lexicalised form: 'unwillingness'.",
+        fullExplanation: "'Unwillingness' is the established lexical form. The other prefixed forms are non-standard.",
+        source: "Adapted, attributed to Steve Jobs",
+        hint: "willingness",
+        flavor: "quotes",
+        author: "Steve Jobs"
+      },
+      {
+        id: "wf-neg-29",
+        stem: "She made the ___ decision to leave the label that built her career.",
+        options: ["unexpected", "disexpected", "inexpected"],
+        answer: "unexpected",
+        explanation: "Negative prefix for 'expected' is 'un-'.",
+        fullExplanation: "'Unexpected' uses 'un-'. The other prefixed forms are non-standard.",
+        source: "Adapted, attributed to Beyoncé",
+        hint: "expected",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "wf-neg-30",
+        stem: "It would be ___ to forget where this entire journey actually began.",
+        options: ["dishonest", "undishonest", "indishonest"],
+        answer: "dishonest",
+        explanation: "Negative prefix for 'honest' is 'dis-'.",
+        fullExplanation: "'Dishonest' uses 'dis-' prefix. The other forms are non-standard.",
+        source: "Adapted, attributed to Jay-Z",
+        hint: "honest",
+        flavor: "quotes",
+        author: "Jay-Z"
       }
     ]
   },
@@ -10088,6 +12676,78 @@ window.LEARN_TASKS_CTCE = {
         source: "Murphy, EGU (4e), Unit 73",
         hint: "date",
         flavor: "science"
+      },
+      {
+        id: "wf-mixed-25",
+        stem: "Every great fighter is a ___ of pain and grace at the exact same time.",
+        options: ["combination", "combine", "combined"],
+        answer: "combination",
+        explanation: "Noun form of 'combine'.",
+        fullExplanation: "'Combination' is the noun. 'Combine' is verb. 'Combined' is past participle.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        hint: "combine",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "wf-mixed-26",
+        stem: "Real ___ comes from the small choices nobody else ever sees you make.",
+        options: ["greatness", "great", "greatly"],
+        answer: "greatness",
+        explanation: "Noun form of 'great'.",
+        fullExplanation: "'Greatness' is the noun. 'Great' is adjective. 'Greatly' is adverb.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        hint: "great",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "wf-mixed-27",
+        stem: "I built my career ___ on the trust of fans who never once asked me to be perfect.",
+        options: ["entirely", "entire", "entirety"],
+        answer: "entirely",
+        explanation: "Adverb form of 'entire'.",
+        fullExplanation: "'Entirely' is the adverb. 'Entire' is the adjective. 'Entirety' is the noun.",
+        source: "Adapted, attributed to Adele",
+        hint: "entire",
+        flavor: "quotes",
+        author: "Adele"
+      },
+      {
+        id: "wf-mixed-28",
+        stem: "She moved through the industry with quiet ___ that made every louder voice fade.",
+        options: ["confidence", "confident", "confidently"],
+        answer: "confidence",
+        explanation: "Noun form of 'confident'.",
+        fullExplanation: "'Confidence' is the noun. 'Confident' is adjective. 'Confidently' is adverb.",
+        source: "Adapted, attributed to Beyoncé",
+        hint: "confident",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "wf-mixed-29",
+        stem: "His ___ presence in every press conference taught me how to handle pressure with grace.",
+        options: ["calm", "calmly", "calmness"],
+        answer: "calm",
+        explanation: "Adjective form (or zero-derivation noun) used attributively.",
+        fullExplanation: "'Calm' as attributive adjective modifies 'presence'. 'Calmly' is adverb. 'Calmness' is the abstract noun.",
+        source: "Adapted, attributed to Phil Jackson",
+        hint: "calm",
+        flavor: "quotes",
+        author: "Phil Jackson"
+      },
+      {
+        id: "wf-mixed-30",
+        stem: "He spoke about the championship with surprising ___ , given how close he had just come.",
+        options: ["humility", "humble", "humbly"],
+        answer: "humility",
+        explanation: "Noun form of 'humble'.",
+        fullExplanation: "'Humility' is the noun. 'Humble' is the adjective. 'Humbly' is the adverb.",
+        source: "Adapted, attributed to Anthony Joshua",
+        hint: "humble",
+        flavor: "quotes",
+        author: "Anthony Joshua"
       }
     ]
   },
@@ -10337,6 +12997,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Can navigate' and 'are able to navigate' both express ability. Using both together is a double-ability error. Here 'can' should stand alone or 'are able to' should be used without 'can'. 'Are' is the redundant element that creates the conflict. 'Able', 'using' are correctly placed.",
         source: "Murphy, EGU (4e), Unit 29",
         flavor: "science"
+      },
+      {
+        id: "err-aux-25",
+        stem: "Mandela ___ been freed before the world had time to fully understand him.",
+        options: ["had", "have", "was"],
+        answer: "had",
+        explanation: "Past Perfect Passive sequence: 'had been + past participle'.",
+        fullExplanation: "'Had been' is the past-perfect auxiliary. 'Have' is Present Perfect. 'Was' would form Past Simple Passive.",
+        source: "Adapted, attributed to Nelson Mandela",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "err-aux-26",
+        stem: "I ___ never let anyone tell me what my career should look like to them.",
+        options: ["will", "do", "have"],
+        answer: "will",
+        explanation: "Future intent uses 'will'.",
+        fullExplanation: "'Will' for future intent. 'Do' is Present Simple do-support. 'Have' would need a past participle.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "err-aux-27",
+        stem: "The album ___ been recorded in three different countries before it was finally released.",
+        options: ["had", "has", "was"],
+        answer: "had",
+        explanation: "Past Perfect Passive: 'had been + past participle'.",
+        fullExplanation: "'Had been' is the past-perfect auxiliary required before 'recorded'. 'Has' is Present Perfect. 'Was' is Past Simple Passive without anteriority.",
+        source: "Adapted, attributed to Frank Ocean",
+        flavor: "quotes",
+        author: "Frank Ocean"
+      },
+      {
+        id: "err-aux-28",
+        stem: "He ___ trained for two solid hours by the time the rest of us walked into the gym.",
+        options: ["had", "has", "was"],
+        answer: "had",
+        explanation: "Past Perfect Simple: 'had + past participle'.",
+        fullExplanation: "'Had trained' is Past Perfect. 'Has' is Present Perfect. 'Was' would be Past Simple/Continuous.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "err-aux-29",
+        stem: "I ___ been recording songs since I was old enough to hold a microphone properly.",
+        options: ["have", "had", "do"],
+        answer: "have",
+        explanation: "Present Perfect Continuous: 'have been + -ing'.",
+        fullExplanation: "'Have been' is the auxiliary for Present Perfect Continuous. 'Had been' is Past Perfect Continuous. 'Do' is Present Simple do-support.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "err-aux-30",
+        stem: "He ___ never lost a UFC fight, and he is determined to keep that record clean forever.",
+        options: ["has", "have", "did"],
+        answer: "has",
+        explanation: "Present Perfect with singular subject: 'has + past participle'.",
+        fullExplanation: "'Has never lost' is Present Perfect (singular). 'Have' is plural agreement. 'Did' is Past Simple, breaking the present-relevance.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
       }
     ]
   },
@@ -10586,6 +13312,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "The verb 'observe' takes a direct object: 'observe the sky'. Adding 'of' is a superfluous preposition error. 'Must', 'over', and 'before' are all correctly used in the sentence.",
         source: "Swan, PEU (4e), §185",
         flavor: "science"
+      },
+      {
+        id: "err-prep-25",
+        stem: "I always trust ___ my instincts before I ever trust the opinions of strangers.",
+        options: ["—", "of", "to"],
+        answer: "—",
+        explanation: "'Trust + object' takes no preposition.",
+        fullExplanation: "'Trust' takes a direct object without preposition. 'Trust of' is incorrect. 'Trust to' has a different meaning.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "err-prep-26",
+        stem: "I have always been fascinated ___ the discipline of early morning training.",
+        options: ["by", "of", "on"],
+        answer: "by",
+        explanation: "'Fascinated by' is the standard collocation.",
+        fullExplanation: "'Fascinated by' is fixed. 'Of' is wrong. 'On' is wrong.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "err-prep-27",
+        stem: "I am married ___ my craft long before I will ever be married to a person.",
+        options: ["to", "with", "of"],
+        answer: "to",
+        explanation: "'Married to' is the standard collocation.",
+        fullExplanation: "'Married to + person/thing' is fixed. 'Married with' means 'with children'. 'Of' is wrong.",
+        source: "Adapted, attributed to Frida Kahlo",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "err-prep-28",
+        stem: "Every champion suffers ___ self-doubt at some point in his journey to the top.",
+        options: ["from", "of", "with"],
+        answer: "from",
+        explanation: "'Suffer from + condition' is fixed.",
+        fullExplanation: "'Suffer from' for conditions. 'Of' is wrong. 'With' is informal but the standard form is 'from'.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "err-prep-29",
+        stem: "He is famous ___ never giving the press what they actually want from him.",
+        options: ["for", "of", "with"],
+        answer: "for",
+        explanation: "'Famous for' is the standard collocation.",
+        fullExplanation: "'Famous for' is fixed. 'Of' is wrong. 'With' is wrong.",
+        source: "Adapted, attributed to Daniel Day-Lewis",
+        flavor: "quotes",
+        author: "Daniel Day-Lewis"
+      },
+      {
+        id: "err-prep-30",
+        stem: "I am proud ___ where I came from, even when the world tries to make me ashamed of it.",
+        options: ["of", "for", "with"],
+        answer: "of",
+        explanation: "'Proud of' is the standard collocation.",
+        fullExplanation: "'Proud of' is fixed. 'For' is wrong. 'With' is wrong.",
+        source: "Adapted, attributed to 50 Cent",
+        flavor: "quotes",
+        author: "50 Cent"
       }
     ]
   },
@@ -10835,6 +13627,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "When making a general statement about a species, English uses the plural with zero article: 'Sharks have survived'. 'The sharks' would refer to specific sharks already mentioned. For a scientific generalisation, 'The' before 'sharks' is redundant. 'For', 'than', and 'many' are all correctly used.",
         source: "Murphy, EGU (4e), Unit 74",
         flavor: "science"
+      },
+      {
+        id: "err-art-25",
+        stem: "I went to ___ school every day for thirteen straight years and barely learned a thing.",
+        options: ["—", "a", "the"],
+        answer: "—",
+        explanation: "Institutional 'school' takes zero article.",
+        fullExplanation: "'Go to school' for attendance takes zero article. 'A school' refers to a building. 'The school' specifies a known one.",
+        source: "Adapted, attributed to Eminem",
+        flavor: "quotes",
+        author: "Eminem"
+      },
+      {
+        id: "err-art-26",
+        stem: "I went to ___ hospital after the championship fight, my face barely recognisable.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "American English uses 'the hospital' for visiting.",
+        fullExplanation: "American English uses 'the hospital' as a place visited. 'A hospital' would mean any one. Zero article is British informal.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "err-art-27",
+        stem: "I want to be ___ greatest of all time, and I am willing to suffer for it.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Superlatives take 'the'.",
+        fullExplanation: "Superlatives demand 'the'. 'A' contradicts uniqueness. Zero article is ungrammatical.",
+        source: "Adapted, attributed to Muhammad Ali",
+        flavor: "quotes",
+        author: "Muhammad Ali"
+      },
+      {
+        id: "err-art-28",
+        stem: "Becoming ___ artist is not a job description; it is a lifelong commitment.",
+        options: ["an", "a", "—"],
+        answer: "an",
+        explanation: "Vowel sound — 'an'.",
+        fullExplanation: "'An artist' takes 'an' before vowel sound. 'A' is for consonants. Zero is ungrammatical with countable singular.",
+        source: "Adapted, attributed to Pharrell Williams",
+        flavor: "quotes",
+        author: "Pharrell Williams"
+      },
+      {
+        id: "err-art-29",
+        stem: "I climbed ___ Everest at the age of forty-five, with thirty broken bones behind me.",
+        options: ["—", "the", "a"],
+        answer: "—",
+        explanation: "Mountain names without 'Mount' take zero article.",
+        fullExplanation: "Single mountain names ('Everest', 'Kilimanjaro') typically take zero article. 'The Everest' is incorrect. 'A Everest' is wrong.",
+        source: "Adapted, attributed to Bear Grylls",
+        flavor: "quotes",
+        author: "Bear Grylls"
+      },
+      {
+        id: "err-art-30",
+        stem: "I wrote songs in ___ Latin for years before I ever wrote one in English.",
+        options: ["—", "the", "a"],
+        answer: "—",
+        explanation: "Language names take zero article.",
+        fullExplanation: "Language names take zero article. 'The Latin' would refer to a specific Latin (e.g., 'the Latin of Cicero'). 'A Latin' is ungrammatical.",
+        source: "Adapted, attributed to Hozier",
+        flavor: "quotes",
+        author: "Hozier"
       }
     ]
   },
@@ -11084,6 +13942,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "The noun phrase 'The human immune system' is already the subject. Adding 'it' creates an illegal double subject. The sentence should read 'The human immune system identifies and destroys'. 'The', 'destroys', and 'enter' are all correctly used.",
         source: "Swan, PEU (4e), §423",
         flavor: "science"
+      },
+      {
+        id: "err-pron-25",
+        stem: "Between you and ___ , the championship belt does not mean as much as people think.",
+        options: ["me", "I", "myself"],
+        answer: "me",
+        explanation: "Object pronoun after preposition 'between': 'me'.",
+        fullExplanation: "Prepositions take object pronouns. 'I' is subject form. 'Myself' is reflexive, used only when subject and object refer to same person.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "err-pron-26",
+        stem: "Coach gave my brother and ___ the same lecture about discipline every single day.",
+        options: ["me", "I", "myself"],
+        answer: "me",
+        explanation: "Object pronoun after verb: 'me'.",
+        fullExplanation: "Verbs take object pronouns. 'I' is subject form. 'Myself' is reflexive only.",
+        source: "Adapted, attributed to Klay Thompson",
+        flavor: "quotes",
+        author: "Klay Thompson"
+      },
+      {
+        id: "err-pron-27",
+        stem: "We did everything ___ to keep the dream alive, even when it cost us our friendships.",
+        options: ["ourselves", "us", "we"],
+        answer: "ourselves",
+        explanation: "Reflexive pronoun: 'ourselves' (subject and object are the same).",
+        fullExplanation: "Reflexive pronoun when subject and object are the same. 'Us' is object pronoun. 'We' is subject pronoun.",
+        source: "Adapted, attributed to Daft Punk",
+        flavor: "quotes",
+        author: "Daft Punk"
+      },
+      {
+        id: "err-pron-28",
+        stem: "Nobody can really save ___ from the consequences of their own ego.",
+        options: ["themselves", "them", "they"],
+        answer: "themselves",
+        explanation: "Reflexive pronoun for self-reference: 'themselves'.",
+        fullExplanation: "Reflexive pronoun ('themselves') for self-action. 'Them' is object pronoun. 'They' is subject.",
+        source: "Adapted, attributed to Snoop Dogg",
+        flavor: "quotes",
+        author: "Snoop Dogg"
+      },
+      {
+        id: "err-pron-29",
+        stem: "She and ___ have been friends since long before either of us was famous.",
+        options: ["I", "me", "myself"],
+        answer: "I",
+        explanation: "Subject of the verb: 'I'.",
+        fullExplanation: "'I' is subject pronoun. 'Me' is object form. 'Myself' is reflexive.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "err-pron-30",
+        stem: "He made the album for himself, by ___ , in a studio that nobody else knew existed.",
+        options: ["himself", "him", "he"],
+        answer: "himself",
+        explanation: "Reflexive pronoun for emphasis: 'himself'.",
+        fullExplanation: "Reflexive 'himself' here is emphatic ('alone, with no help'). 'Him' is object. 'He' is subject.",
+        source: "Adapted, attributed to Frank Ocean",
+        flavor: "quotes",
+        author: "Frank Ocean"
       }
     ]
   },
@@ -11333,6 +14257,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Totally' and 'completely' are both absolute degree adverbs modifying 'inhospitable'. Using both is redundant; one is sufficient. 'Completely inhospitable' is the more standard collocation in scientific prose. 'Exceeding' and 'four' are correctly used.",
         source: "Swan, PEU (4e), §18",
         flavor: "science"
+      },
+      {
+        id: "err-int-25",
+        stem: "I asked the coach ___ I should focus on for my next training cycle.",
+        options: ["what", "that", "which"],
+        answer: "what",
+        explanation: "Reported wh-question: 'what'.",
+        fullExplanation: "'What' for open-ended reported questions. 'That' introduces statements. 'Which' would imply a closed set.",
+        source: "Adapted, attributed to LeBron James",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "err-int-26",
+        stem: "He asked me ___ I had ever felt afraid before stepping into the ring.",
+        options: ["if", "did", "that"],
+        answer: "if",
+        explanation: "Reported yes/no question: 'if' (or 'whether').",
+        fullExplanation: "Reported yes/no questions take 'if/whether'. 'Did' is direct question form. 'That' introduces statements.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "err-int-27",
+        stem: "She wanted to know ___ I was getting all of my discipline from in those early years.",
+        options: ["where", "what", "that"],
+        answer: "where",
+        explanation: "Reported wh-question with 'where'.",
+        fullExplanation: "'Where' for location. 'What' would change the question. 'That' introduces statements.",
+        source: "Adapted, attributed to Serena Williams",
+        flavor: "quotes",
+        author: "Serena Williams"
+      },
+      {
+        id: "err-int-28",
+        stem: "He asked the journalist ___ he had been training the boy without telling anyone.",
+        options: ["why", "what", "that"],
+        answer: "why",
+        explanation: "Reported wh-question with 'why'.",
+        fullExplanation: "'Why' for reasons. 'What' would change the question. 'That' introduces statements.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "err-int-29",
+        stem: "The reporter asked ___ his next album would actually sound like.",
+        options: ["what", "that", "which"],
+        answer: "what",
+        explanation: "Reported wh-question with 'what'.",
+        fullExplanation: "'What' for open-ended object. 'That' introduces statements. 'Which' implies a closed set.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "err-int-30",
+        stem: "I never ask ___ a fight will end; I only ask how I will respond when it does.",
+        options: ["when", "what", "that"],
+        answer: "when",
+        explanation: "Reported wh-question with 'when'.",
+        fullExplanation: "'When' for time. 'What' would change the question. 'That' introduces statements.",
+        source: "Adapted, attributed to Conor McGregor",
+        flavor: "quotes",
+        author: "Conor McGregor"
       }
     ]
   },
@@ -11582,6 +14572,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'By chance' is a fixed collocation meaning 'without planning or intention'. 'On chance' is used only in 'on the off chance' and not standalone. 'In chance' does not exist as a fixed phrase. 'At chance' is not standard.",
         source: "Swan, PEU (4e), §282",
         flavor: "science"
+      },
+      {
+        id: "owg-fixed-25",
+        stem: "I gave ___ my heart and soul to that championship run, and it nearly broke me.",
+        options: ["—", "of", "out"],
+        answer: "—",
+        explanation: "'Give your heart and soul' takes no preposition before the object.",
+        fullExplanation: "Standard idiom takes a direct object. 'Of' is wrong. 'Out' would change the meaning.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "owg-fixed-26",
+        stem: "I keep ___ to myself, because I have learned that honesty is a rare currency.",
+        options: ["true", "truly", "truthful"],
+        answer: "true",
+        explanation: "'Keep true' is the fixed expression.",
+        fullExplanation: "'Keep true (to)' is a fixed adjectival phrase. 'Truly' is adverbial. 'Truthful' would form 'be truthful', not 'keep truthful'.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "owg-fixed-27",
+        stem: "I made ___ peace with the people I once thought I could never forgive.",
+        options: ["—", "the", "a"],
+        answer: "—",
+        explanation: "'Make peace with' is a fixed expression with zero article.",
+        fullExplanation: "'Make peace with' is the standard idiom with no article. 'The peace' would specify. 'A peace' is ungrammatical.",
+        source: "Adapted, attributed to Nelson Mandela",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "owg-fixed-28",
+        stem: "I take ___ pride in every single fight I have ever signed my name to.",
+        options: ["great", "the great", "a great"],
+        answer: "great",
+        explanation: "'Take great pride' is a fixed collocation.",
+        fullExplanation: "'Take great pride' is the standard collocation. 'The great' would over-specify. 'A great' is non-standard.",
+        source: "Adapted, attributed to Manny Pacquiao",
+        flavor: "quotes",
+        author: "Manny Pacquiao"
+      },
+      {
+        id: "owg-fixed-29",
+        stem: "Time and time ___ , he proved that age was just a number to his body.",
+        options: ["again", "more", "ahead"],
+        answer: "again",
+        explanation: "'Time and time again' is a fixed idiom.",
+        fullExplanation: "'Time and time again' is the fixed expression for repetition. 'More' and 'ahead' are not part of any standard idiom here.",
+        source: "Adapted, attributed to Tom Brady",
+        flavor: "quotes",
+        author: "Tom Brady"
+      },
+      {
+        id: "owg-fixed-30",
+        stem: "I run ___ ten miles before sunrise, and that is just my warm-up routine.",
+        options: ["about", "around", "of"],
+        answer: "about",
+        explanation: "'Run about + number' is informal English for approximation.",
+        fullExplanation: "'About' for approximate quantity. 'Around' is acceptable but the listed answer is 'about'. 'Of' is ungrammatical.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
       }
     ]
   },
@@ -11831,6 +14887,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Moreover' introduces a second, complementary detail that reinforces the picture of eye complexity. 'However' would contrast the two types of cell, which is not the intended relationship. 'Otherwise' signals a conditional alternative. 'Nevertheless' signals contrast despite an obstacle.",
         source: "Swan, PEU (4e), §261",
         flavor: "science"
+      },
+      {
+        id: "owg-conn-25",
+        stem: "I trained until I could not stand, ___ I had a fight in two weeks.",
+        options: ["because", "although", "however"],
+        answer: "because",
+        explanation: "'Because' introduces cause.",
+        fullExplanation: "'Because' for cause. 'Although' for contrast. 'However' would not link two clauses with a comma.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "owg-conn-26",
+        stem: "He kept rapping ___ losing every record deal he had ever signed in his career.",
+        options: ["despite", "although", "because"],
+        answer: "despite",
+        explanation: "'Despite + -ing' for concession.",
+        fullExplanation: "'Despite + -ing' is fixed. 'Although' would need a clause, not a gerund. 'Because' introduces cause.",
+        source: "Adapted, attributed to 50 Cent",
+        flavor: "quotes",
+        author: "50 Cent"
+      },
+      {
+        id: "owg-conn-27",
+        stem: "She works late into the night, ___ her body is screaming at her to stop.",
+        options: ["even though", "because", "so that"],
+        answer: "even though",
+        explanation: "'Even though' for strong contrast.",
+        fullExplanation: "'Even though' for strong contrast. 'Because' introduces cause. 'So that' introduces purpose.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "owg-conn-28",
+        stem: "I trained twice a day ___ I would never have to ask for the title; it would be given.",
+        options: ["so that", "because", "although"],
+        answer: "so that",
+        explanation: "'So that' introduces purpose.",
+        fullExplanation: "'So that' for purpose. 'Because' introduces cause. 'Although' is for contrast.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "owg-conn-29",
+        stem: "I love acting; ___ , I will never call myself an artist on someone else's terms.",
+        options: ["however", "because", "so that"],
+        answer: "however",
+        explanation: "'However' for contrast.",
+        fullExplanation: "'However' for contrast at sentence start. 'Because' is cause. 'So that' is purpose.",
+        source: "Adapted, attributed to Daniel Day-Lewis",
+        flavor: "quotes",
+        author: "Daniel Day-Lewis"
+      },
+      {
+        id: "owg-conn-30",
+        stem: "She finished the album ___ writing four feature films in the same calendar year.",
+        options: ["while", "because", "however"],
+        answer: "while",
+        explanation: "'While' for simultaneous actions.",
+        fullExplanation: "'While' for simultaneity. 'Because' introduces cause. 'However' is for contrast.",
+        source: "Adapted, attributed to Lana Del Rey",
+        flavor: "quotes",
+        author: "Lana Del Rey"
       }
     ]
   },
@@ -12080,6 +15202,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Flow' is polysemous: the flow of a river describes the movement of water, and the flow of an argument describes how ideas progress logically. 'Current' fits sentence 1 naturally but not sentence 2. 'Course' fits sentence 2 loosely but not sentence 1 precisely. 'Movement' does not fit both sentences with the same natural sense.",
         source: "Swan, PEU (4e), §595",
         flavor: "science"
+      },
+      {
+        id: "w2s-poly-25",
+        stem: "The pressure of the spotlight can ___ even the strongest character into something unrecognisable.",
+        options: ["break", "broken", "breaking"],
+        answer: "break",
+        explanation: "Modal + base verb: 'break'.",
+        fullExplanation: "Modal verbs take bare base form. 'Broken' is past participle. 'Breaking' is gerund/-ing.",
+        source: "Adapted, attributed to Britney Spears",
+        flavor: "quotes",
+        author: "Britney Spears"
+      },
+      {
+        id: "w2s-poly-26",
+        stem: "I refuse to ___ my head for people who never bowed for me when I needed them.",
+        options: ["bow", "bowed", "bowing"],
+        answer: "bow",
+        explanation: "After 'to', use base form.",
+        fullExplanation: "'To' takes base form. 'Bowed' is past tense. 'Bowing' is gerund/-ing.",
+        source: "Adapted, attributed to Tupac Shakur",
+        flavor: "quotes",
+        author: "Tupac Shakur"
+      },
+      {
+        id: "w2s-poly-27",
+        stem: "Every great fighter knows how to ___ the right moment and let the wrong ones go.",
+        options: ["seize", "seized", "seizing"],
+        answer: "seize",
+        explanation: "After 'to', use base form.",
+        fullExplanation: "'To' takes base form. 'Seized' is past tense. 'Seizing' is gerund/-ing.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "w2s-poly-28",
+        stem: "I will ___ the truth, even when it costs me every friendship I have ever built.",
+        options: ["speak", "spoken", "speaking"],
+        answer: "speak",
+        explanation: "Modal + base verb: 'speak'.",
+        fullExplanation: "Modals take bare base. 'Spoken' is past participle. 'Speaking' is gerund/-ing.",
+        source: "Adapted, attributed to Kanye West",
+        flavor: "quotes",
+        author: "Kanye West"
+      },
+      {
+        id: "w2s-poly-29",
+        stem: "He has the rare ability to ___ a crowd silent with a single look.",
+        options: ["strike", "struck", "striking"],
+        answer: "strike",
+        explanation: "After 'to', use base form.",
+        fullExplanation: "'To' takes base form. 'Struck' is past tense. 'Striking' is gerund/-ing.",
+        source: "Adapted, attributed to Daniel Day-Lewis",
+        flavor: "quotes",
+        author: "Daniel Day-Lewis"
+      },
+      {
+        id: "w2s-poly-30",
+        stem: "Real artists must ___ themselves bare on every single track they release.",
+        options: ["lay", "laid", "lying"],
+        answer: "lay",
+        explanation: "Modal + base verb: 'lay'.",
+        fullExplanation: "Modals take bare base. 'Laid' is past tense / past participle. 'Lying' is gerund/-ing.",
+        source: "Adapted, attributed to Adele",
+        flavor: "quotes",
+        author: "Adele"
       }
     ]
   },
@@ -12329,6 +15517,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Set up' is polyfunctional: to set up an experiment means to organise and prepare it, and to set up a fund means to establish it formally. 'Set out' means to begin a journey or plan; 'set off' means to depart or trigger; 'set on' means to attack — none fit both sentences with the same meaning.",
         source: "Murphy, EGU (4e), Unit 135",
         flavor: "science"
+      },
+      {
+        id: "w2s-particle-25",
+        stem: "I never ___ up on the people who showed up for me when nobody else did.",
+        options: ["give", "gave", "given"],
+        answer: "give",
+        explanation: "Adverbial 'never' + base form for present habit.",
+        fullExplanation: "Present habit with 'never' takes base form ('I never give up'). 'Gave' is past. 'Given' is past participle.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "w2s-particle-26",
+        stem: "Real fighters never ___ down from a challenge, no matter how impossible it seems.",
+        options: ["back", "backed", "backing"],
+        answer: "back",
+        explanation: "Phrasal verb 'back down' uses base form after auxiliary 'never'.",
+        fullExplanation: "Present habit takes base form. 'Backed' is past. 'Backing' is gerund/-ing.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "w2s-particle-27",
+        stem: "He always ___ off the people who never deserved his loyalty in the first place.",
+        options: ["cuts", "cut", "cutting"],
+        answer: "cuts",
+        explanation: "Present habit with third-person singular: 'cuts'.",
+        fullExplanation: "Habit with third-person singular takes -s: 'cuts off'. 'Cut' is base/past. 'Cutting' is gerund/-ing.",
+        source: "Adapted, attributed to 50 Cent",
+        flavor: "quotes",
+        author: "50 Cent"
+      },
+      {
+        id: "w2s-particle-28",
+        stem: "I had to ___ up to the version of me that was scared of his own talent.",
+        options: ["face", "faced", "facing"],
+        answer: "face",
+        explanation: "After 'to' use base form: 'face up'.",
+        fullExplanation: "'To + base' is the pattern. 'Faced' is past. 'Facing' is gerund/-ing.",
+        source: "Adapted, attributed to Conor McGregor",
+        flavor: "quotes",
+        author: "Conor McGregor"
+      },
+      {
+        id: "w2s-particle-29",
+        stem: "He never ___ out on a promise to his family, no matter how busy his career got.",
+        options: ["bails", "bail", "bailed"],
+        answer: "bails",
+        explanation: "Present habit with third-person singular: 'bails'.",
+        fullExplanation: "Habit with third-person singular takes -s. 'Bail' is base. 'Bailed' is past tense.",
+        source: "Adapted, attributed to John Cena",
+        flavor: "quotes",
+        author: "John Cena"
+      },
+      {
+        id: "w2s-particle-30",
+        stem: "I want to ___ down everything I built and start over from the absolute beginning.",
+        options: ["tear", "tore", "torn"],
+        answer: "tear",
+        explanation: "After 'to' use base form: 'tear down'.",
+        fullExplanation: "'To + base' is the pattern. 'Tore' is past. 'Torn' is past participle.",
+        source: "Adapted, attributed to Kanye West",
+        flavor: "quotes",
+        author: "Kanye West"
       }
     ]
   },
@@ -12578,6 +15832,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "The sentence describes an ongoing biological behaviour, so the verb should be Present Passive 'is located'. 'Was located' incorrectly shifts the meaning to the past. Parts (A) 'knows instinctively where', (B) 'its wintering ground', and (D) 'in the southern hemisphere' are all correct.",
         source: "Murphy, EGU (4e), Unit 1",
         flavor: "science"
+      },
+      {
+        id: "ei-verb-25",
+        stem: "Mandela ___ his entire life to the cause of equality and forgiveness.",
+        options: ["dedicated", "is dedicating", "had dedicated"],
+        answer: "dedicated",
+        explanation: "Closed past period — Past Simple.",
+        fullExplanation: "His life is a closed period — Past Simple. 'Is dedicating' is present. 'Had dedicated' would need a later past reference.",
+        source: "Adapted, attributed to Nelson Mandela",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "ei-verb-26",
+        stem: "Picasso ___ thousands of works during his long career, far more than any other modern painter.",
+        options: ["produced", "is producing", "has produced"],
+        answer: "produced",
+        explanation: "Closed past life — Past Simple.",
+        fullExplanation: "His career is closed — Past Simple. 'Is producing' is present. 'Has produced' is incompatible with closed past.",
+        source: "Adapted, attributed to Pablo Picasso",
+        flavor: "quotes",
+        author: "Pablo Picasso"
+      },
+      {
+        id: "ei-verb-27",
+        stem: "Tupac ___ albums that still feel relevant decades after his life was cut short.",
+        options: ["recorded", "is recording", "had recorded"],
+        answer: "recorded",
+        explanation: "Closed past life — Past Simple.",
+        fullExplanation: "His life is closed — Past Simple. 'Is recording' is present. 'Had recorded' would need a later past reference.",
+        source: "Adapted, attributed to Tupac Shakur",
+        flavor: "quotes",
+        author: "Tupac Shakur"
+      },
+      {
+        id: "ei-verb-28",
+        stem: "Steve Jobs ___ Apple in 1976 with two friends he barely could afford to feed.",
+        options: ["founded", "is founding", "has founded"],
+        answer: "founded",
+        explanation: "Definite past time — Past Simple.",
+        fullExplanation: "'In 1976' fixes the time — Past Simple. 'Is founding' is present. 'Has founded' clashes with the definite past time.",
+        source: "Adapted, attributed to Steve Jobs",
+        flavor: "quotes",
+        author: "Steve Jobs"
+      },
+      {
+        id: "ei-verb-29",
+        stem: "Beyoncé ___ on stage every single night, even when her body was begging for rest.",
+        options: ["performed", "is performing", "had performed"],
+        answer: "performed",
+        explanation: "Past habit during a tour — Past Simple.",
+        fullExplanation: "Past habit during a tour takes Past Simple. 'Is performing' is present. 'Had performed' would need a later past reference.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "ei-verb-30",
+        stem: "Frida Kahlo ___ her body and soul into every painting she ever made.",
+        options: ["poured", "is pouring", "has poured"],
+        answer: "poured",
+        explanation: "Closed past life — Past Simple.",
+        fullExplanation: "Closed life — Past Simple. 'Is pouring' is present. 'Has poured' clashes with the closed past frame.",
+        source: "Adapted, attributed to Frida Kahlo",
+        flavor: "quotes",
+        author: "Frida Kahlo"
       }
     ]
   },
@@ -12827,6 +16147,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Through' is a preposition and does not take 'of' before a noun. 'Through volcanic vents' is correct. Parts (A) 'through the Earth's crust', (B) 'and emerges at', and (D) 'volcanic vents' are all correct.",
         source: "Swan, PEU (4e), §263",
         flavor: "science"
+      },
+      {
+        id: "ei-prep-25",
+        stem: "I depend ___ my team in ways that most people will never understand.",
+        options: ["on", "of", "in"],
+        answer: "on",
+        explanation: "'Depend on' is fixed.",
+        fullExplanation: "'Depend on' is fixed. 'Of' and 'in' are wrong.",
+        source: "Adapted, attributed to LeBron James",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "ei-prep-26",
+        stem: "I am proud ___ everything I have built from absolutely nothing at all.",
+        options: ["of", "for", "with"],
+        answer: "of",
+        explanation: "'Proud of' is fixed.",
+        fullExplanation: "'Proud of' is fixed. 'For' and 'with' are wrong.",
+        source: "Adapted, attributed to Snoop Dogg",
+        flavor: "quotes",
+        author: "Snoop Dogg"
+      },
+      {
+        id: "ei-prep-27",
+        stem: "I am married ___ my craft, and that is a life sentence I gladly accept.",
+        options: ["to", "with", "of"],
+        answer: "to",
+        explanation: "'Married to' is fixed.",
+        fullExplanation: "'Married to' is fixed. 'Married with' means 'with children'. 'Of' is wrong.",
+        source: "Adapted, attributed to Daniel Day-Lewis",
+        flavor: "quotes",
+        author: "Daniel Day-Lewis"
+      },
+      {
+        id: "ei-prep-28",
+        stem: "Listen ___ your gut before you ever listen to your inner critic or to the world.",
+        options: ["to", "at", "for"],
+        answer: "to",
+        explanation: "'Listen to' is fixed.",
+        fullExplanation: "'Listen to' is fixed. 'At' is for hostile listening. 'For' is for purpose.",
+        source: "Adapted, attributed to Naval Ravikant",
+        flavor: "quotes",
+        author: "Naval Ravikant"
+      },
+      {
+        id: "ei-prep-29",
+        stem: "I look ___ to every single fight, even the ones I am not supposed to win.",
+        options: ["forward", "for", "at"],
+        answer: "forward",
+        explanation: "'Look forward to' is fixed.",
+        fullExplanation: "'Look forward to + noun/-ing' is fixed. 'Look for' means search. 'Look at' is direction.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "ei-prep-30",
+        stem: "I am responsible ___ my mistakes long before I claim credit for any victories.",
+        options: ["for", "of", "to"],
+        answer: "for",
+        explanation: "'Responsible for' is fixed.",
+        fullExplanation: "'Responsible for' is fixed. 'Of' is wrong. 'To' would mean answerable to a person.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
       }
     ]
   },
@@ -13076,6 +16462,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "The verb 'orbit' inherently means 'revolve around', so adding 'around' is redundant: 'The planets orbit the Sun'. The redundant 'around' falls in segment (A). Parts (B) 'the Sun in elliptical paths', (C) 'a pattern first described', and (D) 'mathematically by Johannes Kepler' are all correct.",
         source: "Swan, PEU (4e), §131",
         flavor: "science"
+      },
+      {
+        id: "ei-extra-25",
+        stem: "I returned ___ home with twenty broken bones and a clearer mind than when I left.",
+        options: ["—", "to", "at"],
+        answer: "—",
+        explanation: "'Return home' takes no preposition.",
+        fullExplanation: "'Return home' is direct (no preposition). 'Return to home' is non-standard. 'Return at home' is wrong.",
+        source: "Adapted, attributed to Bear Grylls",
+        flavor: "quotes",
+        author: "Bear Grylls"
+      },
+      {
+        id: "ei-extra-26",
+        stem: "I emphasised ___ the importance of recovery to every young player in our locker room.",
+        options: ["—", "on", "about"],
+        answer: "—",
+        explanation: "'Emphasise' takes a direct object (no 'on' or 'about').",
+        fullExplanation: "'Emphasise' takes a direct object. 'Emphasise on' is a learner error. 'Emphasise about' is non-standard.",
+        source: "Adapted, attributed to Phil Jackson",
+        flavor: "quotes",
+        author: "Phil Jackson"
+      },
+      {
+        id: "ei-extra-27",
+        stem: "Discuss ___ the contract with my team, not with me personally.",
+        options: ["—", "about", "on"],
+        answer: "—",
+        explanation: "'Discuss' takes a direct object.",
+        fullExplanation: "'Discuss' takes a direct object. 'Discuss about' is a learner error. 'Discuss on' is non-standard.",
+        source: "Adapted, attributed to Jay-Z",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "ei-extra-28",
+        stem: "I considered ___ retirement after the third title defence, but I knew I had more to give.",
+        options: ["—", "about", "of"],
+        answer: "—",
+        explanation: "'Consider' takes a direct object (no 'about' or 'of').",
+        fullExplanation: "'Consider' takes a direct object. 'Consider about' and 'consider of' are non-standard.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "ei-extra-29",
+        stem: "I explained ___ my decision to the people who had stood beside me from day one.",
+        options: ["—", "about", "on"],
+        answer: "—",
+        explanation: "'Explain' takes a direct object (no 'about' or 'on').",
+        fullExplanation: "'Explain' takes a direct object directly. 'Explain about' is a learner error. 'Explain on' is non-standard.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "ei-extra-30",
+        stem: "Mention ___ my name only when you have something honest to say about the way I work.",
+        options: ["—", "about", "of"],
+        answer: "—",
+        explanation: "'Mention' takes a direct object (no 'about' or 'of').",
+        fullExplanation: "'Mention' takes a direct object directly. 'Mention about' is a learner error. 'Mention of' is wrong.",
+        source: "Adapted, attributed to Kanye West",
+        flavor: "quotes",
+        author: "Kanye West"
       }
     ]
   },
@@ -13325,6 +16777,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "A noun phrase can carry only one determiner. 'An extraordinary variety of stellar types' is the correct form; 'the' is redundant. Parts (A) 'an extraordinary', (C) 'of stellar types', and (D) 'to supergiants' are all correct — the extra 'the' is within segment (B).",
         source: "Murphy, EGU (4e), Unit 69",
         flavor: "science"
+      },
+      {
+        id: "ei-art-25",
+        stem: "I went to ___ school in a place where most kids never made it to graduation.",
+        options: ["—", "the", "a"],
+        answer: "—",
+        explanation: "Institutional 'school' takes zero article.",
+        fullExplanation: "'Go to school' for attendance takes zero article. 'The school' specifies a known one. 'A school' refers to a building.",
+        source: "Adapted, attributed to Eminem",
+        flavor: "quotes",
+        author: "Eminem"
+      },
+      {
+        id: "ei-art-26",
+        stem: "I want to be ___ best version of myself, every single morning before sunrise.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Superlative requires 'the'.",
+        fullExplanation: "Superlatives take 'the'. 'A' contradicts uniqueness. Zero is ungrammatical with countable singular here.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "ei-art-27",
+        stem: "I lived in ___ Tokyo for three years, eating the same noodle bowl every single morning.",
+        options: ["—", "the", "a"],
+        answer: "—",
+        explanation: "City names take zero article.",
+        fullExplanation: "City names take zero article. 'The Tokyo' is incorrect. 'A Tokyo' is ungrammatical.",
+        source: "Adapted, attributed to Anthony Bourdain",
+        flavor: "quotes",
+        author: "Anthony Bourdain"
+      },
+      {
+        id: "ei-art-28",
+        stem: "He once played ___ guitar in a small bar before half the world knew his face.",
+        options: ["the", "a", "—"],
+        answer: "the",
+        explanation: "Musical instruments with 'play' take 'the'.",
+        fullExplanation: "'Play the + instrument' is fixed. 'A guitar' would mean a single guitar. Zero is ungrammatical with this verb.",
+        source: "Adapted, attributed to Eric Clapton",
+        flavor: "quotes",
+        author: "Eric Clapton"
+      },
+      {
+        id: "ei-art-29",
+        stem: "Crossing ___ Atlantic was the loneliest experience of my entire career.",
+        options: ["the", "an", "—"],
+        answer: "the",
+        explanation: "Names of oceans take 'the'.",
+        fullExplanation: "Bodies of water take 'the'. 'An Atlantic' is wrong. Zero is ungrammatical.",
+        source: "Adapted, attributed to Bear Grylls",
+        flavor: "quotes",
+        author: "Bear Grylls"
+      },
+      {
+        id: "ei-art-30",
+        stem: "I painted ___ wall in Bristol that the local council painted over in twelve hours.",
+        options: ["a", "the", "—"],
+        answer: "a",
+        explanation: "First-mention countable singular: 'a'.",
+        fullExplanation: "First-mention takes 'a'. 'The wall' would specify a known wall. Zero is ungrammatical with countable singular.",
+        source: "Adapted, attributed to Banksy",
+        flavor: "quotes",
+        author: "Banksy"
       }
     ]
   },
@@ -13574,6 +17092,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'A number of' means 'many' and requires a plural verb. 'There are a vast number of microorganisms' is correct. 'There is' would only be correct with 'the number of' (singular). Parts (B) 'in a single teaspoon of', (C) 'soil, most of which', and (D) 'remain unidentified by science' are all correct.",
         source: "Swan, PEU (4e), §502",
         flavor: "science"
+      },
+      {
+        id: "ei-sva-25",
+        stem: "Each of my fights ___ a chapter in a book the world will read after I am gone.",
+        options: ["is", "are", "were"],
+        answer: "is",
+        explanation: "'Each of + plural' takes singular.",
+        fullExplanation: "'Each' is grammatically singular even with 'of + plural'. 'Are' would treat the plural as the subject. 'Were' is past.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "ei-sva-26",
+        stem: "Neither his words nor his silence ___ me anymore, after all these years.",
+        options: ["surprises", "surprise", "surprised"],
+        answer: "surprises",
+        explanation: "'Neither A nor B' agrees with the nearer subject.",
+        fullExplanation: "Proximity rule with 'neither/nor': verb agrees with the closer subject. 'Silence' is singular, so 'surprises'. 'Surprise' would be plural agreement. 'Surprised' is past tense.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "ei-sva-27",
+        stem: "The team, along with its coaching staff, ___ flying out tomorrow at dawn.",
+        options: ["is", "are", "were"],
+        answer: "is",
+        explanation: "'Along with' does not change the singular subject.",
+        fullExplanation: "'Along with' phrases do not change the number of the subject. 'Team' is singular. 'Are' would treat as compound. 'Were' is past tense.",
+        source: "Adapted, attributed to Pep Guardiola",
+        flavor: "quotes",
+        author: "Pep Guardiola"
+      },
+      {
+        id: "ei-sva-28",
+        stem: "Every one of my songs ___ a piece of someone I once cared deeply about.",
+        options: ["is", "are", "were"],
+        answer: "is",
+        explanation: "'Every one of + plural' takes singular.",
+        fullExplanation: "'Every one of' is grammatically singular. 'Are' would make the plural the subject. 'Were' is past tense.",
+        source: "Adapted, attributed to Lana Del Rey",
+        flavor: "quotes",
+        author: "Lana Del Rey"
+      },
+      {
+        id: "ei-sva-29",
+        stem: "The number of athletes who burn out before thirty ___ tragic and almost predictable.",
+        options: ["is", "are", "were"],
+        answer: "is",
+        explanation: "'The number of + plural' takes singular.",
+        fullExplanation: "'The number' is singular and governs the verb. 'Are' would treat the plural as the subject. 'Were' is past.",
+        source: "Adapted, attributed to LeBron James",
+        flavor: "quotes",
+        author: "LeBron James"
+      },
+      {
+        id: "ei-sva-30",
+        stem: "A number of fans ___ refused to leave the stadium even after we had lost the final.",
+        options: ["have", "has", "had"],
+        answer: "have",
+        explanation: "'A number of + plural' takes plural.",
+        fullExplanation: "'A number of + plural' is plural and takes plural verb. 'Has' is singular. 'Had' is wrong tense for present-relevance.",
+        source: "Adapted, attributed to Pep Guardiola",
+        flavor: "quotes",
+        author: "Pep Guardiola"
       }
     ]
   },
@@ -13823,6 +17407,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Determined' is the standard scientific verb for establishing a value or conclusion through rigorous methodology. 'Found' is correct but more informal; 'noticed' implies casual observation rather than systematic measurement; 'seen' is too colloquial for scientific reporting.",
         source: "Oxford Advanced Learner's Dictionary (10e)",
         flavor: "science"
+      },
+      {
+        id: "voc-syn-25",
+        stem: "His training regimen was so ___ that even his coaches admitted they could barely keep up.",
+        options: ["relentless", "tough", "hard"],
+        answer: "relentless",
+        explanation: "'Relentless' captures unbroken, unyielding intensity better than its near-synonyms.",
+        fullExplanation: "'Relentless' precisely describes something that never stops or weakens — perfect for an unyielding regimen. 'Tough' is informal and broad. 'Hard' is general and lacks the dimension of unceasing intensity.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "voc-syn-26",
+        stem: "His knockout punch was utterly ___ — opponents never saw it coming until it was too late.",
+        options: ["devastating", "bad", "strong"],
+        answer: "devastating",
+        explanation: "'Devastating' suggests overwhelming, ruinous force.",
+        fullExplanation: "'Devastating' captures overwhelming damage and impact. 'Bad' is vague. 'Strong' implies power but not the catastrophic effect.",
+        source: "Adapted, attributed to Mike Tyson",
+        flavor: "quotes",
+        author: "Mike Tyson"
+      },
+      {
+        id: "voc-syn-27",
+        stem: "Her stage presence was so ___ that audiences forgot they were watching a performance at all.",
+        options: ["mesmerising", "good", "interesting"],
+        answer: "mesmerising",
+        explanation: "'Mesmerising' implies a hypnotic, captivating effect.",
+        fullExplanation: "'Mesmerising' captures a hypnotic, captivating effect. 'Good' is vague and weak. 'Interesting' is too neutral for the spell-binding intensity.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "voc-syn-28",
+        stem: "His rise from the streets was nothing short of ___ , and the entire industry took note.",
+        options: ["meteoric", "fast", "good"],
+        answer: "meteoric",
+        explanation: "'Meteoric' captures dramatic and rapid ascent.",
+        fullExplanation: "'Meteoric' specifically means an extremely rapid and brilliant rise. 'Fast' is vague. 'Good' is weak and unspecific.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "voc-syn-29",
+        stem: "Tarantino's dialogue is famously ___ , drawing from a thousand films most people never even saw.",
+        options: ["eclectic", "varied", "different"],
+        answer: "eclectic",
+        explanation: "'Eclectic' precisely describes drawing from many varied sources.",
+        fullExplanation: "'Eclectic' captures the deliberate combination of varied sources. 'Varied' is generic. 'Different' is vague.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "voc-syn-30",
+        stem: "Mandela's leadership during the transition was ___ , and even his harshest critics admitted it.",
+        options: ["exemplary", "good", "fine"],
+        answer: "exemplary",
+        explanation: "'Exemplary' means worthy of being a model — far stronger than 'good'.",
+        fullExplanation: "'Exemplary' precisely conveys 'serving as a model of excellence'. 'Good' is generic and weak. 'Fine' is mild and vague.",
+        source: "Adapted, attributed to Nelson Mandela",
+        flavor: "quotes",
+        author: "Nelson Mandela"
       }
     ]
   },
@@ -14072,6 +17722,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Bear responsibility' is the established formal collocation for shouldering a duty or obligation, particularly in ethical or professional contexts. 'Have responsibility' is neutral and correct but less formal; 'carry responsibility' is used but less conventional; 'hold responsibility' is non-standard.",
         source: "Oxford Collocations Dictionary (3e)",
         flavor: "science"
+      },
+      {
+        id: "voc-coll-25",
+        stem: "I had to ___ the courage to look my mother in the eyes after that defeat.",
+        options: ["summon", "gather", "find"],
+        answer: "summon",
+        explanation: "'Summon the courage' is the established collocation.",
+        fullExplanation: "'Summon the courage' (or 'summon up the courage') is the standard collocation. 'Gather' is less idiomatic. 'Find' is too informal and weak.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "voc-coll-26",
+        stem: "She had to ___ a difficult decision in front of millions of people watching live.",
+        options: ["make", "do", "take"],
+        answer: "make",
+        explanation: "'Make a decision' is the standard collocation.",
+        fullExplanation: "'Make a decision' is the established collocation. 'Do a decision' is non-standard. 'Take a decision' is acceptable in British English but less common.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "voc-coll-27",
+        stem: "I ___ a fortune from a single song that I almost did not release at all.",
+        options: ["made", "did", "earned"],
+        answer: "made",
+        explanation: "'Make a fortune' is the standard collocation.",
+        fullExplanation: "'Make a fortune' is the established collocation. 'Did a fortune' is ungrammatical. 'Earned a fortune' is acceptable but less idiomatic in this context.",
+        source: "Adapted, attributed to Bad Bunny",
+        flavor: "quotes",
+        author: "Bad Bunny"
+      },
+      {
+        id: "voc-coll-28",
+        stem: "It is hard to ___ progress when half the world is rooting against you for no real reason.",
+        options: ["make", "do", "create"],
+        answer: "make",
+        explanation: "'Make progress' is the standard collocation.",
+        fullExplanation: "'Make progress' is fixed. 'Do progress' is non-standard. 'Create progress' is awkward and uncommon.",
+        source: "Adapted, attributed to Serena Williams",
+        flavor: "quotes",
+        author: "Serena Williams"
+      },
+      {
+        id: "voc-coll-29",
+        stem: "I had to ___ a serious risk if I ever wanted to launch the company at all.",
+        options: ["take", "make", "do"],
+        answer: "take",
+        explanation: "'Take a risk' is the standard collocation.",
+        fullExplanation: "'Take a risk' is fixed. 'Make a risk' is non-standard. 'Do a risk' is ungrammatical.",
+        source: "Adapted, attributed to Elon Musk",
+        flavor: "quotes",
+        author: "Elon Musk"
+      },
+      {
+        id: "voc-coll-30",
+        stem: "We had to ___ a tough decision to release him after twelve seasons with the team.",
+        options: ["make", "do", "take"],
+        answer: "make",
+        explanation: "'Make a decision' is the standard collocation.",
+        fullExplanation: "'Make a decision' is fixed. 'Do a decision' is non-standard. 'Take a decision' is more British but 'make' is the listed answer.",
+        source: "Adapted, attributed to Pat Riley",
+        flavor: "quotes",
+        author: "Pat Riley"
       }
     ]
   },
@@ -14321,6 +18037,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "In scientific writing, 'indicate' presents evidence-based conclusions with appropriate caution, acknowledging that observations support but do not definitively prove a conclusion. 'Prove' overclaims certainty; 'tell' is too conversational; 'confirm' implies a stronger, more definitive conclusion than observation alone typically supports.",
         source: "APA Publication Manual (7e); Academic Word List",
         flavor: "science"
+      },
+      {
+        id: "voc-reg-25",
+        stem: "The biographer described how Mandela ___ a wounded nation through its hardest decade.",
+        options: ["led", "took", "guided"],
+        answer: "led",
+        explanation: "'Led' is the neutral-formal verb for guiding a nation in a biography.",
+        fullExplanation: "'Led' is the standard formal verb. 'Took' is vague. 'Guided' is acceptable but slightly less canonical for a national leader.",
+        source: "Adapted, attributed to Nelson Mandela",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "voc-reg-26",
+        stem: "Critics often ___ that Tarantino draws too heavily on the films of others without credit.",
+        options: ["argue", "say", "go"],
+        answer: "argue",
+        explanation: "'Argue' is the formal/neutral verb appropriate for serious critique.",
+        fullExplanation: "'Argue' is precise and formal for academic-style claims. 'Say' is general and weak. 'Go' is informal slang for 'say'.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "voc-reg-27",
+        stem: "His autobiography ___ the long road from poverty to global recognition with unusual honesty.",
+        options: ["chronicles", "tells", "talks about"],
+        answer: "chronicles",
+        explanation: "'Chronicles' is the formal verb appropriate for a biography.",
+        fullExplanation: "'Chronicles' is formal and precise for sustained narrative. 'Tells' is informal-neutral. 'Talks about' is colloquial.",
+        source: "Adapted, attributed to Jay-Z",
+        flavor: "quotes",
+        author: "Jay-Z"
+      },
+      {
+        id: "voc-reg-28",
+        stem: "Critics universally ___ Picasso's Blue Period as one of the most emotionally honest moments in modern art.",
+        options: ["regard", "see", "look at"],
+        answer: "regard",
+        explanation: "'Regard' is the formal verb fitting a critical assessment.",
+        fullExplanation: "'Regard' is the formal critical verb. 'See' is informal/general. 'Look at' is colloquial.",
+        source: "Adapted, attributed to Pablo Picasso",
+        flavor: "quotes",
+        author: "Pablo Picasso"
+      },
+      {
+        id: "voc-reg-29",
+        stem: "Mandela ___ his cause in front of the entire world, with the calm of a man who had nothing left to fear.",
+        options: ["championed", "did", "showed"],
+        answer: "championed",
+        explanation: "'Championed' is the formal verb for actively supporting a cause.",
+        fullExplanation: "'Championed' formally means to advocate for a cause publicly. 'Did' is vague. 'Showed' is informal and inadequate.",
+        source: "Adapted, attributed to Nelson Mandela",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "voc-reg-30",
+        stem: "Picasso's later works ___ a clear shift in his treatment of light and form.",
+        options: ["demonstrate", "show", "have"],
+        answer: "demonstrate",
+        explanation: "'Demonstrate' is the formal academic verb for evidence-based claim.",
+        fullExplanation: "'Demonstrate' is formal and precise. 'Show' is informal-neutral. 'Have' is too general.",
+        source: "Adapted, attributed to Pablo Picasso",
+        flavor: "quotes",
+        author: "Pablo Picasso"
       }
     ]
   },
@@ -14570,6 +18352,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "A expresses a positive view ('I think researchers should…'), so B agrees with 'So do I'. 'Neither do I' and 'I don't either' respond to negatives; 'Nor I' is archaic and literary.",
         source: "Murphy, EGU (4e), Unit 47",
         flavor: "science"
+      },
+      {
+        id: "dia-agree-25",
+        stem: "A: 'I really admire David Goggins — he is one of the toughest people alive.' B: '___ , he is on a different level entirely.'",
+        options: ["So do I", "Neither do I", "I don't either"],
+        answer: "So do I",
+        explanation: "'So do I' agrees with a positive statement.",
+        fullExplanation: "Positive agreement: 'So + auxiliary + subject'. 'So do I' agrees with the positive present statement. 'Neither do I' and 'I don't either' negate.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "dia-agree-26",
+        stem: "A: 'I never miss a Beyoncé concert when she tours my city.' B: '___ , she is impossible not to watch live.'",
+        options: ["Neither do I", "So do I", "I do too"],
+        answer: "Neither do I",
+        explanation: "'Neither do I' agrees with a negative statement.",
+        fullExplanation: "Negative agreement uses 'Neither + auxiliary + subject'. 'Neither do I' agrees with the negative. 'So do I' and 'I do too' agree with positive.",
+        source: "Adapted, attributed to Beyoncé",
+        flavor: "quotes",
+        author: "Beyoncé"
+      },
+      {
+        id: "dia-agree-27",
+        stem: "A: 'Tarantino has reshaped modern cinema in ways most directors never will.' B: '___ , and his next project is already creating buzz.'",
+        options: ["I agree", "I don't either", "Neither do I"],
+        answer: "I agree",
+        explanation: "Standard direct agreement.",
+        fullExplanation: "'I agree' is direct affirmation. 'I don't either' negates. 'Neither do I' agrees with negative.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "dia-agree-28",
+        stem: "A: 'I cannot imagine the discipline Kobe Bryant brought to every single practice.' B: '___ , and he set the standard for an entire generation.'",
+        options: ["Neither can I", "So can I", "I can too"],
+        answer: "Neither can I",
+        explanation: "'Neither can I' agrees with a negative statement using a modal.",
+        fullExplanation: "Negative agreement with 'cannot' uses 'Neither + can + subject'. 'So can I' agrees with positive. 'I can too' agrees with positive.",
+        source: "Adapted, attributed to Kobe Bryant",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "dia-agree-29",
+        stem: "A: 'I have always loved the sound of Frank Ocean's albums.' B: '___ , he writes the soundtrack of my entire summer.'",
+        options: ["So have I", "Neither have I", "I haven't either"],
+        answer: "So have I",
+        explanation: "'So have I' agrees with a positive Present Perfect statement.",
+        fullExplanation: "Positive agreement with Present Perfect uses 'So + have + subject'. 'Neither have I' and 'I haven't either' negate.",
+        source: "Adapted, attributed to Frank Ocean",
+        flavor: "quotes",
+        author: "Frank Ocean"
+      },
+      {
+        id: "dia-agree-30",
+        stem: "A: 'I cannot stand it when artists copy each other without ever giving credit.' B: '___ , the industry needs more honesty.'",
+        options: ["Neither can I", "So can I", "I can too"],
+        answer: "Neither can I",
+        explanation: "'Neither can I' agrees with a negative modal.",
+        fullExplanation: "Negative modal agreement uses 'Neither + modal + subject'. 'So can I' agrees with positive. 'I can too' agrees with positive.",
+        source: "Adapted, attributed to Pharrell Williams",
+        flavor: "quotes",
+        author: "Pharrell Williams"
       }
     ]
   },
@@ -14819,6 +18667,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'Why not + bare infinitive' ('include a brief literature review') is a concise informal suggestion. 'How about' and 'What about' require gerunds ('including'); 'Shall we' takes a bare infinitive but carries a more consultative, question-like tone whereas 'Why not' sounds more like confident practical advice.",
         source: "Murphy, EGU (4e), Unit 36",
         flavor: "science"
+      },
+      {
+        id: "dia-sugg-25",
+        stem: "A: 'We need a new training plan for the championship.' B: '___ following the schedule Kobe used in his fifteenth season?'",
+        options: ["How about", "Why don't we", "Let's"],
+        answer: "How about",
+        explanation: "'How about + -ing' for suggestions.",
+        fullExplanation: "'How about + -ing' takes a gerund. 'Why don't we' and 'Let's' both take a bare infinitive.",
+        source: "Adapted, attributed to Kobe Bryant",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "dia-sugg-26",
+        stem: "A: 'I need new music for my training playlist.' B: '___ try the latest album from Kendrick Lamar?'",
+        options: ["Why don't you", "How about", "Let's"],
+        answer: "Why don't you",
+        explanation: "'Why don't you' takes a bare infinitive.",
+        fullExplanation: "'Why don't you + base form' is the standard suggestion. 'How about' takes a gerund. 'Let's' suggests joint action, not 'you'.",
+        source: "Adapted, attributed to Kendrick Lamar",
+        flavor: "quotes",
+        author: "Kendrick Lamar"
+      },
+      {
+        id: "dia-sugg-27",
+        stem: "A: 'We have been arguing about the album cover for hours.' B: '___ ask Banksy himself for some inspiration?'",
+        options: ["Why don't we", "How about", "Let's"],
+        answer: "Why don't we",
+        explanation: "'Why don't we' takes a bare infinitive.",
+        fullExplanation: "'Why don't we + base' is fixed. 'How about' takes a gerund. 'Let's' is also possible but here the listed answer is 'Why don't we'.",
+        source: "Adapted, attributed to Banksy",
+        flavor: "quotes",
+        author: "Banksy"
+      },
+      {
+        id: "dia-sugg-28",
+        stem: "A: 'I need to find a way to keep training when motivation drops.' B: '___ a video of David Goggins running before sunrise.'",
+        options: ["Try watching", "Why don't watching", "Let's watching"],
+        answer: "Try watching",
+        explanation: "'Try + -ing' suggests a method.",
+        fullExplanation: "'Try + -ing' is the suggestion pattern for a method. The other forms mix structures incorrectly.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
+      },
+      {
+        id: "dia-sugg-29",
+        stem: "A: 'My English is getting rusty before the big interview.' B: '___ Tarantino's old press tours; he speaks like a film school in himself.'",
+        options: ["Why not watch", "How about watch", "Let's watching"],
+        answer: "Why not watch",
+        explanation: "'Why not + base form' for suggestions.",
+        fullExplanation: "'Why not + base' is fixed. 'How about' takes a gerund (would need 'watching'). 'Let's watching' is ungrammatical.",
+        source: "Adapted, attributed to Quentin Tarantino",
+        flavor: "quotes",
+        author: "Quentin Tarantino"
+      },
+      {
+        id: "dia-sugg-30",
+        stem: "A: 'I cannot decide which direction to take on the new album.' B: '___ you ever tried locking yourself in a studio for one week?'",
+        options: ["Have", "Did", "Are"],
+        answer: "Have",
+        explanation: "'Have you ever + past participle' is a suggestion-by-experience structure.",
+        fullExplanation: "Present Perfect with 'ever' is used to recommend trying something. 'Did' is Past Simple. 'Are' is Present and ungrammatical with 'tried'.",
+        source: "Adapted, attributed to Frank Ocean",
+        flavor: "quotes",
+        author: "Frank Ocean"
       }
     ]
   },
@@ -15068,6 +18982,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "B replies 'Every time we think we've found the smallest thing, physics finds something smaller', describing a recurring pattern where apparent limits are surpassed. Option 2 contradicts B's open-ended framing; option 3 contradicts the clear statement that physics keeps 'finding something'; option 4 contradicts B's evident engagement with the question.",
         source: "CT/CE Trainer Practice, dialogue inference",
         flavor: "science"
+      },
+      {
+        id: "dia-infer-25",
+        stem: "A: 'Why do you keep training when nobody is even watching?' B replies: '___' What does B mean?",
+        options: ["The work itself is the only real reward.", "B feels lonely because nobody watches.", "B has stopped enjoying the training."],
+        answer: "The work itself is the only real reward.",
+        explanation: "B suggests intrinsic motivation — the work matters regardless of audience.",
+        fullExplanation: "B's implied reply ('Because the work is the reward') signals intrinsic motivation. Option B misreads tone as loneliness; option C reverses the meaning entirely.",
+        source: "Adapted, attributed to Kobe Bryant",
+        flavor: "quotes",
+        author: "Kobe Bryant"
+      },
+      {
+        id: "dia-infer-26",
+        stem: "A: 'Are you afraid of losing this fight tomorrow?' B replies: '___' What does B mean?",
+        options: ["Fear is something B has long since chosen to ignore.", "B is too afraid to talk about the fight.", "B has decided to retire after the fight."],
+        answer: "Fear is something B has long since chosen to ignore.",
+        explanation: "B implies he has moved past fear as a controlling factor.",
+        fullExplanation: "B's reply ('I made peace with fear a long time ago') means fear no longer controls him. Option B misreads avoidance into the reply; option C invents a retirement that is not implied.",
+        source: "Adapted, attributed to Khabib Nurmagomedov",
+        flavor: "quotes",
+        author: "Khabib Nurmagomedov"
+      },
+      {
+        id: "dia-infer-27",
+        stem: "A: 'How do you deal with hate from anonymous accounts online?' B replies: '___' What does B mean?",
+        options: ["B believes the criticism is not worth a real response.", "B agrees with everything the haters say.", "B plans to take legal action immediately."],
+        answer: "B believes the criticism is not worth a real response.",
+        explanation: "B suggests indifference rather than confrontation.",
+        fullExplanation: "B's implied reply ('I don't read what doesn't help me grow') signals indifference. Option B reverses meaning; option C invents a legal response not implied.",
+        source: "Adapted, attributed to Drake",
+        flavor: "quotes",
+        author: "Drake"
+      },
+      {
+        id: "dia-infer-28",
+        stem: "A: 'Do you regret leaving the label that built your career?' B replies: '___' What does B mean?",
+        options: ["B is glad about the decision and would make it again.", "B secretly wishes he had stayed at the label.", "B has not yet decided how he feels about it."],
+        answer: "B is glad about the decision and would make it again.",
+        explanation: "B implies satisfaction with the decision.",
+        fullExplanation: "B's reply ('Best move I ever made for myself') signals satisfaction. Option B reverses the meaning; option C invents indecision.",
+        source: "Adapted, attributed to Frank Ocean",
+        flavor: "quotes",
+        author: "Frank Ocean"
+      },
+      {
+        id: "dia-infer-29",
+        stem: "A: 'Why do you only work with directors nobody else trusts?' B replies: '___' What does B mean?",
+        options: ["B values originality over commercial reputation.", "B cannot find directors with mainstream credibility.", "B intends to retire from acting altogether."],
+        answer: "B values originality over commercial reputation.",
+        explanation: "B implies a deliberate preference for unconventional collaborators.",
+        fullExplanation: "B's implied reply ('They see what nobody else sees') signals creative preference. Option B reverses cause and effect; option C invents an unrelated retirement.",
+        source: "Adapted, attributed to Daniel Day-Lewis",
+        flavor: "quotes",
+        author: "Daniel Day-Lewis"
+      },
+      {
+        id: "dia-infer-30",
+        stem: "A: 'How do you stay motivated after winning every belt in the division?' B replies: '___' What does B mean?",
+        options: ["B finds new motivation in self-improvement, not titles.", "B is no longer motivated and plans to retire.", "B is preparing to switch sports completely."],
+        answer: "B finds new motivation in self-improvement, not titles.",
+        explanation: "B implies an internal source of motivation beyond external titles.",
+        fullExplanation: "B's implied reply ('I compete with the version of me from yesterday') signals self-driven motivation. Option B contradicts the implication; option C invents a sport change.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
       }
     ]
   },
@@ -15316,6 +19296,72 @@ window.LEARN_TASKS_CTCE = {
         fullExplanation: "'So that ... would' introduces a purpose clause. Low storage temperatures were used in order to preserve the vaccine's effectiveness. 'Although' introduces contrast. 'Before' would mark a time sequence, but the temperature was maintained throughout, not only beforehand.",
         source: "Murphy, EGU (4e), Unit 116",
         flavor: "science"
+      },
+      {
+        id: "mg-sub-gen-25",
+        stem: "I had to leave the gym early ___ I had a fight in three days.",
+        options: ["because", "although", "while"],
+        answer: "because",
+        explanation: "'Because' introduces a clause of reason.",
+        fullExplanation: "'Because' for reason. 'Although' would imply contrast. 'While' would imply simultaneity.",
+        source: "Adapted, attributed to Floyd Mayweather",
+        flavor: "quotes",
+        author: "Floyd Mayweather"
+      },
+      {
+        id: "mg-sub-gen-26",
+        stem: "Even ___ he was the underdog, he stepped into the ring with the calm of a champion.",
+        options: ["though", "if", "when"],
+        answer: "though",
+        explanation: "'Even though' for strong concession.",
+        fullExplanation: "'Even though' for strong concession. 'Even if' is hypothetical. 'Even when' is for repeated time.",
+        source: "Adapted, attributed to Anthony Joshua",
+        flavor: "quotes",
+        author: "Anthony Joshua"
+      },
+      {
+        id: "mg-sub-gen-27",
+        stem: "He kept working ___ the entire industry was telling him to stop and try something safer.",
+        options: ["while", "because", "so that"],
+        answer: "while",
+        explanation: "'While' for simultaneous contrast.",
+        fullExplanation: "'While' here marks simultaneous contrast. 'Because' would invert cause. 'So that' is purpose.",
+        source: "Adapted, attributed to 50 Cent",
+        flavor: "quotes",
+        author: "50 Cent"
+      },
+      {
+        id: "mg-sub-gen-28",
+        stem: "I trained twice a day ___ I would never have to ask for the title; the world would offer it.",
+        options: ["so that", "because", "although"],
+        answer: "so that",
+        explanation: "'So that' introduces purpose.",
+        fullExplanation: "'So that' for purpose. 'Because' is cause. 'Although' is contrast.",
+        source: "Adapted, attributed to Cristiano Ronaldo",
+        flavor: "quotes",
+        author: "Cristiano Ronaldo"
+      },
+      {
+        id: "mg-sub-gen-29",
+        stem: "She wrote her best song ___ she was lying in a hospital bed in Paris.",
+        options: ["while", "because", "although"],
+        answer: "while",
+        explanation: "'While' for simultaneity.",
+        fullExplanation: "'While' for an action happening at the same time. 'Because' is cause. 'Although' is contrast.",
+        source: "Adapted, attributed to Frida Kahlo",
+        flavor: "quotes",
+        author: "Frida Kahlo"
+      },
+      {
+        id: "mg-sub-gen-30",
+        stem: "I keep going ___ the world doubts me, because doubt is just fuel for the fire.",
+        options: ["whenever", "because", "so that"],
+        answer: "whenever",
+        explanation: "'Whenever' for repeated time.",
+        fullExplanation: "'Whenever' for repeated occasions. 'Because' would shift meaning to cause. 'So that' is purpose.",
+        source: "Adapted, attributed to David Goggins",
+        flavor: "quotes",
+        author: "David Goggins"
       }
     ]
   }

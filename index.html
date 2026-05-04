@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.17.2 · Subordinate Clauses topic + B1/C1 relative-clause backfill
-     Brand chip in-app shows “v10.17.2”. Build version is in this comment.
-     Build: v10.17.2
+     v10.18 · Quotes flavor full backfill (597 tasks across 140 banks)
+     Brand chip in-app shows “v10.18”. Build version is in this comment.
+     Build: v10.18
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -3301,6 +3301,19 @@ mark.gap-sentence-hl{
 /* v8: split sentence + muted directive prompt onto separate lines */
 .lpr-stem .lpr-stem-sentence{display:block;}
 .lpr-stem .lpr-stem-prompt{display:block;margin-top:8px;font-size:.82rem;color:color-mix(in srgb,var(--text) 55%,transparent);font-style:italic;letter-spacing:.01em;}
+/* v10.18: Quotes flavor — author byline shown below the stem when task.flavor==='quotes' */
+.lpr-quote-byline{
+  font-size:.78rem;line-height:1.4;
+  color:color-mix(in srgb,var(--text) 55%,transparent);
+  letter-spacing:.01em;
+  margin:-6px 0 14px 0;
+  font-style:italic;
+}
+.lpr-quote-byline .lpr-quote-byline-kind{
+  font-style:normal;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;
+  color:color-mix(in srgb,var(--text) 40%,transparent);
+  margin-right:6px;
+}
 /* Hint (Word Formation base word) */
 .lpr-hint{
   display:inline-flex;align-items:center;gap:6px;
@@ -4854,7 +4867,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.17.2</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.18</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -5265,6 +5278,7 @@ textarea:focus-visible,
       <div class="v107-card-cont" id="lprCardContent">
         <div class="lpr-subtopic-label" id="lprSubtopicLabel"></div>
         <div class="lpr-stem" id="lprStem"></div>
+        <div class="lpr-quote-byline" id="lprQuoteByline" style="display:none"></div>
         <div class="lpr-hint" id="lprHint" style="display:none"></div>
 
         <!-- MCQ options -->
@@ -12141,10 +12155,11 @@ function lselSetTopicHint(show) {
    v10.9 PHASE B §1 — MOBILE TOOLBAR LABEL ENGINE
    ══════════════════════════════════════════════════════════════════════════ */
 const _LT9_LEVEL_ORDER = ['ctce', 'b1', 'b2', 'c1'];
-const _LT9_FLAVOR_ORDER = ['social', 'personalities', 'history', 'science'];
+const _LT9_FLAVOR_ORDER = ['social', 'personalities', 'history', 'science', 'quotes'];
 const _LT9_FLAVOR_SHORT = {
   social: 'Social', personalities: 'Famous',
   history: 'Historical', science: 'Science',
+  quotes: 'Quotes',
 };
 function lt9ComputeChipLabels() {
   const cfg = window.LEARN_TOPICS_CONFIG || { levels: [], flavors: [] };
@@ -12325,12 +12340,14 @@ const _LT9_FLAVOR_FULL = {
   personalities: 'Famous Personalities',
   history: 'Historical Facts',
   science: 'Science & Discovery',
+  quotes: 'Quotes',
 };
 const _LT9_FLAVOR_SHORT_DESK = {
   social: 'Social',
   personalities: 'Fam Per',
   history: 'Hist',
   science: 'Sci & Disc',
+  quotes: 'Quotes',
 };
 
 /* Compute desktop Flavor dropdown label per spec:
@@ -13656,6 +13673,28 @@ function lprRenderTask(index) {
       } else {
         stemEl.textContent = stemText;
       }
+    }
+  }
+
+  // v10.18 Quotes flavor: author byline shown below stem when task.flavor==='quotes'.
+  // Direct quotes get an em-dash + name; adapted ones get a small "adapted" tag.
+  const bylineEl = document.getElementById('lprQuoteByline');
+  if (bylineEl) {
+    bylineEl.textContent = '';
+    if (task && task.flavor === 'quotes' && task.author) {
+      const isAdapted = (task.source || '').indexOf('Adapted') === 0;
+      if (isAdapted) {
+        const tagSpan = document.createElement('span');
+        tagSpan.className = 'lpr-quote-byline-kind';
+        tagSpan.textContent = 'Adapted';
+        bylineEl.appendChild(tagSpan);
+        bylineEl.appendChild(document.createTextNode('\u2014 ' + task.author));
+      } else {
+        bylineEl.textContent = '\u2014 ' + task.author;
+      }
+      bylineEl.style.display = '';
+    } else {
+      bylineEl.style.display = 'none';
     }
   }
 
