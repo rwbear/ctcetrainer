@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.17 · Sync rework + 4 UX fixes
-     Brand chip in-app shows “v10.17”. Build version is in this comment.
-     Build: v10.17
+     v10.17.1 · Unified toolbar chip morph (Learn mobile)
+     Brand chip in-app shows “v10.17.1”. Build version is in this comment.
+     Build: v10.17.1
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -3599,11 +3599,12 @@ mark.gap-sentence-hl{
   display:inline-flex;align-items:center;gap:5px;
   white-space:nowrap;flex-shrink:0;max-width:160px;min-width:0;
   cursor:pointer;line-height:1.2;-webkit-tap-highlight-color:transparent;
-  /* Smooth chip width when labels change (e.g. "4/4" → "All", level toggle).
-     Combined with the lt-roll/_lt9SetTextFaded mechanisms in JS, label swaps
-     no longer cause a snap. */
+  /* v10.17.1: width tween paired with a 120 ms label cross-fade. The chip
+     width animates old → new while the label is invisible, so users never
+     see the text squeeze. Curve: cubic-bezier(.32,.72,0,1) — same iOS-
+     weighted curve used by the bottom sheet, for system-wide consistency. */
   transition:background 140ms ease-out,border-color 140ms ease-out,
-             color 140ms ease-out,width 220ms cubic-bezier(.4,0,.2,1);
+             color 140ms ease-out,width 200ms cubic-bezier(.32,.72,0,1);
 }
 .lt-chip .lt-lbl{
   display:inline-block;line-height:1.2;
@@ -3818,44 +3819,27 @@ mark.gap-sentence-hl{
 body.lt9-locked{overflow:hidden;}
 
 /* ──────────────────────────────────────────────────────────────────────────
-   v10.9 PHASE B §3 — Mode-chip roll & unified Select/Clear button
-   Roll: 240 ms cubic-bezier(.22,.61,.36,1). New label slides in from TOP,
-   current label drops DOWN. Mode chip only.
-   Select/Clear: single button. 130 ms fade-out → swap text → measure →
-   220 ms width animate → fade in. Tap-only.
+   v10.17.1 — Unified toolbar chip label morph
+   One primitive for every chip whose label changes (Mode, Level, Flavor):
+   1. Pin chip width in px.
+   2. Cross-fade label out (120 ms).
+   3. Swap text, measure new natural width.
+   4. Animate chip width old → new (200 ms) while label fades back in.
+   Siblings slide naturally through flex layout — no FLIP, no transforms.
+   Legacy .lt-roll markup is kept in the DOM for backward compat but acts
+   as a plain inline span (no animation).
    ───────────────────────────────────────────────────────────────────────── */
-.lt-roll{
-  position:relative;display:inline-block;
-  height:1em;line-height:1;overflow:hidden;
-  vertical-align:bottom;
+.lt-roll{display:inline-block;line-height:1;vertical-align:baseline;}
+.lt-roll-cur{display:inline-block;line-height:1;white-space:nowrap;}
+.lt-roll-nxt{display:none;}
+
+/* Label cross-fade: applied to the .lt-lbl span while the chip is morphing. */
+.lt-chip .lt-lbl{
+  transition:opacity 120ms ease-out;
 }
-.lt-roll-cur,
-.lt-roll-nxt{
-  display:inline-block;line-height:1;
-  white-space:nowrap;
-}
-.lt-roll-nxt{
-  position:absolute;left:0;top:0;
-  transform:translateY(-100%);
-  opacity:0;
-}
-.lt-roll.rolling .lt-roll-cur{
-  animation:lt9RollDown 240ms cubic-bezier(.22,.61,.36,1) both;
-}
-.lt-roll.rolling .lt-roll-nxt{
-  animation:lt9RollIn 240ms cubic-bezier(.22,.61,.36,1) both;
-}
-@keyframes lt9RollDown{
-  from{transform:translateY(0);opacity:1;}
-  to  {transform:translateY(100%);opacity:0;}
-}
-@keyframes lt9RollIn{
-  from{transform:translateY(-100%);opacity:0;}
-  to  {transform:translateY(0);opacity:1;}
-}
+.lt-chip.is-morphing .lt-lbl{opacity:0;}
 @media (prefers-reduced-motion: reduce){
-  .lt-roll.rolling .lt-roll-cur,
-  .lt-roll.rolling .lt-roll-nxt{animation-duration:1ms !important;}
+  .lt-chip .lt-lbl{transition-duration:1ms !important;}
 }
 
 /* v10.9.5: Start Practice label — prefix is rock-steady, only the count
@@ -4870,7 +4854,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.17</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.17.1</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -12200,233 +12184,130 @@ function lt9CycleMode(ev){
   }
   try { window.lselSetMode(next); } catch(e){}
 }
-/* v10.9 §3: Mode chip uses a vertical-roll on label change.
-   New label slides in from TOP, current label drops DOWN, 240 ms.
-   Level + Flavor chips use plain textContent swap. */
-let _lt9ModeRollBusy = false;
-let _lt9ModeRollPending = null;
+/* v10.17.1: The old vertical-roll animation for the Mode chip is gone.
+   Every chip now uses the same _lt9MorphChip primitive (defined below),
+   which cross-fades the label and width-morphs the chip. Mode, Level,
+   and Flavor all feel identical. */
 function _lt9SetModeLabel(next) {
+  /* Back-compat shim — old callers expected a roll. Route through the
+     unified morph primitive against the .lt-roll-cur inside the Mode
+     chip's label (the span that actually renders text). */
   const roll = document.getElementById('ltModeRoll');
   if (!roll) return;
   const cur = roll.querySelector('.lt-roll-cur');
-  const nxt = roll.querySelector('.lt-roll-nxt');
-  if (!cur || !nxt) return;
+  if (!cur) return;
   if (cur.textContent === next) return;
-  if (_lt9ModeRollBusy) { _lt9ModeRollPending = next; return; }
-  _lt9ModeRollBusy = true;
-  nxt.textContent = next;
-  // Force reflow then add .rolling so animations run from frame 0.
-  void roll.offsetWidth;
-  roll.classList.add('rolling');
-  let finished = false;
-  let safetyTimer = null;
-  const onEnd = () => {
-    if (finished) return;
-    finished = true;
-    if (safetyTimer) { clearTimeout(safetyTimer); safetyTimer = null; }
-    cur.removeEventListener('animationend', onEnd);
-    roll.classList.remove('rolling');
-    cur.textContent = next;
-    nxt.textContent = '';
-    _lt9ModeRollBusy = false;
-    if (_lt9ModeRollPending !== null) {
-      const p = _lt9ModeRollPending; _lt9ModeRollPending = null;
-      _lt9SetModeLabel(p);
-    }
-  };
-  cur.addEventListener('animationend', onEnd);
-  // Safety timer scoped to this invocation — cleared when the real
-  // animationend fires. Prevents stale timers from a prior roll firing
-  // into a newer one.
-  safetyTimer = setTimeout(onEnd, 360);
+  _lt9MorphChip(cur, next);
 }
-/* v10.9.5: animate a mobile chip's width when its label changes. Same
-   measure-snap-back-then-transition pattern as the desktop flavor button —
-   the chip CSS already has `transition: width 220ms`, so all we need is
-   inline `width: <pxBefore>` → reflow → `width: <pxAfter>`. The label is
-   swapped during the snap so users never see a half-baked transition.
-   The chip is found via the lblId; the chip is its closest .lt-chip. */
-function _lt9AnimChipLabel(lblId, nextText) {
-  const lbl = document.getElementById(lblId);
-  if (!lbl) return;
-  if (lbl.textContent === nextText) return;
-  const chip = lbl.closest('.lt-chip');
-  if (!chip) { lbl.textContent = nextText; return; }
+/* v10.17.1: unified chip-morph primitive. Called once per label change,
+   identical for Mode / Level / Flavor. The chip width animates from its
+   current pixel width to the natural width of the new text. The label
+   cross-fades out (120 ms) while the chip is still at the old width, the
+   text swaps mid-fade, then the label cross-fades back in while the
+   width completes its 200 ms tween. Neighbours are pushed naturally by
+   flex layout — no transforms, no FLIP, no separate roll animation.
+   The chip is found from the given textEl (the element whose textContent
+   changes, e.g. the .lt-roll-cur span inside Mode, or the plain .lt-lbl
+   inside Level / Flavor). */
+function _lt9MorphChip(textEl, nextText) {
+  if (!textEl) return;
+  if (textEl.textContent === nextText) return;
+  const chip = textEl.closest('.lt-chip');
+  if (!chip) { textEl.textContent = nextText; return; }
+  /* Reduced motion: swap instantly. */
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) { textEl.textContent = nextText; return; }
 
-  /* Cancel any in-flight animation by clearing the inline width before
-     measuring. Otherwise a rapid second toggle would measure mid-animation. */
+  /* Cancel any prior morph on this chip cleanly. */
+  if (chip._lt9MorphCleanup) { try { chip._lt9MorphCleanup(true); } catch(e) {} }
+
+  /* Pin current width (including any in-flight width) and disable the
+     width transition while we measure the NEW natural width. */
   const fromW = chip.offsetWidth;
   const prevTr = chip.style.transition;
   chip.style.transition = 'none';
-  lbl.textContent = nextText;
-  chip.style.width = 'auto';
-  const toW = chip.offsetWidth;
-  if (toW === fromW) {
-    chip.style.width = '';
-    chip.style.transition = prevTr;
-    return;
-  }
   chip.style.width = fromW + 'px';
-  /* Force reflow so the next inline width takes the transition. */
-  void chip.offsetWidth;
-  chip.style.transition = prevTr || '';
-  chip.style.width = toW + 'px';
-  /* When the transition ends, drop the inline width so the chip can
-     resize naturally on subsequent renders. */
-  const cleanup = (e) => {
-    if (e && e.propertyName !== 'width') return;
-    chip.style.width = '';
-    chip.removeEventListener('transitionend', cleanup);
-    clearTimeout(chip._chipWT);
-  };
-  chip.addEventListener('transitionend', cleanup);
-  /* Safety: cleanup even if transitionend doesn't fire. */
-  clearTimeout(chip._chipWT);
-  chip._chipWT = setTimeout(cleanup, 320);
-}
+  /* Mark morphing — triggers .lt-lbl opacity:0. */
+  chip.classList.add('is-morphing');
 
-/* v10.9.6: coordinated FLIP across the entire mobile toolbar.
-   Why: when only the changing chip animates its own width, neighboring
-   chips snap to their new x positions because flex layout reflows
-   instantly. That snap is the "rigid" feel the user reported. With FLIP
-   we measure every chip's rect before the swaps, apply them, measure
-   after, then animate every chip from its old rect to its new rect using
-   a single 220 ms cubic-bezier(.4,0,.2,1) tween. All chips glide together. */
+  /* Schedule the swap-and-expand for AFTER the label has finished fading
+     out, so the text swap itself is invisible. The label fade is 120 ms. */
+  const SWAP_DELAY = 120;
+  const WIDTH_DUR  = 200;
+
+  const swapTimer = setTimeout(function(){
+    /* Swap the text with width still pinned to OLD. */
+    textEl.textContent = nextText;
+    /* Measure natural width by briefly releasing the pin. */
+    chip.style.width = 'auto';
+    const toW = chip.offsetWidth;
+    if (toW === fromW) {
+      /* No width change — just fade back in. */
+      chip.style.width = '';
+      chip.style.transition = prevTr || '';
+      chip.classList.remove('is-morphing');
+      chip._lt9MorphCleanup = null;
+      return;
+    }
+    /* Re-pin to OLD for one frame so the transition has a start point. */
+    chip.style.width = fromW + 'px';
+    void chip.offsetWidth;  /* reflow */
+    /* Restore the original transition (which includes width 200 ms). */
+    chip.style.transition = prevTr || '';
+    chip.style.width = toW + 'px';
+    /* Fade label back in concurrently with the width tween. */
+    chip.classList.remove('is-morphing');
+
+    /* Cleanup when width transition ends. */
+    const safety = setTimeout(function(){ cleanup(false); }, WIDTH_DUR + 80);
+    function cleanup(cancelled) {
+      clearTimeout(safety);
+      chip.removeEventListener('transitionend', onEnd);
+      chip.style.width = '';
+      chip._lt9MorphCleanup = null;
+    }
+    function onEnd(e) {
+      if (e && e.propertyName !== 'width') return;
+      cleanup(false);
+    }
+    chip.addEventListener('transitionend', onEnd);
+    chip._lt9MorphCleanup = cleanup;
+  }, SWAP_DELAY);
+
+  /* If a newer morph starts before the swapTimer fires, the outer cleanup
+     registered above needs to cancel this timer too. Register a canceller. */
+  chip._lt9MorphCleanup = function(cancelled){
+    clearTimeout(swapTimer);
+    /* If cancelled mid-fade, set the final text immediately and drop the
+       morphing class so the label is visible again. */
+    if (cancelled) {
+      textEl.textContent = nextText;
+      chip.style.width = '';
+      chip.style.transition = prevTr || '';
+      chip.classList.remove('is-morphing');
+    }
+    chip._lt9MorphCleanup = null;
+  };
+}
 function lt9UpdateChipLabels() {
   try {
     const lab = lt9ComputeChipLabels();
-    const bar = document.querySelector('.lt-bar');
-    const tracked = bar ? Array.from(bar.querySelectorAll('.lt-chip, .lt-more')) : [];
 
-    /* v10.17 Fix #2: split the previously-coordinated motion into TWO
-       sequential phases when the Mode chip is changing.
-         Phase 1 (now)            : roll the Mode label from top → bottom
-                                    (240 ms via _lt9SetModeLabel). The Mode
-                                    chip stays at its OLD width during the
-                                    roll. Level/Flavor labels and any FLIP
-                                    needed for THEM run in this phase too.
-         Phase 2 (after roll end) : FLIP the Mode chip's width to the new
-                                    natural size, animating neighbours
-                                    along with it.
-       When the Mode chip is NOT changing, only one FLIP phase runs.
+    /* v10.17.1: unified morph for all three chips. Each call is
+       independent; multiple chips can morph concurrently with no
+       cross-coupling. Siblings slide naturally because flex layout
+       reflows the row as each chip's own width animates. */
+    const modeTextEl = (function(){
+      const r = document.getElementById('ltModeRoll');
+      return r ? r.querySelector('.lt-roll-cur') : null;
+    })();
+    if (modeTextEl) _lt9MorphChip(modeTextEl, lab.mode);
 
-       Why: previously the FLIP and the roll ran in parallel, so the chip
-       resized while its text was still rolling. The visual read was
-       "jump-then-roll" instead of "roll-then-resize." */
+    const lvl = document.getElementById('ltLblLevel');
+    if (lvl) _lt9MorphChip(lvl, lab.level);
 
-    /* Detect whether the Mode chip's roll-from-top is going to fire. */
-    let willRollMode = false;
-    try {
-      const _modeRoll = document.getElementById('ltModeRoll');
-      const _c = _modeRoll && _modeRoll.querySelector('.lt-roll-cur');
-      if (_c && _c.textContent !== lab.mode) willRollMode = true;
-    } catch (e) {}
-
-    /* Helper: run a FLIP pass against the current DOM. Captures rects at
-       call time, applies `mutate` (which performs the visible label/state
-       changes), captures rects again, and animates every chip from its
-       previous rect to its new rect using the existing 220 ms tween. */
-    function _runFlip(mutate) {
-      const fromRects = tracked.map(c => c.getBoundingClientRect());
-      tracked.forEach(c => {
-        if (c._chipWT) { clearTimeout(c._chipWT); c._chipWT = 0; }
-        c.style.transition = 'none';
-        c.style.width = '';
-        c.style.transform = '';
-      });
-      if (bar) void bar.offsetWidth;
-      try { mutate(); } catch (e) {}
-      const toRects = tracked.map(c => c.getBoundingClientRect());
-      let anyMoved = false;
-      for (let i = 0; i < tracked.length; i++) {
-        const f = fromRects[i], t = toRects[i];
-        if (Math.abs(f.left - t.left) > 0.5 || Math.abs(f.width - t.width) > 0.5) { anyMoved = true; break; }
-      }
-      if (!anyMoved) {
-        tracked.forEach(c => { c.style.transition = ''; });
-        return;
-      }
-      tracked.forEach((c, i) => {
-        const f = fromRects[i], t = toRects[i];
-        const dx = f.left - t.left;
-        if (Math.abs(dx) < 0.5 && Math.abs(f.width - t.width) < 0.5) return;
-        c.style.width = f.width + 'px';
-        c.style.transform = 'translateX(' + dx + 'px)';
-      });
-      if (bar) void bar.offsetWidth;
-      tracked.forEach((c, i) => {
-        const f = fromRects[i], t = toRects[i];
-        const dx = f.left - t.left;
-        if (Math.abs(dx) < 0.5 && Math.abs(f.width - t.width) < 0.5) {
-          c.style.transition = '';
-          return;
-        }
-        c.style.transition = 'transform 220ms cubic-bezier(.4,0,.2,1), width 220ms cubic-bezier(.4,0,.2,1)';
-        c.style.width = t.width + 'px';
-        c.style.transform = '';
-      });
-      tracked.forEach((c) => {
-        const cleanup = (e) => {
-          if (e && e.propertyName !== 'transform' && e.propertyName !== 'width') return;
-          c.style.width = '';
-          c.style.transform = '';
-          c.style.transition = '';
-          c.removeEventListener('transitionend', cleanup);
-          clearTimeout(c._chipWT);
-          c._chipWT = 0;
-        };
-        c.addEventListener('transitionend', cleanup);
-        clearTimeout(c._chipWT);
-        c._chipWT = setTimeout(cleanup, 320);
-      });
-    }
-
-    /* Phase 1: kick off the mode roll (if any) and apply level/flavor
-       label swaps. The Mode chip's NATURAL width is still the OLD label,
-       because .lt-roll-cur still shows the OLD text — we deliberately do
-       NOT temp-swap it here. So phase-1 FLIP is purely about level/flavor
-       (and any sibling x-shift their changes induce); the Mode chip will
-       stay put. */
-    _runFlip(function(){
-      _lt9SetModeLabel(lab.mode);
-      const lvl = document.getElementById('ltLblLevel');
-      const flv = document.getElementById('ltLblFlavor');
-      if (lvl && lvl.textContent !== lab.level) lvl.textContent = lab.level;
-      if (flv && flv.textContent !== lab.flavor) flv.textContent = lab.flavor;
-    });
-
-    /* Phase 2: if Mode was rolling, after the roll's animationend fires,
-       _lt9SetModeLabel sets cur.textContent = next. From that moment the
-       Mode chip's natural width is the new label. We schedule a follow-up
-       FLIP a tick later that captures the OLD width (still pinned by
-       inline width from phase 1 if neighbours moved — otherwise by
-       layout) and animates to the NEW natural width. */
-    if (willRollMode) {
-      const _modeRoll = document.getElementById('ltModeRoll');
-      const _cur = _modeRoll && _modeRoll.querySelector('.lt-roll-cur');
-      if (_cur) {
-        const onRollEnd = () => {
-          _cur.removeEventListener('animationend', onRollEnd);
-          /* Defer one rAF so _lt9SetModeLabel's own onEnd has run and
-             cur.textContent = next is in place. */
-          requestAnimationFrame(function(){
-            _runFlip(function(){
-              /* No mutation needed — the textContent change already
-                 happened inside _lt9SetModeLabel.onEnd. We just want a
-                 fresh measure-and-animate pass against the new natural
-                 width. */
-            });
-          });
-        };
-        _cur.addEventListener('animationend', onRollEnd);
-        /* Safety: if animationend never fires (reduced motion etc.),
-           run the second FLIP after the roll's max duration. */
-        setTimeout(function(){
-          if (_cur) _cur.removeEventListener('animationend', onRollEnd);
-          requestAnimationFrame(function(){ _runFlip(function(){}); });
-        }, 380);
-      }
-    }
+    const flv = document.getElementById('ltLblFlavor');
+    if (flv) _lt9MorphChip(flv, lab.flavor);
   } catch (e) {}
   /* v10.9 §5: keep desktop toolbar in sync on the same update cadence as the
      mobile chip labels. Single-source render that touches Mode/Correction/
