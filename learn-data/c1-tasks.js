@@ -2740,5 +2740,261 @@ window.LEARN_TASKS_C1 = {
         flavor: "science"
       }
     ]
+  },
+  "c1-sub-gen": {
+    id: "c1-sub-gen",
+    name: "Subordinate clauses — general",
+    canonicalSubId: "cs-sub-general",
+    canonicalTopicId: "subordinate-clauses",
+    tasks: [
+      {
+        id: "c1-sub-gen-01",
+        stem: "The management issued a written warning to all staff ___ any confusion should arise regarding the new policy.",
+        options: ["lest", "despite", "whereas"],
+        answer: "lest",
+        explanation: "'Lest' is a formal subordinating conjunction meaning 'for fear that / to prevent'.",
+        fullExplanation: "'Lest' introduces a clause of negative purpose or precaution, typically followed by 'should' or a subjunctive. 'Lest any confusion should arise' = 'to prevent confusion from arising'. 'Despite' is a preposition of concession and cannot introduce a finite clause. 'Whereas' introduces contrast.",
+        source: "Hewings, AGAU (3e), Unit 87",
+        flavor: "social"
+      },
+      {
+        id: "c1-sub-gen-02",
+        stem: "Churchill refused to consider surrender, ___ the situation appeared hopeless to most of his advisers.",
+        options: ["notwithstanding that", "inasmuch as", "given that"],
+        answer: "notwithstanding that",
+        explanation: "'Notwithstanding that' is a formal concessive conjunction meaning 'even though'.",
+        fullExplanation: "'Notwithstanding that' is a formal/legal conjunction of concession, meaning 'despite the fact that'. It introduces a clause that contrasts with the main clause. 'Inasmuch as' means 'to the extent that / because' and would make the hopelessness a reason. 'Given that' means 'since / considering that' and also makes it a reason, reversing the meaning.",
+        source: "Fowler's Modern English Usage (4e), p. 587",
+        flavor: "personalities"
+      },
+      {
+        id: "c1-sub-gen-03",
+        stem: "___ the war was finally over, the government began the long process of rebuilding the economy.",
+        options: ["Now that", "Lest", "Notwithstanding that"],
+        answer: "Now that",
+        explanation: "'Now that' introduces a reason clause based on a recent change.",
+        fullExplanation: "'Now that' introduces a causal/temporal clause meaning 'because now, as a result of a recent change in the situation'. The war ending is the new circumstance that makes rebuilding possible. 'Lest' is a precautionary connector and does not fit. 'Notwithstanding that' introduces concession, implying contrast — but there is no contrast here.",
+        source: "Swan, PEU (4e), §370",
+        flavor: "history"
+      },
+      {
+        id: "c1-sub-gen-04",
+        stem: "The results were deemed inconclusive ___ they had been collected from too small a sample.",
+        options: ["in that", "lest", "notwithstanding that"],
+        answer: "in that",
+        explanation: "'In that' is a formal conjunction of reason meaning 'on the grounds that'.",
+        fullExplanation: "'In that' is a formal clause of reason, specifying in what way or on what grounds something is true. 'Inconclusive in that they came from too small a sample' means 'specifically because of the sample size'. 'Lest' is precautionary and does not express reason. 'Notwithstanding that' is concessive.",
+        source: "Hewings, AGAU (3e), Unit 88",
+        flavor: "science"
+      },
+      {
+        id: "c1-sub-gen-05",
+        stem: "We reserved a table at the restaurant ___ it would be fully booked on the evening of the celebration.",
+        options: ["for fear that", "inasmuch as", "now that"],
+        answer: "for fear that",
+        explanation: "'For fear that' is a formal alternative to 'in case', expressing concern about a possible negative event.",
+        fullExplanation: "'For fear that' introduces a clause of precaution, expressing worry about a possible negative outcome. 'Reserved a table for fear that it would be fully booked' = 'in case it was fully booked'. 'Inasmuch as' introduces reason or extent. 'Now that' introduces a reason based on a change that has already occurred.",
+        source: "Swan, PEU (4e), §239",
+        flavor: "social"
+      },
+      {
+        id: "c1-sub-gen-06",
+        stem: "The philosopher's later work is significant ___ it marks a decisive break from his earlier rationalism.",
+        options: ["inasmuch as", "lest", "for fear that"],
+        answer: "inasmuch as",
+        explanation: "'Inasmuch as' is a formal conjunction meaning 'to the extent that'.",
+        fullExplanation: "'Inasmuch as' introduces a clause specifying the degree to which something is true. The work is significant specifically in the way described. 'Lest' is a precautionary conjunction and does not express reason or degree. 'For fear that' expresses precaution about a negative event.",
+        source: "Fowler's Modern English Usage (4e), p. 390",
+        flavor: "personalities"
+      },
+      {
+        id: "c1-sub-gen-07",
+        stem: "___ both powers had signed the Non-Aggression Pact, war still broke out within two years.",
+        options: ["Notwithstanding that", "Given that", "In that"],
+        answer: "Notwithstanding that",
+        explanation: "'Notwithstanding that' is a formal concessive conjunction meaning 'even though'.",
+        fullExplanation: "'Notwithstanding that both powers had signed the pact, war still broke out' = 'even though they had signed the pact, war still occurred'. The pact was supposed to prevent war — this is the concessive contrast. 'Given that' means 'considering that' and would imply the pact caused the war, the opposite meaning. 'In that' provides a specific reason and does not fit the contrast.",
+        source: "Fowler's Modern English Usage (4e), p. 587",
+        flavor: "history"
+      },
+      {
+        id: "c1-sub-gen-08",
+        stem: "The committee was satisfied with the findings, ___ certain limitations in the methodology remained.",
+        options: ["albeit", "given that", "inasmuch as"],
+        answer: "albeit",
+        explanation: "'Albeit' is a concessive conjunction meaning 'although', often before a reduced clause or phrase.",
+        fullExplanation: "'Albeit' introduces a concessive clause, often in a reduced form (+ adjective, noun, or -ing phrase). 'Satisfied, albeit certain limitations remained' = 'satisfied, even though certain limitations existed'. 'Given that' means 'considering / because' and would make the limitations a reason for satisfaction, reversing the meaning. 'Inasmuch as' means 'to the extent that' and does not express concession here.",
+        source: "Fowler's Modern English Usage (4e), p. 23",
+        flavor: "science"
+      },
+      {
+        id: "c1-sub-gen-09",
+        stem: "___ you are already familiar with the system, the training session will be kept to a minimum.",
+        options: ["Seeing as", "Lest", "Albeit"],
+        answer: "Seeing as",
+        explanation: "'Seeing as' introduces a reason clause meaning 'since / given that'.",
+        fullExplanation: "'Seeing as' (also 'seeing that') introduces a reason clause, similar to 'since' or 'given that' but slightly less formal. 'Seeing as you are familiar' = 'because / since you are already familiar'. 'Lest' is precautionary, introducing a clause of fear or prevention. 'Albeit' introduces a concession, typically as a reduced clause.",
+        source: "Swan, PEU (4e), §502",
+        flavor: "social"
+      },
+      {
+        id: "c1-sub-gen-10",
+        stem: "The composer's late string quartets are considered groundbreaking, ___ they abandoned all conventional harmonic structure.",
+        options: ["in that", "lest", "notwithstanding that"],
+        answer: "in that",
+        explanation: "'In that' formally explains the specific grounds for the assessment.",
+        fullExplanation: "'In that' explains in what specific way the quartets are groundbreaking — by abandoning conventional harmony. 'Lest' is a precautionary connector and does not introduce an explanation. 'Notwithstanding that' introduces a concession, implying contrast, but here abandoning harmony is the reason for being groundbreaking, not a contrast.",
+        source: "Hewings, AGAU (3e), Unit 88",
+        flavor: "personalities"
+      },
+      {
+        id: "c1-sub-gen-11",
+        stem: "The campaign ultimately succeeded ___ many senior officers had openly doubted the strategy throughout.",
+        options: ["notwithstanding that", "inasmuch as", "in order that"],
+        answer: "notwithstanding that",
+        explanation: "'Notwithstanding that' is a formal concessive conjunction.",
+        fullExplanation: "'Notwithstanding that many officers had doubted the strategy' = 'despite the fact that / even though officers had doubted it'. The campaign's success despite doubt is a concessive relationship. 'Inasmuch as' means 'to the extent that' and would make the doubt a partial reason for success, the opposite of the intended meaning. 'In order that' introduces purpose and does not apply here.",
+        source: "Fowler's Modern English Usage (4e), p. 587",
+        flavor: "history"
+      },
+      {
+        id: "c1-sub-gen-12",
+        stem: "___ further mutations were considered possible, virologists continued to monitor the pathogen closely for several months.",
+        options: ["Given that", "Lest", "Inasmuch as"],
+        answer: "Given that",
+        explanation: "'Given that' means 'considering / since / in view of the fact that'.",
+        fullExplanation: "'Given that' introduces a reason clause meaning 'since / considering that'. The ongoing monitoring is justified by the known possibility of further mutations. 'Lest' introduces precaution about something that might happen, followed by 'should' or subjunctive, and would need restructuring. 'Inasmuch as' means 'to the extent that' and introduces a degree clause, not a straightforward reason.",
+        source: "Swan, PEU (4e), §243",
+        flavor: "science"
+      }
+    ]
+  },
+  "c1-rel-adv": {
+    id: "c1-rel-adv",
+    name: "Relative clauses — advanced",
+    canonicalSubId: "cs-rel-adv",
+    canonicalTopicId: "subordinate-clauses",
+    tasks: [
+      {
+        id: "c1-rel-adv-01",
+        stem: "The committee submitted a detailed report, the conclusions ___ were widely disputed afterwards.",
+        options: ["of which", "of whom", "in which"],
+        answer: "of which",
+        explanation: "'Of which' refers to the report (a thing), showing the conclusions belong to it.",
+        fullExplanation: "'Of which' is a formal relative construction with the preposition before the relative pronoun. 'The conclusions of which' = 'whose conclusions'. 'Of whom' refers to people, not reports. 'In which' would mean the conclusions were inside the report, not that they belonged to it.",
+        source: "Hewings, AGAU (3e), Unit 97",
+        flavor: "social"
+      },
+      {
+        id: "c1-rel-adv-02",
+        stem: "Darwin corresponded with a number of scientists, several ___ later disputed his findings.",
+        options: ["of whom", "of which", "in whom"],
+        answer: "of whom",
+        explanation: "'Of whom' is used for people in a quantifier + relative pronoun construction.",
+        fullExplanation: "'Several of whom' = 'several of those scientists'. 'Of whom' refers to people. 'Of which' would refer to things, not people. 'In whom' would change the meaning entirely (e.g., 'scientists in whom he confided').",
+        source: "Murphy, EGU (4e), Unit 93",
+        flavor: "personalities"
+      },
+      {
+        id: "c1-rel-adv-03",
+        stem: "The treaty was signed in Paris, ___ the Allied leaders had gathered for the negotiations.",
+        options: ["where", "which", "in that"],
+        answer: "where",
+        explanation: "'Where' introduces a non-defining relative clause referring to Paris as a location.",
+        fullExplanation: "'Where' (= in which) correctly introduces a non-defining relative clause about a place. 'In Paris, where the leaders had gathered' = 'in Paris, and the leaders had gathered there'. 'Which' could only work with a preposition ('in which'). 'In that' is a formal connector of reason, not a relative adverb.",
+        source: "Murphy, EGU (4e), Unit 93",
+        flavor: "history"
+      },
+      {
+        id: "c1-rel-adv-04",
+        stem: "The team adopted a new methodology, the validity ___ was later questioned by independent reviewers.",
+        options: ["of which", "in which", "by which"],
+        answer: "of which",
+        explanation: "'Of which' links 'validity' to 'methodology' in formal written style.",
+        fullExplanation: "'The validity of which' = 'whose validity'. This is a formal relative clause construction common in academic writing. 'In which' would mean something was located inside the methodology. 'By which' would describe how something was done, not ownership.",
+        source: "Hewings, AGAU (3e), Unit 97",
+        flavor: "science"
+      },
+      {
+        id: "c1-rel-adv-05",
+        stem: "She donated her entire savings to charity, ___ deeply impressed her colleagues.",
+        options: ["which", "that", "what"],
+        answer: "which",
+        explanation: "'Which' can refer to the entire preceding clause in a non-defining relative clause.",
+        fullExplanation: "'Which' can introduce a non-defining relative clause that refers back to the whole of the main clause (her act of donating). This 'sentential relative' is only possible with 'which'. 'That' cannot introduce non-defining relative clauses. 'What' cannot refer back to a previous clause.",
+        source: "Hewings, AGAU (3e), Unit 98",
+        flavor: "social"
+      },
+      {
+        id: "c1-rel-adv-06",
+        stem: "Tolstoy is a writer to ___ generations of readers have turned for moral and philosophical guidance.",
+        options: ["whom", "which", "that"],
+        answer: "whom",
+        explanation: "'Whom' is the formal object form of 'who' used after a fronted preposition.",
+        fullExplanation: "'To whom' places the preposition before the relative pronoun in formal written style. 'Readers have turned to (the writer)' → 'to whom readers have turned'. 'To which' refers to things. 'To that' is not used in formal clauses with a fronted preposition.",
+        source: "Murphy, EGU (4e), Unit 95",
+        flavor: "personalities"
+      },
+      {
+        id: "c1-rel-adv-07",
+        stem: "The Industrial Revolution, ___ is often dated from the 1760s, transformed working and living conditions.",
+        options: ["which", "that", "where"],
+        answer: "which",
+        explanation: "'Which' introduces a non-defining relative clause about the Industrial Revolution.",
+        fullExplanation: "'Which' is correct for things and events in non-defining relative clauses (set off by commas). 'That' cannot be used in non-defining relative clauses. 'Where' refers to places and cannot be the subject of 'is dated from'.",
+        source: "Murphy, EGU (4e), Unit 92",
+        flavor: "history"
+      },
+      {
+        id: "c1-rel-adv-08",
+        stem: "The gene responsible for the disorder had finally been identified, ___ made it possible to design a targeted therapy.",
+        options: ["which", "what", "that"],
+        answer: "which",
+        explanation: "'Which' refers back to the whole preceding clause, not just the gene.",
+        fullExplanation: "'Which' introduces a non-defining relative clause referring to the previous fact — the identification of the gene. This sentential relative is only possible with 'which'. 'What' cannot be used as a relative pronoun in this construction. 'That' cannot introduce non-defining relative clauses.",
+        source: "Hewings, AGAU (3e), Unit 98",
+        flavor: "science"
+      },
+      {
+        id: "c1-rel-adv-09",
+        stem: "The hotel hosted hundreds of guests, few ___ had complained about the service.",
+        options: ["of whom", "of which", "for whom"],
+        answer: "of whom",
+        explanation: "'Of whom' is used for the quantifier + relative pronoun construction with people.",
+        fullExplanation: "'Few of whom' = 'few of those guests'. 'Of whom' refers to people. 'Of which' refers to things, not hotel guests. 'For whom' would need a different meaning (e.g., 'guests for whom a room was reserved').",
+        source: "Murphy, EGU (4e), Unit 93",
+        flavor: "social"
+      },
+      {
+        id: "c1-rel-adv-10",
+        stem: "The era ___ Einstein lived saw the most dramatic advances in modern physics.",
+        options: ["in which", "of which", "for which"],
+        answer: "in which",
+        explanation: "'In which' = 'in the era when' — a formal alternative to 'when' for time periods.",
+        fullExplanation: "'In which' is a formal relative construction replacing 'when' for periods of time. 'The era in which Einstein lived' = 'the era when Einstein lived'. 'Of which' would show possession (the era's advances, not living in it). 'For which' would introduce reason or purpose, which does not fit.",
+        source: "Swan, PEU (4e), §493.2",
+        flavor: "personalities"
+      },
+      {
+        id: "c1-rel-adv-11",
+        stem: "The tunnel, through ___ troops had secretly passed for several months, was finally discovered by the patrol.",
+        options: ["which", "whom", "that"],
+        answer: "which",
+        explanation: "'Through which' is a formal preposition + relative pronoun for a thing.",
+        fullExplanation: "'Through which' is the formal written form. 'Troops had passed through the tunnel' → 'the tunnel through which troops had passed'. 'Through whom' refers to people, not tunnels. 'Through that' is not used when the preposition is fronted in formal written style.",
+        source: "Murphy, EGU (4e), Unit 95",
+        flavor: "history"
+      },
+      {
+        id: "c1-rel-adv-12",
+        stem: "The team tested twelve experimental compounds, none ___ proved effective against the pathogen.",
+        options: ["of which", "of whom", "in which"],
+        answer: "of which",
+        explanation: "'Of which' is used for a quantifier + relative pronoun construction with things.",
+        fullExplanation: "'None of which' = 'none of those twelve compounds'. 'Of which' refers to things or substances. 'Of whom' refers to people, not compounds. 'In which' would describe something happening inside the compounds, not a null result.",
+        source: "Murphy, EGU (4e), Unit 93",
+        flavor: "science"
+      }
+    ]
   }
 };

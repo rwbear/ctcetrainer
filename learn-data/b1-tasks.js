@@ -3562,5 +3562,261 @@ window.LEARN_TASKS_B1 = {
         flavor: "science"
       }
     ]
+  },
+  "b1-sub-gen": {
+    id: "b1-sub-gen",
+    name: "Subordinate clauses — general",
+    canonicalSubId: "cs-sub-general",
+    canonicalTopicId: "subordinate-clauses",
+    tasks: [
+      {
+        id: "b1-sub-gen-01",
+        stem: "I stayed at home ___ I was feeling unwell.",
+        options: ["because", "although", "while"],
+        answer: "because",
+        explanation: "'Because' gives the reason for staying at home.",
+        fullExplanation: "'Because' introduces a clause of reason. Feeling unwell is the cause of staying at home. 'Although' introduces a contrast (concession) and would mean the illness did not prevent going out. 'While' introduces a simultaneous action and does not express reason.",
+        source: "Murphy, EGU (4e), Unit 109",
+        flavor: "social"
+      },
+      {
+        id: "b1-sub-gen-02",
+        stem: "Nelson Mandela continued his campaign ___ he was imprisoned for 27 years.",
+        options: ["although", "because", "before"],
+        answer: "although",
+        explanation: "'Although' shows that imprisonment did not stop Mandela's campaign.",
+        fullExplanation: "'Although' introduces a concessive clause — the imprisonment did not stop his campaign. 'Because' would make imprisonment the reason for continuing, which is illogical. 'Before' implies a time sequence but does not capture the contrast between imprisonment and continued campaigning.",
+        source: "Murphy, EGU (4e), Unit 110",
+        flavor: "personalities"
+      },
+      {
+        id: "b1-sub-gen-03",
+        stem: "The soldiers stopped fighting ___ both sides signed the armistice.",
+        options: ["when", "because", "although"],
+        answer: "when",
+        explanation: "'When' marks the moment fighting stopped.",
+        fullExplanation: "'When' introduces a time clause showing that the two events happened in direct sequence. 'Because' would make the armistice the reason for stopping (also possible), but 'when' more precisely marks the turning point. 'Although' implies contrast and does not fit a factual sequence.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "history"
+      },
+      {
+        id: "b1-sub-gen-04",
+        stem: "Water freezes ___ the temperature falls below zero degrees Celsius.",
+        options: ["when", "although", "so that"],
+        answer: "when",
+        explanation: "'When' introduces the condition under which freezing occurs.",
+        fullExplanation: "'When' introduces a clause of time or condition. Water freezing at 0°C is a general scientific truth that occurs every time the condition is met. 'Although' implies contrast, which is illogical here. 'So that' introduces purpose, but the temperature dropping is not the purpose of freezing.",
+        source: "Swan, PEU (4e), §556.1",
+        flavor: "science"
+      },
+      {
+        id: "b1-sub-gen-05",
+        stem: "Finish your homework ___ you watch television.",
+        options: ["before", "although", "when"],
+        answer: "before",
+        explanation: "'Before' shows the homework must be done first, then TV.",
+        fullExplanation: "'Before' introduces a time clause showing one action must happen prior to another. The instruction is to finish homework first, then watch TV. 'Although' introduces contrast, which does not fit the command. 'When' would imply the two things happen at the same time, which contradicts the meaning.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "social"
+      },
+      {
+        id: "b1-sub-gen-06",
+        stem: "Malala Yousafzai continued to speak out ___ she could inspire others to fight for education.",
+        options: ["so that", "although", "when"],
+        answer: "so that",
+        explanation: "'So that' introduces the purpose of continuing to speak out.",
+        fullExplanation: "'So that' (+ subject + could/would) introduces a purpose clause. Malala's goal was to inspire others. 'Although' would introduce a contrast and does not express purpose. 'When' introduces a time clause, which does not explain motivation.",
+        source: "Murphy, EGU (4e), Unit 116",
+        flavor: "personalities"
+      },
+      {
+        id: "b1-sub-gen-07",
+        stem: "___ the Black Death spread across Europe, the population fell dramatically.",
+        options: ["As", "Although", "So that"],
+        answer: "As",
+        explanation: "'As' introduces a clause of simultaneous events.",
+        fullExplanation: "'As' can introduce a time clause where two events develop in parallel. As the plague spread, the population fell. 'Although' introduces contrast, but spreading and falling are not in contrast. 'So that' introduces purpose, which does not fit a historical description.",
+        source: "Swan, PEU (4e), §556.3",
+        flavor: "history"
+      },
+      {
+        id: "b1-sub-gen-08",
+        stem: "A caterpillar stays in its cocoon ___ it has fully developed into a butterfly.",
+        options: ["until", "although", "so that"],
+        answer: "until",
+        explanation: "'Until' marks the time limit up to which the caterpillar stays.",
+        fullExplanation: "'Until' introduces a time clause indicating that an action continues up to the point when another event occurs. The caterpillar stays in the cocoon right up until full development. 'Although' implies contrast and does not fit a biological process. 'So that' expresses purpose but staying in the cocoon is not a purpose.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "science"
+      },
+      {
+        id: "b1-sub-gen-09",
+        stem: "___ it was cold outside, she still went for a long run.",
+        options: ["Although", "Because", "When"],
+        answer: "Although",
+        explanation: "'Although' shows the cold did not prevent her from running.",
+        fullExplanation: "'Although' introduces a concessive clause — despite the cold, she still went running. 'Because' would mean the cold was her reason for running, which is illogical. 'When' would simply mark the time, not the contrast between weather and decision.",
+        source: "Murphy, EGU (4e), Unit 110",
+        flavor: "social"
+      },
+      {
+        id: "b1-sub-gen-10",
+        stem: "Beethoven kept composing ___ he had completely lost his hearing.",
+        options: ["after", "so that", "unless"],
+        answer: "after",
+        explanation: "'After' shows the time sequence: hearing loss first, then composition continued.",
+        fullExplanation: "'After' introduces a time clause showing that the composing happened subsequent to the hearing loss. This is a factual sequence. 'So that' introduces purpose, which does not describe timing. 'Unless' introduces a conditional meaning 'if not', which contradicts the fact that he did continue composing.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "personalities"
+      },
+      {
+        id: "b1-sub-gen-11",
+        stem: "The explorers made a detailed map ___ future travellers could find the route easily.",
+        options: ["so that", "although", "until"],
+        answer: "so that",
+        explanation: "'So that' introduces the purpose of making the map.",
+        fullExplanation: "'So that' (+ subject + could) introduces a purpose clause. The explorers made the map intending to help future travellers. 'Although' would introduce a contrast, but there is no contrast here. 'Until' introduces a time limit, which does not fit the purpose of creating a map.",
+        source: "Murphy, EGU (4e), Unit 116",
+        flavor: "history"
+      },
+      {
+        id: "b1-sub-gen-12",
+        stem: "You must not open the pressure valve ___ the gauge shows zero.",
+        options: ["until", "although", "so that"],
+        answer: "until",
+        explanation: "'Until' sets the time limit for keeping the valve closed.",
+        fullExplanation: "'Until' introduces a time clause indicating that something continues (the valve remaining closed) up to the moment when another condition is met. 'Although' introduces contrast, which does not fit a safety instruction. 'So that' expresses purpose and would change the meaning entirely.",
+        source: "Swan, PEU (4e), §583",
+        flavor: "science"
+      }
+    ]
+  },
+  "b1-rel-basic": {
+    id: "b1-rel-basic",
+    name: "Relative clauses — basic",
+    canonicalSubId: "cs-rel-basic",
+    canonicalTopicId: "subordinate-clauses",
+    tasks: [
+      {
+        id: "b1-rel-basic-01",
+        stem: "The woman ___ teaches my English class used to live in London.",
+        options: ["who", "which", "where"],
+        answer: "who",
+        explanation: "Use 'who' for a person as the subject of a defining relative clause.",
+        fullExplanation: "'Who' is the subject relative pronoun for people. 'The woman who teaches' correctly identifies which woman. 'Which' refers to things, not people. 'Where' refers to places and cannot be the subject of 'teaches'.",
+        source: "Murphy, EGU (4e), Unit 91",
+        flavor: "social"
+      },
+      {
+        id: "b1-rel-basic-02",
+        stem: "Michael Jackson, ___ was known as the King of Pop, sold millions of records.",
+        options: ["who", "which", "whose"],
+        answer: "who",
+        explanation: "Use 'who' in a non-defining relative clause about a named person.",
+        fullExplanation: "'Who' is correct for a person in a non-defining clause (set off by commas). 'Which' refers to things, not people. 'Whose' is possessive and cannot act as the subject of the clause here.",
+        source: "Murphy, EGU (4e), Unit 92",
+        flavor: "personalities"
+      },
+      {
+        id: "b1-rel-basic-03",
+        stem: "The Great Wall, ___ stretches thousands of kilometres, was built to protect China.",
+        options: ["which", "who", "where"],
+        answer: "which",
+        explanation: "Use 'which' in a non-defining relative clause about a thing.",
+        fullExplanation: "'Which' is correct for things in non-defining relative clauses (set off by commas). 'Who' is reserved for people. 'Where' refers to a place but cannot be the subject of 'stretches'.",
+        source: "Murphy, EGU (4e), Unit 92",
+        flavor: "history"
+      },
+      {
+        id: "b1-rel-basic-04",
+        stem: "The planet ___ orbits closest to the Sun is Mercury.",
+        options: ["that", "who", "where"],
+        answer: "that",
+        explanation: "Use 'that' in a defining relative clause about a thing.",
+        fullExplanation: "'That' is used in defining relative clauses about things. 'Who' is for people. 'Where' refers to places and cannot be the subject of 'orbits'.",
+        source: "Murphy, EGU (4e), Unit 91",
+        flavor: "science"
+      },
+      {
+        id: "b1-rel-basic-05",
+        stem: "This is the café ___ my parents first met.",
+        options: ["where", "which", "who"],
+        answer: "where",
+        explanation: "Use 'where' to refer to a place in a relative clause.",
+        fullExplanation: "'Where' (= in which) correctly refers to the café as a location. 'Which' could work only with a preposition ('at which'). 'Who' refers to people, not places.",
+        source: "Murphy, EGU (4e), Unit 93",
+        flavor: "social"
+      },
+      {
+        id: "b1-rel-basic-06",
+        stem: "The author ___ books have been translated into fifty languages is from Japan.",
+        options: ["whose", "who", "which"],
+        answer: "whose",
+        explanation: "Use 'whose' to show possession in a defining relative clause.",
+        fullExplanation: "'Whose' is the possessive relative pronoun. The books belong to the author, so 'whose' correctly links 'books' to 'author'. 'Who' acts as subject or object but cannot show possession. 'Which' refers to things and cannot show a person's possession.",
+        source: "Murphy, EGU (4e), Unit 93",
+        flavor: "personalities"
+      },
+      {
+        id: "b1-rel-basic-07",
+        stem: "Joan of Arc, ___ led the French army at Orléans, was burned at the stake in 1431.",
+        options: ["who", "which", "whose"],
+        answer: "who",
+        explanation: "Use 'who' in a non-defining relative clause about a named person.",
+        fullExplanation: "'Who' is the subject relative pronoun for a person in a non-defining clause. 'Which' refers to things, not people. 'Whose' is possessive and cannot be the subject of 'led'.",
+        source: "Murphy, EGU (4e), Unit 92",
+        flavor: "history"
+      },
+      {
+        id: "b1-rel-basic-08",
+        stem: "A thermometer is a device ___ measures temperature.",
+        options: ["that", "who", "where"],
+        answer: "that",
+        explanation: "Use 'that' in a defining relative clause about a thing.",
+        fullExplanation: "'That' is correct in a defining relative clause about a thing. 'Who' refers to people. 'Where' refers to places and cannot be the subject of 'measures'.",
+        source: "Murphy, EGU (4e), Unit 91",
+        flavor: "science"
+      },
+      {
+        id: "b1-rel-basic-09",
+        stem: "I have a neighbour ___ dog barks all night long.",
+        options: ["whose", "who", "which"],
+        answer: "whose",
+        explanation: "Use 'whose' to show that the dog belongs to the neighbour.",
+        fullExplanation: "'Whose' is the possessive relative pronoun used when the antecedent owns the following noun. 'Whose dog' = 'the neighbour's dog'. 'Who' would need to be followed by a verb directly. 'Which' cannot show possession in this way.",
+        source: "Murphy, EGU (4e), Unit 93",
+        flavor: "social"
+      },
+      {
+        id: "b1-rel-basic-10",
+        stem: "The president ___ spoke at the ceremony was elected last year.",
+        options: ["who", "which", "where"],
+        answer: "who",
+        explanation: "Use 'who' as the subject of a defining relative clause about a person.",
+        fullExplanation: "'Who' refers to a person and acts as the subject of the defining clause. 'Which' is for things. 'Where' refers to places and cannot be the subject of 'spoke'.",
+        source: "Murphy, EGU (4e), Unit 91",
+        flavor: "personalities"
+      },
+      {
+        id: "b1-rel-basic-11",
+        stem: "Rome is a city ___ history goes back more than two thousand years.",
+        options: ["whose", "which", "that"],
+        answer: "whose",
+        explanation: "Use 'whose' to show possession even for a place.",
+        fullExplanation: "'Whose' can refer to places as well as people. 'Rome whose history' = 'Rome's history'. 'Which' and 'that' cannot show possession; they would need a verb to follow them, not a noun.",
+        source: "Hewings, AGAU (3e), Unit 97",
+        flavor: "history"
+      },
+      {
+        id: "b1-rel-basic-12",
+        stem: "Gold is a metal ___ does not rust or corrode easily.",
+        options: ["that", "who", "whose"],
+        answer: "that",
+        explanation: "Use 'that' in a defining relative clause about a thing.",
+        fullExplanation: "'That' introduces a defining relative clause about a thing (metal). 'Who' is only for people. 'Whose' is possessive and would need a following noun, e.g. 'whose colour is yellow'.",
+        source: "Murphy, EGU (4e), Unit 91",
+        flavor: "science"
+      }
+    ]
   }
 };

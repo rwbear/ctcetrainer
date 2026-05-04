@@ -115,11 +115,13 @@
         { id: 'cs-ger-inf-meaning', name: 'Verbs that change meaning', levels: { ctce: null,        b1: null,           b2: 'b2-ger-inf-meaning',c1: null } }
       ]},
 
-      // ── 6. Relative Clauses ────────────────────────────────────────────
-      { id: 'relative-clauses', name: 'Relative Clauses', subtopics: [
-        { id: 'cs-rel-basic',  name: 'Relative clauses — basic',       levels: { ctce: 'mg-rel', b1: null, b2: null,             c1: null } },
-        { id: 'cs-rel-def',    name: 'Defining relative clauses',      levels: { ctce: null,     b1: null, b2: 'b2-rel-def',     c1: null } },
-        { id: 'cs-rel-nondef', name: 'Non-defining relative clauses',  levels: { ctce: null,     b1: null, b2: 'b2-rel-nondef',  c1: null } }
+      // ── 6. Subordinate Clauses ─────────────────────────────────────────
+      { id: 'subordinate-clauses', name: 'Subordinate Clauses', subtopics: [
+        { id: 'cs-sub-general', name: 'Subordinate clauses — general',  levels: { ctce: 'mg-sub-gen', b1: 'b1-sub-gen',   b2: 'b2-sub-gen',     c1: 'c1-sub-gen'  } },
+        { id: 'cs-rel-basic',   name: 'Relative clauses — basic',       levels: { ctce: 'mg-rel',     b1: 'b1-rel-basic', b2: null,             c1: null          } },
+        { id: 'cs-rel-def',     name: 'Defining relative clauses',      levels: { ctce: null,         b1: null,           b2: 'b2-rel-def',     c1: null          } },
+        { id: 'cs-rel-nondef',  name: 'Non-defining relative clauses',  levels: { ctce: null,         b1: null,           b2: 'b2-rel-nondef',  c1: null          } },
+        { id: 'cs-rel-adv',     name: 'Relative clauses — advanced',    levels: { ctce: null,         b1: null,           b2: null,             c1: 'c1-rel-adv'  } }
       ]},
 
       // ── 7. Comparatives & Superlatives ─────────────────────────────────

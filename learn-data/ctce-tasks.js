@@ -5197,7 +5197,7 @@ window.LEARN_TASKS_CTCE = {
     id: "mg-rel",
     name: "Relative clauses — basic",
     canonicalSubId: "cs-rel-basic",
-    canonicalTopicId: "relative-clauses",
+    canonicalTopicId: "subordinate-clauses",
     tasks: [
       {
         id: "mg-rel-01",
@@ -15067,6 +15067,254 @@ window.LEARN_TASKS_CTCE = {
         explanation: "B's pattern of 'every time we find the smallest thing, something smaller emerges' implies an open-ended frontier.",
         fullExplanation: "B replies 'Every time we think we've found the smallest thing, physics finds something smaller', describing a recurring pattern where apparent limits are surpassed. Option 2 contradicts B's open-ended framing; option 3 contradicts the clear statement that physics keeps 'finding something'; option 4 contradicts B's evident engagement with the question.",
         source: "CT/CE Trainer Practice, dialogue inference",
+        flavor: "science"
+      }
+    ]
+  },
+  "mg-sub-gen": {
+    id: "mg-sub-gen",
+    name: "Subordinate clauses — general",
+    canonicalSubId: "cs-sub-general",
+    canonicalTopicId: "subordinate-clauses",
+    tasks: [
+      {
+        id: "mg-sub-gen-01",
+        stem: "I had to leave the party early ___ I had an important meeting the next morning.",
+        options: ["because", "although", "while"],
+        answer: "because",
+        explanation: "'Because' gives the reason for leaving early.",
+        fullExplanation: "'Because' introduces a clause of reason. Having a meeting is the cause of leaving early. 'Although' would introduce a contrast, implying the meeting did not actually cause the early departure. 'While' introduces a simultaneous action, not a reason.",
+        source: "Murphy, EGU (4e), Unit 109",
+        flavor: "social"
+      },
+      {
+        id: "mg-sub-gen-02",
+        stem: "Please switch off your mobile phone ___ you are sitting in the cinema.",
+        options: ["while", "because", "so that"],
+        answer: "while",
+        explanation: "'While' introduces a time clause for the duration of the film.",
+        fullExplanation: "'While' introduces a time clause of duration: during the time you are in the cinema. 'Because' would give a reason but 'while you are in the cinema' more naturally sets the time frame for the rule. 'So that' introduces purpose (+ subject + can/could) and would need restructuring.",
+        source: "Swan, PEU (4e), §556.1",
+        flavor: "social"
+      },
+      {
+        id: "mg-sub-gen-03",
+        stem: "___ it was getting dark, she quickened her pace along the empty street.",
+        options: ["As", "Although", "So that"],
+        answer: "As",
+        explanation: "'As' introduces a simultaneous time clause.",
+        fullExplanation: "'As' (= at the same time that) introduces a time clause of simultaneous action. Getting dark and quickening pace happened together. 'Although' introduces a contrast, which does not fit — darkness is not in contrast with walking faster. 'So that' expresses purpose, not simultaneous action.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "social"
+      },
+      {
+        id: "mg-sub-gen-04",
+        stem: "I wrote down the address ___ I would not forget it on the way.",
+        options: ["so that", "although", "unless"],
+        answer: "so that",
+        explanation: "'So that' introduces the purpose of writing down the address.",
+        fullExplanation: "'So that' (+ subject + would) introduces a purpose clause. Writing the address down is done to prevent forgetting it. 'Although' would introduce contrast. 'Unless' introduces a conditional meaning 'if not', which does not fit the purpose meaning.",
+        source: "Murphy, EGU (4e), Unit 116",
+        flavor: "social"
+      },
+      {
+        id: "mg-sub-gen-05",
+        stem: "We waited at the station ___ the last passenger had finally boarded the train.",
+        options: ["until", "so that", "although"],
+        answer: "until",
+        explanation: "'Until' marks the time limit for waiting.",
+        fullExplanation: "'Until' introduces a time clause showing that one situation (waiting) continued right up to the moment when another event (boarding) occurred. 'So that' expresses purpose. 'Although' expresses concession, which does not fit a description of waiting.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "social"
+      },
+      {
+        id: "mg-sub-gen-06",
+        stem: "___ the food at the wedding reception was excellent, the music was far too loud for conversation.",
+        options: ["Although", "Because", "When"],
+        answer: "Although",
+        explanation: "'Although' introduces a concessive clause: good food did not solve the music problem.",
+        fullExplanation: "'Although' introduces a contrast between a positive fact (good food) and a negative one (loud music). 'Because' would make the good food the cause of the loud music, which is illogical. 'When' introduces a time clause and does not express contrast.",
+        source: "Murphy, EGU (4e), Unit 110",
+        flavor: "social"
+      },
+      {
+        id: "mg-sub-gen-07",
+        stem: "Florence Nightingale worked tirelessly day and night ___ conditions in field hospitals could be improved.",
+        options: ["so that", "although", "because"],
+        answer: "so that",
+        explanation: "'So that' introduces the purpose motivating Nightingale's work.",
+        fullExplanation: "'So that' (+ subject + could) introduces purpose. Nightingale's goal was to improve hospital conditions. 'Although' would introduce a contrast. 'Because' gives a reason, but conditions were not the reason for her work — they were its goal.",
+        source: "Murphy, EGU (4e), Unit 116",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-sub-gen-08",
+        stem: "Cleopatra learned several languages ___ she could communicate directly with foreign leaders.",
+        options: ["so that", "until", "although"],
+        answer: "so that",
+        explanation: "'So that' introduces the purpose of learning the languages.",
+        fullExplanation: "'So that' (+ subject + could) expresses purpose. Cleopatra's goal in learning languages was to communicate with foreign leaders. 'Until' introduces a time limit, not a purpose. 'Although' introduces concession, which does not fit a description of motivation.",
+        source: "Murphy, EGU (4e), Unit 116",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-sub-gen-09",
+        stem: "Alexander the Great continued his military campaigns ___ he had conquered an enormous empire.",
+        options: ["until", "because", "so that"],
+        answer: "until",
+        explanation: "'Until' marks the time limit for the campaigns.",
+        fullExplanation: "'Until' introduces a time clause. The campaigns continued right up until the empire was fully built. 'Because' would give a reason, but the empire was the result, not the cause. 'So that' would express purpose but does not fit the temporal sequence.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-sub-gen-10",
+        stem: "Mozart composed his very first symphony ___ he was just eight years old.",
+        options: ["when", "although", "so that"],
+        answer: "when",
+        explanation: "'When' marks the time at which the composition happened.",
+        fullExplanation: "'When' introduces a time clause marking the moment at which an event occurred. 'When he was eight' states the age precisely. 'Although' would introduce a contrast (implying surprise), but the sentence presents a fact, not a contrast. 'So that' expresses purpose and does not fit.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-sub-gen-11",
+        stem: "Roald Dahl started writing stories for children ___ he began telling tales to his own children at bedtime.",
+        options: ["after", "although", "so that"],
+        answer: "after",
+        explanation: "'After' marks the time sequence of his career start.",
+        fullExplanation: "'After' introduces a time clause showing that his writing for children happened subsequent to telling bedtime stories. 'Although' introduces contrast, not sequence. 'So that' expresses purpose, but the bedtime stories were not the purpose of his writing career.",
+        source: "Swan, PEU (4e), §556.2",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-sub-gen-12",
+        stem: "Amelia Earhart trained as a pilot ___ women were rarely accepted in aviation at that time.",
+        options: ["although", "because", "so that"],
+        answer: "although",
+        explanation: "'Although' shows that gender barriers did not prevent her training.",
+        fullExplanation: "'Although' introduces a concessive clause — women being rarely accepted did not stop her. 'Because' would make gender barriers the reason for training, which is the opposite of the intended meaning. 'So that' expresses purpose and does not fit the contrast.",
+        source: "Murphy, EGU (4e), Unit 110",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-sub-gen-13",
+        stem: "The Aztec Empire collapsed ___ the Spanish conquistadors arrived in 1519.",
+        options: ["after", "although", "so that"],
+        answer: "after",
+        explanation: "'After' marks the time sequence: the arrival preceded the collapse.",
+        fullExplanation: "'After' introduces a time clause showing that the collapse came subsequent to the Spanish arrival. 'Although' would introduce a contrast — implying the Spanish arrival did not cause the collapse, which is historically inaccurate. 'So that' expresses purpose, which does not fit a historical event.",
+        source: "Swan, PEU (4e), §556.2",
+        flavor: "history"
+      },
+      {
+        id: "mg-sub-gen-14",
+        stem: "The Berlin Wall was built ___ East Germans could not escape to the West.",
+        options: ["so that", "although", "when"],
+        answer: "so that",
+        explanation: "'So that' introduces the (negative) purpose of building the wall.",
+        fullExplanation: "'So that ... could not' expresses the negative purpose. The wall was built to prevent escape. 'Although' introduces a contrast. 'When' introduces a time clause, not a purpose.",
+        source: "Murphy, EGU (4e), Unit 116",
+        flavor: "history"
+      },
+      {
+        id: "mg-sub-gen-15",
+        stem: "___ the great fire spread rapidly through the city, the firefighters struggled to contain it.",
+        options: ["As", "Although", "So that"],
+        answer: "As",
+        explanation: "'As' introduces a simultaneous time clause: spreading and struggling happened together.",
+        fullExplanation: "'As' (= at the same time that / while) introduces a time clause of simultaneous events. The spreading of the fire and the firefighters' struggle happened simultaneously. 'Although' introduces contrast. 'So that' introduces purpose, which does not fit a factual description.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "history"
+      },
+      {
+        id: "mg-sub-gen-16",
+        stem: "The peace talks collapsed ___ both sides refused to compromise on the key issues.",
+        options: ["because", "although", "so that"],
+        answer: "because",
+        explanation: "'Because' gives the reason for the collapse of the talks.",
+        fullExplanation: "'Because' introduces a clause of reason. The refusal to compromise is the cause of the talks collapsing. 'Although' would introduce a contrast, implying the refusal did not cause the collapse. 'So that' expresses purpose, not reason.",
+        source: "Murphy, EGU (4e), Unit 109",
+        flavor: "history"
+      },
+      {
+        id: "mg-sub-gen-17",
+        stem: "The expedition members kept detailed journals ___ their discoveries would not be lost or forgotten.",
+        options: ["so that", "although", "until"],
+        answer: "so that",
+        explanation: "'So that' introduces the purpose of keeping the journals.",
+        fullExplanation: "'So that ... would not' expresses purpose. Keeping journals was done to preserve the discoveries for the future. 'Although' introduces contrast. 'Until' introduces a time limit, which does not match the purpose.",
+        source: "Murphy, EGU (4e), Unit 116",
+        flavor: "history"
+      },
+      {
+        id: "mg-sub-gen-18",
+        stem: "Julius Caesar crossed the Rubicon ___ doing so was strictly forbidden under Roman law.",
+        options: ["although", "because", "so that"],
+        answer: "although",
+        explanation: "'Although' shows the law did not stop Caesar.",
+        fullExplanation: "'Although' introduces a concessive clause showing contrast. Caesar crossed despite the law — the law did not prevent him. 'Because' would make the illegality a reason for crossing, the opposite meaning. 'So that' expresses purpose.",
+        source: "Murphy, EGU (4e), Unit 110",
+        flavor: "history"
+      },
+      {
+        id: "mg-sub-gen-19",
+        stem: "The human heart pumps faster ___ a person exercises strenuously.",
+        options: ["when", "although", "so that"],
+        answer: "when",
+        explanation: "'When' introduces the condition for the increased heart rate.",
+        fullExplanation: "'When' introduces a time/conditional clause. Faster pumping and strenuous exercise happen together as direct response. 'Although' would introduce a contrast, implying exercise does not cause an increase, which is scientifically incorrect. 'So that' expresses purpose.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "science"
+      },
+      {
+        id: "mg-sub-gen-20",
+        stem: "Plants release oxygen ___ they convert carbon dioxide and sunlight into chemical energy.",
+        options: ["as", "although", "until"],
+        answer: "as",
+        explanation: "'As' introduces a simultaneous process clause.",
+        fullExplanation: "'As' introduces a clause of simultaneous process. Plants release oxygen as part of — and at the same time as — the conversion process (photosynthesis). 'Although' would introduce a contrast, implying the conversion does not produce oxygen, which is incorrect. 'Until' introduces a time limit, which does not fit a continuous biological process.",
+        source: "Swan, PEU (4e), §556.3",
+        flavor: "science"
+      },
+      {
+        id: "mg-sub-gen-21",
+        stem: "Scientists recorded the data carefully ___ future researchers could replicate the experiment exactly.",
+        options: ["so that", "although", "when"],
+        answer: "so that",
+        explanation: "'So that' introduces the purpose of careful data recording.",
+        fullExplanation: "'So that' (+ subject + could) introduces purpose. The purpose of careful recording is to enable future replication. 'Although' would introduce contrast. 'When' would mark a time, not a purpose.",
+        source: "Murphy, EGU (4e), Unit 116",
+        flavor: "science"
+      },
+      {
+        id: "mg-sub-gen-22",
+        stem: "The volcano had been dormant for centuries ___ it finally erupted in 1815.",
+        options: ["before", "although", "so that"],
+        answer: "before",
+        explanation: "'Before' marks the time sequence: dormancy preceded the eruption.",
+        fullExplanation: "'Before' introduces a time clause showing one state (dormancy) that existed prior to another event (the eruption). The volcano was dormant and then erupted. 'Although' would introduce a contrast, implying dormancy and eruption coincided. 'So that' expresses purpose, which does not fit a natural event.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "science"
+      },
+      {
+        id: "mg-sub-gen-23",
+        stem: "A fuse melts and breaks the circuit ___ the electrical current becomes too high.",
+        options: ["when", "so that", "although"],
+        answer: "when",
+        explanation: "'When' introduces the trigger condition for fuse melting.",
+        fullExplanation: "'When' introduces a time/conditional clause. The fuse melts whenever the current exceeds the safe level — a cause-and-effect relationship expressed by 'when'. 'So that' would make the high current the purpose of the fuse melting, which is incorrect. 'Although' would introduce a contrast.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "science"
+      },
+      {
+        id: "mg-sub-gen-24",
+        stem: "The vaccine was stored at very low temperatures ___ it would remain effective until use.",
+        options: ["so that", "although", "before"],
+        answer: "so that",
+        explanation: "'So that' (+ subject + would) introduces purpose.",
+        fullExplanation: "'So that ... would' introduces a purpose clause. Low storage temperatures were used in order to preserve the vaccine's effectiveness. 'Although' introduces contrast. 'Before' would mark a time sequence, but the temperature was maintained throughout, not only beforehand.",
+        source: "Murphy, EGU (4e), Unit 116",
         flavor: "science"
       }
     ]

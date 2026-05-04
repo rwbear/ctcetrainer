@@ -2266,7 +2266,7 @@ window.LEARN_TASKS_B2 = {
     id: "b2-rel-def",
     name: "Defining relative clauses",
     canonicalSubId: "cs-rel-def",
-    canonicalTopicId: "relative-clauses",
+    canonicalTopicId: "subordinate-clauses",
     tasks: [
       {
         id: "b2-rel-def-01",
@@ -2395,7 +2395,7 @@ window.LEARN_TASKS_B2 = {
     id: "b2-rel-nondef",
     name: "Non-defining relative clauses",
     canonicalSubId: "cs-rel-nondef",
-    canonicalTopicId: "relative-clauses",
+    canonicalTopicId: "subordinate-clauses",
     tasks: [
       {
         id: "b2-rel-nondef-01",
@@ -4183,6 +4183,134 @@ window.LEARN_TASKS_B2 = {
         fullExplanation: "'Accelerated' is the correct passive past participle forming a conditional participial clause. 'Accelerating' is active and implies the electrons are accelerating themselves without external cause, which is technically imprecise. 'They accelerate' is a finite clause and cannot form an adverbial participial clause.",
         source: "Hewings, Advanced Grammar in Use (3e), Unit 98",
         hint: "accelerate",
+        flavor: "science"
+      }
+    ]
+  },
+  "b2-sub-gen": {
+    id: "b2-sub-gen",
+    name: "Subordinate clauses — general",
+    canonicalSubId: "cs-sub-general",
+    canonicalTopicId: "subordinate-clauses",
+    tasks: [
+      {
+        id: "b2-sub-gen-01",
+        stem: "You can stay out late ___ you let me know where you are.",
+        options: ["as long as", "despite", "in case"],
+        answer: "as long as",
+        explanation: "'As long as' introduces a condition: late nights are allowed on one condition.",
+        fullExplanation: "'As long as' is a conditional connector meaning 'on the condition that'. The permission depends on communicating location. 'Despite' is a preposition of concession (+ noun/-ing) and cannot introduce a finite clause here. 'In case' is used for precautionary actions and does not fit a conditional permission.",
+        source: "Murphy, EGU (4e), Unit 111",
+        flavor: "social"
+      },
+      {
+        id: "b2-sub-gen-02",
+        stem: "Charles Darwin published his findings ___ facing strong opposition from religious institutions.",
+        options: ["despite", "although", "so as to"],
+        answer: "despite",
+        explanation: "'Despite' + -ing introduces a concessive phrase showing opposition did not prevent publication.",
+        fullExplanation: "'Despite' is a preposition of concession followed by a noun phrase or -ing form. 'Despite facing opposition' = 'even though he faced opposition'. 'Although' introduces a finite clause (+ subject + verb), not an -ing form. 'So as to' introduces purpose, which does not express concession.",
+        source: "Swan, PEU (4e), §164",
+        flavor: "personalities"
+      },
+      {
+        id: "b2-sub-gen-03",
+        stem: "The Allied forces landed on the beaches ___ the German defences had been heavily bombarded.",
+        options: ["only after", "in case", "so as to"],
+        answer: "only after",
+        explanation: "'Only after' introduces the time condition that had to be met before landing.",
+        fullExplanation: "'Only after' introduces a time clause emphasising that the landing happened subsequent to — and required — the prior bombardment. 'In case' is precautionary and does not express sequence. 'So as to' is a purpose connector (+ infinitive) and does not mark temporal sequence.",
+        source: "Swan, PEU (4e), §556.2",
+        flavor: "history"
+      },
+      {
+        id: "b2-sub-gen-04",
+        stem: "The lab kept a backup power supply ___ the main generator failed during an experiment.",
+        options: ["in case", "so as to", "whereas"],
+        answer: "in case",
+        explanation: "'In case' introduces a clause of precaution against a possible event.",
+        fullExplanation: "'In case' is used for precautionary measures taken against a possible (usually negative) event. The backup exists to protect against generator failure. 'So as to' expresses purpose and is followed by an infinitive, not a finite clause. 'Whereas' introduces contrast between two facts, which does not fit a precaution.",
+        source: "Murphy, EGU (4e), Unit 112",
+        flavor: "science"
+      },
+      {
+        id: "b2-sub-gen-05",
+        stem: "The north of the country has a humid climate ___ the south is hot and dry.",
+        options: ["whereas", "in case", "despite"],
+        answer: "whereas",
+        explanation: "'Whereas' introduces a contrast between two parallel situations.",
+        fullExplanation: "'Whereas' is a subordinating conjunction of contrast, used to highlight a difference between two parallel facts. The humid north versus the hot, dry south is exactly this kind of contrast. 'In case' is precautionary. 'Despite' is a preposition of concession followed by a noun/-ing form, not a finite clause.",
+        source: "Murphy, EGU (4e), Unit 113",
+        flavor: "social"
+      },
+      {
+        id: "b2-sub-gen-06",
+        stem: "The scientist kept her research secret ___ a rival group should steal her findings.",
+        options: ["in case", "despite", "so as to"],
+        answer: "in case",
+        explanation: "'In case' introduces the precautionary reason for secrecy.",
+        fullExplanation: "'In case' is used when taking a precautionary action to guard against a possible risk. The scientist kept the research secret to prevent the risk of theft. 'Despite' introduces concession (a fact that does not prevent something) and does not express precaution. 'So as to' expresses direct purpose with an infinitive: 'so as to protect...'.",
+        source: "Murphy, EGU (4e), Unit 112",
+        flavor: "personalities"
+      },
+      {
+        id: "b2-sub-gen-07",
+        stem: "The population had doubled ___ the government realised the housing shortage was critical.",
+        options: ["by the time", "despite", "whereas"],
+        answer: "by the time",
+        explanation: "'By the time' introduces a clause showing what had already happened by the moment of realisation.",
+        fullExplanation: "'By the time' introduces a time clause meaning 'before the moment when'. The population had doubled before the government acted, expressed by the Past Perfect + 'by the time' + Past Simple. 'Despite' introduces concession with a noun/-ing form. 'Whereas' introduces contrast between two simultaneous situations.",
+        source: "Hewings, AGAU (3e), Unit 88",
+        flavor: "history"
+      },
+      {
+        id: "b2-sub-gen-08",
+        stem: "The engineers designed a lightweight frame ___ reduce fuel consumption.",
+        options: ["so as to", "whereas", "in case"],
+        answer: "so as to",
+        explanation: "'So as to' + infinitive expresses purpose.",
+        fullExplanation: "'So as to' + infinitive expresses purpose. The frame was designed lightweight in order to lower fuel consumption. 'Whereas' introduces contrast, which does not express purpose. 'In case' is precautionary and is followed by a finite clause, not an infinitive.",
+        source: "Swan, PEU (4e), §412.3",
+        flavor: "science"
+      },
+      {
+        id: "b2-sub-gen-09",
+        stem: "___ the new bypass road was opened, the journey time into the city was halved.",
+        options: ["Once", "Despite", "In case"],
+        answer: "Once",
+        explanation: "'Once' introduces a time clause meaning 'as soon as / after the moment when'.",
+        fullExplanation: "'Once' introduces a time clause showing the point after which everything changed. The road was opened and journey times immediately improved. 'Despite' is a preposition of concession and cannot introduce a finite clause. 'In case' is precautionary and implies uncertainty about whether the event will occur.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "social"
+      },
+      {
+        id: "b2-sub-gen-10",
+        stem: "Rosa Parks refused to give up her seat ___ it was clearly against the rules of the transport system.",
+        options: ["even though", "in case", "so as to"],
+        answer: "even though",
+        explanation: "'Even though' introduces a strong concession.",
+        fullExplanation: "'Even though' is a stronger form of 'although', emphasising that the obstacle (the rules) did not prevent the action (refusing to give up the seat). 'In case' is precautionary and does not express defiance. 'So as to' expresses purpose with an infinitive.",
+        source: "Murphy, EGU (4e), Unit 110",
+        flavor: "personalities"
+      },
+      {
+        id: "b2-sub-gen-11",
+        stem: "The two empires traded peacefully for centuries ___ frequently competing for the same territories.",
+        options: ["despite", "although", "whereas"],
+        answer: "despite",
+        explanation: "'Despite' + -ing introduces a concession with continuous trade despite competition.",
+        fullExplanation: "'Despite' + -ing form expresses concession without a finite clause. 'Despite frequently competing' = 'even though they frequently competed'. 'Although' introduces a finite clause (+ subject + verb) and cannot be followed directly by -ing. 'Whereas' introduces contrast but separates two situations, not parallel facts.",
+        source: "Swan, PEU (4e), §164",
+        flavor: "history"
+      },
+      {
+        id: "b2-sub-gen-12",
+        stem: "The bridge was reinforced ___ it could bear the weight of heavy lorries.",
+        options: ["so that", "in case", "despite"],
+        answer: "so that",
+        explanation: "'So that' (+ subject + could) introduces a purpose clause.",
+        fullExplanation: "'So that' (+ subject + could/would) introduces a purpose clause. The reinforcement was done in order to enable the bridge to bear heavy loads. 'In case' is precautionary and is used when the event is uncertain. 'Despite' introduces concession with a noun/-ing form.",
+        source: "Murphy, EGU (4e), Unit 116",
         flavor: "science"
       }
     ]
