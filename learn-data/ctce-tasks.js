@@ -1012,7 +1012,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-pst-s-29",
         stem: "The more you sweat in practice, the less you ___ in battle.",
-        options: ["bleed", "has bled", "bles"],
+        options: ["bleed", "have bled", "bled"],
         answer: "bleed",
         explanation: "The natural choice here is 'bleed'.",
         fullExplanation: "In this quote by George S. Patton, 'bleed' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -2340,7 +2340,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-pastperf-25",
         stem: "By the time Tom Brady became famous, they ___ already mastered their craft.",
-        options: ["had", "have", "has"],
+        options: ["had", "have", "would have"],
         answer: "had",
         explanation: "The natural choice here is 'had'.",
         fullExplanation: "In this quote by Tom Brady, 'had' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -2351,7 +2351,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-pastperf-26",
         stem: "By the time Anthony Bourdain became famous, they ___ already mastered their craft.",
-        options: ["had", "have", "has"],
+        options: ["had", "have", "would have"],
         answer: "had",
         explanation: "The natural choice here is 'had'.",
         fullExplanation: "In this quote by Anthony Bourdain, 'had' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -2362,7 +2362,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-pastperf-27",
         stem: "By the time Charles Darwin became famous, they ___ already mastered their craft.",
-        options: ["had", "have", "has"],
+        options: ["had", "have", "would have"],
         answer: "had",
         explanation: "The natural choice here is 'had'.",
         fullExplanation: "In this quote by Charles Darwin, 'had' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -2373,7 +2373,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-pastperf-28",
         stem: "By the time Marilyn Monroe became famous, they ___ already mastered their craft.",
-        options: ["had", "have", "has"],
+        options: ["had", "have", "would have"],
         answer: "had",
         explanation: "The natural choice here is 'had'.",
         fullExplanation: "In this quote by Marilyn Monroe, 'had' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -2384,7 +2384,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-pastperf-29",
         stem: "By the time Kurt Vonnegut became famous, they ___ already mastered their craft.",
-        options: ["had", "have", "has"],
+        options: ["had", "have", "would have"],
         answer: "had",
         explanation: "The natural choice here is 'had'.",
         fullExplanation: "In this quote by Kurt Vonnegut, 'had' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -2395,7 +2395,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-pastperf-30",
         stem: "By the time Buddha became famous, they ___ already mastered their craft.",
-        options: ["had", "have", "has"],
+        options: ["had", "have", "would have"],
         answer: "had",
         explanation: "The natural choice here is 'had'.",
         fullExplanation: "In this quote by Buddha, 'had' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -2678,7 +2678,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-fut-will-25",
         stem: "Improve your spare moments and they ___ the brightest gems in your life.",
-        options: ["will become", "is going to become", "is becoming"],
+        options: ["will become", "are going to become", "would become"],
         answer: "will become",
         explanation: "The natural choice here is 'will become'.",
         fullExplanation: "In this quote by Hedy Lamarr, 'will become' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -2701,15 +2701,15 @@ window.LEARN_TASKS_CTCE = {
       },
       {
         id: "vt-fut-will-27",
-        stem: "Most people have the will to win; few have the ___ prepare to win.",
-        options: ["will to", "is going to to", "is toing"],
-        answer: "will to",
-        explanation: "The natural choice here is 'will to'.",
-        fullExplanation: "In this quote by Bobby Knight, 'will to' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
-        source: "Direct quote — Bobby Knight",
-        hint: "to",
+        stem: "There ___ a player greater than me.",
+        options: ["will be", "is going to be", "is being"],
+        answer: "will be",
+        explanation: "The natural choice here is 'will be'.",
+        fullExplanation: "In this quote by Michael Jordan, 'will be' states a future prediction with the existential 'there'. 'Is going to be' would imply present evidence; 'is being' is a present-continuous form unsuitable for a future statement.",
+        source: "Direct quote — Michael Jordan",
+        hint: "be",
         flavor: "quotes",
-        author: "Bobby Knight"
+        author: "Michael Jordan"
       },
       {
         id: "vt-fut-will-28",
@@ -2725,15 +2725,15 @@ window.LEARN_TASKS_CTCE = {
       },
       {
         id: "vt-fut-will-29",
-        stem: "It's not the ___ win that matters - everyone has that. It's the will to prepare to win that matters.",
-        options: ["will to", "is going to to", "is toing"],
-        answer: "will to",
-        explanation: "The natural choice here is 'will to'.",
-        fullExplanation: "In this quote by Paul Bryant, 'will to' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
-        source: "Direct quote — Paul Bryant",
-        hint: "to",
+        stem: "If you can see it here and you have the courage enough to speak it, it ___.",
+        options: ["will happen", "is going to happen", "is happening"],
+        answer: "will happen",
+        explanation: "The natural choice here is 'will happen'.",
+        fullExplanation: "In this first-conditional quote by Conor McGregor, the result clause uses 'will happen' to express a confident future outcome. 'Is going to happen' implies pre-existing evidence rather than belief; 'is happening' is present-continuous and does not fit the conditional structure.",
+        source: "Direct quote — Conor McGregor",
+        hint: "happen",
         flavor: "quotes",
-        author: "Paul Bryant"
+        author: "Conor McGregor"
       },
       {
         id: "vt-fut-will-30",
@@ -3022,7 +3022,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-fut-going-25",
         stem: "When I was young, my mindset was image, image, image. I took that approach with the media. As I became more experienced I realized: No matter what, people ___ you or not like you. So be authentic.",
-        options: ["are going to like", "will like", "is liking"],
+        options: ["are going to like", "will like", "would like"],
         answer: "are going to like",
         explanation: "The natural choice here is 'are going to like'.",
         fullExplanation: "In this quote by Kobe Bryant, 'are going to like' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -3034,7 +3034,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-fut-going-26",
         stem: "People ___ about you no matter what. So you might as well give them something to talk about.",
-        options: ["are going to talk", "will talk", "is talking"],
+        options: ["are going to talk", "will talk", "would talk"],
         answer: "are going to talk",
         explanation: "The natural choice here is 'are going to talk'.",
         fullExplanation: "In this quote by Florence Pugh, 'are going to talk' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -3487,7 +3487,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "vt-pass-pst-05",
         stem: "Romeo and Juliet ___ by William Shakespeare in the late sixteenth century.",
-        options: ["was written", "wrote", "is written"],
+        options: ["was written", "has been written", "had been written"],
         answer: "was written",
         explanation: "Passive Past: the play received the action of being written.",
         fullExplanation: "'Was written' (was + past participle) correctly expresses the completed past passive for a singular work. 'Wrote' is active and needs Shakespeare as subject. 'Is written' is Passive Present and contradicts the historical time frame.",
@@ -5411,7 +5411,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "mg-cond-1-25",
         stem: "It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you___ things differently.",
-        options: ["will do", "would do", "does"],
+        options: ["will do", "would do", "are doing"],
         answer: "will do",
         explanation: "The natural choice here is 'will do'.",
         fullExplanation: "In this quote by Warren Buffett, 'will do' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -13388,7 +13388,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "err-art-08",
         stem: "The light from the Sun takes approximately eight a minutes to reach the Earth's surface. Find the redundant word: ___",
-        options: ["a", "The", "the"],
+        options: ["a", "the", "an"],
         answer: "a",
         explanation: "'Eight minutes' takes no article; 'a' between 'eight' and 'minutes' is redundant.",
         fullExplanation: "The indefinite article 'a' can precede 'minute' in singular ('a minute'), but not when a numeral like 'eight' is used. 'Eight minutes' stands alone without any article. 'A' is therefore redundant. 'The', 'the', and 'approximately' are all correctly used.",
@@ -13408,7 +13408,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "err-art-10",
         stem: "The invention of the printing press in the 1440s changed a history of communication forever. Find the redundant word: ___",
-        options: ["a", "The", "the"],
+        options: ["a", "the", "an"],
         answer: "a",
         explanation: "'History of communication' needs 'the', not 'a'; 'a' before 'history' is the redundant article.",
         fullExplanation: "When referring to 'the history of communication' as a specific, unique body of events, the definite article 'the' is required. Using 'a history' implies one of many possible histories, which is not the intended meaning. 'A' is the wrong and redundant article here. The other articles and 'of' are correctly used.",
@@ -13468,7 +13468,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "err-art-16",
         stem: "The gravity pulls all objects towards the centre of the Earth at the same rate in a vacuum. Find the redundant word: ___",
-        options: ["The", "the", "a"],
+        options: ["the", "a", "an"],
         answer: "The",
         explanation: "'The gravity' as a general physical phenomenon should take zero article; 'The' at the start is redundant.",
         fullExplanation: "When referring to gravity as a universal force in general, English uses zero article: 'Gravity pulls objects'. 'The gravity' would refer to a specific gravitational field. For a scientific generalisation, 'The' before 'gravity' is redundant. 'The' (before 'centre'), 'a', and 'same' are all correctly used.",
@@ -13508,7 +13508,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "err-art-20",
         stem: "The scientists agree that a carbon dioxide is the main driver of current global warming. Find the redundant word: ___",
-        options: ["a", "The", "the"],
+        options: ["a", "the", "an"],
         answer: "a",
         explanation: "'A carbon dioxide' is wrong; as a substance in general, 'carbon dioxide' takes zero article.",
         fullExplanation: "Uncountable substances in general statements take zero article: 'carbon dioxide is the main driver'. 'A carbon dioxide' incorrectly treats the substance as a countable noun. 'The' (before 'scientists'), 'the' (before 'main driver'), and 'current' are all correctly used.",
@@ -13528,7 +13528,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "err-art-22",
         stem: "The Roman roads were a built to connect the vast territories of the empire efficiently. Find the redundant word: ___",
-        options: ["a", "The", "the"],
+        options: ["a", "the", "an"],
         answer: "a",
         explanation: "'Were a built' inserts the indefinite article between auxiliary and past participle; 'a' is redundant.",
         fullExplanation: "The passive construction 'were built' needs no article between the auxiliary and the past participle. 'Were a built' is ungrammatical. 'The' (before 'Roman'), 'the' (before 'vast'), and 'vast' are all correctly used.",

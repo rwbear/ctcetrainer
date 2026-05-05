@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.19 · Quotes flavor rebuild (corpus-driven, 597 tasks, real-author bylines)
-     Brand chip in-app shows “v10.19”. Build version is in this comment.
-     Build: v10.19
+     v10.20 · Learn polish — distractor SV-agreement fixes (28), gap-chip render,
+             type-in normalization (contractions, punctuation, BrE/AmE), long-option
+             chip layout. v10.19 corpus carried forward unchanged.
+     Brand chip in-app shows “v10.20”. Build version is in this comment.
+     Build: v10.20
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -3301,6 +3303,31 @@ mark.gap-sentence-hl{
 /* v8: split sentence + muted directive prompt onto separate lines */
 .lpr-stem .lpr-stem-sentence{display:block;}
 .lpr-stem .lpr-stem-prompt{display:block;margin-top:8px;font-size:.82rem;color:color-mix(in srgb,var(--text) 55%,transparent);font-style:italic;letter-spacing:.01em;}
+/* v10.20: gap chip — “___” in stem becomes a small inline pill so the user sees
+   the answer slot at a glance instead of three underscores. The pill has a fixed
+   minimum width, dashed bottom edge, and a subtle highlight in type-in mode. */
+.lpr-stem .lpr-gap{
+  display:inline-block;
+  min-width:54px;
+  padding:0 6px;
+  margin:0 2px;
+  font-weight:600;
+  color:color-mix(in srgb,var(--text) 55%,transparent);
+  background:color-mix(in srgb,var(--accent) 8%,transparent);
+  border:1px solid color-mix(in srgb,var(--accent) 30%,var(--border));
+  border-bottom:1.5px dashed color-mix(in srgb,var(--accent) 60%,var(--border));
+  border-radius:6px;
+  vertical-align:baseline;
+  letter-spacing:.06em;
+  text-align:center;
+  line-height:1.3;
+}
+.lpr-stem .lpr-gap::before{content:"\00a0";}
+body[data-answer-mode="typein"] .lpr-stem .lpr-gap{
+  background:color-mix(in srgb,var(--accent) 14%,transparent);
+  border-color:color-mix(in srgb,var(--accent) 50%,var(--border));
+  color:var(--accent-dk);
+}
 /* v10.18: Quotes flavor — author byline shown below the stem when task.flavor==='quotes' */
 .lpr-quote-byline{
   font-size:.78rem;line-height:1.4;
@@ -3350,6 +3377,11 @@ mark.gap-sentence-hl{
 .lpr-mcq-chip.wrong-chip .lpr-chip-letter{background:var(--wrong);color:#fff;}
 .lpr-mcq-chip:hover:not(.disabled):not(.selected):not(.correct-chip):not(.wrong-chip){background:color-mix(in srgb,var(--accent) 6%,var(--bg));border-color:color-mix(in srgb,var(--accent) 25%,var(--border));}
 .lpr-mcq-chip:disabled,.lpr-mcq-chip.disabled{cursor:default;pointer-events:none;}
+/* v10.20: long-option chip — when option text >25 chars the inner span wraps
+   onto multiple lines instead of overflowing or pushing the letter out. */
+.lpr-mcq-chip[data-long="1"]{align-items:flex-start;padding:11px 13px;line-height:1.4;}
+.lpr-mcq-chip[data-long="1"] .lpr-chip-letter{margin-top:1px;}
+.lpr-mcq-chip[data-long="1"]>span:last-child{white-space:normal;word-break:break-word;flex:1;min-width:0;}
 
 /* Type-in input area */
 .lpr-typein-wrap{
@@ -4867,7 +4899,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.19</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.20</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -13605,6 +13637,22 @@ function _lselStartSessionImpl() {
    PRACTICE SESSION SCREEN
    ══════════════════════════════════════════════════════════════════════════ */
 
+/* v10.20: turn raw “___” / “_____” / “———” gap markers in a stem into a small
+   inline pill (.lpr-gap) so the answer slot is visually obvious. Escapes the
+   surrounding text so user content can never inject HTML. The marker has to be
+   surrounded by word-boundaries so we don’t mangle CSS class names or numbers
+   that happen to contain underscores. */
+function _lprHighlightStem(text) {
+  if (text == null) return '';
+  const esc = String(text).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+  // Replace any run of 2+ underscores OR 2+ em/en dashes with the gap pill.
+  return esc
+    .replace(/_{2,}/g, '<span class="lpr-gap" aria-label="answer"></span>')
+    .replace(/[\u2014\u2013]{3,}/g, '<span class="lpr-gap" aria-label="answer"></span>');
+}
+
 function lprRenderTask(index) {
   const queue = _lstore('queue', []);
   const mode = _lstore('sessionMode', 'mcq');
@@ -13668,10 +13716,10 @@ function lprRenderTask(index) {
         const sentence = promptMatch[1];
         const directive = promptMatch[2];
         stemEl.innerHTML = '<span class="lpr-stem-sentence"></span><span class="lpr-stem-prompt"></span>';
-        stemEl.querySelector('.lpr-stem-sentence').textContent = sentence;
-        stemEl.querySelector('.lpr-stem-prompt').textContent = directive;
+        stemEl.querySelector('.lpr-stem-sentence').innerHTML = _lprHighlightStem(sentence);
+        stemEl.querySelector('.lpr-stem-prompt').innerHTML = _lprHighlightStem(directive);
       } else {
-        stemEl.textContent = stemText;
+        stemEl.innerHTML = _lprHighlightStem(stemText);
       }
     }
   }
@@ -13797,6 +13845,10 @@ function lprRenderTask(index) {
   const typeinInput = document.getElementById('lprTypeinInput');
   const typeinSubmit = document.getElementById('lprTypeinSubmit');
   const sessionMode = _lstore('answerMode', 'mcq');
+  /* v10.20: expose mode on <body> so the gap pill (.lpr-gap) can style itself
+     differently in type-in vs MCQ — in type-in mode the pill is highlighted
+     because it represents the active input target. */
+  try { document.body.dataset.answerMode = sessionMode; } catch (e) {}
 
   if (sessionMode === 'mcq') {
     if (mcqWrap) mcqWrap.style.display = 'flex';
@@ -13896,6 +13948,11 @@ function lprRenderMCQ(task, locked) {
       btn.innerHTML = `<span class="lpr-chip-letter">${opt}</span><span>Segment ${opt}</span>`;
     } else {
       btn.innerHTML = `<span class="lpr-chip-letter">${letters[i]}</span><span>${opt}</span>`;
+      /* v10.20: long-option layout flag — chips with text >25 chars get
+         multi-line wrap styling instead of overflowing past the letter pill. */
+      if (typeof opt === 'string' && opt.length > 25) {
+        btn.dataset.long = '1';
+      }
     }
     if (!locked) {
       btn.onclick = () => lprAnswerMCQ(task, opt, correct, shuffled, letters);
@@ -13971,22 +14028,116 @@ function lprSubmitTypein() {
   const submit = document.getElementById('lprTypeinSubmit');
   if (!input || !submit) return;
 
+  /* v10.20: reject blank or whitespace-only input outright. */
   const userAns = input.value.trim();
-  if (!userAns) return;
+  if (!userAns || !/\S/.test(userAns)) return;
 
-  // Build full set of accepted answers: primary answer + alternateAnswers[]
-  const normalize = s => s.trim().toLowerCase().replace(/[\u2018\u2019\u2032\u0060]/g, "'").replace(/\s+/g, ' ');
+  /* v10.20: universal type-in normalization.
+     normalize() lower-cases, unifies smart-quotes, collapses whitespace,
+     and strips trailing punctuation (.,?!;:"').
+     contractionVariants() expands a normalized string into the equivalent
+     contracted/expanded forms the user might type instead.
+     breVariants() swaps a small set of common British/American spellings
+     so “colour” is accepted where “color” is the canonical answer (and vice
+     versa). All variant generators return the original plus alternates.
+     The accepted-set is the union of every variant of every accepted form,
+     so the user is matched if any of their variants equals any of ours. */
+  const normalize = s => String(s == null ? '' : s)
+    .trim()
+    .toLowerCase()
+    .replace(/[\u2018\u2019\u2032\u0060]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/\s+/g, ' ')
+    .replace(/[\.,!?;:"']+$/g, '');
   // For answers with slashes ("are / tapping"), also accept without slash ("are tapping")
   const slashVariant = s => s.replace(/\s*\/\s*/g, ' ');
+  /* Contraction <-> expansion table. Two-way: each pair generates
+     both directions when present. Order matters: longer LHS first to
+     avoid "won't" being expanded to "wo not". */
+  const _ctn = [
+    ["won't", "will not"],
+    ["can't", "cannot"],
+    ["shan't", "shall not"],
+    ["n't", " not"],
+    ["'re", " are"],
+    ["'ve", " have"],
+    ["'ll", " will"],
+    ["'d", " would"],
+    ["'m", " am"],
+    ["'s", " is"]
+  ];
+  const contractionVariants = (s) => {
+    const out = new Set([s]);
+    // expand contractions -> long form
+    let exp = s;
+    _ctn.forEach(([c, l]) => { exp = exp.split(c).join(l); });
+    exp = exp.replace(/\s+/g, ' ').trim();
+    out.add(exp);
+    // contract long form -> contractions (most common cases)
+    let con = s
+      .replace(/\bwill not\b/g, "won't")
+      .replace(/\bcannot\b/g, "can't")
+      .replace(/\bcan not\b/g, "can't")
+      .replace(/\bshall not\b/g, "shan't")
+      .replace(/\b(do|does|did|is|are|was|were|has|have|had|would|should|could|must|might|need)\s+not\b/g, "$1n't")
+      .replace(/\b(i|you|we|they|he|she|it)\s+are\b/g, "$1're")
+      .replace(/\b(i|you|we|they)\s+have\b/g, "$1've")
+      .replace(/\b(i|you|we|they|he|she|it)\s+will\b/g, "$1'll")
+      .replace(/\b(i|you|we|they|he|she|it)\s+would\b/g, "$1'd")
+      .replace(/\bi\s+am\b/g, "i'm")
+      .replace(/\b(he|she|it|that|there|here|what|who)\s+is\b/g, "$1's");
+    con = con.replace(/\s+/g, ' ').trim();
+    out.add(con);
+    return Array.from(out);
+  };
+  /* Curated BrE <-> AmE swap list. Applied as whole-word replacements in both
+     directions so either spelling is accepted regardless of which appears in
+     the canonical answer. */
+  const _breAme = [
+    ['colour','color'], ['favour','favor'], ['flavour','flavor'],
+    ['honour','honor'], ['labour','labor'], ['neighbour','neighbor'],
+    ['behaviour','behavior'], ['humour','humor'], ['rumour','rumor'],
+    ['analyse','analyze'], ['organise','organize'], ['realise','realize'],
+    ['recognise','recognize'], ['apologise','apologize'],
+    ['centre','center'], ['theatre','theater'], ['metre','meter'],
+    ['litre','liter'], ['fibre','fiber'],
+    ['defence','defense'], ['offence','offense'], ['licence','license'],
+    ['practise','practice'],
+    ['traveller','traveler'], ['travelling','traveling'], ['travelled','traveled'],
+    ['cancelled','canceled'], ['cancelling','canceling'],
+    ['programme','program'], ['catalogue','catalog'], ['dialogue','dialog'],
+    ['judgement','judgment'], ['ageing','aging'],
+    ['grey','gray'], ['plough','plow'], ['mum','mom'],
+    ['lift','elevator'], ['flat','apartment'], ['lorry','truck'],
+    ['biscuit','cookie'], ['chips','fries'], ['holiday','vacation'],
+    ['petrol','gas'], ['rubbish','trash'], ['queue','line']
+  ];
+  const breVariants = (s) => {
+    const out = new Set([s]);
+    _breAme.forEach(([a, b]) => {
+      if (new RegExp('\\b' + a + '\\b').test(s)) out.add(s.replace(new RegExp('\\b' + a + '\\b','g'), b));
+      if (new RegExp('\\b' + b + '\\b').test(s)) out.add(s.replace(new RegExp('\\b' + b + '\\b','g'), a));
+    });
+    return Array.from(out);
+  };
+  const expandAll = (s) => {
+    // Compose all variant generators. Each step takes the current set and
+    // expands every member through the next generator, deduping at the end.
+    const seeds = [s];
+    if (s.includes('/')) seeds.push(slashVariant(s));
+    const ctnSet = new Set();
+    seeds.forEach(x => contractionVariants(x).forEach(y => ctnSet.add(y)));
+    const breSet = new Set();
+    ctnSet.forEach(x => breVariants(x).forEach(y => breSet.add(y)));
+    return Array.from(breSet);
+  };
   const rawAccepted = [task.answer, ...(Array.isArray(task.alternateAnswers) ? task.alternateAnswers : [])];
   const accepted = new Set();
   rawAccepted.forEach(a => {
-    const n = normalize(a);
-    accepted.add(n);
-    if (n.includes('/')) accepted.add(slashVariant(n));
+    expandAll(normalize(a)).forEach(v => accepted.add(v));
   });
-  const userNorm = normalize(userAns);
-  const isCorrect = accepted.has(userNorm) || accepted.has(slashVariant(userNorm));
+  const userVariants = expandAll(normalize(userAns));
+  const isCorrect = userVariants.some(v => accepted.has(v));
   const challenge = _lstore('challengeMode', true);
 
   /* v10 Phase 4: Challenge OFF + wrong → flash wrong styling, keep the

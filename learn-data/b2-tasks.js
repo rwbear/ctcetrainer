@@ -147,7 +147,7 @@ window.LEARN_TASKS_B2 = {
       {
         id: "b2-pp-cont-13",
         stem: "I___ hard for a long time, and I think it's important to take a step back and be a normal human being for a second.",
-        options: ["'ve been going", "have gone", "was going"],
+        options: ["'ve been going", "have gone", "had been going"],
         answer: "'ve been going",
         explanation: "The natural choice here is ''ve been going'.",
         fullExplanation: "In this quote by Rihanna, ''ve been going' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -159,7 +159,7 @@ window.LEARN_TASKS_B2 = {
       {
         id: "b2-pp-cont-14",
         stem: "We are the ones we___ for. We are the change that we seek.",
-        options: ["'ve been waiting", "have waited", "was waiting"],
+        options: ["'ve been waiting", "have waited", "had been waiting"],
         answer: "'ve been waiting",
         explanation: "The natural choice here is ''ve been waiting'.",
         fullExplanation: "In this quote by Barack Obama, ''ve been waiting' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -347,7 +347,7 @@ window.LEARN_TASKS_B2 = {
       {
         id: "b2-pst-perf-s-15",
         stem: "By the time Brian Cox became famous, they ___ already mastered their craft.",
-        options: ["had", "have", "has"],
+        options: ["had", "have", "would have"],
         answer: "had",
         explanation: "The natural choice here is 'had'.",
         fullExplanation: "In this quote by Brian Cox, 'had' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -1375,7 +1375,7 @@ window.LEARN_TASKS_B2 = {
       {
         id: "b2-pass-perf-13",
         stem: "Democracy is the worst form of Government except for all those other forms that ___ from time to time.",
-        options: ["have been tried", "has tried", "is tried"],
+        options: ["have been tried", "were tried", "are tried"],
         answer: "have been tried",
         explanation: "The natural choice here is 'have been tried'.",
         fullExplanation: "In this quote by Winston Churchill, 'have been tried' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -1387,7 +1387,7 @@ window.LEARN_TASKS_B2 = {
       {
         id: "b2-pass-perf-14",
         stem: "I've lived and I've lost and I've won. I___ and I've been great.",
-        options: ["'ve been humiliated", "has humiliated", "is humiliated"],
+        options: ["'ve been humiliated", "was humiliated", "had been humiliated"],
         answer: "'ve been humiliated",
         explanation: "The natural choice here is ''ve been humiliated'.",
         fullExplanation: "In this quote by Mike Tyson, ''ve been humiliated' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",

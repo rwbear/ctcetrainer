@@ -863,7 +863,7 @@ window.LEARN_TASKS_B1 = {
       {
         id: "b1-pp-s-14",
         stem: "We are the ones we___ waiting for. We are the change that we seek.",
-        options: ["'ve been", "was/were", "be"],
+        options: ["'ve been", "had been", "are"],
         answer: "'ve been",
         explanation: "The natural choice here is ''ve been'.",
         fullExplanation: "In this quote by Barack Obama, ''ve been' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -1027,7 +1027,7 @@ window.LEARN_TASKS_B1 = {
       {
         id: "b1-fut-will-13",
         stem: "Speak softly and carry a big stick; you ___ far.",
-        options: ["will go", "is going to go", "is going"],
+        options: ["will go", "are going to go", "would go"],
         answer: "will go",
         explanation: "The natural choice here is 'will go'.",
         fullExplanation: "In this quote by Theodore Roosevelt, 'will go' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
@@ -1038,15 +1038,15 @@ window.LEARN_TASKS_B1 = {
       },
       {
         id: "b1-fut-will-14",
-        stem: "Most people have the ___ win; few have the will to prepare to win.",
-        options: ["will to", "is going to to", "is toing"],
-        answer: "will to",
-        explanation: "The natural choice here is 'will to'.",
-        fullExplanation: "In this quote by Bobby Knight, 'will to' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
-        source: "Direct quote — Bobby Knight",
-        hint: "to",
+        stem: "In the future everyone ___ world-famous for 15 minutes.",
+        options: ["will be", "is going to be", "is being"],
+        answer: "will be",
+        explanation: "The natural choice here is 'will be'.",
+        fullExplanation: "In this quote by Andy Warhol, 'will be' expresses a future prediction. 'Is going to be' would imply present-tense evidence already pointing to the outcome, and 'is being' is a present-continuous form that does not fit a future prediction.",
+        source: "Direct quote — Andy Warhol",
+        hint: "be",
         flavor: "quotes",
-        author: "Bobby Knight"
+        author: "Andy Warhol"
       },
       {
         id: "b1-fut-will-15",
@@ -1335,7 +1335,7 @@ window.LEARN_TASKS_B1 = {
       {
         id: "b1-pass-basic-09",
         stem: "Jane Austen's novel Pride and Prejudice ___ in 1813 and remains popular today.",
-        options: ["was published", "published", "is published"],
+        options: ["was published", "has been published", "had been published"],
         answer: "was published",
         explanation: "Past passive: the novel received the action of being published.",
         fullExplanation: "'Was published' (was + past participle) correctly uses past passive for a completed historical event. 'Published' is active and would need a publisher as the grammatical subject. 'Is published' is present passive and contradicts the specific past date 1813.",
