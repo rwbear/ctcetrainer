@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   CTCE TASK BANK — v10.21 Phase 9
-   62 subtopics, 1860 tasks
+   CTCE TASK BANK — v10.22 Phase 10
+   65 subtopics, 1950 tasks
    options[0] = correct answer (runtime shuffles)
    Lazy-loaded only when CTCE level is active.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -20242,6 +20242,948 @@ window.LEARN_TASKS_CTCE = {
         source: "Adapted · attributed to Italo Calvino",
         flavor: "quotes",
         author: "Italo Calvino"
+      }
+    ]
+  },
+  "prep-noun": {
+    id: "prep-noun",
+    name: "Noun + preposition",
+    canonicalSubId: "cs-prep-noun",
+    canonicalTopicId: "prepositions",
+    tasks: [
+      {
+        id: "prep-noun-01",
+        stem: "Marie Curie's interest ___ radioactivity began long before she had access to a properly equipped laboratory.",
+        options: ["in", "on", "for"],
+        answer: "in",
+        explanation: "'Interest in' is the standard noun + preposition collocation.",
+        fullExplanation: "The fixed collocation is 'interest in' a subject or activity. 'Interest on' refers to money paid on a loan or savings, which is a different meaning. 'Interest for' is not a standard collocation in English.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-noun-02",
+        stem: "Vincent van Gogh's reason ___ moving to Arles was the brilliant southern light that he believed would transform his painting.",
+        options: ["for", "of", "to"],
+        answer: "for",
+        explanation: "'Reason for' is the fixed collocation introducing the cause.",
+        fullExplanation: "'Reason for + (doing) something' names the cause or motive. 'Reason of' is not standard in modern English. 'Reason to' is followed by an infinitive (a reason to stay), not a gerund or noun phrase like this one.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-noun-03",
+        stem: "Steve Jobs argued that the solution ___ a difficult design problem was almost always to remove things, not to add them.",
+        options: ["to", "for", "of"],
+        answer: "to",
+        explanation: "'Solution to' a problem is the fixed collocation.",
+        fullExplanation: "The standard pattern is 'a solution to a problem'. 'Solution for' is sometimes heard but is non-standard in formal exam English. 'Solution of' refers to a chemical solution (a liquid mixture), which is a different meaning entirely.",
+        source: "Swan, PEU (4e), §17",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-noun-04",
+        stem: "Frida Kahlo's attitude ___ physical pain became one of the defining features of her self-portraits and personal writing.",
+        options: ["to", "with", "for"],
+        answer: "to",
+        explanation: "'Attitude to' (or 'toward') something is the standard collocation.",
+        fullExplanation: "The collocation is 'attitude to' or 'attitude towards' something. 'Attitude with' is not standard English. 'Attitude for' does not exist as a fixed expression. Both 'to' and 'towards' are accepted, but 'to' is the most common in British English.",
+        source: "Swan, PEU (4e), §17",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-noun-05",
+        stem: "Coco Chanel's approach ___ design was based on the conviction that elegance is achieved by removing, not adding, ornament.",
+        options: ["to", "of", "for"],
+        answer: "to",
+        explanation: "'Approach to' is the fixed noun + preposition collocation.",
+        fullExplanation: "The standard pattern is 'approach to + something' (approach to design, approach to a problem). 'Approach of' is rarely used in this sense. 'Approach for' is not a standard collocation in formal English.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-noun-06",
+        stem: "Pablo Picasso's influence ___ twentieth-century art is impossible to overstate, even for those who dislike his later work.",
+        options: ["on", "to", "for"],
+        answer: "on",
+        explanation: "'Influence on' is the fixed collocation.",
+        fullExplanation: "The standard collocation is 'influence on' someone or something. 'Influence to' is not a standard pattern. 'Influence for' does not exist as a fixed expression. The same pattern applies to 'effect on' and 'impact on'.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-noun-07",
+        stem: "The difference ___ classical and romantic music is often described in terms of restraint versus emotional expression.",
+        options: ["between", "from", "of"],
+        answer: "between",
+        explanation: "'Difference between X and Y' is the standard pattern.",
+        fullExplanation: "When comparing two specific things, the pattern is 'difference between X and Y'. 'Difference from' is used to compare one thing with another (X is different from Y). 'Difference of' refers to a quantity (a difference of three points), not a comparison.",
+        source: "Swan, PEU (4e), §16",
+        flavor: "history"
+      },
+      {
+        id: "prep-noun-08",
+        stem: "The cause ___ the First World War is still debated, with historians pointing to alliances, nationalism and arms races.",
+        options: ["of", "for", "from"],
+        answer: "of",
+        explanation: "'Cause of' is the standard collocation.",
+        fullExplanation: "The fixed pattern is 'cause of + something'. 'Cause for' exists in expressions like 'cause for concern' but cannot be used here. 'Cause from' is not standard English.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "history"
+      },
+      {
+        id: "prep-noun-09",
+        stem: "The demand ___ rubber during the early twentieth century drove the brutal exploitation of labour in the Belgian Congo.",
+        options: ["for", "on", "of"],
+        answer: "for",
+        explanation: "'Demand for' is the fixed collocation.",
+        fullExplanation: "The pattern is 'demand for + a product or service'. 'Demand on' refers to pressure or expectations placed on someone (demands on her time). 'Demand of' is not the natural collocation in this sense.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "history"
+      },
+      {
+        id: "prep-noun-10",
+        stem: "The increase ___ literacy across Europe after the printing press transformed religious, political and scientific debate.",
+        options: ["in", "of", "on"],
+        answer: "in",
+        explanation: "'Increase in' is the standard collocation for a rising quantity.",
+        fullExplanation: "When describing a rise in a measurable quantity, the pattern is 'increase in X' (increase in literacy, increase in prices). 'Increase of' is sometimes used to give a specific amount (an increase of ten percent). 'Increase on' is not standard in this sense.",
+        source: "Swan, PEU (4e), §16",
+        flavor: "history"
+      },
+      {
+        id: "prep-noun-11",
+        stem: "The response ___ the launch of Sputnik in 1957 transformed American science education almost overnight.",
+        options: ["to", "of", "for"],
+        answer: "to",
+        explanation: "'Response to' is the fixed collocation.",
+        fullExplanation: "The standard pattern is 'response to + something' (response to a question, response to an event). 'Response of' is used differently, often to identify the source of the response (the response of the public). 'Response for' is not a fixed collocation.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "history"
+      },
+      {
+        id: "prep-noun-12",
+        stem: "Historians often note the contrast ___ the optimism of the 1920s and the despair of the early 1930s.",
+        options: ["between", "from", "with"],
+        answer: "between",
+        explanation: "'Contrast between X and Y' is the standard pattern.",
+        fullExplanation: "When two specific things are being compared, the pattern is 'contrast between X and Y'. 'Contrast with' compares one item against another (in contrast with the south). 'Contrast from' is not standard in formal English.",
+        source: "Swan, PEU (4e), §16",
+        flavor: "history"
+      },
+      {
+        id: "prep-noun-13",
+        stem: "Many young people complain about a lack ___ affordable housing in the city centres where most jobs are located.",
+        options: ["of", "for", "in"],
+        answer: "of",
+        explanation: "'Lack of' is the standard collocation.",
+        fullExplanation: "The fixed pattern is 'lack of + something'. 'Lack for' exists only in literary expressions ('she lacks for nothing') and is not used as a noun + preposition here. 'Lack in' is not a standard collocation.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "social"
+      },
+      {
+        id: "prep-noun-14",
+        stem: "The relationship ___ parents and teenagers often becomes strained during the years leading up to final exams.",
+        options: ["between", "of", "with"],
+        answer: "between",
+        explanation: "'Relationship between X and Y' is the standard pattern for two parties.",
+        fullExplanation: "When the relationship involves two specific parties, the pattern is 'relationship between X and Y'. 'Relationship with' is used to describe one person's connection to another (her relationship with her sister). 'Relationship of' usually identifies a type of relationship (a relationship of trust).",
+        source: "Swan, PEU (4e), §16",
+        flavor: "social"
+      },
+      {
+        id: "prep-noun-15",
+        stem: "Many commuters complain about the constant problems ___ the unreliable train service that runs through the suburbs.",
+        options: ["with", "of", "on"],
+        answer: "with",
+        explanation: "'Problem with' is the fixed collocation.",
+        fullExplanation: "When describing difficulties caused by something, the pattern is 'problem with + something' (problem with the service, problem with my computer). 'Problem of' refers to a broader issue (the problem of poverty). 'Problem on' is not a standard collocation.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "social"
+      },
+      {
+        id: "prep-noun-16",
+        stem: "The need ___ stricter regulation of social media has been raised repeatedly in parliamentary debates.",
+        options: ["for", "of", "to"],
+        answer: "for",
+        explanation: "'Need for' is the standard collocation.",
+        fullExplanation: "The fixed pattern is 'need for + something' when used as a noun. 'Need of' exists in the expression 'in need of' but is not the noun + preposition pattern asked here. 'Need to' is followed by an infinitive (need to act), not by a noun phrase.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "social"
+      },
+      {
+        id: "prep-noun-17",
+        stem: "The impact ___ smartphones on teenagers' sleep patterns is a growing concern among parents and educators.",
+        options: ["of", "for", "on"],
+        answer: "of",
+        explanation: "Here the noun is 'the impact of X (on Y)', so the first preposition is 'of'.",
+        fullExplanation: "'Impact' takes 'of' to introduce the source of the impact and 'on' to introduce what is affected: 'the impact of X on Y'. Here X = 'smartphones', so the missing preposition is 'of'. 'Impact for' is not a standard collocation.",
+        source: "Swan, PEU (4e), §16",
+        flavor: "social"
+      },
+      {
+        id: "prep-noun-18",
+        stem: "The shortage ___ qualified maths teachers continues to affect schools across Eastern Europe.",
+        options: ["of", "in", "for"],
+        answer: "of",
+        explanation: "'Shortage of' is the standard collocation.",
+        fullExplanation: "The fixed pattern is 'shortage of + something or someone'. 'Shortage in' is sometimes used to localise the gap (a shortage in the south) but is not the basic collocation. 'Shortage for' is not standard English.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "social"
+      },
+      {
+        id: "prep-noun-19",
+        stem: "Recent studies have confirmed the harmful effect ___ excessive screen time on children's developing visual systems.",
+        options: ["of", "on", "for"],
+        answer: "of",
+        explanation: "Here the noun phrase is 'the effect of X (on Y)', so the missing word is 'of'.",
+        fullExplanation: "'Effect' takes 'of' to introduce the cause and 'on' to introduce what is affected: 'the effect of X on Y'. Here X = 'excessive screen time'. 'Effect on' alone would skip the cause, which is grammatically required by the surrounding phrase 'of excessive screen time'.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "science"
+      },
+      {
+        id: "prep-noun-20",
+        stem: "Researchers found a strong correlation ___ regular exercise and improved long-term memory in adults over fifty.",
+        options: ["between", "from", "with"],
+        answer: "between",
+        explanation: "'Correlation between X and Y' is the fixed pattern.",
+        fullExplanation: "When linking two variables, the pattern is 'correlation between X and Y'. 'Correlation with' is sometimes used to relate one variable to another (correlation with age), but with a coordinated pair the standard is 'between'. 'Correlation from' is not standard.",
+        source: "Hewings, AGU (3e), Unit 64",
+        flavor: "science"
+      },
+      {
+        id: "prep-noun-21",
+        stem: "Astronomers have collected new evidence ___ the existence of water on several moons of Jupiter and Saturn.",
+        options: ["of", "for", "on"],
+        answer: "of",
+        explanation: "'Evidence of' is the standard collocation when referring to what the evidence shows.",
+        fullExplanation: "The pattern 'evidence of + something' is the most common when stating what the evidence reveals. 'Evidence for' is also acceptable when the evidence supports a claim or hypothesis. 'Evidence on' is not a standard collocation in this sense.",
+        source: "Hewings, AGU (3e), Unit 64",
+        flavor: "science"
+      },
+      {
+        id: "prep-noun-22",
+        stem: "The decrease ___ insect populations across Europe is one of the most worrying ecological signals of recent years.",
+        options: ["in", "of", "on"],
+        answer: "in",
+        explanation: "'Decrease in' is the standard collocation for a falling quantity.",
+        fullExplanation: "When describing a fall in a measurable quantity, the pattern is 'decrease in X'. 'Decrease of' is used when stating the size of the fall (a decrease of ten percent). 'Decrease on' is not standard English.",
+        source: "Swan, PEU (4e), §16",
+        flavor: "science"
+      },
+      {
+        id: "prep-noun-23",
+        stem: "The damage ___ the coral reefs caused by rising sea temperatures has accelerated dramatically in the past decade.",
+        options: ["to", "of", "on"],
+        answer: "to",
+        explanation: "'Damage to' is the fixed collocation.",
+        fullExplanation: "The standard pattern is 'damage to + something' (damage to the reef, damage to property). 'Damage of' is not standard in modern English. 'Damage on' does not exist as a collocation.",
+        source: "Murphy, EGU (4e), Unit 131",
+        flavor: "science"
+      },
+      {
+        id: "prep-noun-24",
+        stem: "Researchers have proposed several theories ___ consciousness, but none has yet won general acceptance.",
+        options: ["of", "for", "to"],
+        answer: "of",
+        explanation: "'Theory of' is the standard collocation in scientific contexts.",
+        fullExplanation: "The fixed pattern in academic English is 'theory of + something' (theory of relativity, theory of evolution). 'Theory for' is not the standard noun + preposition collocation. 'Theory to' is not used in this sense.",
+        source: "Hewings, AGU (3e), Unit 64",
+        flavor: "science"
+      },
+      {
+        id: "prep-noun-25",
+        stem: "Adapted: 'The secret ___ getting ahead is getting started.'",
+        options: ["of", "for", "to"],
+        answer: "of",
+        explanation: "'Secret of (doing) something' is the standard pattern.",
+        fullExplanation: "The collocation is 'secret of + (doing) something' (the secret of success, the secret of his charm). 'Secret for' and 'secret to' are sometimes heard in informal speech but are not the standard exam form, especially with a gerund.",
+        source: "Adapted · attributed to Mark Twain",
+        flavor: "quotes",
+        author: "Mark Twain"
+      },
+      {
+        id: "prep-noun-26",
+        stem: "Adapted: 'The future belongs to those who have a real belief ___ the beauty of their dreams.'",
+        options: ["in", "of", "on"],
+        answer: "in",
+        explanation: "'Belief in' is the fixed noun + preposition collocation.",
+        fullExplanation: "The standard pattern is 'belief in + something or someone' (belief in God, belief in oneself). 'Belief of' usually identifies the holder of the belief (the belief of the people). 'Belief on' is not standard English.",
+        source: "Adapted · attributed to Eleanor Roosevelt",
+        flavor: "quotes",
+        author: "Eleanor Roosevelt"
+      },
+      {
+        id: "prep-noun-27",
+        stem: "Adapted: 'The difference ___ stupidity and genius is that genius has its limits.'",
+        options: ["between", "from", "of"],
+        answer: "between",
+        explanation: "'Difference between X and Y' is the standard pattern with two coordinated nouns.",
+        fullExplanation: "When two specific things are compared, the pattern is 'difference between X and Y'. 'Difference from' compares one thing against another (different from). 'Difference of' usually states a quantity, not a contrast.",
+        source: "Adapted · attributed to Albert Einstein",
+        flavor: "quotes",
+        author: "Albert Einstein"
+      },
+      {
+        id: "prep-noun-28",
+        stem: "Adapted: 'Real knowledge is to know the extent ___ one's own ignorance.'",
+        options: ["of", "for", "in"],
+        answer: "of",
+        explanation: "'Extent of' is the fixed collocation.",
+        fullExplanation: "The standard pattern is 'extent of + something' (the extent of the damage, the extent of his knowledge). 'Extent for' is not a standard collocation. 'Extent in' is sometimes used as a vague intensifier in informal writing but is not the noun + preposition pattern asked here.",
+        source: "Adapted · attributed to Confucius",
+        flavor: "quotes",
+        author: "Confucius"
+      },
+      {
+        id: "prep-noun-29",
+        stem: "Adapted: 'The best way to find yourself is to lose yourself in the service ___ others.'",
+        options: ["of", "to", "for"],
+        answer: "of",
+        explanation: "'Service of' is the standard collocation here.",
+        fullExplanation: "'In the service of + someone' is a fixed expression meaning working for the benefit of others. 'Service to' usually means an act of help offered to a specific party (a service to the community). 'Service for' is not the standard form here.",
+        source: "Adapted · attributed to Mahatma Gandhi",
+        flavor: "quotes",
+        author: "Mahatma Gandhi"
+      },
+      {
+        id: "prep-noun-30",
+        stem: "Adapted: 'There is not a liberal America and a conservative America — there is the United States ___ America.'",
+        options: ["of", "for", "in"],
+        answer: "of",
+        explanation: "'Of' links the noun 'States' to the country it belongs to.",
+        fullExplanation: "The fixed name is 'the United States of America', where 'of' links the noun phrase 'United States' to the country it forms. 'For' would imply purpose or direction, which is wrong here. 'In' would imply location, which is also wrong.",
+        source: "Adapted · attributed to Barack Obama",
+        flavor: "quotes",
+        author: "Barack Obama"
+      }
+    ]
+  },
+  "prep-fixed": {
+    id: "prep-fixed",
+    name: "Fixed prepositional phrases",
+    canonicalSubId: "cs-prep-fixed",
+    canonicalTopicId: "prepositions",
+    tasks: [
+      {
+        id: "prep-fixed-01",
+        stem: "Marie Curie always prepared her lecture notes ___ advance, sometimes weeks before stepping into the lecture theatre.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In advance' is the fixed phrase meaning 'beforehand'.",
+        fullExplanation: "'In advance' is a fixed adverbial phrase meaning 'before the time when something happens'. 'On advance' is not standard English. 'At advance' does not exist as a phrase in English.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-fixed-02",
+        stem: "Pablo Picasso once destroyed an early canvas ___ purpose, hoping to force himself to start in a completely new direction.",
+        options: ["on", "in", "by"],
+        answer: "on",
+        explanation: "'On purpose' is the fixed phrase meaning 'deliberately'.",
+        fullExplanation: "'On purpose' is a fixed phrase meaning 'intentionally' or 'deliberately'. 'In purpose' is not standard English. 'By purpose' does not exist as a phrase. The opposite is 'by accident' or 'by mistake'.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-fixed-03",
+        stem: "Coco Chanel claimed she discovered the famous black dress almost ___ accident, simply because she wanted to wear mourning to a party.",
+        options: ["by", "on", "in"],
+        answer: "by",
+        explanation: "'By accident' is the fixed phrase meaning 'unintentionally'.",
+        fullExplanation: "'By accident' is a fixed phrase meaning 'without planning to'. 'On accident' is heard in some informal varieties but is not the standard exam form. 'In accident' is not standard English.",
+        source: "Murphy, EGU (4e), Unit 124",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-fixed-04",
+        stem: "Vincent van Gogh wrote that he often painted ___ a hurry because the southern light changed so quickly during the day.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In a hurry' is the fixed phrase meaning 'rushed'.",
+        fullExplanation: "'In a hurry' is a fixed phrase describing rushed action. 'On a hurry' is not standard English. 'At a hurry' does not exist as a phrase in English.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-fixed-05",
+        stem: "Steve Jobs reportedly cancelled product launches ___ short notice when he felt the design was not yet ready.",
+        options: ["at", "on", "in"],
+        answer: "at",
+        explanation: "'At short notice' is the fixed phrase meaning 'with little warning'.",
+        fullExplanation: "'At short notice' is a fixed phrase meaning 'with little warning'. 'On short notice' is the standard American variant; British exam English usually expects 'at'. 'In short notice' is not standard.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-fixed-06",
+        stem: "Frida Kahlo, ___ the surface, lived a glamorous public life that hid years of physical pain and personal loss.",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "'On the surface' is the fixed phrase meaning 'apparently'.",
+        fullExplanation: "'On the surface' is a fixed phrase meaning 'apparently' or 'judging from appearances'. 'In the surface' is not standard English. 'At the surface' refers to the physical top of something (water at the surface), not appearances.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "personalities"
+      },
+      {
+        id: "prep-fixed-07",
+        stem: "After the assassination of Archduke Franz Ferdinand, Europe was thrown ___ chaos within a matter of weeks.",
+        options: ["into", "on", "at"],
+        answer: "into",
+        explanation: "'Into chaos' is the standard collocation after verbs of change.",
+        fullExplanation: "'Throw / fall / descend into chaos' is the standard collocation, with 'into' marking a change of state. 'On chaos' and 'at chaos' are not standard English in this sense.",
+        source: "Murphy, EGU (4e), Unit 124",
+        flavor: "history"
+      },
+      {
+        id: "prep-fixed-08",
+        stem: "The Berlin Wall fell ___ a single night in 1989, surprising even the political leaders who had been pressing for change.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In + period of time' is the fixed pattern for how long something takes.",
+        fullExplanation: "'In + a period of time' is the standard pattern when describing how long something takes to happen ('in a single night', 'in a few hours', 'in three days'). 'On a single night' would name one specific evening, not the duration. 'At a single night' is not standard English.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "history"
+      },
+      {
+        id: "prep-fixed-09",
+        stem: "During the Black Death, whole villages disappeared ___ the map within a single summer.",
+        options: ["off", "out", "from"],
+        answer: "off",
+        explanation: "'Off the map' is the fixed phrase meaning 'no longer existing in any visible way'.",
+        fullExplanation: "'Off the map' is a fixed phrase meaning 'completely vanished or destroyed'. 'Out the map' is not English. 'From the map' would be a literal removal of a place from a drawn map, not the idiomatic meaning of total disappearance.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "history"
+      },
+      {
+        id: "prep-fixed-10",
+        stem: "Roman engineers built the Colosseum ___ remarkable speed, completing the structure in under a decade.",
+        options: ["at", "on", "in"],
+        answer: "at",
+        explanation: "'At remarkable speed' uses 'at' to indicate rate.",
+        fullExplanation: "'At + a noun phrase of speed' is the fixed pattern (at speed, at high speed, at remarkable speed). 'On speed' and 'in speed' are not standard ways to indicate rate of progress.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "history"
+      },
+      {
+        id: "prep-fixed-11",
+        stem: "By the time Napoleon reached Moscow in 1812, his army was ___ the verge of collapse from cold and hunger.",
+        options: ["on", "at", "in"],
+        answer: "on",
+        explanation: "'On the verge of' is the fixed phrase meaning 'very close to'.",
+        fullExplanation: "'On the verge of + (doing) something' is a fixed expression meaning 'very close to'. 'At the verge of' is not standard. 'In the verge of' does not exist in English.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "history"
+      },
+      {
+        id: "prep-fixed-12",
+        stem: "The Wright brothers carried out their experiments largely ___ secret, fearing rival inventors would steal their ideas.",
+        options: ["in", "on", "by"],
+        answer: "in",
+        explanation: "'In secret' is the fixed phrase meaning 'secretly'.",
+        fullExplanation: "'In secret' is a fixed phrase meaning 'in a hidden way'. 'On secret' is not standard English. 'By secret' does not exist as a phrase, although 'by stealth' is a possible alternative idiom.",
+        source: "Murphy, EGU (4e), Unit 124",
+        flavor: "history"
+      },
+      {
+        id: "prep-fixed-13",
+        stem: "Many young couples in big cities can only afford a flat that is paid for ___ instalments over many years.",
+        options: ["in", "on", "by"],
+        answer: "in",
+        explanation: "'In instalments' is the fixed phrase for staged payments.",
+        fullExplanation: "'In instalments' is the fixed phrase used when payment is divided into staged amounts. 'On instalments' is heard in some varieties but is not the standard exam form. 'By instalments' is also possible but less common; 'in' is the most established choice in British exam English.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "social"
+      },
+      {
+        id: "prep-fixed-14",
+        stem: "The two friends used to live across the road from each other, but now they keep ___ touch only through messaging apps.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In touch' is the fixed phrase for staying in contact.",
+        fullExplanation: "'In touch with someone' is the fixed phrase meaning 'in regular contact'. 'On touch' and 'at touch' are not standard English. The opposite is 'out of touch'.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "social"
+      },
+      {
+        id: "prep-fixed-15",
+        stem: "The new privacy law puts millions of users ___ risk of having their personal data sold without their knowledge.",
+        options: ["at", "on", "in"],
+        answer: "at",
+        explanation: "'At risk' is the fixed phrase meaning 'in danger'.",
+        fullExplanation: "'At risk (of)' is a fixed phrase meaning 'in danger of'. 'On risk' is sometimes used in insurance jargon but is not the general English collocation. 'In risk' is not standard.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "social"
+      },
+      {
+        id: "prep-fixed-16",
+        stem: "The popular sneakers were ___ stock for the third week running, leaving customers frustrated with the brand.",
+        options: ["out of", "off", "without"],
+        answer: "out of",
+        explanation: "'Out of stock' is the fixed phrase meaning 'no longer available'.",
+        fullExplanation: "'Out of stock' is a fixed phrase meaning that an item has run out at a shop. 'Off stock' is not standard English. 'Without stock' is not used as a fixed phrase. The opposite is 'in stock'.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "social"
+      },
+      {
+        id: "prep-fixed-17",
+        stem: "Sam decided to learn Spanish ___ his own, using free apps and watching dubbed films in the evenings.",
+        options: ["on", "by", "at"],
+        answer: "on",
+        explanation: "'On one's own' is the fixed phrase meaning 'alone' or 'unaided'.",
+        fullExplanation: "'On + possessive + own' is a fixed phrase meaning 'without help' (on his own, on her own, on their own). 'By his own' is not standard, although 'by oneself' is. 'At his own' does not exist as a phrase.",
+        source: "Murphy, EGU (4e), Unit 124",
+        flavor: "social"
+      },
+      {
+        id: "prep-fixed-18",
+        stem: "Ordering food online has become so popular that many small restaurants now stay open mainly ___ demand from delivery apps.",
+        options: ["on", "in", "by"],
+        answer: "on",
+        explanation: "'On demand' is the fixed phrase meaning 'whenever requested'.",
+        fullExplanation: "'On demand' is a fixed phrase meaning 'whenever someone asks for it' (video on demand, payment on demand). 'In demand' is also a fixed phrase but means 'wanted by many people', which does not fit the sentence. 'By demand' is not standard in this sense.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "social"
+      },
+      {
+        id: "prep-fixed-19",
+        stem: "Chemists investigating new compounds work ___ pressure to publish findings before competing laboratories announce theirs.",
+        options: ["under", "in", "on"],
+        answer: "under",
+        explanation: "'Under pressure' is the fixed phrase meaning 'in a stressful situation'.",
+        fullExplanation: "'Under pressure' is the fixed phrase used when someone is being pushed to act quickly or to perform. 'In pressure' is not standard English. 'On pressure' is not used as a fixed phrase.",
+        source: "Hewings, AGU (3e), Unit 65",
+        flavor: "science"
+      },
+      {
+        id: "prep-fixed-20",
+        stem: "The team gathered the samples ___ random from across the lake to avoid biasing the results.",
+        options: ["at", "on", "in"],
+        answer: "at",
+        explanation: "'At random' is the fixed phrase meaning 'without a particular pattern'.",
+        fullExplanation: "'At random' is a fixed adverbial phrase meaning 'chosen without a system'. 'On random' is not standard English. 'In random' does not exist as a phrase, although 'in a random way' would be a longer alternative.",
+        source: "Hewings, AGU (3e), Unit 65",
+        flavor: "science"
+      },
+      {
+        id: "prep-fixed-21",
+        stem: "Astronomers said that the comet would pass close to Earth ___ broad daylight, making it almost impossible to observe.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In broad daylight' is the fixed phrase meaning 'in full daylight'.",
+        fullExplanation: "'In broad daylight' is a fixed phrase used to emphasise that something happens openly while it is fully light. 'On broad daylight' is not standard English. 'At broad daylight' does not exist as a phrase.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "science"
+      },
+      {
+        id: "prep-fixed-22",
+        stem: "The new battery prototype has been kept ___ wraps until the company can secure international patents.",
+        options: ["under", "in", "on"],
+        answer: "under",
+        explanation: "'Under wraps' is the fixed phrase meaning 'kept secret'.",
+        fullExplanation: "'Under wraps' is a fixed phrase meaning 'kept secret' or 'not yet revealed'. 'In wraps' is not standard English. 'On wraps' does not exist as a phrase.",
+        source: "Swan, PEU (4e), §449",
+        flavor: "science"
+      },
+      {
+        id: "prep-fixed-23",
+        stem: "Many laboratory animals were ___ danger of extinction long before international protection laws were finally introduced.",
+        options: ["in", "at", "on"],
+        answer: "in",
+        explanation: "'In danger' is the fixed phrase meaning 'at risk'.",
+        fullExplanation: "'In danger of + (doing) something' is the fixed phrase used for serious risk. 'At danger' is not standard English. 'On danger' does not exist as a phrase. Compare 'at risk', which uses a different preposition.",
+        source: "Hewings, AGU (3e), Unit 65",
+        flavor: "science"
+      },
+      {
+        id: "prep-fixed-24",
+        stem: "The space probe was launched ___ time, despite a series of last-minute technical problems with the rocket's guidance system.",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "'On time' means 'punctually'.",
+        fullExplanation: "'On time' is a fixed phrase meaning 'at the planned time'. 'In time' is also a fixed phrase but means 'before something is too late', which does not fit a planned launch. 'At time' is not a standard phrase.",
+        source: "Murphy, EGU (4e), Unit 124",
+        flavor: "science"
+      },
+      {
+        id: "prep-fixed-25",
+        stem: "Adapted: 'Always do your best — what you plant now, you will harvest later.' Acting ___ haste is rarely the way to do that.",
+        options: ["in", "on", "at"],
+        answer: "in",
+        explanation: "'In haste' is the fixed phrase meaning 'too quickly'.",
+        fullExplanation: "'In haste' is a fixed phrase meaning 'in a hurried way, often regretted later'. 'On haste' is not standard English. 'At haste' does not exist as a phrase.",
+        source: "Adapted · attributed to Og Mandino",
+        flavor: "quotes",
+        author: "Og Mandino"
+      },
+      {
+        id: "prep-fixed-26",
+        stem: "Adapted: 'You should never be afraid of failure — every great career is built ___ the back of mistakes.'",
+        options: ["on", "at", "in"],
+        answer: "on",
+        explanation: "'On the back of' is the fixed phrase meaning 'on the basis of'.",
+        fullExplanation: "'On the back of + something' is a fixed phrase meaning 'on the basis of' or 'as a result of'. 'At the back of' refers to physical position. 'In the back of' usually refers to a vehicle or location, not a basis for success.",
+        source: "Adapted · attributed to Richard Branson",
+        flavor: "quotes",
+        author: "Richard Branson"
+      },
+      {
+        id: "prep-fixed-27",
+        stem: "Adapted: 'A leader who governs ___ fear ends up surrounded by people who tell him only what he wants to hear.'",
+        options: ["by", "on", "in"],
+        answer: "by",
+        explanation: "'By fear' uses 'by' to mark the means.",
+        fullExplanation: "When 'by' is used to mark the method or means by which something is done, the pattern is 'govern / rule by fear'. 'On fear' is not the standard preposition for means. 'In fear' is also a fixed phrase but means 'feeling afraid', which is the wrong meaning here.",
+        source: "Adapted · attributed to Niccolò Machiavelli",
+        flavor: "quotes",
+        author: "Niccolò Machiavelli"
+      },
+      {
+        id: "prep-fixed-28",
+        stem: "Adapted: 'I have always thought that the smallest things, done ___ love, are greater than the greatest deeds.'",
+        options: ["with", "in", "by"],
+        answer: "with",
+        explanation: "'Done with love' is the standard fixed pattern for manner.",
+        fullExplanation: "'With + abstract noun' is a fixed pattern indicating manner (with care, with love, with patience). 'In love' means romantically attached, which is the wrong meaning here. 'By love' is not the standard preposition for manner.",
+        source: "Adapted · attributed to Mother Teresa",
+        flavor: "quotes",
+        author: "Mother Teresa"
+      },
+      {
+        id: "prep-fixed-29",
+        stem: "Adapted: 'It is in the small daily disciplines that great results are built — not ___ chance.'",
+        options: ["by", "in", "on"],
+        answer: "by",
+        explanation: "'By chance' is the fixed phrase meaning 'accidentally'.",
+        fullExplanation: "'By chance' is a fixed phrase meaning 'accidentally' or 'without planning'. 'In chance' is not standard English. 'On chance' does not exist as a phrase, although 'on the off chance' is a related idiom with a different meaning.",
+        source: "Adapted · attributed to Jim Rohn",
+        flavor: "quotes",
+        author: "Jim Rohn"
+      },
+      {
+        id: "prep-fixed-30",
+        stem: "Adapted: 'A wise person learns from the mistakes of others; a fool insists ___ making them all himself.'",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "'Insist on + gerund' is the fixed verb + preposition pattern, here marking obstinate persistence.",
+        fullExplanation: "'Insist on + (doing) something' is the fixed pattern in English. 'Insist in' is not standard. 'Insist at' does not exist as a collocation. The phrase here uses 'insist on' to mark the foolish person's obstinate refusal to learn from others.",
+        source: "Adapted · attributed to Otto von Bismarck",
+        flavor: "quotes",
+        author: "Otto von Bismarck"
+      }
+    ]
+  },
+  "w2s-action-verbs": {
+    id: "w2s-action-verbs",
+    name: "Polysemy of make / take / do / have / get",
+    canonicalSubId: "cs-w2s-action",
+    canonicalTopicId: "word-two-sentences",
+    tasks: [
+      {
+        id: "w2s-action-verbs-01",
+        stem: "1) Pablo Picasso once said that an artist must always ___ a decision before the paint dries.\n2) The students were trying to ___ as little noise as possible while their classmates finished the test.",
+        options: ["make", "take", "do"],
+        answer: "make",
+        explanation: "'Make' collocates with both 'a decision' and 'a noise'.",
+        fullExplanation: "The fixed collocations 'make a decision' and 'make a noise' both use 'make'. 'Take a decision' is heard in some varieties but is not the standard exam form. 'Do a decision' is not standard English at all. 'Take a noise' and 'do a noise' are also non-standard.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-action-verbs-02",
+        stem: "1) Marie Curie used the prize money to ___ a phone call home before returning to her laboratory in Paris.\n2) Even the most famous artists rarely ___ much money during their first ten years of work.",
+        options: ["make", "have", "do"],
+        answer: "make",
+        explanation: "'Make' is used with both 'a phone call' and 'money'.",
+        fullExplanation: "'Make a phone call' and 'make money' are both fixed collocations with 'make'. 'Have a phone call' suggests being in a call already, not the act of placing one. 'Do money' is not standard English in any sense.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-action-verbs-03",
+        stem: "1) Coco Chanel believed it was easier to ___ friends in Paris than to keep them.\n2) Even the most experienced designers occasionally ___ a serious mistake in choosing fabric.",
+        options: ["make", "do", "get"],
+        answer: "make",
+        explanation: "'Make' is used with both 'friends' and 'a mistake'.",
+        fullExplanation: "'Make friends' and 'make a mistake' are both fixed collocations with 'make'. 'Do friends' and 'do a mistake' are common errors but are not standard English. 'Get friends' is not idiomatic; 'get a mistake' is meaningless in standard English.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-action-verbs-04",
+        stem: "1) Steve Jobs liked to say that a real designer must ___ a difference, not just a product.\n2) For Jobs, every detail had to ___ sense before the launch could go ahead.",
+        options: ["make", "do", "have"],
+        answer: "make",
+        explanation: "'Make' is used with both 'a difference' and 'sense'.",
+        fullExplanation: "'Make a difference' and 'make sense' are both fixed collocations with 'make'. 'Do a difference' and 'do sense' are not standard English. 'Have sense' exists ('she has sense') but means something different: that someone is sensible.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-action-verbs-05",
+        stem: "1) Frida Kahlo had to ___ enormous progress before her work was taken seriously by Mexico's male critics.\n2) Despite her chronic pain, she rarely allowed her studio to ___ a mess for more than a single day.",
+        options: ["make", "have", "do"],
+        answer: "make",
+        explanation: "'Make' is used with both 'progress' and 'a mess'.",
+        fullExplanation: "'Make progress' and 'make a mess' are both fixed collocations. 'Do progress' and 'do a mess' are not standard English. 'Have progress' is not idiomatic; 'have a mess' is sometimes heard informally but is not the standard collocation in either case.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-action-verbs-06",
+        stem: "1) Vincent van Gogh would often ___ careful plans for a painting before starting to mix the colours.\n2) His sister-in-law would ___ a simple cake for him every time he came back from the south.",
+        options: ["make", "have", "do"],
+        answer: "make",
+        explanation: "'Make' is used with both 'plans' and 'a cake'.",
+        fullExplanation: "'Make plans' and 'make a cake' are both fixed collocations. 'Do plans' is not standard English; 'do a cake' is also non-standard. 'Have plans' means to have arrangements already in place ('I have plans tonight'), not the act of forming them.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-action-verbs-07",
+        stem: "1) Roman generals were expected to ___ responsibility for any defeat suffered by their legions in the field.\n2) Soldiers who survived a long campaign would ___ a hot bath in the public baths as soon as they returned.",
+        options: ["take", "make", "have"],
+        answer: "take",
+        explanation: "'Take' is used with both 'responsibility' and 'a bath'.",
+        fullExplanation: "'Take responsibility' and 'take a bath' are both fixed collocations with 'take' in formal British English. 'Have a bath' is also possible and common, but only 'take' fills both blanks: 'have responsibility' is non-standard. 'Make responsibility' is not English.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "history"
+      },
+      {
+        id: "w2s-action-verbs-08",
+        stem: "1) Photographers in the 1850s could not ___ a clear photo unless their subjects sat completely still for many minutes.\n2) Even the most cautious doctors of the period would ___ medicine without first checking who had prepared it.",
+        options: ["take", "make", "do"],
+        answer: "take",
+        explanation: "'Take' is used with both 'a photo' and 'medicine'.",
+        fullExplanation: "'Take a photo' and 'take medicine' are both fixed collocations. 'Make a photo' is heard as a translation error from several languages but is not standard English. 'Do medicine' means 'to study medicine', which is the wrong meaning here.",
+        source: "Murphy, EGU (4e), Unit 50",
+        flavor: "history"
+      },
+      {
+        id: "w2s-action-verbs-09",
+        stem: "1) When the Black Death reached Europe, traders had to ___ a chance every time they entered a new town.\n2) Many merchants would ___ a bus or coach across the continent rather than risk the longer sea route.",
+        options: ["take", "make", "have"],
+        answer: "take",
+        explanation: "'Take' is used with both 'a chance' and 'a bus' (or coach).",
+        fullExplanation: "'Take a chance' and 'take a bus / coach' are both fixed collocations with 'take'. 'Make a chance' and 'have a chance' exist but mean something different ('have a chance' = have an opportunity). 'Make a bus' is not English in this sense.",
+        source: "Murphy, EGU (4e), Unit 50",
+        flavor: "history"
+      },
+      {
+        id: "w2s-action-verbs-10",
+        stem: "1) The Allied generals were forced to ___ a difficult decision about whether to launch the invasion in poor weather.\n2) Officers had to ___ careful notes on every conversation with their counterparts in occupied territory.",
+        options: ["take", "make", "do"],
+        answer: "take",
+        explanation: "'Take' is used with both 'a decision' and 'notes'.",
+        fullExplanation: "'Take a decision' (more formal) and 'take notes' are both standard collocations with 'take'. 'Make a decision' is also acceptable but 'make notes' is more about composing a written summary; only 'take' fills both blanks idiomatically. 'Do a decision' is not standard English.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "history"
+      },
+      {
+        id: "w2s-action-verbs-11",
+        stem: "1) The construction of the Channel Tunnel ___ several years longer than the engineers had originally planned.\n2) The ceremony to open the tunnel ___ place in the presence of both the Queen and the French president.",
+        options: ["took", "made", "had"],
+        answer: "took",
+        explanation: "'Take' is used with both 'time' and 'place'.",
+        fullExplanation: "'Take time / take several years' and 'take place' are both fixed collocations with 'take'. 'Make place' is heard in some other languages but is not standard English; the correct phrase for an event happening is 'take place'. 'Have place' is not a standard collocation.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "history"
+      },
+      {
+        id: "w2s-action-verbs-12",
+        stem: "1) During the Cold War, intelligence agencies on both sides had to ___ great care of the documents they exchanged with informers.\n2) Western embassies often had to ___ advantage of every diplomatic opening, however small.",
+        options: ["take", "make", "do"],
+        answer: "take",
+        explanation: "'Take' is used with both 'care of' and 'advantage'.",
+        fullExplanation: "'Take care of (something)' and 'take advantage of (something)' are both fixed collocations with 'take'. 'Make care of' and 'make advantage of' are not standard English. 'Do care of' is also non-standard.",
+        source: "Swan, PEU (4e), §322",
+        flavor: "history"
+      },
+      {
+        id: "w2s-action-verbs-13",
+        stem: "1) Many students still believe they have to ___ their homework alone, even when group work would help them learn more.\n2) Some young entrepreneurs prefer to ___ business with people they know personally before signing any contract.",
+        options: ["do", "make", "have"],
+        answer: "do",
+        explanation: "'Do' is used with both 'homework' and 'business'.",
+        fullExplanation: "'Do homework' and 'do business' are both fixed collocations with 'do'. 'Make homework' is a common translation error from several languages but is not English. 'Have business' is not the right collocation for the act of trading or working with someone.",
+        source: "Swan, PEU (4e), §188",
+        flavor: "social"
+      },
+      {
+        id: "w2s-action-verbs-14",
+        stem: "1) Older brothers and sisters often ___ the dishes after every family dinner during the school holidays.\n2) Doctors recommend that adults ___ regular exercise at least three times a week to stay healthy.",
+        options: ["do", "make", "have"],
+        answer: "do",
+        explanation: "'Do' is used with both 'the dishes' and 'exercise'.",
+        fullExplanation: "'Do the dishes' and 'do exercise' (or 'do some exercise') are both standard collocations with 'do'. 'Make the dishes' is heard as a translation error from several languages but is not English. 'Have exercise' is non-standard; 'take exercise' is an older alternative but 'do exercise' fits both blanks.",
+        source: "Swan, PEU (4e), §188",
+        flavor: "social"
+      },
+      {
+        id: "w2s-action-verbs-15",
+        stem: "1) Some politicians have argued that gambling advertisements ___ real harm to teenagers and should be banned outright.\n2) University researchers continue to ___ valuable research on the long-term effects of social media use.",
+        options: ["do", "make", "take"],
+        answer: "do",
+        explanation: "'Do' is used with both 'harm' and 'research'.",
+        fullExplanation: "'Do harm' and 'do research' are both standard collocations with 'do' in academic and journalistic English. 'Make harm' and 'make research' are common translation errors but not English. 'Take research' is not standard.",
+        source: "Hewings, AGU (3e), Unit 65",
+        flavor: "social"
+      },
+      {
+        id: "w2s-action-verbs-16",
+        stem: "1) A neighbour can sometimes ___ you a favour without expecting anything in return at all.\n2) Many young students hope to ___ well in their final exams in order to enter university.",
+        options: ["do", "make", "have"],
+        answer: "do",
+        explanation: "'Do' is used with both 'a favour' and 'well'.",
+        fullExplanation: "'Do someone a favour' and 'do well' are both fixed collocations with 'do'. 'Make someone a favour' is a translation error from several languages but is not English. 'Have well' is not standard.",
+        source: "Swan, PEU (4e), §188",
+        flavor: "social"
+      },
+      {
+        id: "w2s-action-verbs-17",
+        stem: "1) On Sundays many families ___ the laundry together so that the working week starts cleanly for everyone.\n2) Coaches always tell their players to ___ their best, regardless of the score on the board.",
+        options: ["do", "make", "have"],
+        answer: "do",
+        explanation: "'Do' is used with both 'the laundry' and 'one's best'.",
+        fullExplanation: "'Do the laundry' and 'do one's best' are both fixed collocations with 'do'. 'Make the laundry' is not English. 'Have one's best' is also not standard; the phrase 'do your best' is fixed.",
+        source: "Swan, PEU (4e), §188",
+        flavor: "social"
+      },
+      {
+        id: "w2s-action-verbs-18",
+        stem: "1) Most office workers cannot easily ___ without coffee in the morning.\n2) The earthquake did not ___ much damage to the historic buildings near the harbour.",
+        options: ["do", "make", "have"],
+        answer: "do",
+        explanation: "'Do' is used with both 'without' (manage without) and 'damage'.",
+        fullExplanation: "'Do without (something)' means 'manage without something', and 'do damage' is the fixed collocation for causing harm to property. 'Make damage' and 'have damage' are not standard English. 'Make without' is not idiomatic in this sense.",
+        source: "Swan, PEU (4e), §188",
+        flavor: "social"
+      },
+      {
+        id: "w2s-action-verbs-19",
+        stem: "1) Lab technicians always ___ breakfast in the cafeteria before starting their first measurements of the day.\n2) Senior researchers would often ___ a long talk with new students about the importance of careful note-taking.",
+        options: ["have", "take", "do"],
+        answer: "have",
+        explanation: "'Have' is used with both 'breakfast' and 'a talk'.",
+        fullExplanation: "'Have breakfast' and 'have a talk' (or 'have a chat') are both fixed delexical collocations with 'have'. 'Take breakfast' is heard occasionally in older English but is now rare. 'Do breakfast' and 'do a talk' (in this sense) are not standard.",
+        source: "Swan, PEU (4e), §239",
+        flavor: "science"
+      },
+      {
+        id: "w2s-action-verbs-20",
+        stem: "1) Researchers ___ a meeting every Friday morning to share their results with the rest of the laboratory.\n2) Few young scientists ___ the time to read every new paper that comes out in their field.",
+        options: ["have", "do", "take"],
+        answer: "have",
+        explanation: "'Have' is used with both 'a meeting' and 'time'.",
+        fullExplanation: "'Have a meeting' and 'have time' are both fixed collocations with 'have'. 'Do a meeting' is common in informal speech but is not the standard exam form; 'do time' means 'to be in prison', a different meaning. 'Take a meeting' is also informal and is not the standard British exam form.",
+        source: "Swan, PEU (4e), §239",
+        flavor: "science"
+      },
+      {
+        id: "w2s-action-verbs-21",
+        stem: "1) During the long winters at the South Pole, members of the team often ___ an argument about the smallest of things.\n2) After spending so many days outside in the cold, some of them began to ___ a serious cold within a week.",
+        options: ["have", "make", "do"],
+        answer: "have",
+        explanation: "'Have' is used with both 'an argument' and 'a cold'.",
+        fullExplanation: "'Have an argument' and 'have a cold' are both fixed collocations with 'have'. 'Make an argument' exists but means 'to present a case', not 'to quarrel'. 'Do a cold' is not English at all.",
+        source: "Hewings, AGU (3e), Unit 65",
+        flavor: "science"
+      },
+      {
+        id: "w2s-action-verbs-22",
+        stem: "1) Astronauts on the International Space Station cannot ___ a normal shower because of how water behaves in zero gravity.\n2) Researchers had to ___ several attempts to dock the new module before they finally succeeded.",
+        options: ["have", "do", "make"],
+        answer: "have",
+        explanation: "'Have' is used with both 'a shower' and 'attempts (a try)'.",
+        fullExplanation: "'Have a shower' and 'have a try / have several attempts' are both standard delexical collocations with 'have'. 'Do a shower' is not standard English. 'Make a shower' and 'make a try' are also not idiomatic in this sense.",
+        source: "Swan, PEU (4e), §239",
+        flavor: "science"
+      },
+      {
+        id: "w2s-action-verbs-23",
+        stem: "1) Even Albert Einstein admitted that he could not ___ a clear idea of how quantum mechanics fitted his vision of the universe.\n2) Climate scientists often ___ serious problems explaining their results to the general public.",
+        options: ["have", "make", "do"],
+        answer: "have",
+        explanation: "'Have' is used with both 'an idea' and 'problems'.",
+        fullExplanation: "'Have an idea' and 'have problems' are both fixed collocations with 'have'. 'Make an idea' is a translation error from several languages but is not English. 'Do problems' is not standard English; we would say 'solve problems' or 'have problems'.",
+        source: "Swan, PEU (4e), §239",
+        flavor: "science"
+      },
+      {
+        id: "w2s-action-verbs-24",
+        stem: "1) Field scientists always ___ a careful look at the soil before they take any samples for analysis.\n2) Even on long expeditions, researchers ___ fun together at the end of each day's work.",
+        options: ["have", "do", "make"],
+        answer: "have",
+        explanation: "'Have' is used with both 'a look' and 'fun'.",
+        fullExplanation: "'Have a look (at)' and 'have fun' are both fixed collocations with 'have'. 'Take a look' is also possible, but only 'have' fits both blanks: 'take fun' is not English. 'Do fun' is not standard.",
+        source: "Hewings, AGU (3e), Unit 65",
+        flavor: "science"
+      },
+      {
+        id: "w2s-action-verbs-25",
+        stem: "1) Adapted: 'You don't ___ a second chance to make a first impression.'\n2) Adapted: 'Most great inventors had to ___ used to failure long before they ever saw success.'",
+        options: ["get", "have", "do"],
+        answer: "get",
+        explanation: "'Get' is used with both 'a chance' (in this idiom) and 'used to' (= become accustomed).",
+        fullExplanation: "'Get a chance' is the fixed collocation in informal English, and 'get used to + something' is the fixed pattern meaning 'become accustomed'. 'Have a chance' is possible but does not fit the second blank: 'have used to' is not English. 'Do' fits neither.",
+        source: "Adapted · attributed to Will Rogers",
+        flavor: "quotes",
+        author: "Will Rogers"
+      },
+      {
+        id: "w2s-action-verbs-26",
+        stem: "1) Adapted: 'The older you ___, the more you realise that simplicity is the highest form of intelligence.'\n2) Adapted: 'When you finally ___ the joke that life is short, every day starts to count.'",
+        options: ["get", "make", "do"],
+        answer: "get",
+        explanation: "'Get' is used with both 'older' and 'the joke'.",
+        fullExplanation: "'Get + comparative adjective' (get older, get tired, get richer) and 'get the joke' are both standard idiomatic uses of 'get' meaning 'become' and 'understand', respectively. 'Make older' is not English. 'Do the joke' would mean 'to perform the joke', which is a different meaning.",
+        source: "Adapted · attributed to Leonardo da Vinci",
+        flavor: "quotes",
+        author: "Leonardo da Vinci"
+      },
+      {
+        id: "w2s-action-verbs-27",
+        stem: "1) Adapted: 'A leader is someone who is willing to ___ home last and let the team go first.'\n2) Adapted: 'You only truly ___ permission to lead from the people who choose to follow you.'",
+        options: ["get", "have", "take"],
+        answer: "get",
+        explanation: "'Get' is used with both 'home' and 'permission'.",
+        fullExplanation: "'Get home' (= arrive home) and 'get permission' are both fixed idiomatic uses of 'get'. 'Have home' is not idiomatic. 'Take permission' is heard in some varieties but is not the standard exam form; the standard collocation is 'get permission'.",
+        source: "Adapted · attributed to Simon Sinek",
+        flavor: "quotes",
+        author: "Simon Sinek"
+      },
+      {
+        id: "w2s-action-verbs-28",
+        stem: "1) Adapted: 'The day you stop learning is the day you start to ___ tired of life.'\n2) Adapted: 'Every great mind has had to ___ information from sources that disagreed with each other.'",
+        options: ["get", "make", "do"],
+        answer: "get",
+        explanation: "'Get' is used with both 'tired' and 'information'.",
+        fullExplanation: "'Get tired' (= become tired) and 'get information' (= obtain information) are both standard idiomatic uses of 'get'. 'Make tired' and 'make information' are not standard English. 'Do tired' and 'do information' are not English at all.",
+        source: "Adapted · attributed to Henry Ford",
+        flavor: "quotes",
+        author: "Henry Ford"
+      },
+      {
+        id: "w2s-action-verbs-29",
+        stem: "1) Adapted: 'When two people ___ married, they should bring out the best in each other, not the worst.'\n2) Adapted: 'Sometimes the wisest thing a person can do is simply ___ the bus and watch the world go by for an afternoon.'",
+        options: ["get", "make", "have"],
+        answer: "get",
+        explanation: "'Get' is used with both 'married' and 'the bus'.",
+        fullExplanation: "'Get married' and 'get the bus' are both standard idiomatic collocations with 'get'. 'Make married' is not English. 'Have the bus' is not idiomatic; 'take the bus' is also possible, but only 'get' fits both blanks here.",
+        source: "Adapted · attributed to Maya Angelou",
+        flavor: "quotes",
+        author: "Maya Angelou"
+      },
+      {
+        id: "w2s-action-verbs-30",
+        stem: "1) Adapted: 'It is the mark of an educated mind to ___ a serious thought without immediately accepting it as true.'\n2) Adapted: 'Words can ___ a real effect on those who are ready to listen carefully.'",
+        options: ["have", "do", "make"],
+        answer: "have",
+        explanation: "'Have' is used with both 'a thought' and 'an effect'.",
+        fullExplanation: "'Have a thought' (= entertain an idea) and 'have an effect' are both fixed delexical collocations with 'have'. 'Do a thought' and 'do an effect' are not standard English. 'Make a thought' is also non-standard; 'make an effect' is heard sometimes but the established collocation in formal English is 'have an effect on'.",
+        source: "Adapted · attributed to Aristotle",
+        flavor: "quotes",
+        author: "Aristotle"
       }
     ]
   }

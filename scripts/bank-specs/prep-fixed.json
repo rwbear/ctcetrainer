@@ -1,0 +1,290 @@
+{
+  "id": "prep-fixed",
+  "name": "Fixed prepositional phrases",
+  "canonicalSubId": "cs-prep-fixed",
+  "canonicalTopicId": "prepositions",
+  "_meta": {
+    "version": "v10.22",
+    "rule": "Fixed prepositional phrases used adverbially (in advance, on purpose, by accident, at risk, out of stock, etc.)",
+    "flavorPlan": "6/6/6/6/6 across personalities/history/social/science/quotes",
+    "preposCoverage": "in/on/at/by/out of/under/for — varied across 30 phrases"
+  },
+  "tasks": [
+    {
+      "stem": "Marie Curie always prepared her lecture notes ___ advance, sometimes weeks before stepping into the lecture theatre.",
+      "options": ["in", "on", "at"],
+      "answer": "in",
+      "explanation": "'In advance' is the fixed phrase meaning 'beforehand'.",
+      "fullExplanation": "'In advance' is a fixed adverbial phrase meaning 'before the time when something happens'. 'On advance' is not standard English. 'At advance' does not exist as a phrase in English.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Pablo Picasso once destroyed an early canvas ___ purpose, hoping to force himself to start in a completely new direction.",
+      "options": ["on", "in", "by"],
+      "answer": "on",
+      "explanation": "'On purpose' is the fixed phrase meaning 'deliberately'.",
+      "fullExplanation": "'On purpose' is a fixed phrase meaning 'intentionally' or 'deliberately'. 'In purpose' is not standard English. 'By purpose' does not exist as a phrase. The opposite is 'by accident' or 'by mistake'.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Coco Chanel claimed she discovered the famous black dress almost ___ accident, simply because she wanted to wear mourning to a party.",
+      "options": ["by", "on", "in"],
+      "answer": "by",
+      "explanation": "'By accident' is the fixed phrase meaning 'unintentionally'.",
+      "fullExplanation": "'By accident' is a fixed phrase meaning 'without planning to'. 'On accident' is heard in some informal varieties but is not the standard exam form. 'In accident' is not standard English.",
+      "source": "Murphy, EGU (4e), Unit 124",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Vincent van Gogh wrote that he often painted ___ a hurry because the southern light changed so quickly during the day.",
+      "options": ["in", "on", "at"],
+      "answer": "in",
+      "explanation": "'In a hurry' is the fixed phrase meaning 'rushed'.",
+      "fullExplanation": "'In a hurry' is a fixed phrase describing rushed action. 'On a hurry' is not standard English. 'At a hurry' does not exist as a phrase in English.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Steve Jobs reportedly cancelled product launches ___ short notice when he felt the design was not yet ready.",
+      "options": ["at", "on", "in"],
+      "answer": "at",
+      "explanation": "'At short notice' is the fixed phrase meaning 'with little warning'.",
+      "fullExplanation": "'At short notice' is a fixed phrase meaning 'with little warning'. 'On short notice' is the standard American variant; British exam English usually expects 'at'. 'In short notice' is not standard.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Frida Kahlo, ___ the surface, lived a glamorous public life that hid years of physical pain and personal loss.",
+      "options": ["on", "in", "at"],
+      "answer": "on",
+      "explanation": "'On the surface' is the fixed phrase meaning 'apparently'.",
+      "fullExplanation": "'On the surface' is a fixed phrase meaning 'apparently' or 'judging from appearances'. 'In the surface' is not standard English. 'At the surface' refers to the physical top of something (water at the surface), not appearances.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "After the assassination of Archduke Franz Ferdinand, Europe was thrown ___ chaos within a matter of weeks.",
+      "options": ["into", "on", "at"],
+      "answer": "into",
+      "explanation": "'Into chaos' is the standard collocation after verbs of change.",
+      "fullExplanation": "'Throw / fall / descend into chaos' is the standard collocation, with 'into' marking a change of state. 'On chaos' and 'at chaos' are not standard English in this sense.",
+      "source": "Murphy, EGU (4e), Unit 124",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Berlin Wall fell ___ a single night in 1989, surprising even the political leaders who had been pressing for change.",
+      "options": ["in", "on", "at"],
+      "answer": "in",
+      "explanation": "'In + period of time' is the fixed pattern for how long something takes.",
+      "fullExplanation": "'In + a period of time' is the standard pattern when describing how long something takes to happen ('in a single night', 'in a few hours', 'in three days'). 'On a single night' would name one specific evening, not the duration. 'At a single night' is not standard English.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "history"
+    },
+    {
+      "stem": "During the Black Death, whole villages disappeared ___ the map within a single summer.",
+      "options": ["off", "out", "from"],
+      "answer": "off",
+      "explanation": "'Off the map' is the fixed phrase meaning 'no longer existing in any visible way'.",
+      "fullExplanation": "'Off the map' is a fixed phrase meaning 'completely vanished or destroyed'. 'Out the map' is not English. 'From the map' would be a literal removal of a place from a drawn map, not the idiomatic meaning of total disappearance.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "history"
+    },
+    {
+      "stem": "Roman engineers built the Colosseum ___ remarkable speed, completing the structure in under a decade.",
+      "options": ["at", "on", "in"],
+      "answer": "at",
+      "explanation": "'At remarkable speed' uses 'at' to indicate rate.",
+      "fullExplanation": "'At + a noun phrase of speed' is the fixed pattern (at speed, at high speed, at remarkable speed). 'On speed' and 'in speed' are not standard ways to indicate rate of progress.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "history"
+    },
+    {
+      "stem": "By the time Napoleon reached Moscow in 1812, his army was ___ the verge of collapse from cold and hunger.",
+      "options": ["on", "at", "in"],
+      "answer": "on",
+      "explanation": "'On the verge of' is the fixed phrase meaning 'very close to'.",
+      "fullExplanation": "'On the verge of + (doing) something' is a fixed expression meaning 'very close to'. 'At the verge of' is not standard. 'In the verge of' does not exist in English.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Wright brothers carried out their experiments largely ___ secret, fearing rival inventors would steal their ideas.",
+      "options": ["in", "on", "by"],
+      "answer": "in",
+      "explanation": "'In secret' is the fixed phrase meaning 'secretly'.",
+      "fullExplanation": "'In secret' is a fixed phrase meaning 'in a hidden way'. 'On secret' is not standard English. 'By secret' does not exist as a phrase, although 'by stealth' is a possible alternative idiom.",
+      "source": "Murphy, EGU (4e), Unit 124",
+      "flavor": "history"
+    },
+    {
+      "stem": "Many young couples in big cities can only afford a flat that is paid for ___ instalments over many years.",
+      "options": ["in", "on", "by"],
+      "answer": "in",
+      "explanation": "'In instalments' is the fixed phrase for staged payments.",
+      "fullExplanation": "'In instalments' is the fixed phrase used when payment is divided into staged amounts. 'On instalments' is heard in some varieties but is not the standard exam form. 'By instalments' is also possible but less common; 'in' is the most established choice in British exam English.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "social"
+    },
+    {
+      "stem": "The two friends used to live across the road from each other, but now they keep ___ touch only through messaging apps.",
+      "options": ["in", "on", "at"],
+      "answer": "in",
+      "explanation": "'In touch' is the fixed phrase for staying in contact.",
+      "fullExplanation": "'In touch with someone' is the fixed phrase meaning 'in regular contact'. 'On touch' and 'at touch' are not standard English. The opposite is 'out of touch'.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "social"
+    },
+    {
+      "stem": "The new privacy law puts millions of users ___ risk of having their personal data sold without their knowledge.",
+      "options": ["at", "on", "in"],
+      "answer": "at",
+      "explanation": "'At risk' is the fixed phrase meaning 'in danger'.",
+      "fullExplanation": "'At risk (of)' is a fixed phrase meaning 'in danger of'. 'On risk' is sometimes used in insurance jargon but is not the general English collocation. 'In risk' is not standard.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "social"
+    },
+    {
+      "stem": "The popular sneakers were ___ stock for the third week running, leaving customers frustrated with the brand.",
+      "options": ["out of", "off", "without"],
+      "answer": "out of",
+      "explanation": "'Out of stock' is the fixed phrase meaning 'no longer available'.",
+      "fullExplanation": "'Out of stock' is a fixed phrase meaning that an item has run out at a shop. 'Off stock' is not standard English. 'Without stock' is not used as a fixed phrase. The opposite is 'in stock'.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "social"
+    },
+    {
+      "stem": "Sam decided to learn Spanish ___ his own, using free apps and watching dubbed films in the evenings.",
+      "options": ["on", "by", "at"],
+      "answer": "on",
+      "explanation": "'On one's own' is the fixed phrase meaning 'alone' or 'unaided'.",
+      "fullExplanation": "'On + possessive + own' is a fixed phrase meaning 'without help' (on his own, on her own, on their own). 'By his own' is not standard, although 'by oneself' is. 'At his own' does not exist as a phrase.",
+      "source": "Murphy, EGU (4e), Unit 124",
+      "flavor": "social"
+    },
+    {
+      "stem": "Ordering food online has become so popular that many small restaurants now stay open mainly ___ demand from delivery apps.",
+      "options": ["on", "in", "by"],
+      "answer": "on",
+      "explanation": "'On demand' is the fixed phrase meaning 'whenever requested'.",
+      "fullExplanation": "'On demand' is a fixed phrase meaning 'whenever someone asks for it' (video on demand, payment on demand). 'In demand' is also a fixed phrase but means 'wanted by many people', which does not fit the sentence. 'By demand' is not standard in this sense.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "social"
+    },
+    {
+      "stem": "Chemists investigating new compounds work ___ pressure to publish findings before competing laboratories announce theirs.",
+      "options": ["under", "in", "on"],
+      "answer": "under",
+      "explanation": "'Under pressure' is the fixed phrase meaning 'in a stressful situation'.",
+      "fullExplanation": "'Under pressure' is the fixed phrase used when someone is being pushed to act quickly or to perform. 'In pressure' is not standard English. 'On pressure' is not used as a fixed phrase.",
+      "source": "Hewings, AGU (3e), Unit 65",
+      "flavor": "science"
+    },
+    {
+      "stem": "The team gathered the samples ___ random from across the lake to avoid biasing the results.",
+      "options": ["at", "on", "in"],
+      "answer": "at",
+      "explanation": "'At random' is the fixed phrase meaning 'without a particular pattern'.",
+      "fullExplanation": "'At random' is a fixed adverbial phrase meaning 'chosen without a system'. 'On random' is not standard English. 'In random' does not exist as a phrase, although 'in a random way' would be a longer alternative.",
+      "source": "Hewings, AGU (3e), Unit 65",
+      "flavor": "science"
+    },
+    {
+      "stem": "Astronomers said that the comet would pass close to Earth ___ broad daylight, making it almost impossible to observe.",
+      "options": ["in", "on", "at"],
+      "answer": "in",
+      "explanation": "'In broad daylight' is the fixed phrase meaning 'in full daylight'.",
+      "fullExplanation": "'In broad daylight' is a fixed phrase used to emphasise that something happens openly while it is fully light. 'On broad daylight' is not standard English. 'At broad daylight' does not exist as a phrase.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "science"
+    },
+    {
+      "stem": "The new battery prototype has been kept ___ wraps until the company can secure international patents.",
+      "options": ["under", "in", "on"],
+      "answer": "under",
+      "explanation": "'Under wraps' is the fixed phrase meaning 'kept secret'.",
+      "fullExplanation": "'Under wraps' is a fixed phrase meaning 'kept secret' or 'not yet revealed'. 'In wraps' is not standard English. 'On wraps' does not exist as a phrase.",
+      "source": "Swan, PEU (4e), §449",
+      "flavor": "science"
+    },
+    {
+      "stem": "Many laboratory animals were ___ danger of extinction long before international protection laws were finally introduced.",
+      "options": ["in", "at", "on"],
+      "answer": "in",
+      "explanation": "'In danger' is the fixed phrase meaning 'at risk'.",
+      "fullExplanation": "'In danger of + (doing) something' is the fixed phrase used for serious risk. 'At danger' is not standard English. 'On danger' does not exist as a phrase. Compare 'at risk', which uses a different preposition.",
+      "source": "Hewings, AGU (3e), Unit 65",
+      "flavor": "science"
+    },
+    {
+      "stem": "The space probe was launched ___ time, despite a series of last-minute technical problems with the rocket's guidance system.",
+      "options": ["on", "in", "at"],
+      "answer": "on",
+      "explanation": "'On time' means 'punctually'.",
+      "fullExplanation": "'On time' is a fixed phrase meaning 'at the planned time'. 'In time' is also a fixed phrase but means 'before something is too late', which does not fit a planned launch. 'At time' is not a standard phrase.",
+      "source": "Murphy, EGU (4e), Unit 124",
+      "flavor": "science"
+    },
+    {
+      "stem": "Adapted: 'Always do your best — what you plant now, you will harvest later.' Acting ___ haste is rarely the way to do that.",
+      "options": ["in", "on", "at"],
+      "answer": "in",
+      "explanation": "'In haste' is the fixed phrase meaning 'too quickly'.",
+      "fullExplanation": "'In haste' is a fixed phrase meaning 'in a hurried way, often regretted later'. 'On haste' is not standard English. 'At haste' does not exist as a phrase.",
+      "source": "Adapted · attributed to Og Mandino",
+      "flavor": "quotes",
+      "author": "Og Mandino"
+    },
+    {
+      "stem": "Adapted: 'You should never be afraid of failure — every great career is built ___ the back of mistakes.'",
+      "options": ["on", "at", "in"],
+      "answer": "on",
+      "explanation": "'On the back of' is the fixed phrase meaning 'on the basis of'.",
+      "fullExplanation": "'On the back of + something' is a fixed phrase meaning 'on the basis of' or 'as a result of'. 'At the back of' refers to physical position. 'In the back of' usually refers to a vehicle or location, not a basis for success.",
+      "source": "Adapted · attributed to Richard Branson",
+      "flavor": "quotes",
+      "author": "Richard Branson"
+    },
+    {
+      "stem": "Adapted: 'A leader who governs ___ fear ends up surrounded by people who tell him only what he wants to hear.'",
+      "options": ["by", "on", "in"],
+      "answer": "by",
+      "explanation": "'By fear' uses 'by' to mark the means.",
+      "fullExplanation": "When 'by' is used to mark the method or means by which something is done, the pattern is 'govern / rule by fear'. 'On fear' is not the standard preposition for means. 'In fear' is also a fixed phrase but means 'feeling afraid', which is the wrong meaning here.",
+      "source": "Adapted · attributed to Niccolò Machiavelli",
+      "flavor": "quotes",
+      "author": "Niccolò Machiavelli"
+    },
+    {
+      "stem": "Adapted: 'I have always thought that the smallest things, done ___ love, are greater than the greatest deeds.'",
+      "options": ["with", "in", "by"],
+      "answer": "with",
+      "explanation": "'Done with love' is the standard fixed pattern for manner.",
+      "fullExplanation": "'With + abstract noun' is a fixed pattern indicating manner (with care, with love, with patience). 'In love' means romantically attached, which is the wrong meaning here. 'By love' is not the standard preposition for manner.",
+      "source": "Adapted · attributed to Mother Teresa",
+      "flavor": "quotes",
+      "author": "Mother Teresa"
+    },
+    {
+      "stem": "Adapted: 'It is in the small daily disciplines that great results are built — not ___ chance.'",
+      "options": ["by", "in", "on"],
+      "answer": "by",
+      "explanation": "'By chance' is the fixed phrase meaning 'accidentally'.",
+      "fullExplanation": "'By chance' is a fixed phrase meaning 'accidentally' or 'without planning'. 'In chance' is not standard English. 'On chance' does not exist as a phrase, although 'on the off chance' is a related idiom with a different meaning.",
+      "source": "Adapted · attributed to Jim Rohn",
+      "flavor": "quotes",
+      "author": "Jim Rohn"
+    },
+    {
+      "stem": "Adapted: 'A wise person learns from the mistakes of others; a fool insists ___ making them all himself.'",
+      "options": ["on", "in", "at"],
+      "answer": "on",
+      "explanation": "'Insist on + gerund' is the fixed verb + preposition pattern, here marking obstinate persistence.",
+      "fullExplanation": "'Insist on + (doing) something' is the fixed pattern in English. 'Insist in' is not standard. 'Insist at' does not exist as a collocation. The phrase here uses 'insist on' to mark the foolish person's obstinate refusal to learn from others.",
+      "source": "Adapted · attributed to Otto von Bismarck",
+      "flavor": "quotes",
+      "author": "Otto von Bismarck"
+    }
+  ]
+}

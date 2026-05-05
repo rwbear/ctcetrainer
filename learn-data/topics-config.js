@@ -155,7 +155,9 @@
         { id: 'cs-prep-place', name: 'Place prepositions',         levels: { ctce: 'prep-place', b1: 'b1-prep-place',        b2: null, c1: null } },
         { id: 'cs-prep-dir',   name: 'Direction prepositions',     levels: { ctce: 'prep-dir',   b1: null,                   b2: null, c1: null } },
         { id: 'cs-prep-verb',  name: 'Verb + preposition',         levels: { ctce: 'prep-verb',  b1: 'b1-prep-verb-basic',   b2: null, c1: null } },
-        { id: 'cs-prep-adj',   name: 'Adjective + preposition',    levels: { ctce: 'prep-adj',   b1: null,                   b2: null, c1: null } }
+        { id: 'cs-prep-adj',   name: 'Adjective + preposition',    levels: { ctce: 'prep-adj',   b1: null,                   b2: null, c1: null } },
+        { id: 'cs-prep-noun',  name: 'Noun + preposition',         levels: { ctce: 'prep-noun',  b1: null,                   b2: null, c1: null } },
+        { id: 'cs-prep-fixed', name: 'Fixed prepositional phrases',levels: { ctce: 'prep-fixed', b1: null,                   b2: null, c1: null } }
       ]},
 
       // ── 11. Word Formation ─────────────────────────────────────────────
@@ -185,7 +187,8 @@
       // ── 14. Word for Two Sentences (CT/CE only) ───────────────────────
       { id: 'word-two-sentences', name: 'Word for Two Sentences', subtopics: [
         { id: 'cs-w2s-poly',     name: 'Polysemous words',        levels: { ctce: 'w2s-poly',     b1: null, b2: null, c1: null } },
-        { id: 'cs-w2s-particle', name: 'Particle-noun homonyms',  levels: { ctce: 'w2s-particle', b1: null, b2: null, c1: null } }
+        { id: 'cs-w2s-particle', name: 'Particle-noun homonyms',  levels: { ctce: 'w2s-particle', b1: null, b2: null, c1: null } },
+        { id: 'cs-w2s-action',   name: 'Polysemy of make/take/do/have/get', levels: { ctce: 'w2s-action-verbs', b1: null, b2: null, c1: null } }
       ]},
 
       // ── 15. Error Identification (CT/CE only) ─────────────────────────

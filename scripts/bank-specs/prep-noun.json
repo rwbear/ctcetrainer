@@ -1,0 +1,290 @@
+{
+  "id": "prep-noun",
+  "name": "Noun + preposition",
+  "canonicalSubId": "cs-prep-noun",
+  "canonicalTopicId": "prepositions",
+  "_meta": {
+    "version": "v10.22",
+    "rule": "Common noun + preposition collocations (interest in, reason for, solution to, effect on, etc.)",
+    "flavorPlan": "6/6/6/6/6 across personalities/history/social/science/quotes",
+    "answerCoverage": "in/for/to/on/with/of/between — varied across 30 tasks"
+  },
+  "tasks": [
+    {
+      "stem": "Marie Curie's interest ___ radioactivity began long before she had access to a properly equipped laboratory.",
+      "options": ["in", "on", "for"],
+      "answer": "in",
+      "explanation": "'Interest in' is the standard noun + preposition collocation.",
+      "fullExplanation": "The fixed collocation is 'interest in' a subject or activity. 'Interest on' refers to money paid on a loan or savings, which is a different meaning. 'Interest for' is not a standard collocation in English.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Vincent van Gogh's reason ___ moving to Arles was the brilliant southern light that he believed would transform his painting.",
+      "options": ["for", "of", "to"],
+      "answer": "for",
+      "explanation": "'Reason for' is the fixed collocation introducing the cause.",
+      "fullExplanation": "'Reason for + (doing) something' names the cause or motive. 'Reason of' is not standard in modern English. 'Reason to' is followed by an infinitive (a reason to stay), not a gerund or noun phrase like this one.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Steve Jobs argued that the solution ___ a difficult design problem was almost always to remove things, not to add them.",
+      "options": ["to", "for", "of"],
+      "answer": "to",
+      "explanation": "'Solution to' a problem is the fixed collocation.",
+      "fullExplanation": "The standard pattern is 'a solution to a problem'. 'Solution for' is sometimes heard but is non-standard in formal exam English. 'Solution of' refers to a chemical solution (a liquid mixture), which is a different meaning entirely.",
+      "source": "Swan, PEU (4e), §17",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Frida Kahlo's attitude ___ physical pain became one of the defining features of her self-portraits and personal writing.",
+      "options": ["to", "with", "for"],
+      "answer": "to",
+      "explanation": "'Attitude to' (or 'toward') something is the standard collocation.",
+      "fullExplanation": "The collocation is 'attitude to' or 'attitude towards' something. 'Attitude with' is not standard English. 'Attitude for' does not exist as a fixed expression. Both 'to' and 'towards' are accepted, but 'to' is the most common in British English.",
+      "source": "Swan, PEU (4e), §17",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Coco Chanel's approach ___ design was based on the conviction that elegance is achieved by removing, not adding, ornament.",
+      "options": ["to", "of", "for"],
+      "answer": "to",
+      "explanation": "'Approach to' is the fixed noun + preposition collocation.",
+      "fullExplanation": "The standard pattern is 'approach to + something' (approach to design, approach to a problem). 'Approach of' is rarely used in this sense. 'Approach for' is not a standard collocation in formal English.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Pablo Picasso's influence ___ twentieth-century art is impossible to overstate, even for those who dislike his later work.",
+      "options": ["on", "to", "for"],
+      "answer": "on",
+      "explanation": "'Influence on' is the fixed collocation.",
+      "fullExplanation": "The standard collocation is 'influence on' someone or something. 'Influence to' is not a standard pattern. 'Influence for' does not exist as a fixed expression. The same pattern applies to 'effect on' and 'impact on'.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "The difference ___ classical and romantic music is often described in terms of restraint versus emotional expression.",
+      "options": ["between", "from", "of"],
+      "answer": "between",
+      "explanation": "'Difference between X and Y' is the standard pattern.",
+      "fullExplanation": "When comparing two specific things, the pattern is 'difference between X and Y'. 'Difference from' is used to compare one thing with another (X is different from Y). 'Difference of' refers to a quantity (a difference of three points), not a comparison.",
+      "source": "Swan, PEU (4e), §16",
+      "flavor": "history"
+    },
+    {
+      "stem": "The cause ___ the First World War is still debated, with historians pointing to alliances, nationalism and arms races.",
+      "options": ["of", "for", "from"],
+      "answer": "of",
+      "explanation": "'Cause of' is the standard collocation.",
+      "fullExplanation": "The fixed pattern is 'cause of + something'. 'Cause for' exists in expressions like 'cause for concern' but cannot be used here. 'Cause from' is not standard English.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "history"
+    },
+    {
+      "stem": "The demand ___ rubber during the early twentieth century drove the brutal exploitation of labour in the Belgian Congo.",
+      "options": ["for", "on", "of"],
+      "answer": "for",
+      "explanation": "'Demand for' is the fixed collocation.",
+      "fullExplanation": "The pattern is 'demand for + a product or service'. 'Demand on' refers to pressure or expectations placed on someone (demands on her time). 'Demand of' is not the natural collocation in this sense.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "history"
+    },
+    {
+      "stem": "The increase ___ literacy across Europe after the printing press transformed religious, political and scientific debate.",
+      "options": ["in", "of", "on"],
+      "answer": "in",
+      "explanation": "'Increase in' is the standard collocation for a rising quantity.",
+      "fullExplanation": "When describing a rise in a measurable quantity, the pattern is 'increase in X' (increase in literacy, increase in prices). 'Increase of' is sometimes used to give a specific amount (an increase of ten percent). 'Increase on' is not standard in this sense.",
+      "source": "Swan, PEU (4e), §16",
+      "flavor": "history"
+    },
+    {
+      "stem": "The response ___ the launch of Sputnik in 1957 transformed American science education almost overnight.",
+      "options": ["to", "of", "for"],
+      "answer": "to",
+      "explanation": "'Response to' is the fixed collocation.",
+      "fullExplanation": "The standard pattern is 'response to + something' (response to a question, response to an event). 'Response of' is used differently, often to identify the source of the response (the response of the public). 'Response for' is not a fixed collocation.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "history"
+    },
+    {
+      "stem": "Historians often note the contrast ___ the optimism of the 1920s and the despair of the early 1930s.",
+      "options": ["between", "from", "with"],
+      "answer": "between",
+      "explanation": "'Contrast between X and Y' is the standard pattern.",
+      "fullExplanation": "When two specific things are being compared, the pattern is 'contrast between X and Y'. 'Contrast with' compares one item against another (in contrast with the south). 'Contrast from' is not standard in formal English.",
+      "source": "Swan, PEU (4e), §16",
+      "flavor": "history"
+    },
+    {
+      "stem": "Many young people complain about a lack ___ affordable housing in the city centres where most jobs are located.",
+      "options": ["of", "for", "in"],
+      "answer": "of",
+      "explanation": "'Lack of' is the standard collocation.",
+      "fullExplanation": "The fixed pattern is 'lack of + something'. 'Lack for' exists only in literary expressions ('she lacks for nothing') and is not used as a noun + preposition here. 'Lack in' is not a standard collocation.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "social"
+    },
+    {
+      "stem": "The relationship ___ parents and teenagers often becomes strained during the years leading up to final exams.",
+      "options": ["between", "of", "with"],
+      "answer": "between",
+      "explanation": "'Relationship between X and Y' is the standard pattern for two parties.",
+      "fullExplanation": "When the relationship involves two specific parties, the pattern is 'relationship between X and Y'. 'Relationship with' is used to describe one person's connection to another (her relationship with her sister). 'Relationship of' usually identifies a type of relationship (a relationship of trust).",
+      "source": "Swan, PEU (4e), §16",
+      "flavor": "social"
+    },
+    {
+      "stem": "Many commuters complain about the constant problems ___ the unreliable train service that runs through the suburbs.",
+      "options": ["with", "of", "on"],
+      "answer": "with",
+      "explanation": "'Problem with' is the fixed collocation.",
+      "fullExplanation": "When describing difficulties caused by something, the pattern is 'problem with + something' (problem with the service, problem with my computer). 'Problem of' refers to a broader issue (the problem of poverty). 'Problem on' is not a standard collocation.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "social"
+    },
+    {
+      "stem": "The need ___ stricter regulation of social media has been raised repeatedly in parliamentary debates.",
+      "options": ["for", "of", "to"],
+      "answer": "for",
+      "explanation": "'Need for' is the standard collocation.",
+      "fullExplanation": "The fixed pattern is 'need for + something' when used as a noun. 'Need of' exists in the expression 'in need of' but is not the noun + preposition pattern asked here. 'Need to' is followed by an infinitive (need to act), not by a noun phrase.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "social"
+    },
+    {
+      "stem": "The impact ___ smartphones on teenagers' sleep patterns is a growing concern among parents and educators.",
+      "options": ["of", "for", "on"],
+      "answer": "of",
+      "explanation": "Here the noun is 'the impact of X (on Y)', so the first preposition is 'of'.",
+      "fullExplanation": "'Impact' takes 'of' to introduce the source of the impact and 'on' to introduce what is affected: 'the impact of X on Y'. Here X = 'smartphones', so the missing preposition is 'of'. 'Impact for' is not a standard collocation.",
+      "source": "Swan, PEU (4e), §16",
+      "flavor": "social"
+    },
+    {
+      "stem": "The shortage ___ qualified maths teachers continues to affect schools across Eastern Europe.",
+      "options": ["of", "in", "for"],
+      "answer": "of",
+      "explanation": "'Shortage of' is the standard collocation.",
+      "fullExplanation": "The fixed pattern is 'shortage of + something or someone'. 'Shortage in' is sometimes used to localise the gap (a shortage in the south) but is not the basic collocation. 'Shortage for' is not standard English.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "social"
+    },
+    {
+      "stem": "Recent studies have confirmed the harmful effect ___ excessive screen time on children's developing visual systems.",
+      "options": ["of", "on", "for"],
+      "answer": "of",
+      "explanation": "Here the noun phrase is 'the effect of X (on Y)', so the missing word is 'of'.",
+      "fullExplanation": "'Effect' takes 'of' to introduce the cause and 'on' to introduce what is affected: 'the effect of X on Y'. Here X = 'excessive screen time'. 'Effect on' alone would skip the cause, which is grammatically required by the surrounding phrase 'of excessive screen time'.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "science"
+    },
+    {
+      "stem": "Researchers found a strong correlation ___ regular exercise and improved long-term memory in adults over fifty.",
+      "options": ["between", "from", "with"],
+      "answer": "between",
+      "explanation": "'Correlation between X and Y' is the fixed pattern.",
+      "fullExplanation": "When linking two variables, the pattern is 'correlation between X and Y'. 'Correlation with' is sometimes used to relate one variable to another (correlation with age), but with a coordinated pair the standard is 'between'. 'Correlation from' is not standard.",
+      "source": "Hewings, AGU (3e), Unit 64",
+      "flavor": "science"
+    },
+    {
+      "stem": "Astronomers have collected new evidence ___ the existence of water on several moons of Jupiter and Saturn.",
+      "options": ["of", "for", "on"],
+      "answer": "of",
+      "explanation": "'Evidence of' is the standard collocation when referring to what the evidence shows.",
+      "fullExplanation": "The pattern 'evidence of + something' is the most common when stating what the evidence reveals. 'Evidence for' is also acceptable when the evidence supports a claim or hypothesis. 'Evidence on' is not a standard collocation in this sense.",
+      "source": "Hewings, AGU (3e), Unit 64",
+      "flavor": "science"
+    },
+    {
+      "stem": "The decrease ___ insect populations across Europe is one of the most worrying ecological signals of recent years.",
+      "options": ["in", "of", "on"],
+      "answer": "in",
+      "explanation": "'Decrease in' is the standard collocation for a falling quantity.",
+      "fullExplanation": "When describing a fall in a measurable quantity, the pattern is 'decrease in X'. 'Decrease of' is used when stating the size of the fall (a decrease of ten percent). 'Decrease on' is not standard English.",
+      "source": "Swan, PEU (4e), §16",
+      "flavor": "science"
+    },
+    {
+      "stem": "The damage ___ the coral reefs caused by rising sea temperatures has accelerated dramatically in the past decade.",
+      "options": ["to", "of", "on"],
+      "answer": "to",
+      "explanation": "'Damage to' is the fixed collocation.",
+      "fullExplanation": "The standard pattern is 'damage to + something' (damage to the reef, damage to property). 'Damage of' is not standard in modern English. 'Damage on' does not exist as a collocation.",
+      "source": "Murphy, EGU (4e), Unit 131",
+      "flavor": "science"
+    },
+    {
+      "stem": "Researchers have proposed several theories ___ consciousness, but none has yet won general acceptance.",
+      "options": ["of", "for", "to"],
+      "answer": "of",
+      "explanation": "'Theory of' is the standard collocation in scientific contexts.",
+      "fullExplanation": "The fixed pattern in academic English is 'theory of + something' (theory of relativity, theory of evolution). 'Theory for' is not the standard noun + preposition collocation. 'Theory to' is not used in this sense.",
+      "source": "Hewings, AGU (3e), Unit 64",
+      "flavor": "science"
+    },
+    {
+      "stem": "Adapted: 'The secret ___ getting ahead is getting started.'",
+      "options": ["of", "for", "to"],
+      "answer": "of",
+      "explanation": "'Secret of (doing) something' is the standard pattern.",
+      "fullExplanation": "The collocation is 'secret of + (doing) something' (the secret of success, the secret of his charm). 'Secret for' and 'secret to' are sometimes heard in informal speech but are not the standard exam form, especially with a gerund.",
+      "source": "Adapted · attributed to Mark Twain",
+      "flavor": "quotes",
+      "author": "Mark Twain"
+    },
+    {
+      "stem": "Adapted: 'The future belongs to those who have a real belief ___ the beauty of their dreams.'",
+      "options": ["in", "of", "on"],
+      "answer": "in",
+      "explanation": "'Belief in' is the fixed noun + preposition collocation.",
+      "fullExplanation": "The standard pattern is 'belief in + something or someone' (belief in God, belief in oneself). 'Belief of' usually identifies the holder of the belief (the belief of the people). 'Belief on' is not standard English.",
+      "source": "Adapted · attributed to Eleanor Roosevelt",
+      "flavor": "quotes",
+      "author": "Eleanor Roosevelt"
+    },
+    {
+      "stem": "Adapted: 'The difference ___ stupidity and genius is that genius has its limits.'",
+      "options": ["between", "from", "of"],
+      "answer": "between",
+      "explanation": "'Difference between X and Y' is the standard pattern with two coordinated nouns.",
+      "fullExplanation": "When two specific things are compared, the pattern is 'difference between X and Y'. 'Difference from' compares one thing against another (different from). 'Difference of' usually states a quantity, not a contrast.",
+      "source": "Adapted · attributed to Albert Einstein",
+      "flavor": "quotes",
+      "author": "Albert Einstein"
+    },
+    {
+      "stem": "Adapted: 'Real knowledge is to know the extent ___ one's own ignorance.'",
+      "options": ["of", "for", "in"],
+      "answer": "of",
+      "explanation": "'Extent of' is the fixed collocation.",
+      "fullExplanation": "The standard pattern is 'extent of + something' (the extent of the damage, the extent of his knowledge). 'Extent for' is not a standard collocation. 'Extent in' is sometimes used as a vague intensifier in informal writing but is not the noun + preposition pattern asked here.",
+      "source": "Adapted · attributed to Confucius",
+      "flavor": "quotes",
+      "author": "Confucius"
+    },
+    {
+      "stem": "Adapted: 'The best way to find yourself is to lose yourself in the service ___ others.'",
+      "options": ["of", "to", "for"],
+      "answer": "of",
+      "explanation": "'Service of' is the standard collocation here.",
+      "fullExplanation": "'In the service of + someone' is a fixed expression meaning working for the benefit of others. 'Service to' usually means an act of help offered to a specific party (a service to the community). 'Service for' is not the standard form here.",
+      "source": "Adapted · attributed to Mahatma Gandhi",
+      "flavor": "quotes",
+      "author": "Mahatma Gandhi"
+    },
+    {
+      "stem": "Adapted: 'There is not a liberal America and a conservative America — there is the United States ___ America.'",
+      "options": ["of", "for", "in"],
+      "answer": "of",
+      "explanation": "'Of' links the noun 'States' to the country it belongs to.",
+      "fullExplanation": "The fixed name is 'the United States of America', where 'of' links the noun phrase 'United States' to the country it forms. 'For' would imply purpose or direction, which is wrong here. 'In' would imply location, which is also wrong.",
+      "source": "Adapted · attributed to Barack Obama",
+      "flavor": "quotes",
+      "author": "Barack Obama"
+    }
+  ]
+}

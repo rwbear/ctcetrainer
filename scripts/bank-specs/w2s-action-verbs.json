@@ -1,0 +1,290 @@
+{
+  "id": "w2s-action-verbs",
+  "name": "Polysemy of make / take / do / have / get",
+  "canonicalSubId": "cs-w2s-action",
+  "canonicalTopicId": "word-two-sentences",
+  "_meta": {
+    "version": "v10.22",
+    "rule": "One delexical verb (make/take/do/have/get) fills both blanks across two unrelated collocations.",
+    "verbDistribution": "6 make, 6 take, 6 do, 6 have, 6 get",
+    "flavorPlan": "6/6/6/6/6 across personalities/history/social/science/quotes"
+  },
+  "tasks": [
+    {
+      "stem": "1) Pablo Picasso once said that an artist must always ___ a decision before the paint dries.\n2) The students were trying to ___ as little noise as possible while their classmates finished the test.",
+      "options": ["make", "take", "do"],
+      "answer": "make",
+      "explanation": "'Make' collocates with both 'a decision' and 'a noise'.",
+      "fullExplanation": "The fixed collocations 'make a decision' and 'make a noise' both use 'make'. 'Take a decision' is heard in some varieties but is not the standard exam form. 'Do a decision' is not standard English at all. 'Take a noise' and 'do a noise' are also non-standard.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Marie Curie used the prize money to ___ a phone call home before returning to her laboratory in Paris.\n2) Even the most famous artists rarely ___ much money during their first ten years of work.",
+      "options": ["make", "have", "do"],
+      "answer": "make",
+      "explanation": "'Make' is used with both 'a phone call' and 'money'.",
+      "fullExplanation": "'Make a phone call' and 'make money' are both fixed collocations with 'make'. 'Have a phone call' suggests being in a call already, not the act of placing one. 'Do money' is not standard English in any sense.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Coco Chanel believed it was easier to ___ friends in Paris than to keep them.\n2) Even the most experienced designers occasionally ___ a serious mistake in choosing fabric.",
+      "options": ["make", "do", "get"],
+      "answer": "make",
+      "explanation": "'Make' is used with both 'friends' and 'a mistake'.",
+      "fullExplanation": "'Make friends' and 'make a mistake' are both fixed collocations with 'make'. 'Do friends' and 'do a mistake' are common errors but are not standard English. 'Get friends' is not idiomatic; 'get a mistake' is meaningless in standard English.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Steve Jobs liked to say that a real designer must ___ a difference, not just a product.\n2) For Jobs, every detail had to ___ sense before the launch could go ahead.",
+      "options": ["make", "do", "have"],
+      "answer": "make",
+      "explanation": "'Make' is used with both 'a difference' and 'sense'.",
+      "fullExplanation": "'Make a difference' and 'make sense' are both fixed collocations with 'make'. 'Do a difference' and 'do sense' are not standard English. 'Have sense' exists ('she has sense') but means something different: that someone is sensible.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Frida Kahlo had to ___ enormous progress before her work was taken seriously by Mexico's male critics.\n2) Despite her chronic pain, she rarely allowed her studio to ___ a mess for more than a single day.",
+      "options": ["make", "have", "do"],
+      "answer": "make",
+      "explanation": "'Make' is used with both 'progress' and 'a mess'.",
+      "fullExplanation": "'Make progress' and 'make a mess' are both fixed collocations. 'Do progress' and 'do a mess' are not standard English. 'Have progress' is not idiomatic; 'have a mess' is sometimes heard informally but is not the standard collocation in either case.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Vincent van Gogh would often ___ careful plans for a painting before starting to mix the colours.\n2) His sister-in-law would ___ a simple cake for him every time he came back from the south.",
+      "options": ["make", "have", "do"],
+      "answer": "make",
+      "explanation": "'Make' is used with both 'plans' and 'a cake'.",
+      "fullExplanation": "'Make plans' and 'make a cake' are both fixed collocations. 'Do plans' is not standard English; 'do a cake' is also non-standard. 'Have plans' means to have arrangements already in place ('I have plans tonight'), not the act of forming them.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Roman generals were expected to ___ responsibility for any defeat suffered by their legions in the field.\n2) Soldiers who survived a long campaign would ___ a hot bath in the public baths as soon as they returned.",
+      "options": ["take", "make", "have"],
+      "answer": "take",
+      "explanation": "'Take' is used with both 'responsibility' and 'a bath'.",
+      "fullExplanation": "'Take responsibility' and 'take a bath' are both fixed collocations with 'take' in formal British English. 'Have a bath' is also possible and common, but only 'take' fills both blanks: 'have responsibility' is non-standard. 'Make responsibility' is not English.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) Photographers in the 1850s could not ___ a clear photo unless their subjects sat completely still for many minutes.\n2) Even the most cautious doctors of the period would ___ medicine without first checking who had prepared it.",
+      "options": ["take", "make", "do"],
+      "answer": "take",
+      "explanation": "'Take' is used with both 'a photo' and 'medicine'.",
+      "fullExplanation": "'Take a photo' and 'take medicine' are both fixed collocations. 'Make a photo' is heard as a translation error from several languages but is not standard English. 'Do medicine' means 'to study medicine', which is the wrong meaning here.",
+      "source": "Murphy, EGU (4e), Unit 50",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) When the Black Death reached Europe, traders had to ___ a chance every time they entered a new town.\n2) Many merchants would ___ a bus or coach across the continent rather than risk the longer sea route.",
+      "options": ["take", "make", "have"],
+      "answer": "take",
+      "explanation": "'Take' is used with both 'a chance' and 'a bus' (or coach).",
+      "fullExplanation": "'Take a chance' and 'take a bus / coach' are both fixed collocations with 'take'. 'Make a chance' and 'have a chance' exist but mean something different ('have a chance' = have an opportunity). 'Make a bus' is not English in this sense.",
+      "source": "Murphy, EGU (4e), Unit 50",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) The Allied generals were forced to ___ a difficult decision about whether to launch the invasion in poor weather.\n2) Officers had to ___ careful notes on every conversation with their counterparts in occupied territory.",
+      "options": ["take", "make", "do"],
+      "answer": "take",
+      "explanation": "'Take' is used with both 'a decision' and 'notes'.",
+      "fullExplanation": "'Take a decision' (more formal) and 'take notes' are both standard collocations with 'take'. 'Make a decision' is also acceptable but 'make notes' is more about composing a written summary; only 'take' fills both blanks idiomatically. 'Do a decision' is not standard English.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) The construction of the Channel Tunnel ___ several years longer than the engineers had originally planned.\n2) The ceremony to open the tunnel ___ place in the presence of both the Queen and the French president.",
+      "options": ["took", "made", "had"],
+      "answer": "took",
+      "explanation": "'Take' is used with both 'time' and 'place'.",
+      "fullExplanation": "'Take time / take several years' and 'take place' are both fixed collocations with 'take'. 'Make place' is heard in some other languages but is not standard English; the correct phrase for an event happening is 'take place'. 'Have place' is not a standard collocation.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) During the Cold War, intelligence agencies on both sides had to ___ great care of the documents they exchanged with informers.\n2) Western embassies often had to ___ advantage of every diplomatic opening, however small.",
+      "options": ["take", "make", "do"],
+      "answer": "take",
+      "explanation": "'Take' is used with both 'care of' and 'advantage'.",
+      "fullExplanation": "'Take care of (something)' and 'take advantage of (something)' are both fixed collocations with 'take'. 'Make care of' and 'make advantage of' are not standard English. 'Do care of' is also non-standard.",
+      "source": "Swan, PEU (4e), §322",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) Many students still believe they have to ___ their homework alone, even when group work would help them learn more.\n2) Some young entrepreneurs prefer to ___ business with people they know personally before signing any contract.",
+      "options": ["do", "make", "have"],
+      "answer": "do",
+      "explanation": "'Do' is used with both 'homework' and 'business'.",
+      "fullExplanation": "'Do homework' and 'do business' are both fixed collocations with 'do'. 'Make homework' is a common translation error from several languages but is not English. 'Have business' is not the right collocation for the act of trading or working with someone.",
+      "source": "Swan, PEU (4e), §188",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) Older brothers and sisters often ___ the dishes after every family dinner during the school holidays.\n2) Doctors recommend that adults ___ regular exercise at least three times a week to stay healthy.",
+      "options": ["do", "make", "have"],
+      "answer": "do",
+      "explanation": "'Do' is used with both 'the dishes' and 'exercise'.",
+      "fullExplanation": "'Do the dishes' and 'do exercise' (or 'do some exercise') are both standard collocations with 'do'. 'Make the dishes' is heard as a translation error from several languages but is not English. 'Have exercise' is non-standard; 'take exercise' is an older alternative but 'do exercise' fits both blanks.",
+      "source": "Swan, PEU (4e), §188",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) Some politicians have argued that gambling advertisements ___ real harm to teenagers and should be banned outright.\n2) University researchers continue to ___ valuable research on the long-term effects of social media use.",
+      "options": ["do", "make", "take"],
+      "answer": "do",
+      "explanation": "'Do' is used with both 'harm' and 'research'.",
+      "fullExplanation": "'Do harm' and 'do research' are both standard collocations with 'do' in academic and journalistic English. 'Make harm' and 'make research' are common translation errors but not English. 'Take research' is not standard.",
+      "source": "Hewings, AGU (3e), Unit 65",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) A neighbour can sometimes ___ you a favour without expecting anything in return at all.\n2) Many young students hope to ___ well in their final exams in order to enter university.",
+      "options": ["do", "make", "have"],
+      "answer": "do",
+      "explanation": "'Do' is used with both 'a favour' and 'well'.",
+      "fullExplanation": "'Do someone a favour' and 'do well' are both fixed collocations with 'do'. 'Make someone a favour' is a translation error from several languages but is not English. 'Have well' is not standard.",
+      "source": "Swan, PEU (4e), §188",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) On Sundays many families ___ the laundry together so that the working week starts cleanly for everyone.\n2) Coaches always tell their players to ___ their best, regardless of the score on the board.",
+      "options": ["do", "make", "have"],
+      "answer": "do",
+      "explanation": "'Do' is used with both 'the laundry' and 'one's best'.",
+      "fullExplanation": "'Do the laundry' and 'do one's best' are both fixed collocations with 'do'. 'Make the laundry' is not English. 'Have one's best' is also not standard; the phrase 'do your best' is fixed.",
+      "source": "Swan, PEU (4e), §188",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) Most office workers cannot easily ___ without coffee in the morning.\n2) The earthquake did not ___ much damage to the historic buildings near the harbour.",
+      "options": ["do", "make", "have"],
+      "answer": "do",
+      "explanation": "'Do' is used with both 'without' (manage without) and 'damage'.",
+      "fullExplanation": "'Do without (something)' means 'manage without something', and 'do damage' is the fixed collocation for causing harm to property. 'Make damage' and 'have damage' are not standard English. 'Make without' is not idiomatic in this sense.",
+      "source": "Swan, PEU (4e), §188",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) Lab technicians always ___ breakfast in the cafeteria before starting their first measurements of the day.\n2) Senior researchers would often ___ a long talk with new students about the importance of careful note-taking.",
+      "options": ["have", "take", "do"],
+      "answer": "have",
+      "explanation": "'Have' is used with both 'breakfast' and 'a talk'.",
+      "fullExplanation": "'Have breakfast' and 'have a talk' (or 'have a chat') are both fixed delexical collocations with 'have'. 'Take breakfast' is heard occasionally in older English but is now rare. 'Do breakfast' and 'do a talk' (in this sense) are not standard.",
+      "source": "Swan, PEU (4e), §239",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Researchers ___ a meeting every Friday morning to share their results with the rest of the laboratory.\n2) Few young scientists ___ the time to read every new paper that comes out in their field.",
+      "options": ["have", "do", "take"],
+      "answer": "have",
+      "explanation": "'Have' is used with both 'a meeting' and 'time'.",
+      "fullExplanation": "'Have a meeting' and 'have time' are both fixed collocations with 'have'. 'Do a meeting' is common in informal speech but is not the standard exam form; 'do time' means 'to be in prison', a different meaning. 'Take a meeting' is also informal and is not the standard British exam form.",
+      "source": "Swan, PEU (4e), §239",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) During the long winters at the South Pole, members of the team often ___ an argument about the smallest of things.\n2) After spending so many days outside in the cold, some of them began to ___ a serious cold within a week.",
+      "options": ["have", "make", "do"],
+      "answer": "have",
+      "explanation": "'Have' is used with both 'an argument' and 'a cold'.",
+      "fullExplanation": "'Have an argument' and 'have a cold' are both fixed collocations with 'have'. 'Make an argument' exists but means 'to present a case', not 'to quarrel'. 'Do a cold' is not English at all.",
+      "source": "Hewings, AGU (3e), Unit 65",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Astronauts on the International Space Station cannot ___ a normal shower because of how water behaves in zero gravity.\n2) Researchers had to ___ several attempts to dock the new module before they finally succeeded.",
+      "options": ["have", "do", "make"],
+      "answer": "have",
+      "explanation": "'Have' is used with both 'a shower' and 'attempts (a try)'.",
+      "fullExplanation": "'Have a shower' and 'have a try / have several attempts' are both standard delexical collocations with 'have'. 'Do a shower' is not standard English. 'Make a shower' and 'make a try' are also not idiomatic in this sense.",
+      "source": "Swan, PEU (4e), §239",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Even Albert Einstein admitted that he could not ___ a clear idea of how quantum mechanics fitted his vision of the universe.\n2) Climate scientists often ___ serious problems explaining their results to the general public.",
+      "options": ["have", "make", "do"],
+      "answer": "have",
+      "explanation": "'Have' is used with both 'an idea' and 'problems'.",
+      "fullExplanation": "'Have an idea' and 'have problems' are both fixed collocations with 'have'. 'Make an idea' is a translation error from several languages but is not English. 'Do problems' is not standard English; we would say 'solve problems' or 'have problems'.",
+      "source": "Swan, PEU (4e), §239",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Field scientists always ___ a careful look at the soil before they take any samples for analysis.\n2) Even on long expeditions, researchers ___ fun together at the end of each day's work.",
+      "options": ["have", "do", "make"],
+      "answer": "have",
+      "explanation": "'Have' is used with both 'a look' and 'fun'.",
+      "fullExplanation": "'Have a look (at)' and 'have fun' are both fixed collocations with 'have'. 'Take a look' is also possible, but only 'have' fits both blanks: 'take fun' is not English. 'Do fun' is not standard.",
+      "source": "Hewings, AGU (3e), Unit 65",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Adapted: 'You don't ___ a second chance to make a first impression.'\n2) Adapted: 'Most great inventors had to ___ used to failure long before they ever saw success.'",
+      "options": ["get", "have", "do"],
+      "answer": "get",
+      "explanation": "'Get' is used with both 'a chance' (in this idiom) and 'used to' (= become accustomed).",
+      "fullExplanation": "'Get a chance' is the fixed collocation in informal English, and 'get used to + something' is the fixed pattern meaning 'become accustomed'. 'Have a chance' is possible but does not fit the second blank: 'have used to' is not English. 'Do' fits neither.",
+      "source": "Adapted · attributed to Will Rogers",
+      "flavor": "quotes",
+      "author": "Will Rogers"
+    },
+    {
+      "stem": "1) Adapted: 'The older you ___, the more you realise that simplicity is the highest form of intelligence.'\n2) Adapted: 'When you finally ___ the joke that life is short, every day starts to count.'",
+      "options": ["get", "make", "do"],
+      "answer": "get",
+      "explanation": "'Get' is used with both 'older' and 'the joke'.",
+      "fullExplanation": "'Get + comparative adjective' (get older, get tired, get richer) and 'get the joke' are both standard idiomatic uses of 'get' meaning 'become' and 'understand', respectively. 'Make older' is not English. 'Do the joke' would mean 'to perform the joke', which is a different meaning.",
+      "source": "Adapted · attributed to Leonardo da Vinci",
+      "flavor": "quotes",
+      "author": "Leonardo da Vinci"
+    },
+    {
+      "stem": "1) Adapted: 'A leader is someone who is willing to ___ home last and let the team go first.'\n2) Adapted: 'You only truly ___ permission to lead from the people who choose to follow you.'",
+      "options": ["get", "have", "take"],
+      "answer": "get",
+      "explanation": "'Get' is used with both 'home' and 'permission'.",
+      "fullExplanation": "'Get home' (= arrive home) and 'get permission' are both fixed idiomatic uses of 'get'. 'Have home' is not idiomatic. 'Take permission' is heard in some varieties but is not the standard exam form; the standard collocation is 'get permission'.",
+      "source": "Adapted · attributed to Simon Sinek",
+      "flavor": "quotes",
+      "author": "Simon Sinek"
+    },
+    {
+      "stem": "1) Adapted: 'The day you stop learning is the day you start to ___ tired of life.'\n2) Adapted: 'Every great mind has had to ___ information from sources that disagreed with each other.'",
+      "options": ["get", "make", "do"],
+      "answer": "get",
+      "explanation": "'Get' is used with both 'tired' and 'information'.",
+      "fullExplanation": "'Get tired' (= become tired) and 'get information' (= obtain information) are both standard idiomatic uses of 'get'. 'Make tired' and 'make information' are not standard English. 'Do tired' and 'do information' are not English at all.",
+      "source": "Adapted · attributed to Henry Ford",
+      "flavor": "quotes",
+      "author": "Henry Ford"
+    },
+    {
+      "stem": "1) Adapted: 'When two people ___ married, they should bring out the best in each other, not the worst.'\n2) Adapted: 'Sometimes the wisest thing a person can do is simply ___ the bus and watch the world go by for an afternoon.'",
+      "options": ["get", "make", "have"],
+      "answer": "get",
+      "explanation": "'Get' is used with both 'married' and 'the bus'.",
+      "fullExplanation": "'Get married' and 'get the bus' are both standard idiomatic collocations with 'get'. 'Make married' is not English. 'Have the bus' is not idiomatic; 'take the bus' is also possible, but only 'get' fits both blanks here.",
+      "source": "Adapted · attributed to Maya Angelou",
+      "flavor": "quotes",
+      "author": "Maya Angelou"
+    },
+    {
+      "stem": "1) Adapted: 'It is the mark of an educated mind to ___ a serious thought without immediately accepting it as true.'\n2) Adapted: 'Words can ___ a real effect on those who are ready to listen carefully.'",
+      "options": ["have", "do", "make"],
+      "answer": "have",
+      "explanation": "'Have' is used with both 'a thought' and 'an effect'.",
+      "fullExplanation": "'Have a thought' (= entertain an idea) and 'have an effect' are both fixed delexical collocations with 'have'. 'Do a thought' and 'do an effect' are not standard English. 'Make a thought' is also non-standard; 'make an effect' is heard sometimes but the established collocation in formal English is 'have an effect on'.",
+      "source": "Adapted · attributed to Aristotle",
+      "flavor": "quotes",
+      "author": "Aristotle"
+    }
+  ]
+}
