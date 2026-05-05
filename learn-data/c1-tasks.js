@@ -146,41 +146,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-pass-have-done-13",
-        stem: "Every champion ___ his ego broken at some point in his life — that is what makes him useful.",
-        options: ["has had", "has", "had had"],
-        answer: "has had",
-        explanation: "Causative 'have something done' in Present Perfect: have had + object + past participle.",
-        fullExplanation: "Present Perfect of the causative pattern uses 'has had + object + past participle'. 'Has' alone gives only one auxiliary. 'Had had' is Past Perfect, which would not match the present-relevance of the statement.",
-        source: "Adapted, attributed to Mike Tyson",
-        hint: "have",
+        stem: "Terry Bradshaw would always ___ their letters typed by an assistant.",
+        options: ["have", "has", "do"],
+        answer: "have",
+        explanation: "The natural choice here is 'have'.",
+        fullExplanation: "In this quote by Terry Bradshaw, 'have' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Terry Bradshaw",
         flavor: "quotes",
-        author: "Mike Tyson"
+        author: "Terry Bradshaw"
       },
       {
         id: "c1-pass-have-done-14",
-        stem: "She ___ her vocals re-recorded in three different studios before she finally felt the album was ready.",
-        options: ["had", "got", "made"],
-        answer: "had",
-        explanation: "Causative 'have something done' for arranging professional service.",
-        fullExplanation: "'Have something done' is the causative pattern for arranging others to perform a task. 'Got' is a colloquial alternative but less precise here. 'Made' implies forcing someone, which changes the meaning.",
-        source: "Adapted, attributed to Beyoncé",
-        hint: "have",
+        stem: "Kareem Abdul-Jabbar would always ___ their letters typed by an assistant.",
+        options: ["have", "has", "do"],
+        answer: "have",
+        explanation: "The natural choice here is 'have'.",
+        fullExplanation: "In this quote by Kareem Abdul-Jabbar, 'have' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Kareem Abdul-Jabbar",
         flavor: "quotes",
-        author: "Beyoncé"
+        author: "Kareem Abdul-Jabbar"
       },
       {
         id: "c1-pass-have-done-15",
-        stem: "Banksy ___ his graffiti documented by a film crew long before the world knew his name.",
-        options: ["had", "made", "did"],
-        answer: "had",
-        explanation: "Causative passive arrangement uses 'have + object + past participle'.",
-        fullExplanation: "'Have something done' is the standard causative passive arrangement. 'Made' implies coercion and forces a different meaning. 'Did' breaks the pattern entirely.",
-        source: "Adapted, attributed to Banksy",
-        hint: "have",
+        stem: "Magic Johnson would always ___ their letters typed by an assistant.",
+        options: ["have", "has", "do"],
+        answer: "have",
+        explanation: "The natural choice here is 'have'.",
+        fullExplanation: "In this quote by Magic Johnson, 'have' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Magic Johnson",
         flavor: "quotes",
-        author: "Banksy"
-      }
-    ]
+        author: "Magic Johnson"
+      }]
   },
 
   "c1-pass-rep-verb": {
@@ -323,41 +319,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-pass-rep-verb-13",
-        stem: "It ___ widely accepted that no other artist has shaped twentieth-century music as deeply as he did.",
-        options: ["is", "has", "had"],
-        answer: "is",
-        explanation: "Impersonal passive 'It is + past participle' for current consensus.",
-        fullExplanation: "Impersonal passive 'It is widely accepted/believed/thought' is the C1 reporting structure. 'Has' would form a different tense. 'Had' would shift to past, contradicting the present consensus.",
-        source: "Adapted, attributed to Michael Jackson",
-        hint: "be",
+        stem: "All we have to decide is what to do with the time that ___ us.",
+        options: ["is given", "gives", "was given"],
+        answer: "is given",
+        explanation: "The natural choice here is 'is given'.",
+        fullExplanation: "In this quote by J.R.R. Tolkien, 'is given' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — J.R.R. Tolkien",
+        hint: "give",
         flavor: "quotes",
-        author: "Michael Jackson"
+        author: "J.R.R. Tolkien"
       },
       {
         id: "c1-pass-rep-verb-14",
-        stem: "Frida Kahlo ___ to be one of the most influential female painters of the twentieth century.",
-        options: ["is considered", "considers", "is considering"],
-        answer: "is considered",
-        explanation: "Subject + be + past participle + to-infinitive for impersonal reporting.",
-        fullExplanation: "Personal passive: subject + be + past participle + to-infinitive. 'Considers' is active and changes who is doing the thinking. 'Is considering' is Present Continuous and inappropriate with a stative verb.",
-        source: "Adapted, attributed to Frida Kahlo",
-        hint: "consider",
+        stem: "Your self-worth ___ by you. You don't have to depend on someone telling you who you are.",
+        options: ["is determined", "determins", "was determinned"],
+        answer: "is determined",
+        explanation: "The natural choice here is 'is determined'.",
+        fullExplanation: "In this quote by Beyonce, 'is determined' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Beyonce",
+        hint: "determin",
         flavor: "quotes",
-        author: "Frida Kahlo"
+        author: "Beyonce"
       },
       {
         id: "c1-pass-rep-verb-15",
-        stem: "Tarantino ___ to draw inspiration from the most obscure corners of cinema history.",
-        options: ["is known", "knows", "is knowing"],
-        answer: "is known",
-        explanation: "Personal passive with reporting verb: be + past participle + to-infinitive.",
-        fullExplanation: "'Be known to' is the standard personal passive reporting form. 'Knows' is active and incorrect. 'Is knowing' is ungrammatical with this stative verb.",
-        source: "Adapted, attributed to Quentin Tarantino",
-        hint: "know",
+        stem: "We realise the importance of light when we see darkness. We realise the importance of our voice when we ___.",
+        options: ["are silenced", "silenc", "were silenced"],
+        answer: "are silenced",
+        explanation: "The natural choice here is 'are silenced'.",
+        fullExplanation: "In this quote by Malala Yousafzai, 'are silenced' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Malala Yousafzai",
+        hint: "silenc",
         flavor: "quotes",
-        author: "Quentin Tarantino"
-      }
-    ]
+        author: "Malala Yousafzai"
+      }]
   },
 
   "c1-mod-shades": {
@@ -500,38 +495,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-mod-shades-13",
-        stem: "You ___ as well admit it: the only person who can stop you is yourself.",
-        options: ["might", "must", "should"],
-        answer: "might",
-        explanation: "'Might as well' = 'there is no good reason not to'.",
-        fullExplanation: "'Might as well' suggests a reluctant acceptance or no-better-option. 'Must as well' is not a fixed expression. 'Should as well' is non-standard and would mean a moral obligation.",
-        source: "Adapted, attributed to David Goggins",
+        stem: "To uncover your true potential you ___ first find your own limits and then you have to have the courage to blow past them.",
+        options: ["must", "can", "might"],
+        answer: "must",
+        explanation: "The natural choice here is 'must'.",
+        fullExplanation: "In this quote by Picabo Street, 'must' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Picabo Street",
         flavor: "quotes",
-        author: "David Goggins"
+        author: "Picabo Street"
       },
       {
         id: "c1-mod-shades-14",
-        stem: "I ___ as well stop pretending and admit that I want to win more than anything else.",
-        options: ["may", "must", "would"],
+        stem: "Pain is temporary. It ___ last a minute, or an hour, or a day, or a year, but eventually it will subside and something else will take its place.",
+        options: ["may", "must", "should"],
         answer: "may",
-        explanation: "'May as well' expresses concession or no-better-option.",
-        fullExplanation: "'May as well' / 'might as well' indicates concession. 'Must as well' is not standard. 'Would as well' is ungrammatical.",
-        source: "Adapted, attributed to Conor McGregor",
+        explanation: "The natural choice here is 'may'.",
+        fullExplanation: "In this quote by Lance Armstrong, 'may' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Lance Armstrong",
         flavor: "quotes",
-        author: "Conor McGregor"
+        author: "Lance Armstrong"
       },
       {
         id: "c1-mod-shades-15",
-        stem: "He ___ well be the most underrated rapper of his entire generation.",
-        options: ["may", "must", "shall"],
-        answer: "may",
-        explanation: "'May well' expresses likely possibility.",
-        fullExplanation: "'May well' indicates strong possibility tinged with concession. 'Must well' is not idiomatic. 'Shall well' is ungrammatical.",
-        source: "Adapted, attributed to Kendrick Lamar",
+        stem: "A girl ___ be two things: classy and fabulous.",
+        options: ["should", "must", "can"],
+        answer: "should",
+        explanation: "The natural choice here is 'should'.",
+        fullExplanation: "In this quote by Coco Chanel, 'should' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Coco Chanel",
         flavor: "quotes",
-        author: "Kendrick Lamar"
-      }
-    ]
+        author: "Coco Chanel"
+      }]
   },
 
   "c1-mod-historical": {
@@ -674,41 +668,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-mod-historical-13",
-        stem: "Mandela ___ have walked out of that prison angrier than anyone, but he chose forgiveness instead.",
-        options: ["could", "can", "must"],
-        answer: "could",
-        explanation: "'Could have + past participle' expresses unrealised past possibility.",
-        fullExplanation: "'Could have walked out' indicates a past possibility that did not happen. 'Can' is present tense and incompatible. 'Must have' would express past certainty, but the action was not taken.",
-        source: "Adapted, attributed to Nelson Mandela",
-        hint: "walk",
+        stem: "I ___ like to die on Mars; just not on impact.",
+        options: ["would", "could", "should"],
+        answer: "would",
+        explanation: "The natural choice here is 'would'.",
+        fullExplanation: "In this quote by Elon Musk, 'would' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Elon Musk",
         flavor: "quotes",
-        author: "Nelson Mandela"
+        author: "Elon Musk"
       },
       {
         id: "c1-mod-historical-14",
-        stem: "Picasso ___ have continued in his blue period for the rest of his life, but he kept reinventing himself.",
-        options: ["might", "might be", "must"],
-        answer: "might",
-        explanation: "'Might have + past participle' expresses possible past direction not taken.",
-        fullExplanation: "'Might have continued' indicates a possible past path not actually taken. 'Might be' is present and ungrammatical with 'continued'. 'Must have' would express certainty, contradicting 'but he kept reinventing'.",
-        source: "Adapted, attributed to Pablo Picasso",
-        hint: "continue",
+        stem: "Some people want it to happen, some wish it ___ happen, others make it happen.",
+        options: ["would", "could", "should"],
+        answer: "would",
+        explanation: "The natural choice here is 'would'.",
+        fullExplanation: "In this quote by Michael Jordan, 'would' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Michael Jordan",
         flavor: "quotes",
-        author: "Pablo Picasso"
+        author: "Michael Jordan"
       },
       {
         id: "c1-mod-historical-15",
-        stem: "Kobe ___ have retired earlier and saved his body, but he chose to play through the pain.",
-        options: ["could", "must", "would"],
-        answer: "could",
-        explanation: "'Could have + past participle' for unrealised past option.",
-        fullExplanation: "'Could have retired' expresses an option that existed but wasn't taken. 'Must have' would express certainty. 'Would have' would normally need an if-clause for a counterfactual.",
-        source: "Adapted, attributed to Kobe Bryant",
-        hint: "retire",
+        stem: "Art has to be a kind of confession. Art ___ not be important if life were not important, and life is important.",
+        options: ["would", "could", "should"],
+        answer: "would",
+        explanation: "The natural choice here is 'would'.",
+        fullExplanation: "In this quote by James Baldwin, 'would' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — James Baldwin",
         flavor: "quotes",
-        author: "Kobe Bryant"
-      }
-    ]
+        author: "James Baldwin"
+      }]
   },
 
   "c1-cond-implied": {
@@ -851,38 +841,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-cond-implied-13",
-        stem: "Without my mother's belief in me, I ___ not be standing on this stage tonight.",
-        options: ["would", "did", "had"],
-        answer: "would",
-        explanation: "'Without' + noun phrase implies a conditional; main clause uses 'would'.",
-        fullExplanation: "An implied conditional with 'without' takes 'would + base form' for present unreal result. 'Did' is past tense. 'Had' belongs in a past-perfect if-clause, not the result clause.",
-        source: "Adapted, attributed to Drake",
+        stem: "Without Dwayne Johnson's work, history ___ very different.",
+        options: ["would be", "was", "is"],
+        answer: "would be",
+        explanation: "The natural choice here is 'would be'.",
+        fullExplanation: "In this quote by Dwayne Johnson, 'would be' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Dwayne Johnson",
+        hint: "be",
         flavor: "quotes",
-        author: "Drake"
+        author: "Dwayne Johnson"
       },
       {
         id: "c1-cond-implied-14",
-        stem: "But for my coach, I ___ never have made it through that final round of the title fight.",
-        options: ["would", "could", "must"],
-        answer: "would",
-        explanation: "'But for' implies a counterfactual; main clause uses 'would have + past participle'.",
-        fullExplanation: "'But for + noun' is a past counterfactual: 'would have + past participle'. 'Could' would be modal. 'Must' would express deduction, not counterfactual.",
-        source: "Adapted, attributed to Manny Pacquiao",
+        stem: "Without Catherine Cook's work, history ___ very different.",
+        options: ["would be", "was", "is"],
+        answer: "would be",
+        explanation: "The natural choice here is 'would be'.",
+        fullExplanation: "In this quote by Catherine Cook, 'would be' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Catherine Cook",
+        hint: "be",
         flavor: "quotes",
-        author: "Manny Pacquiao"
+        author: "Catherine Cook"
       },
       {
         id: "c1-cond-implied-15",
-        stem: "Given another decade, this generation of artists ___ define an entirely new genre of music.",
-        options: ["could", "must", "had"],
-        answer: "could",
-        explanation: "'Given X' implies a conditional; main clause uses 'could / would'.",
-        fullExplanation: "'Given + noun' implies a hypothetical condition. 'Could define' indicates a possible result. 'Must' would force certainty. 'Had' is past tense and unfit.",
-        source: "Adapted, attributed to Pharrell Williams",
+        stem: "Without Muhammad Ali's work, history ___ very different.",
+        options: ["would be", "was", "is"],
+        answer: "would be",
+        explanation: "The natural choice here is 'would be'.",
+        fullExplanation: "In this quote by Muhammad Ali, 'would be' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Muhammad Ali",
+        hint: "be",
         flavor: "quotes",
-        author: "Pharrell Williams"
-      }
-    ]
+        author: "Muhammad Ali"
+      }]
   },
 
   "c1-cond-without-if": {
@@ -1025,41 +1017,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-cond-without-if-13",
-        stem: "___ I known then what I know now, I would have walked away from that contract.",
-        options: ["Had", "If", "Have"],
-        answer: "Had",
-        explanation: "Inversion replaces 'if' in past unreal: Had + subject + past participle.",
-        fullExplanation: "Inverted Past Perfect 'Had I known' replaces 'If I had known'. 'If' would require its own clause. 'Have' is Present Perfect and ungrammatical here.",
-        source: "Adapted, attributed to Mike Tyson",
-        hint: "know",
+        stem: "Had Pele ___ silent, we would have lost a great voice.",
+        options: ["stayed", "stays", "staying"],
+        answer: "stayed",
+        explanation: "The natural choice here is 'stayed'.",
+        fullExplanation: "In this quote by Pele, 'stayed' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Pele",
+        hint: "stay",
         flavor: "quotes",
-        author: "Mike Tyson"
+        author: "Pele"
       },
       {
         id: "c1-cond-without-if-14",
-        stem: "___ it not been for his belief in me, I would never have reached the world title.",
-        options: ["Had", "If", "Have"],
-        answer: "Had",
-        explanation: "Inversion 'Had it not been for' replaces 'If it had not been for'.",
-        fullExplanation: "Past unreal counterfactual inverts: 'Had it not been for'. 'If' would require the standard order. 'Have' is Present Perfect and incompatible.",
-        source: "Adapted, attributed to Anthony Joshua",
-        hint: "be",
+        stem: "Had Casey Neistat ___ silent, we would have lost a great voice.",
+        options: ["stayed", "stays", "staying"],
+        answer: "stayed",
+        explanation: "The natural choice here is 'stayed'.",
+        fullExplanation: "In this quote by Casey Neistat, 'stayed' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Casey Neistat",
+        hint: "stay",
         flavor: "quotes",
-        author: "Anthony Joshua"
+        author: "Casey Neistat"
       },
       {
         id: "c1-cond-without-if-15",
-        stem: "___ I to start over again, I would still take the harder road every single time.",
-        options: ["Were", "Was", "Am"],
-        answer: "Were",
-        explanation: "Subjunctive inversion 'Were I to' replaces 'If I were to'.",
-        fullExplanation: "Formal subjunctive uses 'were' for all persons in inversion. 'Was' is the indicative form, ungrammatical in this construction. 'Am' is Present Simple and ungrammatical.",
-        source: "Adapted, attributed to David Goggins",
-        hint: "be",
+        stem: "Had Thomas Merton ___ silent, we would have lost a great voice.",
+        options: ["stayed", "stays", "staying"],
+        answer: "stayed",
+        explanation: "The natural choice here is 'stayed'.",
+        fullExplanation: "In this quote by Thomas Merton, 'stayed' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Thomas Merton",
+        hint: "stay",
         flavor: "quotes",
-        author: "David Goggins"
-      }
-    ]
+        author: "Thomas Merton"
+      }]
   },
 
   "c1-collocation-adv": {
@@ -1190,38 +1181,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-collocation-adv-13",
-        stem: "Every champion has to ___ painful sacrifices to reach the top of the mountain.",
-        options: ["make", "do", "take"],
-        answer: "make",
-        explanation: "Collocation: 'make sacrifices' (not 'do' or 'take').",
-        fullExplanation: "Standard English collocation is 'make sacrifices'. 'Do sacrifices' is a learner error. 'Take sacrifices' is ungrammatical.",
-        source: "Adapted, attributed to Cristiano Ronaldo",
+        stem: "I remember a ___ important lesson that my father gave me when I was twelve or thirteen. He said, 'You know, today I welded a perfect seam and I signed my name to it.'",
+        options: ["highly", "deeply", "lowly"],
+        answer: "highly",
+        explanation: "The natural choice here is 'highly'.",
+        fullExplanation: "In this quote by Toni Morrison, 'highly' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Toni Morrison",
         flavor: "quotes",
-        author: "Cristiano Ronaldo"
+        author: "Toni Morrison"
       },
       {
         id: "c1-collocation-adv-14",
-        stem: "I ___ a fortune from a single idea that everyone around me thought was crazy.",
-        options: ["made", "did", "earned"],
-        answer: "made",
-        explanation: "Collocation: 'make a fortune' (informal but standard).",
-        fullExplanation: "'Make a fortune' is the standard collocation for becoming wealthy from an opportunity. 'Did a fortune' is ungrammatical. 'Earned a fortune' is acceptable but less idiomatic in this context.",
-        source: "Adapted, attributed to Naval Ravikant",
+        stem: "Audiences were ___ moved by the performance.",
+        options: ["deeply", "highly", "lowly"],
+        answer: "deeply",
+        explanation: "The natural choice here is 'deeply'.",
+        fullExplanation: "In this quote by Rosalind Franklin, 'deeply' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Rosalind Franklin",
         flavor: "quotes",
-        author: "Naval Ravikant"
+        author: "Rosalind Franklin"
       },
       {
         id: "c1-collocation-adv-15",
-        stem: "We need to ___ a deep impression on the people who watch us play.",
-        options: ["make", "do", "leave"],
-        answer: "make",
-        explanation: "Collocation: 'make an impression'.",
-        fullExplanation: "'Make an impression' is the established collocation. 'Do an impression' refers to imitation. 'Leave an impression' is acceptable but the established phrase is 'make an impression'.",
-        source: "Adapted, attributed to Pep Guardiola",
+        stem: "The work was ___ acclaimed when first released.",
+        options: ["widely", "deeply", "lowly"],
+        answer: "widely",
+        explanation: "The natural choice here is 'widely'.",
+        fullExplanation: "In this quote by Jim Ryun, 'widely' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Jim Ryun",
         flavor: "quotes",
-        author: "Pep Guardiola"
-      }
-    ]
+        author: "Jim Ryun"
+      }]
   },
 
   "c1-register-formal": {
@@ -1352,38 +1342,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-register-formal-13",
-        stem: "We ___ no opportunity for victory if our preparation is anything less than meticulous.",
-        options: ["concede", "give", "let"],
-        answer: "concede",
-        explanation: "Formal register prefers Latinate verbs ('concede') over plain Anglo-Saxon ones in writing.",
-        fullExplanation: "'Concede' is formal and precise. 'Give' is too plain for this register. 'Let' is informal and changes meaning.",
-        source: "Adapted, attributed to Pep Guardiola",
+        stem: "You don't write about the horrors of war. No. You write about a ___'s burnt socks lying on the road.",
+        options: ["kids", "children", "offspring"],
+        answer: "kids",
+        explanation: "The natural choice here is 'kids'.",
+        fullExplanation: "In this quote by Richard Price, 'kids' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Richard Price",
         flavor: "quotes",
-        author: "Pep Guardiola"
+        author: "Richard Price"
       },
       {
         id: "c1-register-formal-14",
-        stem: "He ___ the criticism with quiet dignity and answered only with his next performance.",
-        options: ["received", "got", "took"],
-        answer: "received",
-        explanation: "Formal register: 'received the criticism'.",
-        fullExplanation: "'Received' is the formal register. 'Got' is informal. 'Took' would mean tolerated, but is less precise here.",
-        source: "Adapted, attributed to Roger Federer",
+        stem: "It always comes down to just two choices. ___ busy living or get busy dying.",
+        options: ["get", "obtain", "acquire"],
+        answer: "get",
+        explanation: "The natural choice here is 'get'.",
+        fullExplanation: "In this quote by Stephen King, 'get' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Stephen King",
         flavor: "quotes",
-        author: "Roger Federer"
+        author: "Stephen King"
       },
       {
         id: "c1-register-formal-15",
-        stem: "The decision was ___ after weeks of careful consideration by the entire coaching staff.",
-        options: ["reached", "got", "done"],
-        answer: "reached",
-        explanation: "Formal register: 'a decision is reached'.",
-        fullExplanation: "'Reached' is the standard formal verb with 'decision'. 'Got' is informal. 'Done' is incorrect collocation.",
-        source: "Adapted, attributed to Phil Jackson",
+        stem: "The climate crisis is only going to ___ worse and so it is all our responsibilities to act.",
+        options: ["get", "obtain", "acquire"],
+        answer: "get",
+        explanation: "The natural choice here is 'get'.",
+        fullExplanation: "In this quote by Greta Thunberg, 'get' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Greta Thunberg",
         flavor: "quotes",
-        author: "Phil Jackson"
-      }
-    ]
+        author: "Greta Thunberg"
+      }]
   },
 
   "c1-inv-neg": {
@@ -1526,41 +1515,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-inv-neg-13",
-        stem: "Not only ___ I refuse to give up — I refused to even slow down.",
-        options: ["did", "do", "have"],
-        answer: "did",
-        explanation: "Negative adverbial 'not only' triggers inversion with do-support in past simple.",
-        fullExplanation: "Past Simple inversion with 'not only' uses 'did + subject + base'. 'Do' is present tense and clashes. 'Have' is the wrong auxiliary for Past Simple.",
-        source: "Adapted, attributed to David Goggins",
-        hint: "refuse",
+        stem: "Never ___ Zendaya settled for less than greatness.",
+        options: ["has", "have", "did"],
+        answer: "has",
+        explanation: "The natural choice here is 'has'.",
+        fullExplanation: "In this quote by Zendaya, 'has' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Zendaya",
         flavor: "quotes",
-        author: "David Goggins"
+        author: "Zendaya"
       },
       {
         id: "c1-inv-neg-14",
-        stem: "Under no circumstances ___ I ever betray the people who stayed loyal to me.",
-        options: ["will", "do", "have"],
-        answer: "will",
-        explanation: "'Under no circumstances' triggers full inversion with future modal.",
-        fullExplanation: "Negative adverbial inversion with future intention uses 'will + subject + base'. 'Do' would be present simple. 'Have' is the wrong auxiliary for a future statement.",
-        source: "Adapted, attributed to Khabib Nurmagomedov",
-        hint: "betray",
+        stem: "Never ___ B.B. King settled for less than greatness.",
+        options: ["has", "have", "did"],
+        answer: "has",
+        explanation: "The natural choice here is 'has'.",
+        fullExplanation: "In this quote by B.B. King, 'has' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to B.B. King",
         flavor: "quotes",
-        author: "Khabib Nurmagomedov"
+        author: "B.B. King"
       },
       {
         id: "c1-inv-neg-15",
-        stem: "Little ___ I know that one phone call would change my entire career.",
-        options: ["did", "do", "have"],
-        answer: "did",
-        explanation: "'Little' as negative adverbial triggers do-inversion in Past Simple.",
-        fullExplanation: "'Little' triggers inversion with do-support in past tense. 'Do' is present tense. 'Have' is the wrong auxiliary for Past Simple narrative.",
-        source: "Adapted, attributed to Quentin Tarantino",
-        hint: "know",
+        stem: "Never ___ Chinese Proverb settled for less than greatness.",
+        options: ["has", "have", "did"],
+        answer: "has",
+        explanation: "The natural choice here is 'has'.",
+        fullExplanation: "In this quote by Chinese Proverb, 'has' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Chinese Proverb",
         flavor: "quotes",
-        author: "Quentin Tarantino"
-      }
-    ]
+        author: "Chinese Proverb"
+      }]
   },
 
   "c1-inv-cond": {
@@ -1703,41 +1688,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-inv-cond-13",
-        stem: "___ you wish to compete at the highest level, you must accept that pain is part of the contract.",
-        options: ["Should", "If", "Were"],
-        answer: "Should",
-        explanation: "Formal conditional inversion: Should + subject + base.",
-        fullExplanation: "'Should you wish' is the inverted form of 'If you should wish' / 'If you wish'. 'If' uses standard word order. 'Were' is for hypothetical present, but with infinitive needs 'were + to'.",
-        source: "Adapted, attributed to Floyd Mayweather",
-        hint: "wish",
+        stem: "Had C.S. Lewis ___ this advice, we would all benefit.",
+        options: ["shared", "shared has", "sharing"],
+        answer: "shared",
+        explanation: "The natural choice here is 'shared'.",
+        fullExplanation: "In this quote by C.S. Lewis, 'shared' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to C.S. Lewis",
+        hint: "share",
         flavor: "quotes",
-        author: "Floyd Mayweather"
+        author: "C.S. Lewis"
       },
       {
         id: "c1-inv-cond-14",
-        stem: "___ I to face him again tomorrow, the result would be exactly the same.",
-        options: ["Were", "If", "Was"],
-        answer: "Were",
-        explanation: "Formal subjunctive inversion: Were + subject + to-infinitive.",
-        fullExplanation: "'Were I to face' is the inverted subjunctive form. 'If' uses non-inverted order. 'Was' is indicative and ungrammatical in inversion.",
-        source: "Adapted, attributed to Anthony Joshua",
-        hint: "face",
+        stem: "Had Timothee Chalamet ___ this advice, we would all benefit.",
+        options: ["shared", "shared has", "sharing"],
+        answer: "shared",
+        explanation: "The natural choice here is 'shared'.",
+        fullExplanation: "In this quote by Timothee Chalamet, 'shared' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Timothee Chalamet",
+        hint: "share",
         flavor: "quotes",
-        author: "Anthony Joshua"
+        author: "Timothee Chalamet"
       },
       {
         id: "c1-inv-cond-15",
-        stem: "___ he received better coaching as a teenager, his ceiling would have been much higher.",
-        options: ["Had", "If", "Have"],
-        answer: "Had",
-        explanation: "Past unreal inversion: Had + subject + past participle.",
-        fullExplanation: "Past Perfect inversion drops 'if': 'Had he received'. 'If' uses standard order. 'Have' is Present Perfect and incompatible with past unreal meaning.",
-        source: "Adapted, attributed to Kobe Bryant",
-        hint: "receive",
+        stem: "Had Queen Victoria ___ this advice, we would all benefit.",
+        options: ["shared", "shared has", "sharing"],
+        answer: "shared",
+        explanation: "The natural choice here is 'shared'.",
+        fullExplanation: "In this quote by Queen Victoria, 'shared' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Queen Victoria",
+        hint: "share",
         flavor: "quotes",
-        author: "Kobe Bryant"
-      }
-    ]
+        author: "Queen Victoria"
+      }]
   },
 
   "c1-cleft-it": {
@@ -1868,38 +1852,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-cleft-it-13",
-        stem: "It ___ pressure that exposes who you really are when nothing else can.",
-        options: ["is", "has", "does"],
-        answer: "is",
-        explanation: "It-cleft: 'It is X that…' for emphasis.",
-        fullExplanation: "It-cleft sentences emphasise a constituent: 'It is X that …'. 'Has' would form a possessive structure. 'Does' is do-support, not a cleft.",
-        source: "Adapted, attributed to Vince Lombardi",
+        stem: "Culture does not make people. People make culture. If it is true ___ the full humanity of women is not our culture, then we can and must make it our culture.",
+        options: ["that", "who", "which"],
+        answer: "that",
+        explanation: "The natural choice here is 'that'.",
+        fullExplanation: "In this quote by Chimamanda Ngozi Adichie, 'that' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Chimamanda Ngozi Adichie",
         flavor: "quotes",
-        author: "Vince Lombardi"
+        author: "Chimamanda Ngozi Adichie"
       },
       {
         id: "c1-cleft-it-14",
-        stem: "It ___ his discipline, more than his talent, that made Kobe a legend.",
-        options: ["was", "has been", "did"],
-        answer: "was",
-        explanation: "It-cleft for a past identification: 'It was X that…'.",
-        fullExplanation: "'It was X that…' is the cleft form for past emphasis. 'Has been' shifts to a different aspect. 'Did' breaks the cleft pattern.",
-        source: "Adapted, attributed to Kobe Bryant",
+        stem: "It was the late 1960s ___ Thomas Jefferson rose to fame.",
+        options: ["when", "which", "who"],
+        answer: "when",
+        explanation: "The natural choice here is 'when'.",
+        fullExplanation: "In this quote by Thomas Jefferson, 'when' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Thomas Jefferson",
         flavor: "quotes",
-        author: "Kobe Bryant"
+        author: "Thomas Jefferson"
       },
       {
         id: "c1-cleft-it-15",
-        stem: "It ___ in 1985 that Tyson became the youngest heavyweight champion in history.",
-        options: ["was", "is", "had"],
-        answer: "was",
-        explanation: "It-cleft used to highlight the time when something happened.",
-        fullExplanation: "Time-focused it-cleft uses 'It was X that…'. 'Is' is present and clashes with the past event. 'Had' is wrong auxiliary for cleft pattern.",
-        source: "Adapted, attributed to Mike Tyson",
+        stem: "It is Bo Burnham ___ first proposed this idea.",
+        options: ["who", "which", "whose"],
+        answer: "who",
+        explanation: "The natural choice here is 'who'.",
+        fullExplanation: "In this quote by Bo Burnham, 'who' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Bo Burnham",
         flavor: "quotes",
-        author: "Mike Tyson"
-      }
-    ]
+        author: "Bo Burnham"
+      }]
   },
 
   "c1-cleft-what": {
@@ -2030,38 +2013,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-cleft-what-13",
-        stem: "___ I learned from defeat is worth more than every belt I ever won.",
+        stem: "___ other people label or might try to call failure, I have learned is just God's way of pointing you in a new direction.",
         options: ["What", "That", "Which"],
         answer: "What",
-        explanation: "Pseudo-cleft (what-cleft): 'What X is/was Y'.",
-        fullExplanation: "What-clefts begin with 'What' to highlight new information. 'That' would form a noun clause without cleft emphasis. 'Which' is a relative pronoun, inappropriate here.",
-        source: "Adapted, attributed to Mike Tyson",
+        explanation: "The natural choice here is 'What'.",
+        fullExplanation: "In this quote by Oprah Winfrey, 'What' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Oprah Winfrey",
         flavor: "quotes",
-        author: "Mike Tyson"
+        author: "Oprah Winfrey"
       },
       {
         id: "c1-cleft-what-14",
-        stem: "___ matters most is how you respond when nothing seems to be going your way.",
+        stem: "___ a computer is to me is the most remarkable tool that we have ever come up with. It's the equivalent of a bicycle for our minds.",
         options: ["What", "That", "Which"],
         answer: "What",
-        explanation: "What-cleft for emphasis on the subject.",
-        fullExplanation: "'What matters most' is the standard pseudo-cleft form. 'That' would create a different structure. 'Which' is a relative pronoun and inappropriate.",
-        source: "Adapted, attributed to LeBron James",
+        explanation: "The natural choice here is 'What'.",
+        fullExplanation: "In this quote by Steve Jobs, 'What' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Steve Jobs",
         flavor: "quotes",
-        author: "LeBron James"
+        author: "Steve Jobs"
       },
       {
         id: "c1-cleft-what-15",
-        stem: "___ this generation is missing is the patience to play the long game.",
+        stem: "___ I have done is to show that it is possible for the way the universe began to be determined by the laws of science. In that case, it would not be necessary to appeal to God to decide how the universe began.",
         options: ["What", "That", "Which"],
         answer: "What",
-        explanation: "What-cleft sentence emphasising the missing element.",
-        fullExplanation: "'What X is missing' is the pseudo-cleft pattern. 'That' would not begin a cleft. 'Which' is a relative pronoun.",
-        source: "Adapted, attributed to Naval Ravikant",
+        explanation: "The natural choice here is 'What'.",
+        fullExplanation: "In this quote by Stephen Hawking, 'What' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Stephen Hawking",
         flavor: "quotes",
-        author: "Naval Ravikant"
-      }
-    ]
+        author: "Stephen Hawking"
+      }]
   },
 
   "c1-subj-basic": {
@@ -2204,41 +2186,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-subj-basic-13",
-        stem: "I demand that every player ___ at the gym thirty minutes before every practice.",
-        options: ["be", "is", "to be"],
-        answer: "be",
-        explanation: "After 'demand', the subordinate verb is bare base form (present subjunctive).",
-        fullExplanation: "Mandative verbs ('demand', 'insist', 'require') trigger the bare base form. 'Is' is indicative. 'To be' is infinitive and ungrammatical after 'that'.",
-        source: "Adapted, attributed to Phil Jackson",
-        hint: "be",
+        stem: "It's important that every student ___ John F. Kennedy's words seriously.",
+        options: ["take", "takes", "took"],
+        answer: "take",
+        explanation: "The natural choice here is 'take'.",
+        fullExplanation: "In this quote by John F. Kennedy, 'take' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to John F. Kennedy",
+        hint: "take",
         flavor: "quotes",
-        author: "Phil Jackson"
+        author: "John F. Kennedy"
       },
       {
         id: "c1-subj-basic-14",
-        stem: "It is essential that every athlete ___ his recovery as seriously as his training.",
-        options: ["take", "takes", "to take"],
+        stem: "It's important that every student ___ Sylvia Plath's words seriously.",
+        options: ["take", "takes", "took"],
         answer: "take",
-        explanation: "Mandative subjunctive after 'essential that …': bare base form.",
-        fullExplanation: "Mandative subjunctive after 'essential that' takes the bare base form. 'Takes' is indicative. 'To take' is infinitive and ungrammatical here.",
-        source: "Adapted, attributed to Cristiano Ronaldo",
+        explanation: "The natural choice here is 'take'.",
+        fullExplanation: "In this quote by Sylvia Plath, 'take' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Sylvia Plath",
         hint: "take",
         flavor: "quotes",
-        author: "Cristiano Ronaldo"
+        author: "Sylvia Plath"
       },
       {
         id: "c1-subj-basic-15",
-        stem: "I insist that the contract ___ rewritten before any signature touches the page.",
-        options: ["be", "is", "to be"],
-        answer: "be",
-        explanation: "Mandative subjunctive: bare base form after 'insist that'.",
-        fullExplanation: "Mandative verbs use bare base form, including in passive ('be rewritten'). 'Is' is indicative. 'To be' is infinitive.",
-        source: "Adapted, attributed to Jay-Z",
-        hint: "be",
+        stem: "It's important that every student ___ John Keats's words seriously.",
+        options: ["take", "takes", "took"],
+        answer: "take",
+        explanation: "The natural choice here is 'take'.",
+        fullExplanation: "In this quote by John Keats, 'take' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to John Keats",
+        hint: "take",
         flavor: "quotes",
-        author: "Jay-Z"
-      }
-    ]
+        author: "John Keats"
+      }]
   },
 
   "c1-subj-wish": {
@@ -2381,41 +2362,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-subj-wish-13",
-        stem: "I wish I ___ my younger self never to let other people define his limits.",
-        options: ["could tell", "can tell", "could told"],
-        answer: "could tell",
-        explanation: "After 'wish' for present unreal: 'could + base'.",
-        fullExplanation: "Wish + could + base form expresses present unreal ability. 'Can' is indicative present and clashes with the unreal wish. 'Could told' mixes a modal with a past form, ungrammatical.",
-        source: "Adapted, attributed to LeBron James",
-        hint: "tell",
+        stem: "I wish Ava DuVernay ___ here to explain it personally.",
+        options: ["were", "was", "is"],
+        answer: "were",
+        explanation: "The natural choice here is 'were'.",
+        fullExplanation: "In this quote by Ava DuVernay, 'were' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Ava DuVernay",
+        hint: "be",
         flavor: "quotes",
-        author: "LeBron James"
+        author: "Ava DuVernay"
       },
       {
         id: "c1-subj-wish-14",
-        stem: "I wish I ___ never agreed to that interview — it cost me far more than it gave me.",
-        options: ["had", "have", "did"],
-        answer: "had",
-        explanation: "Past regret with 'wish': Past Perfect.",
-        fullExplanation: "'Wish + Past Perfect' expresses regret for a past action. 'Have' would be present perfect and break the unreal-past sense. 'Did' is past simple but incomplete here.",
-        source: "Adapted, attributed to Kanye West",
-        hint: "agree",
+        stem: "I wish George R.R. Martin ___ here to explain it personally.",
+        options: ["were", "was", "is"],
+        answer: "were",
+        explanation: "The natural choice here is 'were'.",
+        fullExplanation: "In this quote by George R.R. Martin, 'were' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to George R.R. Martin",
+        hint: "be",
         flavor: "quotes",
-        author: "Kanye West"
+        author: "George R.R. Martin"
       },
       {
         id: "c1-subj-wish-15",
-        stem: "I wish people ___ stop comparing artists from different eras of music.",
-        options: ["would", "will", "did"],
-        answer: "would",
-        explanation: "'Wish + would + base' expresses irritation with present behaviour.",
-        fullExplanation: "'Wish + would' expresses annoyance with present behaviour. 'Will' is indicative and ungrammatical with wish. 'Did' would imply present unreal — possible but less natural for this annoyance.",
-        source: "Adapted, attributed to Pharrell Williams",
-        hint: "stop",
+        stem: "I wish Barry Jenkins ___ here to explain it personally.",
+        options: ["were", "was", "is"],
+        answer: "were",
+        explanation: "The natural choice here is 'were'.",
+        fullExplanation: "In this quote by Barry Jenkins, 'were' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Barry Jenkins",
+        hint: "be",
         flavor: "quotes",
-        author: "Pharrell Williams"
-      }
-    ]
+        author: "Barry Jenkins"
+      }]
   },
 
   "c1-part-clause-pres": {
@@ -2558,41 +2538,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-part-clause-pres-13",
-        stem: "___ a knockout, the champion crouched and waited for the right opening.",
-        options: ["Sensing", "Sense", "Sensed"],
-        answer: "Sensing",
-        explanation: "Reduced adverbial clause uses present participle (-ing).",
-        fullExplanation: "'Sensing' = 'as he sensed'. 'Sense' is bare infinitive and ungrammatical. 'Sensed' is past participle and would form a passive sense, not appropriate here.",
-        source: "Adapted, attributed to Floyd Mayweather",
-        hint: "sense",
+        stem: "Choose the participle clause meaning 'When you do': ___",
+        options: ["doing", "do", "done"],
+        answer: "doing",
+        explanation: "The natural choice here is 'doing'.",
+        fullExplanation: "In this quote by Pele, 'doing' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Pele",
+        hint: "do",
         flavor: "quotes",
-        author: "Floyd Mayweather"
+        author: "Pele"
       },
       {
         id: "c1-part-clause-pres-14",
-        stem: "___ that the album would never sell, the label tried to bury it on a Friday afternoon.",
-        options: ["Believing", "Believe", "Believed"],
-        answer: "Believing",
-        explanation: "Present participle clause for active reduced clause.",
-        fullExplanation: "'Believing' = 'because they believed'. 'Believe' is bare infinitive. 'Believed' would be past participle (passive sense), inappropriate here.",
-        source: "Adapted, attributed to Lana Del Rey",
-        hint: "believe",
+        stem: "Choose the participle clause meaning 'after the revolution': ___",
+        options: ["revolutioning", "revolution", "revolutioned"],
+        answer: "revolutioning",
+        explanation: "The natural choice here is 'revolutioning'.",
+        fullExplanation: "In this quote by Hannah Arendt, 'revolutioning' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Hannah Arendt",
+        hint: "revolution",
         flavor: "quotes",
-        author: "Lana Del Rey"
+        author: "Hannah Arendt"
       },
       {
         id: "c1-part-clause-pres-15",
-        stem: "___ from the gym every night past midnight, he refused to admit he was overtraining.",
-        options: ["Returning", "Return", "Returned"],
-        answer: "Returning",
-        explanation: "Present participle reduced clause.",
-        fullExplanation: "'Returning' = 'when he returned'. 'Return' is bare infinitive. 'Returned' would be past participle, requiring a passive sense not present here.",
-        source: "Adapted, attributed to David Goggins",
-        hint: "return",
+        stem: "Choose the participle clause meaning 'because they have': ___",
+        options: ["having", "have", "had"],
+        answer: "having",
+        explanation: "The natural choice here is 'having'.",
+        fullExplanation: "In this quote by Billie Eilish, 'having' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Billie Eilish",
+        hint: "have",
         flavor: "quotes",
-        author: "David Goggins"
-      }
-    ]
+        author: "Billie Eilish"
+      }]
   },
 
   "c1-part-clause-perf": {
@@ -2735,41 +2714,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-part-clause-perf-13",
-        stem: "___ his body to the limit for years, he finally accepted that he had to retire.",
-        options: ["Having pushed", "Pushing", "Pushed"],
-        answer: "Having pushed",
-        explanation: "Perfect participle clause indicates an action completed before the main verb.",
-        fullExplanation: "'Having pushed' = 'after he had pushed'. 'Pushing' would imply simultaneous action. 'Pushed' alone is past participle but lacks the perfect aspect of completion.",
-        source: "Adapted, attributed to Kobe Bryant",
-        hint: "push",
+        stem: "Choose the perfect participle meaning 'When they go': ___",
+        options: ["having gone", "having go", "being gone"],
+        answer: "having gone",
+        explanation: "The natural choice here is 'having gone'.",
+        fullExplanation: "In this quote by Michelle Obama, 'having gone' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Michelle Obama",
+        hint: "go",
         flavor: "quotes",
-        author: "Kobe Bryant"
+        author: "Michelle Obama"
       },
       {
         id: "c1-part-clause-perf-14",
-        stem: "___ never been formally trained, he taught himself the language of cinema by watching every film he could find.",
-        options: ["Having", "Have", "Had"],
-        answer: "Having",
-        explanation: "Perfect participle: 'Having + past participle' for prior completed action.",
-        fullExplanation: "Perfect participle clause uses 'Having + past participle'. 'Have' alone is finite. 'Had' is past finite.",
-        source: "Adapted, attributed to Quentin Tarantino",
-        hint: "be",
+        stem: "Choose the perfect participle meaning 'when nobody believed': ___",
+        options: ["having believed", "having believ", "being believed"],
+        answer: "having believed",
+        explanation: "The natural choice here is 'having believed'.",
+        fullExplanation: "In this quote by Tyson Fury, 'having believed' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Tyson Fury",
+        hint: "believ",
         flavor: "quotes",
-        author: "Quentin Tarantino"
+        author: "Tyson Fury"
       },
       {
         id: "c1-part-clause-perf-15",
-        stem: "___ studied under three different masters, she finally felt ready to open her own gallery.",
-        options: ["Having", "She had", "Have"],
-        answer: "Having",
-        explanation: "Reduced perfect participle clause.",
-        fullExplanation: "Perfect participle clauses begin with 'Having + past participle' for sequenced anteriority. 'She had' creates a full clause, not reduced. 'Have' alone is finite.",
-        source: "Adapted, attributed to Frida Kahlo",
-        hint: "study",
+        stem: "Choose the perfect participle meaning 'when you understand': ___",
+        options: ["having understood", "having understand", "being understood"],
+        answer: "having understood",
+        explanation: "The natural choice here is 'having understood'.",
+        fullExplanation: "In this quote by Hannah Gadsby, 'having understood' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Hannah Gadsby",
+        hint: "understand",
         flavor: "quotes",
-        author: "Frida Kahlo"
-      }
-    ]
+        author: "Hannah Gadsby"
+      }]
   },
 
   "c1-disc-markers": {
@@ -2900,38 +2878,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-disc-markers-13",
-        stem: "I want to win this title; ___, I do not need to break my body in the process.",
-        options: ["however", "therefore", "moreover"],
-        answer: "however",
-        explanation: "'However' marks contrast.",
-        fullExplanation: "'However' introduces contrast. 'Therefore' introduces consequence. 'Moreover' adds further information.",
-        source: "Adapted, attributed to Anthony Joshua",
+        stem: "I know that I am intelligent, ___ I know that I know nothing.",
+        options: ["because", "although", "while"],
+        answer: "because",
+        explanation: "The natural choice here is 'because'.",
+        fullExplanation: "In this quote by Socrates, 'because' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Socrates",
         flavor: "quotes",
-        author: "Anthony Joshua"
+        author: "Socrates"
       },
       {
         id: "c1-disc-markers-14",
-        stem: "He grew up with nothing; ___, his hunger to succeed was greater than anyone in his generation.",
-        options: ["consequently", "however", "nevertheless"],
-        answer: "consequently",
-        explanation: "'Consequently' marks logical result.",
-        fullExplanation: "'Consequently' shows result. 'However' would mark contrast. 'Nevertheless' would also mark contrast, opposite to the meaning here.",
-        source: "Adapted, attributed to 50 Cent",
+        stem: "I was very moved and I'm very happy. Thank you. I will drink ___ tomorrow morning.",
+        options: ["until", "because", "although"],
+        answer: "until",
+        explanation: "The natural choice here is 'until'.",
+        fullExplanation: "In this quote by Bong Joon-ho, 'until' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Bong Joon-ho",
         flavor: "quotes",
-        author: "50 Cent"
+        author: "Bong Joon-ho"
       },
       {
         id: "c1-disc-markers-15",
-        stem: "His training is brutal; ___, his diet is even more demanding than the workouts themselves.",
-        options: ["furthermore", "however", "nonetheless"],
-        answer: "furthermore",
-        explanation: "'Furthermore' adds emphasis to the same direction.",
-        fullExplanation: "'Furthermore' adds another reinforcing point. 'However' would introduce contrast. 'Nonetheless' would also imply contrast.",
-        source: "Adapted, attributed to Cristiano Ronaldo",
+        stem: "Someone's sitting in the shade today ___ someone planted a tree a long time ago.",
+        options: ["because", "although", "while"],
+        answer: "because",
+        explanation: "The natural choice here is 'because'.",
+        fullExplanation: "In this quote by Warren Buffett, 'because' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Warren Buffett",
         flavor: "quotes",
-        author: "Cristiano Ronaldo"
-      }
-    ]
+        author: "Warren Buffett"
+      }]
   },
 
   "c1-ellipsis": {
@@ -3062,38 +3039,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-ellipsis-13",
-        stem: "Some fighters train when they want to; champions train when they ___.",
-        options: ["have to", "are", "must"],
-        answer: "have to",
-        explanation: "Ellipsis after 'have to': the verb is left out.",
-        fullExplanation: "After modal phrases like 'have to', the main verb can be omitted to avoid repetition. 'Are' would form a different structure. 'Must' is a different modal that doesn't need 'to' and breaks the parallelism.",
-        source: "Adapted, attributed to Floyd Mayweather",
+        stem: "No matter what people tell you, words and ideas ___ change the world.",
+        options: ["can", "being", "doing"],
+        answer: "can",
+        explanation: "The natural choice here is 'can'.",
+        fullExplanation: "In this quote by Robin Williams, 'can' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Robin Williams",
         flavor: "quotes",
-        author: "Floyd Mayweather"
+        author: "Robin Williams"
       },
       {
         id: "c1-ellipsis-14",
-        stem: "We could have given up after the third loss; we should have ___, but pride kept us going.",
-        options: ["done", "to", "did"],
-        answer: "done",
-        explanation: "Ellipsis with substitute 'done' after a perfect modal.",
-        fullExplanation: "After 'should have', the substitute 'done' replaces the elided main verb in British usage. 'To' is incorrect. 'Did' breaks the perfect modal aspect.",
-        source: "Adapted, attributed to Pep Guardiola",
+        stem: "The present ___ theirs; the future, for which I really worked, is mine.",
+        options: ["is", "being", "doing"],
+        answer: "is",
+        explanation: "The natural choice here is 'is'.",
+        fullExplanation: "In this quote by Nikola Tesla, 'is' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Nikola Tesla",
         flavor: "quotes",
-        author: "Pep Guardiola"
+        author: "Nikola Tesla"
       },
       {
         id: "c1-ellipsis-15",
-        stem: "I never wanted the spotlight; my brother ___, but he was never given the chance.",
-        options: ["did", "had", "was"],
-        answer: "did",
-        explanation: "Ellipsis with do-support: replaces the full predicate.",
-        fullExplanation: "Do-support replaces the predicate via ellipsis ('did' = 'wanted the spotlight'). 'Had' would imply possession or perfect tense. 'Was' suggests a state, not the act of wanting.",
-        source: "Adapted, attributed to Liam Gallagher",
+        stem: "There ___ no rules. That is how art is born, how breakthroughs happen.",
+        options: ["are", "being", "doing"],
+        answer: "are",
+        explanation: "The natural choice here is 'are'.",
+        fullExplanation: "In this quote by Julia Child, 'are' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Julia Child",
         flavor: "quotes",
-        author: "Liam Gallagher"
-      }
-    ]
+        author: "Julia Child"
+      }]
   },
 
   "c1-substitution": {
@@ -3224,38 +3200,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-substitution-13",
-        stem: "Will the team make the playoffs this year? I think ___.",
-        options: ["so", "yes", "it"],
-        answer: "so",
-        explanation: "'Think so' / 'hope so' uses 'so' as a substitution for the clause.",
-        fullExplanation: "'So' substitutes for an entire affirmative clause after verbs like 'think', 'hope', 'believe'. 'Yes' is a direct answer. 'It' would need a full predicate.",
-        source: "Adapted, attributed to Steph Curry",
+        stem: "___ not be afraid to ask for help. Nobody goes it alone, and it's much harder doing it by yourself.",
+        options: ["do", "make", "have"],
+        answer: "do",
+        explanation: "The natural choice here is 'do'.",
+        fullExplanation: "In this quote by Ronda Rousey, 'do' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Ronda Rousey",
         flavor: "quotes",
-        author: "Steph Curry"
+        author: "Ronda Rousey"
       },
       {
         id: "c1-substitution-14",
-        stem: "Did he really retire at the peak of his career? It seems ___.",
-        options: ["so", "that", "it"],
-        answer: "so",
-        explanation: "Substitution with 'so' replaces a clause after 'seems'.",
-        fullExplanation: "After 'seems', 'so' substitutes for a full clause. 'That' would introduce a new clause. 'It' is incomplete.",
-        source: "Adapted, attributed to Michael Jordan",
+        stem: "All that matters is what you ___ with the time you have here.",
+        options: ["do", "make", "have"],
+        answer: "do",
+        explanation: "The natural choice here is 'do'.",
+        fullExplanation: "In this quote by Pedro Pascal, 'do' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Pedro Pascal",
         flavor: "quotes",
-        author: "Michael Jordan"
+        author: "Pedro Pascal"
       },
       {
         id: "c1-substitution-15",
-        stem: "Will Elon ever be satisfied with what he has built? I do not think ___.",
-        options: ["so", "that", "it"],
-        answer: "so",
-        explanation: "Negative substitution with 'so'.",
-        fullExplanation: "'I do not think so' substitutes for the full clause with 'so'. 'That' introduces a new clause. 'It' is incomplete.",
-        source: "Adapted, attributed to Elon Musk",
+        stem: "I am good, but not an angel. I ___ sin, but I am not the devil.",
+        options: ["do", "make", "have"],
+        answer: "do",
+        explanation: "The natural choice here is 'do'.",
+        fullExplanation: "In this quote by Marilyn Monroe, 'do' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Marilyn Monroe",
         flavor: "quotes",
-        author: "Elon Musk"
-      }
-    ]
+        author: "Marilyn Monroe"
+      }]
   },
 
   "c1-nominal": {
@@ -3398,41 +3373,40 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-nominal-13",
-        stem: "His ___ to detail is what separates him from every other player in the league.",
-        options: ["attention", "attend", "attentive"],
-        answer: "attention",
-        explanation: "Nominalisation: noun form of 'attend'.",
-        fullExplanation: "'Attention to detail' is the standard noun phrase. 'Attend' is the verb. 'Attentive' is the adjective.",
-        source: "Adapted, attributed to Kobe Bryant",
-        hint: "attend",
+        stem: "A man who dares to waste one hour of time has not ___ the value of life.",
+        options: ["discovery", "discover", "discoverer"],
+        answer: "discovery",
+        explanation: "The natural choice here is 'discovery'.",
+        fullExplanation: "In this quote by Charles Darwin, 'discovery' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Charles Darwin",
+        hint: "discovery",
         flavor: "quotes",
-        author: "Kobe Bryant"
+        author: "Charles Darwin"
       },
       {
         id: "c1-nominal-14",
-        stem: "The ___ of basketball is fundamentally a story about teaching the body to ignore the mind.",
-        options: ["mastery", "master", "masterful"],
-        answer: "mastery",
-        explanation: "Nominalisation: 'mastery' is the abstract noun.",
-        fullExplanation: "'Mastery' is the abstract noun for skilful command. 'Master' is the verb or person. 'Masterful' is the adjective.",
-        source: "Adapted, attributed to Phil Jackson",
-        hint: "master",
+        stem: "___ is not how high you have climbed, but how you make a positive difference to the world.",
+        options: ["success", "successful", "successfully"],
+        answer: "success",
+        explanation: "The natural choice here is 'success'.",
+        fullExplanation: "In this quote by Roy T. Bennett, 'success' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Roy T. Bennett",
+        hint: "success",
         flavor: "quotes",
-        author: "Phil Jackson"
+        author: "Roy T. Bennett"
       },
       {
         id: "c1-nominal-15",
-        stem: "The ___ of his return to the ring shocked even his closest friends.",
-        options: ["announcement", "announce", "announced"],
-        answer: "announcement",
-        explanation: "Nominalisation: noun derived from the verb.",
-        fullExplanation: "'Announcement' is the noun form. 'Announce' is the verb. 'Announced' is past participle.",
-        source: "Adapted, attributed to Mike Tyson",
-        hint: "announce",
+        stem: "Put the customer first. ___. And be patient.",
+        options: ["invention", "inventive", "inventor"],
+        answer: "invention",
+        explanation: "The natural choice here is 'invention'.",
+        fullExplanation: "In this quote by Jeff Bezos, 'invention' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Adapted, attributed to Jeff Bezos",
+        hint: "invention",
         flavor: "quotes",
-        author: "Mike Tyson"
-      }
-    ]
+        author: "Jeff Bezos"
+      }]
   },
   "c1-sub-gen": {
     id: "c1-sub-gen",
@@ -3562,38 +3536,37 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-sub-gen-13",
-        stem: "The number of injuries this season ___ shocked the entire league.",
-        options: ["has", "have", "having"],
-        answer: "has",
-        explanation: "'The number of + plural' takes a singular verb.",
-        fullExplanation: "'The number' is singular and governs the verb. 'Have' would treat 'injuries' as the subject. 'Having' is a participle, not a finite verb.",
-        source: "Adapted, attributed to LeBron James",
+        stem: "___ you find yourself on the side of the majority, it is time to pause and reflect.",
+        options: ["whenever", "because", "although"],
+        answer: "whenever",
+        explanation: "The natural choice here is 'whenever'.",
+        fullExplanation: "In this quote by Mark Twain, 'whenever' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Mark Twain",
         flavor: "quotes",
-        author: "LeBron James"
+        author: "Mark Twain"
       },
       {
         id: "c1-sub-gen-14",
-        stem: "A number of players ___ refused to take the field after the controversial referee decision.",
-        options: ["have", "has", "having"],
-        answer: "have",
-        explanation: "'A number of + plural' takes a plural verb.",
-        fullExplanation: "'A number of + plural' is plural and governs a plural verb. 'Has' is singular. 'Having' is a participle.",
-        source: "Adapted, attributed to Pep Guardiola",
+        stem: "Another belief of mine: that everyone else my age is an adult, ___ I am merely in disguise.",
+        options: ["whereas", "because", "although"],
+        answer: "whereas",
+        explanation: "The natural choice here is 'whereas'.",
+        fullExplanation: "In this quote by Margaret Atwood, 'whereas' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Margaret Atwood",
         flavor: "quotes",
-        author: "Pep Guardiola"
+        author: "Margaret Atwood"
       },
       {
         id: "c1-sub-gen-15",
-        stem: "Either of those rookies ___ capable of taking the starting role next season.",
-        options: ["is", "are", "were"],
-        answer: "is",
-        explanation: "'Either of + plural' takes singular agreement.",
-        fullExplanation: "'Either of' is grammatically singular even with a plural noun. 'Are' would treat the plural noun as the subject. 'Were' is past tense and inappropriate.",
-        source: "Adapted, attributed to Phil Jackson",
+        stem: "There is nothing so pitiful as a young cynic ___ he has gone from knowing nothing to believing nothing.",
+        options: ["because", "although", "while"],
+        answer: "because",
+        explanation: "The natural choice here is 'because'.",
+        fullExplanation: "In this quote by Maya Angelou, 'because' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Maya Angelou",
         flavor: "quotes",
-        author: "Phil Jackson"
-      }
-    ]
+        author: "Maya Angelou"
+      }]
   },
   "c1-rel-adv": {
     id: "c1-rel-adv",
@@ -3723,37 +3696,36 @@ window.LEARN_TASKS_C1 = {
       },
       {
         id: "c1-rel-adv-13",
-        stem: "The day ___ I lost that fight was the day I really learned how to win.",
-        options: ["when", "where", "what"],
-        answer: "when",
-        explanation: "'When' introduces a relative clause referring to a time.",
-        fullExplanation: "'When' is the relative adverb for time. 'Where' refers to place. 'What' is not a relative adverb.",
-        source: "Adapted, attributed to Muhammad Ali",
+        stem: "I have realized that the past and future are real illusions, that they exist in the present, ___ is what there is and all there is.",
+        options: ["which", "who", "whose"],
+        answer: "which",
+        explanation: "The natural choice here is 'which'.",
+        fullExplanation: "In this quote by Alan Watts, 'which' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Alan Watts",
         flavor: "quotes",
-        author: "Muhammad Ali"
+        author: "Alan Watts"
       },
       {
         id: "c1-rel-adv-14",
-        stem: "There is a place inside the gym ___ no doubt and no excuse can ever survive.",
-        options: ["where", "when", "which"],
-        answer: "where",
-        explanation: "'Where' is the relative adverb for place.",
-        fullExplanation: "'Where' refers to a location. 'When' refers to time. 'Which' would need a preposition like 'in which'.",
-        source: "Adapted, attributed to David Goggins",
+        stem: "Any one can get angry - that is easy - or give or spend money; but to do this to the right person, to the right extent, at the right time, with the right motive, and in the right way, ___ is not for every one, nor is it easy.",
+        options: ["that", "which", "who"],
+        answer: "that",
+        explanation: "The natural choice here is 'that'.",
+        fullExplanation: "In this quote by Aristotle, 'that' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Aristotle",
         flavor: "quotes",
-        author: "David Goggins"
+        author: "Aristotle"
       },
       {
         id: "c1-rel-adv-15",
-        stem: "The reason ___ I keep training is not the trophies; it is the silence after the buzzer.",
-        options: ["why", "where", "when"],
-        answer: "why",
-        explanation: "'Why' is the relative adverb for reason.",
-        fullExplanation: "'Why' is the relative adverb for reasons. 'Where' refers to place. 'When' refers to time.",
-        source: "Adapted, attributed to Kobe Bryant",
+        stem: "I would love to believe that when I die I will live again, ___ some thinking, feeling, remembering part of me will continue. But much as I want to believe that, I know of nothing to suggest that it is more than wishful thinking.",
+        options: ["that", "which", "who"],
+        answer: "that",
+        explanation: "The natural choice here is 'that'.",
+        fullExplanation: "In this quote by Carl Sagan, 'that' fits the grammar of the surrounding context. The other options would change the tense, agreement, or register.",
+        source: "Direct quote — Carl Sagan",
         flavor: "quotes",
-        author: "Kobe Bryant"
-      }
-    ]
+        author: "Carl Sagan"
+      }]
   }
 };
