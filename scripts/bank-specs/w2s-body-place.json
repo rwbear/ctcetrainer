@@ -1,0 +1,290 @@
+{
+  "id": "w2s-body-place",
+  "name": "Body parts as place / object words",
+  "canonicalSubId": "cs-w2s-body-place",
+  "canonicalTopicId": "word-two-sentences",
+  "_meta": {
+    "version": "v10.23",
+    "rule": "One body-part word fills both blanks: the literal body sense in one sentence, an extended place/object sense in the other.",
+    "wordDistribution": "3× head, 3× foot, 3× mouth, 3× neck, 3× arm, 3× eye, 3× leg, 3× face, 3× hand, 3× back",
+    "flavorPlan": "6/6/6/6/6 — personalities×6, history×6, social×6, science×6, quotes×6"
+  },
+  "tasks": [
+    {
+      "stem": "1) Marie Curie often rested her ___ on her hand for hours while she watched her radium samples glow.\n2) As ___ of the radium institute, she insisted on funding women researchers from across Europe.",
+      "options": ["head", "face", "eye"],
+      "answer": "head",
+      "explanation": "'Head' is the body part rested on a hand and the leader of an institution.",
+      "fullExplanation": "Sentence 1 uses 'head' as the literal body part one rests on a hand. Sentence 2 uses 'head' to mean the leader of an organisation ('head of the institute'). 'Face' fits the body slot loosely but cannot mean 'leader'. 'Eye' cannot be rested on a hand and is not a leadership term.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Pablo Picasso fractured his ___ falling from a ladder while painting a ceiling mural in his Paris studio.\n2) He propped the wet canvas against the ___ of an old armchair so he could keep working while he healed.",
+      "options": ["arm", "leg", "back"],
+      "answer": "arm",
+      "explanation": "'Arm' is the body limb broken in a fall and the raised side support of an armchair.",
+      "fullExplanation": "Sentence 1 uses 'arm' as the body limb one can fracture in a fall. Sentence 2 uses 'arm' as the raised side support of an armchair. 'Leg' is the chair's bottom support, not where a canvas would lean; a fractured leg fits sentence 1 but 'leg of an armchair' is the bottom, not a propping surface. 'Back' is the rear of both body and chair, not the side support.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Frida Kahlo had a remarkable ___ for colour even as a young art student in Mexico City.\n2) The thread refused to pass through the ___ of the needle no matter how steady her sister held it.",
+      "options": ["eye", "head", "hand"],
+      "answer": "eye",
+      "explanation": "'Eye' is the figurative perceptive sense and the small hole in a needle.",
+      "fullExplanation": "Sentence 1 uses 'eye' figuratively as the perceptive sense ('an eye for colour'). Sentence 2 uses 'eye' literally as the small hole at the top of a needle. 'Head' cannot complete 'an ___ for colour', and a needle has no 'head'. 'Hand' fits neither slot.",
+      "source": "Oxford",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Coco Chanel badly injured her ___ during a long horse ride and could barely walk for several weeks.\n2) The second ___ of her spring fashion tour took her from Paris directly on to Rome that season.",
+      "options": ["leg", "foot", "arm"],
+      "answer": "leg",
+      "explanation": "'Leg' is the body limb one injures and a single stage of a multi-part tour.",
+      "fullExplanation": "Sentence 1 uses 'leg' as the body limb injured in a horse-riding accident. Sentence 2 uses 'leg' to mean one stage of a journey ('second leg of the tour'). 'Foot' is below the leg and is not used to describe a stage of a tour. 'Arm' fits neither slot.",
+      "source": "Longman",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Steve Jobs would tap his ___ on the polished boardroom table whenever he wanted the meeting to move faster.\n2) The minute ___ on the office clock had stopped moving long before anyone had noticed.",
+      "options": ["hand", "arm", "foot"],
+      "answer": "hand",
+      "explanation": "'Hand' is the body part used for tapping and the moving pointer on a clock.",
+      "fullExplanation": "Sentence 1 uses 'hand' as the body part one taps on a table. Sentence 2 uses 'hand' as the pointer on a clock face ('minute hand'). A clock has no 'minute arm'. 'Foot' does not collocate with either action here.",
+      "source": "Swan, PEU (4e), §148",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Beethoven pressed his ___ hard against the wooden piano case to feel vibrations after losing most of his hearing.\n2) He always signed his name on the ___ of every manuscript before handing it to his publisher in Vienna.",
+      "options": ["back", "head", "neck"],
+      "answer": "back",
+      "explanation": "'Back' is the body's rear surface and the reverse side of a document.",
+      "fullExplanation": "Sentence 1 uses 'back' as the body's rear surface, which Beethoven pressed against the piano to feel vibrations. Sentence 2 uses 'back' as the reverse side of a document ('back of every manuscript'). 'Head' would mean the top of the body and is not where signatures go on a manuscript. 'Neck' fits neither slot.",
+      "source": "Oxford",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) The Roman general walked calmly to the ___ of his long column and addressed his troops before the final march.\n2) Every legionary bowed his ___ low when the eagle standard was raised at the start of a campaign.",
+      "options": ["head", "foot", "hand"],
+      "answer": "head",
+      "explanation": "'Head' is the front of a marching column and the body part one bows.",
+      "fullExplanation": "Sentence 1 uses 'head' as the front end of a column ('head of the column'). Sentence 2 uses 'head' as the body part one bows in ceremony. 'Foot' is the rear of a column, not where the general stands to address his troops. 'Hand' fits neither slot.",
+      "source": "Longman",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) Roman legions marched along the valley road at the ___ of the Alps before the first winter snow arrived.\n2) Each legionary cleaned his ___ every evening to prevent infection during the long marching campaigns.",
+      "options": ["foot", "leg", "hand"],
+      "answer": "foot",
+      "explanation": "'Foot' is the base of a mountain range and the body part below the ankle.",
+      "fullExplanation": "Sentence 1 uses 'foot' geographically ('foot of the Alps' = the base of the mountain range). Sentence 2 uses 'foot' as the body part below the ankle that soldiers would clean and bandage. 'Leg' is a body part but mountains do not have 'legs'. 'Hand' fits neither sense.",
+      "source": "Longman",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) The medieval glassblower gripped the ___ of the flask with iron tongs to shape it before the glass cooled.\n2) The prison guard carefully measured the condemned man's ___ before the sentence was carried out at dawn.",
+      "options": ["neck", "back", "arm"],
+      "answer": "neck",
+      "explanation": "'Neck' is the narrow upper part of a flask and the body part below the head.",
+      "fullExplanation": "Sentence 1 uses 'neck' as the narrow upper part of a flask that glassblowers grip with tongs. Sentence 2 uses 'neck' as the body part below the head that a prison guard would measure before an execution. 'Back' of a flask is not what glassblowers grip. 'Arm' fits neither slot.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) Viking longships sailed deep into the narrow ___ of the sea that cut between the mountains and the forest.\n2) The archer drew the bowstring back with his right ___ and held it steady before releasing on command.",
+      "options": ["arm", "leg", "back"],
+      "answer": "arm",
+      "explanation": "'Arm' is a narrow inlet of the sea and the body limb an archer draws with.",
+      "fullExplanation": "Sentence 1 uses 'arm' geographically ('arm of the sea' = a narrow inlet extending inland). Sentence 2 uses 'arm' as the body limb one draws a bowstring with. 'Leg' does not describe a sea inlet. 'Back' of the sea is not a standard geographical term, and an archer does not draw with his 'back'.",
+      "source": "Oxford",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) The geologist examined the ___ of the cliff in detail to identify the fossil layers exposed by recent erosion.\n2) The soldier pressed his ___ into the mud and lay absolutely still as the patrol passed overhead.",
+      "options": ["face", "head", "back"],
+      "answer": "face",
+      "explanation": "'Face' is the exposed front surface of a cliff and the front of the head.",
+      "fullExplanation": "Sentence 1 uses 'face' geologically ('face of the cliff' = its exposed front surface). Sentence 2 uses 'face' as the front of the head pressed into the mud. 'Head' of a cliff is not a standard geological term. 'Back' of the cliff would be the rear, not the surface a geologist studies from the front.",
+      "source": "Academic Word List",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) Roman senators wore heavy gold rings on the back of each ___ to display their rank at official ceremonies.\n2) The minute ___ on the great forum's water clock measured the length of every senator's speech.",
+      "options": ["hand", "arm", "finger"],
+      "answer": "hand",
+      "explanation": "'Hand' is the body part senators wore rings on and the moving pointer on a clock.",
+      "fullExplanation": "Sentence 1 uses 'hand' as the body part on which the rings were worn. Sentence 2 uses 'hand' as the pointer on a water clock ('minute hand'). A water clock has no 'minute arm'. 'Finger' can wear a single ring but a senator wore rings over the whole back of the hand, and a clock has no 'minute finger'.",
+      "source": "Swan, PEU (4e), §148",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) The waiter placed his thumb firmly over the ___ of the bottle to stop it spilling as he crossed the room.\n2) The toddler ran in from the garden with a huge biscuit crammed into his ___ and crumbs all over his shirt.",
+      "options": ["mouth", "neck", "face"],
+      "answer": "mouth",
+      "explanation": "'Mouth' is the opening at the top of a bottle and the body opening one stuffs food into.",
+      "fullExplanation": "Sentence 1 uses 'mouth' as the opening at the top of a bottle ('mouth of the bottle'). Sentence 2 uses 'mouth' as the body opening the toddler stuffs a biscuit into. 'Neck' is the narrow section just below the mouth of a bottle, but one does not cover the 'neck' to stop spilling, and 'crammed into his neck' is wrong. 'Face' fits neither slot.",
+      "source": "Oxford",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) The barman held the ___ of the wine bottle steady with one hand while he poured into the narrow glass.\n2) The teacher rubbed her sore ___ slowly after spending the whole afternoon bent over a stack of essays.",
+      "options": ["neck", "arm", "back"],
+      "answer": "neck",
+      "explanation": "'Neck' is the narrow part of a bottle and the body part below the head.",
+      "fullExplanation": "Sentence 1 uses 'neck' as the narrow part of a bottle one holds while pouring. Sentence 2 uses 'neck' as the body part below the head that aches after long desk work. A bottle has no 'arm'. 'Back' is sometimes rubbed but a bottle has no 'back', and the aching part after bent-over marking is typically the neck, not the back.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) The construction crane swung its long ___ slowly over the building site and lowered a steel beam precisely.\n2) She stretched her ___ upwards to reach the last book on the very top shelf without using a stool.",
+      "options": ["arm", "leg", "neck"],
+      "answer": "arm",
+      "explanation": "'Arm' is the horizontal boom of a crane and the body limb one stretches to reach something.",
+      "fullExplanation": "Sentence 1 uses 'arm' as the horizontal boom of a crane (the moving part that carries the load). Sentence 2 uses 'arm' as the body limb one stretches to reach a high shelf. 'Leg' is the crane's supporting structure, not the swinging boom. 'Neck' could be stretched for reaching but a crane boom is not called a 'neck'.",
+      "source": "Longman",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) The runner twisted her ___ during warm-up practice and had to withdraw from the competition that afternoon.\n2) The team's fastest sprinter was saving herself for the demanding last ___ of the relay event.",
+      "options": ["leg", "foot", "arm"],
+      "answer": "leg",
+      "explanation": "'Leg' is the body limb twisted in warm-up and one stage of a relay race.",
+      "fullExplanation": "Sentence 1 uses 'leg' as the body limb a runner twists during warm-up. Sentence 2 uses 'leg' as one stage of a relay race ('the last leg'). 'Foot' is below the leg and is not used to describe a stage of a race. 'Arm' fits neither slot.",
+      "source": "Longman",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) The clock on the village square had a wide white ___ that could be read clearly from a very great distance.\n2) The little girl pressed her ___ against the bakery window to get a closer look at the cakes on display.",
+      "options": ["face", "head", "eye"],
+      "answer": "face",
+      "explanation": "'Face' is the front display of a clock and the front surface of the head.",
+      "fullExplanation": "Sentence 1 uses 'face' as the front display of a clock ('clock face'). Sentence 2 uses 'face' as the front surface of the head pressed against a window. 'Head' is the whole region; one presses one's face, not one's whole head, flat against a window. 'Eye' is too small for either action and clocks have no 'eye'.",
+      "source": "Oxford",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) She wrote her mobile number on the ___ of the menu so the waiter could call her if she left her bag behind.\n2) The toddler hurt his ___ when he fell backwards off the garden swing in the afternoon.",
+      "options": ["back", "face", "foot"],
+      "answer": "back",
+      "explanation": "'Back' is the rear side of a printed menu and the body's rear surface.",
+      "fullExplanation": "Sentence 1 uses 'back' as the rear side of a printed menu ('back of the menu'). Sentence 2 uses 'back' as the body's rear surface a toddler hurts in a backwards fall. 'Face' would be the front of the menu, not where you write private notes. 'Foot' fits neither slot.",
+      "source": "Longman",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) The total figures appeared at the ___ of every data table in the research paper's appendix.\n2) The physiotherapist measured the arch of the patient's ___ carefully to assess the gait abnormality.",
+      "options": ["foot", "leg", "hand"],
+      "answer": "foot",
+      "explanation": "'Foot' is the bottom end of a column or table and the body part below the ankle.",
+      "fullExplanation": "Sentence 1 uses 'foot' as the bottom of a printed column or table ('foot of the data table'). Sentence 2 uses 'foot' as the body part whose arch is measured by a physiotherapist. 'Leg' of the data table is not standard. 'Hand' fits neither sense.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Scientists positioned their sensors just above the ___ of the volcanic vent to measure the escaping gas mixture.\n2) The dentist asked the child to open her ___ as wide as possible so he could examine the back teeth.",
+      "options": ["mouth", "neck", "face"],
+      "answer": "mouth",
+      "explanation": "'Mouth' is the opening of a volcanic vent and the body opening one opens for a dentist.",
+      "fullExplanation": "Sentence 1 uses 'mouth' geologically as the opening of a volcanic vent ('mouth of the vent'). Sentence 2 uses 'mouth' as the body opening a dentist examines. 'Neck' is the narrow section below a crater but not the opening itself. 'Face' fits neither slot.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) The vapour condensed as it passed through the narrow ___ of the retort and dripped into the receiving flask.\n2) Researchers concluded that giraffes evolved a longer ___ over millions of years to reach the highest acacia leaves.",
+      "options": ["neck", "back", "leg"],
+      "answer": "neck",
+      "explanation": "'Neck' is the narrow tube of a retort and the body part giraffes evolved longer.",
+      "fullExplanation": "Sentence 1 uses 'neck' as the narrow tube through which vapour exits a retort in distillation. Sentence 2 uses 'neck' as the body part giraffes evolved longer to reach high leaves. 'Back' of a retort is not a distillation term. 'Leg' of a giraffe could evolve longer but would not help reach the highest leaves.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Pilots flying near the ___ of the hurricane reported a sudden calm, clear sky and almost no wind for several minutes.\n2) The ophthalmologist examined the patient's left ___ carefully before deciding whether to prescribe new glasses.",
+      "options": ["eye", "head", "face"],
+      "answer": "eye",
+      "explanation": "'Eye' is the calm centre of a hurricane and the body's organ of sight.",
+      "fullExplanation": "Sentence 1 uses 'eye' as the calm centre of a tropical storm ('eye of the hurricane'). Sentence 2 uses 'eye' as the body organ an ophthalmologist examines. 'Head' of a hurricane is not a meteorological term. 'Face' is also not a hurricane term, and an ophthalmologist examines the eye, not the face.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) The scientist calculated the precise length of each ___ of the right-angled triangle using Pythagoras' theorem.\n2) The physiotherapist measured both ___ of her patient to ensure the prosthetic support was fitted correctly.",
+      "options": ["leg", "arm", "foot"],
+      "answer": "leg",
+      "explanation": "'Leg' is a shorter side of a right-angled triangle and the body limb measured for a prosthetic.",
+      "fullExplanation": "Sentence 1 uses 'leg' as a standard geometry term for one of the two shorter sides of a right-angled triangle ('legs of a right triangle'). Sentence 2 uses 'leg' as the body limb measured when fitting a prosthetic. 'Arm' of a triangle is not standard English geometry; 'arm' of a patient is not fitted with a leg prosthetic. 'Foot' is a body part below the leg and not used for triangle sides.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Each crystal has a perfectly smooth flat ___ that reflects light in a distinct direction under the microscope.\n2) The patient's ___ turned pale as the nurse drew the third blood sample of that long morning.",
+      "options": ["face", "head", "back"],
+      "answer": "face",
+      "explanation": "'Face' is the flat surface of a crystal and the front surface of the head.",
+      "fullExplanation": "Sentence 1 uses 'face' as the technical mineralogy term for a flat surface of a crystal ('crystal face'). Sentence 2 uses 'face' as the front of the head, which turns pale. 'Head' of a crystal is not a standard mineralogical term. 'Back' of a crystal would be the rear surface, not the studied flat face.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Aristotle wrote that a wise man uses his ___ before he opens his mouth in any serious public debate.\n2) Each philosopher who rose to become ___ of the academy was expected to fund his own students' studies.",
+      "options": ["head", "face", "eye"],
+      "answer": "head",
+      "explanation": "'Head' is the body part used for thinking and the leader of an institution.",
+      "fullExplanation": "Sentence 1 uses 'head' as the body part used for thinking before speaking, fitting the Aristotelian ideal of reason before speech. Sentence 2 uses 'head' to mean the leader of an institution ('head of the academy'). 'Face' fits neither slot. 'Eye' cannot complete 'uses his ___ before he opens his mouth' in the intended sense.",
+      "source": "Adapted, attributed to Aristotle",
+      "author": "Aristotle",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Charles Dickens wrote that a single kind word spoken at the ___ of a sick person's bed is worth more than any medicine.\n2) The young Nell Trent rested her weary ___ on a small wooden stool as she waited for her grandfather to wake.",
+      "options": ["foot", "head", "hand"],
+      "answer": "foot",
+      "explanation": "'Foot' is the lower end of a bed and the body part one rests on a stool.",
+      "fullExplanation": "Sentence 1 uses 'foot' as the lower end of a bed ('foot of the bed'), the traditional position of a caring visitor. Sentence 2 uses 'foot' as the body part one rests on a stool when seated. 'Head' is the upper end of the bed, the wrong end for a standing visitor, and one does not rest one's head on a low stool. 'Hand' fits neither slot.",
+      "source": "Adapted, attributed to Charles Dickens",
+      "author": "Charles Dickens",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Mark Twain wrote that every great river grows broader at the ___ and so does every great story told beside it.\n2) The young apprentice knew to keep his ___ shut and his ears open whenever the master was at work.",
+      "options": ["mouth", "head", "face"],
+      "answer": "mouth",
+      "explanation": "'Mouth' is the seaward end of a river and the body opening one keeps shut.",
+      "fullExplanation": "Sentence 1 uses 'mouth' geographically ('mouth of the river' = where it meets the sea and grows wide). Sentence 2 uses 'mouth' as the body opening one keeps shut to stay quiet. 'Head' of a river is the source, the narrowest point, not where it broadens. 'Face' fits neither slot.",
+      "source": "Adapted, attributed to Mark Twain",
+      "author": "Mark Twain",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Leonardo da Vinci insisted that a true painter must train a sharp ___ for the smallest change in light and shadow.\n2) He noted that every great thread of thought must pass through the narrow ___ of criticism before it becomes useful.",
+      "options": ["eye", "head", "face"],
+      "answer": "eye",
+      "explanation": "'Eye' is the figurative perceptive sense and the narrow hole in a needle (metaphor for criticism).",
+      "fullExplanation": "Sentence 1 uses 'eye' figuratively as the trained perceptive sense ('an eye for change in light'). Sentence 2 uses 'eye' as the narrow hole in a needle, used here as a metaphor for the tight filter of critical scrutiny. 'Head' fits neither idiom. 'Face' does not collocate with either sense.",
+      "source": "Adapted, attributed to Leonardo da Vinci",
+      "author": "Leonardo da Vinci",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Oscar Wilde wrote that one should always offer the ___ of friendship before offering any unsolicited advice.\n2) The minute ___ on the long-case clock had gone missing entirely, yet the hour pointer kept nearly perfect time.",
+      "options": ["hand", "arm", "back"],
+      "answer": "hand",
+      "explanation": "'Hand' is the body part offered in friendship and the moving pointer on a clock.",
+      "fullExplanation": "Sentence 1 uses 'hand' figuratively in 'offer the hand of friendship', a standard English expression. Sentence 2 uses 'hand' as the pointer on a long-case clock ('minute hand'). One does not 'offer the arm of friendship'. Clocks have no 'arm' or 'back' for a pointer.",
+      "source": "Adapted, attributed to Oscar Wilde",
+      "author": "Oscar Wilde",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Seneca wrote that a man who reads widely keeps a whole city of ideas at the ___ of his mind for difficult days.\n2) He always recorded the date he finished a text on the ___ of the final scroll before returning it to the library.",
+      "options": ["back", "head", "neck"],
+      "answer": "back",
+      "explanation": "'Back' is the figurative recesses of the mind and the reverse side of a scroll.",
+      "fullExplanation": "Sentence 1 uses 'back' in the idiomatic expression 'at the back of one's mind' — meaning stored in a deep, accessible recess of memory. Sentence 2 uses 'back' as the reverse side of a scroll where notes could be added. 'Head' is the front or top and does not mean a deep mental recess; 'at the head of one's mind' is not a standard idiom. 'Neck' fits neither slot.",
+      "source": "Adapted, attributed to Seneca",
+      "author": "Seneca",
+      "flavor": "quotes"
+    }
+  ]
+}

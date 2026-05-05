@@ -1,0 +1,320 @@
+{
+  "id": "vt-narrative",
+  "name": "Narrative tenses — past simple / continuous / perfect",
+  "canonicalSubId": "cs-vt-narrative",
+  "canonicalTopicId": "verb-tenses",
+  "_meta": {
+    "version": "v10.23",
+    "rule": "Each stem has one blank for a verb form. The surrounding narrative context (time anchor or sequence cue) decides between past simple (completed event), past continuous (background action in progress), or past perfect (action before another past action).",
+    "tenseDistribution": "10× past simple, 10× past continuous, 10× past perfect",
+    "flavorPlan": "6/6/6/6/6 — personalities×6, history×6, social×6, science×6, quotes×6"
+  },
+  "tasks": [
+    {
+      "stem": "When the reporters arrived at the concert hall, Mozart ___ the final movement of his new symphony.",
+      "options": ["was conducting", "conducted", "had conducted"],
+      "answer": "was conducting",
+      "explanation": "'When the reporters arrived' interrupts an action already in progress — past continuous.",
+      "fullExplanation": "The cue 'When the reporters arrived' sets a single completed event that interrupts a longer background action. Past continuous ('was conducting') describes the ongoing action at that moment. 'Conducted' would make both events completed and sequential, not simultaneous. 'Had conducted' would place the conducting before the arrival, which contradicts the scene of reporters walking in on the performance.",
+      "source": "Murphy, EGU (4e), Unit 6",
+      "hint": "conduct",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "By the time Einstein published his general theory in 1915, he ___ on the problem for almost a decade.",
+      "options": ["had been working", "was working", "worked"],
+      "answer": "had been working",
+      "explanation": "'By the time ... published' + 'for almost a decade' signals an action completed before another past action — past perfect continuous.",
+      "fullExplanation": "The anchor 'By the time Einstein published his general theory in 1915' marks a past reference point, and 'for almost a decade' measures the duration leading up to it. Past perfect continuous ('had been working') expresses a long action continuing up to that past moment. 'Was working' gives only a temporary state at 1915 without the ten-year span. 'Worked' would be a plain completed event with no sense of accumulated duration.",
+      "source": "Swan, PEU (4e), §425",
+      "hint": "work",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Picasso ___ the first sketches for Guernica within a few days of hearing about the bombing.",
+      "options": ["produced", "was producing", "had produced"],
+      "answer": "produced",
+      "explanation": "A completed event with a finished time frame takes past simple.",
+      "fullExplanation": "The phrase 'within a few days of hearing about the bombing' gives a finished, completed time frame. Past simple ('produced') states the single completed act. 'Was producing' would describe an action in progress, not a finished set of sketches. 'Had produced' would require an even later reference point to be 'before', which the sentence does not give.",
+      "source": "Murphy, EGU (4e), Unit 5",
+      "hint": "produce",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "While Marie Curie ___ her doctoral research, she and Pierre isolated two new radioactive elements.",
+      "options": ["was conducting", "conducted", "had conducted"],
+      "answer": "was conducting",
+      "explanation": "'While' + background action for a shorter completed event in the main clause — past continuous.",
+      "fullExplanation": "'While' sets up a long background action during which another, shorter event happens. Past continuous ('was conducting') is the standard choice after 'while' for the background action. 'Conducted' would make the doctoral research a separate completed event, losing the simultaneity. 'Had conducted' would place the research before the isolation of the elements, contradicting the sense that both happened together.",
+      "source": "Murphy, EGU (4e), Unit 6",
+      "hint": "conduct",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "After Federer ___ his first Wimbledon title in 2003, he went on to win the tournament seven more times.",
+      "options": ["had won", "was winning", "won"],
+      "answer": "had won",
+      "explanation": "'After X' + later main-clause action signals the earlier event was complete — past perfect.",
+      "fullExplanation": "'After' explicitly places one past action before another. Past perfect ('had won') marks the earlier completed action ('first title in 2003') before the later main-clause action ('went on to win seven more times'). 'Was winning' would suggest the title was still in progress, which is impossible for a completed tournament. 'Won' is acceptable in casual speech but the formal narrative sequence calls for past perfect to signal the earlier event clearly.",
+      "source": "Swan, PEU (4e), §424",
+      "hint": "win",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Steve Jobs ___ the first iPhone on stage at Macworld on January 9, 2007, holding the device up with one hand.",
+      "options": ["introduced", "was introducing", "had introduced"],
+      "answer": "introduced",
+      "explanation": "A specific dated event takes past simple.",
+      "fullExplanation": "The specific date 'January 9, 2007' marks a completed, finished event. Past simple ('introduced') is the standard form for a single completed action with a definite past time. 'Was introducing' would suggest the introduction was in progress with no clear endpoint. 'Had introduced' would require a later reference time to be 'before', which the sentence does not supply.",
+      "source": "Murphy, EGU (4e), Unit 5",
+      "hint": "introduce",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "The Roman Senate ___ the assassination of Caesar for weeks before the Ides of March finally arrived.",
+      "options": ["had been planning", "was planning", "planned"],
+      "answer": "had been planning",
+      "explanation": "'Before' + duration phrase signals accumulated action before a past reference — past perfect continuous.",
+      "fullExplanation": "'For weeks before the Ides of March finally arrived' gives both a duration and a past reference point. Past perfect continuous ('had been planning') expresses the ongoing action leading up to that past moment. 'Was planning' only gives a state at a point in time without the accumulated weeks. 'Planned' is a plain completed event with no sense of gradual build-up, losing the 'for weeks' duration.",
+      "source": "Swan, PEU (4e), §425",
+      "hint": "plan",
+      "flavor": "history"
+    },
+    {
+      "stem": "When Napoleon's Grande Armée crossed the Niemen River in June 1812, most of the soldiers ___ what awaited them in Russia.",
+      "options": ["did not know", "were not knowing", "had not known"],
+      "answer": "did not know",
+      "explanation": "'Know' is a stative verb; at a specific past moment it takes past simple.",
+      "fullExplanation": "'Know' is a stative verb that does not normally take continuous forms. At a specific past moment — the crossing of the Niemen — past simple ('did not know') describes the mental state. 'Were not knowing' is ungrammatical for the stative sense of 'know'. 'Had not known' would suggest a state that ended before the crossing, which contradicts the sense that they still did not know at that very moment.",
+      "source": "Murphy, EGU (4e), Unit 4",
+      "hint": "know",
+      "flavor": "history"
+    },
+    {
+      "stem": "By 1918, the war ___ four empires — the Russian, German, Austro-Hungarian, and Ottoman — in only four years.",
+      "options": ["had destroyed", "was destroying", "destroyed"],
+      "answer": "had destroyed",
+      "explanation": "'By 1918' signals results accumulated before that past reference point — past perfect.",
+      "fullExplanation": "'By 1918' explicitly marks a past reference point at which the results are measured. Past perfect ('had destroyed') expresses completed action before that point. 'Was destroying' describes an ongoing process, not a completed tally. 'Destroyed' works in casual narrative but loses the 'already accomplished by this date' nuance that 'by 1918' requires.",
+      "source": "Swan, PEU (4e), §424",
+      "hint": "destroy",
+      "flavor": "history"
+    },
+    {
+      "stem": "While the Allies ___ the beaches of Normandy, paratroopers behind enemy lines secured the strategic bridges.",
+      "options": ["were storming", "stormed", "had stormed"],
+      "answer": "were storming",
+      "explanation": "'While' + two simultaneous actions — past continuous in the background clause.",
+      "fullExplanation": "'While' introduces a longer background action happening at the same time as another past action. Past continuous ('were storming') is standard after 'while'. 'Stormed' would make both events sequential rather than simultaneous. 'Had stormed' would place the storming before the paratroopers' work, contradicting the simultaneous D-Day sequence.",
+      "source": "Murphy, EGU (4e), Unit 6",
+      "hint": "storm",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Berlin Wall ___ on the night of November 9, 1989, after more than twenty-eight years standing.",
+      "options": ["fell", "was falling", "had fallen"],
+      "answer": "fell",
+      "explanation": "A single completed event with a specific date takes past simple.",
+      "fullExplanation": "The specific date 'November 9, 1989' marks a single completed historical event. Past simple ('fell') is the standard form. 'Was falling' would describe a gradual, ongoing process with no fixed endpoint, which misrepresents the event. 'Had fallen' would require a later past reference point to place the fall before, which the sentence does not provide.",
+      "source": "Murphy, EGU (4e), Unit 5",
+      "hint": "fall",
+      "flavor": "history"
+    },
+    {
+      "stem": "Before the first moon landing in 1969, NASA engineers ___ the mission on the ground more than a hundred times.",
+      "options": ["had rehearsed", "were rehearsing", "rehearsed"],
+      "answer": "had rehearsed",
+      "explanation": "'Before' + later past event signals the earlier action was complete — past perfect.",
+      "fullExplanation": "'Before the first moon landing in 1969' fixes a later past reference point. Past perfect ('had rehearsed') marks the earlier repeated action already complete before that point. 'Were rehearsing' describes an action in progress, not an accumulated count. 'Rehearsed' loses the clear 'already by 1969' sequencing that 'before' demands in formal narrative.",
+      "source": "Swan, PEU (4e), §424",
+      "hint": "rehearse",
+      "flavor": "history"
+    },
+    {
+      "stem": "While the teacher ___ the class on the Pythagorean theorem, two students at the back were quietly passing notes.",
+      "options": ["was explaining", "explained", "had explained"],
+      "answer": "was explaining",
+      "explanation": "'While' + simultaneous secondary action — past continuous for the background.",
+      "fullExplanation": "'While' frames a longer background action happening alongside another past action ('were passing notes', also continuous). Past continuous ('was explaining') captures the teacher's ongoing explanation. 'Explained' would make the explanation a single completed event, losing the simultaneity. 'Had explained' would place the explanation before the note-passing, contradicting the scene of both happening at once.",
+      "source": "Murphy, EGU (4e), Unit 6",
+      "hint": "explain",
+      "flavor": "social"
+    },
+    {
+      "stem": "By the time the new law came into force last January, most companies ___ their privacy policies to comply.",
+      "options": ["had already updated", "were already updating", "already updated"],
+      "answer": "had already updated",
+      "explanation": "'By the time X' + completed preparation before X — past perfect.",
+      "fullExplanation": "'By the time the new law came into force' sets a past reference point, and 'already' emphasises completion before that point. Past perfect ('had already updated') is the standard choice. 'Were already updating' would suggest the updating was still in progress at that point, contradicting 'already'. 'Already updated' alone is past simple and loses the clear 'before that moment' sequencing.",
+      "source": "Swan, PEU (4e), §424",
+      "hint": "update",
+      "flavor": "social"
+    },
+    {
+      "stem": "The protesters ___ peacefully in the main square all morning when the police suddenly arrived with water cannons.",
+      "options": ["had been demonstrating", "were demonstrating", "demonstrated"],
+      "answer": "had been demonstrating",
+      "explanation": "'All morning' + sudden interrupting event signals duration up to that past point — past perfect continuous.",
+      "fullExplanation": "'All morning when the police suddenly arrived' combines a duration ('all morning') with a past reference point ('when the police arrived'). Past perfect continuous ('had been demonstrating') expresses a long action continuing right up to that moment. 'Were demonstrating' gives only a snapshot at the moment of arrival without the full morning span. 'Demonstrated' loses both the continuous sense and the duration leading up to the event.",
+      "source": "Swan, PEU (4e), §425",
+      "hint": "demonstrate",
+      "flavor": "social"
+    },
+    {
+      "stem": "Last summer my family ___ to Italy for two weeks and visited Rome, Florence, and Venice.",
+      "options": ["travelled", "was travelling", "had travelled"],
+      "answer": "travelled",
+      "explanation": "'Last summer' + finished time frame takes past simple.",
+      "fullExplanation": "'Last summer' and 'for two weeks' give a finished, completed time frame. Past simple ('travelled') is standard for a completed action in a finished past period. 'Was travelling' would describe a temporary state during some other event. 'Had travelled' needs a later reference point in the past to precede, which the sentence does not provide.",
+      "source": "Murphy, EGU (4e), Unit 5",
+      "hint": "travel",
+      "flavor": "social"
+    },
+    {
+      "stem": "When I finally reached the cinema, the film ___ already for twenty minutes.",
+      "options": ["had been playing", "was playing", "played"],
+      "answer": "had been playing",
+      "explanation": "'When X' + 'already for twenty minutes' signals duration before X — past perfect continuous.",
+      "fullExplanation": "'When I finally reached the cinema' gives a past reference point, and 'already for twenty minutes' measures the film's duration up to that point. Past perfect continuous ('had been playing') expresses a long action leading up to a past moment. 'Was playing' describes a snapshot without the twenty-minute span. 'Played' would be a completed event, not continuous action leading to the moment of arrival.",
+      "source": "Swan, PEU (4e), §425",
+      "hint": "play",
+      "flavor": "social"
+    },
+    {
+      "stem": "While the children ___ in the garden, their mother quietly prepared a surprise cake in the kitchen.",
+      "options": ["were playing", "played", "had played"],
+      "answer": "were playing",
+      "explanation": "'While' + simultaneous main event — past continuous for the background.",
+      "fullExplanation": "'While' introduces a longer background action happening at the same time as another past action ('prepared', past simple in the main clause). Past continuous ('were playing') captures the children's ongoing activity. 'Played' would make both events sequential. 'Had played' would place the playing entirely before the mother's baking, contradicting the simultaneous scene.",
+      "source": "Murphy, EGU (4e), Unit 6",
+      "hint": "play",
+      "flavor": "social"
+    },
+    {
+      "stem": "When the eclipse reached totality, the astronomers ___ the corona with four different cameras at the same time.",
+      "options": ["were photographing", "photographed", "had photographed"],
+      "answer": "were photographing",
+      "explanation": "'When X' + ongoing simultaneous action — past continuous.",
+      "fullExplanation": "'When the eclipse reached totality' marks a specific past moment that cuts into a longer action. Past continuous ('were photographing') expresses the action in progress at that instant. 'Photographed' would make it a single completed event, losing the sense of a sustained multi-camera process. 'Had photographed' would place the photographing before totality, contradicting the idea that they captured the corona at that moment.",
+      "source": "Murphy, EGU (4e), Unit 6",
+      "hint": "photograph",
+      "flavor": "science"
+    },
+    {
+      "stem": "By the time the new vaccine received approval, researchers ___ it on more than thirty thousand volunteers.",
+      "options": ["had tested", "were testing", "tested"],
+      "answer": "had tested",
+      "explanation": "'By the time X' + completed action before X — past perfect.",
+      "fullExplanation": "'By the time the new vaccine received approval' sets a past reference point. Past perfect ('had tested') expresses the completed testing before that point. 'Were testing' suggests the testing was still in progress at the moment of approval, contradicting the sense that the testing was finished. 'Tested' loses the clear 'before that moment' sequencing that 'by the time' requires.",
+      "source": "Swan, PEU (4e), §424",
+      "hint": "test",
+      "flavor": "science"
+    },
+    {
+      "stem": "The chemist ___ the experiment three times last Tuesday and recorded slightly different results each run.",
+      "options": ["ran", "was running", "had run"],
+      "answer": "ran",
+      "explanation": "'Last Tuesday' + finished time frame and counted repetitions take past simple.",
+      "fullExplanation": "'Last Tuesday' gives a finished past time, and 'three times' gives a counted number of completed runs. Past simple ('ran') is standard for a completed action in a finished past period. 'Was running' describes a process without a clear endpoint, losing the three-times count. 'Had run' would require a later past reference point to precede.",
+      "source": "Murphy, EGU (4e), Unit 5",
+      "hint": "run",
+      "flavor": "science"
+    },
+    {
+      "stem": "When the comet finally became visible to the naked eye, astronomers ___ its orbit for almost two years.",
+      "options": ["had been tracking", "were tracking", "tracked"],
+      "answer": "had been tracking",
+      "explanation": "'When X' + 'for almost two years' signals a long action leading up to X — past perfect continuous.",
+      "fullExplanation": "'When the comet finally became visible' marks a past reference point, and 'for almost two years' measures the duration leading up to it. Past perfect continuous ('had been tracking') expresses the long action continuing right up to that past moment. 'Were tracking' gives only a snapshot without the two-year span. 'Tracked' is a plain completed event with no sense of cumulative effort.",
+      "source": "Swan, PEU (4e), §425",
+      "hint": "track",
+      "flavor": "science"
+    },
+    {
+      "stem": "Dinosaurs ___ the Earth for roughly 165 million years before a mass extinction wiped most of them out.",
+      "options": ["had dominated", "were dominating", "dominated"],
+      "answer": "had dominated",
+      "explanation": "'Before' + later past event signals the earlier action was complete — past perfect.",
+      "fullExplanation": "'Before a mass extinction wiped most of them out' fixes a later past reference point, and '165 million years' gives the full duration completed before it. Past perfect ('had dominated') expresses the completed action before another past event. 'Were dominating' would suggest an ongoing state at the moment of extinction without the full time span. 'Dominated' loses the explicit 'before that event' ordering that 'before' demands in formal narrative.",
+      "source": "Swan, PEU (4e), §424",
+      "hint": "dominate",
+      "flavor": "science"
+    },
+    {
+      "stem": "While the telescope ___ data at the top of the mountain, technicians back in the city processed the first images.",
+      "options": ["was collecting", "collected", "had collected"],
+      "answer": "was collecting",
+      "explanation": "'While' + simultaneous main action — past continuous for the background.",
+      "fullExplanation": "'While' introduces a longer background action alongside another past action ('processed', past simple in the main clause). Past continuous ('was collecting') captures the telescope's ongoing work. 'Collected' would make both events sequential, losing the simultaneity. 'Had collected' would place the collection entirely before the processing, contradicting the scene where both happen at once.",
+      "source": "Murphy, EGU (4e), Unit 6",
+      "hint": "collect",
+      "flavor": "science"
+    },
+    {
+      "stem": "Before Edison invented the phonograph, no one ___ a way to capture and replay the human voice.",
+      "options": ["had found", "was finding", "found"],
+      "answer": "had found",
+      "explanation": "'Before X' + earlier completed action — past perfect.",
+      "fullExplanation": "'Before Edison invented the phonograph' sets a later past reference point. Past perfect ('had found') is the standard form for the state of no prior success leading up to that point. 'Was finding' describes an action in progress, not a cumulative absence. 'Found' would lose the clear 'until this invention' sense the sentence needs.",
+      "source": "Adapted, attributed to Thomas Edison",
+      "hint": "find",
+      "flavor": "quotes",
+      "author": "Thomas Edison"
+    },
+    {
+      "stem": "When the final results arrived, Churchill ___ nervously in his study for more than three hours.",
+      "options": ["had been pacing", "was pacing", "paced"],
+      "answer": "had been pacing",
+      "explanation": "'When X' + 'for more than three hours' signals duration leading up to X — past perfect continuous.",
+      "fullExplanation": "'When the final results arrived' marks a past reference point, and 'for more than three hours' measures duration leading up to it. Past perfect continuous ('had been pacing') expresses a long action continuing right up to that past moment. 'Was pacing' gives only a snapshot without the three-hour span. 'Paced' is a plain completed event without the continuous build-up.",
+      "source": "Adapted, attributed to Winston Churchill",
+      "hint": "pace",
+      "flavor": "quotes",
+      "author": "Winston Churchill"
+    },
+    {
+      "stem": "While Gandhi ___ on his salt march in 1930, thousands of Indians joined him along every mile of the coast.",
+      "options": ["was marching", "marched", "had marched"],
+      "answer": "was marching",
+      "explanation": "'While' + simultaneous main action — past continuous for the background.",
+      "fullExplanation": "'While' introduces a longer background action happening at the same time as another past action ('joined', past simple in the main clause). Past continuous ('was marching') captures Gandhi's ongoing march. 'Marched' would make both events sequential. 'Had marched' would place the march entirely before the joining, contradicting the scene where people joined him along the way.",
+      "source": "Adapted, attributed to Mahatma Gandhi",
+      "hint": "march",
+      "flavor": "quotes",
+      "author": "Mahatma Gandhi"
+    },
+    {
+      "stem": "Dr King ___ his famous 'I have a dream' speech on the steps of the Lincoln Memorial on August 28, 1963.",
+      "options": ["delivered", "was delivering", "had delivered"],
+      "answer": "delivered",
+      "explanation": "A specific dated event takes past simple.",
+      "fullExplanation": "The specific date 'August 28, 1963' marks a single completed historical event. Past simple ('delivered') is standard for a completed action with a definite past time. 'Was delivering' would describe an action in progress, not the single speech as a finished event. 'Had delivered' would require a later past reference point to precede.",
+      "source": "Adapted, attributed to Martin Luther King Jr.",
+      "hint": "deliver",
+      "flavor": "quotes",
+      "author": "Martin Luther King Jr."
+    },
+    {
+      "stem": "By the time Mandela walked out of prison in 1990, he ___ twenty-seven years behind bars for his beliefs.",
+      "options": ["had spent", "was spending", "spent"],
+      "answer": "had spent",
+      "explanation": "'By the time X' + accumulated time before X — past perfect.",
+      "fullExplanation": "'By the time Mandela walked out of prison in 1990' fixes a past reference point. Past perfect ('had spent') expresses the completed duration before that point. 'Was spending' suggests an ongoing state at the moment of release without summing the full twenty-seven years. 'Spent' loses the 'already accomplished by this date' sequencing that 'by the time' requires in formal narrative.",
+      "source": "Adapted, attributed to Nelson Mandela",
+      "hint": "spend",
+      "flavor": "quotes",
+      "author": "Nelson Mandela"
+    },
+    {
+      "stem": "When the reporter asked about his success, Edison said that he ___ ten thousand ways that did not work before finding the one that did.",
+      "options": ["had found", "was finding", "found"],
+      "answer": "had found",
+      "explanation": "'Before finding the one that did' sets a later past point — past perfect for earlier completed action.",
+      "fullExplanation": "The clause 'before finding the one that did' fixes a later past reference point within reported speech. Past perfect ('had found') expresses the earlier completed action of finding the ten thousand failed methods. 'Was finding' describes an ongoing process without the 'all ten thousand before success' completion. 'Found' loses the clear 'before the working one' sequencing.",
+      "source": "Adapted, attributed to Thomas Edison",
+      "hint": "find",
+      "flavor": "quotes",
+      "author": "Thomas Edison"
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "id": "err-para",
+  "name": "Parallel-structure errors (redundant word)",
+  "canonicalSubId": "cs-err-para",
+  "canonicalTopicId": "extra-word",
+  "_meta": {
+    "version": "v10.23",
+    "rule": "One extra word breaks a parallel structure. Remove the redundant word to restore the parallel list, correlative pair, or comparative form.",
+    "errorTypes": "gerund list + extra 'to'; double comparative/superlative; correlative redundancy (both/and + 'also', not only/but also + extra 'is'); either/or + stray 'to'; between + 'or' instead of 'and'; neither/nor + extra 'not'",
+    "flavorPlan": "6/6/6/6/6 — personalities×6, history×6, social×6, science×6, quotes×6"
+  },
+  "tasks": [
+    {
+      "stem": "Mozart enjoyed composing, performing, and to conduct his own operas throughout his short life. Find the redundant word: ___",
+      "options": ["to", "composing", "performing"],
+      "answer": "to",
+      "explanation": "'To' breaks the gerund list; the parallel series requires 'composing, performing, and conducting'.",
+      "fullExplanation": "The list begins with two gerunds ('composing, performing'), so the third item must also be a gerund ('conducting'). Inserting 'to' before 'conduct' converts the third item into an infinitive, breaking parallelism. Removing 'to' leaves 'conduct' — still non-gerund — but the single edit that restores the gerund series is striking the redundant 'to'. 'Composing' and 'performing' are the anchor gerunds that define the required form.",
+      "source": "Swan, PEU (4e), §535",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Einstein became more famous than he had ever been more imagined during his lifetime. Find the redundant word: ___",
+      "options": ["more", "famous", "imagined"],
+      "answer": "more",
+      "explanation": "Only one 'more' is needed for the comparative; the second 'more' is redundant.",
+      "fullExplanation": "The comparative is formed by a single 'more' before the adjective: 'more famous than he had ever imagined'. The second 'more' before 'imagined' is a stray duplicate that creates no additional meaning. 'Famous' is the adjective being compared, and 'imagined' is the verb of the subordinate clause — both are needed.",
+      "source": "Murphy, EGU (4e), Unit 105",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Newton was not only a physicist but also was a dedicated alchemist and theologian. Find the redundant word: ___",
+      "options": ["was", "only", "dedicated"],
+      "answer": "was",
+      "explanation": "'Not only X but also Y' requires parallel elements; the second 'was' breaks the noun-phrase parallel.",
+      "fullExplanation": "In the correlative 'not only ... but also ...', both elements must match grammatically. Here the first slot is a noun phrase ('a physicist'), so the second must also be a noun phrase ('a dedicated alchemist and theologian'). The extra auxiliary 'was' between 'also' and 'a dedicated alchemist' creates an unwanted second clause. 'Only' is part of the correlative and 'dedicated' modifies the second noun phrase — both are necessary.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Marie Curie was both a pioneering scientist and also a devoted mother to her two daughters. Find the redundant word: ___",
+      "options": ["also", "both", "devoted"],
+      "answer": "also",
+      "explanation": "'Both X and Y' already expresses addition; 'also' duplicates the meaning and breaks the correlative pair.",
+      "fullExplanation": "The correlative 'both ... and ...' is a fixed pair that already signals that two things apply. Adding 'also' after 'and' doubles the additive meaning and breaks the tight parallel. 'Both' is the opening of the correlative, and 'devoted' modifies 'mother'; neither can be removed without damaging the sentence.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Serena Williams spent the off-season training, recovering, and to mentor younger players on the tour. Find the redundant word: ___",
+      "options": ["to", "training", "younger"],
+      "answer": "to",
+      "explanation": "The gerund list requires 'mentoring'; 'to' breaks the parallel series.",
+      "fullExplanation": "Two gerunds ('training, recovering') set the pattern, so the third list item must also be a gerund ('mentoring'). Inserting 'to' before 'mentor' forces an infinitive that breaks the series. 'Training' anchors the gerund series, and 'younger' modifies 'players' — both are essential.",
+      "source": "Murphy, EGU (4e), Unit 56",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Steve Jobs neither wrote code himself nor did not design the original hardware on his own. Find the redundant word: ___",
+      "options": ["not", "neither", "design"],
+      "answer": "not",
+      "explanation": "'Neither ... nor' is already negative; the extra 'not' creates a double negation that breaks parallel.",
+      "fullExplanation": "'Neither ... nor' is an inherently negative correlative: 'neither wrote ... nor designed ...'. Inserting 'not' after 'did' creates a double negation ('nor did not design'), which logically reverses the intended meaning and breaks the parallel between the two negated verb phrases. 'Neither' opens the correlative and 'design' is the second verb — both are required.",
+      "source": "Swan, PEU (4e), §380",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "During the war, civilians either queued for hours or to travelled long distances for basic food supplies. Find the redundant word: ___",
+      "options": ["to", "either", "basic"],
+      "answer": "to",
+      "explanation": "'Either ... or' pairs matching verbs; 'to' breaks the finite-verb parallel.",
+      "fullExplanation": "The 'either ... or' correlative requires matching grammatical forms. The first alternative uses a finite past verb ('queued'), so the second must also be finite ('travelled'). Inserting 'to' before 'travelled' does not create a grammatical infinitive (infinitives take the bare stem, not the past form), so 'to' is simply a redundant word that breaks the parallel. 'Either' and 'basic' are needed for the correlative and the noun phrase.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "history"
+    },
+    {
+      "stem": "The fall of Rome was one of the most greatest turning points in all of recorded European history. Find the redundant word: ___",
+      "options": ["most", "greatest", "recorded"],
+      "answer": "most",
+      "explanation": "'Greatest' is already the superlative; 'most' duplicates the marking.",
+      "fullExplanation": "Short adjectives form the superlative with '-est' alone ('greatest'), and longer adjectives take 'most + adjective'. Using both 'most' and '-est' together is a double superlative, a classic non-standard form. Remove 'most' to leave 'one of the greatest turning points'. 'Greatest' carries the superlative meaning, and 'recorded' is a necessary modifier of 'history'.",
+      "source": "Murphy, EGU (4e), Unit 107",
+      "flavor": "history"
+    },
+    {
+      "stem": "The French Revolution produced both radical political reforms and also lasting social changes across Europe. Find the redundant word: ___",
+      "options": ["also", "both", "lasting"],
+      "answer": "also",
+      "explanation": "'Both X and Y' already links two items; 'also' is redundant and breaks the tight correlative.",
+      "fullExplanation": "'Both ... and ...' is a fixed correlative that expresses conjoined addition. Inserting 'also' after 'and' duplicates the additive sense and breaks the parallel between 'radical political reforms' and 'lasting social changes'. 'Both' opens the correlative, and 'lasting' is an essential modifier of 'social changes'.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "history"
+    },
+    {
+      "stem": "Napoleon's army marched, camped, and to fought across half of continental Europe in five years. Find the redundant word: ___",
+      "options": ["to", "camped", "continental"],
+      "answer": "to",
+      "explanation": "The past-tense series needs 'fought'; 'to' breaks the finite-verb parallel.",
+      "fullExplanation": "The list uses past-simple verbs ('marched, camped') as its anchor, so the third item must also be past simple ('fought'). Inserting 'to' before 'fought' does not produce a valid infinitive (infinitives use the bare stem, not the past form), so it is simply a redundant word that disrupts the parallel series. 'Camped' is the second verb in the chain, and 'continental' modifies 'Europe' — both remain.",
+      "source": "Murphy, EGU (4e), Unit 56",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Industrial Revolution was not only a technological shift but also was a profound social upheaval. Find the redundant word: ___",
+      "options": ["was", "only", "profound"],
+      "answer": "was",
+      "explanation": "'Not only X but also Y' requires parallel noun phrases; the second 'was' breaks the structure.",
+      "fullExplanation": "With a single main verb 'was', the correlative 'not only ... but also ...' must link two parallel noun phrases: 'a technological shift' and 'a profound social upheaval'. Inserting a second 'was' after 'also' turns the second slot into a full clause and breaks the parallel. 'Only' is part of the correlative, and 'profound' modifies 'upheaval' — both are needed.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Cold War divided the world between the American and or the Soviet spheres of influence for decades. Find the redundant word: ___",
+      "options": ["or", "between", "spheres"],
+      "answer": "or",
+      "explanation": "'Between X and Y' is the fixed structure; 'or' is not used in this pairing.",
+      "fullExplanation": "The preposition 'between' pairs with 'and', not 'or', when introducing two alternatives: 'between the American and the Soviet spheres'. Inserting 'or' between 'and' and 'the Soviet' creates a nonstandard three-way conjunction that breaks the parallel between the two labelled spheres. 'Between' opens the structure, and 'spheres' is the head noun — both remain.",
+      "source": "Swan, PEU (4e), §104",
+      "flavor": "history"
+    },
+    {
+      "stem": "Modern teenagers spend their evenings messaging friends, watching videos, and to playing online games. Find the redundant word: ___",
+      "options": ["to", "messaging", "online"],
+      "answer": "to",
+      "explanation": "The gerund series requires 'playing'; 'to' before a gerund is redundant and breaks parallel.",
+      "fullExplanation": "Two gerunds ('messaging, watching') anchor the list, so the third item must also be a gerund ('playing'). Placing 'to' before 'playing' is not a valid infinitive (infinitives use the bare stem, not the -ing form), so 'to' is simply an extra word that breaks the gerund series. 'Messaging' is the anchor gerund, and 'online' modifies 'games'.",
+      "source": "Murphy, EGU (4e), Unit 56",
+      "flavor": "social"
+    },
+    {
+      "stem": "Office workers are not only underpaid but also are increasingly expected to work long unpaid overtime. Find the redundant word: ___",
+      "options": ["are", "only", "long"],
+      "answer": "are",
+      "explanation": "'Not only X but also Y' needs parallel adjective/participle phrases; the second 'are' breaks the structure.",
+      "fullExplanation": "With a single copula 'are' at the start, the correlative 'not only ... but also ...' must link parallel complements: 'underpaid' (adjective) and 'increasingly expected to work long unpaid overtime' (participial phrase). Inserting a second 'are' after 'also' creates a new clause and destroys the parallel. 'Only' is part of the correlative, and 'long' modifies 'overtime' — both are required.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "social"
+    },
+    {
+      "stem": "Working parents either take their children to day care or to leave them with relatives during office hours. Find the redundant word: ___",
+      "options": ["to", "either", "office"],
+      "answer": "to",
+      "explanation": "'Either ... or' pairs matching verb phrases; the extra 'to' breaks the parallel.",
+      "fullExplanation": "'Either ... or ...' requires the two alternatives to share grammatical form. The first option is a present-simple verb phrase ('take their children to day care'), so the second must be parallel ('leave them with relatives'). Inserting 'to' before 'leave' forces an infinitive that breaks the finite-verb parallel. 'Either' opens the correlative, and 'office' modifies 'hours'.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "social"
+    },
+    {
+      "stem": "University students today face both crushing tuition costs and also uncertain job prospects after graduation. Find the redundant word: ___",
+      "options": ["also", "both", "uncertain"],
+      "answer": "also",
+      "explanation": "'Both X and Y' already expresses addition; 'also' is redundant.",
+      "fullExplanation": "The correlative 'both ... and ...' is a fixed pair that signals two applicable items. Inserting 'also' after 'and' duplicates the additive meaning and disrupts the parallel between 'crushing tuition costs' and 'uncertain job prospects'. 'Both' is the opening of the correlative, and 'uncertain' is a necessary modifier.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "social"
+    },
+    {
+      "stem": "Daily commuters complain that traffic has become much more worse since the new office towers opened downtown. Find the redundant word: ___",
+      "options": ["more", "worse", "office"],
+      "answer": "more",
+      "explanation": "'Worse' is already a comparative; 'more' duplicates the comparative marking.",
+      "fullExplanation": "'Worse' is the irregular comparative form of 'bad'. English marks the comparative once: either with 'more + adjective' (for long adjectives) or with '-er' or an irregular form ('worse'). Combining 'more' with 'worse' is a classic double comparative. Remove 'more' to leave 'much worse'. 'Worse' carries the comparative meaning, and 'office' is a necessary modifier.",
+      "source": "Murphy, EGU (4e), Unit 105",
+      "flavor": "social"
+    },
+    {
+      "stem": "Climate activists are neither trusted by governments nor are not supported by major industrial lobbies. Find the redundant word: ___",
+      "options": ["not", "neither", "supported"],
+      "answer": "not",
+      "explanation": "'Neither ... nor' is already negative; the extra 'not' creates a double negation.",
+      "fullExplanation": "'Neither ... nor' is inherently negative: 'neither trusted ... nor supported ...'. Inserting 'not' after 'are' in the second half creates a double negation ('nor are not supported'), which logically reverses the intended meaning and breaks the parallel between the two negated passive verb phrases. 'Neither' opens the correlative, and 'supported' is the second passive participle.",
+      "source": "Swan, PEU (4e), §380",
+      "flavor": "social"
+    },
+    {
+      "stem": "Tropical plants thrive by absorbing sunlight, storing water, and to releasing oxygen through their leaves. Find the redundant word: ___",
+      "options": ["to", "absorbing", "through"],
+      "answer": "to",
+      "explanation": "The gerund series requires 'releasing'; 'to' before a gerund is redundant.",
+      "fullExplanation": "Two gerunds ('absorbing, storing') set the pattern after the preposition 'by', which always takes gerunds. The third item must therefore also be a gerund ('releasing'). Placing 'to' before 'releasing' is not a valid infinitive (infinitives use the bare stem), so 'to' is an extra word that breaks the gerund series. 'Absorbing' anchors the series, and 'through' is a necessary preposition.",
+      "source": "Murphy, EGU (4e), Unit 56",
+      "flavor": "science"
+    },
+    {
+      "stem": "Chemical reactions are not only affected by temperature but also are influenced by pressure and catalyst choice. Find the redundant word: ___",
+      "options": ["are", "only", "catalyst"],
+      "answer": "are",
+      "explanation": "'Not only X but also Y' requires parallel passive phrases; the second 'are' breaks the parallel.",
+      "fullExplanation": "With a single copula 'are' at the start, the correlative 'not only ... but also ...' must connect parallel past-participle phrases: 'affected by temperature' and 'influenced by pressure and catalyst choice'. Inserting a second 'are' after 'also' forces a new finite clause and breaks the passive parallel. 'Only' is part of the correlative, and 'catalyst' is the head noun — both remain.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "science"
+    },
+    {
+      "stem": "Neutron stars are far more denser than ordinary matter, with a teaspoon weighing billions of tonnes. Find the redundant word: ___",
+      "options": ["more", "denser", "ordinary"],
+      "answer": "more",
+      "explanation": "'Denser' is already comparative; 'more' duplicates the marking.",
+      "fullExplanation": "'Denser' is the -er comparative of 'dense'. English marks the comparative once, so 'more denser' is a double comparative. Remove 'more' to leave 'far denser than ordinary matter'. 'Denser' carries the comparative meaning, and 'ordinary' is a necessary modifier.",
+      "source": "Murphy, EGU (4e), Unit 105",
+      "flavor": "science"
+    },
+    {
+      "stem": "The mitochondrion is both an energy producer and also a regulator of cellular metabolism in eukaryotic cells. Find the redundant word: ___",
+      "options": ["also", "both", "cellular"],
+      "answer": "also",
+      "explanation": "'Both X and Y' already expresses addition; 'also' is redundant.",
+      "fullExplanation": "The correlative 'both ... and ...' is a fixed pair that conjoins two items. Inserting 'also' after 'and' duplicates the additive meaning and breaks the parallel between 'an energy producer' and 'a regulator of cellular metabolism'. 'Both' opens the correlative, and 'cellular' is a necessary modifier of 'metabolism'.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "Light either behaves like a wave or to acts like a particle depending on the experimental setup. Find the redundant word: ___",
+      "options": ["to", "either", "experimental"],
+      "answer": "to",
+      "explanation": "'Either ... or' pairs finite verbs; 'to' breaks the parallel.",
+      "fullExplanation": "The 'either ... or' correlative requires matching verb forms. The first alternative is a present-simple verb ('behaves'), so the second must be parallel ('acts'). Inserting 'to' before 'acts' forces an infinitive that breaks the finite-verb parallel. 'Either' opens the correlative, and 'experimental' modifies 'setup' — both are needed.",
+      "source": "Swan, PEU (4e), §153",
+      "flavor": "science"
+    },
+    {
+      "stem": "Ecologists study the delicate balance between predator populations and or prey populations in every ecosystem. Find the redundant word: ___",
+      "options": ["or", "between", "prey"],
+      "answer": "or",
+      "explanation": "'Between X and Y' is the fixed pairing; 'or' is not used in this structure.",
+      "fullExplanation": "The preposition 'between' pairs with 'and', not 'or', when introducing two balanced items: 'between predator populations and prey populations'. Inserting 'or' after 'and' creates a nonstandard three-way conjunction and breaks the clean parallel between the two population types. 'Between' opens the pairing, and 'prey' is part of the second head noun.",
+      "source": "Swan, PEU (4e), §104",
+      "flavor": "science"
+    },
+    {
+      "stem": "Life is about creating yourself, expressing yourself, and to discovering who you really are. Find the redundant word: ___",
+      "options": ["to", "creating", "really"],
+      "answer": "to",
+      "explanation": "The gerund series requires 'discovering'; 'to' breaks the parallel.",
+      "fullExplanation": "Two gerunds ('creating, expressing') set the pattern after 'about', which takes gerunds. The third item must also be a gerund ('discovering'). Placing 'to' before 'discovering' is not a valid infinitive (infinitives use the bare stem), so 'to' is an extra word that disrupts the series. 'Creating' anchors the gerund list, and 'really' is a necessary adverb.",
+      "source": "Adapted, attributed to George Bernard Shaw",
+      "flavor": "quotes",
+      "author": "George Bernard Shaw"
+    },
+    {
+      "stem": "Success is not only measured by victory but also is defined by how you recover from defeat. Find the redundant word: ___",
+      "options": ["is", "only", "defeat"],
+      "answer": "is",
+      "explanation": "'Not only X but also Y' requires parallel passive phrases; the second 'is' breaks the parallel.",
+      "fullExplanation": "With a single copula 'is', the correlative 'not only ... but also ...' must link parallel past-participle phrases: 'measured by victory' and 'defined by how you recover from defeat'. Inserting a second 'is' after 'also' forces a new clause and breaks the passive parallel. 'Only' is part of the correlative, and 'defeat' is a necessary noun.",
+      "source": "Adapted, attributed to Winston Churchill",
+      "flavor": "quotes",
+      "author": "Winston Churchill"
+    },
+    {
+      "stem": "Staying foolish is much more harder than people assume — most adults crave comfort and predictability. Find the redundant word: ___",
+      "options": ["more", "harder", "predictability"],
+      "answer": "more",
+      "explanation": "'Harder' is already comparative; 'more' duplicates the marking.",
+      "fullExplanation": "'Harder' is the -er comparative of 'hard'. English marks the comparative once, so 'more harder' is a double comparative. Remove 'more' to leave 'much harder than people assume'. 'Harder' carries the comparative meaning, and 'predictability' is the final noun — both are needed.",
+      "source": "Adapted, attributed to Steve Jobs",
+      "flavor": "quotes",
+      "author": "Steve Jobs"
+    },
+    {
+      "stem": "A wise person either learns from every mistake or to accepts the same failure a second time. Find the redundant word: ___",
+      "options": ["to", "either", "mistake"],
+      "answer": "to",
+      "explanation": "'Either ... or' pairs matching finite verbs; 'to' breaks the parallel.",
+      "fullExplanation": "The 'either ... or' correlative requires matching verb forms. The first alternative uses a present-simple verb ('learns'), so the second must be parallel ('accepts'). Inserting 'to' before 'accepts' forces an infinitive that breaks the finite-verb parallel. 'Either' opens the correlative, and 'mistake' is a needed noun.",
+      "source": "Adapted, attributed to Confucius",
+      "flavor": "quotes",
+      "author": "Confucius"
+    },
+    {
+      "stem": "Simplicity is both the soul of efficiency and also the mark of a well-ordered mind. Find the redundant word: ___",
+      "options": ["also", "both", "mark"],
+      "answer": "also",
+      "explanation": "'Both X and Y' already expresses addition; 'also' is redundant.",
+      "fullExplanation": "The correlative 'both ... and ...' is a fixed pair that conjoins two items. Inserting 'also' after 'and' duplicates the additive meaning and breaks the parallel between 'the soul of efficiency' and 'the mark of a well-ordered mind'. 'Both' opens the correlative, and 'mark' is the head of the second noun phrase.",
+      "source": "Adapted, attributed to Henry David Thoreau",
+      "flavor": "quotes",
+      "author": "Henry David Thoreau"
+    },
+    {
+      "stem": "Real freedom lies between doing what you must and or doing what you love for the rest of your life. Find the redundant word: ___",
+      "options": ["or", "between", "rest"],
+      "answer": "or",
+      "explanation": "'Between X and Y' is the fixed structure; 'or' is not used here.",
+      "fullExplanation": "The preposition 'between' pairs with 'and', not 'or', when introducing two parallel alternatives: 'between doing what you must and doing what you love'. Inserting 'or' after 'and' creates a nonstandard three-way conjunction that breaks the clean parallel between the two gerund phrases. 'Between' opens the structure, and 'rest' is part of the final noun phrase.",
+      "source": "Adapted, attributed to Nelson Mandela",
+      "flavor": "quotes",
+      "author": "Nelson Mandela"
+    }
+  ]
+}

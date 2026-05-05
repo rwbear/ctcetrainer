@@ -1,0 +1,290 @@
+{
+  "id": "w2s-abstract",
+  "name": "Abstract nouns with concrete or technical senses",
+  "canonicalSubId": "cs-w2s-abstract",
+  "canonicalTopicId": "word-two-sentences",
+  "_meta": {
+    "version": "v10.23",
+    "rule": "One abstract/polysemous noun fills both blanks: a figurative or institutional sense in one sentence, a concrete or technical sense in the other.",
+    "wordDistribution": "3× run, 3× drive, 3× taste, 3× point, 3× move, 3× charge, 3× line, 3× sense, 3× ground, 3× ring",
+    "flavorPlan": "6/6/6/6/6 — personalities×6, history×6, social×6, science×6, quotes×6"
+  },
+  "tasks": [
+    {
+      "stem": "1) When Usain Bolt crossed the finish tape, it was the fastest ___ of his entire career, breaking every expectation.\n2) The actress described her three consecutive Oscar nominations as an extraordinary ___ of good fortune.",
+      "options": ["run", "charge", "line"],
+      "answer": "run",
+      "explanation": "'Run' is a sprint performance and an unbroken sequence of success or luck.",
+      "fullExplanation": "Sentence 1 uses 'run' as a single race performance ('the fastest run'). Sentence 2 uses 'run' as an unbroken sequence ('a run of good fortune'). 'Charge' fits neither slot: a sprint is not a 'charge' in athletics, and 'charge of good fortune' is not an idiom. 'Line' fits neither: 'a line of good fortune' is unusual and 'fastest line' is not an athletics term.",
+      "source": "Longman",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) The young scientist's ___ to succeed was stronger than any obstacle her colleagues could place in her path.\n2) The new house had a long gravel ___ that curved gently from the iron gate to the front door.",
+      "options": ["drive", "push", "charge"],
+      "answer": "drive",
+      "explanation": "'Drive' is personal ambition or determination and a private road leading to a house.",
+      "fullExplanation": "Sentence 1 uses 'drive' as personal ambition or determination. Sentence 2 uses 'drive' as the private road leading to a house's front door ('driveway' or simply 'drive'). 'Push' can mean a strong effort in S1 but 'a long gravel push' is not an English term for a road. 'Charge' fits neither slot in these senses.",
+      "source": "Oxford",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) After her first brief ___ of an international audience's applause, the young actress refused all minor roles.\n2) Coco Chanel was known for her impeccable ___ in combining fabric, colour, and proportion above all else.",
+      "options": ["taste", "sense", "move"],
+      "answer": "taste",
+      "explanation": "'Taste' is a first brief experience and the aesthetic faculty of discernment.",
+      "fullExplanation": "Sentence 1 uses 'taste' as a brief first experience ('a taste of applause'). Sentence 2 uses 'taste' as the aesthetic faculty ('taste in fabric and colour'). 'Sense' could describe aesthetic judgment in S2 ('good sense') but 'first brief sense of applause' is not idiomatic — 'first taste' is the fixed expression. 'Move' fits neither slot.",
+      "source": "Swan, PEU (4e), §148",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) After years of study, Einstein finally saw the ___ of learning mathematics through intuition rather than formula.\n2) The seamstress pricked her finger on the sharp ___ of the needle as she rushed to finish the last hem.",
+      "options": ["point", "aim", "tip"],
+      "answer": "point",
+      "explanation": "'Point' is the purpose or value of something and the sharp tip of a needle.",
+      "fullExplanation": "Sentence 1 uses 'point' as purpose or value ('saw the point of learning'). Sentence 2 uses 'point' as the sharp tip of a needle ('the point of the needle'). 'Aim' means purpose in S1 but the sharp 'aim' of a needle is not standard. 'Tip' is used for the end of a needle in S2 but 'saw the tip of learning' is not an idiomatic expression of understanding.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) Sherlock Holmes described the criminal's decision to leave the country as a clever ___ that had almost worked.\n2) After studying the board for ten minutes, Fischer made one decisive ___ that completely shocked his opponent.",
+      "options": ["move", "drive", "charge"],
+      "answer": "move",
+      "explanation": "'Move' is a strategic action in a situation and a piece move in a board game.",
+      "fullExplanation": "Sentence 1 uses 'move' as a strategic action ('a clever move'). Sentence 2 uses 'move' as a chess piece move ('one decisive move'). 'Drive' can suggest a campaign but 'clever drive to leave the country' is not natural, and 'decisive drive' in chess is non-standard. 'Charge' fits neither sense here.",
+      "source": "Longman",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) The comedian faced a formal ___ of plagiarism when three of his older routines were traced to prior material.\n2) The young boxer entered the ring with such ___ and aggression that his opponent backed off from the first bell.",
+      "options": ["charge", "claim", "rush"],
+      "answer": "charge",
+      "explanation": "'Charge' is a formal legal accusation and the energetic rush of an aggressive fighter.",
+      "fullExplanation": "Sentence 1 uses 'charge' as a formal legal accusation ('charge of plagiarism'). Sentence 2 uses 'charge' as an energetic, attacking rush ('with such charge and aggression'). 'Claim' fits S1 (a claim of plagiarism) but 'entered with such claim and aggression' is not natural. 'Rush' fits S2 loosely but 'a formal rush of plagiarism' is not a legal term.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "1) The Roman army's long ___ of unbroken victories in Gaul ended abruptly at the battle of Teutoburg Forest.\n2) After the defeat, hundreds of soldiers made a desperate ___ for the nearest forest to escape the pursuing tribes.",
+      "options": ["run", "line", "move"],
+      "answer": "run",
+      "explanation": "'Run' is an unbroken sequence of victories and a fast dash to reach safety.",
+      "fullExplanation": "Sentence 1 uses 'run' as an unbroken sequence ('a run of victories'). Sentence 2 uses 'run' as a fast dash for safety ('made a desperate run for the forest'). 'Line' of victories could mean a succession but 'made a desperate line for the forest' is not natural English. 'Move' could describe S2 ('made a move') but 'a long move of victories' is not an idiom.",
+      "source": "Longman",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) Napoleon's disastrous ___ into Russia in the winter of 1812 destroyed the core of his Grande Armée.\n2) After the peace treaty was signed, the victorious army marched up the long ceremonial ___ to the palace.",
+      "options": ["drive", "march", "charge"],
+      "answer": "drive",
+      "explanation": "'Drive' is a large-scale military campaign or push and a formal road leading to a building.",
+      "fullExplanation": "Sentence 1 uses 'drive' as a large-scale military campaign or advance ('drive into Russia'). Sentence 2 uses 'drive' as the formal road leading to a building ('ceremonial drive to the palace'). 'March into Russia' is equally natural for S1, but 'the long ceremonial march to the palace' would mean the procession itself, not a fixed road. 'Charge' is a short rush, not a months-long campaign.",
+      "source": "Oxford",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) The Tudor king traced his royal ___ directly back to the Norman conquerors who crossed the Channel in 1066.\n2) When the enemy cavalry broke through, the entire ___ of foot soldiers collapsed within minutes.",
+      "options": ["line", "run", "link"],
+      "answer": "line",
+      "explanation": "'Line' is a line of descent or lineage and a battle formation of soldiers.",
+      "fullExplanation": "Sentence 1 uses 'line' as a line of descent or ancestry ('royal line'). Sentence 2 uses 'line' as a military formation ('line of foot soldiers'). 'Run' of descent and 'run of foot soldiers' are both non-standard. 'Link' means a connection in a chain but 'his royal link back to the Normans' is awkward and 'the entire link of soldiers' is not a military formation term.",
+      "source": "Oxford",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) By the mid-19th century, the colonists had developed a deep ___ of shared national identity across the continent.\n2) In the original Latin ___, the word 'virtue' referred not to moral goodness but to manly courage and force.",
+      "options": ["sense", "feeling", "meaning"],
+      "answer": "sense",
+      "explanation": "'Sense' is a general feeling or shared impression and the specific meaning of a word.",
+      "fullExplanation": "Sentence 1 uses 'sense' as a general feeling or shared impression ('a sense of identity'). Sentence 2 uses 'sense' as the specific meaning or interpretation of a word ('in the original Latin sense'). 'Feeling of national identity' is natural for S1 but 'in the original Latin feeling' is not idiomatic. 'Meaning of national identity' is unusual, and 'the original Latin meaning' is correct but the fixed phrase that contrasts technical and everyday usage is 'in the ___ of', not 'meaning of'.",
+      "source": "Academic Word List",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) Historians have found little common ___ for agreement between the two main rival accounts of the battle's outcome.\n2) The army dug its forward trenches into hard, rocky ___ that broke three spades before the work was finished.",
+      "options": ["ground", "basis", "sense"],
+      "answer": "ground",
+      "explanation": "'Ground' is a basis or reason for something and the physical earth or terrain.",
+      "fullExplanation": "Sentence 1 uses 'ground' as a basis or justification ('common ground for agreement'). Sentence 2 uses 'ground' as the physical earth or terrain ('rocky ground'). 'Basis for agreement' is equally natural for S1 but 'hard, rocky basis' is not a natural description of terrain. 'Sense for agreement' is not standard, and 'rocky sense' is meaningless.",
+      "source": "Academic Word List",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) By the 1930s, Churchill had built a powerful ___ of supporters inside the Cabinet who would back him in a crisis.\n2) The medieval builders constructed a wide defensive ___ of stone walls that enclosed the entire city on all sides.",
+      "options": ["ring", "circle", "chain"],
+      "answer": "ring",
+      "explanation": "'Ring' is a tight organised network of allies and a circular structure enclosing something.",
+      "fullExplanation": "Sentence 1 uses 'ring' as a tight organised network ('ring of supporters', parallel to 'spy ring'). Sentence 2 uses 'ring' as a circular enclosure ('ring of stone walls'). 'Circle of supporters' is natural but 'a circular chain of stone walls' and 'a defensive circle of walls' are less standard. 'Chain of supporters' is natural but 'defensive chain of walls' does not convey the circular enclosure that 'ring' does.",
+      "source": "Oxford",
+      "flavor": "history"
+    },
+    {
+      "stem": "1) The chef offered each judge a small ___ of the sauce before adding the final seasoning to the main dish.\n2) The shop was decorated entirely in chrome and glass, which was clearly not to everyone's ___ in the neighbourhood.",
+      "options": ["taste", "sample", "sense"],
+      "answer": "taste",
+      "explanation": "'Taste' is a small portion of food and the personal sense of aesthetic preference.",
+      "fullExplanation": "Sentence 1 uses 'taste' as a small portion of food given to a judge. Sentence 2 uses 'taste' as personal aesthetic preference ('not to everyone's taste'). 'Sample' fits S1 ('a small sample of sauce') but 'not to everyone's sample' is not an idiom for aesthetic preference. 'Sense' of the sauce is not natural, and 'not to everyone's sense' is non-standard.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) The instructor showed the class a classic opening ___ in chess that had been in use since the 19th century.\n2) Bringing a small gift to the first meeting was an inspired ___ that the client immediately appreciated.",
+      "options": ["move", "play", "step"],
+      "answer": "move",
+      "explanation": "'Move' is a chess piece move and a strategic social action.",
+      "fullExplanation": "Sentence 1 uses 'move' as a chess piece move ('opening move in chess'). Sentence 2 uses 'move' as a smart strategic action ('an inspired move'). 'Play' could describe S2 ('an inspired play') but 'opening play in chess' is not standard — chess uses 'move'. 'Step' is not standard chess terminology, and 'inspired step' is less idiomatic than 'inspired move'.",
+      "source": "Longman",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) The landlord had added a mystery ___ to the bill that the tenant could not find on any previous receipt.\n2) After reviewing the CCTV footage, the police brought a ___ of vandalism against the three teenagers.",
+      "options": ["charge", "fee", "line"],
+      "answer": "charge",
+      "explanation": "'Charge' is a cost or billing item and a formal legal accusation.",
+      "fullExplanation": "Sentence 1 uses 'charge' as a billing cost ('mystery charge on the bill'). Sentence 2 uses 'charge' as a formal legal accusation ('charge of vandalism'). 'Fee' fits S1 ('mystery fee on the bill') but 'a fee of vandalism' is not a legal term. 'Line' fits neither slot in these senses.",
+      "source": "Swan, PEU (4e), §148",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) She dropped her old teacher a short ___ to thank him for the reference he had written three years earlier.\n2) They waited in a long ___ outside the cinema for over forty minutes before they could buy any tickets.",
+      "options": ["line", "note", "run"],
+      "answer": "line",
+      "explanation": "'Line' is a brief informal letter or message and a queue of people waiting.",
+      "fullExplanation": "Sentence 1 uses 'line' as a brief informal written message ('drop someone a line'). Sentence 2 uses 'line' as a queue of people ('a long line'). 'Note' fits S1 ('dropped a short note') but 'waited in a long note' is not natural. 'Run' fits neither slot here.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) It makes no ___ at all to keep paying for a gym membership if you visit only twice a year.\n2) The word 'awful' was once used in the positive ___ of 'worthy of awe', long before its modern negative meaning.",
+      "options": ["sense", "point", "reason"],
+      "answer": "sense",
+      "explanation": "'Sense' is practical logic or rationality and the specific meaning of a word.",
+      "fullExplanation": "Sentence 1 uses 'sense' in the expression 'makes no sense' (practical logic). Sentence 2 uses 'sense' as the specific meaning of a word ('in the positive sense of'). 'Point' could replace 'sense' in S1 ('makes no point' is marginal but 'there's no point' is standard) however 'in the positive point of awful' is non-standard. 'Reason' fits S1 loosely but 'in the positive reason of a word' is not standard.",
+      "source": "Oxford",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) She argued on solid logical ___ that the new parking regulation would be impossible to enforce fairly.\n2) The expedition team tested the frozen ___ carefully with poles before setting up their first camp on the glacier.",
+      "options": ["ground", "basis", "terrain"],
+      "answer": "ground",
+      "explanation": "'Ground' is a basis or logical foundation and physical earth or land surface.",
+      "fullExplanation": "Sentence 1 uses 'ground' as a logical foundation or justification ('argued on solid ground'). Sentence 2 uses 'ground' as the physical earth or frozen terrain. 'Basis' fits S1 ('solid logical basis') but 'tested the frozen basis' is not natural for physical terrain. 'Terrain' fits S2 ('frozen terrain') but 'argued on solid logical terrain' is a metaphor, whereas 'argued on solid ground' is the fixed idiom.",
+      "source": "Academic Word List",
+      "flavor": "social"
+    },
+    {
+      "stem": "1) In bioinformatics, each ___ of the sequence-alignment algorithm took approximately three hours to complete.\n2) The athlete added a steep hill to her regular morning ___ to build more resistance into her training schedule.",
+      "options": ["run", "cycle", "pass"],
+      "answer": "run",
+      "explanation": "'Run' is one execution of a computational algorithm and a training run on foot.",
+      "fullExplanation": "Sentence 1 uses 'run' as one execution of a computer algorithm ('a run of the algorithm'). Sentence 2 uses 'run' as a training run on foot. 'Cycle' fits S1 (an algorithm cycle) but suggests the athlete is cycling, not running, in S2. 'Pass' fits S1 loosely ('a pass of the algorithm') but 'morning pass' for a training run is not standard.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Water reaches its boiling ___ at exactly 100 degrees Celsius at standard atmospheric pressure.\n2) Each ___ on the scatter graph represents the result from a single experimental trial in the study.",
+      "options": ["point", "stage", "value"],
+      "answer": "point",
+      "explanation": "'Point' is a specific critical temperature threshold and a plotted position on a graph.",
+      "fullExplanation": "Sentence 1 uses 'point' as the temperature threshold ('boiling point'). Sentence 2 uses 'point' as a plotted position on a graph. 'Stage' — 'boiling stage' is not the standard scientific term ('boiling point' is fixed). 'Value' could describe a data point in S2 ('each value on the graph') but 'boiling value' is not a scientific term.",
+      "source": "Murphy, EGU (4e), Unit 80",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) The nurse drew a strict ___ between the sterile and non-sterile zones before beginning the surgical procedure.\n2) The calibration ___ on the graph passed precisely through the origin and all three reference points.",
+      "options": ["line", "boundary", "limit"],
+      "answer": "line",
+      "explanation": "'Line' is a boundary division and a plotted straight line on a calibration graph.",
+      "fullExplanation": "Sentence 1 uses 'line' as a dividing mark between zones ('draw a line between zones'). Sentence 2 uses 'line' as the plotted straight line on a graph ('calibration line'). 'Boundary' fits S1 ('draw a strict boundary') but 'calibration boundary' is not a standard graph term. 'Limit' fits S1 loosely but 'calibration limit' is not the standard term for a plotted straight line.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) In the strict technical ___, the word 'energy' in physics has a precise meaning very different from everyday usage.\n2) The experiment was designed to test whether bees possess a magnetic ___ that helps them navigate over long distances.",
+      "options": ["sense", "meaning", "faculty"],
+      "answer": "sense",
+      "explanation": "'Sense' is the specific technical meaning of a word and a biological perceptual faculty.",
+      "fullExplanation": "Sentence 1 uses 'sense' as the specific technical meaning of a word ('in the strict technical sense'). Sentence 2 uses 'sense' as a biological perceptual ability ('magnetic sense'). 'Meaning' fits S1 ('in the strict technical meaning') but 'magnetic meaning' is not used for a biological sensory ability. 'Faculty' fits S2 ('magnetic faculty') but 'in the strict technical faculty' is not the standard English phrase for the meaning of a term.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) The remote island was chosen as a ___ for a series of nuclear tests that were conducted throughout the 1950s.\n2) With this research, the team was breaking entirely new ___ in the scientific study of antibiotic resistance.",
+      "options": ["ground", "site", "base"],
+      "answer": "ground",
+      "explanation": "'Ground' is a testing ground (location for experiments) and the figurative terrain of a new field.",
+      "fullExplanation": "Sentence 1 uses 'ground' as a testing or proving ground ('testing ground for nuclear tests'). Sentence 2 uses 'ground' in the fixed idiom 'breaking new ground' — doing something genuinely new. 'Site' fits S1 ('testing site') but 'breaking entirely new site' is not an English idiom. 'Base' fits S1 ('testing base') but 'breaking entirely new base' is also non-idiomatic.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Chemists draw benzene as a hexagonal ___ of six carbon atoms in which all the bond lengths are equal.\n2) Researchers confirmed that Saturn's outermost ___ is composed mainly of water ice and extends for thousands of kilometres.",
+      "options": ["ring", "chain", "band"],
+      "answer": "ring",
+      "explanation": "'Ring' is a cyclic molecular structure in chemistry and a band of material encircling a planet.",
+      "fullExplanation": "Sentence 1 uses 'ring' as the cyclic molecular structure of benzene ('benzene ring' — a standard chemistry term). Sentence 2 uses 'ring' as the circular material encircling a planet ('Saturn's outermost ring'). 'Chain' is a standard chemistry term for linear carbon structures but benzene is cyclic, not a chain. 'Band' is used for Saturn's atmospheric bands and for spectral bands but 'benzene band' is not the standard structural term.",
+      "source": "Academic Word List",
+      "flavor": "science"
+    },
+    {
+      "stem": "1) Einstein wrote that imagination and sheer intellectual ___ matter far more than accumulated knowledge in research.\n2) He would end each long working day with a quiet ___ through the leafy streets of Princeton before supper.",
+      "options": ["drive", "push", "force"],
+      "answer": "drive",
+      "explanation": "'Drive' is intellectual ambition or motivation and a journey taken in a vehicle.",
+      "fullExplanation": "Sentence 1 uses 'drive' as intellectual ambition or motivation ('intellectual drive'). Sentence 2 uses 'drive' as a journey taken in a vehicle ('a quiet drive through the streets'). 'Push' could mean effort in S1 but 'a quiet push through the streets' suggests walking or physical effort, not a vehicle journey. 'Force' fits S1 ('intellectual force') but 'a quiet force through the streets' is not natural.",
+      "source": "Adapted, attributed to Albert Einstein",
+      "author": "Albert Einstein",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Oscar Wilde wrote that a man with no knowledge of fine ___ is a man with no knowledge of himself.\n2) The sommelier offered each guest a small ___ of the vintage reserve before taking the final dinner orders.",
+      "options": ["taste", "sense", "feeling"],
+      "answer": "taste",
+      "explanation": "'Taste' is the faculty of aesthetic discernment and a small sample of food or drink.",
+      "fullExplanation": "Sentence 1 uses 'taste' as the faculty of aesthetic discernment ('fine taste'). Sentence 2 uses 'taste' as a small sample of food or drink ('a small taste of the reserve'). 'Sense' fits S1 ('knowledge of fine sense' is possible) but 'a small sense of the vintage reserve' is not how a sommelier describes a sip. 'Feeling' fits neither slot naturally in either the aesthetic or the sommelier sense.",
+      "source": "Adapted, attributed to Oscar Wilde",
+      "author": "Oscar Wilde",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Kasparov once wrote that every grandmaster must evaluate ten possible ___ before committing to one on the board.\n2) The diplomat made her opening ___ by proposing a two-week ceasefire at the very start of the first session.",
+      "options": ["move", "play", "step"],
+      "answer": "move",
+      "explanation": "'Move' is a chess piece move and a strategic diplomatic action.",
+      "fullExplanation": "Sentence 1 uses 'move' as a chess piece move ('ten possible moves' — the standard term in chess). Sentence 2 uses 'move' as a strategic diplomatic action ('opening move'). 'Play' is used in sports strategy but 'possible play' in chess is non-standard. 'Step' is not a chess term, and 'opening step' in diplomacy is less idiomatic than 'opening move'.",
+      "source": "Adapted, attributed to Garry Kasparov",
+      "author": "Garry Kasparov",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Aristotle wrote that the true ___ of education is not to fill a vessel with facts but to light a fire in the mind.\n2) The student pressed the sharp ___ of her pencil into the paper so hard that it went straight through.",
+      "options": ["point", "aim", "purpose"],
+      "answer": "point",
+      "explanation": "'Point' is the purpose or meaningful value of something and the sharp tip of a pencil.",
+      "fullExplanation": "Sentence 1 uses 'point' as the purpose or essential meaning of something ('the point of education'). Sentence 2 uses 'point' as the sharp tip of a pencil ('the point of the pencil'). 'Aim' fits S1 ('the aim of education') but 'the sharp aim of her pencil' is not a natural way to describe the pointed tip. 'Purpose' fits S1 but 'the sharp purpose of a pencil' is also non-standard.",
+      "source": "Adapted, attributed to Aristotle",
+      "author": "Aristotle",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) Churchill wrote that the greatest ___ a democracy faces is the moment when its citizens stop asking why.\n2) The cavalry swept down the hill in a thunderous ___ that scattered the enemy infantry within minutes.",
+      "options": ["charge", "threat", "challenge"],
+      "answer": "charge",
+      "explanation": "'Charge' is the gravest responsibility a society carries and a cavalry attack.",
+      "fullExplanation": "Sentence 1 uses 'charge' as the gravest responsibility or duty placed upon something ('the greatest charge a democracy faces'). Sentence 2 uses 'charge' as a cavalry attack ('thunderous charge'). 'Threat' fits S1 ('greatest threat a democracy faces') but 'thunderous threat that scattered infantry' is not natural — a threat does not physically scatter soldiers. 'Challenge' fits S1 but 'thunderous challenge of the cavalry' is not the technical military term.",
+      "source": "Adapted, attributed to Winston Churchill",
+      "author": "Winston Churchill",
+      "flavor": "quotes"
+    },
+    {
+      "stem": "1) The writer argued that every memorable sentence must carry a clear ___ of authenticity to distinguish it from hollow words.\n2) The referee signalled the end of the bout, and the boxer raised his fist as he left the empty ___.",
+      "options": ["ring", "note", "air"],
+      "answer": "ring",
+      "explanation": "'Ring' is the resonant quality of something that sounds authentic and the raised platform of a boxing arena.",
+      "fullExplanation": "Sentence 1 uses 'ring' as the resonant, authentic quality of a phrase ('a ring of authenticity'). Sentence 2 uses 'ring' as the raised platform where boxers fight ('boxing ring'). 'Note' fits S1 ('a clear note of authenticity') but 'left the empty note' makes no sense for a boxing arena. 'Air' fits S1 ('an air of authenticity') but 'left the empty air' is not the name for a boxing arena.",
+      "source": "Adapted, attributed to Virginia Woolf",
+      "author": "Virginia Woolf",
+      "flavor": "quotes"
+    }
+  ]
+}

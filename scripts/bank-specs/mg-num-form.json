@@ -1,0 +1,320 @@
+{
+  "id": "mg-num-form",
+  "name": "Quantifier form — much/many, less/fewer, amount/number, little/few",
+  "canonicalSubId": "cs-num-form",
+  "canonicalTopicId": "quantifiers",
+  "_meta": {
+    "version": "v10.23",
+    "rule": "One blank tests count vs. uncount distinction in quantifier choice. The head noun must clearly be either countable plural or uncountable so that only one quantifier form is correct.",
+    "pairsTested": "much/many (8), less/fewer (8), amount/number (7), little/few (7)",
+    "flavorPlan": "6/6/6/6/6 — personalities×6, history×6, social×6, science×6, quotes×6"
+  },
+  "tasks": [
+    {
+      "stem": "Mozart wrote a remarkable ___ of operas before his death at the age of thirty-five.",
+      "options": ["number", "amount", "deal"],
+      "answer": "number",
+      "explanation": "'Operas' is a countable plural, so 'a number of' is correct.",
+      "fullExplanation": "'A number of' takes a countable plural noun ('operas'). 'An amount of' takes an uncountable noun ('an amount of money'), so 'amount of operas' is wrong. 'A deal of' is non-standard with a countable plural — the fixed phrase is 'a great deal of' with an uncountable noun. Only 'number' fits the countable head 'operas'.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "operas",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Einstein had very ___ time for small talk and preferred long silences while he thought through problems.",
+      "options": ["little", "few", "small"],
+      "answer": "little",
+      "explanation": "'Time' is uncountable here, so 'little' is the correct quantifier.",
+      "fullExplanation": "'Time' in this sense is an uncountable noun, so it takes 'little' (uncountable) rather than 'few' (countable plural). 'Few time' is a category error. 'Small time' is grammatical only as a fixed adjective meaning 'minor' ('a small-time crook'), not as a quantity expression. 'Little' is the correct quantifier for an uncountable noun.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "time",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Federer played in ___ Grand Slam finals over his career than any other player of his generation.",
+      "options": ["more", "much more", "fewer"],
+      "answer": "more",
+      "explanation": "'More' is correct because the comparison is positive ('played in more, not fewer'). 'Much more' is wrong because 'finals' is countable plural and the natural comparative form is 'more'. 'Fewer' would reverse the meaning.",
+      "fullExplanation": "The sentence makes a positive comparison ('more finals than any other player'). 'More' works with both countable and uncountable nouns and is correct here. 'Much more' is a stronger intensified form but 'much more Grand Slam finals' is awkward — 'many more Grand Slam finals' would be the intensified countable form. 'Fewer' would reverse the intended meaning, claiming Federer played in fewer finals than his rivals.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "finals",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Steve Jobs is said to have given his designers very ___ written specifications and preferred verbal direction.",
+      "options": ["few", "little", "small"],
+      "answer": "few",
+      "explanation": "'Specifications' is a countable plural, so 'few' is the correct quantifier.",
+      "fullExplanation": "'Specifications' is a countable plural noun. The quantifier 'few' is used with countable plurals. 'Little specifications' would treat the noun as uncountable, which is incorrect here. 'Small specifications' is not a quantity expression — 'small' is an adjective describing size, not quantity, and would change the meaning.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "specifications",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Marie Curie spent a great ___ of her own money on equipment for her early radioactivity research.",
+      "options": ["amount", "number", "deal"],
+      "answer": "amount",
+      "explanation": "'Money' is uncountable, so 'a great amount of' is correct. 'A great deal of money' is also valid but 'a great deal' would not match the article+noun pattern of the stem.",
+      "fullExplanation": "'Money' is an uncountable noun. 'A great amount of' fits: it takes uncountable nouns. 'A number of' takes countable plurals ('a number of coins'), so 'a number of money' is wrong. 'A deal of money' is non-standard — the fixed phrase is 'a great deal of money', which would require dropping the article 'a' before 'great' (it is already 'a great deal'). Within the given stem, only 'amount' produces a fully grammatical sentence.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "money",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Picasso destroyed ___ of his early sketches than he ever sold to his first patrons in Paris.",
+      "options": ["more", "much more", "much"],
+      "answer": "more",
+      "explanation": "Comparative with countable plural 'sketches' takes 'more' (or 'many more' for emphasis), not 'much more' or 'much'.",
+      "fullExplanation": "'Sketches' is a countable plural. The comparative 'more' works with both countable and uncountable nouns and is correct here. 'Much more sketches' is wrong because 'much' modifies uncountables — for countable plurals the intensifier is 'many more sketches'. Plain 'much' is not a comparative and would not fit the 'than' structure.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "sketches",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Throughout the Middle Ages, very ___ ordinary peasants ever travelled more than ten miles from their birthplace.",
+      "options": ["few", "little", "less"],
+      "answer": "few",
+      "explanation": "'Peasants' is a countable plural, so 'few' is the correct quantifier.",
+      "fullExplanation": "'Peasants' is a countable plural. 'Few' is used with countable plurals to mean 'a small number'. 'Little' is for uncountable nouns ('little time', 'little money'), so 'little peasants' would mean small-sized peasants, not a quantity. 'Less' is also for uncountable nouns or for comparison; it does not fit 'very ___ peasants'.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "peasants",
+      "flavor": "history"
+    },
+    {
+      "stem": "By the late 1940s, the British Empire controlled far ___ colonies than it had at its peak fifty years earlier.",
+      "options": ["fewer", "less", "smaller"],
+      "answer": "fewer",
+      "explanation": "'Colonies' is a countable plural, so the comparative is 'fewer', not 'less'.",
+      "fullExplanation": "'Colonies' is a countable plural. The standard comparative for countable plurals is 'fewer'. 'Less' is reserved for uncountable nouns ('less power', 'less territory'), so 'less colonies' is non-standard. 'Smaller colonies' would refer to size, not quantity, and changes the meaning.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "colonies",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Roman aqueducts carried an enormous ___ of fresh water from the mountains to the cities each day.",
+      "options": ["amount", "number", "many"],
+      "answer": "amount",
+      "explanation": "'Water' is uncountable, so 'amount of' is correct.",
+      "fullExplanation": "'Water' is an uncountable noun. 'An amount of' takes uncountables and is the standard choice. 'A number of' is for countable plurals ('a number of buckets'), so 'number of water' is wrong. 'Many of water' is ungrammatical — 'many' modifies countable plurals, not uncountables.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "water",
+      "flavor": "history"
+    },
+    {
+      "stem": "After the plague, there was so ___ available labour that wages rose sharply across most of medieval Europe.",
+      "options": ["little", "few", "small"],
+      "answer": "little",
+      "explanation": "'Labour' is uncountable in this sense, so 'little' is the correct quantifier.",
+      "fullExplanation": "'Labour' in the sense of 'available workers' is treated as uncountable in standard usage ('manual labour', 'cheap labour'). 'Little' is the quantifier for uncountable nouns. 'Few labour' would require treating 'labour' as a countable plural, which it is not. 'Small labour' is not a quantity expression — 'small' would modify size, not quantity.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "labour",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Treaty of Versailles imposed a vast ___ of war reparations on Germany after the First World War.",
+      "options": ["amount", "number", "deal"],
+      "answer": "amount",
+      "explanation": "'Reparations' here is treated as uncountable monetary value, taking 'amount of'.",
+      "fullExplanation": "While 'reparations' is plural in form, in the fixed economic sense of 'total monetary value of reparations', it patterns with 'amount of' just like 'amount of damages'. 'Number of' would suggest counting separate reparation events, which is not the meaning. 'Deal of' is non-standard outside the fixed phrase 'a great deal of' (which would need the article dropped). Only 'amount' produces standard usage in this monetary sense.",
+      "source": "Swan, PEU (4e), §389",
+      "hint": "reparations",
+      "flavor": "history"
+    },
+    {
+      "stem": "Far ___ Russian soldiers survived the retreat from Moscow in 1812 than had begun the campaign in June.",
+      "options": ["fewer", "less", "smaller"],
+      "answer": "fewer",
+      "explanation": "'Soldiers' is a countable plural, so the comparative is 'fewer'.",
+      "fullExplanation": "'Soldiers' is a countable plural. The standard comparative for countable plurals is 'fewer'. 'Less soldiers' is non-standard — 'less' is for uncountable nouns. 'Smaller soldiers' would refer to physical size, not quantity, and changes the meaning entirely.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "soldiers",
+      "flavor": "history"
+    },
+    {
+      "stem": "Modern smartphones have made ___ paper letters part of everyday family communication than ever before.",
+      "options": ["fewer", "less", "smaller"],
+      "answer": "fewer",
+      "explanation": "'Letters' is a countable plural, so the comparative is 'fewer'.",
+      "fullExplanation": "'Letters' (paper letters here) is a countable plural. The standard comparative is 'fewer'. 'Less letters' is non-standard, since 'less' is reserved for uncountables. 'Smaller letters' would refer to physical size, not quantity, and would change the meaning.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "letters",
+      "flavor": "social"
+    },
+    {
+      "stem": "Working from home has saved many commuters a great ___ of time and travel money each week.",
+      "options": ["deal", "number", "few"],
+      "answer": "deal",
+      "explanation": "'Time' and 'money' are uncountable, so 'a great deal of' is the standard idiom.",
+      "fullExplanation": "The fixed expression 'a great deal of' is used with uncountable nouns ('a great deal of time', 'a great deal of money'). Both head nouns here are uncountable. 'A great number of' takes countable plurals ('a great number of people'), so it is wrong with 'time and travel money'. 'A great few' is not an English quantifier expression.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "deal",
+      "flavor": "social"
+    },
+    {
+      "stem": "Surveys show that today's teenagers read ___ printed books per year than their parents did at the same age.",
+      "options": ["fewer", "less", "smaller"],
+      "answer": "fewer",
+      "explanation": "'Books' is a countable plural, so the comparative is 'fewer'.",
+      "fullExplanation": "'Books' is a countable plural. The standard comparative for countable plurals is 'fewer'. 'Less books' is widespread informally but is rejected in formal exam English. 'Smaller books' refers to physical size, not quantity.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "books",
+      "flavor": "social"
+    },
+    {
+      "stem": "The new policy gives parents very ___ flexibility about when they can take their annual paid leave.",
+      "options": ["little", "few", "small"],
+      "answer": "little",
+      "explanation": "'Flexibility' is uncountable, so 'little' is the correct quantifier.",
+      "fullExplanation": "'Flexibility' is an uncountable abstract noun. 'Little' is the quantifier for uncountable nouns to mean 'not much'. 'Few flexibility' is a category error since 'few' modifies countable plurals. 'Small flexibility' is not a natural quantity expression — 'small' would change the meaning by referring to scale.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "flexibility",
+      "flavor": "social"
+    },
+    {
+      "stem": "A surprising ___ of city dwellers say they would prefer to move to the countryside if they could work remotely.",
+      "options": ["number", "amount", "deal"],
+      "answer": "number",
+      "explanation": "'City dwellers' is a countable plural, so 'a number of' is correct.",
+      "fullExplanation": "'A number of' takes a countable plural ('city dwellers'). 'An amount of' takes uncountable nouns ('an amount of effort'), so 'amount of city dwellers' is wrong. 'A deal of city dwellers' is not standard — the fixed phrase 'a great deal of' takes uncountables.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "dwellers",
+      "flavor": "social"
+    },
+    {
+      "stem": "Doctors warn that drinking too ___ sugary drinks can lead to long-term health problems in young children.",
+      "options": ["many", "much", "more"],
+      "answer": "many",
+      "explanation": "'Drinks' is a countable plural, so the quantifier is 'many'.",
+      "fullExplanation": "'Sugary drinks' is a countable plural. 'Too many' is the standard quantifier with countable plurals. 'Too much' is for uncountables ('too much sugar'), so 'too much sugary drinks' is wrong. 'Too more' is not an English quantifier — comparative forms do not combine with 'too' this way.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "drinks",
+      "flavor": "social"
+    },
+    {
+      "stem": "The new electric motor produces much ___ heat than older internal-combustion designs of similar power output.",
+      "options": ["less", "fewer", "smaller"],
+      "answer": "less",
+      "explanation": "'Heat' is uncountable, so the comparative is 'less'.",
+      "fullExplanation": "'Heat' is an uncountable noun. The comparative for uncountables is 'less'. 'Fewer heat' is a category error since 'fewer' modifies countable plurals. 'Smaller heat' is not a standard quantity expression — 'smaller' would refer to physical scale, not amount of thermal energy.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "heat",
+      "flavor": "science"
+    },
+    {
+      "stem": "Modern microscopes can resolve a far greater ___ of individual cellular structures than was possible fifty years ago.",
+      "options": ["number", "amount", "deal"],
+      "answer": "number",
+      "explanation": "'Structures' is a countable plural, so 'a greater number of' is correct.",
+      "fullExplanation": "'Structures' is a countable plural. 'A number of' (and its comparative 'a greater number of') takes countable plurals. 'An amount of' takes uncountable nouns ('an amount of detail'), so 'amount of structures' is wrong. 'A deal of structures' is not standard.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "structures",
+      "flavor": "science"
+    },
+    {
+      "stem": "The new battery design holds twice as ___ energy per gram as the standard lithium-ion cells used today.",
+      "options": ["much", "many", "more"],
+      "answer": "much",
+      "explanation": "'Energy' is uncountable, so the quantifier is 'much'.",
+      "fullExplanation": "'Energy' is an uncountable noun. 'As much ... as' is the standard equative for uncountables. 'As many' takes countable plurals ('as many cells as'), so 'as many energy as' is wrong. 'As more' is not a valid English structure — the equative is 'as much/as many', not 'as more'.",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "energy",
+      "flavor": "science"
+    },
+    {
+      "stem": "Astronomers have detected far ___ planets in distant solar systems in the last decade than in the entire previous century.",
+      "options": ["more", "much more", "many"],
+      "answer": "more",
+      "explanation": "Comparative with countable plural 'planets' takes 'more' (or 'many more'), not 'much more'.",
+      "fullExplanation": "'Planets' is a countable plural. The comparative 'more' works with both countables and uncountables and fits naturally here. 'Much more planets' is wrong because 'much' modifies uncountables — the intensified form for countables is 'many more planets'. Plain 'many' is not a comparative and does not fit the 'than' structure.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "planets",
+      "flavor": "science"
+    },
+    {
+      "stem": "There is surprisingly ___ scientific evidence to support the idea that humans use only ten percent of their brains.",
+      "options": ["little", "few", "less"],
+      "answer": "little",
+      "explanation": "'Evidence' is uncountable, so 'little' is the correct quantifier.",
+      "fullExplanation": "'Evidence' is an uncountable noun. 'Little' is the quantifier for uncountables to mean 'not much'. 'Few evidence' is a category error — 'few' modifies countable plurals, and 'evidences' as a plural noun is rare and not standard exam usage. 'Less evidence' is grammatical but is a comparative ('less than X'), not a simple quantifier — the stem requires a plain quantifier ('surprisingly little').",
+      "source": "Murphy, EGU (4e), Unit 87",
+      "hint": "evidence",
+      "flavor": "science"
+    },
+    {
+      "stem": "The new vaccine has shown ___ side effects in clinical trials than any other vaccine of its class so far tested.",
+      "options": ["fewer", "less", "smaller"],
+      "answer": "fewer",
+      "explanation": "'Side effects' is a countable plural, so the comparative is 'fewer'.",
+      "fullExplanation": "'Side effects' is a countable plural. The standard comparative for countable plurals is 'fewer'. 'Less side effects' is non-standard, since 'less' is reserved for uncountables. 'Smaller side effects' would refer to severity, not number, and changes the meaning.",
+      "source": "Swan, PEU (4e), §159",
+      "hint": "effects",
+      "flavor": "science"
+    },
+    {
+      "stem": "There is no greater ___ of dignity than to live one's life with quiet, daily integrity.",
+      "options": ["amount", "number", "few"],
+      "answer": "amount",
+      "explanation": "'Dignity' is uncountable, so 'amount of' is correct.",
+      "fullExplanation": "'Dignity' is an uncountable abstract noun. 'An amount of' is the standard quantifier with uncountable nouns. 'A number of' takes countable plurals ('a number of virtues'), so 'number of dignity' is wrong. 'A few of dignity' is ungrammatical — 'a few' modifies countable plurals.",
+      "source": "Adapted, attributed to Maya Angelou",
+      "hint": "dignity",
+      "flavor": "quotes",
+      "author": "Maya Angelou"
+    },
+    {
+      "stem": "Those who dare little achieve ___ victories and leave almost no mark on the history of their own time.",
+      "options": ["few", "little", "less"],
+      "answer": "few",
+      "explanation": "'Victories' is a countable plural, so 'few' is the correct quantifier.",
+      "fullExplanation": "'Victories' is a countable plural. 'Few' is the quantifier for countable plurals to mean 'not many'. 'Little' modifies uncountable nouns ('little courage'), so 'little victories' would be ambiguous (it can mean 'small victories', changing sense from quantity to size). 'Less victories' is non-standard — 'less' is reserved for uncountables, and as a simple quantifier it also would not fit 'achieve ___ victories' without a 'than' clause.",
+      "source": "Adapted, attributed to Virgil",
+      "hint": "victories",
+      "flavor": "quotes",
+      "author": "Virgil"
+    },
+    {
+      "stem": "Patience is the secret to working successfully with a great ___ of difficult people throughout one's career.",
+      "options": ["number", "amount", "deal"],
+      "answer": "number",
+      "explanation": "'People' is a countable plural, so 'a great number of' is correct.",
+      "fullExplanation": "'People' is a countable plural. 'A great number of' takes countable plurals. 'A great amount of' takes uncountable nouns ('a great amount of patience'), so 'amount of difficult people' is wrong. 'A great deal of difficult people' is non-standard — the fixed phrase 'a great deal of' takes uncountables, so 'a great deal of difficulty' would work but 'a great deal of difficult people' would not.",
+      "source": "Adapted, attributed to Dale Carnegie",
+      "hint": "people",
+      "flavor": "quotes",
+      "author": "Dale Carnegie"
+    },
+    {
+      "stem": "A wise person speaks because they have something to say; a foolish person speaks because they have very ___ left to add.",
+      "options": ["little", "few", "less"],
+      "answer": "little",
+      "explanation": "'Something' / the implied object is uncountable here ('content to add'), so 'little' is correct.",
+      "fullExplanation": "The implied object is something abstract and uncountable like 'content' or 'meaning'. 'Little' is the quantifier for uncountables. 'Few' would require a countable plural noun (like 'few words'), but the structure 'have very ___ left to add' takes 'little' to mirror the uncountable 'something to say'. 'Less' would need a 'than' clause to function as a comparative.",
+      "source": "Adapted, attributed to Plato",
+      "hint": "little",
+      "flavor": "quotes",
+      "author": "Plato"
+    },
+    {
+      "stem": "Genius is one percent inspiration and ninety-nine percent perspiration — and a great ___ of repeated effort along the way.",
+      "options": ["deal", "number", "few"],
+      "answer": "deal",
+      "explanation": "'Effort' is uncountable, so the fixed phrase 'a great deal of' is correct.",
+      "fullExplanation": "'Effort' is an uncountable noun. The fixed expression 'a great deal of' is the standard quantifier for uncountables. 'A great number of' takes countable plurals ('a great number of attempts'), so 'a great number of repeated effort' is wrong. 'A great few of' is not an English quantifier expression.",
+      "source": "Adapted, attributed to Thomas Edison",
+      "hint": "effort",
+      "flavor": "quotes",
+      "author": "Thomas Edison"
+    },
+    {
+      "stem": "Travel teaches you ___ lessons about tolerance and patience that no school could ever provide.",
+      "options": ["many", "much", "more"],
+      "answer": "many",
+      "explanation": "'Lessons' is a countable plural, so 'many' is correct.",
+      "fullExplanation": "'Lessons' is a countable plural. 'Many' is the standard quantifier with countable plurals. 'Much' is for uncountables ('much wisdom'), so 'much lessons' is wrong. 'More lessons' would require a 'than' comparison clause that the sentence does not provide.",
+      "source": "Adapted, attributed to Saint Augustine",
+      "hint": "lessons",
+      "flavor": "quotes",
+      "author": "Saint Augustine"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   CTCE TASK BANK — v10.22 Phase 10
-   65 subtopics, 1950 tasks
+   CTCE TASK BANK — v10.23 Phase 11
+   70 subtopics, 2100 tasks
    options[0] = correct answer (runtime shuffles)
    Lazy-loaded only when CTCE level is active.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -21184,6 +21184,1636 @@ window.LEARN_TASKS_CTCE = {
         source: "Adapted · attributed to Aristotle",
         flavor: "quotes",
         author: "Aristotle"
+      }
+    ]
+  },
+  "w2s-body-place": {
+    id: "w2s-body-place",
+    name: "Body parts as place / object words",
+    canonicalSubId: "cs-w2s-body-place",
+    canonicalTopicId: "word-two-sentences",
+    tasks: [
+      {
+        id: "w2s-body-place-01",
+        stem: "1) Marie Curie often rested her ___ on her hand for hours while she watched her radium samples glow.\n2) As ___ of the radium institute, she insisted on funding women researchers from across Europe.",
+        options: ["head", "face", "eye"],
+        answer: "head",
+        explanation: "'Head' is the body part rested on a hand and the leader of an institution.",
+        fullExplanation: "Sentence 1 uses 'head' as the literal body part one rests on a hand. Sentence 2 uses 'head' to mean the leader of an organisation ('head of the institute'). 'Face' fits the body slot loosely but cannot mean 'leader'. 'Eye' cannot be rested on a hand and is not a leadership term.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-body-place-02",
+        stem: "1) Pablo Picasso fractured his ___ falling from a ladder while painting a ceiling mural in his Paris studio.\n2) He propped the wet canvas against the ___ of an old armchair so he could keep working while he healed.",
+        options: ["arm", "leg", "back"],
+        answer: "arm",
+        explanation: "'Arm' is the body limb broken in a fall and the raised side support of an armchair.",
+        fullExplanation: "Sentence 1 uses 'arm' as the body limb one can fracture in a fall. Sentence 2 uses 'arm' as the raised side support of an armchair. 'Leg' is the chair's bottom support, not where a canvas would lean; a fractured leg fits sentence 1 but 'leg of an armchair' is the bottom, not a propping surface. 'Back' is the rear of both body and chair, not the side support.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-body-place-03",
+        stem: "1) Frida Kahlo had a remarkable ___ for colour even as a young art student in Mexico City.\n2) The thread refused to pass through the ___ of the needle no matter how steady her sister held it.",
+        options: ["eye", "head", "hand"],
+        answer: "eye",
+        explanation: "'Eye' is the figurative perceptive sense and the small hole in a needle.",
+        fullExplanation: "Sentence 1 uses 'eye' figuratively as the perceptive sense ('an eye for colour'). Sentence 2 uses 'eye' literally as the small hole at the top of a needle. 'Head' cannot complete 'an ___ for colour', and a needle has no 'head'. 'Hand' fits neither slot.",
+        source: "Oxford",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-body-place-04",
+        stem: "1) Coco Chanel badly injured her ___ during a long horse ride and could barely walk for several weeks.\n2) The second ___ of her spring fashion tour took her from Paris directly on to Rome that season.",
+        options: ["leg", "foot", "arm"],
+        answer: "leg",
+        explanation: "'Leg' is the body limb one injures and a single stage of a multi-part tour.",
+        fullExplanation: "Sentence 1 uses 'leg' as the body limb injured in a horse-riding accident. Sentence 2 uses 'leg' to mean one stage of a journey ('second leg of the tour'). 'Foot' is below the leg and is not used to describe a stage of a tour. 'Arm' fits neither slot.",
+        source: "Longman",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-body-place-05",
+        stem: "1) Steve Jobs would tap his ___ on the polished boardroom table whenever he wanted the meeting to move faster.\n2) The minute ___ on the office clock had stopped moving long before anyone had noticed.",
+        options: ["hand", "arm", "foot"],
+        answer: "hand",
+        explanation: "'Hand' is the body part used for tapping and the moving pointer on a clock.",
+        fullExplanation: "Sentence 1 uses 'hand' as the body part one taps on a table. Sentence 2 uses 'hand' as the pointer on a clock face ('minute hand'). A clock has no 'minute arm'. 'Foot' does not collocate with either action here.",
+        source: "Swan, PEU (4e), §148",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-body-place-06",
+        stem: "1) Beethoven pressed his ___ hard against the wooden piano case to feel vibrations after losing most of his hearing.\n2) He always signed his name on the ___ of every manuscript before handing it to his publisher in Vienna.",
+        options: ["back", "head", "neck"],
+        answer: "back",
+        explanation: "'Back' is the body's rear surface and the reverse side of a document.",
+        fullExplanation: "Sentence 1 uses 'back' as the body's rear surface, which Beethoven pressed against the piano to feel vibrations. Sentence 2 uses 'back' as the reverse side of a document ('back of every manuscript'). 'Head' would mean the top of the body and is not where signatures go on a manuscript. 'Neck' fits neither slot.",
+        source: "Oxford",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-body-place-07",
+        stem: "1) The Roman general walked calmly to the ___ of his long column and addressed his troops before the final march.\n2) Every legionary bowed his ___ low when the eagle standard was raised at the start of a campaign.",
+        options: ["head", "foot", "hand"],
+        answer: "head",
+        explanation: "'Head' is the front of a marching column and the body part one bows.",
+        fullExplanation: "Sentence 1 uses 'head' as the front end of a column ('head of the column'). Sentence 2 uses 'head' as the body part one bows in ceremony. 'Foot' is the rear of a column, not where the general stands to address his troops. 'Hand' fits neither slot.",
+        source: "Longman",
+        flavor: "history"
+      },
+      {
+        id: "w2s-body-place-08",
+        stem: "1) Roman legions marched along the valley road at the ___ of the Alps before the first winter snow arrived.\n2) Each legionary cleaned his ___ every evening to prevent infection during the long marching campaigns.",
+        options: ["foot", "leg", "hand"],
+        answer: "foot",
+        explanation: "'Foot' is the base of a mountain range and the body part below the ankle.",
+        fullExplanation: "Sentence 1 uses 'foot' geographically ('foot of the Alps' = the base of the mountain range). Sentence 2 uses 'foot' as the body part below the ankle that soldiers would clean and bandage. 'Leg' is a body part but mountains do not have 'legs'. 'Hand' fits neither sense.",
+        source: "Longman",
+        flavor: "history"
+      },
+      {
+        id: "w2s-body-place-09",
+        stem: "1) The medieval glassblower gripped the ___ of the flask with iron tongs to shape it before the glass cooled.\n2) The prison guard carefully measured the condemned man's ___ before the sentence was carried out at dawn.",
+        options: ["neck", "back", "arm"],
+        answer: "neck",
+        explanation: "'Neck' is the narrow upper part of a flask and the body part below the head.",
+        fullExplanation: "Sentence 1 uses 'neck' as the narrow upper part of a flask that glassblowers grip with tongs. Sentence 2 uses 'neck' as the body part below the head that a prison guard would measure before an execution. 'Back' of a flask is not what glassblowers grip. 'Arm' fits neither slot.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "history"
+      },
+      {
+        id: "w2s-body-place-10",
+        stem: "1) Viking longships sailed deep into the narrow ___ of the sea that cut between the mountains and the forest.\n2) The archer drew the bowstring back with his right ___ and held it steady before releasing on command.",
+        options: ["arm", "leg", "back"],
+        answer: "arm",
+        explanation: "'Arm' is a narrow inlet of the sea and the body limb an archer draws with.",
+        fullExplanation: "Sentence 1 uses 'arm' geographically ('arm of the sea' = a narrow inlet extending inland). Sentence 2 uses 'arm' as the body limb one draws a bowstring with. 'Leg' does not describe a sea inlet. 'Back' of the sea is not a standard geographical term, and an archer does not draw with his 'back'.",
+        source: "Oxford",
+        flavor: "history"
+      },
+      {
+        id: "w2s-body-place-11",
+        stem: "1) The geologist examined the ___ of the cliff in detail to identify the fossil layers exposed by recent erosion.\n2) The soldier pressed his ___ into the mud and lay absolutely still as the patrol passed overhead.",
+        options: ["face", "head", "back"],
+        answer: "face",
+        explanation: "'Face' is the exposed front surface of a cliff and the front of the head.",
+        fullExplanation: "Sentence 1 uses 'face' geologically ('face of the cliff' = its exposed front surface). Sentence 2 uses 'face' as the front of the head pressed into the mud. 'Head' of a cliff is not a standard geological term. 'Back' of the cliff would be the rear, not the surface a geologist studies from the front.",
+        source: "Academic Word List",
+        flavor: "history"
+      },
+      {
+        id: "w2s-body-place-12",
+        stem: "1) Roman senators wore heavy gold rings on the back of each ___ to display their rank at official ceremonies.\n2) The minute ___ on the great forum's water clock measured the length of every senator's speech.",
+        options: ["hand", "arm", "finger"],
+        answer: "hand",
+        explanation: "'Hand' is the body part senators wore rings on and the moving pointer on a clock.",
+        fullExplanation: "Sentence 1 uses 'hand' as the body part on which the rings were worn. Sentence 2 uses 'hand' as the pointer on a water clock ('minute hand'). A water clock has no 'minute arm'. 'Finger' can wear a single ring but a senator wore rings over the whole back of the hand, and a clock has no 'minute finger'.",
+        source: "Swan, PEU (4e), §148",
+        flavor: "history"
+      },
+      {
+        id: "w2s-body-place-13",
+        stem: "1) The waiter placed his thumb firmly over the ___ of the bottle to stop it spilling as he crossed the room.\n2) The toddler ran in from the garden with a huge biscuit crammed into his ___ and crumbs all over his shirt.",
+        options: ["mouth", "neck", "face"],
+        answer: "mouth",
+        explanation: "'Mouth' is the opening at the top of a bottle and the body opening one stuffs food into.",
+        fullExplanation: "Sentence 1 uses 'mouth' as the opening at the top of a bottle ('mouth of the bottle'). Sentence 2 uses 'mouth' as the body opening the toddler stuffs a biscuit into. 'Neck' is the narrow section just below the mouth of a bottle, but one does not cover the 'neck' to stop spilling, and 'crammed into his neck' is wrong. 'Face' fits neither slot.",
+        source: "Oxford",
+        flavor: "social"
+      },
+      {
+        id: "w2s-body-place-14",
+        stem: "1) The barman held the ___ of the wine bottle steady with one hand while he poured into the narrow glass.\n2) The teacher rubbed her sore ___ slowly after spending the whole afternoon bent over a stack of essays.",
+        options: ["neck", "arm", "back"],
+        answer: "neck",
+        explanation: "'Neck' is the narrow part of a bottle and the body part below the head.",
+        fullExplanation: "Sentence 1 uses 'neck' as the narrow part of a bottle one holds while pouring. Sentence 2 uses 'neck' as the body part below the head that aches after long desk work. A bottle has no 'arm'. 'Back' is sometimes rubbed but a bottle has no 'back', and the aching part after bent-over marking is typically the neck, not the back.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "social"
+      },
+      {
+        id: "w2s-body-place-15",
+        stem: "1) The construction crane swung its long ___ slowly over the building site and lowered a steel beam precisely.\n2) She stretched her ___ upwards to reach the last book on the very top shelf without using a stool.",
+        options: ["arm", "leg", "neck"],
+        answer: "arm",
+        explanation: "'Arm' is the horizontal boom of a crane and the body limb one stretches to reach something.",
+        fullExplanation: "Sentence 1 uses 'arm' as the horizontal boom of a crane (the moving part that carries the load). Sentence 2 uses 'arm' as the body limb one stretches to reach a high shelf. 'Leg' is the crane's supporting structure, not the swinging boom. 'Neck' could be stretched for reaching but a crane boom is not called a 'neck'.",
+        source: "Longman",
+        flavor: "social"
+      },
+      {
+        id: "w2s-body-place-16",
+        stem: "1) The runner twisted her ___ during warm-up practice and had to withdraw from the competition that afternoon.\n2) The team's fastest sprinter was saving herself for the demanding last ___ of the relay event.",
+        options: ["leg", "foot", "arm"],
+        answer: "leg",
+        explanation: "'Leg' is the body limb twisted in warm-up and one stage of a relay race.",
+        fullExplanation: "Sentence 1 uses 'leg' as the body limb a runner twists during warm-up. Sentence 2 uses 'leg' as one stage of a relay race ('the last leg'). 'Foot' is below the leg and is not used to describe a stage of a race. 'Arm' fits neither slot.",
+        source: "Longman",
+        flavor: "social"
+      },
+      {
+        id: "w2s-body-place-17",
+        stem: "1) The clock on the village square had a wide white ___ that could be read clearly from a very great distance.\n2) The little girl pressed her ___ against the bakery window to get a closer look at the cakes on display.",
+        options: ["face", "head", "eye"],
+        answer: "face",
+        explanation: "'Face' is the front display of a clock and the front surface of the head.",
+        fullExplanation: "Sentence 1 uses 'face' as the front display of a clock ('clock face'). Sentence 2 uses 'face' as the front surface of the head pressed against a window. 'Head' is the whole region; one presses one's face, not one's whole head, flat against a window. 'Eye' is too small for either action and clocks have no 'eye'.",
+        source: "Oxford",
+        flavor: "social"
+      },
+      {
+        id: "w2s-body-place-18",
+        stem: "1) She wrote her mobile number on the ___ of the menu so the waiter could call her if she left her bag behind.\n2) The toddler hurt his ___ when he fell backwards off the garden swing in the afternoon.",
+        options: ["back", "face", "foot"],
+        answer: "back",
+        explanation: "'Back' is the rear side of a printed menu and the body's rear surface.",
+        fullExplanation: "Sentence 1 uses 'back' as the rear side of a printed menu ('back of the menu'). Sentence 2 uses 'back' as the body's rear surface a toddler hurts in a backwards fall. 'Face' would be the front of the menu, not where you write private notes. 'Foot' fits neither slot.",
+        source: "Longman",
+        flavor: "social"
+      },
+      {
+        id: "w2s-body-place-19",
+        stem: "1) The total figures appeared at the ___ of every data table in the research paper's appendix.\n2) The physiotherapist measured the arch of the patient's ___ carefully to assess the gait abnormality.",
+        options: ["foot", "leg", "hand"],
+        answer: "foot",
+        explanation: "'Foot' is the bottom end of a column or table and the body part below the ankle.",
+        fullExplanation: "Sentence 1 uses 'foot' as the bottom of a printed column or table ('foot of the data table'). Sentence 2 uses 'foot' as the body part whose arch is measured by a physiotherapist. 'Leg' of the data table is not standard. 'Hand' fits neither sense.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-body-place-20",
+        stem: "1) Scientists positioned their sensors just above the ___ of the volcanic vent to measure the escaping gas mixture.\n2) The dentist asked the child to open her ___ as wide as possible so he could examine the back teeth.",
+        options: ["mouth", "neck", "face"],
+        answer: "mouth",
+        explanation: "'Mouth' is the opening of a volcanic vent and the body opening one opens for a dentist.",
+        fullExplanation: "Sentence 1 uses 'mouth' geologically as the opening of a volcanic vent ('mouth of the vent'). Sentence 2 uses 'mouth' as the body opening a dentist examines. 'Neck' is the narrow section below a crater but not the opening itself. 'Face' fits neither slot.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-body-place-21",
+        stem: "1) The vapour condensed as it passed through the narrow ___ of the retort and dripped into the receiving flask.\n2) Researchers concluded that giraffes evolved a longer ___ over millions of years to reach the highest acacia leaves.",
+        options: ["neck", "back", "leg"],
+        answer: "neck",
+        explanation: "'Neck' is the narrow tube of a retort and the body part giraffes evolved longer.",
+        fullExplanation: "Sentence 1 uses 'neck' as the narrow tube through which vapour exits a retort in distillation. Sentence 2 uses 'neck' as the body part giraffes evolved longer to reach high leaves. 'Back' of a retort is not a distillation term. 'Leg' of a giraffe could evolve longer but would not help reach the highest leaves.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-body-place-22",
+        stem: "1) Pilots flying near the ___ of the hurricane reported a sudden calm, clear sky and almost no wind for several minutes.\n2) The ophthalmologist examined the patient's left ___ carefully before deciding whether to prescribe new glasses.",
+        options: ["eye", "head", "face"],
+        answer: "eye",
+        explanation: "'Eye' is the calm centre of a hurricane and the body's organ of sight.",
+        fullExplanation: "Sentence 1 uses 'eye' as the calm centre of a tropical storm ('eye of the hurricane'). Sentence 2 uses 'eye' as the body organ an ophthalmologist examines. 'Head' of a hurricane is not a meteorological term. 'Face' is also not a hurricane term, and an ophthalmologist examines the eye, not the face.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-body-place-23",
+        stem: "1) The scientist calculated the precise length of each ___ of the right-angled triangle using Pythagoras' theorem.\n2) The physiotherapist measured both ___ of her patient to ensure the prosthetic support was fitted correctly.",
+        options: ["leg", "arm", "foot"],
+        answer: "leg",
+        explanation: "'Leg' is a shorter side of a right-angled triangle and the body limb measured for a prosthetic.",
+        fullExplanation: "Sentence 1 uses 'leg' as a standard geometry term for one of the two shorter sides of a right-angled triangle ('legs of a right triangle'). Sentence 2 uses 'leg' as the body limb measured when fitting a prosthetic. 'Arm' of a triangle is not standard English geometry; 'arm' of a patient is not fitted with a leg prosthetic. 'Foot' is a body part below the leg and not used for triangle sides.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-body-place-24",
+        stem: "1) Each crystal has a perfectly smooth flat ___ that reflects light in a distinct direction under the microscope.\n2) The patient's ___ turned pale as the nurse drew the third blood sample of that long morning.",
+        options: ["face", "head", "back"],
+        answer: "face",
+        explanation: "'Face' is the flat surface of a crystal and the front surface of the head.",
+        fullExplanation: "Sentence 1 uses 'face' as the technical mineralogy term for a flat surface of a crystal ('crystal face'). Sentence 2 uses 'face' as the front of the head, which turns pale. 'Head' of a crystal is not a standard mineralogical term. 'Back' of a crystal would be the rear surface, not the studied flat face.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-body-place-25",
+        stem: "1) Aristotle wrote that a wise man uses his ___ before he opens his mouth in any serious public debate.\n2) Each philosopher who rose to become ___ of the academy was expected to fund his own students' studies.",
+        options: ["head", "face", "eye"],
+        answer: "head",
+        explanation: "'Head' is the body part used for thinking and the leader of an institution.",
+        fullExplanation: "Sentence 1 uses 'head' as the body part used for thinking before speaking, fitting the Aristotelian ideal of reason before speech. Sentence 2 uses 'head' to mean the leader of an institution ('head of the academy'). 'Face' fits neither slot. 'Eye' cannot complete 'uses his ___ before he opens his mouth' in the intended sense.",
+        source: "Adapted, attributed to Aristotle",
+        flavor: "quotes",
+        author: "Aristotle"
+      },
+      {
+        id: "w2s-body-place-26",
+        stem: "1) Charles Dickens wrote that a single kind word spoken at the ___ of a sick person's bed is worth more than any medicine.\n2) The young Nell Trent rested her weary ___ on a small wooden stool as she waited for her grandfather to wake.",
+        options: ["foot", "head", "hand"],
+        answer: "foot",
+        explanation: "'Foot' is the lower end of a bed and the body part one rests on a stool.",
+        fullExplanation: "Sentence 1 uses 'foot' as the lower end of a bed ('foot of the bed'), the traditional position of a caring visitor. Sentence 2 uses 'foot' as the body part one rests on a stool when seated. 'Head' is the upper end of the bed, the wrong end for a standing visitor, and one does not rest one's head on a low stool. 'Hand' fits neither slot.",
+        source: "Adapted, attributed to Charles Dickens",
+        flavor: "quotes",
+        author: "Charles Dickens"
+      },
+      {
+        id: "w2s-body-place-27",
+        stem: "1) Mark Twain wrote that every great river grows broader at the ___ and so does every great story told beside it.\n2) The young apprentice knew to keep his ___ shut and his ears open whenever the master was at work.",
+        options: ["mouth", "head", "face"],
+        answer: "mouth",
+        explanation: "'Mouth' is the seaward end of a river and the body opening one keeps shut.",
+        fullExplanation: "Sentence 1 uses 'mouth' geographically ('mouth of the river' = where it meets the sea and grows wide). Sentence 2 uses 'mouth' as the body opening one keeps shut to stay quiet. 'Head' of a river is the source, the narrowest point, not where it broadens. 'Face' fits neither slot.",
+        source: "Adapted, attributed to Mark Twain",
+        flavor: "quotes",
+        author: "Mark Twain"
+      },
+      {
+        id: "w2s-body-place-28",
+        stem: "1) Leonardo da Vinci insisted that a true painter must train a sharp ___ for the smallest change in light and shadow.\n2) He noted that every great thread of thought must pass through the narrow ___ of criticism before it becomes useful.",
+        options: ["eye", "head", "face"],
+        answer: "eye",
+        explanation: "'Eye' is the figurative perceptive sense and the narrow hole in a needle (metaphor for criticism).",
+        fullExplanation: "Sentence 1 uses 'eye' figuratively as the trained perceptive sense ('an eye for change in light'). Sentence 2 uses 'eye' as the narrow hole in a needle, used here as a metaphor for the tight filter of critical scrutiny. 'Head' fits neither idiom. 'Face' does not collocate with either sense.",
+        source: "Adapted, attributed to Leonardo da Vinci",
+        flavor: "quotes",
+        author: "Leonardo da Vinci"
+      },
+      {
+        id: "w2s-body-place-29",
+        stem: "1) Oscar Wilde wrote that one should always offer the ___ of friendship before offering any unsolicited advice.\n2) The minute ___ on the long-case clock had gone missing entirely, yet the hour pointer kept nearly perfect time.",
+        options: ["hand", "arm", "back"],
+        answer: "hand",
+        explanation: "'Hand' is the body part offered in friendship and the moving pointer on a clock.",
+        fullExplanation: "Sentence 1 uses 'hand' figuratively in 'offer the hand of friendship', a standard English expression. Sentence 2 uses 'hand' as the pointer on a long-case clock ('minute hand'). One does not 'offer the arm of friendship'. Clocks have no 'arm' or 'back' for a pointer.",
+        source: "Adapted, attributed to Oscar Wilde",
+        flavor: "quotes",
+        author: "Oscar Wilde"
+      },
+      {
+        id: "w2s-body-place-30",
+        stem: "1) Seneca wrote that a man who reads widely keeps a whole city of ideas at the ___ of his mind for difficult days.\n2) He always recorded the date he finished a text on the ___ of the final scroll before returning it to the library.",
+        options: ["back", "head", "neck"],
+        answer: "back",
+        explanation: "'Back' is the figurative recesses of the mind and the reverse side of a scroll.",
+        fullExplanation: "Sentence 1 uses 'back' in the idiomatic expression 'at the back of one's mind' — meaning stored in a deep, accessible recess of memory. Sentence 2 uses 'back' as the reverse side of a scroll where notes could be added. 'Head' is the front or top and does not mean a deep mental recess; 'at the head of one's mind' is not a standard idiom. 'Neck' fits neither slot.",
+        source: "Adapted, attributed to Seneca",
+        flavor: "quotes",
+        author: "Seneca"
+      }
+    ]
+  },
+  "w2s-abstract": {
+    id: "w2s-abstract",
+    name: "Abstract nouns with concrete or technical senses",
+    canonicalSubId: "cs-w2s-abstract",
+    canonicalTopicId: "word-two-sentences",
+    tasks: [
+      {
+        id: "w2s-abstract-01",
+        stem: "1) When Usain Bolt crossed the finish tape, it was the fastest ___ of his entire career, breaking every expectation.\n2) The actress described her three consecutive Oscar nominations as an extraordinary ___ of good fortune.",
+        options: ["run", "charge", "line"],
+        answer: "run",
+        explanation: "'Run' is a sprint performance and an unbroken sequence of success or luck.",
+        fullExplanation: "Sentence 1 uses 'run' as a single race performance ('the fastest run'). Sentence 2 uses 'run' as an unbroken sequence ('a run of good fortune'). 'Charge' fits neither slot: a sprint is not a 'charge' in athletics, and 'charge of good fortune' is not an idiom. 'Line' fits neither: 'a line of good fortune' is unusual and 'fastest line' is not an athletics term.",
+        source: "Longman",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-abstract-02",
+        stem: "1) The young scientist's ___ to succeed was stronger than any obstacle her colleagues could place in her path.\n2) The new house had a long gravel ___ that curved gently from the iron gate to the front door.",
+        options: ["drive", "push", "charge"],
+        answer: "drive",
+        explanation: "'Drive' is personal ambition or determination and a private road leading to a house.",
+        fullExplanation: "Sentence 1 uses 'drive' as personal ambition or determination. Sentence 2 uses 'drive' as the private road leading to a house's front door ('driveway' or simply 'drive'). 'Push' can mean a strong effort in S1 but 'a long gravel push' is not an English term for a road. 'Charge' fits neither slot in these senses.",
+        source: "Oxford",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-abstract-03",
+        stem: "1) After her first brief ___ of an international audience's applause, the young actress refused all minor roles.\n2) Coco Chanel was known for her impeccable ___ in combining fabric, colour, and proportion above all else.",
+        options: ["taste", "sense", "move"],
+        answer: "taste",
+        explanation: "'Taste' is a first brief experience and the aesthetic faculty of discernment.",
+        fullExplanation: "Sentence 1 uses 'taste' as a brief first experience ('a taste of applause'). Sentence 2 uses 'taste' as the aesthetic faculty ('taste in fabric and colour'). 'Sense' could describe aesthetic judgment in S2 ('good sense') but 'first brief sense of applause' is not idiomatic — 'first taste' is the fixed expression. 'Move' fits neither slot.",
+        source: "Swan, PEU (4e), §148",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-abstract-04",
+        stem: "1) After years of study, Einstein finally saw the ___ of learning mathematics through intuition rather than formula.\n2) The seamstress pricked her finger on the sharp ___ of the needle as she rushed to finish the last hem.",
+        options: ["point", "aim", "tip"],
+        answer: "point",
+        explanation: "'Point' is the purpose or value of something and the sharp tip of a needle.",
+        fullExplanation: "Sentence 1 uses 'point' as purpose or value ('saw the point of learning'). Sentence 2 uses 'point' as the sharp tip of a needle ('the point of the needle'). 'Aim' means purpose in S1 but the sharp 'aim' of a needle is not standard. 'Tip' is used for the end of a needle in S2 but 'saw the tip of learning' is not an idiomatic expression of understanding.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-abstract-05",
+        stem: "1) Sherlock Holmes described the criminal's decision to leave the country as a clever ___ that had almost worked.\n2) After studying the board for ten minutes, Fischer made one decisive ___ that completely shocked his opponent.",
+        options: ["move", "drive", "charge"],
+        answer: "move",
+        explanation: "'Move' is a strategic action in a situation and a piece move in a board game.",
+        fullExplanation: "Sentence 1 uses 'move' as a strategic action ('a clever move'). Sentence 2 uses 'move' as a chess piece move ('one decisive move'). 'Drive' can suggest a campaign but 'clever drive to leave the country' is not natural, and 'decisive drive' in chess is non-standard. 'Charge' fits neither sense here.",
+        source: "Longman",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-abstract-06",
+        stem: "1) The comedian faced a formal ___ of plagiarism when three of his older routines were traced to prior material.\n2) The young boxer entered the ring with such ___ and aggression that his opponent backed off from the first bell.",
+        options: ["charge", "claim", "rush"],
+        answer: "charge",
+        explanation: "'Charge' is a formal legal accusation and the energetic rush of an aggressive fighter.",
+        fullExplanation: "Sentence 1 uses 'charge' as a formal legal accusation ('charge of plagiarism'). Sentence 2 uses 'charge' as an energetic, attacking rush ('with such charge and aggression'). 'Claim' fits S1 (a claim of plagiarism) but 'entered with such claim and aggression' is not natural. 'Rush' fits S2 loosely but 'a formal rush of plagiarism' is not a legal term.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "personalities"
+      },
+      {
+        id: "w2s-abstract-07",
+        stem: "1) The Roman army's long ___ of unbroken victories in Gaul ended abruptly at the battle of Teutoburg Forest.\n2) After the defeat, hundreds of soldiers made a desperate ___ for the nearest forest to escape the pursuing tribes.",
+        options: ["run", "line", "move"],
+        answer: "run",
+        explanation: "'Run' is an unbroken sequence of victories and a fast dash to reach safety.",
+        fullExplanation: "Sentence 1 uses 'run' as an unbroken sequence ('a run of victories'). Sentence 2 uses 'run' as a fast dash for safety ('made a desperate run for the forest'). 'Line' of victories could mean a succession but 'made a desperate line for the forest' is not natural English. 'Move' could describe S2 ('made a move') but 'a long move of victories' is not an idiom.",
+        source: "Longman",
+        flavor: "history"
+      },
+      {
+        id: "w2s-abstract-08",
+        stem: "1) Napoleon's disastrous ___ into Russia in the winter of 1812 destroyed the core of his Grande Armée.\n2) After the peace treaty was signed, the victorious army marched up the long ceremonial ___ to the palace.",
+        options: ["drive", "march", "charge"],
+        answer: "drive",
+        explanation: "'Drive' is a large-scale military campaign or push and a formal road leading to a building.",
+        fullExplanation: "Sentence 1 uses 'drive' as a large-scale military campaign or advance ('drive into Russia'). Sentence 2 uses 'drive' as the formal road leading to a building ('ceremonial drive to the palace'). 'March into Russia' is equally natural for S1, but 'the long ceremonial march to the palace' would mean the procession itself, not a fixed road. 'Charge' is a short rush, not a months-long campaign.",
+        source: "Oxford",
+        flavor: "history"
+      },
+      {
+        id: "w2s-abstract-09",
+        stem: "1) The Tudor king traced his royal ___ directly back to the Norman conquerors who crossed the Channel in 1066.\n2) When the enemy cavalry broke through, the entire ___ of foot soldiers collapsed within minutes.",
+        options: ["line", "run", "link"],
+        answer: "line",
+        explanation: "'Line' is a line of descent or lineage and a battle formation of soldiers.",
+        fullExplanation: "Sentence 1 uses 'line' as a line of descent or ancestry ('royal line'). Sentence 2 uses 'line' as a military formation ('line of foot soldiers'). 'Run' of descent and 'run of foot soldiers' are both non-standard. 'Link' means a connection in a chain but 'his royal link back to the Normans' is awkward and 'the entire link of soldiers' is not a military formation term.",
+        source: "Oxford",
+        flavor: "history"
+      },
+      {
+        id: "w2s-abstract-10",
+        stem: "1) By the mid-19th century, the colonists had developed a deep ___ of shared national identity across the continent.\n2) In the original Latin ___, the word 'virtue' referred not to moral goodness but to manly courage and force.",
+        options: ["sense", "feeling", "meaning"],
+        answer: "sense",
+        explanation: "'Sense' is a general feeling or shared impression and the specific meaning of a word.",
+        fullExplanation: "Sentence 1 uses 'sense' as a general feeling or shared impression ('a sense of identity'). Sentence 2 uses 'sense' as the specific meaning or interpretation of a word ('in the original Latin sense'). 'Feeling of national identity' is natural for S1 but 'in the original Latin feeling' is not idiomatic. 'Meaning of national identity' is unusual, and 'the original Latin meaning' is correct but the fixed phrase that contrasts technical and everyday usage is 'in the ___ of', not 'meaning of'.",
+        source: "Academic Word List",
+        flavor: "history"
+      },
+      {
+        id: "w2s-abstract-11",
+        stem: "1) Historians have found little common ___ for agreement between the two main rival accounts of the battle's outcome.\n2) The army dug its forward trenches into hard, rocky ___ that broke three spades before the work was finished.",
+        options: ["ground", "basis", "sense"],
+        answer: "ground",
+        explanation: "'Ground' is a basis or reason for something and the physical earth or terrain.",
+        fullExplanation: "Sentence 1 uses 'ground' as a basis or justification ('common ground for agreement'). Sentence 2 uses 'ground' as the physical earth or terrain ('rocky ground'). 'Basis for agreement' is equally natural for S1 but 'hard, rocky basis' is not a natural description of terrain. 'Sense for agreement' is not standard, and 'rocky sense' is meaningless.",
+        source: "Academic Word List",
+        flavor: "history"
+      },
+      {
+        id: "w2s-abstract-12",
+        stem: "1) By the 1930s, Churchill had built a powerful ___ of supporters inside the Cabinet who would back him in a crisis.\n2) The medieval builders constructed a wide defensive ___ of stone walls that enclosed the entire city on all sides.",
+        options: ["ring", "circle", "chain"],
+        answer: "ring",
+        explanation: "'Ring' is a tight organised network of allies and a circular structure enclosing something.",
+        fullExplanation: "Sentence 1 uses 'ring' as a tight organised network ('ring of supporters', parallel to 'spy ring'). Sentence 2 uses 'ring' as a circular enclosure ('ring of stone walls'). 'Circle of supporters' is natural but 'a circular chain of stone walls' and 'a defensive circle of walls' are less standard. 'Chain of supporters' is natural but 'defensive chain of walls' does not convey the circular enclosure that 'ring' does.",
+        source: "Oxford",
+        flavor: "history"
+      },
+      {
+        id: "w2s-abstract-13",
+        stem: "1) The chef offered each judge a small ___ of the sauce before adding the final seasoning to the main dish.\n2) The shop was decorated entirely in chrome and glass, which was clearly not to everyone's ___ in the neighbourhood.",
+        options: ["taste", "sample", "sense"],
+        answer: "taste",
+        explanation: "'Taste' is a small portion of food and the personal sense of aesthetic preference.",
+        fullExplanation: "Sentence 1 uses 'taste' as a small portion of food given to a judge. Sentence 2 uses 'taste' as personal aesthetic preference ('not to everyone's taste'). 'Sample' fits S1 ('a small sample of sauce') but 'not to everyone's sample' is not an idiom for aesthetic preference. 'Sense' of the sauce is not natural, and 'not to everyone's sense' is non-standard.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "social"
+      },
+      {
+        id: "w2s-abstract-14",
+        stem: "1) The instructor showed the class a classic opening ___ in chess that had been in use since the 19th century.\n2) Bringing a small gift to the first meeting was an inspired ___ that the client immediately appreciated.",
+        options: ["move", "play", "step"],
+        answer: "move",
+        explanation: "'Move' is a chess piece move and a strategic social action.",
+        fullExplanation: "Sentence 1 uses 'move' as a chess piece move ('opening move in chess'). Sentence 2 uses 'move' as a smart strategic action ('an inspired move'). 'Play' could describe S2 ('an inspired play') but 'opening play in chess' is not standard — chess uses 'move'. 'Step' is not standard chess terminology, and 'inspired step' is less idiomatic than 'inspired move'.",
+        source: "Longman",
+        flavor: "social"
+      },
+      {
+        id: "w2s-abstract-15",
+        stem: "1) The landlord had added a mystery ___ to the bill that the tenant could not find on any previous receipt.\n2) After reviewing the CCTV footage, the police brought a ___ of vandalism against the three teenagers.",
+        options: ["charge", "fee", "line"],
+        answer: "charge",
+        explanation: "'Charge' is a cost or billing item and a formal legal accusation.",
+        fullExplanation: "Sentence 1 uses 'charge' as a billing cost ('mystery charge on the bill'). Sentence 2 uses 'charge' as a formal legal accusation ('charge of vandalism'). 'Fee' fits S1 ('mystery fee on the bill') but 'a fee of vandalism' is not a legal term. 'Line' fits neither slot in these senses.",
+        source: "Swan, PEU (4e), §148",
+        flavor: "social"
+      },
+      {
+        id: "w2s-abstract-16",
+        stem: "1) She dropped her old teacher a short ___ to thank him for the reference he had written three years earlier.\n2) They waited in a long ___ outside the cinema for over forty minutes before they could buy any tickets.",
+        options: ["line", "note", "run"],
+        answer: "line",
+        explanation: "'Line' is a brief informal letter or message and a queue of people waiting.",
+        fullExplanation: "Sentence 1 uses 'line' as a brief informal written message ('drop someone a line'). Sentence 2 uses 'line' as a queue of people ('a long line'). 'Note' fits S1 ('dropped a short note') but 'waited in a long note' is not natural. 'Run' fits neither slot here.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "social"
+      },
+      {
+        id: "w2s-abstract-17",
+        stem: "1) It makes no ___ at all to keep paying for a gym membership if you visit only twice a year.\n2) The word 'awful' was once used in the positive ___ of 'worthy of awe', long before its modern negative meaning.",
+        options: ["sense", "point", "reason"],
+        answer: "sense",
+        explanation: "'Sense' is practical logic or rationality and the specific meaning of a word.",
+        fullExplanation: "Sentence 1 uses 'sense' in the expression 'makes no sense' (practical logic). Sentence 2 uses 'sense' as the specific meaning of a word ('in the positive sense of'). 'Point' could replace 'sense' in S1 ('makes no point' is marginal but 'there's no point' is standard) however 'in the positive point of awful' is non-standard. 'Reason' fits S1 loosely but 'in the positive reason of a word' is not standard.",
+        source: "Oxford",
+        flavor: "social"
+      },
+      {
+        id: "w2s-abstract-18",
+        stem: "1) She argued on solid logical ___ that the new parking regulation would be impossible to enforce fairly.\n2) The expedition team tested the frozen ___ carefully with poles before setting up their first camp on the glacier.",
+        options: ["ground", "basis", "terrain"],
+        answer: "ground",
+        explanation: "'Ground' is a basis or logical foundation and physical earth or land surface.",
+        fullExplanation: "Sentence 1 uses 'ground' as a logical foundation or justification ('argued on solid ground'). Sentence 2 uses 'ground' as the physical earth or frozen terrain. 'Basis' fits S1 ('solid logical basis') but 'tested the frozen basis' is not natural for physical terrain. 'Terrain' fits S2 ('frozen terrain') but 'argued on solid logical terrain' is a metaphor, whereas 'argued on solid ground' is the fixed idiom.",
+        source: "Academic Word List",
+        flavor: "social"
+      },
+      {
+        id: "w2s-abstract-19",
+        stem: "1) In bioinformatics, each ___ of the sequence-alignment algorithm took approximately three hours to complete.\n2) The athlete added a steep hill to her regular morning ___ to build more resistance into her training schedule.",
+        options: ["run", "cycle", "pass"],
+        answer: "run",
+        explanation: "'Run' is one execution of a computational algorithm and a training run on foot.",
+        fullExplanation: "Sentence 1 uses 'run' as one execution of a computer algorithm ('a run of the algorithm'). Sentence 2 uses 'run' as a training run on foot. 'Cycle' fits S1 (an algorithm cycle) but suggests the athlete is cycling, not running, in S2. 'Pass' fits S1 loosely ('a pass of the algorithm') but 'morning pass' for a training run is not standard.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-abstract-20",
+        stem: "1) Water reaches its boiling ___ at exactly 100 degrees Celsius at standard atmospheric pressure.\n2) Each ___ on the scatter graph represents the result from a single experimental trial in the study.",
+        options: ["point", "stage", "value"],
+        answer: "point",
+        explanation: "'Point' is a specific critical temperature threshold and a plotted position on a graph.",
+        fullExplanation: "Sentence 1 uses 'point' as the temperature threshold ('boiling point'). Sentence 2 uses 'point' as a plotted position on a graph. 'Stage' — 'boiling stage' is not the standard scientific term ('boiling point' is fixed). 'Value' could describe a data point in S2 ('each value on the graph') but 'boiling value' is not a scientific term.",
+        source: "Murphy, EGU (4e), Unit 80",
+        flavor: "science"
+      },
+      {
+        id: "w2s-abstract-21",
+        stem: "1) The nurse drew a strict ___ between the sterile and non-sterile zones before beginning the surgical procedure.\n2) The calibration ___ on the graph passed precisely through the origin and all three reference points.",
+        options: ["line", "boundary", "limit"],
+        answer: "line",
+        explanation: "'Line' is a boundary division and a plotted straight line on a calibration graph.",
+        fullExplanation: "Sentence 1 uses 'line' as a dividing mark between zones ('draw a line between zones'). Sentence 2 uses 'line' as the plotted straight line on a graph ('calibration line'). 'Boundary' fits S1 ('draw a strict boundary') but 'calibration boundary' is not a standard graph term. 'Limit' fits S1 loosely but 'calibration limit' is not the standard term for a plotted straight line.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-abstract-22",
+        stem: "1) In the strict technical ___, the word 'energy' in physics has a precise meaning very different from everyday usage.\n2) The experiment was designed to test whether bees possess a magnetic ___ that helps them navigate over long distances.",
+        options: ["sense", "meaning", "faculty"],
+        answer: "sense",
+        explanation: "'Sense' is the specific technical meaning of a word and a biological perceptual faculty.",
+        fullExplanation: "Sentence 1 uses 'sense' as the specific technical meaning of a word ('in the strict technical sense'). Sentence 2 uses 'sense' as a biological perceptual ability ('magnetic sense'). 'Meaning' fits S1 ('in the strict technical meaning') but 'magnetic meaning' is not used for a biological sensory ability. 'Faculty' fits S2 ('magnetic faculty') but 'in the strict technical faculty' is not the standard English phrase for the meaning of a term.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-abstract-23",
+        stem: "1) The remote island was chosen as a ___ for a series of nuclear tests that were conducted throughout the 1950s.\n2) With this research, the team was breaking entirely new ___ in the scientific study of antibiotic resistance.",
+        options: ["ground", "site", "base"],
+        answer: "ground",
+        explanation: "'Ground' is a testing ground (location for experiments) and the figurative terrain of a new field.",
+        fullExplanation: "Sentence 1 uses 'ground' as a testing or proving ground ('testing ground for nuclear tests'). Sentence 2 uses 'ground' in the fixed idiom 'breaking new ground' — doing something genuinely new. 'Site' fits S1 ('testing site') but 'breaking entirely new site' is not an English idiom. 'Base' fits S1 ('testing base') but 'breaking entirely new base' is also non-idiomatic.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-abstract-24",
+        stem: "1) Chemists draw benzene as a hexagonal ___ of six carbon atoms in which all the bond lengths are equal.\n2) Researchers confirmed that Saturn's outermost ___ is composed mainly of water ice and extends for thousands of kilometres.",
+        options: ["ring", "chain", "band"],
+        answer: "ring",
+        explanation: "'Ring' is a cyclic molecular structure in chemistry and a band of material encircling a planet.",
+        fullExplanation: "Sentence 1 uses 'ring' as the cyclic molecular structure of benzene ('benzene ring' — a standard chemistry term). Sentence 2 uses 'ring' as the circular material encircling a planet ('Saturn's outermost ring'). 'Chain' is a standard chemistry term for linear carbon structures but benzene is cyclic, not a chain. 'Band' is used for Saturn's atmospheric bands and for spectral bands but 'benzene band' is not the standard structural term.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "w2s-abstract-25",
+        stem: "1) Einstein wrote that imagination and sheer intellectual ___ matter far more than accumulated knowledge in research.\n2) He would end each long working day with a quiet ___ through the leafy streets of Princeton before supper.",
+        options: ["drive", "push", "force"],
+        answer: "drive",
+        explanation: "'Drive' is intellectual ambition or motivation and a journey taken in a vehicle.",
+        fullExplanation: "Sentence 1 uses 'drive' as intellectual ambition or motivation ('intellectual drive'). Sentence 2 uses 'drive' as a journey taken in a vehicle ('a quiet drive through the streets'). 'Push' could mean effort in S1 but 'a quiet push through the streets' suggests walking or physical effort, not a vehicle journey. 'Force' fits S1 ('intellectual force') but 'a quiet force through the streets' is not natural.",
+        source: "Adapted, attributed to Albert Einstein",
+        flavor: "quotes",
+        author: "Albert Einstein"
+      },
+      {
+        id: "w2s-abstract-26",
+        stem: "1) Oscar Wilde wrote that a man with no knowledge of fine ___ is a man with no knowledge of himself.\n2) The sommelier offered each guest a small ___ of the vintage reserve before taking the final dinner orders.",
+        options: ["taste", "sense", "feeling"],
+        answer: "taste",
+        explanation: "'Taste' is the faculty of aesthetic discernment and a small sample of food or drink.",
+        fullExplanation: "Sentence 1 uses 'taste' as the faculty of aesthetic discernment ('fine taste'). Sentence 2 uses 'taste' as a small sample of food or drink ('a small taste of the reserve'). 'Sense' fits S1 ('knowledge of fine sense' is possible) but 'a small sense of the vintage reserve' is not how a sommelier describes a sip. 'Feeling' fits neither slot naturally in either the aesthetic or the sommelier sense.",
+        source: "Adapted, attributed to Oscar Wilde",
+        flavor: "quotes",
+        author: "Oscar Wilde"
+      },
+      {
+        id: "w2s-abstract-27",
+        stem: "1) Kasparov once wrote that every grandmaster must evaluate ten possible ___ before committing to one on the board.\n2) The diplomat made her opening ___ by proposing a two-week ceasefire at the very start of the first session.",
+        options: ["move", "play", "step"],
+        answer: "move",
+        explanation: "'Move' is a chess piece move and a strategic diplomatic action.",
+        fullExplanation: "Sentence 1 uses 'move' as a chess piece move ('ten possible moves' — the standard term in chess). Sentence 2 uses 'move' as a strategic diplomatic action ('opening move'). 'Play' is used in sports strategy but 'possible play' in chess is non-standard. 'Step' is not a chess term, and 'opening step' in diplomacy is less idiomatic than 'opening move'.",
+        source: "Adapted, attributed to Garry Kasparov",
+        flavor: "quotes",
+        author: "Garry Kasparov"
+      },
+      {
+        id: "w2s-abstract-28",
+        stem: "1) Aristotle wrote that the true ___ of education is not to fill a vessel with facts but to light a fire in the mind.\n2) The student pressed the sharp ___ of her pencil into the paper so hard that it went straight through.",
+        options: ["point", "aim", "purpose"],
+        answer: "point",
+        explanation: "'Point' is the purpose or meaningful value of something and the sharp tip of a pencil.",
+        fullExplanation: "Sentence 1 uses 'point' as the purpose or essential meaning of something ('the point of education'). Sentence 2 uses 'point' as the sharp tip of a pencil ('the point of the pencil'). 'Aim' fits S1 ('the aim of education') but 'the sharp aim of her pencil' is not a natural way to describe the pointed tip. 'Purpose' fits S1 but 'the sharp purpose of a pencil' is also non-standard.",
+        source: "Adapted, attributed to Aristotle",
+        flavor: "quotes",
+        author: "Aristotle"
+      },
+      {
+        id: "w2s-abstract-29",
+        stem: "1) Churchill wrote that the greatest ___ a democracy faces is the moment when its citizens stop asking why.\n2) The cavalry swept down the hill in a thunderous ___ that scattered the enemy infantry within minutes.",
+        options: ["charge", "threat", "challenge"],
+        answer: "charge",
+        explanation: "'Charge' is the gravest responsibility a society carries and a cavalry attack.",
+        fullExplanation: "Sentence 1 uses 'charge' as the gravest responsibility or duty placed upon something ('the greatest charge a democracy faces'). Sentence 2 uses 'charge' as a cavalry attack ('thunderous charge'). 'Threat' fits S1 ('greatest threat a democracy faces') but 'thunderous threat that scattered infantry' is not natural — a threat does not physically scatter soldiers. 'Challenge' fits S1 but 'thunderous challenge of the cavalry' is not the technical military term.",
+        source: "Adapted, attributed to Winston Churchill",
+        flavor: "quotes",
+        author: "Winston Churchill"
+      },
+      {
+        id: "w2s-abstract-30",
+        stem: "1) The writer argued that every memorable sentence must carry a clear ___ of authenticity to distinguish it from hollow words.\n2) The referee signalled the end of the bout, and the boxer raised his fist as he left the empty ___.",
+        options: ["ring", "note", "air"],
+        answer: "ring",
+        explanation: "'Ring' is the resonant quality of something that sounds authentic and the raised platform of a boxing arena.",
+        fullExplanation: "Sentence 1 uses 'ring' as the resonant, authentic quality of a phrase ('a ring of authenticity'). Sentence 2 uses 'ring' as the raised platform where boxers fight ('boxing ring'). 'Note' fits S1 ('a clear note of authenticity') but 'left the empty note' makes no sense for a boxing arena. 'Air' fits S1 ('an air of authenticity') but 'left the empty air' is not the name for a boxing arena.",
+        source: "Adapted, attributed to Virginia Woolf",
+        flavor: "quotes",
+        author: "Virginia Woolf"
+      }
+    ]
+  },
+  "err-para": {
+    id: "err-para",
+    name: "Parallel-structure errors (redundant word)",
+    canonicalSubId: "cs-err-para",
+    canonicalTopicId: "extra-word",
+    tasks: [
+      {
+        id: "err-para-01",
+        stem: "Mozart enjoyed composing, performing, and to conduct his own operas throughout his short life. Find the redundant word: ___",
+        options: ["to", "composing", "performing"],
+        answer: "to",
+        explanation: "'To' breaks the gerund list; the parallel series requires 'composing, performing, and conducting'.",
+        fullExplanation: "The list begins with two gerunds ('composing, performing'), so the third item must also be a gerund ('conducting'). Inserting 'to' before 'conduct' converts the third item into an infinitive, breaking parallelism. Removing 'to' leaves 'conduct' — still non-gerund — but the single edit that restores the gerund series is striking the redundant 'to'. 'Composing' and 'performing' are the anchor gerunds that define the required form.",
+        source: "Swan, PEU (4e), §535",
+        flavor: "personalities"
+      },
+      {
+        id: "err-para-02",
+        stem: "Einstein became more famous than he had ever been more imagined during his lifetime. Find the redundant word: ___",
+        options: ["more", "famous", "imagined"],
+        answer: "more",
+        explanation: "Only one 'more' is needed for the comparative; the second 'more' is redundant.",
+        fullExplanation: "The comparative is formed by a single 'more' before the adjective: 'more famous than he had ever imagined'. The second 'more' before 'imagined' is a stray duplicate that creates no additional meaning. 'Famous' is the adjective being compared, and 'imagined' is the verb of the subordinate clause — both are needed.",
+        source: "Murphy, EGU (4e), Unit 105",
+        flavor: "personalities"
+      },
+      {
+        id: "err-para-03",
+        stem: "Newton was not only a physicist but also was a dedicated alchemist and theologian. Find the redundant word: ___",
+        options: ["was", "only", "dedicated"],
+        answer: "was",
+        explanation: "'Not only X but also Y' requires parallel elements; the second 'was' breaks the noun-phrase parallel.",
+        fullExplanation: "In the correlative 'not only ... but also ...', both elements must match grammatically. Here the first slot is a noun phrase ('a physicist'), so the second must also be a noun phrase ('a dedicated alchemist and theologian'). The extra auxiliary 'was' between 'also' and 'a dedicated alchemist' creates an unwanted second clause. 'Only' is part of the correlative and 'dedicated' modifies the second noun phrase — both are necessary.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "personalities"
+      },
+      {
+        id: "err-para-04",
+        stem: "Marie Curie was both a pioneering scientist and also a devoted mother to her two daughters. Find the redundant word: ___",
+        options: ["also", "both", "devoted"],
+        answer: "also",
+        explanation: "'Both X and Y' already expresses addition; 'also' duplicates the meaning and breaks the correlative pair.",
+        fullExplanation: "The correlative 'both ... and ...' is a fixed pair that already signals that two things apply. Adding 'also' after 'and' doubles the additive meaning and breaks the tight parallel. 'Both' is the opening of the correlative, and 'devoted' modifies 'mother'; neither can be removed without damaging the sentence.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "personalities"
+      },
+      {
+        id: "err-para-05",
+        stem: "Serena Williams spent the off-season training, recovering, and to mentor younger players on the tour. Find the redundant word: ___",
+        options: ["to", "training", "younger"],
+        answer: "to",
+        explanation: "The gerund list requires 'mentoring'; 'to' breaks the parallel series.",
+        fullExplanation: "Two gerunds ('training, recovering') set the pattern, so the third list item must also be a gerund ('mentoring'). Inserting 'to' before 'mentor' forces an infinitive that breaks the series. 'Training' anchors the gerund series, and 'younger' modifies 'players' — both are essential.",
+        source: "Murphy, EGU (4e), Unit 56",
+        flavor: "personalities"
+      },
+      {
+        id: "err-para-06",
+        stem: "Steve Jobs neither wrote code himself nor did not design the original hardware on his own. Find the redundant word: ___",
+        options: ["not", "neither", "design"],
+        answer: "not",
+        explanation: "'Neither ... nor' is already negative; the extra 'not' creates a double negation that breaks parallel.",
+        fullExplanation: "'Neither ... nor' is an inherently negative correlative: 'neither wrote ... nor designed ...'. Inserting 'not' after 'did' creates a double negation ('nor did not design'), which logically reverses the intended meaning and breaks the parallel between the two negated verb phrases. 'Neither' opens the correlative and 'design' is the second verb — both are required.",
+        source: "Swan, PEU (4e), §380",
+        flavor: "personalities"
+      },
+      {
+        id: "err-para-07",
+        stem: "During the war, civilians either queued for hours or to travelled long distances for basic food supplies. Find the redundant word: ___",
+        options: ["to", "either", "basic"],
+        answer: "to",
+        explanation: "'Either ... or' pairs matching verbs; 'to' breaks the finite-verb parallel.",
+        fullExplanation: "The 'either ... or' correlative requires matching grammatical forms. The first alternative uses a finite past verb ('queued'), so the second must also be finite ('travelled'). Inserting 'to' before 'travelled' does not create a grammatical infinitive (infinitives take the bare stem, not the past form), so 'to' is simply a redundant word that breaks the parallel. 'Either' and 'basic' are needed for the correlative and the noun phrase.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "history"
+      },
+      {
+        id: "err-para-08",
+        stem: "The fall of Rome was one of the most greatest turning points in all of recorded European history. Find the redundant word: ___",
+        options: ["most", "greatest", "recorded"],
+        answer: "most",
+        explanation: "'Greatest' is already the superlative; 'most' duplicates the marking.",
+        fullExplanation: "Short adjectives form the superlative with '-est' alone ('greatest'), and longer adjectives take 'most + adjective'. Using both 'most' and '-est' together is a double superlative, a classic non-standard form. Remove 'most' to leave 'one of the greatest turning points'. 'Greatest' carries the superlative meaning, and 'recorded' is a necessary modifier of 'history'.",
+        source: "Murphy, EGU (4e), Unit 107",
+        flavor: "history"
+      },
+      {
+        id: "err-para-09",
+        stem: "The French Revolution produced both radical political reforms and also lasting social changes across Europe. Find the redundant word: ___",
+        options: ["also", "both", "lasting"],
+        answer: "also",
+        explanation: "'Both X and Y' already links two items; 'also' is redundant and breaks the tight correlative.",
+        fullExplanation: "'Both ... and ...' is a fixed correlative that expresses conjoined addition. Inserting 'also' after 'and' duplicates the additive sense and breaks the parallel between 'radical political reforms' and 'lasting social changes'. 'Both' opens the correlative, and 'lasting' is an essential modifier of 'social changes'.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "history"
+      },
+      {
+        id: "err-para-10",
+        stem: "Napoleon's army marched, camped, and to fought across half of continental Europe in five years. Find the redundant word: ___",
+        options: ["to", "camped", "continental"],
+        answer: "to",
+        explanation: "The past-tense series needs 'fought'; 'to' breaks the finite-verb parallel.",
+        fullExplanation: "The list uses past-simple verbs ('marched, camped') as its anchor, so the third item must also be past simple ('fought'). Inserting 'to' before 'fought' does not produce a valid infinitive (infinitives use the bare stem, not the past form), so it is simply a redundant word that disrupts the parallel series. 'Camped' is the second verb in the chain, and 'continental' modifies 'Europe' — both remain.",
+        source: "Murphy, EGU (4e), Unit 56",
+        flavor: "history"
+      },
+      {
+        id: "err-para-11",
+        stem: "The Industrial Revolution was not only a technological shift but also was a profound social upheaval. Find the redundant word: ___",
+        options: ["was", "only", "profound"],
+        answer: "was",
+        explanation: "'Not only X but also Y' requires parallel noun phrases; the second 'was' breaks the structure.",
+        fullExplanation: "With a single main verb 'was', the correlative 'not only ... but also ...' must link two parallel noun phrases: 'a technological shift' and 'a profound social upheaval'. Inserting a second 'was' after 'also' turns the second slot into a full clause and breaks the parallel. 'Only' is part of the correlative, and 'profound' modifies 'upheaval' — both are needed.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "history"
+      },
+      {
+        id: "err-para-12",
+        stem: "The Cold War divided the world between the American and or the Soviet spheres of influence for decades. Find the redundant word: ___",
+        options: ["or", "between", "spheres"],
+        answer: "or",
+        explanation: "'Between X and Y' is the fixed structure; 'or' is not used in this pairing.",
+        fullExplanation: "The preposition 'between' pairs with 'and', not 'or', when introducing two alternatives: 'between the American and the Soviet spheres'. Inserting 'or' between 'and' and 'the Soviet' creates a nonstandard three-way conjunction that breaks the parallel between the two labelled spheres. 'Between' opens the structure, and 'spheres' is the head noun — both remain.",
+        source: "Swan, PEU (4e), §104",
+        flavor: "history"
+      },
+      {
+        id: "err-para-13",
+        stem: "Modern teenagers spend their evenings messaging friends, watching videos, and to playing online games. Find the redundant word: ___",
+        options: ["to", "messaging", "online"],
+        answer: "to",
+        explanation: "The gerund series requires 'playing'; 'to' before a gerund is redundant and breaks parallel.",
+        fullExplanation: "Two gerunds ('messaging, watching') anchor the list, so the third item must also be a gerund ('playing'). Placing 'to' before 'playing' is not a valid infinitive (infinitives use the bare stem, not the -ing form), so 'to' is simply an extra word that breaks the gerund series. 'Messaging' is the anchor gerund, and 'online' modifies 'games'.",
+        source: "Murphy, EGU (4e), Unit 56",
+        flavor: "social"
+      },
+      {
+        id: "err-para-14",
+        stem: "Office workers are not only underpaid but also are increasingly expected to work long unpaid overtime. Find the redundant word: ___",
+        options: ["are", "only", "long"],
+        answer: "are",
+        explanation: "'Not only X but also Y' needs parallel adjective/participle phrases; the second 'are' breaks the structure.",
+        fullExplanation: "With a single copula 'are' at the start, the correlative 'not only ... but also ...' must link parallel complements: 'underpaid' (adjective) and 'increasingly expected to work long unpaid overtime' (participial phrase). Inserting a second 'are' after 'also' creates a new clause and destroys the parallel. 'Only' is part of the correlative, and 'long' modifies 'overtime' — both are required.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "social"
+      },
+      {
+        id: "err-para-15",
+        stem: "Working parents either take their children to day care or to leave them with relatives during office hours. Find the redundant word: ___",
+        options: ["to", "either", "office"],
+        answer: "to",
+        explanation: "'Either ... or' pairs matching verb phrases; the extra 'to' breaks the parallel.",
+        fullExplanation: "'Either ... or ...' requires the two alternatives to share grammatical form. The first option is a present-simple verb phrase ('take their children to day care'), so the second must be parallel ('leave them with relatives'). Inserting 'to' before 'leave' forces an infinitive that breaks the finite-verb parallel. 'Either' opens the correlative, and 'office' modifies 'hours'.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "social"
+      },
+      {
+        id: "err-para-16",
+        stem: "University students today face both crushing tuition costs and also uncertain job prospects after graduation. Find the redundant word: ___",
+        options: ["also", "both", "uncertain"],
+        answer: "also",
+        explanation: "'Both X and Y' already expresses addition; 'also' is redundant.",
+        fullExplanation: "The correlative 'both ... and ...' is a fixed pair that signals two applicable items. Inserting 'also' after 'and' duplicates the additive meaning and disrupts the parallel between 'crushing tuition costs' and 'uncertain job prospects'. 'Both' is the opening of the correlative, and 'uncertain' is a necessary modifier.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "social"
+      },
+      {
+        id: "err-para-17",
+        stem: "Daily commuters complain that traffic has become much more worse since the new office towers opened downtown. Find the redundant word: ___",
+        options: ["more", "worse", "office"],
+        answer: "more",
+        explanation: "'Worse' is already a comparative; 'more' duplicates the comparative marking.",
+        fullExplanation: "'Worse' is the irregular comparative form of 'bad'. English marks the comparative once: either with 'more + adjective' (for long adjectives) or with '-er' or an irregular form ('worse'). Combining 'more' with 'worse' is a classic double comparative. Remove 'more' to leave 'much worse'. 'Worse' carries the comparative meaning, and 'office' is a necessary modifier.",
+        source: "Murphy, EGU (4e), Unit 105",
+        flavor: "social"
+      },
+      {
+        id: "err-para-18",
+        stem: "Climate activists are neither trusted by governments nor are not supported by major industrial lobbies. Find the redundant word: ___",
+        options: ["not", "neither", "supported"],
+        answer: "not",
+        explanation: "'Neither ... nor' is already negative; the extra 'not' creates a double negation.",
+        fullExplanation: "'Neither ... nor' is inherently negative: 'neither trusted ... nor supported ...'. Inserting 'not' after 'are' in the second half creates a double negation ('nor are not supported'), which logically reverses the intended meaning and breaks the parallel between the two negated passive verb phrases. 'Neither' opens the correlative, and 'supported' is the second passive participle.",
+        source: "Swan, PEU (4e), §380",
+        flavor: "social"
+      },
+      {
+        id: "err-para-19",
+        stem: "Tropical plants thrive by absorbing sunlight, storing water, and to releasing oxygen through their leaves. Find the redundant word: ___",
+        options: ["to", "absorbing", "through"],
+        answer: "to",
+        explanation: "The gerund series requires 'releasing'; 'to' before a gerund is redundant.",
+        fullExplanation: "Two gerunds ('absorbing, storing') set the pattern after the preposition 'by', which always takes gerunds. The third item must therefore also be a gerund ('releasing'). Placing 'to' before 'releasing' is not a valid infinitive (infinitives use the bare stem), so 'to' is an extra word that breaks the gerund series. 'Absorbing' anchors the series, and 'through' is a necessary preposition.",
+        source: "Murphy, EGU (4e), Unit 56",
+        flavor: "science"
+      },
+      {
+        id: "err-para-20",
+        stem: "Chemical reactions are not only affected by temperature but also are influenced by pressure and catalyst choice. Find the redundant word: ___",
+        options: ["are", "only", "catalyst"],
+        answer: "are",
+        explanation: "'Not only X but also Y' requires parallel passive phrases; the second 'are' breaks the parallel.",
+        fullExplanation: "With a single copula 'are' at the start, the correlative 'not only ... but also ...' must connect parallel past-participle phrases: 'affected by temperature' and 'influenced by pressure and catalyst choice'. Inserting a second 'are' after 'also' forces a new finite clause and breaks the passive parallel. 'Only' is part of the correlative, and 'catalyst' is the head noun — both remain.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "science"
+      },
+      {
+        id: "err-para-21",
+        stem: "Neutron stars are far more denser than ordinary matter, with a teaspoon weighing billions of tonnes. Find the redundant word: ___",
+        options: ["more", "denser", "ordinary"],
+        answer: "more",
+        explanation: "'Denser' is already comparative; 'more' duplicates the marking.",
+        fullExplanation: "'Denser' is the -er comparative of 'dense'. English marks the comparative once, so 'more denser' is a double comparative. Remove 'more' to leave 'far denser than ordinary matter'. 'Denser' carries the comparative meaning, and 'ordinary' is a necessary modifier.",
+        source: "Murphy, EGU (4e), Unit 105",
+        flavor: "science"
+      },
+      {
+        id: "err-para-22",
+        stem: "The mitochondrion is both an energy producer and also a regulator of cellular metabolism in eukaryotic cells. Find the redundant word: ___",
+        options: ["also", "both", "cellular"],
+        answer: "also",
+        explanation: "'Both X and Y' already expresses addition; 'also' is redundant.",
+        fullExplanation: "The correlative 'both ... and ...' is a fixed pair that conjoins two items. Inserting 'also' after 'and' duplicates the additive meaning and breaks the parallel between 'an energy producer' and 'a regulator of cellular metabolism'. 'Both' opens the correlative, and 'cellular' is a necessary modifier of 'metabolism'.",
+        source: "Academic Word List",
+        flavor: "science"
+      },
+      {
+        id: "err-para-23",
+        stem: "Light either behaves like a wave or to acts like a particle depending on the experimental setup. Find the redundant word: ___",
+        options: ["to", "either", "experimental"],
+        answer: "to",
+        explanation: "'Either ... or' pairs finite verbs; 'to' breaks the parallel.",
+        fullExplanation: "The 'either ... or' correlative requires matching verb forms. The first alternative is a present-simple verb ('behaves'), so the second must be parallel ('acts'). Inserting 'to' before 'acts' forces an infinitive that breaks the finite-verb parallel. 'Either' opens the correlative, and 'experimental' modifies 'setup' — both are needed.",
+        source: "Swan, PEU (4e), §153",
+        flavor: "science"
+      },
+      {
+        id: "err-para-24",
+        stem: "Ecologists study the delicate balance between predator populations and or prey populations in every ecosystem. Find the redundant word: ___",
+        options: ["or", "between", "prey"],
+        answer: "or",
+        explanation: "'Between X and Y' is the fixed pairing; 'or' is not used in this structure.",
+        fullExplanation: "The preposition 'between' pairs with 'and', not 'or', when introducing two balanced items: 'between predator populations and prey populations'. Inserting 'or' after 'and' creates a nonstandard three-way conjunction and breaks the clean parallel between the two population types. 'Between' opens the pairing, and 'prey' is part of the second head noun.",
+        source: "Swan, PEU (4e), §104",
+        flavor: "science"
+      },
+      {
+        id: "err-para-25",
+        stem: "Life is about creating yourself, expressing yourself, and to discovering who you really are. Find the redundant word: ___",
+        options: ["to", "creating", "really"],
+        answer: "to",
+        explanation: "The gerund series requires 'discovering'; 'to' breaks the parallel.",
+        fullExplanation: "Two gerunds ('creating, expressing') set the pattern after 'about', which takes gerunds. The third item must also be a gerund ('discovering'). Placing 'to' before 'discovering' is not a valid infinitive (infinitives use the bare stem), so 'to' is an extra word that disrupts the series. 'Creating' anchors the gerund list, and 'really' is a necessary adverb.",
+        source: "Adapted, attributed to George Bernard Shaw",
+        flavor: "quotes",
+        author: "George Bernard Shaw"
+      },
+      {
+        id: "err-para-26",
+        stem: "Success is not only measured by victory but also is defined by how you recover from defeat. Find the redundant word: ___",
+        options: ["is", "only", "defeat"],
+        answer: "is",
+        explanation: "'Not only X but also Y' requires parallel passive phrases; the second 'is' breaks the parallel.",
+        fullExplanation: "With a single copula 'is', the correlative 'not only ... but also ...' must link parallel past-participle phrases: 'measured by victory' and 'defined by how you recover from defeat'. Inserting a second 'is' after 'also' forces a new clause and breaks the passive parallel. 'Only' is part of the correlative, and 'defeat' is a necessary noun.",
+        source: "Adapted, attributed to Winston Churchill",
+        flavor: "quotes",
+        author: "Winston Churchill"
+      },
+      {
+        id: "err-para-27",
+        stem: "Staying foolish is much more harder than people assume — most adults crave comfort and predictability. Find the redundant word: ___",
+        options: ["more", "harder", "predictability"],
+        answer: "more",
+        explanation: "'Harder' is already comparative; 'more' duplicates the marking.",
+        fullExplanation: "'Harder' is the -er comparative of 'hard'. English marks the comparative once, so 'more harder' is a double comparative. Remove 'more' to leave 'much harder than people assume'. 'Harder' carries the comparative meaning, and 'predictability' is the final noun — both are needed.",
+        source: "Adapted, attributed to Steve Jobs",
+        flavor: "quotes",
+        author: "Steve Jobs"
+      },
+      {
+        id: "err-para-28",
+        stem: "A wise person either learns from every mistake or to accepts the same failure a second time. Find the redundant word: ___",
+        options: ["to", "either", "mistake"],
+        answer: "to",
+        explanation: "'Either ... or' pairs matching finite verbs; 'to' breaks the parallel.",
+        fullExplanation: "The 'either ... or' correlative requires matching verb forms. The first alternative uses a present-simple verb ('learns'), so the second must be parallel ('accepts'). Inserting 'to' before 'accepts' forces an infinitive that breaks the finite-verb parallel. 'Either' opens the correlative, and 'mistake' is a needed noun.",
+        source: "Adapted, attributed to Confucius",
+        flavor: "quotes",
+        author: "Confucius"
+      },
+      {
+        id: "err-para-29",
+        stem: "Simplicity is both the soul of efficiency and also the mark of a well-ordered mind. Find the redundant word: ___",
+        options: ["also", "both", "mark"],
+        answer: "also",
+        explanation: "'Both X and Y' already expresses addition; 'also' is redundant.",
+        fullExplanation: "The correlative 'both ... and ...' is a fixed pair that conjoins two items. Inserting 'also' after 'and' duplicates the additive meaning and breaks the parallel between 'the soul of efficiency' and 'the mark of a well-ordered mind'. 'Both' opens the correlative, and 'mark' is the head of the second noun phrase.",
+        source: "Adapted, attributed to Henry David Thoreau",
+        flavor: "quotes",
+        author: "Henry David Thoreau"
+      },
+      {
+        id: "err-para-30",
+        stem: "Real freedom lies between doing what you must and or doing what you love for the rest of your life. Find the redundant word: ___",
+        options: ["or", "between", "rest"],
+        answer: "or",
+        explanation: "'Between X and Y' is the fixed structure; 'or' is not used here.",
+        fullExplanation: "The preposition 'between' pairs with 'and', not 'or', when introducing two parallel alternatives: 'between doing what you must and doing what you love'. Inserting 'or' after 'and' creates a nonstandard three-way conjunction that breaks the clean parallel between the two gerund phrases. 'Between' opens the structure, and 'rest' is part of the final noun phrase.",
+        source: "Adapted, attributed to Nelson Mandela",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      }
+    ]
+  },
+  "vt-narrative": {
+    id: "vt-narrative",
+    name: "Narrative tenses — past simple / continuous / perfect",
+    canonicalSubId: "cs-vt-narrative",
+    canonicalTopicId: "verb-tenses",
+    tasks: [
+      {
+        id: "vt-narrative-01",
+        stem: "When the reporters arrived at the concert hall, Mozart ___ the final movement of his new symphony.",
+        options: ["was conducting", "conducted", "had conducted"],
+        answer: "was conducting",
+        explanation: "'When the reporters arrived' interrupts an action already in progress — past continuous.",
+        fullExplanation: "The cue 'When the reporters arrived' sets a single completed event that interrupts a longer background action. Past continuous ('was conducting') describes the ongoing action at that moment. 'Conducted' would make both events completed and sequential, not simultaneous. 'Had conducted' would place the conducting before the arrival, which contradicts the scene of reporters walking in on the performance.",
+        source: "Murphy, EGU (4e), Unit 6",
+        hint: "conduct",
+        flavor: "personalities"
+      },
+      {
+        id: "vt-narrative-02",
+        stem: "By the time Einstein published his general theory in 1915, he ___ on the problem for almost a decade.",
+        options: ["had been working", "was working", "worked"],
+        answer: "had been working",
+        explanation: "'By the time ... published' + 'for almost a decade' signals an action completed before another past action — past perfect continuous.",
+        fullExplanation: "The anchor 'By the time Einstein published his general theory in 1915' marks a past reference point, and 'for almost a decade' measures the duration leading up to it. Past perfect continuous ('had been working') expresses a long action continuing up to that past moment. 'Was working' gives only a temporary state at 1915 without the ten-year span. 'Worked' would be a plain completed event with no sense of accumulated duration.",
+        source: "Swan, PEU (4e), §425",
+        hint: "work",
+        flavor: "personalities"
+      },
+      {
+        id: "vt-narrative-03",
+        stem: "Picasso ___ the first sketches for Guernica within a few days of hearing about the bombing.",
+        options: ["produced", "was producing", "had produced"],
+        answer: "produced",
+        explanation: "A completed event with a finished time frame takes past simple.",
+        fullExplanation: "The phrase 'within a few days of hearing about the bombing' gives a finished, completed time frame. Past simple ('produced') states the single completed act. 'Was producing' would describe an action in progress, not a finished set of sketches. 'Had produced' would require an even later reference point to be 'before', which the sentence does not give.",
+        source: "Murphy, EGU (4e), Unit 5",
+        hint: "produce",
+        flavor: "personalities"
+      },
+      {
+        id: "vt-narrative-04",
+        stem: "While Marie Curie ___ her doctoral research, she and Pierre isolated two new radioactive elements.",
+        options: ["was conducting", "conducted", "had conducted"],
+        answer: "was conducting",
+        explanation: "'While' + background action for a shorter completed event in the main clause — past continuous.",
+        fullExplanation: "'While' sets up a long background action during which another, shorter event happens. Past continuous ('was conducting') is the standard choice after 'while' for the background action. 'Conducted' would make the doctoral research a separate completed event, losing the simultaneity. 'Had conducted' would place the research before the isolation of the elements, contradicting the sense that both happened together.",
+        source: "Murphy, EGU (4e), Unit 6",
+        hint: "conduct",
+        flavor: "personalities"
+      },
+      {
+        id: "vt-narrative-05",
+        stem: "After Federer ___ his first Wimbledon title in 2003, he went on to win the tournament seven more times.",
+        options: ["had won", "was winning", "won"],
+        answer: "had won",
+        explanation: "'After X' + later main-clause action signals the earlier event was complete — past perfect.",
+        fullExplanation: "'After' explicitly places one past action before another. Past perfect ('had won') marks the earlier completed action ('first title in 2003') before the later main-clause action ('went on to win seven more times'). 'Was winning' would suggest the title was still in progress, which is impossible for a completed tournament. 'Won' is acceptable in casual speech but the formal narrative sequence calls for past perfect to signal the earlier event clearly.",
+        source: "Swan, PEU (4e), §424",
+        hint: "win",
+        flavor: "personalities"
+      },
+      {
+        id: "vt-narrative-06",
+        stem: "Steve Jobs ___ the first iPhone on stage at Macworld on January 9, 2007, holding the device up with one hand.",
+        options: ["introduced", "was introducing", "had introduced"],
+        answer: "introduced",
+        explanation: "A specific dated event takes past simple.",
+        fullExplanation: "The specific date 'January 9, 2007' marks a completed, finished event. Past simple ('introduced') is the standard form for a single completed action with a definite past time. 'Was introducing' would suggest the introduction was in progress with no clear endpoint. 'Had introduced' would require a later reference time to be 'before', which the sentence does not supply.",
+        source: "Murphy, EGU (4e), Unit 5",
+        hint: "introduce",
+        flavor: "personalities"
+      },
+      {
+        id: "vt-narrative-07",
+        stem: "The Roman Senate ___ the assassination of Caesar for weeks before the Ides of March finally arrived.",
+        options: ["had been planning", "was planning", "planned"],
+        answer: "had been planning",
+        explanation: "'Before' + duration phrase signals accumulated action before a past reference — past perfect continuous.",
+        fullExplanation: "'For weeks before the Ides of March finally arrived' gives both a duration and a past reference point. Past perfect continuous ('had been planning') expresses the ongoing action leading up to that past moment. 'Was planning' only gives a state at a point in time without the accumulated weeks. 'Planned' is a plain completed event with no sense of gradual build-up, losing the 'for weeks' duration.",
+        source: "Swan, PEU (4e), §425",
+        hint: "plan",
+        flavor: "history"
+      },
+      {
+        id: "vt-narrative-08",
+        stem: "When Napoleon's Grande Armée crossed the Niemen River in June 1812, most of the soldiers ___ what awaited them in Russia.",
+        options: ["did not know", "were not knowing", "had not known"],
+        answer: "did not know",
+        explanation: "'Know' is a stative verb; at a specific past moment it takes past simple.",
+        fullExplanation: "'Know' is a stative verb that does not normally take continuous forms. At a specific past moment — the crossing of the Niemen — past simple ('did not know') describes the mental state. 'Were not knowing' is ungrammatical for the stative sense of 'know'. 'Had not known' would suggest a state that ended before the crossing, which contradicts the sense that they still did not know at that very moment.",
+        source: "Murphy, EGU (4e), Unit 4",
+        hint: "know",
+        flavor: "history"
+      },
+      {
+        id: "vt-narrative-09",
+        stem: "By 1918, the war ___ four empires — the Russian, German, Austro-Hungarian, and Ottoman — in only four years.",
+        options: ["had destroyed", "was destroying", "destroyed"],
+        answer: "had destroyed",
+        explanation: "'By 1918' signals results accumulated before that past reference point — past perfect.",
+        fullExplanation: "'By 1918' explicitly marks a past reference point at which the results are measured. Past perfect ('had destroyed') expresses completed action before that point. 'Was destroying' describes an ongoing process, not a completed tally. 'Destroyed' works in casual narrative but loses the 'already accomplished by this date' nuance that 'by 1918' requires.",
+        source: "Swan, PEU (4e), §424",
+        hint: "destroy",
+        flavor: "history"
+      },
+      {
+        id: "vt-narrative-10",
+        stem: "While the Allies ___ the beaches of Normandy, paratroopers behind enemy lines secured the strategic bridges.",
+        options: ["were storming", "stormed", "had stormed"],
+        answer: "were storming",
+        explanation: "'While' + two simultaneous actions — past continuous in the background clause.",
+        fullExplanation: "'While' introduces a longer background action happening at the same time as another past action. Past continuous ('were storming') is standard after 'while'. 'Stormed' would make both events sequential rather than simultaneous. 'Had stormed' would place the storming before the paratroopers' work, contradicting the simultaneous D-Day sequence.",
+        source: "Murphy, EGU (4e), Unit 6",
+        hint: "storm",
+        flavor: "history"
+      },
+      {
+        id: "vt-narrative-11",
+        stem: "The Berlin Wall ___ on the night of November 9, 1989, after more than twenty-eight years standing.",
+        options: ["fell", "was falling", "had fallen"],
+        answer: "fell",
+        explanation: "A single completed event with a specific date takes past simple.",
+        fullExplanation: "The specific date 'November 9, 1989' marks a single completed historical event. Past simple ('fell') is the standard form. 'Was falling' would describe a gradual, ongoing process with no fixed endpoint, which misrepresents the event. 'Had fallen' would require a later past reference point to place the fall before, which the sentence does not provide.",
+        source: "Murphy, EGU (4e), Unit 5",
+        hint: "fall",
+        flavor: "history"
+      },
+      {
+        id: "vt-narrative-12",
+        stem: "Before the first moon landing in 1969, NASA engineers ___ the mission on the ground more than a hundred times.",
+        options: ["had rehearsed", "were rehearsing", "rehearsed"],
+        answer: "had rehearsed",
+        explanation: "'Before' + later past event signals the earlier action was complete — past perfect.",
+        fullExplanation: "'Before the first moon landing in 1969' fixes a later past reference point. Past perfect ('had rehearsed') marks the earlier repeated action already complete before that point. 'Were rehearsing' describes an action in progress, not an accumulated count. 'Rehearsed' loses the clear 'already by 1969' sequencing that 'before' demands in formal narrative.",
+        source: "Swan, PEU (4e), §424",
+        hint: "rehearse",
+        flavor: "history"
+      },
+      {
+        id: "vt-narrative-13",
+        stem: "While the teacher ___ the class on the Pythagorean theorem, two students at the back were quietly passing notes.",
+        options: ["was explaining", "explained", "had explained"],
+        answer: "was explaining",
+        explanation: "'While' + simultaneous secondary action — past continuous for the background.",
+        fullExplanation: "'While' frames a longer background action happening alongside another past action ('were passing notes', also continuous). Past continuous ('was explaining') captures the teacher's ongoing explanation. 'Explained' would make the explanation a single completed event, losing the simultaneity. 'Had explained' would place the explanation before the note-passing, contradicting the scene of both happening at once.",
+        source: "Murphy, EGU (4e), Unit 6",
+        hint: "explain",
+        flavor: "social"
+      },
+      {
+        id: "vt-narrative-14",
+        stem: "By the time the new law came into force last January, most companies ___ their privacy policies to comply.",
+        options: ["had already updated", "were already updating", "already updated"],
+        answer: "had already updated",
+        explanation: "'By the time X' + completed preparation before X — past perfect.",
+        fullExplanation: "'By the time the new law came into force' sets a past reference point, and 'already' emphasises completion before that point. Past perfect ('had already updated') is the standard choice. 'Were already updating' would suggest the updating was still in progress at that point, contradicting 'already'. 'Already updated' alone is past simple and loses the clear 'before that moment' sequencing.",
+        source: "Swan, PEU (4e), §424",
+        hint: "update",
+        flavor: "social"
+      },
+      {
+        id: "vt-narrative-15",
+        stem: "The protesters ___ peacefully in the main square all morning when the police suddenly arrived with water cannons.",
+        options: ["had been demonstrating", "were demonstrating", "demonstrated"],
+        answer: "had been demonstrating",
+        explanation: "'All morning' + sudden interrupting event signals duration up to that past point — past perfect continuous.",
+        fullExplanation: "'All morning when the police suddenly arrived' combines a duration ('all morning') with a past reference point ('when the police arrived'). Past perfect continuous ('had been demonstrating') expresses a long action continuing right up to that moment. 'Were demonstrating' gives only a snapshot at the moment of arrival without the full morning span. 'Demonstrated' loses both the continuous sense and the duration leading up to the event.",
+        source: "Swan, PEU (4e), §425",
+        hint: "demonstrate",
+        flavor: "social"
+      },
+      {
+        id: "vt-narrative-16",
+        stem: "Last summer my family ___ to Italy for two weeks and visited Rome, Florence, and Venice.",
+        options: ["travelled", "was travelling", "had travelled"],
+        answer: "travelled",
+        explanation: "'Last summer' + finished time frame takes past simple.",
+        fullExplanation: "'Last summer' and 'for two weeks' give a finished, completed time frame. Past simple ('travelled') is standard for a completed action in a finished past period. 'Was travelling' would describe a temporary state during some other event. 'Had travelled' needs a later reference point in the past to precede, which the sentence does not provide.",
+        source: "Murphy, EGU (4e), Unit 5",
+        hint: "travel",
+        flavor: "social"
+      },
+      {
+        id: "vt-narrative-17",
+        stem: "When I finally reached the cinema, the film ___ already for twenty minutes.",
+        options: ["had been playing", "was playing", "played"],
+        answer: "had been playing",
+        explanation: "'When X' + 'already for twenty minutes' signals duration before X — past perfect continuous.",
+        fullExplanation: "'When I finally reached the cinema' gives a past reference point, and 'already for twenty minutes' measures the film's duration up to that point. Past perfect continuous ('had been playing') expresses a long action leading up to a past moment. 'Was playing' describes a snapshot without the twenty-minute span. 'Played' would be a completed event, not continuous action leading to the moment of arrival.",
+        source: "Swan, PEU (4e), §425",
+        hint: "play",
+        flavor: "social"
+      },
+      {
+        id: "vt-narrative-18",
+        stem: "While the children ___ in the garden, their mother quietly prepared a surprise cake in the kitchen.",
+        options: ["were playing", "played", "had played"],
+        answer: "were playing",
+        explanation: "'While' + simultaneous main event — past continuous for the background.",
+        fullExplanation: "'While' introduces a longer background action happening at the same time as another past action ('prepared', past simple in the main clause). Past continuous ('were playing') captures the children's ongoing activity. 'Played' would make both events sequential. 'Had played' would place the playing entirely before the mother's baking, contradicting the simultaneous scene.",
+        source: "Murphy, EGU (4e), Unit 6",
+        hint: "play",
+        flavor: "social"
+      },
+      {
+        id: "vt-narrative-19",
+        stem: "When the eclipse reached totality, the astronomers ___ the corona with four different cameras at the same time.",
+        options: ["were photographing", "photographed", "had photographed"],
+        answer: "were photographing",
+        explanation: "'When X' + ongoing simultaneous action — past continuous.",
+        fullExplanation: "'When the eclipse reached totality' marks a specific past moment that cuts into a longer action. Past continuous ('were photographing') expresses the action in progress at that instant. 'Photographed' would make it a single completed event, losing the sense of a sustained multi-camera process. 'Had photographed' would place the photographing before totality, contradicting the idea that they captured the corona at that moment.",
+        source: "Murphy, EGU (4e), Unit 6",
+        hint: "photograph",
+        flavor: "science"
+      },
+      {
+        id: "vt-narrative-20",
+        stem: "By the time the new vaccine received approval, researchers ___ it on more than thirty thousand volunteers.",
+        options: ["had tested", "were testing", "tested"],
+        answer: "had tested",
+        explanation: "'By the time X' + completed action before X — past perfect.",
+        fullExplanation: "'By the time the new vaccine received approval' sets a past reference point. Past perfect ('had tested') expresses the completed testing before that point. 'Were testing' suggests the testing was still in progress at the moment of approval, contradicting the sense that the testing was finished. 'Tested' loses the clear 'before that moment' sequencing that 'by the time' requires.",
+        source: "Swan, PEU (4e), §424",
+        hint: "test",
+        flavor: "science"
+      },
+      {
+        id: "vt-narrative-21",
+        stem: "The chemist ___ the experiment three times last Tuesday and recorded slightly different results each run.",
+        options: ["ran", "was running", "had run"],
+        answer: "ran",
+        explanation: "'Last Tuesday' + finished time frame and counted repetitions take past simple.",
+        fullExplanation: "'Last Tuesday' gives a finished past time, and 'three times' gives a counted number of completed runs. Past simple ('ran') is standard for a completed action in a finished past period. 'Was running' describes a process without a clear endpoint, losing the three-times count. 'Had run' would require a later past reference point to precede.",
+        source: "Murphy, EGU (4e), Unit 5",
+        hint: "run",
+        flavor: "science"
+      },
+      {
+        id: "vt-narrative-22",
+        stem: "When the comet finally became visible to the naked eye, astronomers ___ its orbit for almost two years.",
+        options: ["had been tracking", "were tracking", "tracked"],
+        answer: "had been tracking",
+        explanation: "'When X' + 'for almost two years' signals a long action leading up to X — past perfect continuous.",
+        fullExplanation: "'When the comet finally became visible' marks a past reference point, and 'for almost two years' measures the duration leading up to it. Past perfect continuous ('had been tracking') expresses the long action continuing right up to that past moment. 'Were tracking' gives only a snapshot without the two-year span. 'Tracked' is a plain completed event with no sense of cumulative effort.",
+        source: "Swan, PEU (4e), §425",
+        hint: "track",
+        flavor: "science"
+      },
+      {
+        id: "vt-narrative-23",
+        stem: "Dinosaurs ___ the Earth for roughly 165 million years before a mass extinction wiped most of them out.",
+        options: ["had dominated", "were dominating", "dominated"],
+        answer: "had dominated",
+        explanation: "'Before' + later past event signals the earlier action was complete — past perfect.",
+        fullExplanation: "'Before a mass extinction wiped most of them out' fixes a later past reference point, and '165 million years' gives the full duration completed before it. Past perfect ('had dominated') expresses the completed action before another past event. 'Were dominating' would suggest an ongoing state at the moment of extinction without the full time span. 'Dominated' loses the explicit 'before that event' ordering that 'before' demands in formal narrative.",
+        source: "Swan, PEU (4e), §424",
+        hint: "dominate",
+        flavor: "science"
+      },
+      {
+        id: "vt-narrative-24",
+        stem: "While the telescope ___ data at the top of the mountain, technicians back in the city processed the first images.",
+        options: ["was collecting", "collected", "had collected"],
+        answer: "was collecting",
+        explanation: "'While' + simultaneous main action — past continuous for the background.",
+        fullExplanation: "'While' introduces a longer background action alongside another past action ('processed', past simple in the main clause). Past continuous ('was collecting') captures the telescope's ongoing work. 'Collected' would make both events sequential, losing the simultaneity. 'Had collected' would place the collection entirely before the processing, contradicting the scene where both happen at once.",
+        source: "Murphy, EGU (4e), Unit 6",
+        hint: "collect",
+        flavor: "science"
+      },
+      {
+        id: "vt-narrative-25",
+        stem: "Before Edison invented the phonograph, no one ___ a way to capture and replay the human voice.",
+        options: ["had found", "was finding", "found"],
+        answer: "had found",
+        explanation: "'Before X' + earlier completed action — past perfect.",
+        fullExplanation: "'Before Edison invented the phonograph' sets a later past reference point. Past perfect ('had found') is the standard form for the state of no prior success leading up to that point. 'Was finding' describes an action in progress, not a cumulative absence. 'Found' would lose the clear 'until this invention' sense the sentence needs.",
+        source: "Adapted, attributed to Thomas Edison",
+        hint: "find",
+        flavor: "quotes",
+        author: "Thomas Edison"
+      },
+      {
+        id: "vt-narrative-26",
+        stem: "When the final results arrived, Churchill ___ nervously in his study for more than three hours.",
+        options: ["had been pacing", "was pacing", "paced"],
+        answer: "had been pacing",
+        explanation: "'When X' + 'for more than three hours' signals duration leading up to X — past perfect continuous.",
+        fullExplanation: "'When the final results arrived' marks a past reference point, and 'for more than three hours' measures duration leading up to it. Past perfect continuous ('had been pacing') expresses a long action continuing right up to that past moment. 'Was pacing' gives only a snapshot without the three-hour span. 'Paced' is a plain completed event without the continuous build-up.",
+        source: "Adapted, attributed to Winston Churchill",
+        hint: "pace",
+        flavor: "quotes",
+        author: "Winston Churchill"
+      },
+      {
+        id: "vt-narrative-27",
+        stem: "While Gandhi ___ on his salt march in 1930, thousands of Indians joined him along every mile of the coast.",
+        options: ["was marching", "marched", "had marched"],
+        answer: "was marching",
+        explanation: "'While' + simultaneous main action — past continuous for the background.",
+        fullExplanation: "'While' introduces a longer background action happening at the same time as another past action ('joined', past simple in the main clause). Past continuous ('was marching') captures Gandhi's ongoing march. 'Marched' would make both events sequential. 'Had marched' would place the march entirely before the joining, contradicting the scene where people joined him along the way.",
+        source: "Adapted, attributed to Mahatma Gandhi",
+        hint: "march",
+        flavor: "quotes",
+        author: "Mahatma Gandhi"
+      },
+      {
+        id: "vt-narrative-28",
+        stem: "Dr King ___ his famous 'I have a dream' speech on the steps of the Lincoln Memorial on August 28, 1963.",
+        options: ["delivered", "was delivering", "had delivered"],
+        answer: "delivered",
+        explanation: "A specific dated event takes past simple.",
+        fullExplanation: "The specific date 'August 28, 1963' marks a single completed historical event. Past simple ('delivered') is standard for a completed action with a definite past time. 'Was delivering' would describe an action in progress, not the single speech as a finished event. 'Had delivered' would require a later past reference point to precede.",
+        source: "Adapted, attributed to Martin Luther King Jr.",
+        hint: "deliver",
+        flavor: "quotes",
+        author: "Martin Luther King Jr."
+      },
+      {
+        id: "vt-narrative-29",
+        stem: "By the time Mandela walked out of prison in 1990, he ___ twenty-seven years behind bars for his beliefs.",
+        options: ["had spent", "was spending", "spent"],
+        answer: "had spent",
+        explanation: "'By the time X' + accumulated time before X — past perfect.",
+        fullExplanation: "'By the time Mandela walked out of prison in 1990' fixes a past reference point. Past perfect ('had spent') expresses the completed duration before that point. 'Was spending' suggests an ongoing state at the moment of release without summing the full twenty-seven years. 'Spent' loses the 'already accomplished by this date' sequencing that 'by the time' requires in formal narrative.",
+        source: "Adapted, attributed to Nelson Mandela",
+        hint: "spend",
+        flavor: "quotes",
+        author: "Nelson Mandela"
+      },
+      {
+        id: "vt-narrative-30",
+        stem: "When the reporter asked about his success, Edison said that he ___ ten thousand ways that did not work before finding the one that did.",
+        options: ["had found", "was finding", "found"],
+        answer: "had found",
+        explanation: "'Before finding the one that did' sets a later past point — past perfect for earlier completed action.",
+        fullExplanation: "The clause 'before finding the one that did' fixes a later past reference point within reported speech. Past perfect ('had found') expresses the earlier completed action of finding the ten thousand failed methods. 'Was finding' describes an ongoing process without the 'all ten thousand before success' completion. 'Found' loses the clear 'before the working one' sequencing.",
+        source: "Adapted, attributed to Thomas Edison",
+        hint: "find",
+        flavor: "quotes",
+        author: "Thomas Edison"
+      }
+    ]
+  },
+  "mg-num-form": {
+    id: "mg-num-form",
+    name: "Quantifier form — much/many, less/fewer, amount/number, little/few",
+    canonicalSubId: "cs-num-form",
+    canonicalTopicId: "quantifiers",
+    tasks: [
+      {
+        id: "mg-num-form-01",
+        stem: "Mozart wrote a remarkable ___ of operas before his death at the age of thirty-five.",
+        options: ["number", "amount", "deal"],
+        answer: "number",
+        explanation: "'Operas' is a countable plural, so 'a number of' is correct.",
+        fullExplanation: "'A number of' takes a countable plural noun ('operas'). 'An amount of' takes an uncountable noun ('an amount of money'), so 'amount of operas' is wrong. 'A deal of' is non-standard with a countable plural — the fixed phrase is 'a great deal of' with an uncountable noun. Only 'number' fits the countable head 'operas'.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "operas",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-num-form-02",
+        stem: "Einstein had very ___ time for small talk and preferred long silences while he thought through problems.",
+        options: ["little", "few", "small"],
+        answer: "little",
+        explanation: "'Time' is uncountable here, so 'little' is the correct quantifier.",
+        fullExplanation: "'Time' in this sense is an uncountable noun, so it takes 'little' (uncountable) rather than 'few' (countable plural). 'Few time' is a category error. 'Small time' is grammatical only as a fixed adjective meaning 'minor' ('a small-time crook'), not as a quantity expression. 'Little' is the correct quantifier for an uncountable noun.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "time",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-num-form-03",
+        stem: "Federer played in ___ Grand Slam finals over his career than any other player of his generation.",
+        options: ["more", "much more", "fewer"],
+        answer: "more",
+        explanation: "'More' is correct because the comparison is positive ('played in more, not fewer'). 'Much more' is wrong because 'finals' is countable plural and the natural comparative form is 'more'. 'Fewer' would reverse the meaning.",
+        fullExplanation: "The sentence makes a positive comparison ('more finals than any other player'). 'More' works with both countable and uncountable nouns and is correct here. 'Much more' is a stronger intensified form but 'much more Grand Slam finals' is awkward — 'many more Grand Slam finals' would be the intensified countable form. 'Fewer' would reverse the intended meaning, claiming Federer played in fewer finals than his rivals.",
+        source: "Swan, PEU (4e), §159",
+        hint: "finals",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-num-form-04",
+        stem: "Steve Jobs is said to have given his designers very ___ written specifications and preferred verbal direction.",
+        options: ["few", "little", "small"],
+        answer: "few",
+        explanation: "'Specifications' is a countable plural, so 'few' is the correct quantifier.",
+        fullExplanation: "'Specifications' is a countable plural noun. The quantifier 'few' is used with countable plurals. 'Little specifications' would treat the noun as uncountable, which is incorrect here. 'Small specifications' is not a quantity expression — 'small' is an adjective describing size, not quantity, and would change the meaning.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "specifications",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-num-form-05",
+        stem: "Marie Curie spent a great ___ of her own money on equipment for her early radioactivity research.",
+        options: ["amount", "number", "deal"],
+        answer: "amount",
+        explanation: "'Money' is uncountable, so 'a great amount of' is correct. 'A great deal of money' is also valid but 'a great deal' would not match the article+noun pattern of the stem.",
+        fullExplanation: "'Money' is an uncountable noun. 'A great amount of' fits: it takes uncountable nouns. 'A number of' takes countable plurals ('a number of coins'), so 'a number of money' is wrong. 'A deal of money' is non-standard — the fixed phrase is 'a great deal of money', which would require dropping the article 'a' before 'great' (it is already 'a great deal'). Within the given stem, only 'amount' produces a fully grammatical sentence.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "money",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-num-form-06",
+        stem: "Picasso destroyed ___ of his early sketches than he ever sold to his first patrons in Paris.",
+        options: ["more", "much more", "much"],
+        answer: "more",
+        explanation: "Comparative with countable plural 'sketches' takes 'more' (or 'many more' for emphasis), not 'much more' or 'much'.",
+        fullExplanation: "'Sketches' is a countable plural. The comparative 'more' works with both countable and uncountable nouns and is correct here. 'Much more sketches' is wrong because 'much' modifies uncountables — for countable plurals the intensifier is 'many more sketches'. Plain 'much' is not a comparative and would not fit the 'than' structure.",
+        source: "Swan, PEU (4e), §159",
+        hint: "sketches",
+        flavor: "personalities"
+      },
+      {
+        id: "mg-num-form-07",
+        stem: "Throughout the Middle Ages, very ___ ordinary peasants ever travelled more than ten miles from their birthplace.",
+        options: ["few", "little", "less"],
+        answer: "few",
+        explanation: "'Peasants' is a countable plural, so 'few' is the correct quantifier.",
+        fullExplanation: "'Peasants' is a countable plural. 'Few' is used with countable plurals to mean 'a small number'. 'Little' is for uncountable nouns ('little time', 'little money'), so 'little peasants' would mean small-sized peasants, not a quantity. 'Less' is also for uncountable nouns or for comparison; it does not fit 'very ___ peasants'.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "peasants",
+        flavor: "history"
+      },
+      {
+        id: "mg-num-form-08",
+        stem: "By the late 1940s, the British Empire controlled far ___ colonies than it had at its peak fifty years earlier.",
+        options: ["fewer", "less", "smaller"],
+        answer: "fewer",
+        explanation: "'Colonies' is a countable plural, so the comparative is 'fewer', not 'less'.",
+        fullExplanation: "'Colonies' is a countable plural. The standard comparative for countable plurals is 'fewer'. 'Less' is reserved for uncountable nouns ('less power', 'less territory'), so 'less colonies' is non-standard. 'Smaller colonies' would refer to size, not quantity, and changes the meaning.",
+        source: "Swan, PEU (4e), §159",
+        hint: "colonies",
+        flavor: "history"
+      },
+      {
+        id: "mg-num-form-09",
+        stem: "The Roman aqueducts carried an enormous ___ of fresh water from the mountains to the cities each day.",
+        options: ["amount", "number", "many"],
+        answer: "amount",
+        explanation: "'Water' is uncountable, so 'amount of' is correct.",
+        fullExplanation: "'Water' is an uncountable noun. 'An amount of' takes uncountables and is the standard choice. 'A number of' is for countable plurals ('a number of buckets'), so 'number of water' is wrong. 'Many of water' is ungrammatical — 'many' modifies countable plurals, not uncountables.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "water",
+        flavor: "history"
+      },
+      {
+        id: "mg-num-form-10",
+        stem: "After the plague, there was so ___ available labour that wages rose sharply across most of medieval Europe.",
+        options: ["little", "few", "small"],
+        answer: "little",
+        explanation: "'Labour' is uncountable in this sense, so 'little' is the correct quantifier.",
+        fullExplanation: "'Labour' in the sense of 'available workers' is treated as uncountable in standard usage ('manual labour', 'cheap labour'). 'Little' is the quantifier for uncountable nouns. 'Few labour' would require treating 'labour' as a countable plural, which it is not. 'Small labour' is not a quantity expression — 'small' would modify size, not quantity.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "labour",
+        flavor: "history"
+      },
+      {
+        id: "mg-num-form-11",
+        stem: "The Treaty of Versailles imposed a vast ___ of war reparations on Germany after the First World War.",
+        options: ["amount", "number", "deal"],
+        answer: "amount",
+        explanation: "'Reparations' here is treated as uncountable monetary value, taking 'amount of'.",
+        fullExplanation: "While 'reparations' is plural in form, in the fixed economic sense of 'total monetary value of reparations', it patterns with 'amount of' just like 'amount of damages'. 'Number of' would suggest counting separate reparation events, which is not the meaning. 'Deal of' is non-standard outside the fixed phrase 'a great deal of' (which would need the article dropped). Only 'amount' produces standard usage in this monetary sense.",
+        source: "Swan, PEU (4e), §389",
+        hint: "reparations",
+        flavor: "history"
+      },
+      {
+        id: "mg-num-form-12",
+        stem: "Far ___ Russian soldiers survived the retreat from Moscow in 1812 than had begun the campaign in June.",
+        options: ["fewer", "less", "smaller"],
+        answer: "fewer",
+        explanation: "'Soldiers' is a countable plural, so the comparative is 'fewer'.",
+        fullExplanation: "'Soldiers' is a countable plural. The standard comparative for countable plurals is 'fewer'. 'Less soldiers' is non-standard — 'less' is for uncountable nouns. 'Smaller soldiers' would refer to physical size, not quantity, and changes the meaning entirely.",
+        source: "Swan, PEU (4e), §159",
+        hint: "soldiers",
+        flavor: "history"
+      },
+      {
+        id: "mg-num-form-13",
+        stem: "Modern smartphones have made ___ paper letters part of everyday family communication than ever before.",
+        options: ["fewer", "less", "smaller"],
+        answer: "fewer",
+        explanation: "'Letters' is a countable plural, so the comparative is 'fewer'.",
+        fullExplanation: "'Letters' (paper letters here) is a countable plural. The standard comparative is 'fewer'. 'Less letters' is non-standard, since 'less' is reserved for uncountables. 'Smaller letters' would refer to physical size, not quantity, and would change the meaning.",
+        source: "Swan, PEU (4e), §159",
+        hint: "letters",
+        flavor: "social"
+      },
+      {
+        id: "mg-num-form-14",
+        stem: "Working from home has saved many commuters a great ___ of time and travel money each week.",
+        options: ["deal", "number", "few"],
+        answer: "deal",
+        explanation: "'Time' and 'money' are uncountable, so 'a great deal of' is the standard idiom.",
+        fullExplanation: "The fixed expression 'a great deal of' is used with uncountable nouns ('a great deal of time', 'a great deal of money'). Both head nouns here are uncountable. 'A great number of' takes countable plurals ('a great number of people'), so it is wrong with 'time and travel money'. 'A great few' is not an English quantifier expression.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "deal",
+        flavor: "social"
+      },
+      {
+        id: "mg-num-form-15",
+        stem: "Surveys show that today's teenagers read ___ printed books per year than their parents did at the same age.",
+        options: ["fewer", "less", "smaller"],
+        answer: "fewer",
+        explanation: "'Books' is a countable plural, so the comparative is 'fewer'.",
+        fullExplanation: "'Books' is a countable plural. The standard comparative for countable plurals is 'fewer'. 'Less books' is widespread informally but is rejected in formal exam English. 'Smaller books' refers to physical size, not quantity.",
+        source: "Swan, PEU (4e), §159",
+        hint: "books",
+        flavor: "social"
+      },
+      {
+        id: "mg-num-form-16",
+        stem: "The new policy gives parents very ___ flexibility about when they can take their annual paid leave.",
+        options: ["little", "few", "small"],
+        answer: "little",
+        explanation: "'Flexibility' is uncountable, so 'little' is the correct quantifier.",
+        fullExplanation: "'Flexibility' is an uncountable abstract noun. 'Little' is the quantifier for uncountable nouns to mean 'not much'. 'Few flexibility' is a category error since 'few' modifies countable plurals. 'Small flexibility' is not a natural quantity expression — 'small' would change the meaning by referring to scale.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "flexibility",
+        flavor: "social"
+      },
+      {
+        id: "mg-num-form-17",
+        stem: "A surprising ___ of city dwellers say they would prefer to move to the countryside if they could work remotely.",
+        options: ["number", "amount", "deal"],
+        answer: "number",
+        explanation: "'City dwellers' is a countable plural, so 'a number of' is correct.",
+        fullExplanation: "'A number of' takes a countable plural ('city dwellers'). 'An amount of' takes uncountable nouns ('an amount of effort'), so 'amount of city dwellers' is wrong. 'A deal of city dwellers' is not standard — the fixed phrase 'a great deal of' takes uncountables.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "dwellers",
+        flavor: "social"
+      },
+      {
+        id: "mg-num-form-18",
+        stem: "Doctors warn that drinking too ___ sugary drinks can lead to long-term health problems in young children.",
+        options: ["many", "much", "more"],
+        answer: "many",
+        explanation: "'Drinks' is a countable plural, so the quantifier is 'many'.",
+        fullExplanation: "'Sugary drinks' is a countable plural. 'Too many' is the standard quantifier with countable plurals. 'Too much' is for uncountables ('too much sugar'), so 'too much sugary drinks' is wrong. 'Too more' is not an English quantifier — comparative forms do not combine with 'too' this way.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "drinks",
+        flavor: "social"
+      },
+      {
+        id: "mg-num-form-19",
+        stem: "The new electric motor produces much ___ heat than older internal-combustion designs of similar power output.",
+        options: ["less", "fewer", "smaller"],
+        answer: "less",
+        explanation: "'Heat' is uncountable, so the comparative is 'less'.",
+        fullExplanation: "'Heat' is an uncountable noun. The comparative for uncountables is 'less'. 'Fewer heat' is a category error since 'fewer' modifies countable plurals. 'Smaller heat' is not a standard quantity expression — 'smaller' would refer to physical scale, not amount of thermal energy.",
+        source: "Swan, PEU (4e), §159",
+        hint: "heat",
+        flavor: "science"
+      },
+      {
+        id: "mg-num-form-20",
+        stem: "Modern microscopes can resolve a far greater ___ of individual cellular structures than was possible fifty years ago.",
+        options: ["number", "amount", "deal"],
+        answer: "number",
+        explanation: "'Structures' is a countable plural, so 'a greater number of' is correct.",
+        fullExplanation: "'Structures' is a countable plural. 'A number of' (and its comparative 'a greater number of') takes countable plurals. 'An amount of' takes uncountable nouns ('an amount of detail'), so 'amount of structures' is wrong. 'A deal of structures' is not standard.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "structures",
+        flavor: "science"
+      },
+      {
+        id: "mg-num-form-21",
+        stem: "The new battery design holds twice as ___ energy per gram as the standard lithium-ion cells used today.",
+        options: ["much", "many", "more"],
+        answer: "much",
+        explanation: "'Energy' is uncountable, so the quantifier is 'much'.",
+        fullExplanation: "'Energy' is an uncountable noun. 'As much ... as' is the standard equative for uncountables. 'As many' takes countable plurals ('as many cells as'), so 'as many energy as' is wrong. 'As more' is not a valid English structure — the equative is 'as much/as many', not 'as more'.",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "energy",
+        flavor: "science"
+      },
+      {
+        id: "mg-num-form-22",
+        stem: "Astronomers have detected far ___ planets in distant solar systems in the last decade than in the entire previous century.",
+        options: ["more", "much more", "many"],
+        answer: "more",
+        explanation: "Comparative with countable plural 'planets' takes 'more' (or 'many more'), not 'much more'.",
+        fullExplanation: "'Planets' is a countable plural. The comparative 'more' works with both countables and uncountables and fits naturally here. 'Much more planets' is wrong because 'much' modifies uncountables — the intensified form for countables is 'many more planets'. Plain 'many' is not a comparative and does not fit the 'than' structure.",
+        source: "Swan, PEU (4e), §159",
+        hint: "planets",
+        flavor: "science"
+      },
+      {
+        id: "mg-num-form-23",
+        stem: "There is surprisingly ___ scientific evidence to support the idea that humans use only ten percent of their brains.",
+        options: ["little", "few", "less"],
+        answer: "little",
+        explanation: "'Evidence' is uncountable, so 'little' is the correct quantifier.",
+        fullExplanation: "'Evidence' is an uncountable noun. 'Little' is the quantifier for uncountables to mean 'not much'. 'Few evidence' is a category error — 'few' modifies countable plurals, and 'evidences' as a plural noun is rare and not standard exam usage. 'Less evidence' is grammatical but is a comparative ('less than X'), not a simple quantifier — the stem requires a plain quantifier ('surprisingly little').",
+        source: "Murphy, EGU (4e), Unit 87",
+        hint: "evidence",
+        flavor: "science"
+      },
+      {
+        id: "mg-num-form-24",
+        stem: "The new vaccine has shown ___ side effects in clinical trials than any other vaccine of its class so far tested.",
+        options: ["fewer", "less", "smaller"],
+        answer: "fewer",
+        explanation: "'Side effects' is a countable plural, so the comparative is 'fewer'.",
+        fullExplanation: "'Side effects' is a countable plural. The standard comparative for countable plurals is 'fewer'. 'Less side effects' is non-standard, since 'less' is reserved for uncountables. 'Smaller side effects' would refer to severity, not number, and changes the meaning.",
+        source: "Swan, PEU (4e), §159",
+        hint: "effects",
+        flavor: "science"
+      },
+      {
+        id: "mg-num-form-25",
+        stem: "There is no greater ___ of dignity than to live one's life with quiet, daily integrity.",
+        options: ["amount", "number", "few"],
+        answer: "amount",
+        explanation: "'Dignity' is uncountable, so 'amount of' is correct.",
+        fullExplanation: "'Dignity' is an uncountable abstract noun. 'An amount of' is the standard quantifier with uncountable nouns. 'A number of' takes countable plurals ('a number of virtues'), so 'number of dignity' is wrong. 'A few of dignity' is ungrammatical — 'a few' modifies countable plurals.",
+        source: "Adapted, attributed to Maya Angelou",
+        hint: "dignity",
+        flavor: "quotes",
+        author: "Maya Angelou"
+      },
+      {
+        id: "mg-num-form-26",
+        stem: "Those who dare little achieve ___ victories and leave almost no mark on the history of their own time.",
+        options: ["few", "little", "less"],
+        answer: "few",
+        explanation: "'Victories' is a countable plural, so 'few' is the correct quantifier.",
+        fullExplanation: "'Victories' is a countable plural. 'Few' is the quantifier for countable plurals to mean 'not many'. 'Little' modifies uncountable nouns ('little courage'), so 'little victories' would be ambiguous (it can mean 'small victories', changing sense from quantity to size). 'Less victories' is non-standard — 'less' is reserved for uncountables, and as a simple quantifier it also would not fit 'achieve ___ victories' without a 'than' clause.",
+        source: "Adapted, attributed to Virgil",
+        hint: "victories",
+        flavor: "quotes",
+        author: "Virgil"
+      },
+      {
+        id: "mg-num-form-27",
+        stem: "Patience is the secret to working successfully with a great ___ of difficult people throughout one's career.",
+        options: ["number", "amount", "deal"],
+        answer: "number",
+        explanation: "'People' is a countable plural, so 'a great number of' is correct.",
+        fullExplanation: "'People' is a countable plural. 'A great number of' takes countable plurals. 'A great amount of' takes uncountable nouns ('a great amount of patience'), so 'amount of difficult people' is wrong. 'A great deal of difficult people' is non-standard — the fixed phrase 'a great deal of' takes uncountables, so 'a great deal of difficulty' would work but 'a great deal of difficult people' would not.",
+        source: "Adapted, attributed to Dale Carnegie",
+        hint: "people",
+        flavor: "quotes",
+        author: "Dale Carnegie"
+      },
+      {
+        id: "mg-num-form-28",
+        stem: "A wise person speaks because they have something to say; a foolish person speaks because they have very ___ left to add.",
+        options: ["little", "few", "less"],
+        answer: "little",
+        explanation: "'Something' / the implied object is uncountable here ('content to add'), so 'little' is correct.",
+        fullExplanation: "The implied object is something abstract and uncountable like 'content' or 'meaning'. 'Little' is the quantifier for uncountables. 'Few' would require a countable plural noun (like 'few words'), but the structure 'have very ___ left to add' takes 'little' to mirror the uncountable 'something to say'. 'Less' would need a 'than' clause to function as a comparative.",
+        source: "Adapted, attributed to Plato",
+        hint: "little",
+        flavor: "quotes",
+        author: "Plato"
+      },
+      {
+        id: "mg-num-form-29",
+        stem: "Genius is one percent inspiration and ninety-nine percent perspiration — and a great ___ of repeated effort along the way.",
+        options: ["deal", "number", "few"],
+        answer: "deal",
+        explanation: "'Effort' is uncountable, so the fixed phrase 'a great deal of' is correct.",
+        fullExplanation: "'Effort' is an uncountable noun. The fixed expression 'a great deal of' is the standard quantifier for uncountables. 'A great number of' takes countable plurals ('a great number of attempts'), so 'a great number of repeated effort' is wrong. 'A great few of' is not an English quantifier expression.",
+        source: "Adapted, attributed to Thomas Edison",
+        hint: "effort",
+        flavor: "quotes",
+        author: "Thomas Edison"
+      },
+      {
+        id: "mg-num-form-30",
+        stem: "Travel teaches you ___ lessons about tolerance and patience that no school could ever provide.",
+        options: ["many", "much", "more"],
+        answer: "many",
+        explanation: "'Lessons' is a countable plural, so 'many' is correct.",
+        fullExplanation: "'Lessons' is a countable plural. 'Many' is the standard quantifier with countable plurals. 'Much' is for uncountables ('much wisdom'), so 'much lessons' is wrong. 'More lessons' would require a 'than' comparison clause that the sentence does not provide.",
+        source: "Adapted, attributed to Saint Augustine",
+        hint: "lessons",
+        flavor: "quotes",
+        author: "Saint Augustine"
       }
     ]
   }

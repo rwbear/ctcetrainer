@@ -69,7 +69,8 @@
         { id: 'cs-fut-going',     name: 'Future with going to',       levels: { ctce: 'vt-fut-going',b1:'b1-fut-going', b2: null,                 c1: null } },
         { id: 'cs-fut-perf',      name: 'Future Perfect',             levels: { ctce: null,         b1: null,           b2: 'b2-fut-perf',        c1: null } },
         { id: 'cs-fut-cont',      name: 'Future Continuous',          levels: { ctce: null,         b1: null,           b2: 'b2-fut-cont',        c1: null } },
-        { id: 'cs-narrative-mix', name: 'Narrative tenses (mixed)',   levels: { ctce: null,         b1: null,           b2: 'b2-mix-narrative',   c1: null } }
+        { id: 'cs-narrative-mix', name: 'Narrative tenses (mixed)',   levels: { ctce: null,         b1: null,           b2: 'b2-mix-narrative',   c1: null } },
+        { id: 'cs-vt-narrative',  name: 'Narrative tenses — past simple / continuous / perfect', levels: { ctce: 'vt-narrative', b1: null, b2: null, c1: null } }
       ]},
 
       // ── 2. Passive ─────────────────────────────────────────────────────
@@ -136,7 +137,8 @@
         { id: 'cs-quant-some-any',  name: 'some / any',           levels: { ctce: null,         b1: 'b1-quant-some-any',  b2: null, c1: null } },
         { id: 'cs-quant-much-many', name: 'much / many',          levels: { ctce: null,         b1: 'b1-quant-much-many', b2: null, c1: null } },
         { id: 'cs-quant-mixed',     name: 'Quantifiers — mixed',  levels: { ctce: 'mg-quant',   b1: null,                 b2: null, c1: null } },
-        { id: 'cs-quant-expr',      name: 'Quantifier expressions', levels: { ctce: 'owg-quant',b1: null,                 b2: null, c1: null } }
+        { id: 'cs-quant-expr',      name: 'Quantifier expressions', levels: { ctce: 'owg-quant',b1: null,                 b2: null, c1: null } },
+        { id: 'cs-num-form',        name: 'Quantifier form — much/many, less/fewer, amount/number', levels: { ctce: 'mg-num-form', b1: null, b2: null, c1: null } }
       ]},
 
       // ── 9. Articles ────────────────────────────────────────────────────
@@ -175,7 +177,8 @@
         { id: 'cs-err-prep', name: 'Redundant prepositions', levels: { ctce: 'err-prep', b1: null, b2: null, c1: null } },
         { id: 'cs-err-art',  name: 'Redundant articles',     levels: { ctce: 'err-art',  b1: null, b2: null, c1: null } },
         { id: 'cs-err-pron', name: 'Redundant pronouns',     levels: { ctce: 'err-pron', b1: null, b2: null, c1: null } },
-        { id: 'cs-err-int',  name: 'Redundant intensifiers', levels: { ctce: 'err-int',  b1: null, b2: null, c1: null } }
+        { id: 'cs-err-int',  name: 'Redundant intensifiers', levels: { ctce: 'err-int',  b1: null, b2: null, c1: null } },
+        { id: 'cs-err-para', name: 'Parallel-structure errors', levels: { ctce: 'err-para', b1: null, b2: null, c1: null } }
       ]},
 
       // ── 13. One-Word Gap (CT/CE only) ─────────────────────────────────
@@ -188,7 +191,9 @@
       { id: 'word-two-sentences', name: 'Word for Two Sentences', subtopics: [
         { id: 'cs-w2s-poly',     name: 'Polysemous words',        levels: { ctce: 'w2s-poly',     b1: null, b2: null, c1: null } },
         { id: 'cs-w2s-particle', name: 'Particle-noun homonyms',  levels: { ctce: 'w2s-particle', b1: null, b2: null, c1: null } },
-        { id: 'cs-w2s-action',   name: 'Polysemy of make/take/do/have/get', levels: { ctce: 'w2s-action-verbs', b1: null, b2: null, c1: null } }
+        { id: 'cs-w2s-action',   name: 'Polysemy of make/take/do/have/get', levels: { ctce: 'w2s-action-verbs', b1: null, b2: null, c1: null } },
+        { id: 'cs-w2s-body-place', name: 'Body-part / place homonyms', levels: { ctce: 'w2s-body-place', b1: null, b2: null, c1: null } },
+        { id: 'cs-w2s-abstract',   name: 'Abstract noun homonyms',     levels: { ctce: 'w2s-abstract',   b1: null, b2: null, c1: null } }
       ]},
 
       // ── 15. Error Identification (CT/CE only) ─────────────────────────
