@@ -1,0 +1,295 @@
+{
+  "id": "ei-poss",
+  "name": "Possessives — else / each other / people",
+  "canonicalSubId": "cs-ei-poss",
+  "canonicalTopicId": "error-identification",
+  "_meta": {
+    "version": "v10.21",
+    "errorPatterns": {
+      "elses":       "Wrong: X's else  ·  Right: X else's  (Swan PEU §184)",
+      "eachOther":   "Wrong: each others'  ·  Right: each other's  (Swan PEU §199)",
+      "peoples":     "Wrong: other peoples'  ·  Right: other people's  (Murphy EGU Unit 83)"
+    },
+    "flavorPlan": "6 each: personalities (1-6), history (7-12), social (13-18), science (19-24), quotes (25-30)",
+    "errorDistribution": "14 elses, 10 eachOther, 6 peoples",
+    "answerLetterPlan": "11 A, 9 B, 10 C — never D"
+  },
+  "tasks": [
+    {
+      "stem": "Marie Curie and her husband Pierre (A) read each others' (B) laboratory notebooks religiously, (C) checking every calculation (D) before publication.",
+      "options": ["A","B","C"],
+      "answer": "A",
+      "explanation": "'Each others'' is wrong; the correct possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is treated as a singular reciprocal pronoun, so the apostrophe goes before the s: 'each other's'. 'Each others'' would treat it as a plural noun, which is incorrect. Parts (B), (C), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "When asked to comment on (A) somebody's else theory, (B) Albert Einstein politely (C) declined and changed (D) the subject.",
+      "options": ["A","B","C"],
+      "answer": "A",
+      "explanation": "'Somebody's else' is wrong; the apostrophe attaches to 'else', giving 'somebody else's'.",
+      "fullExplanation": "With indefinite pronouns + 'else', the possessive 's attaches to 'else', not to the pronoun: 'somebody else's', 'anyone else's', 'everyone else's'. 'Somebody's else' splits the unit incorrectly. Parts (B), (C), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Frida Kahlo often (A) drew inspiration from (B) other peoples' suffering, (C) transforming raw emotion (D) into striking visual symbols.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Other peoples'' is wrong; 'people' is already a plural noun, so the possessive is 'people's'.",
+      "fullExplanation": "'People' is an irregular plural that takes the possessive 's': 'people's'. The form 'peoples'' would be the possessive of 'peoples' (meaning 'nations'), which is not the meaning here. The correct phrase is 'other people's suffering'. Parts (A), (C), and (D) are all correct.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "The Beatles (A) frequently borrowed melodic ideas (B) from each others' demos, (C) refining them in the studio (D) until everyone was satisfied.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' behaves as a singular reciprocal expression; the apostrophe goes before the s: 'each other's demos'. The plural-style 'each others'' is never correct in standard English. Parts (A), (C), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Steve Jobs argued that (A) nobody's else opinion (B) should override the design instinct (C) of the team that builds (D) the product.",
+      "options": ["A","B","C"],
+      "answer": "A",
+      "explanation": "'Nobody's else' is wrong; with 'else', the apostrophe goes on 'else' — 'nobody else's'.",
+      "fullExplanation": "Indefinite pronoun + 'else' takes the possessive on 'else': 'nobody else's', 'someone else's'. 'Nobody's else' is a non-standard split form. Parts (B), (C), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Coco Chanel insisted that (A) anyone's else fashion (B) could be admired but never copied directly, (C) because true style begins (D) with a personal sense of restraint.",
+      "options": ["A","B","C"],
+      "answer": "A",
+      "explanation": "'Anyone's else' is wrong; the standard possessive is 'anyone else's'.",
+      "fullExplanation": "With 'anyone/someone/everyone/nobody + else', the possessive 's attaches to 'else': 'anyone else's', 'someone else's'. Splitting the form as 'anyone's else' is non-standard. Parts (B), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "During the Cold War the two superpowers (A) were constantly monitoring (B) each others' military movements, (C) trying to predict the next escalation (D) before it happened.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is treated as a singular unit; the possessive marker is 'each other's'. The plural form 'each others'' is never correct. Parts (A), (C), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "history"
+    },
+    {
+      "stem": "The medieval guilds carefully (A) protected their secrets, (B) believing that no apprentice should (C) imitate someone's else technique (D) without years of training.",
+      "options": ["A","B","C"],
+      "answer": "C",
+      "explanation": "'Someone's else' is wrong; the standard possessive is 'someone else's'.",
+      "fullExplanation": "Indefinite pronoun + 'else' takes the possessive on 'else': 'someone else's'. The form 'someone's else' is a non-standard split. Parts (A), (B), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Treaty of Westphalia (A) was signed in 1648, ending decades of war (B) and recognising other peoples' (C) right to choose their own confessions (D) within their own borders.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Other peoples'' is wrong; 'people' is a plural noun, so the possessive is 'people's'.",
+      "fullExplanation": "'People' is itself plural, so the possessive 's' attaches directly: 'other people's right'. The form 'other peoples'' would be the possessive of 'peoples' (= nations), which is not the meaning intended here. Parts (A), (C), and (D) are all correct.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "history"
+    },
+    {
+      "stem": "After the fall of Rome, the new kingdoms (A) frequently quarrelled over (B) borders and trade routes, (C) often violating everybody's else treaties (D) signed only a few years earlier.",
+      "options": ["A","B","C"],
+      "answer": "C",
+      "explanation": "'Everybody's else' is wrong; the standard possessive is 'everybody else's'.",
+      "fullExplanation": "With 'everybody/everyone/somebody + else', the possessive marker attaches to 'else', not to the pronoun: 'everybody else's treaties'. The form 'everybody's else' is non-standard. Parts (A), (B), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "history"
+    },
+    {
+      "stem": "By the late 19th century, the great powers (A) had divided most of Africa (B) into each others' spheres of influence (C) without ever consulting the populations (D) whose lands they were claiming.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is treated as a singular reciprocal expression; the possessive form is 'each other's spheres'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Renaissance princes (A) competed openly to (B) attract each others' best painters, (C) offering generous patronage (D) and lifelong protection.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is a singular reciprocal expression; the possessive form is 'each other's'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "history"
+    },
+    {
+      "stem": "If you really want to make new friends, (A) try not to dismiss (B) anyone's else hobbies (C) before you have given them (D) at least one honest chance.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Anyone's else' is wrong; the standard possessive is 'anyone else's'.",
+      "fullExplanation": "With indefinite pronouns + 'else', the possessive 's attaches to 'else': 'anyone else's hobbies'. 'Anyone's else' is a non-standard split. Parts (A), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "social"
+    },
+    {
+      "stem": "At the office party (A) the colleagues kept (B) finishing each others' sentences, (C) which made the new intern feel (D) slightly left out.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' acts as a singular reciprocal expression; the possessive marker is 'each other's'. Parts (A), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "social"
+    },
+    {
+      "stem": "It is rude (A) to read (B) other peoples' messages (C) over their shoulders (D) on the train.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Other peoples'' is wrong; 'people' is plural, so the possessive is 'people's'.",
+      "fullExplanation": "'People' is an irregular plural that forms its possessive with 's': 'other people's messages'. The form 'peoples'' would be the possessive of 'peoples' (= nations), which is not the meaning here. Parts (A), (C), and (D) are all correct.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "social"
+    },
+    {
+      "stem": "On group trips (A) we usually end up wearing (B) somebody's else jacket (C) by accident, especially after (D) a long evening at a restaurant.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Somebody's else' is wrong; the standard possessive is 'somebody else's'.",
+      "fullExplanation": "Indefinite pronoun + 'else' takes the possessive on 'else': 'somebody else's jacket'. Splitting it as 'somebody's else' is non-standard. Parts (A), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "social"
+    },
+    {
+      "stem": "The two best friends (A) finished each others' coffee (B) without even noticing, (C) so deep was their conversation (D) about future travel plans.",
+      "options": ["A","B","C"],
+      "answer": "A",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is treated as a singular reciprocal pronoun; the apostrophe goes before the s: 'each other's coffee'. Parts (B), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "social"
+    },
+    {
+      "stem": "Try not to compare your progress (A) with everybody's else (B) at the gym; (C) personal goals matter more (D) than public benchmarks.",
+      "options": ["A","B","C"],
+      "answer": "A",
+      "explanation": "'Everybody's else' is wrong; the standard possessive is 'everybody else's'.",
+      "fullExplanation": "With 'everybody/everyone + else', the possessive 's attaches to 'else': 'everybody else's progress'. 'Everybody's else' is a non-standard split. Parts (B), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "social"
+    },
+    {
+      "stem": "Astronomers (A) often build on each others' (B) observational data, (C) since no single telescope (D) can cover the whole sky.",
+      "options": ["A","B","C"],
+      "answer": "A",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is a singular reciprocal expression; the possessive marker is 'each other's'. The plural form 'each others'' is non-standard. Parts (B), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "science"
+    },
+    {
+      "stem": "A peer reviewer (A) must judge (B) somebody's else paper (C) without letting personal rivalry (D) influence the verdict.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Somebody's else' is wrong; the standard possessive is 'somebody else's'.",
+      "fullExplanation": "Indefinite pronoun + 'else' takes the possessive on 'else': 'somebody else's paper'. Splitting it as 'somebody's else' is non-standard. Parts (A), (C), and (D) are all grammatically correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "science"
+    },
+    {
+      "stem": "Modern epidemiology (A) studies how diseases (B) spread among other peoples' communities, (C) often relying on anonymised data (D) collected by local hospitals.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Other peoples'' is wrong; 'people' is plural, so the possessive is 'people's'.",
+      "fullExplanation": "'People' is itself plural, so the possessive 's' attaches directly: 'other people's communities'. The form 'peoples'' would be the possessive of 'peoples' (= nations). Parts (A), (C), and (D) are all correct.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "science"
+    },
+    {
+      "stem": "Watson and Crick (A) freely discussed (B) anybody's else preliminary results (C) at the cafeteria, (D) which sometimes caused friction with their colleagues.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Anybody's else' is wrong; the standard possessive is 'anybody else's'.",
+      "fullExplanation": "With 'anybody/anyone + else', the possessive 's attaches to 'else': 'anybody else's preliminary results'. The form 'anybody's else' is non-standard. Parts (A), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "science"
+    },
+    {
+      "stem": "Two rival labs (A) refused to read (B) each others' preprints, (C) even when the topic was almost identical (D) and a shared review would have saved months.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is a singular reciprocal expression; the possessive form is 'each other's'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §199",
+      "flavor": "science"
+    },
+    {
+      "stem": "Large clinical trials (A) sometimes involve teams (B) replicating someone's else findings (C) under stricter conditions (D) before any drug is approved.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Someone's else' is wrong; the standard possessive is 'someone else's'.",
+      "fullExplanation": "Indefinite pronoun + 'else' takes the possessive on 'else': 'someone else's findings'. The form 'someone's else' is a non-standard split. Parts (A), (C), and (D) are all correct.",
+      "source": "Swan, PEU (4e), §184",
+      "flavor": "science"
+    },
+    {
+      "stem": "(A) Be the change you wish (B) to see in (C) other peoples' lives, (D) one quiet day at a time.",
+      "options": ["A","B","C"],
+      "answer": "C",
+      "explanation": "'Other peoples'' is wrong; 'people' is plural, so the possessive is 'people's'.",
+      "fullExplanation": "'People' is plural and forms its possessive with 's': 'other people's lives'. The form 'peoples'' would be the possessive of 'peoples' (= nations). Parts (A), (B), and (D) are all correct.",
+      "source": "Adapted · attributed to Mahatma Gandhi",
+      "flavor": "quotes",
+      "author": "Mahatma Gandhi"
+    },
+    {
+      "stem": "(A) Two souls who truly love (B) finish each others' (C) sentences and (D) silences alike.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is a singular reciprocal expression; the possessive is 'each other's'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all correct.",
+      "source": "Adapted · attributed to Khalil Gibran",
+      "flavor": "quotes",
+      "author": "Khalil Gibran"
+    },
+    {
+      "stem": "(A) Live so honestly (B) that nobody's else verdict (C) can disturb your sleep (D) at night.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Nobody's else' is wrong; the standard possessive is 'nobody else's'.",
+      "fullExplanation": "With 'nobody + else', the possessive 's attaches to 'else': 'nobody else's verdict'. The form 'nobody's else' is non-standard. Parts (A), (C), and (D) are all correct.",
+      "source": "Adapted · attributed to Marcus Aurelius",
+      "flavor": "quotes",
+      "author": "Marcus Aurelius"
+    },
+    {
+      "stem": "(A) Carry other peoples' (B) burdens for a while (C) and you will (D) better understand your own.",
+      "options": ["A","B","C"],
+      "answer": "A",
+      "explanation": "'Other peoples'' is wrong; 'people' is plural, so the possessive is 'people's'.",
+      "fullExplanation": "'People' is itself plural, so the possessive marker is 's': 'other people's burdens'. The form 'peoples'' would be the possessive of 'peoples' (= nations). Parts (B), (C), and (D) are all correct.",
+      "source": "Adapted · attributed to Henri Nouwen",
+      "flavor": "quotes",
+      "author": "Henri Nouwen"
+    },
+    {
+      "stem": "(A) The wise listen (B) to each others' silences (C) more carefully (D) than to their words.",
+      "options": ["A","B","C"],
+      "answer": "B",
+      "explanation": "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+      "fullExplanation": "'Each other' is a singular reciprocal expression; the possessive form is 'each other's'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all correct.",
+      "source": "Adapted · attributed to Confucius",
+      "flavor": "quotes",
+      "author": "Confucius"
+    },
+    {
+      "stem": "(A) A free person needs (B) no permission and (C) borrows somebody's else courage (D) only in the very last hour.",
+      "options": ["A","B","C"],
+      "answer": "C",
+      "explanation": "'Somebody's else' is wrong; the standard possessive is 'somebody else's'.",
+      "fullExplanation": "Indefinite pronoun + 'else' takes the possessive on 'else': 'somebody else's courage'. The split form 'somebody's else' is non-standard. Parts (A), (B), and (D) are all correct.",
+      "source": "Adapted · attributed to Hannah Arendt",
+      "flavor": "quotes",
+      "author": "Hannah Arendt"
+    }
+  ]
+}

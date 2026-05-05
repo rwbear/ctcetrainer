@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   CTCE TASK BANK — v9.18 Phase 8
-   58 subtopics, 1392 tasks
+   CTCE TASK BANK — v10.21 Phase 9
+   62 subtopics, 1860 tasks
    options[0] = correct answer (runtime shuffles)
    Lazy-loaded only when CTCE level is active.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -13468,7 +13468,7 @@ window.LEARN_TASKS_CTCE = {
       {
         id: "err-art-16",
         stem: "The gravity pulls all objects towards the centre of the Earth at the same rate in a vacuum. Find the redundant word: ___",
-        options: ["the", "a", "an"],
+        options: ["The", "a", "an"],
         answer: "The",
         explanation: "'The gravity' as a general physical phenomenon should take zero article; 'The' at the start is redundant.",
         fullExplanation: "When referring to gravity as a universal force in general, English uses zero article: 'Gravity pulls objects'. 'The gravity' would refer to a specific gravitational field. For a scientific generalisation, 'The' before 'gravity' is redundant. 'The' (before 'centre'), 'a', and 'same' are all correctly used.",
@@ -19272,5 +19272,977 @@ window.LEARN_TASKS_CTCE = {
         flavor: "quotes",
         author: "Naval Ravikant"
       }]
+  },
+  "ei-poss": {
+    id: "ei-poss",
+    name: "Possessives — else / each other / people",
+    canonicalSubId: "cs-ei-poss",
+    canonicalTopicId: "error-identification",
+    tasks: [
+      {
+        id: "ei-poss-01",
+        stem: "Marie Curie and her husband Pierre (A) read each others' (B) laboratory notebooks religiously, (C) checking every calculation (D) before publication.",
+        options: ["A", "B", "C"],
+        answer: "A",
+        explanation: "'Each others'' is wrong; the correct possessive is 'each other's'.",
+        fullExplanation: "'Each other' is treated as a singular reciprocal pronoun, so the apostrophe goes before the s: 'each other's'. 'Each others'' would treat it as a plural noun, which is incorrect. Parts (B), (C), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "personalities"
+      },
+      {
+        id: "ei-poss-02",
+        stem: "When asked to comment on (A) somebody's else theory, (B) Albert Einstein politely (C) declined and changed (D) the subject.",
+        options: ["A", "B", "C"],
+        answer: "A",
+        explanation: "'Somebody's else' is wrong; the apostrophe attaches to 'else', giving 'somebody else's'.",
+        fullExplanation: "With indefinite pronouns + 'else', the possessive 's attaches to 'else', not to the pronoun: 'somebody else's', 'anyone else's', 'everyone else's'. 'Somebody's else' splits the unit incorrectly. Parts (B), (C), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "personalities"
+      },
+      {
+        id: "ei-poss-03",
+        stem: "Frida Kahlo often (A) drew inspiration from (B) other peoples' suffering, (C) transforming raw emotion (D) into striking visual symbols.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Other peoples'' is wrong; 'people' is already a plural noun, so the possessive is 'people's'.",
+        fullExplanation: "'People' is an irregular plural that takes the possessive 's': 'people's'. The form 'peoples'' would be the possessive of 'peoples' (meaning 'nations'), which is not the meaning here. The correct phrase is 'other people's suffering'. Parts (A), (C), and (D) are all correct.",
+        source: "Murphy, EGU (4e), Unit 83",
+        flavor: "personalities"
+      },
+      {
+        id: "ei-poss-04",
+        stem: "The Beatles (A) frequently borrowed melodic ideas (B) from each others' demos, (C) refining them in the studio (D) until everyone was satisfied.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' behaves as a singular reciprocal expression; the apostrophe goes before the s: 'each other's demos'. The plural-style 'each others'' is never correct in standard English. Parts (A), (C), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "personalities"
+      },
+      {
+        id: "ei-poss-05",
+        stem: "Steve Jobs argued that (A) nobody's else opinion (B) should override the design instinct (C) of the team that builds (D) the product.",
+        options: ["A", "B", "C"],
+        answer: "A",
+        explanation: "'Nobody's else' is wrong; with 'else', the apostrophe goes on 'else' — 'nobody else's'.",
+        fullExplanation: "Indefinite pronoun + 'else' takes the possessive on 'else': 'nobody else's', 'someone else's'. 'Nobody's else' is a non-standard split form. Parts (B), (C), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "personalities"
+      },
+      {
+        id: "ei-poss-06",
+        stem: "Coco Chanel insisted that (A) anyone's else fashion (B) could be admired but never copied directly, (C) because true style begins (D) with a personal sense of restraint.",
+        options: ["A", "B", "C"],
+        answer: "A",
+        explanation: "'Anyone's else' is wrong; the standard possessive is 'anyone else's'.",
+        fullExplanation: "With 'anyone/someone/everyone/nobody + else', the possessive 's attaches to 'else': 'anyone else's', 'someone else's'. Splitting the form as 'anyone's else' is non-standard. Parts (B), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "personalities"
+      },
+      {
+        id: "ei-poss-07",
+        stem: "During the Cold War the two superpowers (A) were constantly monitoring (B) each others' military movements, (C) trying to predict the next escalation (D) before it happened.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' is treated as a singular unit; the possessive marker is 'each other's'. The plural form 'each others'' is never correct. Parts (A), (C), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "history"
+      },
+      {
+        id: "ei-poss-08",
+        stem: "The medieval guilds carefully (A) protected their secrets, (B) believing that no apprentice should (C) imitate someone's else technique (D) without years of training.",
+        options: ["A", "B", "C"],
+        answer: "C",
+        explanation: "'Someone's else' is wrong; the standard possessive is 'someone else's'.",
+        fullExplanation: "Indefinite pronoun + 'else' takes the possessive on 'else': 'someone else's'. The form 'someone's else' is a non-standard split. Parts (A), (B), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "history"
+      },
+      {
+        id: "ei-poss-09",
+        stem: "The Treaty of Westphalia (A) was signed in 1648, ending decades of war (B) and recognising other peoples' (C) right to choose their own confessions (D) within their own borders.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Other peoples'' is wrong; 'people' is a plural noun, so the possessive is 'people's'.",
+        fullExplanation: "'People' is itself plural, so the possessive 's' attaches directly: 'other people's right'. The form 'other peoples'' would be the possessive of 'peoples' (= nations), which is not the meaning intended here. Parts (A), (C), and (D) are all correct.",
+        source: "Murphy, EGU (4e), Unit 83",
+        flavor: "history"
+      },
+      {
+        id: "ei-poss-10",
+        stem: "After the fall of Rome, the new kingdoms (A) frequently quarrelled over (B) borders and trade routes, (C) often violating everybody's else treaties (D) signed only a few years earlier.",
+        options: ["A", "B", "C"],
+        answer: "C",
+        explanation: "'Everybody's else' is wrong; the standard possessive is 'everybody else's'.",
+        fullExplanation: "With 'everybody/everyone/somebody + else', the possessive marker attaches to 'else', not to the pronoun: 'everybody else's treaties'. The form 'everybody's else' is non-standard. Parts (A), (B), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "history"
+      },
+      {
+        id: "ei-poss-11",
+        stem: "By the late 19th century, the great powers (A) had divided most of Africa (B) into each others' spheres of influence (C) without ever consulting the populations (D) whose lands they were claiming.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' is treated as a singular reciprocal expression; the possessive form is 'each other's spheres'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "history"
+      },
+      {
+        id: "ei-poss-12",
+        stem: "The Renaissance princes (A) competed openly to (B) attract each others' best painters, (C) offering generous patronage (D) and lifelong protection.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' is a singular reciprocal expression; the possessive form is 'each other's'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "history"
+      },
+      {
+        id: "ei-poss-13",
+        stem: "If you really want to make new friends, (A) try not to dismiss (B) anyone's else hobbies (C) before you have given them (D) at least one honest chance.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Anyone's else' is wrong; the standard possessive is 'anyone else's'.",
+        fullExplanation: "With indefinite pronouns + 'else', the possessive 's attaches to 'else': 'anyone else's hobbies'. 'Anyone's else' is a non-standard split. Parts (A), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "social"
+      },
+      {
+        id: "ei-poss-14",
+        stem: "At the office party (A) the colleagues kept (B) finishing each others' sentences, (C) which made the new intern feel (D) slightly left out.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' acts as a singular reciprocal expression; the possessive marker is 'each other's'. Parts (A), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "social"
+      },
+      {
+        id: "ei-poss-15",
+        stem: "It is rude (A) to read (B) other peoples' messages (C) over their shoulders (D) on the train.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Other peoples'' is wrong; 'people' is plural, so the possessive is 'people's'.",
+        fullExplanation: "'People' is an irregular plural that forms its possessive with 's': 'other people's messages'. The form 'peoples'' would be the possessive of 'peoples' (= nations), which is not the meaning here. Parts (A), (C), and (D) are all correct.",
+        source: "Murphy, EGU (4e), Unit 83",
+        flavor: "social"
+      },
+      {
+        id: "ei-poss-16",
+        stem: "On group trips (A) we usually end up wearing (B) somebody's else jacket (C) by accident, especially after (D) a long evening at a restaurant.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Somebody's else' is wrong; the standard possessive is 'somebody else's'.",
+        fullExplanation: "Indefinite pronoun + 'else' takes the possessive on 'else': 'somebody else's jacket'. Splitting it as 'somebody's else' is non-standard. Parts (A), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "social"
+      },
+      {
+        id: "ei-poss-17",
+        stem: "The two best friends (A) finished each others' coffee (B) without even noticing, (C) so deep was their conversation (D) about future travel plans.",
+        options: ["A", "B", "C"],
+        answer: "A",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' is treated as a singular reciprocal pronoun; the apostrophe goes before the s: 'each other's coffee'. Parts (B), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "social"
+      },
+      {
+        id: "ei-poss-18",
+        stem: "Try not to compare your progress (A) with everybody's else (B) at the gym; (C) personal goals matter more (D) than public benchmarks.",
+        options: ["A", "B", "C"],
+        answer: "A",
+        explanation: "'Everybody's else' is wrong; the standard possessive is 'everybody else's'.",
+        fullExplanation: "With 'everybody/everyone + else', the possessive 's attaches to 'else': 'everybody else's progress'. 'Everybody's else' is a non-standard split. Parts (B), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "social"
+      },
+      {
+        id: "ei-poss-19",
+        stem: "Astronomers (A) often build on each others' (B) observational data, (C) since no single telescope (D) can cover the whole sky.",
+        options: ["A", "B", "C"],
+        answer: "A",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' is a singular reciprocal expression; the possessive marker is 'each other's'. The plural form 'each others'' is non-standard. Parts (B), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "science"
+      },
+      {
+        id: "ei-poss-20",
+        stem: "A peer reviewer (A) must judge (B) somebody's else paper (C) without letting personal rivalry (D) influence the verdict.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Somebody's else' is wrong; the standard possessive is 'somebody else's'.",
+        fullExplanation: "Indefinite pronoun + 'else' takes the possessive on 'else': 'somebody else's paper'. Splitting it as 'somebody's else' is non-standard. Parts (A), (C), and (D) are all grammatically correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "science"
+      },
+      {
+        id: "ei-poss-21",
+        stem: "Modern epidemiology (A) studies how diseases (B) spread among other peoples' communities, (C) often relying on anonymised data (D) collected by local hospitals.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Other peoples'' is wrong; 'people' is plural, so the possessive is 'people's'.",
+        fullExplanation: "'People' is itself plural, so the possessive 's' attaches directly: 'other people's communities'. The form 'peoples'' would be the possessive of 'peoples' (= nations). Parts (A), (C), and (D) are all correct.",
+        source: "Murphy, EGU (4e), Unit 83",
+        flavor: "science"
+      },
+      {
+        id: "ei-poss-22",
+        stem: "Watson and Crick (A) freely discussed (B) anybody's else preliminary results (C) at the cafeteria, (D) which sometimes caused friction with their colleagues.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Anybody's else' is wrong; the standard possessive is 'anybody else's'.",
+        fullExplanation: "With 'anybody/anyone + else', the possessive 's attaches to 'else': 'anybody else's preliminary results'. The form 'anybody's else' is non-standard. Parts (A), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "science"
+      },
+      {
+        id: "ei-poss-23",
+        stem: "Two rival labs (A) refused to read (B) each others' preprints, (C) even when the topic was almost identical (D) and a shared review would have saved months.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' is a singular reciprocal expression; the possessive form is 'each other's'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §199",
+        flavor: "science"
+      },
+      {
+        id: "ei-poss-24",
+        stem: "Large clinical trials (A) sometimes involve teams (B) replicating someone's else findings (C) under stricter conditions (D) before any drug is approved.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Someone's else' is wrong; the standard possessive is 'someone else's'.",
+        fullExplanation: "Indefinite pronoun + 'else' takes the possessive on 'else': 'someone else's findings'. The form 'someone's else' is a non-standard split. Parts (A), (C), and (D) are all correct.",
+        source: "Swan, PEU (4e), §184",
+        flavor: "science"
+      },
+      {
+        id: "ei-poss-25",
+        stem: "(A) Be the change you wish (B) to see in (C) other peoples' lives, (D) one quiet day at a time.",
+        options: ["A", "B", "C"],
+        answer: "C",
+        explanation: "'Other peoples'' is wrong; 'people' is plural, so the possessive is 'people's'.",
+        fullExplanation: "'People' is plural and forms its possessive with 's': 'other people's lives'. The form 'peoples'' would be the possessive of 'peoples' (= nations). Parts (A), (B), and (D) are all correct.",
+        source: "Adapted · attributed to Mahatma Gandhi",
+        flavor: "quotes",
+        author: "Mahatma Gandhi"
+      },
+      {
+        id: "ei-poss-26",
+        stem: "(A) Two souls who truly love (B) finish each others' (C) sentences and (D) silences alike.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' is a singular reciprocal expression; the possessive is 'each other's'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all correct.",
+        source: "Adapted · attributed to Khalil Gibran",
+        flavor: "quotes",
+        author: "Khalil Gibran"
+      },
+      {
+        id: "ei-poss-27",
+        stem: "(A) Live so honestly (B) that nobody's else verdict (C) can disturb your sleep (D) at night.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Nobody's else' is wrong; the standard possessive is 'nobody else's'.",
+        fullExplanation: "With 'nobody + else', the possessive 's attaches to 'else': 'nobody else's verdict'. The form 'nobody's else' is non-standard. Parts (A), (C), and (D) are all correct.",
+        source: "Adapted · attributed to Marcus Aurelius",
+        flavor: "quotes",
+        author: "Marcus Aurelius"
+      },
+      {
+        id: "ei-poss-28",
+        stem: "(A) Carry other peoples' (B) burdens for a while (C) and you will (D) better understand your own.",
+        options: ["A", "B", "C"],
+        answer: "A",
+        explanation: "'Other peoples'' is wrong; 'people' is plural, so the possessive is 'people's'.",
+        fullExplanation: "'People' is itself plural, so the possessive marker is 's': 'other people's burdens'. The form 'peoples'' would be the possessive of 'peoples' (= nations). Parts (B), (C), and (D) are all correct.",
+        source: "Adapted · attributed to Henri Nouwen",
+        flavor: "quotes",
+        author: "Henri Nouwen"
+      },
+      {
+        id: "ei-poss-29",
+        stem: "(A) The wise listen (B) to each others' silences (C) more carefully (D) than to their words.",
+        options: ["A", "B", "C"],
+        answer: "B",
+        explanation: "'Each others'' is wrong; the correct reciprocal possessive is 'each other's'.",
+        fullExplanation: "'Each other' is a singular reciprocal expression; the possessive form is 'each other's'. The plural 'each others'' is non-standard. Parts (A), (C), and (D) are all correct.",
+        source: "Adapted · attributed to Confucius",
+        flavor: "quotes",
+        author: "Confucius"
+      },
+      {
+        id: "ei-poss-30",
+        stem: "(A) A free person needs (B) no permission and (C) borrows somebody's else courage (D) only in the very last hour.",
+        options: ["A", "B", "C"],
+        answer: "C",
+        explanation: "'Somebody's else' is wrong; the standard possessive is 'somebody else's'.",
+        fullExplanation: "Indefinite pronoun + 'else' takes the possessive on 'else': 'somebody else's courage'. The split form 'somebody's else' is non-standard. Parts (A), (B), and (D) are all correct.",
+        source: "Adapted · attributed to Hannah Arendt",
+        flavor: "quotes",
+        author: "Hannah Arendt"
+      }
+    ]
+  },
+  "trans-ru-quant": {
+    id: "trans-ru-quant",
+    name: "Translation — quantifiers (мало / немного / few / a few)",
+    canonicalSubId: "cs-trans-quant",
+    canonicalTopicId: "translation",
+    tasks: [
+      {
+        id: "trans-ru-quant-01",
+        stem: "We have (мало) ___ time before the meeting, so let's stop chatting and get started.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Time' is uncountable; 'мало' (negative) + uncountable → 'little'.",
+        fullExplanation: "'Мало' carries a negative meaning ('not enough'). With uncountable nouns it translates as 'little'. 'Few' is wrong because 'time' is uncountable. 'A little' would mean 'some', losing the negative sense of 'мало'.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + uncountable",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-quant-02",
+        stem: "There are (мало) ___ buses on this route after midnight, so plan your journey carefully.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Buses' is countable plural; 'мало' (negative) + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural noun translates as 'few' (= not many, with negative emphasis). 'Little' is for uncountable nouns. 'A few' would lose the negative meaning of 'мало'.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + countable plural",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-quant-03",
+        stem: "Could you add (немного) ___ milk to my coffee? I prefer it not too strong.",
+        options: ["a little", "a few", "little"],
+        answer: "a little",
+        explanation: "'Milk' is uncountable; 'немного' (positive) + uncountable → 'a little'.",
+        fullExplanation: "'Немного' carries a positive meaning ('some, not none'). With uncountable nouns it translates as 'a little'. 'A few' is for countable plural nouns. 'Little' would carry a negative meaning ('not enough'), changing the request.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "немного + uncountable",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-quant-04",
+        stem: "I bought (немного) ___ apples at the market on my way home from work.",
+        options: ["a few", "a little", "few"],
+        answer: "a few",
+        explanation: "'Apples' is countable plural; 'немного' (positive) + countable → 'a few'.",
+        fullExplanation: "'Немного' with a countable plural noun translates as 'a few' (= some, with positive emphasis). 'A little' is for uncountable nouns. 'Few' would carry a negative meaning ('not many').",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "немного + countable plural",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-quant-05",
+        stem: "She has (мало) ___ patience for small talk, especially after a long day at the clinic.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Patience' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Patience' is uncountable. 'Мало' (negative) + uncountable noun → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would mean 'some', losing the negative emphasis.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + uncountable",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-quant-06",
+        stem: "We invited (мало) ___ guests to the wedding because we wanted a small, intimate ceremony.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Guests' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural translates as 'few' (= not many). 'Little' is for uncountable nouns. 'A few' would mean 'some', which contradicts 'мало'.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + countable plural",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-quant-07",
+        stem: "Even at the height of his fame, Charlie Chaplin gave (мало) ___ interviews about his private life.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Interviews' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural noun translates as 'few' (= not many, with negative emphasis). 'Little' is reserved for uncountable nouns. 'A few' would change the meaning to 'some'.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + countable plural",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-quant-08",
+        stem: "Albert Einstein had (мало) ___ patience for academic ceremony and often skipped formal dinners.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Patience' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Patience' is an uncountable abstract noun. 'Мало' + uncountable noun → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would suggest 'some patience', losing the negative sense.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + uncountable",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-quant-09",
+        stem: "Vincent van Gogh sold (мало) ___ paintings during his lifetime and only became famous after his death.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Paintings' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural noun translates as 'few' (= not many). The negative emphasis is essential here — Van Gogh did not sell many paintings. 'Little' is for uncountable nouns; 'a few' would weaken the meaning.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + countable plural",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-quant-10",
+        stem: "Frida Kahlo received (немного) ___ formal art training before she began painting her famous self-portraits.",
+        options: ["a little", "a few", "little"],
+        answer: "a little",
+        explanation: "'Training' is uncountable; 'немного' + uncountable → 'a little'.",
+        fullExplanation: "'Training' is an uncountable noun. 'Немного' + uncountable → 'a little' (= some, with positive emphasis). 'A few' would require a countable plural. 'Little' would mean 'not enough', which misrepresents the historical fact.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "немного + uncountable",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-quant-11",
+        stem: "Marie Curie wrote (немного) ___ letters to her daughters every week, even during her busiest research periods.",
+        options: ["a few", "a little", "few"],
+        answer: "a few",
+        explanation: "'Letters' is countable plural; 'немного' + countable → 'a few'.",
+        fullExplanation: "'Немного' with a countable plural noun translates as 'a few' (= some, positive emphasis). 'A little' is for uncountable nouns. 'Few' would mean 'not many', losing the positive sense.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "немного + countable plural",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-quant-12",
+        stem: "Throughout his career Stephen Hawking had (мало) ___ time for self-pity, even as his illness progressed.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Time' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Time' is uncountable. 'Мало' + uncountable noun → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would mean 'some', softening the negative emphasis.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + uncountable",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-quant-13",
+        stem: "After the fall of Constantinople in 1453, (мало) ___ scholars remained in the city to teach Greek.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Scholars' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural noun translates as 'few' (= not many, with negative emphasis). 'Little' is for uncountable nouns. 'A few' would change the meaning to 'some', losing the historical implication.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + countable plural",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-quant-14",
+        stem: "During the Great Depression there was (мало) ___ work available, and queues outside soup kitchens grew longer every week.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Work' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Work' (in the sense of 'employment') is uncountable. 'Мало' + uncountable → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would weaken the sense of severe scarcity.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + uncountable",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-quant-15",
+        stem: "After the 1812 fire, (мало) ___ buildings of Moscow's old city centre survived intact.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Buildings' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural noun translates as 'few' (= not many). 'Little' is for uncountable nouns. 'A few' would weaken the meaning.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + countable plural",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-quant-16",
+        stem: "Medieval monks copied (немного) ___ pages each day, working slowly to keep their handwriting consistent.",
+        options: ["a few", "a little", "few"],
+        answer: "a few",
+        explanation: "'Pages' is countable plural; 'немного' + countable → 'a few'.",
+        fullExplanation: "'Немного' with a countable plural translates as 'a few' (= some, positive emphasis). 'A little' is for uncountable nouns. 'Few' would mean 'not many', losing the positive sense.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "немного + countable plural",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-quant-17",
+        stem: "The Roman senators had (мало) ___ influence over Caesar's military decisions during his Gallic campaigns.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Influence' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Influence' is uncountable in this sense. 'Мало' + uncountable → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would soften the negative emphasis.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + uncountable",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-quant-18",
+        stem: "Among the first explorers of Antarctica, (мало) ___ men returned without injuries from the long expedition.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Men' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural translates as 'few' (= not many, negative emphasis). 'Little' is for uncountable nouns. 'A few' would mean 'some', losing the gravity of the historical situation.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + countable plural",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-quant-19",
+        stem: "The early universe contained (мало) ___ heavy elements; most were forged later in the cores of dying stars.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Elements' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Heavy elements' is a countable plural. 'Мало' + countable → 'few' (= not many). 'Little' is for uncountable nouns. 'A few' would not convey the scientific point about scarcity.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + countable plural",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-quant-20",
+        stem: "Until the 19th century there was (мало) ___ evidence for the existence of atoms beyond a few philosophical arguments.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Evidence' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Evidence' is uncountable in English. 'Мало' + uncountable → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would soften the negative emphasis.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + uncountable",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-quant-21",
+        stem: "Researchers added (немного) ___ sodium to the solution and observed an immediate change in colour.",
+        options: ["a little", "a few", "little"],
+        answer: "a little",
+        explanation: "'Sodium' is uncountable; 'немного' + uncountable → 'a little'.",
+        fullExplanation: "'Sodium' as a substance is uncountable. 'Немного' + uncountable → 'a little' (= some, positive emphasis). 'A few' would require a countable plural. 'Little' would mean 'not enough', changing the experimental description.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "немного + uncountable",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-quant-22",
+        stem: "After centuries of debate, scientists today have (мало) ___ doubt that human activity is warming the climate.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Doubt' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Doubt' is uncountable in this idiomatic sense ('have little doubt'). 'Мало' + uncountable → 'little' (= barely any). 'Few' is for countable plurals. 'A little' would mean 'some doubt', changing the meaning.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "мало + uncountable",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-quant-23",
+        stem: "The biologist took (немного) ___ samples from each pond and stored them in numbered glass tubes.",
+        options: ["a few", "a little", "few"],
+        answer: "a few",
+        explanation: "'Samples' is countable plural; 'немного' + countable → 'a few'.",
+        fullExplanation: "'Немного' with a countable plural translates as 'a few' (= some, positive emphasis). 'A little' is for uncountable nouns. 'Few' would mean 'not many', losing the positive sense.",
+        source: "Murphy, EGU (4e), Unit 83",
+        hint: "немного + countable plural",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-quant-24",
+        stem: "Modern surgery has (мало) ___ in common with the bloody procedures performed before anaesthesia was discovered.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Common' here pairs with the uncountable idiom 'have little in common'; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Have little in common' is a fixed idiom with the uncountable phrase 'in common'. 'Мало' + uncountable → 'little'. 'Few' would be ungrammatical here, and 'a little' would soften the contrast intended by the sentence.",
+        source: "Swan, PEU (4e), §374",
+        hint: "мало + uncountable",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-quant-25",
+        stem: "There is (мало) ___ wisdom in promising what you cannot deliver, however good your intentions may be.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Wisdom' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Wisdom' is an uncountable abstract noun. 'Мало' + uncountable → 'little' (= barely any). 'Few' is for countable plurals. 'A little' would weaken the moral force of the saying.",
+        source: "Adapted · attributed to Aesop",
+        hint: "мало + uncountable",
+        flavor: "quotes",
+        author: "Aesop"
+      },
+      {
+        id: "trans-ru-quant-26",
+        stem: "(мало) ___ men know how brave they are until courage is the only choice left to them.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Men' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural translates as 'few' (= not many). The aphorism makes a negative claim about how many men know themselves. 'Little' is for uncountable nouns; 'a few' would neutralise the rhetorical force.",
+        source: "Adapted · attributed to Marcus Aurelius",
+        hint: "мало + countable plural",
+        flavor: "quotes",
+        author: "Marcus Aurelius"
+      },
+      {
+        id: "trans-ru-quant-27",
+        stem: "Add (немного) ___ kindness to every conversation, and the world will already be a slightly better place.",
+        options: ["a little", "a few", "little"],
+        answer: "a little",
+        explanation: "'Kindness' is uncountable; 'немного' + uncountable → 'a little'.",
+        fullExplanation: "'Kindness' is an uncountable abstract noun. 'Немного' + uncountable → 'a little' (= some, positive emphasis). 'A few' is for countable plurals. 'Little' would mean 'not enough', contradicting the message.",
+        source: "Adapted · attributed to the Dalai Lama",
+        hint: "немного + uncountable",
+        flavor: "quotes",
+        author: "Dalai Lama"
+      },
+      {
+        id: "trans-ru-quant-28",
+        stem: "(немного) ___ hours of honest work each morning will outpace whole days of distracted effort.",
+        options: ["a few", "a little", "few"],
+        answer: "a few",
+        explanation: "'Hours' is countable plural; 'немного' + countable → 'a few'.",
+        fullExplanation: "'Немного' with a countable plural translates as 'a few' (= some, positive emphasis). 'A little' would require an uncountable noun. 'Few' would carry a negative meaning, undermining the productive idea of the saying.",
+        source: "Adapted · attributed to Benjamin Franklin",
+        hint: "немного + countable plural",
+        flavor: "quotes",
+        author: "Benjamin Franklin"
+      },
+      {
+        id: "trans-ru-quant-29",
+        stem: "There is (мало) ___ joy in winning if you have to betray a friend to do it.",
+        options: ["little", "few", "a little"],
+        answer: "little",
+        explanation: "'Joy' is uncountable; 'мало' + uncountable → 'little'.",
+        fullExplanation: "'Joy' is an uncountable abstract noun. 'Мало' + uncountable → 'little' (= barely any). 'Few' is for countable plurals. 'A little' would dilute the moral claim.",
+        source: "Adapted · attributed to Sophocles",
+        hint: "мало + uncountable",
+        flavor: "quotes",
+        author: "Sophocles"
+      },
+      {
+        id: "trans-ru-quant-30",
+        stem: "(мало) ___ books change a life as much as the ones we re-read in moments of doubt.",
+        options: ["few", "little", "a few"],
+        answer: "few",
+        explanation: "'Books' is countable plural; 'мало' + countable → 'few'.",
+        fullExplanation: "'Мало' with a countable plural translates as 'few' (= not many, negative emphasis). 'Little' is for uncountable nouns. 'A few' would mean 'some', losing the rhetorical force of the aphorism.",
+        source: "Adapted · attributed to Italo Calvino",
+        hint: "мало + countable plural",
+        flavor: "quotes",
+        author: "Italo Calvino"
+      }
+    ]
+  },
+  "trans-ru-tags": {
+    id: "trans-ru-tags",
+    name: "Translation — tag questions (не так ли)",
+    canonicalSubId: "cs-trans-tags",
+    canonicalTopicId: "translation",
+    tasks: [
+      {
+        id: "trans-ru-tags-01",
+        stem: "She works at the hospital, ___ (не так ли)?",
+        options: ["doesn't she", "does she", "didn't she"],
+        answer: "doesn't she",
+        explanation: "Positive statement in Present Simple → negative tag with does + n't + subject.",
+        fullExplanation: "The statement 'She works' is positive Present Simple. Tag questions invert polarity, so the tag is negative: 'doesn't she'. 'Does she' has the wrong polarity (positive). 'Didn't she' has the wrong tense (Past Simple).",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-tags-02",
+        stem: "You don't drink coffee in the evening, ___ (не так ли)?",
+        options: ["do you", "don't you", "did you"],
+        answer: "do you",
+        explanation: "Negative statement → positive tag with do + subject.",
+        fullExplanation: "The statement 'You don't drink' is negative Present Simple. The tag flips polarity, so the tag is positive: 'do you'. 'Don't you' would be wrong polarity (also negative). 'Did you' has the wrong tense.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-tags-03",
+        stem: "The kids finished their homework before dinner, ___ (не так ли)?",
+        options: ["didn't they", "did they", "haven't they"],
+        answer: "didn't they",
+        explanation: "Positive Past Simple → negative tag with did + n't + subject.",
+        fullExplanation: "The statement 'The kids finished' is positive Past Simple. The tag is negative: 'didn't they'. 'Did they' has the wrong polarity. 'Haven't they' switches to Present Perfect, which is the wrong tense for the simple past statement.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-tags-04",
+        stem: "We never go to that café anymore, ___ (не так ли)?",
+        options: ["do we", "don't we", "did we"],
+        answer: "do we",
+        explanation: "'Never' makes the statement negative → positive tag with do + subject.",
+        fullExplanation: "Negative adverbs like 'never', 'rarely', 'hardly', 'scarcely', 'seldom' make the statement effectively negative, so the tag is positive: 'do we'. 'Don't we' has the wrong polarity. 'Did we' has the wrong tense.",
+        source: "Swan, PEU (4e), §306",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-tags-05",
+        stem: "Your sister has finished university, ___ (не так ли)?",
+        options: ["hasn't she", "has she", "doesn't she"],
+        answer: "hasn't she",
+        explanation: "Positive Present Perfect → negative tag with the same auxiliary 'has'.",
+        fullExplanation: "Tag questions reuse the auxiliary of the main statement. 'Has finished' is positive Present Perfect, so the tag is 'hasn't she'. 'Has she' has the wrong polarity. 'Doesn't she' uses the wrong auxiliary (Present Simple instead of Present Perfect).",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-tags-06",
+        stem: "We will finish the project by Friday, ___ (не так ли)?",
+        options: ["won't we", "will we", "don't we"],
+        answer: "won't we",
+        explanation: "Positive 'will' future → negative tag with won't + subject.",
+        fullExplanation: "Tag questions reuse the modal auxiliary. 'Will finish' is positive future, so the tag is negative: 'won't we'. 'Will we' has the wrong polarity. 'Don't we' uses the wrong auxiliary entirely.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "social"
+      },
+      {
+        id: "trans-ru-tags-07",
+        stem: "Mozart composed his first opera as a teenager, ___ (не так ли)?",
+        options: ["didn't he", "did he", "doesn't he"],
+        answer: "didn't he",
+        explanation: "Positive Past Simple → negative tag with did + n't + subject.",
+        fullExplanation: "'Composed' is Past Simple, positive. The tag is negative: 'didn't he'. 'Did he' has the wrong polarity. 'Doesn't he' has the wrong tense (Present Simple).",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-tags-08",
+        stem: "Einstein rarely attended formal social events, ___ (не так ли)?",
+        options: ["did he", "didn't he", "does he"],
+        answer: "did he",
+        explanation: "'Rarely' makes the statement negative → positive tag with did + subject.",
+        fullExplanation: "Negative adverbs ('rarely', 'never', 'hardly', 'seldom', 'scarcely') make the statement effectively negative, so the tag is positive: 'did he'. 'Didn't he' has the wrong polarity. 'Does he' has the wrong tense.",
+        source: "Swan, PEU (4e), §306",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-tags-09",
+        stem: "Frida Kahlo painted many self-portraits, ___ (не так ли)?",
+        options: ["didn't she", "did she", "hasn't she"],
+        answer: "didn't she",
+        explanation: "Positive Past Simple → negative tag with did + n't + subject.",
+        fullExplanation: "'Painted' is positive Past Simple. The tag is negative: 'didn't she'. 'Did she' has the wrong polarity. 'Hasn't she' switches tense to Present Perfect, which does not match.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-tags-10",
+        stem: "Steve Jobs hardly ever wore anything but a black turtleneck, ___ (не так ли)?",
+        options: ["did he", "didn't he", "does he"],
+        answer: "did he",
+        explanation: "'Hardly ever' makes the statement negative → positive tag with did + subject.",
+        fullExplanation: "'Hardly ever' is a negative adverbial; the statement is effectively negative, so the tag is positive: 'did he'. 'Didn't he' has the wrong polarity. 'Does he' has the wrong tense.",
+        source: "Swan, PEU (4e), §306",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-tags-11",
+        stem: "Marie Curie has won two Nobel Prizes in different sciences, ___ (не так ли)?",
+        options: ["hasn't she", "has she", "didn't she"],
+        answer: "hasn't she",
+        explanation: "Positive Present Perfect → negative tag with has + n't + subject.",
+        fullExplanation: "Tag questions reuse the auxiliary. 'Has won' is positive Present Perfect, so the tag is 'hasn't she'. 'Has she' has the wrong polarity. 'Didn't she' switches the tense and the auxiliary, which does not match.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-tags-12",
+        stem: "Beethoven seldom performed in public after his hearing loss, ___ (не так ли)?",
+        options: ["did he", "didn't he", "does he"],
+        answer: "did he",
+        explanation: "'Seldom' makes the statement negative → positive tag with did + subject.",
+        fullExplanation: "'Seldom' belongs to the negative-adverb group; the statement is effectively negative, so the tag is positive: 'did he'. 'Didn't he' has the wrong polarity. 'Does he' has the wrong tense.",
+        source: "Swan, PEU (4e), §306",
+        flavor: "personalities"
+      },
+      {
+        id: "trans-ru-tags-13",
+        stem: "Napoleon crowned himself Emperor in 1804, ___ (не так ли)?",
+        options: ["didn't he", "did he", "doesn't he"],
+        answer: "didn't he",
+        explanation: "Positive Past Simple → negative tag with did + n't + subject.",
+        fullExplanation: "'Crowned' is positive Past Simple. The tag is negative: 'didn't he'. 'Did he' has the wrong polarity. 'Doesn't he' has the wrong tense.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-tags-14",
+        stem: "The Roman Empire didn't fall in a single day, ___ (не так ли)?",
+        options: ["did it", "didn't it", "does it"],
+        answer: "did it",
+        explanation: "Negative Past Simple → positive tag with did + subject.",
+        fullExplanation: "The statement 'didn't fall' is negative Past Simple. The tag flips polarity: 'did it'. 'Didn't it' has the wrong polarity. 'Does it' has the wrong tense.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-tags-15",
+        stem: "Medieval peasants rarely travelled more than a few miles from their village, ___ (не так ли)?",
+        options: ["did they", "didn't they", "do they"],
+        answer: "did they",
+        explanation: "'Rarely' makes the statement negative → positive tag with did + subject.",
+        fullExplanation: "'Rarely' is a negative adverb; the statement is effectively negative, so the tag is positive: 'did they'. 'Didn't they' has the wrong polarity. 'Do they' has the wrong tense.",
+        source: "Swan, PEU (4e), §306",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-tags-16",
+        stem: "The Treaty of Versailles ended the First World War, ___ (не так ли)?",
+        options: ["didn't it", "did it", "doesn't it"],
+        answer: "didn't it",
+        explanation: "Positive Past Simple → negative tag with did + n't + subject.",
+        fullExplanation: "'Ended' is positive Past Simple. The tag is negative: 'didn't it'. 'Did it' has the wrong polarity. 'Doesn't it' has the wrong tense.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-tags-17",
+        stem: "Few historians today agree that Cleopatra was Egyptian by ancestry, ___ (не так ли)?",
+        options: ["do they", "don't they", "did they"],
+        answer: "do they",
+        explanation: "'Few' makes the statement negative → positive tag with do + subject.",
+        fullExplanation: "'Few' (without 'a') is a negative quantifier; the statement is effectively negative, so the tag is positive: 'do they'. 'Don't they' has the wrong polarity. 'Did they' has the wrong tense.",
+        source: "Swan, PEU (4e), §306",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-tags-18",
+        stem: "Columbus reached the Americas in 1492, ___ (не так ли)?",
+        options: ["didn't he", "did he", "hasn't he"],
+        answer: "didn't he",
+        explanation: "Positive Past Simple → negative tag with did + n't + subject.",
+        fullExplanation: "'Reached' is positive Past Simple. The tag is negative: 'didn't he'. 'Did he' has the wrong polarity. 'Hasn't he' switches to Present Perfect, which is wrong with a finished past time.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "history"
+      },
+      {
+        id: "trans-ru-tags-19",
+        stem: "Water boils at one hundred degrees Celsius at sea level, ___ (не так ли)?",
+        options: ["doesn't it", "does it", "didn't it"],
+        answer: "doesn't it",
+        explanation: "Positive Present Simple → negative tag with does + n't + subject.",
+        fullExplanation: "'Boils' is positive Present Simple (a general fact). The tag is negative: 'doesn't it'. 'Does it' has the wrong polarity. 'Didn't it' has the wrong tense for a timeless scientific statement.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-tags-20",
+        stem: "The vaccine doesn't cause the disease it is designed to prevent, ___ (не так ли)?",
+        options: ["does it", "doesn't it", "did it"],
+        answer: "does it",
+        explanation: "Negative Present Simple → positive tag with does + subject.",
+        fullExplanation: "'Doesn't cause' is negative Present Simple. The tag flips polarity: 'does it'. 'Doesn't it' has the wrong polarity. 'Did it' has the wrong tense.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-tags-21",
+        stem: "Darwin published On the Origin of Species in 1859, ___ (не так ли)?",
+        options: ["didn't he", "did he", "hasn't he"],
+        answer: "didn't he",
+        explanation: "Positive Past Simple → negative tag with did + n't + subject.",
+        fullExplanation: "'Published' is positive Past Simple with a closed past time. The tag is negative: 'didn't he'. 'Did he' has the wrong polarity. 'Hasn't he' switches to Present Perfect, which is wrong with a finished past time.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-tags-22",
+        stem: "Astronomers hardly ever observed exoplanets directly before the 1990s, ___ (не так ли)?",
+        options: ["did they", "didn't they", "do they"],
+        answer: "did they",
+        explanation: "'Hardly ever' makes the statement negative → positive tag with did + subject.",
+        fullExplanation: "'Hardly ever' is a negative adverbial; the statement is effectively negative, so the tag is positive: 'did they'. 'Didn't they' has the wrong polarity. 'Do they' has the wrong tense.",
+        source: "Swan, PEU (4e), §306",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-tags-23",
+        stem: "The new telescope will reveal galaxies we have never seen before, ___ (не так ли)?",
+        options: ["won't it", "will it", "doesn't it"],
+        answer: "won't it",
+        explanation: "Positive 'will' future → negative tag with won't + subject.",
+        fullExplanation: "'Will reveal' is positive future. The tag is negative: 'won't it'. 'Will it' has the wrong polarity. 'Doesn't it' uses the wrong auxiliary entirely.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-tags-24",
+        stem: "Modern scientists have not yet found a complete cure for the common cold, ___ (не так ли)?",
+        options: ["have they", "haven't they", "did they"],
+        answer: "have they",
+        explanation: "Negative Present Perfect → positive tag with have + subject.",
+        fullExplanation: "'Have not yet found' is negative Present Perfect. The tag flips polarity and reuses the auxiliary: 'have they'. 'Haven't they' has the wrong polarity. 'Did they' switches to Past Simple, which does not match.",
+        source: "Murphy, EGU (4e), Unit 42",
+        flavor: "science"
+      },
+      {
+        id: "trans-ru-tags-25",
+        stem: "A person grows wiser with each honest mistake, ___ (не так ли)?",
+        options: ["doesn't she", "does she", "didn't she"],
+        answer: "doesn't she",
+        explanation: "Positive Present Simple → negative tag with does + n't + subject.",
+        fullExplanation: "'Grows' is positive Present Simple (a general truth). The tag is negative: 'doesn't she'. 'Does she' has the wrong polarity. 'Didn't she' has the wrong tense for a generalisation.",
+        source: "Adapted · attributed to Confucius",
+        flavor: "quotes",
+        author: "Confucius"
+      },
+      {
+        id: "trans-ru-tags-26",
+        stem: "Time heals nothing if we refuse to forgive, ___ (не так ли)?",
+        options: ["does it", "doesn't it", "did it"],
+        answer: "does it",
+        explanation: "'Nothing' makes the statement negative → positive tag with does + subject.",
+        fullExplanation: "'Nothing' is a negative pronoun; the statement is effectively negative, so the tag is positive: 'does it'. 'Doesn't it' has the wrong polarity. 'Did it' has the wrong tense.",
+        source: "Adapted · attributed to Maya Angelou",
+        flavor: "quotes",
+        author: "Maya Angelou"
+      },
+      {
+        id: "trans-ru-tags-27",
+        stem: "Great minds discuss ideas, ___ (не так ли)?",
+        options: ["don't they", "do they", "didn't they"],
+        answer: "don't they",
+        explanation: "Positive Present Simple → negative tag with do + n't + subject.",
+        fullExplanation: "'Discuss' is positive Present Simple. The tag is negative: 'don't they'. 'Do they' has the wrong polarity. 'Didn't they' has the wrong tense.",
+        source: "Adapted · attributed to Eleanor Roosevelt",
+        flavor: "quotes",
+        author: "Eleanor Roosevelt"
+      },
+      {
+        id: "trans-ru-tags-28",
+        stem: "Few people listen as carefully as they speak, ___ (не так ли)?",
+        options: ["do they", "don't they", "did they"],
+        answer: "do they",
+        explanation: "'Few' makes the statement negative → positive tag with do + subject.",
+        fullExplanation: "'Few' (without 'a') is a negative quantifier; the statement is effectively negative, so the tag is positive: 'do they'. 'Don't they' has the wrong polarity. 'Did they' has the wrong tense.",
+        source: "Adapted · attributed to Stephen Covey",
+        flavor: "quotes",
+        author: "Stephen Covey"
+      },
+      {
+        id: "trans-ru-tags-29",
+        stem: "An honest worker has nothing to hide from his employer, ___ (не так ли)?",
+        options: ["has he", "hasn't he", "does he"],
+        answer: "has he",
+        explanation: "'Nothing' makes the statement negative → positive tag with has + subject.",
+        fullExplanation: "'Has nothing to hide' is effectively negative because of 'nothing', so the tag is positive and reuses the auxiliary 'has': 'has he'. 'Hasn't he' has the wrong polarity. 'Does he' uses the wrong auxiliary.",
+        source: "Adapted · attributed to Benjamin Franklin",
+        flavor: "quotes",
+        author: "Benjamin Franklin"
+      },
+      {
+        id: "trans-ru-tags-30",
+        stem: "A good book never grows old in the hands of a thoughtful reader, ___ (не так ли)?",
+        options: ["does it", "doesn't it", "did it"],
+        answer: "does it",
+        explanation: "'Never' makes the statement negative → positive tag with does + subject.",
+        fullExplanation: "'Never' is a negative adverb; the statement is effectively negative, so the tag is positive: 'does it'. 'Doesn't it' has the wrong polarity. 'Did it' has the wrong tense.",
+        source: "Adapted · attributed to Italo Calvino",
+        flavor: "quotes",
+        author: "Italo Calvino"
+      }
+    ]
   }
 };

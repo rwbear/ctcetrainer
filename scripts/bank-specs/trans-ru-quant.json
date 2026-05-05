@@ -1,0 +1,321 @@
+{
+  "id": "trans-ru-quant",
+  "name": "Translation — quantifiers (мало / немного / few / a few)",
+  "canonicalSubId": "cs-trans-quant",
+  "canonicalTopicId": "translation",
+  "_meta": {
+    "version": "v10.21",
+    "rule": "мало + uncountable → little; мало + countable → few; немного + uncountable → a little; немного + countable → a few",
+    "answerDistribution": "10 little, 10 few, 5 a little, 5 a few",
+    "flavorPlan": "6/6/6/6/6 across personalities/history/social/science/quotes",
+    "optionsPattern": "[answer, opposite-count, opposite-article]"
+  },
+  "tasks": [
+    {
+      "stem": "We have (мало) ___ time before the meeting, so let's stop chatting and get started.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Time' is uncountable; 'мало' (negative) + uncountable → 'little'.",
+      "fullExplanation": "'Мало' carries a negative meaning ('not enough'). With uncountable nouns it translates as 'little'. 'Few' is wrong because 'time' is uncountable. 'A little' would mean 'some', losing the negative sense of 'мало'.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "social"
+    },
+    {
+      "stem": "There are (мало) ___ buses on this route after midnight, so plan your journey carefully.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Buses' is countable plural; 'мало' (negative) + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural noun translates as 'few' (= not many, with negative emphasis). 'Little' is for uncountable nouns. 'A few' would lose the negative meaning of 'мало'.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "social"
+    },
+    {
+      "stem": "Could you add (немного) ___ milk to my coffee? I prefer it not too strong.",
+      "options": ["a little", "a few", "little"],
+      "answer": "a little",
+      "hint": "немного + uncountable",
+      "explanation": "'Milk' is uncountable; 'немного' (positive) + uncountable → 'a little'.",
+      "fullExplanation": "'Немного' carries a positive meaning ('some, not none'). With uncountable nouns it translates as 'a little'. 'A few' is for countable plural nouns. 'Little' would carry a negative meaning ('not enough'), changing the request.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "social"
+    },
+    {
+      "stem": "I bought (немного) ___ apples at the market on my way home from work.",
+      "options": ["a few", "a little", "few"],
+      "answer": "a few",
+      "hint": "немного + countable plural",
+      "explanation": "'Apples' is countable plural; 'немного' (positive) + countable → 'a few'.",
+      "fullExplanation": "'Немного' with a countable plural noun translates as 'a few' (= some, with positive emphasis). 'A little' is for uncountable nouns. 'Few' would carry a negative meaning ('not many').",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "social"
+    },
+    {
+      "stem": "She has (мало) ___ patience for small talk, especially after a long day at the clinic.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Patience' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Patience' is uncountable. 'Мало' (negative) + uncountable noun → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would mean 'some', losing the negative emphasis.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "social"
+    },
+    {
+      "stem": "We invited (мало) ___ guests to the wedding because we wanted a small, intimate ceremony.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Guests' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural translates as 'few' (= not many). 'Little' is for uncountable nouns. 'A few' would mean 'some', which contradicts 'мало'.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "social"
+    },
+    {
+      "stem": "Even at the height of his fame, Charlie Chaplin gave (мало) ___ interviews about his private life.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Interviews' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural noun translates as 'few' (= not many, with negative emphasis). 'Little' is reserved for uncountable nouns. 'A few' would change the meaning to 'some'.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Albert Einstein had (мало) ___ patience for academic ceremony and often skipped formal dinners.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Patience' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Patience' is an uncountable abstract noun. 'Мало' + uncountable noun → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would suggest 'some patience', losing the negative sense.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Vincent van Gogh sold (мало) ___ paintings during his lifetime and only became famous after his death.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Paintings' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural noun translates as 'few' (= not many). The negative emphasis is essential here — Van Gogh did not sell many paintings. 'Little' is for uncountable nouns; 'a few' would weaken the meaning.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Frida Kahlo received (немного) ___ formal art training before she began painting her famous self-portraits.",
+      "options": ["a little", "a few", "little"],
+      "answer": "a little",
+      "hint": "немного + uncountable",
+      "explanation": "'Training' is uncountable; 'немного' + uncountable → 'a little'.",
+      "fullExplanation": "'Training' is an uncountable noun. 'Немного' + uncountable → 'a little' (= some, with positive emphasis). 'A few' would require a countable plural. 'Little' would mean 'not enough', which misrepresents the historical fact.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Marie Curie wrote (немного) ___ letters to her daughters every week, even during her busiest research periods.",
+      "options": ["a few", "a little", "few"],
+      "answer": "a few",
+      "hint": "немного + countable plural",
+      "explanation": "'Letters' is countable plural; 'немного' + countable → 'a few'.",
+      "fullExplanation": "'Немного' with a countable plural noun translates as 'a few' (= some, positive emphasis). 'A little' is for uncountable nouns. 'Few' would mean 'not many', losing the positive sense.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Throughout his career Stephen Hawking had (мало) ___ time for self-pity, even as his illness progressed.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Time' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Time' is uncountable. 'Мало' + uncountable noun → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would mean 'some', softening the negative emphasis.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "After the fall of Constantinople in 1453, (мало) ___ scholars remained in the city to teach Greek.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Scholars' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural noun translates as 'few' (= not many, with negative emphasis). 'Little' is for uncountable nouns. 'A few' would change the meaning to 'some', losing the historical implication.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "history"
+    },
+    {
+      "stem": "During the Great Depression there was (мало) ___ work available, and queues outside soup kitchens grew longer every week.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Work' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Work' (in the sense of 'employment') is uncountable. 'Мало' + uncountable → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would weaken the sense of severe scarcity.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "history"
+    },
+    {
+      "stem": "After the 1812 fire, (мало) ___ buildings of Moscow's old city centre survived intact.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Buildings' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural noun translates as 'few' (= not many). 'Little' is for uncountable nouns. 'A few' would weaken the meaning.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "history"
+    },
+    {
+      "stem": "Medieval monks copied (немного) ___ pages each day, working slowly to keep their handwriting consistent.",
+      "options": ["a few", "a little", "few"],
+      "answer": "a few",
+      "hint": "немного + countable plural",
+      "explanation": "'Pages' is countable plural; 'немного' + countable → 'a few'.",
+      "fullExplanation": "'Немного' with a countable plural translates as 'a few' (= some, positive emphasis). 'A little' is for uncountable nouns. 'Few' would mean 'not many', losing the positive sense.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Roman senators had (мало) ___ influence over Caesar's military decisions during his Gallic campaigns.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Influence' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Influence' is uncountable in this sense. 'Мало' + uncountable → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would soften the negative emphasis.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "history"
+    },
+    {
+      "stem": "Among the first explorers of Antarctica, (мало) ___ men returned without injuries from the long expedition.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Men' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural translates as 'few' (= not many, negative emphasis). 'Little' is for uncountable nouns. 'A few' would mean 'some', losing the gravity of the historical situation.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "history"
+    },
+    {
+      "stem": "The early universe contained (мало) ___ heavy elements; most were forged later in the cores of dying stars.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Elements' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Heavy elements' is a countable plural. 'Мало' + countable → 'few' (= not many). 'Little' is for uncountable nouns. 'A few' would not convey the scientific point about scarcity.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "science"
+    },
+    {
+      "stem": "Until the 19th century there was (мало) ___ evidence for the existence of atoms beyond a few philosophical arguments.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Evidence' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Evidence' is uncountable in English. 'Мало' + uncountable → 'little' (= not enough). 'Few' is for countable plurals. 'A little' would soften the negative emphasis.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "science"
+    },
+    {
+      "stem": "Researchers added (немного) ___ sodium to the solution and observed an immediate change in colour.",
+      "options": ["a little", "a few", "little"],
+      "answer": "a little",
+      "hint": "немного + uncountable",
+      "explanation": "'Sodium' is uncountable; 'немного' + uncountable → 'a little'.",
+      "fullExplanation": "'Sodium' as a substance is uncountable. 'Немного' + uncountable → 'a little' (= some, positive emphasis). 'A few' would require a countable plural. 'Little' would mean 'not enough', changing the experimental description.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "science"
+    },
+    {
+      "stem": "After centuries of debate, scientists today have (мало) ___ doubt that human activity is warming the climate.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Doubt' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Doubt' is uncountable in this idiomatic sense ('have little doubt'). 'Мало' + uncountable → 'little' (= barely any). 'Few' is for countable plurals. 'A little' would mean 'some doubt', changing the meaning.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "science"
+    },
+    {
+      "stem": "The biologist took (немного) ___ samples from each pond and stored them in numbered glass tubes.",
+      "options": ["a few", "a little", "few"],
+      "answer": "a few",
+      "hint": "немного + countable plural",
+      "explanation": "'Samples' is countable plural; 'немного' + countable → 'a few'.",
+      "fullExplanation": "'Немного' with a countable plural translates as 'a few' (= some, positive emphasis). 'A little' is for uncountable nouns. 'Few' would mean 'not many', losing the positive sense.",
+      "source": "Murphy, EGU (4e), Unit 83",
+      "flavor": "science"
+    },
+    {
+      "stem": "Modern surgery has (мало) ___ in common with the bloody procedures performed before anaesthesia was discovered.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Common' here pairs with the uncountable idiom 'have little in common'; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Have little in common' is a fixed idiom with the uncountable phrase 'in common'. 'Мало' + uncountable → 'little'. 'Few' would be ungrammatical here, and 'a little' would soften the contrast intended by the sentence.",
+      "source": "Swan, PEU (4e), §374",
+      "flavor": "science"
+    },
+    {
+      "stem": "There is (мало) ___ wisdom in promising what you cannot deliver, however good your intentions may be.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Wisdom' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Wisdom' is an uncountable abstract noun. 'Мало' + uncountable → 'little' (= barely any). 'Few' is for countable plurals. 'A little' would weaken the moral force of the saying.",
+      "source": "Adapted · attributed to Aesop",
+      "flavor": "quotes",
+      "author": "Aesop"
+    },
+    {
+      "stem": "(мало) ___ men know how brave they are until courage is the only choice left to them.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Men' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural translates as 'few' (= not many). The aphorism makes a negative claim about how many men know themselves. 'Little' is for uncountable nouns; 'a few' would neutralise the rhetorical force.",
+      "source": "Adapted · attributed to Marcus Aurelius",
+      "flavor": "quotes",
+      "author": "Marcus Aurelius"
+    },
+    {
+      "stem": "Add (немного) ___ kindness to every conversation, and the world will already be a slightly better place.",
+      "options": ["a little", "a few", "little"],
+      "answer": "a little",
+      "hint": "немного + uncountable",
+      "explanation": "'Kindness' is uncountable; 'немного' + uncountable → 'a little'.",
+      "fullExplanation": "'Kindness' is an uncountable abstract noun. 'Немного' + uncountable → 'a little' (= some, positive emphasis). 'A few' is for countable plurals. 'Little' would mean 'not enough', contradicting the message.",
+      "source": "Adapted · attributed to the Dalai Lama",
+      "flavor": "quotes",
+      "author": "Dalai Lama"
+    },
+    {
+      "stem": "(немного) ___ hours of honest work each morning will outpace whole days of distracted effort.",
+      "options": ["a few", "a little", "few"],
+      "answer": "a few",
+      "hint": "немного + countable plural",
+      "explanation": "'Hours' is countable plural; 'немного' + countable → 'a few'.",
+      "fullExplanation": "'Немного' with a countable plural translates as 'a few' (= some, positive emphasis). 'A little' would require an uncountable noun. 'Few' would carry a negative meaning, undermining the productive idea of the saying.",
+      "source": "Adapted · attributed to Benjamin Franklin",
+      "flavor": "quotes",
+      "author": "Benjamin Franklin"
+    },
+    {
+      "stem": "There is (мало) ___ joy in winning if you have to betray a friend to do it.",
+      "options": ["little", "few", "a little"],
+      "answer": "little",
+      "hint": "мало + uncountable",
+      "explanation": "'Joy' is uncountable; 'мало' + uncountable → 'little'.",
+      "fullExplanation": "'Joy' is an uncountable abstract noun. 'Мало' + uncountable → 'little' (= barely any). 'Few' is for countable plurals. 'A little' would dilute the moral claim.",
+      "source": "Adapted · attributed to Sophocles",
+      "flavor": "quotes",
+      "author": "Sophocles"
+    },
+    {
+      "stem": "(мало) ___ books change a life as much as the ones we re-read in moments of doubt.",
+      "options": ["few", "little", "a few"],
+      "answer": "few",
+      "hint": "мало + countable plural",
+      "explanation": "'Books' is countable plural; 'мало' + countable → 'few'.",
+      "fullExplanation": "'Мало' with a countable plural translates as 'few' (= not many, negative emphasis). 'Little' is for uncountable nouns. 'A few' would mean 'some', losing the rhetorical force of the aphorism.",
+      "source": "Adapted · attributed to Italo Calvino",
+      "flavor": "quotes",
+      "author": "Italo Calvino"
+    }
+  ]
+}

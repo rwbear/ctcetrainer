@@ -194,7 +194,8 @@
         { id: 'cs-ei-prep',  name: 'Wrong preposition',       levels: { ctce: 'ei-prep', b1: null, b2: null, c1: null } },
         { id: 'cs-ei-extra', name: 'Redundant word',          levels: { ctce: 'ei-extra',b1: null, b2: null, c1: null } },
         { id: 'cs-ei-art',   name: 'Wrong article',           levels: { ctce: 'ei-art',  b1: null, b2: null, c1: null } },
-        { id: 'cs-ei-sva',   name: 'Subject-verb agreement',  levels: { ctce: 'ei-sva',  b1: null, b2: null, c1: null } }
+        { id: 'cs-ei-sva',   name: 'Subject-verb agreement',                   levels: { ctce: 'ei-sva',  b1: null, b2: null, c1: null } },
+        { id: 'cs-ei-poss',  name: "Possessives — else / each other / people",  levels: { ctce: 'ei-poss', b1: null, b2: null, c1: null } }
       ]},
 
       // ── 16. Vocabulary in Context ─────────────────────────────────────
@@ -211,7 +212,13 @@
         { id: 'cs-dia-infer', name: 'Speaker intent inference', levels: { ctce: 'dia-infer', b1: null, b2: null, c1: null } }
       ]},
 
-      // ── 18. Question Forms (B1 only) ──────────────────────────────────
+      // ── 18. Translation (CT/CE only) — v10.21 ─────────────────────
+      { id: 'translation', name: 'Translation', subtopics: [
+        { id: 'cs-trans-quant', name: "Quantifiers — мало / немного", levels: { ctce: 'trans-ru-quant', b1: null, b2: null, c1: null } },
+        { id: 'cs-trans-tags',  name: "Tag questions — не так ли",      levels: { ctce: 'trans-ru-tags',  b1: null, b2: null, c1: null } }
+      ]},
+
+      // ── 19. Question Forms (B1 only) ──────────────────────────────────
       { id: 'question-forms', name: 'Question Forms', subtopics: [
         { id: 'cs-qtags',  name: 'Question tags',  levels: { ctce: null, b1: 'b1-qtags',  b2: null, c1: null } },
         { id: 'cs-qwords', name: 'Question words', levels: { ctce: null, b1: 'b1-qwords', b2: null, c1: null } }

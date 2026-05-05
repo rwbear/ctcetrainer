@@ -5,11 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.20 · Learn polish — distractor SV-agreement fixes (28), gap-chip render,
-             type-in normalization (contractions, punctuation, BrE/AmE), long-option
-             chip layout. v10.19 corpus carried forward unchanged.
-     Brand chip in-app shows “v10.20”. Build version is in this comment.
-     Build: v10.20
+     v10.21 · Learn polish — gap revert to plain ___ ; generator/audit system
+             added under scripts/; 3 new banks: ei-poss (Error ID — possessives
+             with else / each other / people), trans-ru-quant (translation —
+             Russian quantifiers мало/немного), trans-ru-tags (translation —
+             tag questions не так ли). v10.20 distractor + type-in fixes carried
+             forward unchanged.
+     Brand chip in-app shows “v10.21”. Build version is in this comment.
+     Build: v10.21
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -3303,31 +3306,9 @@ mark.gap-sentence-hl{
 /* v8: split sentence + muted directive prompt onto separate lines */
 .lpr-stem .lpr-stem-sentence{display:block;}
 .lpr-stem .lpr-stem-prompt{display:block;margin-top:8px;font-size:.82rem;color:color-mix(in srgb,var(--text) 55%,transparent);font-style:italic;letter-spacing:.01em;}
-/* v10.20: gap chip — “___” in stem becomes a small inline pill so the user sees
-   the answer slot at a glance instead of three underscores. The pill has a fixed
-   minimum width, dashed bottom edge, and a subtle highlight in type-in mode. */
-.lpr-stem .lpr-gap{
-  display:inline-block;
-  min-width:54px;
-  padding:0 6px;
-  margin:0 2px;
-  font-weight:600;
-  color:color-mix(in srgb,var(--text) 55%,transparent);
-  background:color-mix(in srgb,var(--accent) 8%,transparent);
-  border:1px solid color-mix(in srgb,var(--accent) 30%,var(--border));
-  border-bottom:1.5px dashed color-mix(in srgb,var(--accent) 60%,var(--border));
-  border-radius:6px;
-  vertical-align:baseline;
-  letter-spacing:.06em;
-  text-align:center;
-  line-height:1.3;
-}
-.lpr-stem .lpr-gap::before{content:"\00a0";}
-body[data-answer-mode="typein"] .lpr-stem .lpr-gap{
-  background:color-mix(in srgb,var(--accent) 14%,transparent);
-  border-color:color-mix(in srgb,var(--accent) 50%,var(--border));
-  color:var(--accent-dk);
-}
+/* v10.21: gap-chip pill removed — stems now show plain “___” again. The
+   long-option chip CSS, type-in normalisation, and v10.20 distractor fixes
+   are kept; only the visual pill render of the gap was reverted. */
 /* v10.18: Quotes flavor — author byline shown below the stem when task.flavor==='quotes' */
 .lpr-quote-byline{
   font-size:.78rem;line-height:1.4;
@@ -4899,7 +4880,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.20</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.21</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -13637,20 +13618,14 @@ function _lselStartSessionImpl() {
    PRACTICE SESSION SCREEN
    ══════════════════════════════════════════════════════════════════════════ */
 
-/* v10.20: turn raw “___” / “_____” / “———” gap markers in a stem into a small
-   inline pill (.lpr-gap) so the answer slot is visually obvious. Escapes the
-   surrounding text so user content can never inject HTML. The marker has to be
-   surrounded by word-boundaries so we don’t mangle CSS class names or numbers
-   that happen to contain underscores. */
-function _lprHighlightStem(text) {
+/* v10.21: gap-chip pill reverted. Stems are escaped and their raw “___”
+   markers are kept as plain text. We still need HTML escaping so user content
+   cannot inject markup via stem strings. */
+function _lprEscapeStem(text) {
   if (text == null) return '';
-  const esc = String(text).replace(/[&<>"']/g, function(c){
+  return String(text).replace(/[&<>"']/g, function(c){
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
   });
-  // Replace any run of 2+ underscores OR 2+ em/en dashes with the gap pill.
-  return esc
-    .replace(/_{2,}/g, '<span class="lpr-gap" aria-label="answer"></span>')
-    .replace(/[\u2014\u2013]{3,}/g, '<span class="lpr-gap" aria-label="answer"></span>');
 }
 
 function lprRenderTask(index) {
@@ -13716,10 +13691,10 @@ function lprRenderTask(index) {
         const sentence = promptMatch[1];
         const directive = promptMatch[2];
         stemEl.innerHTML = '<span class="lpr-stem-sentence"></span><span class="lpr-stem-prompt"></span>';
-        stemEl.querySelector('.lpr-stem-sentence').innerHTML = _lprHighlightStem(sentence);
-        stemEl.querySelector('.lpr-stem-prompt').innerHTML = _lprHighlightStem(directive);
+        stemEl.querySelector('.lpr-stem-sentence').innerHTML = _lprEscapeStem(sentence);
+        stemEl.querySelector('.lpr-stem-prompt').innerHTML = _lprEscapeStem(directive);
       } else {
-        stemEl.innerHTML = _lprHighlightStem(stemText);
+        stemEl.innerHTML = _lprEscapeStem(stemText);
       }
     }
   }
@@ -13845,9 +13820,9 @@ function lprRenderTask(index) {
   const typeinInput = document.getElementById('lprTypeinInput');
   const typeinSubmit = document.getElementById('lprTypeinSubmit');
   const sessionMode = _lstore('answerMode', 'mcq');
-  /* v10.20: expose mode on <body> so the gap pill (.lpr-gap) can style itself
-     differently in type-in vs MCQ — in type-in mode the pill is highlighted
-     because it represents the active input target. */
+  /* v10.21: gap-chip removed; we no longer need to expose the mode on <body>
+     for that purpose. Kept the assignment in case other CSS hooks rely on it
+     in the future, but it is currently unused. */
   try { document.body.dataset.answerMode = sessionMode; } catch (e) {}
 
   if (sessionMode === 'mcq') {

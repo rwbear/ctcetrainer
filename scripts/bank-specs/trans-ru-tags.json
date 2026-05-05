@@ -1,0 +1,412 @@
+{
+  "id": "trans-ru-tags",
+  "name": "Translation — tag questions (не так ли)",
+  "canonicalSubId": "cs-trans-tags",
+  "canonicalTopicId": "translation",
+  "_meta": {
+    "version": "v10.21",
+    "rule": "Positive statement → negative tag; negative statement (or negative adverb) → positive tag. Match the auxiliary or use do/does/did with simple tenses.",
+    "auxiliaryDistribution": "12 do/does, 11 did, 5 have/has, 2 will",
+    "polarityDistribution": "15 positive→negative, 15 negative→positive",
+    "flavorPlan": "6/6/6/6/6",
+    "optionsPattern": "[correct, wrong-polarity, wrong-tense]"
+  },
+  "tasks": [
+    {
+      "stem": "She works at the hospital, ___ (не так ли)?",
+      "options": [
+        "doesn't she",
+        "does she",
+        "didn't she"
+      ],
+      "answer": "doesn't she",
+      "explanation": "Positive statement in Present Simple → negative tag with does + n't + subject.",
+      "fullExplanation": "The statement 'She works' is positive Present Simple. Tag questions invert polarity, so the tag is negative: 'doesn't she'. 'Does she' has the wrong polarity (positive). 'Didn't she' has the wrong tense (Past Simple).",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "social"
+    },
+    {
+      "stem": "You don't drink coffee in the evening, ___ (не так ли)?",
+      "options": [
+        "do you",
+        "don't you",
+        "did you"
+      ],
+      "answer": "do you",
+      "explanation": "Negative statement → positive tag with do + subject.",
+      "fullExplanation": "The statement 'You don't drink' is negative Present Simple. The tag flips polarity, so the tag is positive: 'do you'. 'Don't you' would be wrong polarity (also negative). 'Did you' has the wrong tense.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "social"
+    },
+    {
+      "stem": "The kids finished their homework before dinner, ___ (не так ли)?",
+      "options": [
+        "didn't they",
+        "did they",
+        "haven't they"
+      ],
+      "answer": "didn't they",
+      "explanation": "Positive Past Simple → negative tag with did + n't + subject.",
+      "fullExplanation": "The statement 'The kids finished' is positive Past Simple. The tag is negative: 'didn't they'. 'Did they' has the wrong polarity. 'Haven't they' switches to Present Perfect, which is the wrong tense for the simple past statement.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "social"
+    },
+    {
+      "stem": "We never go to that café anymore, ___ (не так ли)?",
+      "options": [
+        "do we",
+        "don't we",
+        "did we"
+      ],
+      "answer": "do we",
+      "explanation": "'Never' makes the statement negative → positive tag with do + subject.",
+      "fullExplanation": "Negative adverbs like 'never', 'rarely', 'hardly', 'scarcely', 'seldom' make the statement effectively negative, so the tag is positive: 'do we'. 'Don't we' has the wrong polarity. 'Did we' has the wrong tense.",
+      "source": "Swan, PEU (4e), §306",
+      "flavor": "social"
+    },
+    {
+      "stem": "Your sister has finished university, ___ (не так ли)?",
+      "options": [
+        "hasn't she",
+        "has she",
+        "doesn't she"
+      ],
+      "answer": "hasn't she",
+      "explanation": "Positive Present Perfect → negative tag with the same auxiliary 'has'.",
+      "fullExplanation": "Tag questions reuse the auxiliary of the main statement. 'Has finished' is positive Present Perfect, so the tag is 'hasn't she'. 'Has she' has the wrong polarity. 'Doesn't she' uses the wrong auxiliary (Present Simple instead of Present Perfect).",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "social"
+    },
+    {
+      "stem": "We will finish the project by Friday, ___ (не так ли)?",
+      "options": [
+        "won't we",
+        "will we",
+        "don't we"
+      ],
+      "answer": "won't we",
+      "explanation": "Positive 'will' future → negative tag with won't + subject.",
+      "fullExplanation": "Tag questions reuse the modal auxiliary. 'Will finish' is positive future, so the tag is negative: 'won't we'. 'Will we' has the wrong polarity. 'Don't we' uses the wrong auxiliary entirely.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "social"
+    },
+    {
+      "stem": "Mozart composed his first opera as a teenager, ___ (не так ли)?",
+      "options": [
+        "didn't he",
+        "did he",
+        "doesn't he"
+      ],
+      "answer": "didn't he",
+      "explanation": "Positive Past Simple → negative tag with did + n't + subject.",
+      "fullExplanation": "'Composed' is Past Simple, positive. The tag is negative: 'didn't he'. 'Did he' has the wrong polarity. 'Doesn't he' has the wrong tense (Present Simple).",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Einstein rarely attended formal social events, ___ (не так ли)?",
+      "options": [
+        "did he",
+        "didn't he",
+        "does he"
+      ],
+      "answer": "did he",
+      "explanation": "'Rarely' makes the statement negative → positive tag with did + subject.",
+      "fullExplanation": "Negative adverbs ('rarely', 'never', 'hardly', 'seldom', 'scarcely') make the statement effectively negative, so the tag is positive: 'did he'. 'Didn't he' has the wrong polarity. 'Does he' has the wrong tense.",
+      "source": "Swan, PEU (4e), §306",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Frida Kahlo painted many self-portraits, ___ (не так ли)?",
+      "options": [
+        "didn't she",
+        "did she",
+        "hasn't she"
+      ],
+      "answer": "didn't she",
+      "explanation": "Positive Past Simple → negative tag with did + n't + subject.",
+      "fullExplanation": "'Painted' is positive Past Simple. The tag is negative: 'didn't she'. 'Did she' has the wrong polarity. 'Hasn't she' switches tense to Present Perfect, which does not match.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Steve Jobs hardly ever wore anything but a black turtleneck, ___ (не так ли)?",
+      "options": [
+        "did he",
+        "didn't he",
+        "does he"
+      ],
+      "answer": "did he",
+      "explanation": "'Hardly ever' makes the statement negative → positive tag with did + subject.",
+      "fullExplanation": "'Hardly ever' is a negative adverbial; the statement is effectively negative, so the tag is positive: 'did he'. 'Didn't he' has the wrong polarity. 'Does he' has the wrong tense.",
+      "source": "Swan, PEU (4e), §306",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Marie Curie has won two Nobel Prizes in different sciences, ___ (не так ли)?",
+      "options": [
+        "hasn't she",
+        "has she",
+        "didn't she"
+      ],
+      "answer": "hasn't she",
+      "explanation": "Positive Present Perfect → negative tag with has + n't + subject.",
+      "fullExplanation": "Tag questions reuse the auxiliary. 'Has won' is positive Present Perfect, so the tag is 'hasn't she'. 'Has she' has the wrong polarity. 'Didn't she' switches the tense and the auxiliary, which does not match.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Beethoven seldom performed in public after his hearing loss, ___ (не так ли)?",
+      "options": [
+        "did he",
+        "didn't he",
+        "does he"
+      ],
+      "answer": "did he",
+      "explanation": "'Seldom' makes the statement negative → positive tag with did + subject.",
+      "fullExplanation": "'Seldom' belongs to the negative-adverb group; the statement is effectively negative, so the tag is positive: 'did he'. 'Didn't he' has the wrong polarity. 'Does he' has the wrong tense.",
+      "source": "Swan, PEU (4e), §306",
+      "flavor": "personalities"
+    },
+    {
+      "stem": "Napoleon crowned himself Emperor in 1804, ___ (не так ли)?",
+      "options": [
+        "didn't he",
+        "did he",
+        "doesn't he"
+      ],
+      "answer": "didn't he",
+      "explanation": "Positive Past Simple → negative tag with did + n't + subject.",
+      "fullExplanation": "'Crowned' is positive Past Simple. The tag is negative: 'didn't he'. 'Did he' has the wrong polarity. 'Doesn't he' has the wrong tense.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Roman Empire didn't fall in a single day, ___ (не так ли)?",
+      "options": [
+        "did it",
+        "didn't it",
+        "does it"
+      ],
+      "answer": "did it",
+      "explanation": "Negative Past Simple → positive tag with did + subject.",
+      "fullExplanation": "The statement 'didn't fall' is negative Past Simple. The tag flips polarity: 'did it'. 'Didn't it' has the wrong polarity. 'Does it' has the wrong tense.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "history"
+    },
+    {
+      "stem": "Medieval peasants rarely travelled more than a few miles from their village, ___ (не так ли)?",
+      "options": [
+        "did they",
+        "didn't they",
+        "do they"
+      ],
+      "answer": "did they",
+      "explanation": "'Rarely' makes the statement negative → positive tag with did + subject.",
+      "fullExplanation": "'Rarely' is a negative adverb; the statement is effectively negative, so the tag is positive: 'did they'. 'Didn't they' has the wrong polarity. 'Do they' has the wrong tense.",
+      "source": "Swan, PEU (4e), §306",
+      "flavor": "history"
+    },
+    {
+      "stem": "The Treaty of Versailles ended the First World War, ___ (не так ли)?",
+      "options": [
+        "didn't it",
+        "did it",
+        "doesn't it"
+      ],
+      "answer": "didn't it",
+      "explanation": "Positive Past Simple → negative tag with did + n't + subject.",
+      "fullExplanation": "'Ended' is positive Past Simple. The tag is negative: 'didn't it'. 'Did it' has the wrong polarity. 'Doesn't it' has the wrong tense.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "history"
+    },
+    {
+      "stem": "Few historians today agree that Cleopatra was Egyptian by ancestry, ___ (не так ли)?",
+      "options": [
+        "do they",
+        "don't they",
+        "did they"
+      ],
+      "answer": "do they",
+      "explanation": "'Few' makes the statement negative → positive tag with do + subject.",
+      "fullExplanation": "'Few' (without 'a') is a negative quantifier; the statement is effectively negative, so the tag is positive: 'do they'. 'Don't they' has the wrong polarity. 'Did they' has the wrong tense.",
+      "source": "Swan, PEU (4e), §306",
+      "flavor": "history"
+    },
+    {
+      "stem": "Columbus reached the Americas in 1492, ___ (не так ли)?",
+      "options": [
+        "didn't he",
+        "did he",
+        "hasn't he"
+      ],
+      "answer": "didn't he",
+      "explanation": "Positive Past Simple → negative tag with did + n't + subject.",
+      "fullExplanation": "'Reached' is positive Past Simple. The tag is negative: 'didn't he'. 'Did he' has the wrong polarity. 'Hasn't he' switches to Present Perfect, which is wrong with a finished past time.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "history"
+    },
+    {
+      "stem": "Water boils at one hundred degrees Celsius at sea level, ___ (не так ли)?",
+      "options": [
+        "doesn't it",
+        "does it",
+        "didn't it"
+      ],
+      "answer": "doesn't it",
+      "explanation": "Positive Present Simple → negative tag with does + n't + subject.",
+      "fullExplanation": "'Boils' is positive Present Simple (a general fact). The tag is negative: 'doesn't it'. 'Does it' has the wrong polarity. 'Didn't it' has the wrong tense for a timeless scientific statement.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "science"
+    },
+    {
+      "stem": "The vaccine doesn't cause the disease it is designed to prevent, ___ (не так ли)?",
+      "options": [
+        "does it",
+        "doesn't it",
+        "did it"
+      ],
+      "answer": "does it",
+      "explanation": "Negative Present Simple → positive tag with does + subject.",
+      "fullExplanation": "'Doesn't cause' is negative Present Simple. The tag flips polarity: 'does it'. 'Doesn't it' has the wrong polarity. 'Did it' has the wrong tense.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "science"
+    },
+    {
+      "stem": "Darwin published On the Origin of Species in 1859, ___ (не так ли)?",
+      "options": [
+        "didn't he",
+        "did he",
+        "hasn't he"
+      ],
+      "answer": "didn't he",
+      "explanation": "Positive Past Simple → negative tag with did + n't + subject.",
+      "fullExplanation": "'Published' is positive Past Simple with a closed past time. The tag is negative: 'didn't he'. 'Did he' has the wrong polarity. 'Hasn't he' switches to Present Perfect, which is wrong with a finished past time.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "science"
+    },
+    {
+      "stem": "Astronomers hardly ever observed exoplanets directly before the 1990s, ___ (не так ли)?",
+      "options": [
+        "did they",
+        "didn't they",
+        "do they"
+      ],
+      "answer": "did they",
+      "explanation": "'Hardly ever' makes the statement negative → positive tag with did + subject.",
+      "fullExplanation": "'Hardly ever' is a negative adverbial; the statement is effectively negative, so the tag is positive: 'did they'. 'Didn't they' has the wrong polarity. 'Do they' has the wrong tense.",
+      "source": "Swan, PEU (4e), §306",
+      "flavor": "science"
+    },
+    {
+      "stem": "The new telescope will reveal galaxies we have never seen before, ___ (не так ли)?",
+      "options": [
+        "won't it",
+        "will it",
+        "doesn't it"
+      ],
+      "answer": "won't it",
+      "explanation": "Positive 'will' future → negative tag with won't + subject.",
+      "fullExplanation": "'Will reveal' is positive future. The tag is negative: 'won't it'. 'Will it' has the wrong polarity. 'Doesn't it' uses the wrong auxiliary entirely.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "science"
+    },
+    {
+      "stem": "Modern scientists have not yet found a complete cure for the common cold, ___ (не так ли)?",
+      "options": [
+        "have they",
+        "haven't they",
+        "did they"
+      ],
+      "answer": "have they",
+      "explanation": "Negative Present Perfect → positive tag with have + subject.",
+      "fullExplanation": "'Have not yet found' is negative Present Perfect. The tag flips polarity and reuses the auxiliary: 'have they'. 'Haven't they' has the wrong polarity. 'Did they' switches to Past Simple, which does not match.",
+      "source": "Murphy, EGU (4e), Unit 42",
+      "flavor": "science"
+    },
+    {
+      "stem": "A person grows wiser with each honest mistake, ___ (не так ли)?",
+      "options": [
+        "doesn't she",
+        "does she",
+        "didn't she"
+      ],
+      "answer": "doesn't she",
+      "explanation": "Positive Present Simple → negative tag with does + n't + subject.",
+      "fullExplanation": "'Grows' is positive Present Simple (a general truth). The tag is negative: 'doesn't she'. 'Does she' has the wrong polarity. 'Didn't she' has the wrong tense for a generalisation.",
+      "source": "Adapted · attributed to Confucius",
+      "flavor": "quotes",
+      "author": "Confucius"
+    },
+    {
+      "stem": "Time heals nothing if we refuse to forgive, ___ (не так ли)?",
+      "options": [
+        "does it",
+        "doesn't it",
+        "did it"
+      ],
+      "answer": "does it",
+      "explanation": "'Nothing' makes the statement negative → positive tag with does + subject.",
+      "fullExplanation": "'Nothing' is a negative pronoun; the statement is effectively negative, so the tag is positive: 'does it'. 'Doesn't it' has the wrong polarity. 'Did it' has the wrong tense.",
+      "source": "Adapted · attributed to Maya Angelou",
+      "flavor": "quotes",
+      "author": "Maya Angelou"
+    },
+    {
+      "stem": "Great minds discuss ideas, ___ (не так ли)?",
+      "options": [
+        "don't they",
+        "do they",
+        "didn't they"
+      ],
+      "answer": "don't they",
+      "explanation": "Positive Present Simple → negative tag with do + n't + subject.",
+      "fullExplanation": "'Discuss' is positive Present Simple. The tag is negative: 'don't they'. 'Do they' has the wrong polarity. 'Didn't they' has the wrong tense.",
+      "source": "Adapted · attributed to Eleanor Roosevelt",
+      "flavor": "quotes",
+      "author": "Eleanor Roosevelt"
+    },
+    {
+      "stem": "Few people listen as carefully as they speak, ___ (не так ли)?",
+      "options": [
+        "do they",
+        "don't they",
+        "did they"
+      ],
+      "answer": "do they",
+      "explanation": "'Few' makes the statement negative → positive tag with do + subject.",
+      "fullExplanation": "'Few' (without 'a') is a negative quantifier; the statement is effectively negative, so the tag is positive: 'do they'. 'Don't they' has the wrong polarity. 'Did they' has the wrong tense.",
+      "source": "Adapted · attributed to Stephen Covey",
+      "flavor": "quotes",
+      "author": "Stephen Covey"
+    },
+    {
+      "stem": "An honest worker has nothing to hide from his employer, ___ (не так ли)?",
+      "options": [
+        "has he",
+        "hasn't he",
+        "does he"
+      ],
+      "answer": "has he",
+      "explanation": "'Nothing' makes the statement negative → positive tag with has + subject.",
+      "fullExplanation": "'Has nothing to hide' is effectively negative because of 'nothing', so the tag is positive and reuses the auxiliary 'has': 'has he'. 'Hasn't he' has the wrong polarity. 'Does he' uses the wrong auxiliary.",
+      "source": "Adapted · attributed to Benjamin Franklin",
+      "flavor": "quotes",
+      "author": "Benjamin Franklin"
+    },
+    {
+      "stem": "A good book never grows old in the hands of a thoughtful reader, ___ (не так ли)?",
+      "options": [
+        "does it",
+        "doesn't it",
+        "did it"
+      ],
+      "answer": "does it",
+      "explanation": "'Never' makes the statement negative → positive tag with does + subject.",
+      "fullExplanation": "'Never' is a negative adverb; the statement is effectively negative, so the tag is positive: 'does it'. 'Doesn't it' has the wrong polarity. 'Did it' has the wrong tense.",
+      "source": "Adapted · attributed to Italo Calvino",
+      "flavor": "quotes",
+      "author": "Italo Calvino"
+    }
+  ]
+}
