@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   CTCE TASK BANK — v10.24 Phase 12
+   CTCE TASK BANK — v10.24.1 Phase 12
    70 subtopics, 2100 tasks
    options[0] = correct answer (runtime shuffles)
    Lazy-loaded only when CTCE level is active.
@@ -11239,7 +11239,7 @@ window.LEARN_TASKS_CTCE = {
       },
       {
         id: "wf-noun-25",
-        stem: "Football is not just a game. For many fans it represents a (PASSIONATE) attachment to their club — a true ___ that defines their lives.",
+        stem: "Football is not just a game. For many fans it represents a deep attachment to their club — a true ___ (PASSIONATE) that defines their lives.",
         options: ["passion", "passionate", "passionately"],
         answer: "passion",
         explanation: "The noun 'passion' is the root of the adjective 'passionate' — it is the form needed after the article 'a'.",
@@ -11275,7 +11275,7 @@ window.LEARN_TASKS_CTCE = {
       },
       {
         id: "wf-noun-28",
-        stem: "Emma Watson insists on the right to (DECIDE) for herself: she does not want anyone else's ___ about who she is.",
+        stem: "Emma Watson insists on the right to choose for herself: she does not want anyone else's ___ (DECIDE) about who she is.",
         options: ["decision", "deciding", "decide"],
         answer: "decision",
         explanation: "The suffix -sion turns the verb 'decide' into the noun 'decision'.",
@@ -12460,12 +12460,13 @@ window.LEARN_TASKS_CTCE = {
       },
       {
         id: "wf-mixed-11",
-        stem: "The hotel receptionist tried to ___ (COMFORT) the guests whose luggage had been lost by the airline.",
-        options: ["comfort", "discomfort", "uncomfortable"],
-        answer: "comfort",
-        explanation: "Here 'comfort' is used as a verb, meaning to console or reassure someone.",
-        fullExplanation: "The verb 'comfort' means to console someone in distress. 'Discomfort' means to cause unease — the opposite of the intended meaning. 'Uncomfortable' is an adjective, not a verb form.",
+        stem: "The hotel receptionist tried to make the stranded guests feel more ___ (COMFORT) after the airline lost their luggage.",
+        options: ["comfortable", "comfort", "comforting"],
+        answer: "comfortable",
+        explanation: "The suffix -able turns the noun 'comfort' into the adjective 'comfortable'.",
+        fullExplanation: "After 'feel more', an adjective is required. Adding -able to 'comfort' forms the adjective 'comfortable', meaning at ease. 'Comfort' is the noun or verb base. 'Comforting' is a present participle and describes something that provides comfort, not the state of feeling it.",
         source: "Murphy, EGU (4e), Unit 73",
+        hint: "comfort",
         flavor: "social"
       },
       {
@@ -12514,22 +12515,24 @@ window.LEARN_TASKS_CTCE = {
       },
       {
         id: "wf-mixed-16",
-        stem: "Advances in technology continue to ___ (TRANSFORM) the way scientists collect and process data.",
-        options: ["transform", "transformation", "transformative"],
-        answer: "transform",
-        explanation: "The base verb 'transform' is the correct form after the modal 'to'.",
-        fullExplanation: "After 'continue to', the plain infinitive 'transform' is required. 'Transformation' is a noun. 'Transformative' is an adjective, not a verb form.",
+        stem: "Advances in technology are driving the rapid ___ (TRANSFORM) of how scientists collect and process research data.",
+        options: ["transformation", "transform", "transforming"],
+        answer: "transformation",
+        explanation: "The suffix -ation turns the verb 'transform' into the noun 'transformation'.",
+        fullExplanation: "After the article 'the' and the adjective 'rapid', a noun head is needed. Adding -ation to 'transform' gives the noun 'transformation', meaning a thorough change in form. 'Transform' is the verb base. 'Transforming' is a gerund/participle and would shift the meaning to an ongoing process rather than the change itself.",
         source: "Murphy, EGU (4e), Unit 73",
+        hint: "transform",
         flavor: "science"
       },
       {
         id: "wf-mixed-17",
-        stem: "Roger Federer worked to ___ (PERFECT) his backhand technique during years of intensive training.",
-        options: ["perfect", "perfection", "perfectly"],
-        answer: "perfect",
-        explanation: "The verb 'perfect' (meaning to bring to a flawless state) is the correct form after 'to'.",
-        fullExplanation: "The verb 'perfect' means to make something flawless through practice. 'Perfection' is a noun. 'Perfectly' is an adverb, not a verb form.",
+        stem: "Roger Federer pursued ___ (PERFECT) in his backhand technique during years of intensive training with his coaching team.",
+        options: ["perfection", "perfect", "perfectly"],
+        answer: "perfection",
+        explanation: "The suffix -ion turns the adjective 'perfect' into the noun 'perfection'.",
+        fullExplanation: "After the verb 'pursued', a noun object is needed. Adding -ion to 'perfect' forms the noun 'perfection', meaning a flawless state. 'Perfect' is the adjective base and cannot be the object of 'pursued' on its own. 'Perfectly' is an adverb and cannot serve as a noun.",
         source: "Swan, PEU (4e), §344",
+        hint: "perfect",
         flavor: "personalities"
       },
       {
@@ -12600,12 +12603,13 @@ window.LEARN_TASKS_CTCE = {
       },
       {
         id: "wf-mixed-24",
-        stem: "Scientists can use carbon dating to ___ (DATE) fossils and determine how old they are.",
-        options: ["date", "dating", "dateness"],
-        answer: "date",
-        explanation: "The base verb 'date' is the correct form after the modal 'to'.",
-        fullExplanation: "The base verb 'date' means to determine the age of something. 'Dating' is a gerund or present participle, not the infinitive form needed after 'to'. 'Dateness' is not a real English word.",
+        stem: "Several of the paper's conclusions now seem rather ___ (DATE) in light of the recent discoveries in the field.",
+        options: ["dated", "date", "dating"],
+        answer: "dated",
+        explanation: "The suffix -ed turns the verb 'date' into the adjective 'dated', meaning old-fashioned.",
+        fullExplanation: "After 'seem rather', an adjective is required. 'Dated' (from 'date' + -ed) is used adjectivally to mean out of date or old-fashioned. 'Date' is the base verb or noun. 'Dating' is a gerund/present participle and would describe the act, not the quality of being out of date.",
         source: "Murphy, EGU (4e), Unit 73",
+        hint: "date",
         flavor: "science"
       },
       {

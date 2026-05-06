@@ -141,7 +141,7 @@ function updateHeaderCounts(src){
     src = src.replace(headerRx, `${banks} subtopics, ${tasks} tasks`);
   }
   // Bump phase tag
-  src = src.replace(/CTCE TASK BANK — v[\d.]+ Phase \d+/, 'CTCE TASK BANK — v10.24 Phase 12');
+  src = src.replace(/CTCE TASK BANK — v[\d.]+ Phase \d+/, 'CTCE TASK BANK — v10.24.1 Phase 12');
   return src;
 }
 

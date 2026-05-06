@@ -254,11 +254,13 @@ function auditBank(bank, ctx){
       issues.push(mkIssue(WARN, bank.id, t.id, 'C15', `fullExplanation length ${t.fullExplanation.length} out of 60..500`));
 
     // Check WF — word-formation type-in integrity. For wf-* banks the stem
-    // must carry a (CAPS_BASE) marker and the hint, when present, must equal
-    // the lowercase of that base AND must not equal the answer. This prevents
-    // the type-in renderer ("Base word: <hint>") from leaking the answer.
-    // Zero-derivation tasks (answer === base) MUST omit hint entirely so that
-    // the (CAPS) marker still serves as the only visual cue.
+    // must carry a (CAPS_BASE) marker that sits adjacent to the ___ gap, and
+    // the answer must be a real derivation of that base (never the base itself,
+    // since the (CAPS) marker is itself an in-stem hint). The hint field, when
+    // present, must equal the lowercase of the CAPS base and must never equal
+    // the answer. v10.24.1 hardening: removing the hint field is NOT enough
+    // for zero-derivation — the answer must differ from CAPS. Marker placement
+    // also matters: a (CAPS) marker far from ___ confuses the reader.
     if (bank.id && /^wf-/.test(bank.id) && typeof t.stem === 'string'){
       const capsMatch = t.stem.match(/\(([A-Z][A-Z\- ]*)\)/);
       const caps = capsMatch ? capsMatch[1].toLowerCase().trim() : null;
@@ -273,8 +275,27 @@ function auditBank(bank, ctx){
       if (hint && hint === answer){
         issues.push(mkIssue(ERROR, bank.id, t.id, 'C-WF', `hint "${hint}" equals answer — type-in mode would reveal the answer`));
       }
-      if (caps && caps === answer && hint){
-        issues.push(mkIssue(ERROR, bank.id, t.id, 'C-WF', `zero-derivation task (answer === base) must omit the hint field`));
+      // v10.24.1: ANY zero-derivation (answer === base) is a type-in leak,
+      // because the in-stem (CAPS) marker is itself a hint chip. Even with
+      // no `hint` field, the user sees "___ (COMFORT)" and can type comfort.
+      if (caps && caps === answer){
+        issues.push(mkIssue(ERROR, bank.id, t.id, 'C-WF', `zero-derivation: answer "${answer}" equals (CAPS) base — the in-stem marker reveals the answer`));
+      }
+      // v10.24.1: (CAPS) marker must be adjacent to the ___ gap (within 3
+      // characters before or after) so the reader knows which slot to derive.
+      if (caps && capsMatch){
+        const stemStr = t.stem;
+        const gapIdx = stemStr.indexOf('___');
+        if (gapIdx !== -1){
+          const capsStart = capsMatch.index;
+          const capsEnd = capsStart + capsMatch[0].length;
+          const distBefore = gapIdx - capsEnd;
+          const distAfter = capsStart - (gapIdx + 3);
+          const adjacent = (distBefore >= 0 && distBefore <= 3) || (distAfter >= 0 && distAfter <= 3);
+          if (!adjacent){
+            issues.push(mkIssue(ERROR, bank.id, t.id, 'C-WF', `(CAPS) marker is not adjacent to the ___ gap — reader cannot tell which slot to derive`));
+          }
+        }
       }
     }
   });
