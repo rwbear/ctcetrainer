@@ -29,6 +29,9 @@
  *   13. Case-duplicate trap (article banks): no duplicate options after lowercasing
  *   14. Bank registered in topics-config.js (its level-id appears in some subtopic.levels.ctce)
  *   15. Length sanity (stem 30-400, fullExplanation 60-500) — already enforced by schema
+ *   WF. Word-formation integrity (wf-* banks): hint must be present and equal
+ *       the lowercase of the (CAPS) base in the stem; hint must NOT equal the
+ *       answer. Prevents type-in mode from giving away the answer.
  *
  * Exit code 0 = clean, 1 = at least one ERROR, 2 = WARNINGS only.
  */
@@ -249,6 +252,31 @@ function auditBank(bank, ctx){
       issues.push(mkIssue(WARN, bank.id, t.id, 'C15', `stem length ${t.stem.length} out of 30..400`));
     if (typeof t.fullExplanation === 'string' && (t.fullExplanation.length < 60 || t.fullExplanation.length > 500))
       issues.push(mkIssue(WARN, bank.id, t.id, 'C15', `fullExplanation length ${t.fullExplanation.length} out of 60..500`));
+
+    // Check WF — word-formation type-in integrity. For wf-* banks the stem
+    // must carry a (CAPS_BASE) marker and the hint, when present, must equal
+    // the lowercase of that base AND must not equal the answer. This prevents
+    // the type-in renderer ("Base word: <hint>") from leaking the answer.
+    // Zero-derivation tasks (answer === base) MUST omit hint entirely so that
+    // the (CAPS) marker still serves as the only visual cue.
+    if (bank.id && /^wf-/.test(bank.id) && typeof t.stem === 'string'){
+      const capsMatch = t.stem.match(/\(([A-Z][A-Z\- ]*)\)/);
+      const caps = capsMatch ? capsMatch[1].toLowerCase().trim() : null;
+      const hint = (t.hint || '').toLowerCase().trim();
+      const answer = (t.answer || '').toLowerCase().trim();
+      if (!caps){
+        issues.push(mkIssue(ERROR, bank.id, t.id, 'C-WF', `wf task stem has no (CAPS) base marker`));
+      }
+      if (caps && hint && hint !== caps){
+        issues.push(mkIssue(ERROR, bank.id, t.id, 'C-WF', `hint "${hint}" must equal lowercase of (CAPS) base "${caps}"`));
+      }
+      if (hint && hint === answer){
+        issues.push(mkIssue(ERROR, bank.id, t.id, 'C-WF', `hint "${hint}" equals answer — type-in mode would reveal the answer`));
+      }
+      if (caps && caps === answer && hint){
+        issues.push(mkIssue(ERROR, bank.id, t.id, 'C-WF', `zero-derivation task (answer === base) must omit the hint field`));
+      }
+    }
   });
 
   // Check 7 — flavor balance ±1
