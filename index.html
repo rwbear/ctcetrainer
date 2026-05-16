@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
+     v11.1 · Visibility + explanations hot-fix.
+           Wires the 2025 group (IDs 51-60) into both the variant grid
+           AND the Practice-by-topic chips by making the variant
+           selector and topic index source-of-truth-driven from
+           getActiveVariants(). Adds variant 51 to PREMIUM_FREE_VARIANT_IDS
+           so the new year starts with one free unlock, matching every
+           previous year. Analogue mode still tops out at 50 (no 2025
+           analogue data) — the active-set filter hides the empty group
+           cleanly. Ships 400 new explanations (40 per variant 51-60) —
+           340 templated grammar/vocab/word-formation entries plus 60
+           content-aware entries for reading and dialogue, each with
+           a verbatim evidence quote from the passage or a pragmatic
+           speech-act analysis. A7/A8 error-id entries now name the
+           specific error type (double negative, plural -s on numeral,
+           a few/a little with un/countables, etc.). Word-formation
+           entries decompose the actual derivation (suffix, part-of-
+           speech change, plural/3rd-person marker) instead of the
+           generic v11 template.
      v11 · Major release — 2025 variants added to Practice section.
            10 new official variants (IDs 51-60) extracted from РИКЗ
            «Сборник тестов ЦЭ/ЦТ 2025», audited (0 issues across all
@@ -16,8 +34,8 @@
            conversion verified against РИКЗ 2025 table — identical to
            2024, no SCORE_TABLE change needed. Total: 60 official
            variants, 2,400 practice tasks. v10.24.1 fixes carry forward.
-     Brand chip in-app shows “v11”. Build version is in this comment.
-     Build: v11
+     Brand chip in-app shows “v11.1”. Build version is in this comment.
+     Build: v11.1
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -4885,7 +4903,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v11</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v11.1</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
@@ -8343,7 +8361,8 @@ const YEAR_GROUPS = [
   { label: 'ЦЭ 2023', ids: [31,32,33,34,35] },
   { label: 'ЦТ 2023', ids: [36,37,38,39,40] },
   { label: 'ЦЭ 2024', ids: [41,42,43,44,45] },
-  { label: 'ЦТ 2024', ids: [46,47,48,49,50] }
+  { label: 'ЦТ 2024', ids: [46,47,48,49,50] },
+  { label: 'ЦЭ/ЦТ 2025', ids: [51,52,53,54,55,56,57,58,59,60] }
 ];
 
 let currentVariant = null;
@@ -8407,7 +8426,7 @@ const _LOCK_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11
 
 /* v10.1 Premium gate: variant IDs that are unlocked by default for everyone.
    v10.3: variant 36 added to the free pool. */
-const PREMIUM_FREE_VARIANT_IDS = [1, 11, 21, 31, 36, 41, 46];
+const PREMIUM_FREE_VARIANT_IDS = [1, 11, 21, 31, 36, 41, 46, 51];
 /* v10.3: per-variant purchase price (coins). */
 const VARIANT_PURCHASE_PRICE = 100;
 /* v10.3: read the user's purchased variants from the unlocks slot. */
@@ -8447,10 +8466,12 @@ function buildVariantSelector() {
     }
   });
 
-  const totalVariants = 50;
-  const completedCount = Object.keys(bestScores).length;
+  // v11: total depends on mode (analogue mode still tops out at 50)
+  const activeIds = new Set(getActiveVariants().map(v => v.id));
+  const totalVariants = activeIds.size;
+  const completedCount = Object.keys(bestScores).filter(id => activeIds.has(Number(id))).length;
   const pct = (completedCount / totalVariants) * 100;
-  const milestones = [5, 10, 25, 35, 50];
+  const milestones = totalVariants >= 60 ? [5, 10, 25, 35, 50, 60] : [5, 10, 25, 35, 50];
 
   // Build progress bar
   let wallsHTML = '';
@@ -8474,9 +8495,12 @@ function buildVariantSelector() {
 
   // Build grid — show ".1" suffix and "(Analogue)" in year labels when in analogue mode
   YEAR_GROUPS.forEach(g => {
+    // v11: skip groups with no variants in the active set (e.g. 2025 in analogue mode)
+    const idsInActive = g.ids.filter(id => activeIds.has(id));
+    if (!idsInActive.length) return;
     const yearLabel = isAna ? g.label + ' (Analogue)' : g.label;
     html += '<div class="vs-year-group"><div class="vs-year-label">' + yearLabel + '</div><div class="vs-grid">';
-    g.ids.forEach(id => {
+    idsInActive.forEach(id => {
       const displayNum = isAna ? id + '.1' : String(id);
       const score = bestScores[id];
       const isCompleted = score !== undefined;
@@ -10710,7 +10734,10 @@ function buildVariantGrid() {
     lastScore[r.variantId] = r.testScore;
   });
 
+  const _activeIds = new Set(getActiveVariants().map(v => v.id));
   YEAR_GROUPS.forEach(g => {
+    const _idsInActive = g.ids.filter(id => _activeIds.has(id));
+    if (!_idsInActive.length) return;
     const groupDiv = document.createElement('div');
     groupDiv.className = 'v-grid-group';
 
@@ -10722,7 +10749,7 @@ function buildVariantGrid() {
     const cubesDiv = document.createElement('div');
     cubesDiv.className = 'v-grid-cubes';
 
-    g.ids.forEach(id => {
+    _idsInActive.forEach(id => {
       const cube = document.createElement('button');
       cube.className = 'v-cube';
       if (currentVariant && currentVariant.id === id) cube.classList.add('active');
