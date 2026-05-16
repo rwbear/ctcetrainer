@@ -5,20 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- =====================================================================
-     v10.24.1 · Hot-fix follow-up to v10.24 after screenshot review. Six
-             additional wf-* integrity bugs caught that the v10.24 pass
-             missed: 4 zero-derivation tasks in wf-mixed (answer ==
-             lowercase of (CAPS) base — wf-mixed-11/16/17/24, COMFORT,
-             TRANSFORM, PERFECT, DATE) were rewritten so the answer is
-             a real derivation; 2 wf-noun tasks (wf-noun-25 PASSIONATE,
-             wf-noun-28 DECIDE) had the (CAPS) marker far from the ___
-             gap — marker was moved adjacent to the gap. Audit check
-             C-WF hardened: zero-derivation is now an error even without
-             the hint field (the in-stem (CAPS) marker itself leaks the
-             answer), and (CAPS) must be adjacent to the ___ gap. No new
-             banks; total remains 70 subtopics, 2,100 tasks.
-     Brand chip in-app shows “v10.24.1”. Build version is in this comment.
-     Build: v10.24.1
+     v11 · Major release — 2025 variants added to Practice section.
+           10 new official variants (IDs 51-60) extracted from РИКЗ
+           «Сборник тестов ЦЭ/ЦТ 2025», audited (0 issues across all
+           10), and integrated using the verified 2023-format schema
+           pattern. Each variant: 18 Part A questions (verb-tenses,
+           mixed-grammar, vocabulary, dialogue, reading) and 22 Part B
+           questions (prepositions, one-word, double-sentence, error-
+           removal, word-formation). Year label «ЦЭ/ЦТ 2025». Score
+           conversion verified against РИКЗ 2025 table — identical to
+           2024, no SCORE_TABLE change needed. Total: 60 official
+           variants, 2,400 practice tasks. v10.24.1 fixes carry forward.
+     Brand chip in-app shows “v11”. Build version is in this comment.
+     Build: v11
      ===================================================================== -->
 
 <title>ЦТ/ЦЭ English Trainer — подготовка онлайн</title>
@@ -4886,7 +4885,7 @@ textarea:focus-visible,
       <path d="M9 21V12h6v9"/>
     </svg>
   </button>
-  <div class="topnav-brand">ЦТ/ЦЭ English <span>v10.24.1</span></div>
+  <div class="topnav-brand">ЦТ/ЦЭ English <span>v11</span></div>
   <div class="nav-tabs" id="mainNavTabs">
     <button class="nav-tab" data-page="practice" id="navTabPractice" onclick="showPage('practice')">ЦТ/ЦЭ Practice</button>
     <button class="nav-tab" data-page="learn" id="navTabLearn" onclick="showPage('learn')">Learn</button>
