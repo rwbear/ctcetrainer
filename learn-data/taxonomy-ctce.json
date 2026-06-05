@@ -1,0 +1,1797 @@
+{
+  "version": "v12.0.2",
+  "learnVersion": 12,
+  "ctceTopicCount": 10,
+  "subtopicCount": 109,
+  "examOrderNote": "Part A block order from VARIANTS partA[]; Part B from partB[]. Reading/text-completion/translation omitted from Learn.",
+  "topics": [
+    {
+      "order": 1,
+      "id": "verbs-tenses-voice",
+      "name": "Verb tenses & voice",
+      "examPart": "A",
+      "examBlock": "verb-tenses",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "V-PRES-SIMPLE",
+          "name": "Present Simple",
+          "masterCode": "V-PRES-SIMPLE",
+          "bankId": "v-pres-simple",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "V-PAST-SIMPLE",
+          "name": "Past Simple",
+          "masterCode": "V-PAST-SIMPLE",
+          "bankId": "v-past-simple",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "V-FUT-SIMPLE",
+          "name": "Future Simple",
+          "masterCode": "V-FUT-SIMPLE",
+          "bankId": "v-fut-simple",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "V-PRES-CONT",
+          "name": "Present Continuous",
+          "masterCode": "V-PRES-CONT",
+          "bankId": "v-pres-cont",
+          "legacyV10": false
+        },
+        {
+          "order": 5,
+          "id": "V-PAST-CONT",
+          "name": "Past Continuous",
+          "masterCode": "V-PAST-CONT",
+          "bankId": "v-past-cont",
+          "legacyV10": false
+        },
+        {
+          "order": 6,
+          "id": "V-PRES-PERF",
+          "name": "Present Perfect",
+          "masterCode": "V-PRES-PERF",
+          "bankId": "v-pres-perf",
+          "legacyV10": false
+        },
+        {
+          "order": 7,
+          "id": "V-PAST-PERF",
+          "name": "Past Perfect",
+          "masterCode": "V-PAST-PERF",
+          "bankId": "v-past-perf",
+          "legacyV10": false
+        },
+        {
+          "order": 8,
+          "id": "V-PRES-PERF-CONT",
+          "name": "Present Perfect Continuous",
+          "masterCode": "V-PRES-PERF-CONT",
+          "bankId": "v-pres-perf-cont",
+          "legacyV10": false
+        },
+        {
+          "order": 9,
+          "id": "V-PRES-SIMPLE-PASS",
+          "name": "Present Simple Passive",
+          "masterCode": "V-PRES-SIMPLE-PASS",
+          "bankId": "v-pres-simple-pass",
+          "legacyV10": false
+        },
+        {
+          "order": 10,
+          "id": "V-PAST-SIMPLE-PASS",
+          "name": "Past Simple Passive",
+          "masterCode": "V-PAST-SIMPLE-PASS",
+          "bankId": "v-past-simple-pass",
+          "legacyV10": false
+        },
+        {
+          "order": 11,
+          "id": "V-FUT-SIMPLE-PASS",
+          "name": "Future Simple Passive",
+          "masterCode": "V-FUT-SIMPLE-PASS",
+          "bankId": "v-fut-simple-pass",
+          "legacyV10": false
+        },
+        {
+          "order": 12,
+          "id": "V-USEDTO",
+          "name": "used to / be used to",
+          "masterCode": "V-USEDTO",
+          "bankId": "v-usedto",
+          "legacyV10": false
+        },
+        {
+          "order": 13,
+          "id": "V-MODAL",
+          "name": "Modals + equivalents",
+          "masterCode": "V-MODAL",
+          "bankId": "v-modal",
+          "legacyV10": false
+        },
+        {
+          "order": 14,
+          "id": "V-MODAL-ASSUMP",
+          "name": "Modals of assumption [R]",
+          "masterCode": "V-MODAL-ASSUMP",
+          "bankId": "v-modal-assump",
+          "legacyV10": false
+        },
+        {
+          "order": 15,
+          "id": "V-INF",
+          "name": "Infinitive with/without to [R]",
+          "masterCode": "V-INF",
+          "bankId": "v-inf",
+          "legacyV10": false
+        },
+        {
+          "order": 16,
+          "id": "V-GERUND",
+          "name": "Gerund [R]",
+          "masterCode": "V-GERUND",
+          "bankId": "v-gerund",
+          "legacyV10": false
+        },
+        {
+          "order": 17,
+          "id": "V-SUBJ",
+          "name": "Subjunctive [R]",
+          "masterCode": "V-SUBJ",
+          "bankId": "v-subj",
+          "legacyV10": false
+        },
+        {
+          "order": 18,
+          "id": "V-SOT",
+          "name": "Sequence of tenses [R]",
+          "masterCode": "V-SOT",
+          "bankId": "v-sot",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "id": "prepositions",
+      "name": "Prepositions",
+      "examPart": "A",
+      "examBlock": "prepositions-a",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "PREP-PLACE",
+          "name": "Prepositions of place",
+          "masterCode": "PREP-PLACE",
+          "bankId": "prep-place",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "PREP-TIME",
+          "name": "Prepositions of time",
+          "masterCode": "PREP-TIME",
+          "bankId": "prep-time",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "PREP-DIR",
+          "name": "Prepositions of direction",
+          "masterCode": "PREP-DIR",
+          "bankId": "prep-dir",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "PREP-DEP-VERB",
+          "name": "Dependent prepositions — verb + prep",
+          "masterCode": "PREP-DEP-VERB",
+          "bankId": "prep-dep-verb",
+          "legacyV10": false
+        },
+        {
+          "order": 5,
+          "id": "PREP-DEP-ADJ",
+          "name": "Dependent prepositions — adjective + prep",
+          "masterCode": "PREP-DEP-ADJ",
+          "bankId": "prep-dep-adj",
+          "legacyV10": false
+        },
+        {
+          "order": 6,
+          "id": "PREP-DEP-NOUN",
+          "name": "Dependent prepositions — noun + prep",
+          "masterCode": "PREP-DEP-NOUN",
+          "bankId": "prep-dep-noun",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "id": "articles",
+      "name": "Articles",
+      "examPart": "A",
+      "examBlock": "articles",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "ART-BASIC",
+          "name": "Definite / indefinite / zero — basic",
+          "masterCode": "ART-BASIC",
+          "bankId": "art-basic",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "ART-GEO",
+          "name": "Articles with geo names & streets",
+          "masterCode": "ART-GEO",
+          "bankId": "art-geo",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "ART-SPECIAL",
+          "name": "Meals, sports, instruments, proper nouns (non-geo)",
+          "masterCode": "ART-SPECIAL",
+          "bankId": "art-special",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "ART-FIXED",
+          "name": "Fixed phrases with a / the / zero",
+          "masterCode": "ART-FIXED",
+          "bankId": "art-fixed",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "id": "mixed-grammar",
+      "name": "Mixed grammar",
+      "examPart": "A",
+      "examBlock": "mixed-grammar",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "N-COUNT",
+          "name": "Countable vs uncountable",
+          "masterCode": "N-COUNT",
+          "bankId": "n-count",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "N-PLUR",
+          "name": "Plural formation",
+          "masterCode": "N-PLUR",
+          "bankId": "n-plur",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "N-POSS",
+          "name": "Possessive case",
+          "masterCode": "N-POSS",
+          "bankId": "n-poss",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "PRON-PERS",
+          "name": "Personal + objective",
+          "masterCode": "PRON-PERS",
+          "bankId": "pron-pers",
+          "legacyV10": false
+        },
+        {
+          "order": 5,
+          "id": "PRON-POSS",
+          "name": "Possessive + absolute",
+          "masterCode": "PRON-POSS",
+          "bankId": "pron-poss",
+          "legacyV10": false
+        },
+        {
+          "order": 6,
+          "id": "PRON-DEM",
+          "name": "Demonstrative",
+          "masterCode": "PRON-DEM",
+          "bankId": "pron-dem",
+          "legacyV10": false
+        },
+        {
+          "order": 7,
+          "id": "PRON-REFL",
+          "name": "Reflexive",
+          "masterCode": "PRON-REFL",
+          "bankId": "pron-refl",
+          "legacyV10": false
+        },
+        {
+          "order": 8,
+          "id": "PRON-INDEF",
+          "name": "Indefinite pronouns",
+          "masterCode": "PRON-INDEF",
+          "bankId": "pron-indef",
+          "legacyV10": false
+        },
+        {
+          "order": 9,
+          "id": "PRON-INT",
+          "name": "Interrogative",
+          "masterCode": "PRON-INT",
+          "bankId": "pron-int",
+          "legacyV10": false
+        },
+        {
+          "order": 10,
+          "id": "PRON-REL",
+          "name": "Relative (who/that/which)",
+          "masterCode": "PRON-REL",
+          "bankId": "pron-rel",
+          "legacyV10": false
+        },
+        {
+          "order": 11,
+          "id": "PRON-REL-R",
+          "name": "Relative receptive (what/where/why/when) [R]",
+          "masterCode": "PRON-REL-R",
+          "bankId": "pron-rel-r",
+          "legacyV10": false
+        },
+        {
+          "order": 12,
+          "id": "ADJ-COMP",
+          "name": "Degrees of comparison",
+          "masterCode": "ADJ-COMP",
+          "bankId": "adj-comp",
+          "legacyV10": false
+        },
+        {
+          "order": 13,
+          "id": "ADJ-INTENS",
+          "name": "Intensifiers with comparative",
+          "masterCode": "ADJ-INTENS",
+          "bankId": "adj-intens",
+          "legacyV10": false
+        },
+        {
+          "order": 14,
+          "id": "ADJ-COMPOUND",
+          "name": "Compound adjectives [R]",
+          "masterCode": "ADJ-COMPOUND",
+          "bankId": "adj-compound",
+          "legacyV10": false
+        },
+        {
+          "order": 15,
+          "id": "NUM",
+          "name": "Cardinal/ordinal, time & dates",
+          "masterCode": "NUM",
+          "bankId": "num",
+          "legacyV10": false
+        },
+        {
+          "order": 16,
+          "id": "ADV-COMP",
+          "name": "Adverb degrees of comparison",
+          "masterCode": "ADV-COMP",
+          "bankId": "adv-comp",
+          "legacyV10": false
+        },
+        {
+          "order": 17,
+          "id": "ADV-SPECIAL",
+          "name": "too / enough / also",
+          "masterCode": "ADV-SPECIAL",
+          "bankId": "adv-special",
+          "legacyV10": false
+        },
+        {
+          "order": 18,
+          "id": "CONJ-COORD",
+          "name": "Coordinating conjunctions",
+          "masterCode": "CONJ-COORD",
+          "bankId": "conj-coord",
+          "legacyV10": false
+        },
+        {
+          "order": 19,
+          "id": "CONJ-SUBORD",
+          "name": "Subordinating conjunctions",
+          "masterCode": "CONJ-SUBORD",
+          "bankId": "conj-subord",
+          "legacyV10": false
+        },
+        {
+          "order": 20,
+          "id": "CONJ-CONNECT",
+          "name": "Connective words",
+          "masterCode": "CONJ-CONNECT",
+          "bankId": "conj-connect",
+          "legacyV10": false
+        },
+        {
+          "order": 21,
+          "id": "SYN-SENT-TYPE",
+          "name": "Sentence types",
+          "masterCode": "SYN-SENT-TYPE",
+          "bankId": "syn-sent-type",
+          "legacyV10": false
+        },
+        {
+          "order": 22,
+          "id": "SYN-QUESTION",
+          "name": "Questions (incl. tags)",
+          "masterCode": "SYN-QUESTION",
+          "bankId": "syn-question",
+          "legacyV10": false
+        },
+        {
+          "order": 23,
+          "id": "SYN-IMPERS",
+          "name": "Impersonal with formal it",
+          "masterCode": "SYN-IMPERS",
+          "bankId": "syn-impers",
+          "legacyV10": false
+        },
+        {
+          "order": 24,
+          "id": "SYN-GOINGTO",
+          "name": "be going to",
+          "masterCode": "SYN-GOINGTO",
+          "bankId": "syn-goingto",
+          "legacyV10": false
+        },
+        {
+          "order": 25,
+          "id": "SYN-THERE",
+          "name": "There is / There are",
+          "masterCode": "SYN-THERE",
+          "bankId": "syn-there",
+          "legacyV10": false
+        },
+        {
+          "order": 26,
+          "id": "SYN-COMPOUND",
+          "name": "Compound sentences",
+          "masterCode": "SYN-COMPOUND",
+          "bankId": "syn-compound",
+          "legacyV10": false
+        },
+        {
+          "order": 27,
+          "id": "SYN-COMPLEX",
+          "name": "Complex sentences",
+          "masterCode": "SYN-COMPLEX",
+          "bankId": "syn-complex",
+          "legacyV10": false
+        },
+        {
+          "order": 28,
+          "id": "SYN-WORDORDER",
+          "name": "Word order",
+          "masterCode": "SYN-WORDORDER",
+          "bankId": "syn-wordorder",
+          "legacyV10": false
+        },
+        {
+          "order": 29,
+          "id": "SYN-AGREE",
+          "name": "Short agreement (So do I) [R]",
+          "masterCode": "SYN-AGREE",
+          "bankId": "syn-agree",
+          "legacyV10": false
+        },
+        {
+          "order": 30,
+          "id": "SYN-COND",
+          "name": "Conditionals / unreal [R]",
+          "masterCode": "SYN-COND",
+          "bankId": "syn-cond",
+          "legacyV10": false
+        },
+        {
+          "order": 31,
+          "id": "SYN-INDIRECT-Q",
+          "name": "Indirect questions [R]",
+          "masterCode": "SYN-INDIRECT-Q",
+          "bankId": "syn-indirect-q",
+          "legacyV10": false
+        },
+        {
+          "order": 32,
+          "id": "SYN-COMPLEX-SUBJ",
+          "name": "Complex Subject [R]",
+          "masterCode": "SYN-COMPLEX-SUBJ",
+          "bankId": "syn-complex-subj",
+          "legacyV10": false
+        },
+        {
+          "order": 33,
+          "id": "SYN-COMPLEX-OBJ",
+          "name": "Complex Object [R]",
+          "masterCode": "SYN-COMPLEX-OBJ",
+          "bankId": "syn-complex-obj",
+          "legacyV10": false
+        },
+        {
+          "order": 34,
+          "id": "SYN-REPORTED",
+          "name": "Direct & reported speech [R]",
+          "masterCode": "SYN-REPORTED",
+          "bankId": "syn-reported",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "id": "error-identification",
+      "name": "Error identification",
+      "examPart": "A",
+      "examBlock": "error-id",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "EI-VERB",
+          "name": "Wrong verb form",
+          "masterCode": "EI-VERB",
+          "bankId": "ei-verb",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "EI-PREP",
+          "name": "Wrong preposition",
+          "masterCode": "EI-PREP",
+          "bankId": "ei-prep",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "EI-ART",
+          "name": "Wrong article",
+          "masterCode": "EI-ART",
+          "bankId": "ei-art",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "EI-SVA",
+          "name": "Subject–verb agreement",
+          "masterCode": "EI-SVA",
+          "bankId": "ei-sva",
+          "legacyV10": false
+        },
+        {
+          "order": 5,
+          "id": "EI-EXTRA",
+          "name": "Redundant / wrong extra word",
+          "masterCode": "EI-EXTRA",
+          "bankId": "ei-extra",
+          "legacyV10": false
+        },
+        {
+          "order": 6,
+          "id": "EI-POSS",
+          "name": "Possessives / each other / else",
+          "masterCode": "EI-POSS",
+          "bankId": "ei-poss",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "id": "lexical-choice",
+      "name": "Lexical choice & vocabulary",
+      "examPart": "A",
+      "examBlock": "vocabulary",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "LEX-SYN-DO-MAKE",
+          "name": "do / make",
+          "masterCode": "LEX-SYN-DO-MAKE",
+          "bankId": "lex-syn-do-make",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "LEX-SYN-SAY-TELL-SPEAK",
+          "name": "tell / say / speak",
+          "masterCode": "LEX-SYN-SAY-TELL-SPEAK",
+          "bankId": "lex-syn-say-tell-speak",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "LEX-SYN-TEACH-STUDY-LEARN",
+          "name": "teach / study / learn",
+          "masterCode": "LEX-SYN-TEACH-STUDY-LEARN",
+          "bankId": "lex-syn-teach-study-learn",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "LEX-SYN-LEARN-KNOW-FINDOUT",
+          "name": "learn / know / find out",
+          "masterCode": "LEX-SYN-LEARN-KNOW-FINDOUT",
+          "bankId": "lex-syn-learn-know-findout",
+          "legacyV10": false
+        },
+        {
+          "order": 5,
+          "id": "LEX-SYN-HEAR-LISTEN",
+          "name": "hear / listen",
+          "masterCode": "LEX-SYN-HEAR-LISTEN",
+          "bankId": "lex-syn-hear-listen",
+          "legacyV10": false
+        },
+        {
+          "order": 6,
+          "id": "LEX-SYN-LIE-LAY",
+          "name": "lie / lay",
+          "masterCode": "LEX-SYN-LIE-LAY",
+          "bankId": "lex-syn-lie-lay",
+          "legacyV10": false
+        },
+        {
+          "order": 7,
+          "id": "LEX-SYN-FOOD-MEAL",
+          "name": "food / meal",
+          "masterCode": "LEX-SYN-FOOD-MEAL",
+          "bankId": "lex-syn-food-meal",
+          "legacyV10": false
+        },
+        {
+          "order": 8,
+          "id": "LEX-SYN-BORROW-LEND",
+          "name": "borrow / lend",
+          "masterCode": "LEX-SYN-BORROW-LEND",
+          "bankId": "lex-syn-borrow-lend",
+          "legacyV10": false
+        },
+        {
+          "order": 9,
+          "id": "LEX-SYN-LOOK-WATCH-SEE",
+          "name": "look / watch / see",
+          "masterCode": "LEX-SYN-LOOK-WATCH-SEE",
+          "bankId": "lex-syn-look-watch-see",
+          "legacyV10": false
+        },
+        {
+          "order": 10,
+          "id": "LEX-SYN-COME-GO",
+          "name": "come / go",
+          "masterCode": "LEX-SYN-COME-GO",
+          "bankId": "lex-syn-come-go",
+          "legacyV10": false
+        },
+        {
+          "order": 11,
+          "id": "LEX-SYN-AS-LIKE",
+          "name": "as / like",
+          "masterCode": "LEX-SYN-AS-LIKE",
+          "bankId": "lex-syn-as-like",
+          "legacyV10": false
+        },
+        {
+          "order": 12,
+          "id": "LEX-GRAM-SYN-FEW-LITTLE",
+          "name": "few / little",
+          "masterCode": "LEX-GRAM-SYN-FEW-LITTLE",
+          "bankId": "lex-gram-syn-few-little",
+          "legacyV10": false
+        },
+        {
+          "order": 13,
+          "id": "LEX-GRAM-SYN-MANY-MUCH",
+          "name": "many / much",
+          "masterCode": "LEX-GRAM-SYN-MANY-MUCH",
+          "bankId": "lex-gram-syn-many-much",
+          "legacyV10": false
+        },
+        {
+          "order": 14,
+          "id": "LEX-GRAM-SYN-OTHER-ANOTHER",
+          "name": "other / another",
+          "masterCode": "LEX-GRAM-SYN-OTHER-ANOTHER",
+          "bankId": "lex-gram-syn-other-another",
+          "legacyV10": false
+        },
+        {
+          "order": 15,
+          "id": "LEX-GRAM-SYN-EITHER-NEITHER",
+          "name": "either / neither",
+          "masterCode": "LEX-GRAM-SYN-EITHER-NEITHER",
+          "bankId": "lex-gram-syn-either-neither",
+          "legacyV10": false
+        },
+        {
+          "order": 16,
+          "id": "LEX-ADJ-ADV",
+          "name": "Adj vs adv confusables",
+          "masterCode": "LEX-ADJ-ADV",
+          "bankId": "lex-adj-adv",
+          "legacyV10": false
+        },
+        {
+          "order": 17,
+          "id": "LEX-PART",
+          "name": "Participial adjectives (-ing / -ed)",
+          "masterCode": "LEX-PART",
+          "bankId": "lex-part",
+          "legacyV10": false
+        },
+        {
+          "order": 18,
+          "id": "LEX-COLL",
+          "name": "Collocations & phrasal verbs",
+          "masterCode": "LEX-COLL",
+          "bankId": "lex-coll",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "id": "dialogue-sociocultural",
+      "name": "Dialogue & sociocultural",
+      "examPart": "A",
+      "examBlock": "dialogue",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "SOC-ETIQUETTE",
+          "name": "Speech etiquette / dialogue functions",
+          "masterCode": "SOC-ETIQUETTE",
+          "bankId": "soc-etiquette",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "SOC-NORMS",
+          "name": "Sociocultural norms / register",
+          "masterCode": "SOC-NORMS",
+          "bankId": "soc-norms",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "id": "word-formation",
+      "name": "Word formation",
+      "examPart": "B",
+      "examBlock": "word-formation",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "WF-COMP",
+          "name": "Compound nouns & adjectives",
+          "masterCode": "WF-COMP",
+          "bankId": "wf-comp",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "WF-N-SUF",
+          "name": "Noun suffixes (productive)",
+          "masterCode": "WF-N-SUF",
+          "bankId": "wf-n-suf",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "WF-ADJ-SUF",
+          "name": "Adjective suffixes (productive)",
+          "masterCode": "WF-ADJ-SUF",
+          "bankId": "wf-adj-suf",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "WF-NUM-SUF",
+          "name": "Numeral suffixes",
+          "masterCode": "WF-NUM-SUF",
+          "bankId": "wf-num-suf",
+          "legacyV10": false
+        },
+        {
+          "order": 5,
+          "id": "WF-ADV-SUF",
+          "name": "Adverb suffix (-ly)",
+          "masterCode": "WF-ADV-SUF",
+          "bankId": "wf-adv-suf",
+          "legacyV10": false
+        },
+        {
+          "order": 6,
+          "id": "WF-V-SUF",
+          "name": "Verb suffixes",
+          "masterCode": "WF-V-SUF",
+          "bankId": "wf-v-suf",
+          "legacyV10": false
+        },
+        {
+          "order": 7,
+          "id": "WF-PREF",
+          "name": "Prefixes (productive)",
+          "masterCode": "WF-PREF",
+          "bankId": "wf-pref",
+          "legacyV10": false
+        },
+        {
+          "order": 8,
+          "id": "WF-N-SUF-R",
+          "name": "Noun suffixes receptive [R]",
+          "masterCode": "WF-N-SUF-R",
+          "bankId": "wf-n-suf-r",
+          "legacyV10": false
+        },
+        {
+          "order": 9,
+          "id": "WF-ADJ-SUF-R",
+          "name": "Adjective suffixes receptive [R]",
+          "masterCode": "WF-ADJ-SUF-R",
+          "bankId": "wf-adj-suf-r",
+          "legacyV10": false
+        },
+        {
+          "order": 10,
+          "id": "WF-PREF-R",
+          "name": "Prefixes receptive [R]",
+          "masterCode": "WF-PREF-R",
+          "bankId": "wf-pref-r",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "id": "word-for-two-sentences",
+      "name": "Word for two sentences",
+      "examPart": "B",
+      "examBlock": null,
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "W2S-POLY",
+          "name": "Polysemous words",
+          "masterCode": "W2S-POLY",
+          "bankId": "w2s-poly",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "W2S-PARTICLE",
+          "name": "Particle–noun homonyms",
+          "masterCode": "W2S-PARTICLE",
+          "bankId": "w2s-particle",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "W2S-ACTION",
+          "name": "make / take / do / have / get",
+          "masterCode": "W2S-ACTION",
+          "bankId": "w2s-action",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "W2S-BODY-PLACE",
+          "name": "Body-part / place homonyms",
+          "masterCode": "W2S-BODY-PLACE",
+          "bankId": "w2s-body-place",
+          "legacyV10": false
+        },
+        {
+          "order": 5,
+          "id": "W2S-ABSTRACT",
+          "name": "Abstract noun homonyms",
+          "masterCode": "W2S-ABSTRACT",
+          "bankId": "w2s-abstract",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "id": "error-removal",
+      "name": "Error removal",
+      "examPart": "B",
+      "examBlock": "error-removal",
+      "legacyV10": false,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "ERR-AUX",
+          "name": "Redundant auxiliaries",
+          "masterCode": "ERR-AUX",
+          "bankId": "err-aux",
+          "legacyV10": false
+        },
+        {
+          "order": 2,
+          "id": "ERR-PREP",
+          "name": "Redundant prepositions",
+          "masterCode": "ERR-PREP",
+          "bankId": "err-prep",
+          "legacyV10": false
+        },
+        {
+          "order": 3,
+          "id": "ERR-ART",
+          "name": "Redundant articles",
+          "masterCode": "ERR-ART",
+          "bankId": "err-art",
+          "legacyV10": false
+        },
+        {
+          "order": 4,
+          "id": "ERR-PRON",
+          "name": "Redundant pronouns",
+          "masterCode": "ERR-PRON",
+          "bankId": "err-pron",
+          "legacyV10": false
+        },
+        {
+          "order": 5,
+          "id": "ERR-INT",
+          "name": "Redundant intensifiers",
+          "masterCode": "ERR-INT",
+          "bankId": "err-int",
+          "legacyV10": false
+        },
+        {
+          "order": 6,
+          "id": "ERR-PARA",
+          "name": "Parallel-structure errors",
+          "masterCode": "ERR-PARA",
+          "bankId": "err-para",
+          "legacyV10": false
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "id": "verb-tenses-legacy",
+      "name": "Verb Tenses (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-prs-s",
+          "name": "Present Simple",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-prs-c",
+          "name": "Present Continuous",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-pst-s",
+          "name": "Past Simple",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 4,
+          "id": "cs-pst-c",
+          "name": "Past Continuous",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 5,
+          "id": "cs-pp-s",
+          "name": "Present Perfect Simple",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 6,
+          "id": "cs-pp-c",
+          "name": "Present Perfect Continuous",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 7,
+          "id": "cs-pst-perf-s",
+          "name": "Past Perfect Simple",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 8,
+          "id": "cs-pst-perf-c",
+          "name": "Past Perfect Continuous",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 9,
+          "id": "cs-fut-will",
+          "name": "Future with will",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 10,
+          "id": "cs-fut-going",
+          "name": "Future with going to",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 11,
+          "id": "cs-fut-perf",
+          "name": "Future Perfect",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 12,
+          "id": "cs-fut-cont",
+          "name": "Future Continuous",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 13,
+          "id": "cs-narrative-mix",
+          "name": "Narrative tenses (mixed)",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "id": "passive-legacy",
+      "name": "Passive (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-pass-mix",
+          "name": "Passive — mixed tenses",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-pass-mod",
+          "name": "Passive with modals",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-pass-perf",
+          "name": "Perfect passive",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 4,
+          "id": "cs-pass-reporting",
+          "name": "Reporting-verb passive",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 5,
+          "id": "cs-pass-have-done",
+          "name": "Causative passive (have sth done)",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 6,
+          "id": "cs-pass-rep-verb",
+          "name": "Advanced reporting passive",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "id": "modals-legacy",
+      "name": "Modals (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-mod-can",
+          "name": "can / could",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-mod-must",
+          "name": "must / have to",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-mod-should",
+          "name": "should / ought to",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 4,
+          "id": "cs-mod-pos",
+          "name": "Modals — possibility / deduction",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 5,
+          "id": "cs-mod-past",
+          "name": "Modals — past forms",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 6,
+          "id": "cs-mod-perfect",
+          "name": "Modal perfect",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 7,
+          "id": "cs-mod-shades",
+          "name": "Modals — nuance & shades",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 8,
+          "id": "cs-mod-historical",
+          "name": "Historical / archaic modals",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "id": "conditionals-legacy",
+      "name": "Conditionals (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-cond-0",
+          "name": "Zero conditional",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-cond-1",
+          "name": "First conditional",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-cond-2",
+          "name": "Second conditional",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 4,
+          "id": "cs-cond-3",
+          "name": "Third conditional",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 5,
+          "id": "cs-cond-mixed",
+          "name": "Mixed conditionals",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 6,
+          "id": "cs-cond-implied",
+          "name": "Implied conditionals",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 7,
+          "id": "cs-cond-without-if",
+          "name": "Conditionals without if",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "id": "gerund-infinitive-legacy",
+      "name": "Gerund / Infinitive (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-ger-basic",
+          "name": "Gerund — basic",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-inf-basic",
+          "name": "Infinitive — basic",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-ger-inf-meaning",
+          "name": "Verbs that change meaning",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "id": "subordinate-clauses-legacy",
+      "name": "Subordinate Clauses (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-sub-general",
+          "name": "Subordinate clauses — general",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-rel-basic",
+          "name": "Relative clauses — basic",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-rel-def",
+          "name": "Defining relative clauses",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 4,
+          "id": "cs-rel-nondef",
+          "name": "Non-defining relative clauses",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 5,
+          "id": "cs-rel-adv",
+          "name": "Relative clauses — advanced",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "id": "comparatives-legacy",
+      "name": "Comparatives & Superlatives (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-comp",
+          "name": "Comparatives",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-sup",
+          "name": "Superlatives",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "id": "quantifiers-legacy",
+      "name": "Quantifiers (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-quant-some-any",
+          "name": "some / any",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-quant-much-many",
+          "name": "much / many",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "id": "articles-legacy",
+      "name": "Articles (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-art-indef",
+          "name": "Indefinite a/an",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-art-def",
+          "name": "Definite the",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-art-abstract",
+          "name": "Articles with abstract nouns",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 4,
+          "id": "cs-art-unique",
+          "name": "Articles with unique referents",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "id": "prepositions-legacy",
+      "name": "Prepositions & Particles (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-prep-time",
+          "name": "Time prepositions",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-prep-place",
+          "name": "Place prepositions",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-prep-verb",
+          "name": "Verb + preposition",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "id": "word-formation-legacy",
+      "name": "Word Formation (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-wf-neg",
+          "name": "Negative prefixes",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-wf-mixed",
+          "name": "Mixed word formation",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 22,
+      "id": "vocab-context-legacy",
+      "name": "Vocabulary in Context (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-voc-coll",
+          "name": "Collocation selection",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-voc-reg",
+          "name": "Register selection",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 23,
+      "id": "question-forms-legacy",
+      "name": "Question Forms (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-qtags",
+          "name": "Question tags",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-qwords",
+          "name": "Question words",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 24,
+      "id": "reported-speech-legacy",
+      "name": "Reported Speech (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-rep-stmt",
+          "name": "Reported statements",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-rep-ques",
+          "name": "Reported questions",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-rep-cmd",
+          "name": "Reported commands",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 25,
+      "id": "phrasal-verbs-legacy",
+      "name": "Phrasal Verbs (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-pv-sep",
+          "name": "Separable phrasal verbs",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-pv-insep",
+          "name": "Inseparable phrasal verbs",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-pv-3word",
+          "name": "Three-word phrasal verbs",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 26,
+      "id": "inversion-cleft-legacy",
+      "name": "Inversion & Cleft (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-inv-neg",
+          "name": "Negative inversion",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-inv-cond",
+          "name": "Conditional inversion",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-cleft-it",
+          "name": "It-cleft",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 4,
+          "id": "cs-cleft-what",
+          "name": "What-cleft",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 27,
+      "id": "subjunctive-unreal-legacy",
+      "name": "Subjunctive & Unreal (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-subj-basic",
+          "name": "Subjunctive — basic",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-subj-wish",
+          "name": "Wish & if only",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 28,
+      "id": "participle-clauses-legacy",
+      "name": "Participle Clauses (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-part-clause-pres",
+          "name": "Present participle clauses",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-part-clause-perf",
+          "name": "Perfect participle clauses",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 29,
+      "id": "discourse-cohesion-legacy",
+      "name": "Discourse & Cohesion (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-disc-markers",
+          "name": "Discourse markers",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 2,
+          "id": "cs-ellipsis",
+          "name": "Ellipsis",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        },
+        {
+          "order": 3,
+          "id": "cs-substitution",
+          "name": "Substitution",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    },
+    {
+      "order": 30,
+      "id": "nominalization-legacy",
+      "name": "Nominalization (B1–C1)",
+      "examPart": null,
+      "examBlock": null,
+      "legacyV10": true,
+      "subtopics": [
+        {
+          "order": 1,
+          "id": "cs-nominal",
+          "name": "Nominalization",
+          "masterCode": null,
+          "bankId": null,
+          "legacyV10": true
+        }
+      ]
+    }
+  ]
+}
