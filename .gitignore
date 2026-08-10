@@ -1,0 +1,6 @@
+# Private write-down board (do not commit)
+.cursor/write-down/BOARD.md
+.cursor/write-down/evidence/**
+!.cursor/write-down/evidence/README.md
+!.cursor/write-down/BOARD.template.md
+!.cursor/write-down/README.md

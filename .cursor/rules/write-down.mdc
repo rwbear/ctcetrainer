@@ -1,0 +1,28 @@
+---
+description: ALWAYS trigger when the user mentions write-down (any spelling/typo). Run the write-down board workflow. Never mark board items done without explicit user confirmation.
+alwaysApply: true
+---
+
+# Write-down trigger (always on)
+
+## When this fires
+
+If the user message contains any of these (case-insensitive), treat it as invoking **write-down** and follow `.cursor/skills/write-down/SKILL.md` immediately:
+
+- `write-down`, `writedown`, `write down`, `write_down`
+- `wright-down`, `wrightdown`, `wright down`
+- `rite-down`, `writ-down`, `write-don`, `write-dwon`, `wirte-down`
+- `/write-down`
+- Clear intent like “add this to the board”, “put this in write-down”, “update the write-down board”
+
+Do **not** wait for perfect spelling. If it is clearly that command, run it.
+
+## Hard rules
+
+1. Read/update `.cursor/write-down/BOARD.md` (create from `BOARD.template.md` if missing).
+2. Investigate notes; dig into the app when needed until understanding is solid.
+3. Treat attached images/videos as primary evidence — inspect them with care before placing a note.
+4. Ask the user only when clarification is actually required (ambiguous, contradictory, or senseless).
+5. **Never** move an item to Done / never treat a task as finished unless the user explicitly confirms.
+6. After finishing implementation work tied to a board item: set status to `awaiting confirmation` and ask for confirmation before Done.
+7. Telegram intake is phase 2 — direct input only for now.
