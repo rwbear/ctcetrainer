@@ -53,7 +53,7 @@ Template if board missing: `.cursor/write-down/BOARD.template.md`
 
 ## Prioritization (default)
 
-Propose an order from urgency + dependencies (🔴 first, blockers before polish). **Do not start a new board item as the active task until Misha agrees** — he owns the final call; the agent recommends.
+Misha locks every decision. The agent may offer a **light** suggestion only (one short line, e.g. “Candidate next: C-001 — blocks Learn for free users.”). No pressure, no multi-option pitch, no starting work on a board item until he explicitly chooses. Urgency marks inform him; they do not authorize the agent to proceed.
 
 ## Privacy
 

@@ -25,4 +25,5 @@ Do **not** wait for perfect spelling. If it is clearly that command, run it.
 4. Ask the user only when clarification is actually required (ambiguous, contradictory, or senseless).
 5. **Never** move an item to Done / never treat a task as finished unless the user explicitly confirms.
 6. After finishing implementation work tied to a board item: set status to `awaiting confirmation` and ask for confirmation before Done.
-7. Telegram intake is phase 2 — direct input only for now.
+7. Prioritization: Misha locks the decision. At most one light “candidate next” line — never start a board item until he explicitly chooses.
+8. Telegram intake is phase 2 — direct input only for now.
