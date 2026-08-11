@@ -15,15 +15,16 @@ If the user message contains any of these (case-insensitive), treat it as invoki
 - `/write-down`
 - Clear intent like “add this to the board”, “put this in write-down”, “update the write-down board”
 
-Do **not** wait for perfect spelling. If it is clearly that command, run it.
+Do **not** wait for perfect spelling.
 
 ## Hard rules
 
-1. Read/update `.cursor/write-down/BOARD.md` (create from `BOARD.template.md` if missing).
+1. Read/update **`planning/board.json`** (public source of truth). Keep the visual site in sync by committing that file.
 2. Investigate notes; dig into the app when needed until understanding is solid.
-3. Treat attached images/videos as primary evidence — inspect them with care before placing a note.
-4. Ask the user only when clarification is actually required (ambiguous, contradictory, or senseless).
-5. **Never** move an item to Done / never treat a task as finished unless the user explicitly confirms.
-6. After finishing implementation work tied to a board item: set status to `awaiting confirmation` and ask for confirmation before Done.
-7. Prioritization: Misha locks the decision. At most one light “candidate next” line — never start a board item until he explicitly chooses.
-8. Telegram intake is phase 2 — direct input only for now.
+3. Treat attached images/videos as primary evidence — inspect fully before placing.
+4. Ask the user only when clarification is actually required.
+5. **Never** move an item to Done unless the user explicitly confirms.
+6. After finishing work on a board item: set status to `awaiting confirmation` and ask before Done.
+7. Prioritization: Misha locks the decision. At most one light “candidate next” line.
+8. Urgency defaults to `null`; site chips (D2) may change it. Do not require Firebase or login.
+9. Telegram intake is phase 2 — direct input only for now.

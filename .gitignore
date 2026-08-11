@@ -1,4 +1,4 @@
-# Private write-down board (do not commit)
+# Local-only leftovers (board itself is public under planning/)
 .cursor/write-down/BOARD.md
 .cursor/write-down/evidence/**
 !.cursor/write-down/evidence/README.md

@@ -5,13 +5,15 @@ description: >
   says write-down / wright-down / any typo variant, pastes ideas for the board,
   attaches bug screenshots for triage, asks what is on the board, or completes
   a board task and needs confirmation gating. Direct input only (Telegram later).
+  Live board: planning/board.json · visual site: planning/
 ---
 
 # Write-down
 
-Private board path: `.cursor/write-down/BOARD.md`  
-Evidence path: `.cursor/write-down/evidence/`  
-Template if board missing: `.cursor/write-down/BOARD.template.md`
+**Source of truth:** `planning/board.json` (public, committed)  
+**Visual site:** `planning/index.html` → GitHub Pages `/ctcetrainer/planning/`  
+**Evidence:** `.cursor/write-down/evidence/` (optional local; prefer `planning/evidence/` if committing)  
+**Legacy private draft:** `.cursor/write-down/BOARD.md` (gitignored) — do not use as source of truth
 
 ## Trigger forms (all valid)
 
@@ -20,45 +22,43 @@ Template if board missing: `.cursor/write-down/BOARD.template.md`
 ## What write-down does
 
 ### A) Command only (no new note)
-1. Open `BOARD.md`.
-2. Summarize the board: Immediate (🔴) first, then by section.
+1. Open `planning/board.json`.
+2. Summarize: by folder, call out items with urgency if set.
 3. State what is `in progress` / `awaiting confirmation`.
+4. Light candidate next only (one line). Misha locks the decision.
 
 ### B) New note(s) in the message (and/or images)
-1. Read every note and **every attached image/video** carefully. Images are evidence — extract UI state, copy, layout, theme, device clues, exact bug symptoms. Do not skim.
-2. If the note touches product/code behavior, **inspect the app/codebase** until understanding is solid (not guessed).
-3. Ask Misha only if the note is ambiguous, contradictory, or does not make sense. Skip questions when investigation is enough.
-4. Place each item:
-   - **1. Design and animation** — visual/UI/motion bugs and ideas  
-   - **2. Structural changes** — architecture, tooling, env, refactor  
-   - **3. Content changes and improvements** — tasks, variants, copy, Learn/Practice content, monetization copy, language  
-   - **4. Unsorted** — only if area is still unclear after investigation  
-   - **5. Done** — **never** without explicit user confirmation  
-5. Assign urgency:
-   - 🔴 Immediate attention  
-   - 🟠 Needs to be done  
-   - 🔵 Future updates  
-6. Assign ID: `D-###` (design), `S-###` (structural), `C-###` (content), `U-###` (unsorted). Increment within section.
-7. Status starts as `inbox` or `understood` (if fully investigated).
-8. Save evidence files under `evidence/` when images are provided; reference them from the item.
-9. Append a row to **Intake log**.
-10. Reply: what was placed, where, urgency, and any open clarification (only if needed).
+1. Read every note and **every attached image/video** carefully.
+2. If it touches product/code, inspect the app until understanding is solid.
+3. Ask Misha only if ambiguous, contradictory, or senseless.
+4. Place into a folder:
+   - `design` — visual/UI/motion bugs and ideas  
+   - `structural` — architecture, tooling, env, refactor  
+   - `content` — tasks, variants, copy, Learn/Practice, monetization, language  
+   - `unsorted` — only if still unclear  
+   - `done` — **never** without explicit user confirmation  
+5. Assign ID: `D-###`, `S-###`, `C-###`, `U-###` (increment within prefix).
+6. Status: `inbox` or `understood` (if fully investigated).
+7. **Urgency:** default `null` (no tag). Only set if Misha specifies. Site chips can change it (D2).
+8. Append object to `items`, row to `intakeLog`, bump `updatedAt`.
+9. Commit `planning/board.json` with a clear message.
+10. Reply: what was placed, folder, and optional light candidate next.
 
 ### C) Completing work tied to a board item
-1. Implement / verify the fix.
-2. Set item status to `awaiting confirmation`.
-3. Tell the user what was done and ask: **Confirm this is finished?**
-4. Only on explicit yes → move to **5. Done**, set status `done`, note confirmation date.
-5. Do not start the next board item as “officially next” until confirmation is settled (unless the user already directed otherwise).
+1. Implement / verify.
+2. Set `status` to `awaiting confirmation`.
+3. Ask: **Confirm this is finished?**
+4. Only on explicit yes → set `folder` to `done`, `status` to `done`.
+5. Do not start another board item until he locks the next one.
 
-## Prioritization (default)
+## Prioritization
 
-Misha locks every decision. The agent may offer a **light** suggestion only (one short line, e.g. “Candidate next: C-001 — blocks Learn for free users.”). No pressure, no multi-option pitch, no starting work on a board item until he explicitly chooses. Urgency marks inform him; they do not authorize the agent to proceed.
+Misha locks every decision. At most one light “candidate next” line. Never start a board item until he explicitly chooses.
 
-## Privacy
+## D2 urgency
 
-`BOARD.md` and `evidence/*` are gitignored. Do not commit them to the public repo. Workflow files (this skill, rule, command, template) may be committed.
+Site may patch `urgency` via GitHub Action `planning-urgency`. Valid values: `null` / `immediate` / `needed` / `future`. Do not invent other values. Prefer leaving urgency null unless asked.
 
 ## Out of scope for now
 
-Telegram bot / Telegram sync — phase 2.
+Telegram bot — phase 2.

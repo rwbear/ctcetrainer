@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-11T09:12:00.000Z",
+  "folders": [
+    { "id": "design", "label": "Design", "full": "Design and animation" },
+    { "id": "structural", "label": "Structural", "full": "Structural changes" },
+    { "id": "content", "label": "Content", "full": "Content changes and improvements" },
+    { "id": "unsorted", "label": "Unsorted", "full": "Unsorted" },
+    { "id": "done", "label": "Done", "full": "Done" }
+  ],
+  "items": [
+    {
+      "id": "S-001",
+      "folder": "structural",
+      "title": "Split the monolith safely",
+      "notes": "Almost all logic lives in one ~18k-line index.html. High regression risk. Not a day-one ship blocker, but blocks fast safe iteration.",
+      "status": "understood",
+      "urgency": null,
+      "evidence": [],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-08-10T12:00:00.000Z"
+    },
+    {
+      "id": "S-002",
+      "folder": "structural",
+      "title": "Restore / document content build tooling",
+      "notes": "Comments reference scripts/build-v12-skeleton.mjs; scripts folder is missing from the repo.",
+      "status": "understood",
+      "urgency": null,
+      "evidence": [],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-08-10T12:00:00.000Z"
+    },
+    {
+      "id": "S-003",
+      "folder": "structural",
+      "title": "Formal Cursor Environment (optional)",
+      "notes": "No linked Cursor Environment / environment.json. Static site still works; Builds are polish, not a gate.",
+      "status": "understood",
+      "urgency": null,
+      "evidence": [],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-08-10T12:00:00.000Z"
+    },
+    {
+      "id": "C-001",
+      "folder": "content",
+      "title": "Fill CT/CE Learn bank (or safe fallback)",
+      "notes": "Default Learn level is ctce. learn-data/ctce-tasks.js = 109 subtopics, 0 tasks. Free users hit Coming soon. B1/B2/C1 have content but are premium-locked. #1 school-year blocker.",
+      "status": "understood",
+      "urgency": null,
+      "evidence": [],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-08-10T12:00:00.000Z"
+    },
+    {
+      "id": "C-002",
+      "folder": "content",
+      "title": "Real sell / premium path",
+      "notes": "Premium today = code hash, not checkout. Points buy themes/variants. Cannot cleanly sell to a school cohort without payment or school license + account flow.",
+      "status": "understood",
+      "urgency": null,
+      "evidence": [],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-08-10T12:00:00.000Z"
+    },
+    {
+      "id": "C-003",
+      "folder": "content",
+      "title": "Decide / communicate 2025 Analogue gap",
+      "notes": "Official variants 51–60 exist; Analogue tops out at 50. Fine if marketed clearly; incomplete if selling full 2025 coverage.",
+      "status": "understood",
+      "urgency": null,
+      "evidence": [],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-08-10T12:00:00.000Z"
+    },
+    {
+      "id": "C-004",
+      "folder": "content",
+      "title": "RU/EN language decision",
+      "notes": "SEO/meta Russian; in-app UI mostly English. Decide student UI vs parent-facing copy.",
+      "status": "understood",
+      "urgency": null,
+      "evidence": [],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-08-10T12:00:00.000Z"
+    },
+    {
+      "id": "C-005",
+      "folder": "content",
+      "title": "Landing conversion pass",
+      "notes": "Brand exists; little proof above the fold (counts, phone-ready, what free unlocks). System fonts only.",
+      "status": "understood",
+      "urgency": null,
+      "evidence": [],
+      "createdAt": "2026-08-10T12:00:00.000Z",
+      "updatedAt": "2026-08-10T12:00:00.000Z"
+    }
+  ],
+  "intakeLog": [
+    {
+      "when": "2026-08-10",
+      "raw": "Initial board from project assessment",
+      "outcome": "Seeded S-001…S-003, C-001…C-005"
+    },
+    {
+      "when": "2026-08-11",
+      "raw": "Moved board to public planning/board.json (D2)",
+      "outcome": "Site + write-down share one file; urgency editable on site"
+    }
+  ]
+}
