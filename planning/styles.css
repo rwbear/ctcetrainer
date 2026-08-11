@@ -262,6 +262,7 @@ body {
   flex-direction: column;
   gap: 10px;
   flex: 1;
+  min-height: 0;
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--ink) 25%, transparent) transparent;
 }
@@ -410,6 +411,11 @@ body {
 .dock-wrap {
   padding: 4px 16px 0;
   animation: rise-in 720ms var(--ease-out) 80ms both;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 5;
+  background: linear-gradient(to top, var(--bg) 70%, transparent);
+  transition: background var(--dur-theme) var(--ease-soft);
 }
 
 .dock {
