@@ -1,0 +1,99 @@
+name: Planning urgency
+
+# Surgical D2 write-back: only patches item.urgency in planning/board.json.
+# Triggered from the planning site (no user login) via repository_dispatch
+# or manually via workflow_dispatch.
+
+on:
+  repository_dispatch:
+    types: [planning-urgency]
+  workflow_dispatch:
+    inputs:
+      id:
+        description: Note id (e.g. C-001)
+        required: true
+        type: string
+      urgency:
+        description: none | immediate | needed | future
+        required: true
+        type: string
+      ref:
+        description: Branch to update (default v12)
+        required: false
+        default: v12
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  set-urgency:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve inputs
+        id: meta
+        run: |
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "note_id=${{ github.event.client_payload.id }}" >> "$GITHUB_OUTPUT"
+            echo "urgency=${{ github.event.client_payload.urgency }}" >> "$GITHUB_OUTPUT"
+            REF="${{ github.event.client_payload.ref }}"
+            if [ -z "$REF" ]; then REF="v12"; fi
+            echo "ref=$REF" >> "$GITHUB_OUTPUT"
+          else
+            echo "note_id=${{ inputs.id }}" >> "$GITHUB_OUTPUT"
+            echo "urgency=${{ inputs.urgency }}" >> "$GITHUB_OUTPUT"
+            REF="${{ inputs.ref }}"
+            if [ -z "$REF" ]; then REF="v12"; fi
+            echo "ref=$REF" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate urgency
+        run: |
+          case "${{ steps.meta.outputs.urgency }}" in
+            none|immediate|needed|future) ;;
+            *) echo "Invalid urgency"; exit 1 ;;
+          esac
+          if [ -z "${{ steps.meta.outputs.note_id }}" ]; then
+            echo "Missing note id"; exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.meta.outputs.ref }}
+
+      - name: Patch board.json
+        env:
+          NOTE_ID: ${{ steps.meta.outputs.note_id }}
+          URGENCY: ${{ steps.meta.outputs.urgency }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'planning/board.json';
+          const board = JSON.parse(fs.readFileSync(path, 'utf8'));
+          const id = process.env.NOTE_ID;
+          const urgencyRaw = process.env.URGENCY;
+          const urgency = urgencyRaw === 'none' ? null : urgencyRaw;
+          const item = (board.items || []).find(i => i.id === id);
+          if (!item) {
+            console.error('Note not found:', id);
+            process.exit(1);
+          }
+          item.urgency = urgency;
+          item.updatedAt = new Date().toISOString();
+          board.updatedAt = item.updatedAt;
+          fs.writeFileSync(path, JSON.stringify(board, null, 2) + '\n');
+          console.log('Updated', id, '→', urgency);
+          NODE
+
+      - name: Commit
+        run: |
+          git config user.name "planning-bot"
+          git config user.email "planning-bot@users.noreply.github.com"
+          git add planning/board.json
+          if git diff --staged --quiet; then
+            echo "No change"
+            exit 0
+          fi
+          git commit -m "chore(planning): set ${{ steps.meta.outputs.note_id }} urgency to ${{ steps.meta.outputs.urgency }}"
+          git push origin HEAD:${{ steps.meta.outputs.ref }}
