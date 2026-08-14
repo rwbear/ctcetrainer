@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#F3EBE0">
+  <meta name="theme-color" content="#7E8B5A">
   <title>Write-down — ctcetrainer ops</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-folder="content">
@@ -26,8 +26,8 @@
       <div class="carousel" id="carousel" aria-live="polite"></div>
     </div>
 
-    <div class="dock-wrap">
-      <nav class="dock" id="dock" aria-label="Folders"></nav>
+    <div class="tray-wrap">
+      <nav class="tray" id="dock" aria-label="Folders"></nav>
     </div>
   </div>
 
@@ -36,7 +36,7 @@
   <dialog class="setup-dialog" id="setupDialog">
     <form method="dialog" class="setup-sheet" id="setupForm">
       <h2 class="pixel-title setup-title">SYNC</h2>
-      <p class="setup-copy">Paste a GitHub token that can trigger workflows on <strong>rwbear/ctcetrainer</strong>. Stored in this browser only if you override the committed key.</p>
+      <p class="setup-copy">Override the committed sync key. Stored in this browser only.</p>
       <label class="setup-label" for="tokenInput">Token</label>
       <input class="setup-input" id="tokenInput" type="password" autocomplete="off" placeholder="github_pat_…">
       <label class="setup-label" for="refInput">Branch</label>
