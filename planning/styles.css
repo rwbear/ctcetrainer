@@ -1,5 +1,6 @@
-/* Write-down — TRACKS-like folder browser
-   Palette from the 8 named swatches. Flat. Pixel titles. No emoji. */
+/* Write-down — TRACKS structure
+   Solid full-bleed field. Object + paper well + recessed tray.
+   Palette pairs from the 8-swatch sheet. */
 
 :root {
   --bone: #F3EBE0;
@@ -11,51 +12,77 @@
   --bark: #7A3A36;
   --leaf: #7E8B5A;
 
-  --bg: var(--bone);
-  --ink: var(--velvet);
-  --card: var(--paw);
-  --on-card: var(--bone);
-  --note: color-mix(in srgb, var(--bone) 88%, #fff);
-  --mute: color-mix(in srgb, var(--ink) 52%, transparent);
-  --pad: 22px;
-  --card-w: min(86vw, 420px);
-  --card-gap: 28px;
-  --radius: 16px;
-  --dock-dark: var(--velvet);
+  --bg: var(--leaf);
+  --ink: var(--bone);
+  --mute: color-mix(in srgb, var(--ink) 62%, transparent);
+  --plate: var(--bone);
+  --plate-ink: var(--velvet);
+  --well-bg: color-mix(in srgb, var(--bone) 78%, transparent);
+  --well-line: color-mix(in srgb, var(--velvet) 12%, transparent);
+  --well-ink: var(--velvet);
+  --tray: #D4D0C8;
+  --pad: 20px;
+  --col: min(78vw, 340px);
+  --gap: 36px;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
-  --ease-spring: cubic-bezier(0.34, 1.35, 0.64, 1);
-  --dur: 480ms;
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --dur: 520ms;
   --dur-fast: 200ms;
-  --dur-theme: 560ms;
+  --dur-theme: 640ms;
 }
 
-/* Folder = solid palette pair from the reference sheet */
+/* Each folder = a solid field from the sheet, pair as ink/plate */
 body[data-folder="design"] {
-  --card: var(--paw);
-  --on-card: var(--bone);
-  --bg: color-mix(in srgb, var(--bone) 92%, var(--paw));
+  --bg: var(--paw);
+  --ink: var(--bone);
+  --plate: var(--bone);
+  --plate-ink: var(--paw);
+  --well-bg: color-mix(in srgb, var(--bone) 82%, transparent);
+  --well-line: color-mix(in srgb, var(--velvet) 14%, transparent);
+  --well-ink: var(--velvet);
+  --tray: #D8D3C8;
 }
 body[data-folder="structural"] {
-  --card: var(--velvet);
-  --on-card: var(--bone);
-  --bg: color-mix(in srgb, var(--bone) 94%, var(--velvet));
+  --bg: var(--velvet);
+  --ink: var(--bone);
+  --plate: var(--bone);
+  --plate-ink: var(--velvet);
+  --well-bg: transparent;
+  --well-line: color-mix(in srgb, var(--bone) 22%, transparent);
+  --well-ink: var(--bone);
+  --tray: #C8C4BC;
 }
 body[data-folder="content"] {
-  --card: var(--leaf);
-  --on-card: var(--bone);
-  --bg: color-mix(in srgb, var(--bone) 90%, var(--leaf));
+  --bg: var(--leaf);
+  --ink: var(--bone);
+  --plate: var(--bone);
+  --plate-ink: var(--leaf);
+  --well-bg: color-mix(in srgb, var(--bone) 82%, transparent);
+  --well-line: color-mix(in srgb, var(--velvet) 14%, transparent);
+  --well-ink: var(--velvet);
+  --tray: #D5D3C4;
 }
 body[data-folder="unsorted"] {
-  --card: var(--sky);
-  --on-card: var(--velvet);
-  --bg: color-mix(in srgb, var(--bone) 88%, var(--sky));
+  --bg: var(--sky);
+  --ink: var(--velvet);
+  --plate: var(--velvet);
+  --plate-ink: var(--sky);
+  --well-bg: transparent;
+  --well-line: color-mix(in srgb, var(--velvet) 22%, transparent);
+  --well-ink: var(--velvet);
+  --tray: #D2D6DC;
 }
 body[data-folder="done"] {
-  --card: var(--bark);
-  --on-card: var(--bone);
-  --bg: color-mix(in srgb, var(--bone) 90%, var(--bark));
+  --bg: var(--bark);
+  --ink: var(--bone);
+  --plate: var(--bone);
+  --plate-ink: var(--bark);
+  --well-bg: color-mix(in srgb, var(--bone) 82%, transparent);
+  --well-line: color-mix(in srgb, var(--velvet) 14%, transparent);
+  --well-ink: var(--velvet);
+  --tray: #D6CEC6;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -67,7 +94,7 @@ html, body {
   color: var(--ink);
   font-family: Outfit, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  transition: background-color var(--dur-theme) var(--ease-soft);
+  transition: background-color var(--dur-theme) var(--ease-soft), color var(--dur-theme) var(--ease-soft);
 }
 
 body {
@@ -79,222 +106,224 @@ body {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: 40;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 30;
+  opacity: 0.055;
   mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .app {
   height: 100dvh;
-  max-height: 100dvh;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  padding: calc(14px + env(safe-area-inset-top)) 0 calc(14px + env(safe-area-inset-bottom));
+  padding: calc(12px + env(safe-area-inset-top)) 0 calc(10px + env(safe-area-inset-bottom));
   position: relative;
   z-index: 1;
 }
 
-/* ── Header: TRACKS left-align, pixel title, air ─────────── */
+/* Header sits on the field — no bar, no box */
 .top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 4px var(--pad) 10px;
+  padding: 6px var(--pad) 8px;
   width: min(100%, 720px);
   margin: 0 auto;
-  animation: rise-in 560ms var(--ease-out) both;
 }
 
 .pixel-title {
   margin: 0;
-  font-family: Silkscreen, monospace;
-  font-weight: 700;
-  font-size: clamp(1.55rem, 6.4vw, 2.05rem);
-  letter-spacing: 0.02em;
-  line-height: 1.05;
-  text-transform: uppercase;
-  color: var(--velvet);
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: clamp(0.92rem, 3.6vw, 1.12rem);
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  transition: color var(--dur-theme) var(--ease-soft);
 }
 
 .top-sub {
-  margin: 8px 0 0;
-  font-size: 0.8rem;
-  font-weight: 400;
+  margin: 10px 0 0;
+  font-size: 0.78rem;
   color: var(--mute);
   letter-spacing: 0.01em;
+  transition: color var(--dur-theme) var(--ease-soft);
 }
 
 .setup-btn {
-  margin-top: 6px;
+  margin-top: 4px;
   border: 0;
   background: transparent;
-  color: var(--velvet);
+  color: var(--ink);
   cursor: pointer;
-  font-family: Silkscreen, monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  padding: 8px 0 0;
-  flex-shrink: 0;
-  transition: opacity var(--dur-fast) var(--ease-soft);
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.14em;
+  padding: 6px 0;
+  opacity: 0.85;
+  transition: opacity var(--dur-fast) var(--ease-soft), color var(--dur-theme) var(--ease-soft);
 }
-.setup-btn:hover { opacity: 0.6; }
+.setup-btn:hover { opacity: 0.55; }
 
-/* ── Stage: film strip, selected card centered ───────────── */
+/* Film strip of folder objects — not full-bleed cards */
 .stage {
-  position: relative;
-  overflow: hidden;
   min-height: 0;
+  overflow: hidden;
   touch-action: pan-y;
+  display: flex;
+  align-items: center;
 }
 
 .carousel {
   display: flex;
-  align-items: stretch;
-  height: 100%;
-  gap: var(--card-gap);
+  align-items: flex-start;
+  gap: var(--gap);
   will-change: transform;
   transition: transform var(--dur) var(--ease-out);
 }
 .carousel.is-dragging { transition: none; }
 
 .folder-panel {
-  flex: 0 0 var(--card-w);
-  width: var(--card-w);
-  height: 100%;
-  display: flex;
-  min-height: 0;
-  opacity: 0.38;
-  filter: blur(7px);
-  transform: scale(0.96);
-  pointer-events: none;
-  transition:
-    opacity var(--dur) var(--ease-soft),
-    filter var(--dur) var(--ease-soft),
-    transform var(--dur) var(--ease-out);
-}
-.folder-panel.is-active {
-  opacity: 1;
-  filter: blur(0);
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-.folder-sleeve {
-  flex: 1;
-  min-height: 0;
+  flex: 0 0 var(--col);
+  width: var(--col);
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 18px 16px 16px;
-  border-radius: var(--radius);
-  background: var(--card);
-  color: var(--on-card);
+  opacity: 0.32;
+  filter: blur(8px);
+  pointer-events: none;
+  transition:
+    opacity var(--dur) var(--ease-soft),
+    filter var(--dur) var(--ease-soft);
+}
+.folder-panel.is-active {
+  opacity: 1;
+  filter: none;
+  pointer-events: auto;
 }
 
-.folder-panel[data-folder="design"] .folder-sleeve { background: var(--paw); color: var(--bone); }
-.folder-panel[data-folder="structural"] .folder-sleeve { background: var(--velvet); color: var(--bone); }
-.folder-panel[data-folder="content"] .folder-sleeve { background: var(--leaf); color: var(--bone); }
-.folder-panel[data-folder="unsorted"] .folder-sleeve { background: var(--sky); color: var(--velvet); }
-.folder-panel[data-folder="done"] .folder-sleeve { background: var(--bark); color: var(--bone); }
+/* Cassette analog: a plate on the field, not a page container */
+.plate {
+  background: var(--plate);
+  color: var(--plate-ink);
+  border-radius: 10px;
+  padding: 16px 16px 14px;
+  box-shadow: 0 10px 28px -18px rgba(0, 0, 0, 0.35);
+  transition: background-color var(--dur-theme) var(--ease-soft), color var(--dur-theme) var(--ease-soft);
+}
 
-.folder-panel[data-folder="unsorted"] .folder-name,
-.folder-panel[data-folder="unsorted"] .folder-meta { color: var(--velvet); }
-.folder-panel:not([data-folder="unsorted"]) .folder-name,
-.folder-panel:not([data-folder="unsorted"]) .folder-meta { color: var(--bone); }
-
-.folder-head {
+.plate-top {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 0 2px;
+  align-items: center;
+  gap: 10px;
+}
+
+.plate-badge {
+  flex: 0 0 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid color-mix(in srgb, var(--plate-ink) 45%, transparent);
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.42rem;
+  color: var(--plate-ink);
 }
 
 .folder-name {
   margin: 0;
-  font-family: Silkscreen, monospace;
-  font-size: 1.15rem;
-  letter-spacing: 0.06em;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--on-card);
 }
 
-.folder-meta {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.68rem;
-  opacity: 0.72;
-  white-space: nowrap;
+.plate-reels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 0 8px;
+}
+.plate-reels span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--plate-ink) 28%, transparent);
+  box-shadow: inset 0 0 0 6px color-mix(in srgb, var(--plate-ink) 10%, transparent);
+}
+
+/* Notes = TRACKS paper well under the object */
+.well {
+  border-radius: 12px;
+  background: var(--well-bg);
+  border: 1px solid var(--well-line);
+  color: var(--well-ink);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 27px,
+    var(--well-line) 27px,
+    var(--well-line) 28px
+  );
+  background-attachment: local;
+  max-height: 38vh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  transition: background-color var(--dur-theme) var(--ease-soft), border-color var(--dur-theme) var(--ease-soft);
 }
 
 .note-list {
   list-style: none;
   margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-  min-height: 0;
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--on-card) 35%, transparent) transparent;
+  padding: 6px 14px 10px;
 }
 
 .note-list:empty::after {
   content: "No notes in this folder";
   display: block;
-  text-align: center;
-  opacity: 0.65;
-  font-size: 0.88rem;
-  padding: 40px 8px;
+  padding: 18px 4px;
+  font-size: 0.86rem;
+  opacity: 0.55;
 }
 
 .note {
-  background: var(--note);
-  color: var(--velvet);
-  border-radius: 12px;
-  padding: 15px 16px 14px;
-  animation: note-in 480ms var(--ease-out) both;
+  padding: 10px 0 8px;
+  border: 0;
+  animation: note-in 420ms var(--ease-out) both;
 }
 
 .note-top {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 6px;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
 .note-id,
 .note-status,
+.folder-meta,
 .urgency-label {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.03em;
-  color: color-mix(in srgb, var(--velvet) 55%, transparent);
-}
-
-.note-status {
-  text-transform: lowercase;
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--well-ink) 52%, transparent);
 }
 
 .note-title {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.28;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
   cursor: pointer;
-  color: var(--velvet);
+  color: var(--well-ink);
 }
 
 .note-preview {
-  margin: 6px 0 0;
-  font-size: 0.82rem;
+  margin: 4px 0 0;
+  font-size: 0.8rem;
   line-height: 1.45;
-  color: color-mix(in srgb, var(--velvet) 62%, transparent);
+  color: color-mix(in srgb, var(--well-ink) 68%, transparent);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -309,33 +338,28 @@ body {
 .note.is-open .note-body { grid-template-rows: 1fr; }
 .note.is-open .note-preview { display: none; }
 .note-body-inner { overflow: hidden; min-height: 0; }
-
 .note-notes {
-  margin: 8px 0 0;
-  font-size: 0.84rem;
+  margin: 6px 0 0;
+  font-size: 0.82rem;
   line-height: 1.5;
-  color: color-mix(in srgb, var(--velvet) 78%, transparent);
 }
 
 .urgency-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 7px;
+  margin-top: 8px;
 }
 
 .chip {
-  width: 22px;
-  height: 22px;
+  width: 14px;
+  height: 14px;
   border-radius: 999px;
-  border: 1.5px solid color-mix(in srgb, var(--velvet) 28%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--well-ink) 28%, transparent);
   background: transparent;
   padding: 0;
   cursor: pointer;
-  transition:
-    transform var(--dur-fast) var(--ease-spring),
-    background var(--dur-fast) var(--ease-soft),
-    border-color var(--dur-fast) var(--ease-soft);
+  transition: background var(--dur-fast) var(--ease-soft), border-color var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-spring);
 }
 .chip:active { transform: scale(0.88); }
 .chip[data-u="immediate"] { --fill: var(--rustic); }
@@ -343,77 +367,86 @@ body {
 .chip[data-u="future"] { --fill: var(--sky); }
 .chip.is-on {
   background: var(--fill, transparent);
-  border-color: var(--fill, var(--velvet));
+  border-color: var(--fill, var(--well-ink));
 }
 .chip[data-u="none"].is-on {
   background: transparent;
-  border-color: var(--velvet);
-  box-shadow: inset 0 0 0 1px var(--velvet);
+  border-color: var(--well-ink);
 }
 .chip.is-pending { animation: chip-pulse 900ms var(--ease-soft) infinite; }
 
-/* ── Dock: TRACKS control bar ────────────────────────────── */
-.dock-wrap {
-  padding: 12px var(--pad) 0;
-  display: flex;
-  justify-content: center;
-  animation: rise-in 640ms var(--ease-out) 60ms both;
+.folder-meta {
+  margin: 0;
+  color: var(--mute);
+  transition: color var(--dur-theme) var(--ease-soft);
 }
 
-.dock {
+/* Recessed tray — a piece the keys sit in, not a floating island */
+.tray-wrap {
+  padding: 8px var(--pad) 4px;
+}
+
+.tray {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  width: min(100%, 420px);
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
   padding: 8px 8px 8px 14px;
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--bone) 70%, #fff);
-  border: 1px solid color-mix(in srgb, var(--velvet) 8%, transparent);
+  border-radius: 22px;
+  background: var(--tray);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 3px 10px rgba(0, 0, 0, 0.08),
+    0 1px 0 rgba(0, 0, 0, 0.04);
+  transition: background var(--dur-theme) var(--ease-soft);
 }
 
-.dock-now {
-  font-family: Silkscreen, monospace;
-  font-size: 0.62rem;
+.dock-set {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.38rem;
   letter-spacing: 0.08em;
+  line-height: 1.5;
   text-transform: uppercase;
   color: var(--velvet);
-  min-width: 4.5rem;
+  border: 1px dashed color-mix(in srgb, var(--velvet) 28%, transparent);
+  border-radius: 8px;
+  padding: 8px 8px;
+  min-width: 72px;
+  text-align: center;
 }
 
 .dock-keys {
   display: flex;
-  gap: 4px;
-  padding: 4px;
+  gap: 5px;
+  padding: 5px;
   border-radius: 14px;
-  background: var(--dock-dark);
+  background: var(--velvet);
 }
 
 .dock-key {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 9px;
   background: transparent;
   color: var(--bone);
   cursor: pointer;
   display: grid;
   place-items: center;
-  opacity: 0.55;
-  transition:
-    opacity var(--dur-fast) var(--ease-soft),
-    background var(--dur-fast) var(--ease-soft),
-    transform var(--dur-fast) var(--ease-spring);
+  opacity: 0.5;
+  transition: opacity var(--dur-fast) var(--ease-soft), background var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-spring);
 }
 .dock-key:active { transform: scale(0.92); }
 .dock-key.is-active {
   opacity: 1;
   background: var(--rustic);
-  color: var(--bone);
 }
 .dock-key svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   stroke: currentColor;
   fill: none;
   stroke-width: 1.7;
@@ -421,110 +454,91 @@ body {
   stroke-linejoin: round;
 }
 
-/* ── Desktop: real film strip, not a phone clone ─────────── */
 @media (min-width: 860px) {
   :root {
-    --pad: 40px;
-    --card-w: 440px;
-    --card-gap: 48px;
+    --pad: 48px;
+    --col: 320px;
+    --gap: 56px;
   }
 
-  .top {
-    width: min(100%, 1120px);
-    padding-left: var(--pad);
-    padding-right: var(--pad);
-  }
+  .top { width: min(100%, 1080px); }
+
+  .pixel-title { font-size: 1.05rem; }
+
+  .well { max-height: 28vh; }
+
+  .folder-panel { gap: 18px; }
 
   .folder-panel:not(.is-active) {
-    opacity: 0.42;
+    opacity: 0.4;
     filter: blur(6px);
-    transform: scale(0.96);
     pointer-events: auto;
     cursor: pointer;
   }
 
-  .dock { width: 480px; }
+  .tray { max-width: 560px; }
 }
 
 @media (min-width: 1280px) {
-  :root {
-    --card-w: 480px;
-    --card-gap: 64px;
-  }
+  :root { --col: 300px; --gap: 72px; }
 }
 
-/* ── Toast / dialog ──────────────────────────────────────── */
 .toast {
   position: fixed;
   left: 50%;
-  bottom: calc(18px + env(safe-area-inset-bottom));
+  bottom: calc(16px + env(safe-area-inset-bottom));
   transform: translate(-50%, 10px);
   background: var(--velvet);
   color: var(--bone);
-  font-size: 0.8rem;
-  padding: 10px 14px;
+  font-size: 0.78rem;
+  padding: 9px 14px;
   border-radius: 999px;
   opacity: 0;
   pointer-events: none;
   z-index: 80;
   transition: opacity var(--dur-fast) var(--ease-soft), transform var(--dur) var(--ease-out);
 }
-.toast.is-on {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
 
-.setup-dialog {
-  border: 0;
-  padding: 0;
-  background: transparent;
-  max-width: min(92vw, 400px);
-}
-.setup-dialog::backdrop {
-  background: color-mix(in srgb, var(--velvet) 40%, transparent);
-}
+.setup-dialog { border: 0; padding: 0; background: transparent; max-width: min(92vw, 400px); }
+.setup-dialog::backdrop { background: color-mix(in srgb, var(--velvet) 45%, transparent); }
 .setup-sheet {
   background: var(--bone);
   color: var(--velvet);
-  border-radius: 16px;
-  padding: 22px 20px 18px;
+  border-radius: 14px;
+  padding: 20px 18px 16px;
 }
-.setup-title { font-size: 1.2rem; margin: 0 0 10px; }
-.setup-copy { margin: 0 0 16px; font-size: 0.86rem; line-height: 1.45; color: var(--mute); }
-.setup-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; margin: 0 0 6px; }
+.setup-title { font-size: 0.72rem; margin: 0 0 12px; line-height: 1.5; }
+.setup-copy { margin: 0 0 14px; font-size: 0.84rem; color: color-mix(in srgb, var(--velvet) 60%, transparent); }
+.setup-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; margin: 0 0 6px; }
 .setup-input {
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   border: 1px solid color-mix(in srgb, var(--velvet) 16%, transparent);
-  border-radius: 10px;
-  padding: 12px;
+  border-radius: 8px;
+  padding: 10px 12px;
   font: inherit;
   background: #fff;
-  color: var(--velvet);
 }
-.setup-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.setup-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .btn-primary, .btn-ghost {
   border: 0;
   border-radius: 999px;
-  padding: 10px 16px;
+  padding: 9px 14px;
   font: inherit;
   font-weight: 600;
   cursor: pointer;
 }
 .btn-primary { background: var(--velvet); color: var(--bone); }
-.btn-ghost { background: transparent; color: var(--velvet); border: 1px solid color-mix(in srgb, var(--velvet) 16%, transparent); }
+.btn-ghost { background: transparent; border: 1px solid color-mix(in srgb, var(--velvet) 16%, transparent); color: var(--velvet); }
 
-@keyframes rise-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 @keyframes note-in {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes chip-pulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); opacity: 0.75; }
+  50% { transform: scale(1.1); opacity: 0.7; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -533,5 +547,4 @@ body {
     transition-duration: 0.01ms !important;
   }
   .folder-panel { filter: none !important; }
-  .carousel { transition: none; }
 }

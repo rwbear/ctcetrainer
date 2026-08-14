@@ -86,11 +86,11 @@
   function renderDock() {
     els.dock.innerHTML = '';
 
-    const now = document.createElement('div');
-    now.className = 'dock-now';
-    now.id = 'dockNow';
-    now.textContent = FOLDERS[state.index].short;
-    els.dock.appendChild(now);
+    const set = document.createElement('div');
+    set.className = 'dock-set';
+    set.id = 'dockNow';
+    set.textContent = FOLDERS[state.index].label;
+    els.dock.appendChild(set);
 
     const keys = document.createElement('div');
     keys.className = 'dock-keys';
@@ -109,7 +109,7 @@
 
   function syncDockIndicator() {
     const now = document.getElementById('dockNow');
-    if (now) now.textContent = FOLDERS[state.index].short;
+    if (now) now.textContent = FOLDERS[state.index].label;
     [...els.dock.querySelectorAll('.dock-key')].forEach((btn, i) => {
       btn.classList.toggle('is-active', i === state.index);
     });
@@ -148,13 +148,17 @@
       const list = items.map((it, idx) => noteCard(it, idx)).join('');
       return `
         <section class="folder-panel" data-folder="${f.id}">
-          <div class="folder-sleeve">
-            <div class="folder-head">
+          <div class="plate">
+            <div class="plate-top">
+              <span class="plate-badge">A</span>
               <h2 class="folder-name">${escapeHtml(f.label)}</h2>
-              <span class="folder-meta">${items.length} note${items.length === 1 ? '' : 's'}</span>
             </div>
-            <ul class="note-list">${list}</ul>
+            <div class="plate-reels" aria-hidden="true"><span></span><span></span></div>
           </div>
+          <div class="well">
+            <ul class="note-list">${list || ''}</ul>
+          </div>
+          <p class="folder-meta">${items.length} note${items.length === 1 ? '' : 's'} · write-down</p>
         </section>`;
     }).join('');
 
@@ -231,8 +235,8 @@
     markActivePanel();
     syncDockIndicator();
     els.body.dataset.folder = FOLDERS[state.index].id;
-    document.querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', getComputedStyle(document.body).backgroundColor || '#F3EBE0');
+    const bg = getComputedStyle(document.body).backgroundColor;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', bg || '#7E8B5A');
     if (changed && userInitiated && !state.reduceMotion) {
       const active = els.carousel.querySelector('.folder-panel.is-active .note-list');
       if (active) {
