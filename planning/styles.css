@@ -10,20 +10,25 @@
 }
 
 :root {
-  --bone: #F3EBE0;
-  --velvet: #3A2A38;
-  --golden: #C6A45A;
+  /* Pair cards (bone ivory ON the named field) */
+  --bone: #E6E1D4;
+  --golden: #9D7B48;
+  --leaf: #70735E;
+  --bark: #6B342C;
+  --velvet: #413237;
   --paw: #8E8874;
   --sky: #A9B8C6;
-  --rustic: #C56A48;
-  --bark: #7A3A36;
-  --leaf: #7E8B5A;
+  --rustic: #C44D00;
+  --key: #252220;
+  --key-shaft: #0D0B0A;
+  --play: #C44D00;
+  --play-shaft: #5A2300;
 
-  --bg: var(--leaf);
-  --ink: var(--bone);
+  --bg: var(--paw);
+  --ink: #E6E0D4;
   --mute: color-mix(in srgb, var(--ink) 58%, transparent);
-  --chin: #D6D2CA;
-  --chin-ink: var(--velvet);
+  --chin: #C9C8C3;
+  --chin-ink: #3C3836;
   --pad: 22px;
   --col: min(86vw, 360px);
   --gap: 48px;
@@ -37,53 +42,49 @@
 }
 
 body[data-folder="design"] {
-  --bg: var(--paw);
-  --ink: var(--bone);
-  --chin: #D8D3C8;
+  --bg: var(--bark);
+  --ink: #EAE2D6;
 }
 body[data-folder="structural"] {
   --bg: var(--velvet);
-  --ink: var(--bone);
-  --chin: #C9C5BD;
+  --ink: #D6D2C9;
 }
 body[data-folder="content"] {
-  --bg: var(--leaf);
-  --ink: var(--bone);
-  --chin: #D4D3C4;
+  --bg: var(--paw);
+  --ink: #E6E0D4;
 }
 body[data-folder="unsorted"] {
-  --bg: var(--sky);
-  --ink: var(--velvet);
-  --chin: #D5D8DC;
+  --bg: var(--leaf);
+  --ink: #E3E0D4;
 }
 body[data-folder="done"] {
-  --bg: var(--bark);
-  --ink: var(--bone);
-  --chin: #D6CEC6;
+  --bg: var(--golden);
+  --ink: #E8E2D2;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
   touch-action: manipulation;
+  background: var(--chin);
 }
 
 html, body {
   margin: 0;
   min-height: 100%;
-  background: var(--bg);
   color: var(--ink);
   font-family: Outfit, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  transition: background-color var(--dur-theme) var(--ease-soft), color var(--dur-theme) var(--ease-soft);
 }
 
 body {
   min-height: 100dvh;
   overflow: hidden;
   touch-action: manipulation;
+  background: var(--bg);
+  transition: background-color var(--dur-theme) var(--ease-soft), color var(--dur-theme) var(--ease-soft);
 }
 
 button, a, input, [role="button"] {
@@ -106,6 +107,8 @@ button, a, input, [role="button"] {
   grid-template-rows: auto minmax(0, 1fr) auto;
   position: relative;
   z-index: 1;
+  background: var(--bg);
+  transition: background-color var(--dur-theme) var(--ease-soft);
 }
 
 .top {
@@ -152,6 +155,8 @@ button, a, input, [role="button"] {
   min-height: 0;
   overflow: hidden;
   touch-action: pan-y;
+  background: var(--bg);
+  transition: background-color var(--dur-theme) var(--ease-soft);
 }
 
 .carousel {
@@ -306,7 +311,7 @@ button, a, input, [role="button"] {
   transition: background var(--dur-fast) var(--ease-soft), border-color var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-spring);
 }
 .chip:active { transform: scale(0.88); }
-.chip[data-u="immediate"] { --fill: var(--rustic); }
+.chip[data-u="immediate"] { --fill: var(--play); }
 .chip[data-u="needed"] { --fill: var(--golden); }
 .chip[data-u="future"] { --fill: var(--sky); }
 .chip.is-on {
@@ -319,23 +324,24 @@ button, a, input, [role="button"] {
 }
 .chip.is-pending { animation: chip-pulse 900ms var(--ease-soft) infinite; }
 
-/* Solid chin from the bottom edge — full-bleed deck, not a floating island */
+/* Solid chin — TRACKS player-bar: curved top, lifted shadow, chassis color */
 .chin {
   width: 100%;
   margin: 0;
-  border-radius: 0;
+  position: relative;
+  z-index: 6;
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px 18px calc(16px + env(safe-area-inset-bottom));
-  padding-left: max(18px, env(safe-area-inset-left));
-  padding-right: max(18px, env(safe-area-inset-right));
+  padding: 14px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
   background: var(--chin);
   color: var(--chin-ink);
+  border-radius: 16px 16px 0 0;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.42),
-    inset 0 3px 10px rgba(0, 0, 0, 0.08);
-  transition: background var(--dur-theme) var(--ease-soft);
+    0 -1px #ffffff80,
+    0 -6px 24px #00000038;
 }
 
 .dock-set {
@@ -365,40 +371,58 @@ button, a, input, [role="button"] {
   justify-content: flex-end;
   gap: 8px;
   margin: 0;
-  padding: 0;
+  padding: 0 0 2px;
   background: none;
   border-radius: 0;
   flex: 0 0 auto;
 }
 
 .dock-key {
-  width: 46px;
-  height: 46px;
-  border: 1.5px solid color-mix(in srgb, var(--chin-ink) 22%, transparent);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--chin-ink);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: var(--key);
+  color: #ffffffb8;
   cursor: pointer;
   display: grid;
   place-items: center;
-  opacity: 0.55;
-  transition: opacity var(--dur-fast) var(--ease-soft), background var(--dur-fast) var(--ease-soft), border-color var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-spring), color var(--dur-fast) var(--ease-soft);
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  box-shadow:
+    inset 0 1px #ffffff14,
+    0 3px var(--key-shaft),
+    0 3px 8px #00000047;
+  transition: transform 0.05s ease, box-shadow 0.05s ease, background 0.05s ease;
 }
-.dock-key:active { transform: scale(0.92); }
+.dock-key:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px #ffffff0a,
+    0 1px var(--key-shaft),
+    0 1px 3px #0003;
+}
 .dock-key.is-active {
-  opacity: 1;
-  background: var(--rustic);
-  border-color: var(--rustic);
-  color: var(--bone);
+  background: var(--play);
+  color: #fff;
+  box-shadow:
+    inset 0 1px #ffffff2e,
+    0 3px var(--play-shaft),
+    0 3px 8px #00000047;
+}
+.dock-key.is-active:active {
+  box-shadow:
+    inset 0 1px #ffffff14,
+    0 1px var(--play-shaft),
+    0 1px 3px #0003;
 }
 .dock-key svg {
   width: 16px;
   height: 16px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  fill: currentColor;
+  stroke: none;
 }
 
 @media (max-width: 380px) {
@@ -406,7 +430,7 @@ button, a, input, [role="button"] {
     width: 40px;
     height: 40px;
   }
-  .dock-keys { gap: 5px; }
+  .dock-keys { gap: 6px; }
 }
 
 @media (min-width: 860px) {
@@ -453,6 +477,19 @@ button, a, input, [role="button"] {
 }
 .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
 
+/* Paint the iOS home-indicator strip so Safari’s translucent bar sits on the chin */
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: env(safe-area-inset-bottom, 0px);
+  background: var(--chin);
+}
+
 .setup-dialog { border: 0; padding: 0; background: transparent; max-width: min(92vw, 400px); }
 .setup-dialog::backdrop { background: color-mix(in srgb, var(--velvet) 45%, transparent); }
 .setup-sheet {
@@ -470,6 +507,19 @@ button, a, input, [role="button"] {
   margin: 0 0 10px;
 }
 .setup-copy { margin: 0 0 14px; font-size: 0.84rem; line-height: 1.45; color: color-mix(in srgb, var(--velvet) 62%, transparent); }
+.setup-steps {
+  margin: 0 0 12px;
+  padding-left: 1.15rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--velvet) 78%, transparent);
+}
+.setup-steps li { margin: 0 0 6px; }
+.setup-steps a { color: var(--velvet); }
+.setup-steps code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78em;
+}
 .setup-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; margin: 0 0 6px; }
 .setup-input {
   width: 100%;

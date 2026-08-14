@@ -9,14 +9,14 @@ Public ops board for ctcetrainer.
 
 ## One-time D2 sync setup (you)
 
-GitHub **deletes** any token committed in a public file. Do not put a PAT in `write-key.js`.
+1. Open https://github.com/settings/personal-access-tokens/new (logged into GitHub).
+2. Token name: `write-down`
+3. Repository access → Only select repositories → `ctcetrainer`
+4. Repository permissions → Contents → **Read and write**
+5. Generate token → copy it.
+6. On the planning site tap **SET**, paste, Save.
 
-1. GitHub → Settings → Developer settings → Personal access tokens → **Fine-grained token**
-2. Resource owner: you · Repository: **only** `rwbear/ctcetrainer`
-3. Permissions: **Contents: Read and write**
-4. Open the planning site → **SET** → paste the token. It stays in **this browser only** (localStorage). Repeat on each device.
-
-Chips then GET `planning/board.json` and PUT the patched file on branch `v12`.
+The token stays in that browser only. GitHub deletes tokens that sit in public files — never put it in `write-key.js`.
 
 ## Branch
 
@@ -24,15 +24,17 @@ Production board branch: **`v12`** (Pages). Set `ref` in SET if you ever change 
 
 ## Folders / palettes
 
-| Folder | Feel |
+| Folder | Field (bone ivory on…) |
 |---|---|
-| Design | Gentle Paw |
-| Structural | Velvet Collar |
-| Content | Leaf Green |
-| Unsorted | Tranquil Sky |
-| Done | Mahogany Bark |
+| Done | Golden Fur `#9D7B48` |
+| Unsorted | Leaf Green `#70735E` |
+| Design | Mahogany Bark `#6B342C` |
+| Structural | Velvet Collar `#413237` |
+| Content | Gentle Paw `#8E8874` |
 
-Urgency chips: none · Rustic Tail · Golden Fur · Tranquil Sky
+Chin / Safari toolbar: TRACKS chassis `#C9C8C3` (does not change with folder).
+
+Urgency chips: none · play orange · Golden Fur · Tranquil Sky
 
 ## Type
 

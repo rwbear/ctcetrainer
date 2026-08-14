@@ -94,11 +94,11 @@
 
   function glyph(id) {
     const paths = {
-      design: '<rect x="4" y="4" width="10" height="10" rx="1.5"/><path d="M8 14v3M6 17h4"/>',
-      structural: '<path d="M4 16V7l6-3 6 3v9"/><path d="M4 7l6 3 6-3M10 10v9"/>',
-      content: '<path d="M5 5h10v14H5z"/><path d="M8 9h4M8 12h4M8 15h2"/>',
-      unsorted: '<circle cx="7" cy="8" r="1.2"/><circle cx="12" cy="8" r="1.2"/><circle cx="9.5" cy="13" r="1.2"/>',
-      done: '<path d="M5 10.5l3 3 7-7"/>'
+      design: '<path d="M3.8 5h12.4v9.2H3.8zm3.4 9.2v2.2h5.6v-2.2z"/>',
+      structural: '<path d="M2.8 16.4V7.6L10 3.4l7.2 4.2v8.8z"/>',
+      content: '<path d="M5 3.2h10v13.6H5z"/>',
+      unsorted: '<circle cx="7" cy="8" r="1.55"/><circle cx="13" cy="8" r="1.55"/><circle cx="10" cy="13.1" r="1.55"/>',
+      done: '<path d="M7.6 13.4 4.2 10l-1.5 1.5 4.9 4.9 9.4-9.4-1.5-1.5z"/>'
     };
     return `<span class="dock-glyph" aria-hidden="true"><svg viewBox="0 0 20 20">${paths[id] || ""}</svg></span>`;
   }
@@ -248,9 +248,9 @@
     markActivePanel();
     syncDockIndicator();
     els.body.dataset.folder = FOLDERS[state.index].id;
-    const bg = getComputedStyle(document.body).backgroundColor;
+    const chin = getComputedStyle(document.documentElement).getPropertyValue("--chin").trim() || "#C9C8C3";
     const theme = document.querySelector('meta[name="theme-color"]');
-    if (theme) theme.setAttribute("content", bg || "#7E8B5A");
+    if (theme) theme.setAttribute("content", chin);
     try {
       history.replaceState(null, "", "#" + FOLDERS[state.index].id);
     } catch (e) {}
