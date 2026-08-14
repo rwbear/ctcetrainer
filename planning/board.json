@@ -1,12 +1,32 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-11T09:12:00.000Z",
+  "updatedAt": "2026-08-14T10:31:17.677Z",
   "folders": [
-    { "id": "design", "label": "Design", "full": "Design and animation" },
-    { "id": "structural", "label": "Structural", "full": "Structural changes" },
-    { "id": "content", "label": "Content", "full": "Content changes and improvements" },
-    { "id": "unsorted", "label": "Unsorted", "full": "Unsorted" },
-    { "id": "done", "label": "Done", "full": "Done" }
+    {
+      "id": "design",
+      "label": "Design",
+      "full": "Design and animation"
+    },
+    {
+      "id": "structural",
+      "label": "Structural",
+      "full": "Structural changes"
+    },
+    {
+      "id": "content",
+      "label": "Content",
+      "full": "Content changes and improvements"
+    },
+    {
+      "id": "unsorted",
+      "label": "Unsorted",
+      "full": "Unsorted"
+    },
+    {
+      "id": "done",
+      "label": "Done",
+      "full": "Done"
+    }
   ],
   "items": [
     {
@@ -15,10 +35,10 @@
       "title": "Split the monolith safely",
       "notes": "Almost all logic lives in one ~18k-line index.html. High regression risk. Not a day-one ship blocker, but blocks fast safe iteration.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "needed",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-10T12:00:00.000Z"
+      "updatedAt": "2026-08-14T10:31:17.677Z"
     },
     {
       "id": "S-002",
