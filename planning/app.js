@@ -84,34 +84,32 @@
   }
 
   function renderDock() {
-    const indicator = document.createElement('div');
-    indicator.className = 'dock-indicator';
-    indicator.id = 'dockIndicator';
     els.dock.innerHTML = '';
-    els.dock.appendChild(indicator);
 
+    const now = document.createElement('div');
+    now.className = 'dock-now';
+    now.id = 'dockNow';
+    now.textContent = FOLDERS[state.index].short;
+    els.dock.appendChild(now);
+
+    const keys = document.createElement('div');
+    keys.className = 'dock-keys';
     FOLDERS.forEach((f, i) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'dock-key' + (i === state.index ? ' is-active' : '');
       btn.dataset.index = String(i);
       btn.setAttribute('aria-label', f.label);
-      btn.innerHTML = `${glyph(f.id)}<span class="dock-key-label">${f.short}</span>`;
+      btn.innerHTML = glyph(f.id);
       btn.addEventListener('click', () => goTo(i, true));
-      els.dock.appendChild(btn);
+      keys.appendChild(btn);
     });
-    syncDockIndicator(false);
+    els.dock.appendChild(keys);
   }
 
-  function syncDockIndicator(animate) {
-    const ind = document.getElementById('dockIndicator');
-    if (!ind) return;
-    if (!animate) ind.style.transition = 'none';
-    ind.style.transform = `translateX(calc(${state.index} * (100% + 6px)))`;
-    if (!animate) {
-      void ind.offsetWidth;
-      ind.style.transition = '';
-    }
+  function syncDockIndicator() {
+    const now = document.getElementById('dockNow');
+    if (now) now.textContent = FOLDERS[state.index].short;
     [...els.dock.querySelectorAll('.dock-key')].forEach((btn, i) => {
       btn.classList.toggle('is-active', i === state.index);
     });
@@ -177,6 +175,14 @@
       });
     });
 
+    els.carousel.querySelectorAll('.folder-panel').forEach((panel, i) => {
+      panel.addEventListener('click', (e) => {
+        if (i === state.index) return;
+        if (e.target.closest('.note, .chip')) return;
+        goTo(i, true);
+      });
+    });
+
     markActivePanel();
   }
 
@@ -195,13 +201,22 @@
   }
 
   function applyCarouselTransform() {
-    // Each step = slide width + gap, relative to carousel width (padding-left 7% already in CSS)
-    const step = 89; // 86% + 3%
-    const x = -state.index * step;
-    if (state.dragging) {
-      els.carousel.style.transform = `translate3d(calc(${x}% + ${state.dragX}px), 0, 0)`;
-    } else {
-      els.carousel.style.transform = `translate3d(${x}%, 0, 0)`;
+    const panels = els.carousel.querySelectorAll('.folder-panel');
+    if (!panels.length) return;
+    const cardW = panels[0].offsetWidth;
+    const gap = parseFloat(getComputedStyle(els.carousel).gap) || 0;
+    const stageW = els.stage.clientWidth;
+    const cardCenter = state.index * (cardW + gap) + cardW / 2;
+    const x = stageW / 2 - cardCenter + (state.dragging ? state.dragX : 0);
+    els.carousel.style.transform = `translate3d(${x}px, 0, 0)`;
+  }
+
+  function snapCarousel(withMotion) {
+    if (!withMotion) els.carousel.classList.add('is-dragging');
+    applyCarouselTransform();
+    if (!withMotion) {
+      void els.carousel.offsetWidth;
+      els.carousel.classList.remove('is-dragging');
     }
   }
 
@@ -212,14 +227,13 @@
     state.dragX = 0;
     state.dragging = false;
     els.carousel.classList.remove('is-dragging');
-    applyCarouselTransform();
+    snapCarousel(!!userInitiated && !state.reduceMotion);
     markActivePanel();
-    syncDockIndicator(true);
+    syncDockIndicator();
     els.body.dataset.folder = FOLDERS[state.index].id;
     document.querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', getComputedStyle(document.body).backgroundColor || '#F4EFE6');
+      ?.setAttribute('content', getComputedStyle(document.body).backgroundColor || '#F3EBE0');
     if (changed && userInitiated && !state.reduceMotion) {
-      // restart note animations in active folder lightly
       const active = els.carousel.querySelector('.folder-panel.is-active .note-list');
       if (active) {
         active.querySelectorAll('.note').forEach((n, i) => {
@@ -336,7 +350,7 @@
       state.pending.delete(id);
       renderCarousel();
       applyCarouselTransform();
-      toast('Add a sync key (⚙) to save tags to GitHub');
+      toast('Add a sync key to save tags');
       // keep optimistic local change visible; revert warning only
       return;
     }
@@ -434,6 +448,11 @@
     goTo(state.index, false);
     bindSwipe();
     bindSetup();
+    window.addEventListener('resize', () => snapCarousel(false));
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => snapCarousel(false));
+    }
+    requestAnimationFrame(() => snapCarousel(false));
 
     // Hash deep-link: #content or #C-001
     const hash = (location.hash || '').replace(/^#/, '');

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#F4EFE6">
+  <meta name="theme-color" content="#F3EBE0">
   <title>Write-down — ctcetrainer ops</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-folder="design">
+<body data-folder="content">
   <div class="grain" aria-hidden="true"></div>
 
   <div class="app">
@@ -19,20 +19,15 @@
         <h1 class="pixel-title">WRITE-DOWN</h1>
         <p class="top-sub">ops board · ctcetrainer</p>
       </div>
-      <button type="button" class="setup-btn" id="setupBtn" title="Sync key" aria-label="Sync settings">⚙</button>
+      <button type="button" class="setup-btn" id="setupBtn" title="Sync key" aria-label="Sync settings">SET</button>
     </header>
 
     <div class="stage" id="stage">
-      <div class="carousel" id="carousel" aria-live="polite">
-        <!-- folder panels injected -->
-      </div>
+      <div class="carousel" id="carousel" aria-live="polite"></div>
     </div>
 
     <div class="dock-wrap">
-      <nav class="dock" id="dock" aria-label="Folders">
-        <!-- keys injected -->
-      </nav>
-      <p class="dock-hint" id="dockHint">swipe or tap a folder</p>
+      <nav class="dock" id="dock" aria-label="Folders"></nav>
     </div>
   </div>
 
@@ -41,7 +36,7 @@
   <dialog class="setup-dialog" id="setupDialog">
     <form method="dialog" class="setup-sheet" id="setupForm">
       <h2 class="pixel-title setup-title">SYNC</h2>
-      <p class="setup-copy">Paste a fine-grained GitHub token that can trigger workflows on <strong>rwbear/ctcetrainer</strong>. Stored only in this browser. No account login.</p>
+      <p class="setup-copy">Paste a GitHub token that can trigger workflows on <strong>rwbear/ctcetrainer</strong>. Stored in this browser only if you override the committed key.</p>
       <label class="setup-label" for="tokenInput">Token</label>
       <input class="setup-input" id="tokenInput" type="password" autocomplete="off" placeholder="github_pat_…">
       <label class="setup-label" for="refInput">Branch</label>
@@ -51,7 +46,6 @@
         <button type="button" class="btn-ghost" id="setupClear">Clear</button>
         <button type="submit" class="btn-ghost" value="cancel">Close</button>
       </div>
-      <p class="setup-foot">See <code>planning/README.md</code> for one-time setup.</p>
     </form>
   </dialog>
 
