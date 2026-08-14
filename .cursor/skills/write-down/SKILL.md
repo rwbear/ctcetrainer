@@ -57,7 +57,7 @@ Misha locks every decision. At most one light “candidate next” line. Never s
 
 ## D2 urgency
 
-Site may patch `urgency` via GitHub Action `planning-urgency`. Valid values: `null` / `immediate` / `needed` / `future`. Do not invent other values. Prefer leaving urgency null unless asked.
+Site patches `urgency` by writing `planning/board.json` on branch `v12` (GitHub Contents API). Token lives in the visitor’s browser via **SET** — never commit a PAT; GitHub revokes tokens in public files. Valid values: `null` / `immediate` / `needed` / `future`. Do not invent other values. Prefer leaving urgency null unless asked.
 
 ## Out of scope for now
 

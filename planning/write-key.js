@@ -1,6 +1,6 @@
-// D2 sync key — public link, no login.
-// Anyone who can read this file can change urgency tags.
+// Do not put a GitHub PAT here. GitHub revokes tokens committed to public repos.
+// Use SET on the site — the token stays in this browser only.
 window.WRITE_DOWN_SYNC = {
-  token: "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",
+  token: "",
   ref: "v12"
 };
