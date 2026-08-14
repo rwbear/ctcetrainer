@@ -42,6 +42,7 @@
     dragging: false,
     openNoteId: null,
     pending: new Set(),
+    lampLock: new Set(),
     reduceMotion: matchMedia("(prefers-reduced-motion: reduce)").matches
   };
 
@@ -121,6 +122,7 @@
       btn.dataset.index = String(i);
       btn.setAttribute("aria-label", f.label);
       btn.innerHTML = glyph(f.id);
+      bindPressable(btn);
       btn.addEventListener("click", () => goTo(i, true));
       keys.appendChild(btn);
     });
@@ -135,13 +137,59 @@
     });
   }
 
+  function bindPressable(el) {
+    const on = (e) => {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      el.classList.add("is-pressed");
+      try { el.setPointerCapture(e.pointerId); } catch (err) {}
+    };
+    const off = () => el.classList.remove("is-pressed");
+    el.addEventListener("pointerdown", on);
+    el.addEventListener("pointerup", off);
+    el.addEventListener("pointercancel", off);
+    el.addEventListener("lostpointercapture", off);
+  }
+
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  function setRowLamp(row, urgency) {
+    if (!row) return;
+    const u = urgency || "none";
+    row.querySelectorAll(".chip").forEach((chip) => {
+      chip.classList.toggle("is-on", chip.getAttribute("data-u") === u);
+      chip.classList.remove("is-ignite");
+    });
+  }
+
+  async function playLamp(row, urgency) {
+    if (!row) return;
+    if (state.reduceMotion) {
+      setRowLamp(row, urgency);
+      return;
+    }
+    row.classList.add("is-scanning");
+    row.querySelectorAll(".chip").forEach((chip) => {
+      chip.classList.remove("is-on", "is-ignite");
+    });
+    await wait(1680);
+    row.classList.remove("is-scanning");
+    const target = row.querySelector('.chip[data-u="' + (urgency || "none") + '"]');
+    if (target) {
+      target.classList.add("is-ignite");
+      await wait(780);
+      target.classList.remove("is-ignite");
+      target.classList.add("is-on");
+    }
+  }
+
   function noteCard(item, staggerIndex) {
     const u = item.urgency || "none";
     const open = state.openNoteId === item.id;
-    const pending = state.pending.has(item.id);
     const chips = URGENCY.map((opt) => {
       const on = (opt.id === "none" ? u === "none" || !item.urgency : item.urgency === opt.id);
-      return `<button type="button" class="chip${on ? " is-on" : ""}${pending && on ? " is-pending" : ""}" data-u="${opt.id}" data-id="${item.id}" title="${opt.title}" aria-label="${opt.title}"></button>`;
+      return `<button type="button" class="chip${on ? " is-on" : ""}" data-u="${opt.id}" data-id="${item.id}" title="${opt.title}" aria-label="${opt.title}"></button>`;
     }).join("");
 
     return `
@@ -178,10 +226,11 @@
     els.carousel.querySelectorAll(".note-title").forEach((el) => {
       el.addEventListener("click", () => {
         const id = el.getAttribute("data-toggle");
-        state.openNoteId = state.openNoteId === id ? null : id;
-        renderCarousel();
-        applyCarouselTransform();
-        markActivePanel();
+        const note = el.closest(".note");
+        const opening = state.openNoteId !== id;
+        state.openNoteId = opening ? id : null;
+        els.carousel.querySelectorAll(".note.is-open").forEach((n) => n.classList.remove("is-open"));
+        if (opening && note) note.classList.add("is-open");
       });
     });
 
@@ -225,7 +274,7 @@
     const stageW = els.stage.clientWidth;
     const cardCenter = state.index * (cardW + gap) + cardW / 2;
     const x = stageW / 2 - cardCenter + (state.dragging ? state.dragX : 0);
-    els.carousel.style.transform = `translate3d(${x}px, 0, 0)`;
+    els.carousel.style.transform = "translateX(" + x + "px)";
   }
 
   function snapCarousel(withMotion) {
@@ -248,9 +297,6 @@
     markActivePanel();
     syncDockIndicator();
     els.body.dataset.folder = FOLDERS[state.index].id;
-    const chin = getComputedStyle(document.documentElement).getPropertyValue("--chin").trim() || "#C9C8C3";
-    const theme = document.querySelector('meta[name="theme-color"]');
-    if (theme) theme.setAttribute("content", chin);
     try {
       history.replaceState(null, "", "#" + FOLDERS[state.index].id);
     } catch (e) {}
@@ -442,6 +488,8 @@
     const prev = item.urgency == null ? null : item.urgency;
     if (prev === next) return;
 
+    if (state.pending.has(id) || state.lampLock.has(id)) return;
+
     const token = getToken().trim();
     if (!token) {
       toast("Set a GitHub token first — GitHub deletes keys saved in public files.", 4800);
@@ -449,21 +497,28 @@
       return;
     }
 
+    const note = els.carousel.querySelector('.note[data-id="' + id + '"]');
+    const row = note && note.querySelector(".urgency-row");
+
+    state.pending.add(id);
+    state.lampLock.add(id);
+    if (row) row.classList.add("is-locked");
+
     item.urgency = next;
     item.updatedAt = new Date().toISOString();
     state.board.updatedAt = item.updatedAt;
-    state.pending.add(id);
-    renderCarousel();
-    applyCarouselTransform();
-    toast("Saving…", 1800);
 
+    const lamp = playLamp(row, next);
     try {
       const remote = await patchUrgencyOnGitHub(id, next, token);
+      await lamp;
       state.board = remote;
       toast("Saved " + id + " → " + (next || "none"));
     } catch (err) {
       item.urgency = prev;
       console.error(err);
+      await lamp;
+      setRowLamp(row, prev);
       if (err && err.code === "bad-token") {
         localStorage.removeItem(STORAGE_TOKEN);
         openSetup();
@@ -475,8 +530,8 @@
       }
     } finally {
       state.pending.delete(id);
-      renderCarousel();
-      applyCarouselTransform();
+      state.lampLock.delete(id);
+      if (row) row.classList.remove("is-locked");
     }
   }
 
@@ -509,7 +564,17 @@
     state.board = await res.json();
   }
 
+  function pinSafariChrome() {
+    const c = "#C9C8C3";
+    document.documentElement.style.backgroundColor = c;
+    document.body.style.backgroundColor = c;
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
+      m.setAttribute("content", c);
+    });
+  }
+
   async function boot() {
+    pinSafariChrome();
     document.addEventListener("dblclick", (e) => e.preventDefault());
 
     try {

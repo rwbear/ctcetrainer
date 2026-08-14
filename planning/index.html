@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#C9C8C3">
+  <meta name="theme-color" content="#C9C8C3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#C9C8C3" media="(prefers-color-scheme: dark)">
+  <style>html,body{background:#C9C8C3;}</style>
   <title>Write-down — ctcetrainer ops</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,16 +17,18 @@
   <div class="grain" aria-hidden="true"></div>
 
   <div class="app">
-    <header class="top">
-      <div class="top-brand">
-        <p class="top-kicker">WRITE-DOWN</p>
-        <p class="top-sub">ops board · ctcetrainer</p>
-      </div>
-      <button type="button" class="setup-btn" id="setupBtn" title="Sync key" aria-label="Sync settings">SET</button>
-    </header>
+    <div class="field">
+      <header class="top">
+        <div class="top-brand">
+          <p class="top-kicker">WRITE-DOWN</p>
+          <p class="top-sub">ops board · ctcetrainer</p>
+        </div>
+        <button type="button" class="setup-btn" id="setupBtn" title="Sync key" aria-label="Sync settings">SET</button>
+      </header>
 
-    <div class="stage" id="stage">
-      <div class="carousel" id="carousel" aria-live="polite"></div>
+      <div class="stage" id="stage">
+        <div class="carousel" id="carousel" aria-live="polite"></div>
+      </div>
     </div>
 
     <nav class="chin" id="dock" aria-label="Folders"></nav>
