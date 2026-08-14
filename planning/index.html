@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#7E8B5A">
   <title>Write-down — ctcetrainer ops</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-folder="content">
@@ -16,7 +16,7 @@
   <div class="app">
     <header class="top">
       <div class="top-brand">
-        <h1 class="pixel-title">WRITE-DOWN</h1>
+        <p class="top-kicker">WRITE-DOWN</p>
         <p class="top-sub">ops board · ctcetrainer</p>
       </div>
       <button type="button" class="setup-btn" id="setupBtn" title="Sync key" aria-label="Sync settings">SET</button>
@@ -26,17 +26,15 @@
       <div class="carousel" id="carousel" aria-live="polite"></div>
     </div>
 
-    <div class="tray-wrap">
-      <nav class="tray" id="dock" aria-label="Folders"></nav>
-    </div>
+    <nav class="chin" id="dock" aria-label="Folders"></nav>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <dialog class="setup-dialog" id="setupDialog">
     <form method="dialog" class="setup-sheet" id="setupForm">
-      <h2 class="pixel-title setup-title">SYNC</h2>
-      <p class="setup-copy">Override the committed sync key. Stored in this browser only.</p>
+      <h2 class="setup-title">SET</h2>
+      <p class="setup-copy">GitHub deletes tokens that sit in public files. Paste a fine-grained token here — it stays in this browser only. Repo: ctcetrainer. Permission: Contents Read and write.</p>
       <label class="setup-label" for="tokenInput">Token</label>
       <input class="setup-input" id="tokenInput" type="password" autocomplete="off" placeholder="github_pat_…">
       <label class="setup-label" for="refInput">Branch</label>

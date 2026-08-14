@@ -1,37 +1,38 @@
 (() => {
-  'use strict';
+  "use strict";
 
   const FOLDERS = [
-    { id: 'design', label: 'Design', short: 'des' },
-    { id: 'structural', label: 'Structural', short: 'str' },
-    { id: 'content', label: 'Content', short: 'cnt' },
-    { id: 'unsorted', label: 'Unsorted', short: 'raw' },
-    { id: 'done', label: 'Done', short: 'done' }
+    { id: "design", label: "Design", hero: "DESIGN" },
+    { id: "structural", label: "Structural", hero: "STRUCTURAL" },
+    { id: "content", label: "Content", hero: "CONTENT" },
+    { id: "unsorted", label: "Unsorted", hero: "UNSORTED" },
+    { id: "done", label: "Done", hero: "DONE" }
   ];
 
   const URGENCY = [
-    { id: 'none', title: 'No tag' },
-    { id: 'immediate', title: 'Immediate' },
-    { id: 'needed', title: 'Needed' },
-    { id: 'future', title: 'Future' }
+    { id: "none", title: "No tag" },
+    { id: "immediate", title: "Immediate" },
+    { id: "needed", title: "Needed" },
+    { id: "future", title: "Future" }
   ];
 
-  const STORAGE_TOKEN = 'wd_planning_token';
-  const STORAGE_REF = 'wd_planning_ref';
-  const REPO = { owner: 'rwbear', repo: 'ctcetrainer' };
+  const STORAGE_TOKEN = "wd_planning_token";
+  const STORAGE_REF = "wd_planning_ref";
+  const REPO = { owner: "rwbear", repo: "ctcetrainer" };
+  const BOARD_PATH = "planning/board.json";
 
   const els = {
     body: document.body,
-    carousel: document.getElementById('carousel'),
-    stage: document.getElementById('stage'),
-    dock: document.getElementById('dock'),
-    toast: document.getElementById('toast'),
-    setupBtn: document.getElementById('setupBtn'),
-    setupDialog: document.getElementById('setupDialog'),
-    setupForm: document.getElementById('setupForm'),
-    tokenInput: document.getElementById('tokenInput'),
-    refInput: document.getElementById('refInput'),
-    setupClear: document.getElementById('setupClear')
+    carousel: document.getElementById("carousel"),
+    stage: document.getElementById("stage"),
+    dock: document.getElementById("dock"),
+    toast: document.getElementById("toast"),
+    setupBtn: document.getElementById("setupBtn"),
+    setupDialog: document.getElementById("setupDialog"),
+    setupForm: document.getElementById("setupForm"),
+    tokenInput: document.getElementById("tokenInput"),
+    refInput: document.getElementById("refInput"),
+    setupClear: document.getElementById("setupClear")
   };
 
   const state = {
@@ -41,37 +42,56 @@
     dragging: false,
     openNoteId: null,
     pending: new Set(),
-    reduceMotion: matchMedia('(prefers-reduced-motion: reduce)').matches
+    reduceMotion: matchMedia("(prefers-reduced-motion: reduce)").matches
   };
 
-  /* ── helpers ─────────────────────────────────────────────── */
-  function toast(msg) {
+  function toast(msg, ms) {
     els.toast.textContent = msg;
-    els.toast.classList.add('is-on');
+    els.toast.classList.add("is-on");
     clearTimeout(toast._t);
-    toast._t = setTimeout(() => els.toast.classList.remove('is-on'), 2400);
+    toast._t = setTimeout(() => els.toast.classList.remove("is-on"), ms || 2600);
   }
 
   function getToken() {
     return localStorage.getItem(STORAGE_TOKEN)
       || (window.WRITE_DOWN_SYNC && window.WRITE_DOWN_SYNC.token)
-      || '';
+      || "";
   }
   function getRef() {
     return localStorage.getItem(STORAGE_REF)
       || (window.WRITE_DOWN_SYNC && window.WRITE_DOWN_SYNC.ref)
-      || 'v12';
+      || "v12";
   }
 
   function folderItems(folderId) {
-    return (state.board.items || []).filter(i => i.folder === folderId);
+    return (state.board.items || []).filter((i) => i.folder === folderId);
   }
 
   function urgencyValue(u) {
-    return u == null || u === 'none' ? null : u;
+    return u == null || u === "none" ? null : u;
   }
 
-  /* ── render ──────────────────────────────────────────────── */
+  function githubHeaders(token) {
+    return {
+      Accept: "application/vnd.github+json",
+      Authorization: "Bearer " + token,
+      "X-GitHub-Api-Version": "2022-11-28"
+    };
+  }
+
+  function decodeBase64Utf8(b64) {
+    const bin = atob(String(b64 || "").replace(/\n/g, ""));
+    const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+    return new TextDecoder("utf-8").decode(bytes);
+  }
+
+  function encodeBase64Utf8(str) {
+    const bytes = new TextEncoder().encode(str);
+    let bin = "";
+    bytes.forEach((b) => { bin += String.fromCharCode(b); });
+    return btoa(bin);
+  }
+
   function glyph(id) {
     const paths = {
       design: '<rect x="4" y="4" width="10" height="10" rx="1.5"/><path d="M8 14v3M6 17h4"/>',
@@ -80,60 +100,60 @@
       unsorted: '<circle cx="7" cy="8" r="1.2"/><circle cx="12" cy="8" r="1.2"/><circle cx="9.5" cy="13" r="1.2"/>',
       done: '<path d="M5 10.5l3 3 7-7"/>'
     };
-    return `<span class="dock-glyph" aria-hidden="true"><svg viewBox="0 0 20 20">${paths[id] || ''}</svg></span>`;
+    return `<span class="dock-glyph" aria-hidden="true"><svg viewBox="0 0 20 20">${paths[id] || ""}</svg></span>`;
   }
 
   function renderDock() {
-    els.dock.innerHTML = '';
+    els.dock.innerHTML = "";
 
-    const set = document.createElement('div');
-    set.className = 'dock-set';
-    set.id = 'dockNow';
-    set.textContent = FOLDERS[state.index].label;
+    const set = document.createElement("p");
+    set.className = "dock-set";
+    set.id = "dockNow";
+    set.textContent = FOLDERS[state.index].hero;
     els.dock.appendChild(set);
 
-    const keys = document.createElement('div');
-    keys.className = 'dock-keys';
+    const keys = document.createElement("div");
+    keys.className = "dock-keys";
     FOLDERS.forEach((f, i) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'dock-key' + (i === state.index ? ' is-active' : '');
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "dock-key" + (i === state.index ? " is-active" : "");
       btn.dataset.index = String(i);
-      btn.setAttribute('aria-label', f.label);
+      btn.setAttribute("aria-label", f.label);
       btn.innerHTML = glyph(f.id);
-      btn.addEventListener('click', () => goTo(i, true));
+      btn.addEventListener("click", () => goTo(i, true));
       keys.appendChild(btn);
     });
     els.dock.appendChild(keys);
   }
 
   function syncDockIndicator() {
-    const now = document.getElementById('dockNow');
-    if (now) now.textContent = FOLDERS[state.index].label;
-    [...els.dock.querySelectorAll('.dock-key')].forEach((btn, i) => {
-      btn.classList.toggle('is-active', i === state.index);
+    const now = document.getElementById("dockNow");
+    if (now) now.textContent = FOLDERS[state.index].hero;
+    [...els.dock.querySelectorAll(".dock-key")].forEach((btn, i) => {
+      btn.classList.toggle("is-active", i === state.index);
     });
   }
 
   function noteCard(item, staggerIndex) {
-    const u = item.urgency || 'none';
+    const u = item.urgency || "none";
     const open = state.openNoteId === item.id;
     const pending = state.pending.has(item.id);
-    const chips = URGENCY.map(opt => {
-      const on = (opt.id === 'none' ? u === 'none' || !item.urgency : item.urgency === opt.id);
-      return `<button type="button" class="chip${on ? ' is-on' : ''}${pending && on ? ' is-pending' : ''}" data-u="${opt.id}" data-id="${item.id}" title="${opt.title}" aria-label="${opt.title}"></button>`;
-    }).join('');
+    const chips = URGENCY.map((opt) => {
+      const on = (opt.id === "none" ? u === "none" || !item.urgency : item.urgency === opt.id);
+      return `<button type="button" class="chip${on ? " is-on" : ""}${pending && on ? " is-pending" : ""}" data-u="${opt.id}" data-id="${item.id}" title="${opt.title}" aria-label="${opt.title}"></button>`;
+    }).join("");
 
     return `
-      <li class="note${open ? ' is-open' : ''}" data-id="${item.id}" style="animation-delay:${Math.min(staggerIndex, 8) * 45}ms">
+      <li class="note${open ? " is-open" : ""}" data-id="${item.id}" style="animation-delay:${Math.min(staggerIndex, 8) * 45}ms">
         <div class="note-top">
           <span class="note-id">${escapeHtml(item.id)}</span>
-          <span class="note-status">${escapeHtml(item.status || 'inbox')}</span>
+          <span class="note-status">${escapeHtml(item.status || "inbox")}</span>
         </div>
         <h3 class="note-title" data-toggle="${item.id}">${escapeHtml(item.title)}</h3>
-        <p class="note-preview">${escapeHtml(item.notes || '')}</p>
+        <p class="note-preview">${escapeHtml(item.notes || "")}</p>
         <div class="note-body"><div class="note-body-inner">
-          <p class="note-notes">${escapeHtml(item.notes || '')}</p>
+          <p class="note-notes">${escapeHtml(item.notes || "")}</p>
         </div></div>
         <div class="urgency-row">
           <span class="urgency-label">tag</span>
@@ -145,26 +165,19 @@
   function renderCarousel() {
     els.carousel.innerHTML = FOLDERS.map((f) => {
       const items = folderItems(f.id);
-      const list = items.map((it, idx) => noteCard(it, idx)).join('');
+      const list = items.map((it, idx) => noteCard(it, idx)).join("");
+      const long = f.hero.length > 8 ? " is-long" : "";
       return `
         <section class="folder-panel" data-folder="${f.id}">
-          <div class="plate">
-            <div class="plate-top">
-              <span class="plate-badge">A</span>
-              <h2 class="folder-name">${escapeHtml(f.label)}</h2>
-            </div>
-            <div class="plate-reels" aria-hidden="true"><span></span><span></span></div>
-          </div>
-          <div class="well">
-            <ul class="note-list">${list || ''}</ul>
-          </div>
-          <p class="folder-meta">${items.length} note${items.length === 1 ? '' : 's'} · write-down</p>
+          <h2 class="folder-hero${long}">${escapeHtml(f.hero)}</h2>
+          <p class="folder-meta">${String(items.length).padStart(2, "0")} note${items.length === 1 ? "" : "s"} · write-down</p>
+          <ul class="note-list">${list || ""}</ul>
         </section>`;
-    }).join('');
+    }).join("");
 
-    els.carousel.querySelectorAll('.note-title').forEach(el => {
-      el.addEventListener('click', () => {
-        const id = el.getAttribute('data-toggle');
+    els.carousel.querySelectorAll(".note-title").forEach((el) => {
+      el.addEventListener("click", () => {
+        const id = el.getAttribute("data-toggle");
         state.openNoteId = state.openNoteId === id ? null : id;
         renderCarousel();
         applyCarouselTransform();
@@ -172,17 +185,17 @@
       });
     });
 
-    els.carousel.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', (e) => {
+    els.carousel.querySelectorAll(".chip").forEach((chip) => {
+      chip.addEventListener("click", (e) => {
         e.stopPropagation();
-        setUrgency(chip.getAttribute('data-id'), chip.getAttribute('data-u'));
+        setUrgency(chip.getAttribute("data-id"), chip.getAttribute("data-u"));
       });
     });
 
-    els.carousel.querySelectorAll('.folder-panel').forEach((panel, i) => {
-      panel.addEventListener('click', (e) => {
+    els.carousel.querySelectorAll(".folder-panel").forEach((panel, i) => {
+      panel.addEventListener("click", (e) => {
         if (i === state.index) return;
-        if (e.target.closest('.note, .chip')) return;
+        if (e.target.closest(".note, .chip")) return;
         goTo(i, true);
       });
     });
@@ -191,21 +204,21 @@
   }
 
   function escapeHtml(s) {
-    return String(s == null ? '' : s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 
   function markActivePanel() {
-    els.carousel.querySelectorAll('.folder-panel').forEach((panel, i) => {
-      panel.classList.toggle('is-active', i === state.index);
+    els.carousel.querySelectorAll(".folder-panel").forEach((panel, i) => {
+      panel.classList.toggle("is-active", i === state.index);
     });
   }
 
   function applyCarouselTransform() {
-    const panels = els.carousel.querySelectorAll('.folder-panel');
+    const panels = els.carousel.querySelectorAll(".folder-panel");
     if (!panels.length) return;
     const cardW = panels[0].offsetWidth;
     const gap = parseFloat(getComputedStyle(els.carousel).gap) || 0;
@@ -216,11 +229,11 @@
   }
 
   function snapCarousel(withMotion) {
-    if (!withMotion) els.carousel.classList.add('is-dragging');
+    if (!withMotion) els.carousel.classList.add("is-dragging");
     applyCarouselTransform();
     if (!withMotion) {
       void els.carousel.offsetWidth;
-      els.carousel.classList.remove('is-dragging');
+      els.carousel.classList.remove("is-dragging");
     }
   }
 
@@ -230,27 +243,30 @@
     state.index = next;
     state.dragX = 0;
     state.dragging = false;
-    els.carousel.classList.remove('is-dragging');
+    els.carousel.classList.remove("is-dragging");
     snapCarousel(!!userInitiated && !state.reduceMotion);
     markActivePanel();
     syncDockIndicator();
     els.body.dataset.folder = FOLDERS[state.index].id;
     const bg = getComputedStyle(document.body).backgroundColor;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', bg || '#7E8B5A');
+    const theme = document.querySelector('meta[name="theme-color"]');
+    if (theme) theme.setAttribute("content", bg || "#7E8B5A");
+    try {
+      history.replaceState(null, "", "#" + FOLDERS[state.index].id);
+    } catch (e) {}
     if (changed && userInitiated && !state.reduceMotion) {
-      const active = els.carousel.querySelector('.folder-panel.is-active .note-list');
+      const active = els.carousel.querySelector(".folder-panel.is-active .note-list");
       if (active) {
-        active.querySelectorAll('.note').forEach((n, i) => {
-          n.style.animation = 'none';
+        active.querySelectorAll(".note").forEach((n, i) => {
+          n.style.animation = "none";
           void n.offsetWidth;
-          n.style.animation = '';
+          n.style.animation = "";
           n.style.animationDelay = `${Math.min(i, 8) * 40}ms`;
         });
       }
     }
   }
 
-  /* ── swipe ───────────────────────────────────────────────── */
   function bindSwipe() {
     let startX = 0;
     let startY = 0;
@@ -262,7 +278,7 @@
       axis = null;
       state.dragging = true;
       state.dragX = 0;
-      els.carousel.classList.add('is-dragging');
+      els.carousel.classList.add("is-dragging");
     };
 
     const onMove = (x, y, e) => {
@@ -271,14 +287,14 @@
       const dy = y - startY;
       if (!axis) {
         if (Math.abs(dx) < 4 && Math.abs(dy) < 4) return;
-        axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
-        if (axis === 'y') {
+        axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+        if (axis === "y") {
           state.dragging = false;
-          els.carousel.classList.remove('is-dragging');
+          els.carousel.classList.remove("is-dragging");
           return;
         }
       }
-      if (axis === 'x') {
+      if (axis === "x") {
         if (e && e.cancelable) e.preventDefault();
         const atStart = state.index === 0 && dx > 0;
         const atEnd = state.index === FOLDERS.length - 1 && dx < 0;
@@ -288,59 +304,150 @@
     };
 
     const onUp = () => {
-      if (!els.carousel.classList.contains('is-dragging') && !state.dragging) return;
+      if (!els.carousel.classList.contains("is-dragging") && !state.dragging) return;
       const w = els.stage.clientWidth || 1;
       const threshold = Math.min(72, w * 0.18);
       let next = state.index;
       if (state.dragX <= -threshold) next += 1;
       else if (state.dragX >= threshold) next -= 1;
       state.dragging = false;
-      els.carousel.classList.remove('is-dragging');
+      els.carousel.classList.remove("is-dragging");
       goTo(next, true);
     };
 
-    els.stage.addEventListener('touchstart', (e) => {
+    els.stage.addEventListener("touchstart", (e) => {
       const t = e.touches[0];
       onDown(t.clientX, t.clientY);
     }, { passive: true });
 
-    els.stage.addEventListener('touchmove', (e) => {
+    els.stage.addEventListener("touchmove", (e) => {
       const t = e.touches[0];
       onMove(t.clientX, t.clientY, e);
     }, { passive: false });
 
-    els.stage.addEventListener('touchend', onUp);
-    els.stage.addEventListener('touchcancel', onUp);
+    els.stage.addEventListener("touchend", onUp);
+    els.stage.addEventListener("touchcancel", onUp);
 
     let mouse = false;
-    els.stage.addEventListener('mousedown', (e) => {
+    els.stage.addEventListener("mousedown", (e) => {
       mouse = true;
       onDown(e.clientX, e.clientY);
     });
-    window.addEventListener('mousemove', (e) => {
+    window.addEventListener("mousemove", (e) => {
       if (!mouse) return;
       onMove(e.clientX, e.clientY, e);
     });
-    window.addEventListener('mouseup', () => {
+    window.addEventListener("mouseup", () => {
       if (!mouse) return;
       mouse = false;
       onUp();
     });
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') goTo(state.index + 1, true);
-      if (e.key === 'ArrowLeft') goTo(state.index - 1, true);
+    window.addEventListener("keydown", (e) => {
+      if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+      if (e.key === "ArrowRight") goTo(state.index + 1, true);
+      if (e.key === "ArrowLeft") goTo(state.index - 1, true);
     });
   }
 
-  /* ── urgency D2 write-back ───────────────────────────────── */
+  function taggedError(code, message) {
+    const err = new Error(message || code);
+    err.code = code;
+    return err;
+  }
+
+  async function fetchRemoteBoard(token) {
+    const ref = getRef();
+    const url = `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/${BOARD_PATH}?ref=${encodeURIComponent(ref)}`;
+    const res = await fetch(url, { headers: githubHeaders(token) });
+    const body = await res.json().catch(() => ({}));
+    if (res.status === 401 || res.status === 403) {
+      throw taggedError("bad-token", body.message || "Token rejected");
+    }
+    if (!res.ok) {
+      throw new Error(body.message || `Could not read board.json (${res.status})`);
+    }
+    return {
+      sha: body.sha,
+      json: JSON.parse(decodeBase64Utf8(body.content))
+    };
+  }
+
+  async function putBoard(token, json, sha, message) {
+    const ref = getRef();
+    const res = await fetch(
+      `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/${BOARD_PATH}`,
+      {
+        method: "PUT",
+        headers: Object.assign({ "Content-Type": "application/json" }, githubHeaders(token)),
+        body: JSON.stringify({
+          message,
+          content: encodeBase64Utf8(JSON.stringify(json, null, 2) + "\n"),
+          sha,
+          branch: ref
+        })
+      }
+    );
+    const body = await res.json().catch(() => ({}));
+    if (res.status === 401 || res.status === 403) {
+      throw taggedError("bad-token", body.message || "Token rejected");
+    }
+    if (res.status === 409 || res.status === 422) {
+      throw taggedError("conflict", body.message || "Board changed");
+    }
+    if (!res.ok) {
+      throw new Error(body.message || `Save failed (${res.status})`);
+    }
+    return json;
+  }
+
+  async function patchUrgencyOnGitHub(id, urgency, token) {
+    const apply = async () => {
+      const remote = await fetchRemoteBoard(token);
+      const next = remote.json;
+      const item = (next.items || []).find((i) => i.id === id);
+      if (!item) throw new Error("Item " + id + " is not on the live board.");
+      item.urgency = urgency;
+      item.updatedAt = new Date().toISOString();
+      next.updatedAt = item.updatedAt;
+      await putBoard(
+        token,
+        next,
+        remote.sha,
+        "planning: set " + id + " urgency to " + (urgency || "none")
+      );
+      return next;
+    };
+
+    try {
+      return await apply();
+    } catch (err) {
+      if (err && err.code === "conflict") return await apply();
+      throw err;
+    }
+  }
+
+  function openSetup() {
+    els.tokenInput.value = getToken();
+    els.refInput.value = getRef();
+    if (typeof els.setupDialog.showModal === "function") els.setupDialog.showModal();
+    else els.setupDialog.setAttribute("open", "");
+  }
+
   async function setUrgency(id, urgencyId) {
-    const item = (state.board.items || []).find(i => i.id === id);
+    const item = (state.board.items || []).find((i) => i.id === id);
     if (!item) return;
 
     const next = urgencyValue(urgencyId);
     const prev = item.urgency == null ? null : item.urgency;
     if (prev === next) return;
+
+    const token = getToken().trim();
+    if (!token) {
+      toast("Set a GitHub token first — GitHub deletes keys saved in public files.", 4800);
+      openSetup();
+      return;
+    }
 
     item.urgency = next;
     item.updatedAt = new Date().toISOString();
@@ -348,24 +455,24 @@
     state.pending.add(id);
     renderCarousel();
     applyCarouselTransform();
-
-    const token = getToken();
-    if (!token) {
-      state.pending.delete(id);
-      renderCarousel();
-      applyCarouselTransform();
-      toast('Add a sync key to save tags');
-      // keep optimistic local change visible; revert warning only
-      return;
-    }
+    toast("Saving…", 1800);
 
     try {
-      await dispatchUrgency(id, next == null ? 'none' : next, token);
-      toast(`Saved ${id}`);
+      const remote = await patchUrgencyOnGitHub(id, next, token);
+      state.board = remote;
+      toast("Saved " + id + " → " + (next || "none"));
     } catch (err) {
       item.urgency = prev;
       console.error(err);
-      toast('Sync failed — check token / branch');
+      if (err && err.code === "bad-token") {
+        localStorage.removeItem(STORAGE_TOKEN);
+        openSetup();
+        toast("Token was rejected. GitHub deletes keys committed to public repos — paste a new one here.", 5200);
+      } else if (err && err.code === "conflict") {
+        toast("Board changed at the same time. Tap the chip again.", 4200);
+      } else {
+        toast(err.message || "Save failed", 4200);
+      }
     } finally {
       state.pending.delete(id);
       renderCarousel();
@@ -373,64 +480,38 @@
     }
   }
 
-  async function dispatchUrgency(id, urgency, token) {
-    const ref = getRef();
-    const url = `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/dispatches`;
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${token}`,
-        'X-GitHub-Api-Version': '2022-11-28',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        event_type: 'planning-urgency',
-        client_payload: { id, urgency, ref }
-      })
-    });
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(text || res.statusText);
-    }
-  }
-
-  /* ── setup sheet ─────────────────────────────────────────── */
   function bindSetup() {
-    els.setupBtn.addEventListener('click', () => {
-      els.tokenInput.value = getToken();
-      els.refInput.value = getRef();
-      els.setupDialog.showModal();
-    });
+    els.setupBtn.addEventListener("click", () => openSetup());
 
-    els.setupForm.addEventListener('submit', (e) => {
+    els.setupForm.addEventListener("submit", (e) => {
       const submitter = e.submitter;
-      if (submitter && submitter.value === 'cancel') return;
+      if (submitter && submitter.value === "cancel") return;
       const token = els.tokenInput.value.trim();
-      const ref = els.refInput.value.trim() || 'v12';
+      const ref = els.refInput.value.trim() || "v12";
       if (token) localStorage.setItem(STORAGE_TOKEN, token);
+      else localStorage.removeItem(STORAGE_TOKEN);
       localStorage.setItem(STORAGE_REF, ref);
-      toast(token ? 'Sync key saved on this device' : 'Branch saved');
+      toast(token ? "Token stored in this browser only." : "Token cleared. Branch saved.", 3200);
     });
 
-    els.setupClear.addEventListener('click', () => {
+    els.setupClear.addEventListener("click", () => {
       localStorage.removeItem(STORAGE_TOKEN);
-      els.tokenInput.value = '';
-      toast('Sync key cleared');
+      els.tokenInput.value = "";
+      toast("Token cleared");
     });
   }
 
-  /* ── boot ────────────────────────────────────────────────── */
   async function loadBoard() {
-    const url = new URL('board.json', window.location.href);
-    url.searchParams.set('t', String(Date.now()));
+    const url = new URL("board.json", window.location.href);
+    url.searchParams.set("t", String(Date.now()));
     const res = await fetch(url);
-    if (!res.ok) throw new Error('Failed to load board.json');
+    if (!res.ok) throw new Error("Failed to load board.json");
     state.board = await res.json();
   }
 
   async function boot() {
-    // Prefer first non-empty folder for initial view
+    document.addEventListener("dblclick", (e) => e.preventDefault());
+
     try {
       await loadBoard();
     } catch (e) {
@@ -439,42 +520,45 @@
       return;
     }
 
-    let start = FOLDERS.findIndex(f => f.id === 'content');
+    let start = FOLDERS.findIndex((f) => f.id === "content");
     if (start < 0) start = 0;
     if (!folderItems(FOLDERS[start].id).length) {
-      const nonempty = FOLDERS.findIndex(f => folderItems(f.id).length);
+      const nonempty = FOLDERS.findIndex((f) => folderItems(f.id).length);
       if (nonempty >= 0) start = nonempty;
     }
     state.index = start;
+
+    const hash = (location.hash || "").replace(/^#/, "");
+    if (hash) {
+      const fi = FOLDERS.findIndex((f) => f.id === hash);
+      if (fi >= 0) state.index = fi;
+      else {
+        const item = (state.board.items || []).find((i) => i.id === hash);
+        if (item) {
+          const fi2 = FOLDERS.findIndex((f) => f.id === item.folder);
+          if (fi2 >= 0) {
+            state.openNoteId = item.id;
+            state.index = fi2;
+          }
+        }
+      }
+    }
 
     renderDock();
     renderCarousel();
     goTo(state.index, false);
     bindSwipe();
     bindSetup();
-    window.addEventListener('resize', () => snapCarousel(false));
+    window.addEventListener("resize", () => snapCarousel(false));
+    window.addEventListener("hashchange", () => {
+      const name = (location.hash || "").replace(/^#/, "");
+      const fi = FOLDERS.findIndex((f) => f.id === name);
+      if (fi >= 0) goTo(fi, true);
+    });
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => snapCarousel(false));
     }
     requestAnimationFrame(() => snapCarousel(false));
-
-    // Hash deep-link: #content or #C-001
-    const hash = (location.hash || '').replace(/^#/, '');
-    if (hash) {
-      const fi = FOLDERS.findIndex(f => f.id === hash);
-      if (fi >= 0) goTo(fi, false);
-      else {
-        const item = (state.board.items || []).find(i => i.id === hash);
-        if (item) {
-          const fi2 = FOLDERS.findIndex(f => f.id === item.folder);
-          if (fi2 >= 0) {
-            state.openNoteId = item.id;
-            renderCarousel();
-            goTo(fi2, false);
-          }
-        }
-      }
-    }
   }
 
   boot();
