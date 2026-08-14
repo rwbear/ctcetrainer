@@ -1,7 +1,6 @@
-// Optional committed sync key for D2 (public link, no login).
-// Create a fine-grained PAT (see README.md), paste token here, commit.
-// Risk: anyone can read this file and change urgency tags on the board.
+// D2 sync key — public link, no login.
+// Anyone who can read this file can change urgency tags.
 window.WRITE_DOWN_SYNC = {
-  token: "",
+  token: "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",
   ref: "v12"
 };
