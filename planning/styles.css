@@ -29,6 +29,7 @@
   --mute: color-mix(in srgb, var(--ink) 58%, transparent);
   --chin: #C9C8C3;
   --chin-ink: #3C3836;
+  --chin-h: calc(72px + env(safe-area-inset-bottom, 0px));
   --pad: 22px;
   --col: min(86vw, 360px);
   --gap: 48px;
@@ -66,7 +67,7 @@ body[data-folder="done"] {
 
 html {
   touch-action: manipulation;
-  background: var(--chin);
+  background: #C9C8C3;
 }
 
 html, body {
@@ -77,14 +78,13 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background: #C9C8C3;
 }
 
 body {
   min-height: 100dvh;
   overflow: hidden;
   touch-action: manipulation;
-  background: var(--bg);
-  transition: background-color var(--dur-theme) var(--ease-soft), color var(--dur-theme) var(--ease-soft);
 }
 
 button, a, input, [role="button"] {
@@ -104,11 +104,20 @@ button, a, input, [role="button"] {
 .app {
   height: 100dvh;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr);
   position: relative;
   z-index: 1;
+  background: #C9C8C3;
+  padding-bottom: var(--chin-h);
+}
+
+.field {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   background: var(--bg);
-  transition: background-color var(--dur-theme) var(--ease-soft);
+  color: var(--ink);
+  transition: background-color var(--dur-theme) var(--ease-soft), color var(--dur-theme) var(--ease-soft);
 }
 
 .top {
@@ -164,7 +173,6 @@ button, a, input, [role="button"] {
   align-items: stretch;
   height: 100%;
   gap: var(--gap);
-  will-change: transform;
   transition: transform var(--dur) var(--ease-out);
 }
 .carousel.is-dragging { transition: none; }
@@ -185,6 +193,8 @@ button, a, input, [role="button"] {
   opacity: 1;
   filter: none;
   pointer-events: auto;
+  /* Occlusion lives on the notes layer so it falls on text + field together */
+  box-shadow: inset 0 -52px 34px -20px #00000055;
 }
 
 .folder-hero {
@@ -217,7 +227,7 @@ button, a, input, [role="button"] {
 .note-list {
   list-style: none;
   margin: 0;
-  padding: 0 0 12px;
+  padding: 0 0 36px;
   overflow-y: auto;
   overscroll-behavior: contain;
   flex: 1;
@@ -301,34 +311,126 @@ button, a, input, [role="button"] {
 }
 
 .chip {
+  --fill: var(--ink);
   width: 16px;
   height: 16px;
   border-radius: 999px;
-  border: 1.5px solid color-mix(in srgb, var(--ink) 35%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--ink) 38%, transparent);
   background: transparent;
   padding: 0;
   cursor: pointer;
-  transition: background var(--dur-fast) var(--ease-soft), border-color var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-spring);
+  flex-shrink: 0;
+  box-shadow: none;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 80ms ease;
 }
-.chip:active { transform: scale(0.88); }
+.chip:active { transform: scale(0.9); }
 .chip[data-u="immediate"] { --fill: var(--play); }
 .chip[data-u="needed"] { --fill: var(--golden); }
 .chip[data-u="future"] { --fill: var(--sky); }
+.chip[data-u="none"] { --fill: var(--ink); }
 .chip.is-on {
-  background: var(--fill, transparent);
-  border-color: var(--fill, var(--ink));
+  background: var(--fill);
+  border-color: var(--fill);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--fill) 35%, transparent),
+    0 0 7px color-mix(in srgb, var(--fill) 70%, transparent);
 }
 .chip[data-u="none"].is-on {
   background: transparent;
   border-color: var(--ink);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--ink) 35%, transparent);
 }
-.chip.is-pending { animation: chip-pulse 900ms var(--ease-soft) infinite; }
 
-/* Solid chin — TRACKS player-bar: curved top, lifted shadow, chassis color */
+.urgency-row.is-locked { pointer-events: none; }
+
+.urgency-row.is-scanning .chip {
+  animation: lamp-scan 0.46s ease-in-out 3;
+}
+.urgency-row.is-scanning .chip:nth-child(2) { animation-delay: 0ms; }
+.urgency-row.is-scanning .chip:nth-child(3) { animation-delay: 95ms; }
+.urgency-row.is-scanning .chip:nth-child(4) { animation-delay: 190ms; }
+.urgency-row.is-scanning .chip:nth-child(5) { animation-delay: 285ms; }
+
+.chip.is-ignite {
+  animation: lamp-strike 0.78s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes lamp-scan {
+  0%, 100% {
+    background: transparent;
+    box-shadow: none;
+    filter: brightness(0.85);
+  }
+  45% {
+    background: color-mix(in srgb, var(--fill) 42%, transparent);
+    border-color: color-mix(in srgb, var(--fill) 80%, var(--ink));
+    box-shadow: 0 0 8px color-mix(in srgb, var(--fill) 55%, transparent);
+    filter: brightness(1.35);
+  }
+}
+
+@keyframes lamp-strike {
+  0% {
+    background: transparent;
+    box-shadow: none;
+  }
+  8%, 22% {
+    background: var(--fill);
+    border-color: var(--fill);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--fill) 50%, transparent),
+      0 0 14px var(--fill);
+    filter: brightness(1.45);
+  }
+  26%, 40% {
+    background: transparent;
+    box-shadow: none;
+    filter: brightness(0.7);
+  }
+  46%, 60% {
+    background: var(--fill);
+    border-color: var(--fill);
+    box-shadow: 0 0 12px var(--fill);
+    filter: brightness(1.3);
+  }
+  64%, 76% {
+    background: color-mix(in srgb, var(--fill) 40%, transparent);
+    box-shadow: 0 0 4px color-mix(in srgb, var(--fill) 40%, transparent);
+    filter: brightness(0.85);
+  }
+  100% {
+    background: var(--fill);
+    border-color: var(--fill);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--fill) 35%, transparent),
+      0 0 7px color-mix(in srgb, var(--fill) 70%, transparent);
+    filter: brightness(1);
+  }
+}
+
+.chip[data-u="none"].is-ignite {
+  animation-name: lamp-strike-none;
+}
+@keyframes lamp-strike-none {
+  0%, 26%, 40%, 64%, 76% {
+    background: transparent;
+    box-shadow: none;
+  }
+  8%, 22%, 46%, 60%, 100% {
+    background: transparent;
+    border-color: var(--ink);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--ink) 45%, transparent);
+  }
+}
+
+/* Solid chin — TRACKS player-bar, pinned so Safari samples this color */
 .chin {
   width: 100%;
   margin: 0;
-  position: relative;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 6;
   display: flex;
   align-items: center;
@@ -336,12 +438,10 @@ button, a, input, [role="button"] {
   padding: 14px 16px calc(12px + env(safe-area-inset-bottom, 0px));
   padding-left: max(16px, env(safe-area-inset-left));
   padding-right: max(16px, env(safe-area-inset-right));
-  background: var(--chin);
+  background: #C9C8C3;
   color: var(--chin-ink);
   border-radius: 16px 16px 0 0;
-  box-shadow:
-    0 -1px #ffffff80,
-    0 -6px 24px #00000038;
+  box-shadow: 0 -1px #ffffff80;
 }
 
 .dock-set {
@@ -397,12 +497,13 @@ button, a, input, [role="button"] {
     0 3px 8px #00000047;
   transition: transform 0.05s ease, box-shadow 0.05s ease, background 0.05s ease;
 }
-.dock-key:active {
-  transform: translateY(2px);
+.dock-key:active,
+.dock-key.is-pressed {
+  transform: translateY(3px);
+  background: #191816;
   box-shadow:
-    inset 0 1px #ffffff0a,
-    0 1px var(--key-shaft),
-    0 1px 3px #0003;
+    inset 0 2px 4px #00000073,
+    0 1px var(--key-shaft);
 }
 .dock-key.is-active {
   background: var(--play);
@@ -412,11 +513,13 @@ button, a, input, [role="button"] {
     0 3px var(--play-shaft),
     0 3px 8px #00000047;
 }
-.dock-key.is-active:active {
+.dock-key.is-active:active,
+.dock-key.is-active.is-pressed {
+  transform: translateY(3px);
+  background: #a34000;
   box-shadow:
-    inset 0 1px #ffffff14,
-    0 1px var(--play-shaft),
-    0 1px 3px #0003;
+    inset 0 2px 4px #0000004d,
+    0 1px var(--play-shaft);
 }
 .dock-key svg {
   width: 16px;
@@ -477,19 +580,6 @@ button, a, input, [role="button"] {
 }
 .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
 
-/* Paint the iOS home-indicator strip so Safari’s translucent bar sits on the chin */
-body::after {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 4;
-  height: env(safe-area-inset-bottom, 0px);
-  background: var(--chin);
-}
-
 .setup-dialog { border: 0; padding: 0; background: transparent; max-width: min(92vw, 400px); }
 .setup-dialog::backdrop { background: color-mix(in srgb, var(--velvet) 45%, transparent); }
 .setup-sheet {
@@ -547,14 +637,11 @@ body::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes chip-pulse {
-  50% { transform: scale(0.86); opacity: 0.7; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
   .folder-panel { filter: none !important; }
+  .carousel { transition: none; }
+  .urgency-row.is-scanning .chip,
+  .chip.is-ignite {
+    animation: none !important;
+  }
 }
