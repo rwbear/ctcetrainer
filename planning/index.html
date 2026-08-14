@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="theme-color" content="#7E8B5A">
+  <meta name="theme-color" content="#C9C8C3">
   <title>Write-down — ctcetrainer ops</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,14 @@
   <dialog class="setup-dialog" id="setupDialog">
     <form method="dialog" class="setup-sheet" id="setupForm">
       <h2 class="setup-title">SET</h2>
-      <p class="setup-copy">GitHub deletes tokens that sit in public files. Paste a fine-grained token here — it stays in this browser only. Repo: ctcetrainer. Permission: Contents Read and write.</p>
+      <ol class="setup-steps">
+        <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">this GitHub page</a> (logged in).</li>
+        <li>Token name: <code>write-down</code></li>
+        <li>Repository access → Only select → <code>ctcetrainer</code></li>
+        <li>Permissions → Repository permissions → Contents → <strong>Read and write</strong></li>
+        <li>Generate token → copy it → paste below → Save.</li>
+      </ol>
+      <p class="setup-copy">Stays in this browser only. Do not put it in a file — GitHub deletes public tokens.</p>
       <label class="setup-label" for="tokenInput">Token</label>
       <input class="setup-input" id="tokenInput" type="password" autocomplete="off" placeholder="github_pat_…">
       <label class="setup-label" for="refInput">Branch</label>
