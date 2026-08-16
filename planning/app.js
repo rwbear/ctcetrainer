@@ -37,13 +37,15 @@
 
   const state = {
     board: null,
+    boardSha: null,
     index: 0,
     dragX: 0,
     dragging: false,
     openNoteId: null,
     pending: new Set(),
-    lampLock: new Set(),
-    reduceMotion: matchMedia("(prefers-reduced-motion: reduce)").matches
+    reduceMotion: matchMedia("(prefers-reduced-motion: reduce)").matches,
+    writeChain: Promise.resolve(),
+    queued: Object.create(null)
   };
 
   function toast(msg, ms) {
@@ -173,14 +175,16 @@
     row.querySelectorAll(".chip").forEach((chip) => {
       chip.classList.remove("is-on", "is-ignite");
     });
-    await wait(1680);
+    await wait(720);
     row.classList.remove("is-scanning");
     const target = row.querySelector('.chip[data-u="' + (urgency || "none") + '"]');
     if (target) {
       target.classList.add("is-ignite");
-      await wait(780);
+      await wait(420);
       target.classList.remove("is-ignite");
       target.classList.add("is-on");
+    } else {
+      setRowLamp(row, urgency);
     }
   }
 
@@ -415,7 +419,10 @@
   async function fetchRemoteBoard(token) {
     const ref = getRef();
     const url = `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/${BOARD_PATH}?ref=${encodeURIComponent(ref)}`;
-    const res = await fetch(url, { headers: githubHeaders(token) });
+    const res = await fetch(url, {
+      headers: githubHeaders(token),
+      cache: "no-store"
+    });
     const body = await res.json().catch(() => ({}));
     if (res.status === 401 || res.status === 403) {
       throw taggedError("bad-token", body.message || "Token rejected");
@@ -454,33 +461,61 @@
     if (!res.ok) {
       throw new Error(body.message || `Save failed (${res.status})`);
     }
-    return json;
+    const newSha = body.content && body.content.sha;
+    return { json, sha: newSha || null };
   }
 
-  async function patchUrgencyOnGitHub(id, urgency, token) {
-    const apply = async () => {
-      const remote = await fetchRemoteBoard(token);
-      const next = remote.json;
+  function applyPatchesToBoard(board, patches) {
+    const next = board;
+    const now = new Date().toISOString();
+    const ids = Object.keys(patches);
+    ids.forEach((id) => {
       const item = (next.items || []).find((i) => i.id === id);
       if (!item) throw new Error("Item " + id + " is not on the live board.");
-      item.urgency = urgency;
-      item.updatedAt = new Date().toISOString();
-      next.updatedAt = item.updatedAt;
-      await putBoard(
-        token,
-        next,
-        remote.sha,
-        "planning: set " + id + " urgency to " + (urgency || "none")
-      );
-      return next;
-    };
+      item.urgency = patches[id];
+      item.updatedAt = now;
+    });
+    next.updatedAt = now;
+    return { next, ids, now };
+  }
 
-    try {
-      return await apply();
-    } catch (err) {
-      if (err && err.code === "conflict") return await apply();
-      throw err;
+  async function commitPatches(token, patches) {
+    const ids = Object.keys(patches);
+    if (!ids.length) return state.board;
+
+    let lastErr = null;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        let sha = state.boardSha;
+        let remote = state.board;
+        if (!sha || !remote || attempt > 0) {
+          const fetched = await fetchRemoteBoard(token);
+          sha = fetched.sha;
+          remote = fetched.json;
+        }
+        const working = JSON.parse(JSON.stringify(remote));
+        const { next, ids: touched } = applyPatchesToBoard(working, patches);
+        const label = touched.length === 1
+          ? "planning: set " + touched[0] + " urgency to " + (patches[touched[0]] || "none")
+          : "planning: set urgency on " + touched.join(", ");
+        const saved = await putBoard(token, next, sha, label);
+        state.board = saved.json;
+        state.boardSha = saved.sha;
+        return saved.json;
+      } catch (err) {
+        lastErr = err;
+        state.boardSha = null;
+        if (err && err.code === "conflict") continue;
+        throw err;
+      }
     }
+    throw lastErr || taggedError("conflict", "Board kept changing — try again");
+  }
+
+  function enqueueWrite(job) {
+    const run = state.writeChain.then(job, job);
+    state.writeChain = run.catch(() => {});
+    return run;
   }
 
   function openSetup() {
@@ -488,6 +523,16 @@
     els.refInput.value = getRef();
     if (typeof els.setupDialog.showModal === "function") els.setupDialog.showModal();
     else els.setupDialog.setAttribute("open", "");
+  }
+
+  function noteRow(id) {
+    const note = els.carousel.querySelector('.note[data-id="' + id + '"]');
+    return note && note.querySelector(".urgency-row");
+  }
+
+  function noteRow(id) {
+    const note = els.carousel.querySelector('.note[data-id="' + id + '"]');
+    return note && note.querySelector(".urgency-row");
   }
 
   async function setUrgency(id, urgencyId) {
@@ -498,49 +543,55 @@
     const prev = item.urgency == null ? null : item.urgency;
     if (prev === next) return;
 
-    if (state.pending.has(id) || state.lampLock.has(id)) return;
-
     const token = getToken().trim();
     if (!token) {
-      toast("Set a GitHub token first — GitHub deletes keys saved in public files.", 4800);
+      toast("Set a GitHub token first — tap SET.", 4200);
       openSetup();
       return;
     }
 
-    const note = els.carousel.querySelector('.note[data-id="' + id + '"]');
-    const row = note && note.querySelector(".urgency-row");
-
-    state.pending.add(id);
-    state.lampLock.add(id);
-    if (row) row.classList.add("is-locked");
-
+    // Latest requested value for this note (in case of rapid re-taps while queued)
+    state.queued[id] = next;
     item.urgency = next;
     item.updatedAt = new Date().toISOString();
     state.board.updatedAt = item.updatedAt;
+    state.pending.add(id);
 
+    const row = noteRow(id);
+    if (row) row.classList.add("is-locked");
     const lamp = playLamp(row, next);
+
     try {
-      const remote = await patchUrgencyOnGitHub(id, next, token);
+      await enqueueWrite(async () => {
+        const value = state.queued[id];
+        if (value === undefined) return;
+        delete state.queued[id];
+        await commitPatches(token, { [id]: value });
+        // Keep local board in sync with what we wrote
+        const local = (state.board.items || []).find((i) => i.id === id);
+        if (local) local.urgency = value;
+      });
       await lamp;
-      state.board = remote;
-      toast("Saved " + id + " → " + (next || "none"));
+      toast("Saved", 1200);
     } catch (err) {
-      item.urgency = prev;
       console.error(err);
       await lamp;
-      setRowLamp(row, prev);
+      // Only revert if nothing newer is queued for this note
+      if (state.queued[id] === undefined) {
+        item.urgency = prev;
+        setRowLamp(row, prev);
+      }
       if (err && err.code === "bad-token") {
         localStorage.removeItem(STORAGE_TOKEN);
         openSetup();
-        toast("Token was rejected. GitHub deletes keys committed to public repos — paste a new one here.", 5200);
+        toast("Token rejected — paste a new one in SET.", 5200);
       } else if (err && err.code === "conflict") {
-        toast("Board changed at the same time. Tap the chip again.", 4200);
+        toast("Busy — tap once more.", 3000);
       } else {
         toast(err.message || "Save failed", 4200);
       }
     } finally {
       state.pending.delete(id);
-      state.lampLock.delete(id);
       if (row) row.classList.remove("is-locked");
     }
   }
@@ -567,11 +618,36 @@
   }
 
   async function loadBoard() {
-    const url = new URL("board.json", window.location.href);
-    url.searchParams.set("t", String(Date.now()));
-    const res = await fetch(url);
-    if (!res.ok) throw new Error("Failed to load board.json");
-    state.board = await res.json();
+    const ref = getRef();
+    const bust = String(Date.now());
+    const candidates = [
+      // Raw GitHub is fresher than Pages CDN right after a chip save
+      `https://raw.githubusercontent.com/${REPO.owner}/${REPO.repo}/${encodeURIComponent(ref)}/${BOARD_PATH}?t=${bust}`,
+      `./board.json?t=${bust}`
+    ];
+
+    let lastErr = null;
+    for (let i = 0; i < candidates.length; i++) {
+      try {
+        const res = await fetch(candidates[i], { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        state.board = await res.json();
+        state.boardSha = null;
+        return;
+      } catch (err) {
+        lastErr = err;
+      }
+    }
+
+    const token = getToken().trim();
+    if (token) {
+      const remote = await fetchRemoteBoard(token);
+      state.board = remote.json;
+      state.boardSha = remote.sha;
+      return;
+    }
+
+    throw lastErr || new Error("Failed to load board.json");
   }
 
   async function boot() {
