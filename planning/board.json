@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:15:20.055Z",
+  "updatedAt": "2026-08-16T11:15:37.000Z",
   "folders": [
     {
       "id": "design",
@@ -68,10 +68,10 @@
       "title": "Fill CT/CE Learn bank (or safe fallback)",
       "notes": "Default Learn level is ctce. learn-data/ctce-tasks.js = 109 subtopics, 0 tasks. Free users hit Coming soon. B1/B2/C1 have content but are premium-locked. #1 school-year blocker.",
       "status": "understood",
-      "urgency": "future",
+      "urgency": "immediate",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:15:20.055Z"
+      "updatedAt": "2026-08-16T11:15:37.000Z"
     },
     {
       "id": "C-002",
@@ -88,7 +88,7 @@
       "id": "C-003",
       "folder": "content",
       "title": "Decide / communicate 2025 Analogue gap",
-      "notes": "Official variants 51–60 exist; Analogue tops out at 50. Fine if marketed clearly; incomplete if selling full 2025 coverage.",
+      "notes": "Official variants 51\u201360 exist; Analogue tops out at 50. Fine if marketed clearly; incomplete if selling full 2025 coverage.",
       "status": "understood",
       "urgency": null,
       "evidence": [],
@@ -122,7 +122,7 @@
     {
       "when": "2026-08-10",
       "raw": "Initial board from project assessment",
-      "outcome": "Seeded S-001…S-003, C-001…C-005"
+      "outcome": "Seeded S-001\u2026S-003, C-001\u2026C-005"
     },
     {
       "when": "2026-08-11",
