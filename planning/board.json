@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:20:57.708Z",
+  "updatedAt": "2026-08-16T11:21:48.172Z",
   "folders": [
     {
       "id": "design",
@@ -88,12 +88,12 @@
       "id": "C-003",
       "folder": "content",
       "title": "Decide / communicate 2025 Analogue gap",
-      "notes": "Official variants 51\u201360 exist; Analogue tops out at 50. Fine if marketed clearly; incomplete if selling full 2025 coverage.",
+      "notes": "Official variants 51–60 exist; Analogue tops out at 50. Fine if marketed clearly; incomplete if selling full 2025 coverage.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "future",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:20:56.759Z"
+      "updatedAt": "2026-08-16T11:21:48.172Z"
     },
     {
       "id": "C-004",
@@ -101,10 +101,10 @@
       "title": "RU/EN language decision",
       "notes": "SEO/meta Russian; in-app UI mostly English. Decide student UI vs parent-facing copy.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "needed",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:20:57.708Z"
+      "updatedAt": "2026-08-16T11:21:48.172Z"
     },
     {
       "id": "C-005",
@@ -112,17 +112,17 @@
       "title": "Landing conversion pass",
       "notes": "Brand exists; little proof above the fold (counts, phone-ready, what free unlocks). System fonts only.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "immediate",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:17:22.000Z"
+      "updatedAt": "2026-08-16T11:21:48.172Z"
     }
   ],
   "intakeLog": [
     {
       "when": "2026-08-10",
       "raw": "Initial board from project assessment",
-      "outcome": "Seeded S-001\u2026S-003, C-001\u2026C-005"
+      "outcome": "Seeded S-001…S-003, C-001…C-005"
     },
     {
       "when": "2026-08-11",
