@@ -101,10 +101,10 @@
       "title": "RU/EN language decision",
       "notes": "SEO/meta Russian; in-app UI mostly English. Decide student UI vs parent-facing copy.",
       "status": "understood",
-      "urgency": "needed",
+      "urgency": null,
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:18:05.000Z"
+      "updatedAt": "2026-08-16T11:18:08.000Z"
     },
     {
       "id": "C-005",
