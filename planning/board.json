@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:49:17.080Z",
+  "updatedAt": "2026-08-16T11:52:10.848Z",
   "folders": [
     {
       "id": "design",
@@ -90,10 +90,10 @@
       "title": "Decide / communicate 2025 Analogue gap",
       "notes": "Official variants 51–60 exist; Analogue tops out at 50. Fine if marketed clearly; incomplete if selling full 2025 coverage.",
       "status": "understood",
-      "urgency": "future",
+      "urgency": "immediate",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:48:47.130Z"
+      "updatedAt": "2026-08-16T11:52:10.848Z"
     },
     {
       "id": "C-004",
@@ -101,10 +101,10 @@
       "title": "RU/EN language decision",
       "notes": "SEO/meta Russian; in-app UI mostly English. Decide student UI vs parent-facing copy.",
       "status": "understood",
-      "urgency": "future",
+      "urgency": "needed",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:48:51.083Z"
+      "updatedAt": "2026-08-16T11:52:10.848Z"
     },
     {
       "id": "C-005",
@@ -115,7 +115,7 @@
       "urgency": "future",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:48:53.114Z"
+      "updatedAt": "2026-08-16T11:52:10.848Z"
     }
   ],
   "intakeLog": [
