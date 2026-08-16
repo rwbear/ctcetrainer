@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:20:56.759Z",
+  "updatedAt": "2026-08-16T11:20:57.708Z",
   "folders": [
     {
       "id": "design",
@@ -79,10 +79,10 @@
       "title": "Real sell / premium path",
       "notes": "Premium today = code hash, not checkout. Points buy themes/variants. Cannot cleanly sell to a school cohort without payment or school license + account flow.",
       "status": "understood",
-      "urgency": "needed",
+      "urgency": null,
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:20:56.759Z"
+      "updatedAt": "2026-08-16T11:20:57.708Z"
     },
     {
       "id": "C-003",
@@ -101,10 +101,10 @@
       "title": "RU/EN language decision",
       "notes": "SEO/meta Russian; in-app UI mostly English. Decide student UI vs parent-facing copy.",
       "status": "understood",
-      "urgency": "future",
+      "urgency": null,
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:20:55.641Z"
+      "updatedAt": "2026-08-16T11:20:57.708Z"
     },
     {
       "id": "C-005",
