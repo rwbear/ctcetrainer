@@ -176,12 +176,12 @@
     row.querySelectorAll(".chip").forEach((chip) => {
       chip.classList.remove("is-on", "is-ignite");
     });
-    await wait(380);
+    await wait(720);
     row.classList.remove("is-scanning");
     const target = row.querySelector('.chip[data-u="' + (urgency || "none") + '"]');
     if (target) {
       target.classList.add("is-ignite");
-      await wait(280);
+      await wait(420);
       target.classList.remove("is-ignite");
       target.classList.add("is-on");
     } else {
