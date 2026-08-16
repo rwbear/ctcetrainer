@@ -286,6 +286,15 @@
     }
   }
 
+  function syncTopChrome() {
+    // Safari status bar (top) follows theme-color / page background = folder field.
+    // Safari bottom toolbar samples the fixed chin (#C9C8C3) sitting under it.
+    const bg = getComputedStyle(document.body).backgroundColor;
+    const theme = document.getElementById("themeColor")
+      || document.querySelector('meta[name="theme-color"]');
+    if (theme && bg) theme.setAttribute("content", bg);
+  }
+
   function goTo(index, userInitiated) {
     const next = Math.max(0, Math.min(FOLDERS.length - 1, index));
     const changed = next !== state.index;
@@ -297,6 +306,7 @@
     markActivePanel();
     syncDockIndicator();
     els.body.dataset.folder = FOLDERS[state.index].id;
+    syncTopChrome();
     try {
       history.replaceState(null, "", "#" + FOLDERS[state.index].id);
     } catch (e) {}
@@ -564,17 +574,7 @@
     state.board = await res.json();
   }
 
-  function pinSafariChrome() {
-    const c = "#C9C8C3";
-    document.documentElement.style.backgroundColor = c;
-    document.body.style.backgroundColor = c;
-    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
-      m.setAttribute("content", c);
-    });
-  }
-
   async function boot() {
-    pinSafariChrome();
     document.addEventListener("dblclick", (e) => e.preventDefault());
 
     try {
