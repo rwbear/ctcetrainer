@@ -18,6 +18,7 @@
 
   const STORAGE_TOKEN = "wd_planning_token";
   const STORAGE_REF = "wd_planning_ref";
+  const STORAGE_BOARD = "wd_planning_board_v1";
   const REPO = { owner: "rwbear", repo: "ctcetrainer" };
   const BOARD_PATH = "planning/board.json";
 
@@ -76,11 +77,12 @@
   }
 
   function githubHeaders(token) {
-    return {
+    const headers = {
       Accept: "application/vnd.github+json",
-      Authorization: "Bearer " + token,
       "X-GitHub-Api-Version": "2022-11-28"
     };
+    if (token) headers.Authorization = "Bearer " + token;
+    return headers;
   }
 
   function decodeBase64Utf8(b64) {
@@ -94,6 +96,67 @@
     let bin = "";
     bytes.forEach((b) => { bin += String.fromCharCode(b); });
     return btoa(bin);
+  }
+
+  function cacheBoardLocally(board) {
+    if (!board) return;
+    try {
+      localStorage.setItem(STORAGE_BOARD, JSON.stringify({
+        savedAt: Date.now(),
+        ref: getRef(),
+        board: board
+      }));
+    } catch (e) { /* quota / private mode */ }
+  }
+
+  function readLocalBoardCache() {
+    try {
+      const raw = localStorage.getItem(STORAGE_BOARD);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (!parsed || !parsed.board) return null;
+      if (parsed.ref && parsed.ref !== getRef()) return null;
+      return parsed.board;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function itemTime(item) {
+    const t = Date.parse((item && item.updatedAt) || "") || 0;
+    return t;
+  }
+
+  /** Prefer per-item fields that were updated more recently (local mid-save vs remote CDN). */
+  function mergeBoards(remote, local) {
+    if (!remote) return local ? JSON.parse(JSON.stringify(local)) : null;
+    if (!local) return JSON.parse(JSON.stringify(remote));
+    const next = JSON.parse(JSON.stringify(remote));
+    const localItems = local.items || [];
+    (next.items || []).forEach((item) => {
+      const mine = localItems.find((i) => i.id === item.id);
+      if (!mine) return;
+      if (itemTime(mine) >= itemTime(item)) {
+        item.urgency = mine.urgency == null ? null : mine.urgency;
+        item.updatedAt = mine.updatedAt || item.updatedAt;
+      }
+    });
+    const remoteTs = Date.parse(remote.updatedAt || "") || 0;
+    const localTs = Date.parse(local.updatedAt || "") || 0;
+    if (localTs > remoteTs) next.updatedAt = local.updatedAt;
+    return next;
+  }
+
+  function urgencyDiffPatches(fromBoard, toBoard) {
+    const patches = Object.create(null);
+    const fromItems = (fromBoard && fromBoard.items) || [];
+    ((toBoard && toBoard.items) || []).forEach((item) => {
+      const prev = fromItems.find((i) => i.id === item.id);
+      const a = prev ? (prev.urgency == null ? null : prev.urgency) : null;
+      const b = item.urgency == null ? null : item.urgency;
+      if (a !== b) patches[item.id] = b;
+    });
+    return patches;
   }
 
   function glyph(id) {
@@ -176,12 +239,12 @@
     row.querySelectorAll(".chip").forEach((chip) => {
       chip.classList.remove("is-on", "is-ignite");
     });
-    await wait(720);
+    await wait(1680);
     row.classList.remove("is-scanning");
     const target = row.querySelector('.chip[data-u="' + (urgency || "none") + '"]');
     if (target) {
       target.classList.add("is-ignite");
-      await wait(420);
+      await wait(780);
       target.classList.remove("is-ignite");
       target.classList.add("is-on");
     } else {
@@ -437,7 +500,7 @@
     };
   }
 
-  async function putBoard(token, json, sha, message) {
+  async function putBoard(token, json, sha, message, opts) {
     const ref = getRef();
     const res = await fetch(
       `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/${BOARD_PATH}`,
@@ -449,7 +512,8 @@
           content: encodeBase64Utf8(JSON.stringify(json, null, 2) + "\n"),
           sha,
           branch: ref
-        })
+        }),
+        keepalive: !!(opts && opts.keepalive)
       }
     );
     const body = await res.json().catch(() => ({}));
@@ -511,6 +575,7 @@
         state.boardSha = saved.sha;
         // A successful PUT can wipe optimistic values still waiting in the queue
         reapplyQueuedOptimism(state.board);
+        cacheBoardLocally(state.board);
         return saved.json;
       } catch (err) {
         lastErr = err;
@@ -610,6 +675,7 @@
     item.urgency = next;
     item.updatedAt = new Date().toISOString();
     state.board.updatedAt = item.updatedAt;
+    cacheBoardLocally(state.board);
     state.pending.add(id);
 
     const row = noteRow(id);
@@ -664,10 +730,9 @@
   }
 
   async function warmBoardSha(token) {
-    if (!token || state.boardSha) return;
+    if (state.boardSha) return;
     try {
       const remote = await fetchRemoteBoard(token);
-      // Only adopt SHA if board body still matches what we show (avoid racing a mid-save)
       if (!state.boardSha && remote && remote.json && state.board
           && remote.json.updatedAt === state.board.updatedAt) {
         state.boardSha = remote.sha;
@@ -677,38 +742,110 @@
     }
   }
 
-  async function loadBoard() {
+  async function fetchBoardFromCdnFallbacks() {
     const ref = getRef();
     const bust = String(Date.now());
-    const token = getToken().trim();
     const candidates = [
-      // Raw GitHub is fresher than Pages CDN right after a chip save
       `https://raw.githubusercontent.com/${REPO.owner}/${REPO.repo}/${encodeURIComponent(ref)}/${BOARD_PATH}?t=${bust}`,
       `./board.json?t=${bust}`
     ];
-
     let lastErr = null;
     for (let i = 0; i < candidates.length; i++) {
       try {
         const res = await fetch(candidates[i], { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);
-        state.board = await res.json();
-        state.boardSha = null;
-        if (token) void warmBoardSha(token);
-        return;
+        return { json: await res.json(), sha: null };
+      } catch (err) {
+        lastErr = err;
+      }
+    }
+    throw lastErr || new Error("Failed to load board.json");
+  }
+
+  async function syncAheadOfRemote(token, remoteBoard, mergedBoard) {
+    if (!token) return;
+    const patches = urgencyDiffPatches(remoteBoard, mergedBoard);
+    const ids = Object.keys(patches);
+    if (!ids.length) return;
+    ids.forEach((id) => { state.queued[id] = patches[id]; });
+    try {
+      await flushUrgencyQueue(token);
+      toast("Synced local changes", 1600);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async function loadBoard() {
+    const token = getToken().trim();
+    let remote = null;
+    let sha = null;
+    let lastErr = null;
+
+    // Contents API is authoritative (no Fastly/Pages lag). Public repos allow unauthenticated GET.
+    try {
+      const fetched = await fetchRemoteBoard(token || "");
+      remote = fetched.json;
+      sha = fetched.sha;
+    } catch (err) {
+      lastErr = err;
+      if (err && err.code === "bad-token" && token) {
+        // Token broken for write, but try public read once more without it
+        try {
+          const fetched = await fetchRemoteBoard("");
+          remote = fetched.json;
+          sha = fetched.sha;
+          lastErr = null;
+        } catch (err2) {
+          lastErr = err2;
+        }
+      }
+    }
+
+    if (!remote) {
+      try {
+        const fallback = await fetchBoardFromCdnFallbacks();
+        remote = fallback.json;
+        sha = null;
       } catch (err) {
         lastErr = err;
       }
     }
 
-    if (token) {
-      const remote = await fetchRemoteBoard(token);
-      state.board = remote.json;
-      state.boardSha = remote.sha;
-      return;
+    if (!remote) {
+      const localOnly = readLocalBoardCache();
+      if (localOnly) {
+        state.board = localOnly;
+        state.boardSha = null;
+        return;
+      }
+      throw lastErr || new Error("Failed to load board.json");
     }
 
-    throw lastErr || new Error("Failed to load board.json");
+    const local = readLocalBoardCache();
+    const merged = mergeBoards(remote, local);
+    state.board = merged;
+    state.boardSha = sha;
+    cacheBoardLocally(state.board);
+
+    const patches = urgencyDiffPatches(remote, merged);
+    if (token && Object.keys(patches).length) {
+      // Local was ahead of GitHub (F5 mid-save) — push the missing urgencies
+      void syncAheadOfRemote(token, remote, merged);
+    } else if (token && !sha) {
+      void warmBoardSha(token);
+    }
+  }
+
+  function bindUnloadGuard() {
+    window.addEventListener("beforeunload", (e) => {
+      const busy = state.pending.size
+        || Object.keys(state.queued).length
+        || !!state.flushPromise;
+      if (!busy) return;
+      e.preventDefault();
+      e.returnValue = "";
+    });
   }
 
   async function boot() {
@@ -751,6 +888,7 @@
     goTo(state.index, false);
     bindSwipe();
     bindSetup();
+    bindUnloadGuard();
     window.addEventListener("resize", () => snapCarousel(false));
     window.addEventListener("hashchange", () => {
       const name = (location.hash || "").replace(/^#/, "");
