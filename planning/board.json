@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:12:57.493Z",
+  "updatedAt": "2026-08-16T11:15:20.055Z",
   "folders": [
     {
       "id": "design",
@@ -68,10 +68,10 @@
       "title": "Fill CT/CE Learn bank (or safe fallback)",
       "notes": "Default Learn level is ctce. learn-data/ctce-tasks.js = 109 subtopics, 0 tasks. Free users hit Coming soon. B1/B2/C1 have content but are premium-locked. #1 school-year blocker.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "future",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-10T12:00:00.000Z"
+      "updatedAt": "2026-08-16T11:15:20.055Z"
     },
     {
       "id": "C-002",
