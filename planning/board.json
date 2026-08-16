@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:18:03.000Z",
+  "updatedAt": "2026-08-16T11:18:04.000Z",
   "folders": [
     {
       "id": "design",
@@ -79,10 +79,10 @@
       "title": "Real sell / premium path",
       "notes": "Premium today = code hash, not checkout. Points buy themes/variants. Cannot cleanly sell to a school cohort without payment or school license + account flow.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "immediate",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:17:22.000Z"
+      "updatedAt": "2026-08-16T11:18:04.000Z"
     },
     {
       "id": "C-003",
