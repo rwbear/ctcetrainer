@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T16:26:14.714Z",
+  "updatedAt": "2026-08-16T16:26:27.208Z",
   "folders": [
     {
       "id": "design",
@@ -57,10 +57,10 @@
       "title": "Formal Cursor Environment (optional)",
       "notes": "No linked Cursor Environment / environment.json. Static site still works; Builds are polish, not a gate.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "future",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T16:26:04.347Z"
+      "updatedAt": "2026-08-16T16:26:27.208Z"
     },
     {
       "id": "C-001",
