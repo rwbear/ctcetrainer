@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:45:11.953Z",
+  "updatedAt": "2026-08-16T11:45:13.210Z",
   "folders": [
     {
       "id": "design",
@@ -46,10 +46,10 @@
       "title": "Restore / document content build tooling",
       "notes": "Comments reference scripts/build-v12-skeleton.mjs; scripts folder is missing from the repo.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "future",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:45:04.559Z"
+      "updatedAt": "2026-08-16T11:45:13.210Z"
     },
     {
       "id": "S-003",
