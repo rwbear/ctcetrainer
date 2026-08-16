@@ -45,6 +45,7 @@
     pending: new Set(),
     reduceMotion: matchMedia("(prefers-reduced-motion: reduce)").matches,
     writeChain: Promise.resolve(),
+    flushPromise: null,
     queued: Object.create(null)
   };
 
@@ -175,12 +176,12 @@
     row.querySelectorAll(".chip").forEach((chip) => {
       chip.classList.remove("is-on", "is-ignite");
     });
-    await wait(720);
+    await wait(380);
     row.classList.remove("is-scanning");
     const target = row.querySelector('.chip[data-u="' + (urgency || "none") + '"]');
     if (target) {
       target.classList.add("is-ignite");
-      await wait(420);
+      await wait(280);
       target.classList.remove("is-ignite");
       target.classList.add("is-on");
     } else {
@@ -479,6 +480,13 @@
     return { next, ids, now };
   }
 
+  function reapplyQueuedOptimism(board) {
+    Object.keys(state.queued).forEach((id) => {
+      const item = (board.items || []).find((i) => i.id === id);
+      if (item) item.urgency = state.queued[id];
+    });
+  }
+
   async function commitPatches(token, patches) {
     const ids = Object.keys(patches);
     if (!ids.length) return state.board;
@@ -501,6 +509,8 @@
         const saved = await putBoard(token, next, sha, label);
         state.board = saved.json;
         state.boardSha = saved.sha;
+        // A successful PUT can wipe optimistic values still waiting in the queue
+        reapplyQueuedOptimism(state.board);
         return saved.json;
       } catch (err) {
         lastErr = err;
@@ -518,6 +528,42 @@
     return run;
   }
 
+  function takeQueuedPatches() {
+    const patches = Object.create(null);
+    Object.keys(state.queued).forEach((id) => {
+      patches[id] = state.queued[id];
+      delete state.queued[id];
+    });
+    return patches;
+  }
+
+  /**
+   * One shared flush: every tap awaits the same in-flight drain.
+   * Batches all pending note urgencies into as few PUTs as possible.
+   */
+  function flushUrgencyQueue(token) {
+    if (state.flushPromise) return state.flushPromise;
+
+    state.flushPromise = enqueueWrite(async () => {
+      try {
+        for (;;) {
+          const patches = takeQueuedPatches();
+          if (!Object.keys(patches).length) {
+            // Let any same-turn taps land before we declare the drain done
+            await Promise.resolve();
+            if (!Object.keys(state.queued).length) return;
+            continue;
+          }
+          await commitPatches(token, patches);
+        }
+      } finally {
+        state.flushPromise = null;
+      }
+    });
+
+    return state.flushPromise;
+  }
+
   function openSetup() {
     els.tokenInput.value = getToken();
     els.refInput.value = getRef();
@@ -530,9 +576,18 @@
     return note && note.querySelector(".urgency-row");
   }
 
-  function noteRow(id) {
-    const note = els.carousel.querySelector('.note[data-id="' + id + '"]');
-    return note && note.querySelector(".urgency-row");
+  async function persistUrgency(token, id, value) {
+    // Drain until this note is no longer waiting, then confirm the board matches
+    // (guards against a rare race where a flush ends just as another tap queues).
+    for (let guard = 0; guard < 6; guard++) {
+      await flushUrgencyQueue(token);
+      if (state.queued[id] !== undefined) continue;
+      const local = (state.board.items || []).find((i) => i.id === id);
+      if (local && local.urgency === value) return;
+      // Lost the race — put it back and drain again
+      state.queued[id] = value;
+    }
+    throw new Error("Save did not stick — tap once more");
   }
 
   async function setUrgency(id, urgencyId) {
@@ -541,7 +596,7 @@
 
     const next = urgencyValue(urgencyId);
     const prev = item.urgency == null ? null : item.urgency;
-    if (prev === next) return;
+    if (prev === next && state.queued[id] === undefined) return;
 
     const token = getToken().trim();
     if (!token) {
@@ -550,7 +605,7 @@
       return;
     }
 
-    // Latest requested value for this note (in case of rapid re-taps while queued)
+    // Latest requested value for this note (rapid re-taps + multi-note batching)
     state.queued[id] = next;
     item.urgency = next;
     item.updatedAt = new Date().toISOString();
@@ -562,20 +617,10 @@
     const lamp = playLamp(row, next);
 
     try {
-      await enqueueWrite(async () => {
-        const value = state.queued[id];
-        if (value === undefined) return;
-        delete state.queued[id];
-        await commitPatches(token, { [id]: value });
-        // Keep local board in sync with what we wrote
-        const local = (state.board.items || []).find((i) => i.id === id);
-        if (local) local.urgency = value;
-      });
-      await lamp;
-      toast("Saved", 1200);
+      await persistUrgency(token, id, next);
+      toast("Saved", 900);
     } catch (err) {
       console.error(err);
-      await lamp;
       // Only revert if nothing newer is queued for this note
       if (state.queued[id] === undefined) {
         item.urgency = prev;
@@ -586,13 +631,14 @@
         openSetup();
         toast("Token rejected — paste a new one in SET.", 5200);
       } else if (err && err.code === "conflict") {
-        toast("Busy — tap once more.", 3000);
+        toast("Busy — tap once more.", 2800);
       } else {
         toast(err.message || "Save failed", 4200);
       }
     } finally {
       state.pending.delete(id);
       if (row) row.classList.remove("is-locked");
+      void lamp;
     }
   }
 
@@ -617,9 +663,24 @@
     });
   }
 
+  async function warmBoardSha(token) {
+    if (!token || state.boardSha) return;
+    try {
+      const remote = await fetchRemoteBoard(token);
+      // Only adopt SHA if board body still matches what we show (avoid racing a mid-save)
+      if (!state.boardSha && remote && remote.json && state.board
+          && remote.json.updatedAt === state.board.updatedAt) {
+        state.boardSha = remote.sha;
+      }
+    } catch (e) {
+      /* first save will fetch SHA itself */
+    }
+  }
+
   async function loadBoard() {
     const ref = getRef();
     const bust = String(Date.now());
+    const token = getToken().trim();
     const candidates = [
       // Raw GitHub is fresher than Pages CDN right after a chip save
       `https://raw.githubusercontent.com/${REPO.owner}/${REPO.repo}/${encodeURIComponent(ref)}/${BOARD_PATH}?t=${bust}`,
@@ -633,13 +694,13 @@
         if (!res.ok) throw new Error("HTTP " + res.status);
         state.board = await res.json();
         state.boardSha = null;
+        if (token) void warmBoardSha(token);
         return;
       } catch (err) {
         lastErr = err;
       }
     }
 
-    const token = getToken().trim();
     if (token) {
       const remote = await fetchRemoteBoard(token);
       state.board = remote.json;
