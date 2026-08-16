@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:48:45.452Z",
+  "updatedAt": "2026-08-16T11:48:47.130Z",
   "folders": [
     {
       "id": "design",
@@ -90,10 +90,10 @@
       "title": "Decide / communicate 2025 Analogue gap",
       "notes": "Official variants 51–60 exist; Analogue tops out at 50. Fine if marketed clearly; incomplete if selling full 2025 coverage.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "future",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:21:48.974Z"
+      "updatedAt": "2026-08-16T11:48:47.130Z"
     },
     {
       "id": "C-004",
