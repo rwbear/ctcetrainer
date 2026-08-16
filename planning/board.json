@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T16:26:04.347Z",
+  "updatedAt": "2026-08-16T16:26:07.644Z",
   "folders": [
     {
       "id": "design",
@@ -35,10 +35,10 @@
       "title": "Split the monolith safely",
       "notes": "Almost all logic lives in one ~18k-line index.html. High regression risk. Not a day-one ship blocker, but blocks fast safe iteration.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "future",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T16:25:57.922Z"
+      "updatedAt": "2026-08-16T16:26:07.644Z"
     },
     {
       "id": "S-002",
