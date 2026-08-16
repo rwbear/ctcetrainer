@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-16T11:48:51.083Z",
+  "updatedAt": "2026-08-16T11:48:53.114Z",
   "folders": [
     {
       "id": "design",
@@ -112,10 +112,10 @@
       "title": "Landing conversion pass",
       "notes": "Brand exists; little proof above the fold (counts, phone-ready, what free unlocks). System fonts only.",
       "status": "understood",
-      "urgency": null,
+      "urgency": "future",
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-16T11:21:48.974Z"
+      "updatedAt": "2026-08-16T11:48:53.114Z"
     }
   ],
   "intakeLog": [
