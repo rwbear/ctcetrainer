@@ -373,7 +373,7 @@
   function syncDockIndicator() {
     const now = document.getElementById("dockNow");
     if (now) now.textContent = FOLDERS[state.index].hero;
-    [...els.dock.querySelectorAll(".dock-key")].forEach((btn, i) => {
+    [...els.dock.querySelectorAll(".dock-key:not(.dock-new)")].forEach((btn, i) => {
       btn.classList.toggle("is-active", i === state.index);
     });
   }
@@ -435,7 +435,7 @@
     }).join("");
 
     return `
-      <li class="note" data-id="${item.id}" style="animation-delay:${Math.min(staggerIndex, 8) * 45}ms">
+      <li class="note${item.processStatus === "pending" || item.processStatus === "processing" ? " is-queued" : item.processStatus === "error" ? " is-error" : ""}" data-id="${item.id}" style="animation-delay:${Math.min(staggerIndex, 8) * 45}ms">
         <div class="note-top">
           <span class="note-id">${escapeHtml(item.id)}</span>
           <span class="note-status">${escapeHtml(item.status || "inbox")}${item.processStatus === "pending" || item.processStatus === "processing" ? " · queued" : item.processStatus === "error" ? " · error" : ""}</span>
@@ -1312,6 +1312,54 @@
     });
   }
 
+  function hasActiveDrafts() {
+    return (state.board.items || []).some((i) => i.processStatus === "pending" || i.processStatus === "processing");
+  }
+
+  async function refreshBoardQuiet() {
+    if (state.mode === "note") {
+      const ae = document.activeElement;
+      if (ae === els.sheetTitle || ae === els.sheetNotes) return;
+    }
+    try {
+      const fetched = await fetchRemoteBoard(getToken().trim() || "");
+      const prev = Object.create(null);
+      (state.board.items || []).forEach((i) => {
+        prev[i.id] = i.processStatus || "ready";
+      });
+      const merged = mergeBoards(fetched.json, state.board);
+      reapplyLocalOverlays(merged);
+      state.board = merged;
+      if (!Object.keys(state.queued).length && !Object.keys(state.draftDirty).length) {
+        state.boardSha = fetched.sha;
+      }
+      cacheBoardLocally(state.board);
+      const becameReady = (merged.items || []).filter((i) => {
+        const was = prev[i.id];
+        if (!was || was === "ready") return false;
+        return !i.processStatus || i.processStatus === "ready";
+      });
+      if (becameReady.length) {
+        toast(becameReady.length === 1 ? "Polished " + becameReady[0].id : "Notes polished", 1800);
+      }
+      if (state.mode === "note") renderSheet();
+      else {
+        renderCarousel();
+        snapCarousel(false);
+      }
+    } catch (e) { /* stay on local board */ }
+  }
+
+  function bindPendingRefresh() {
+    setInterval(() => {
+      if (!hasActiveDrafts()) return;
+      void refreshBoardQuiet();
+    }, 40000);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible" && hasActiveDrafts()) void refreshBoardQuiet();
+    });
+  }
+
   async function boot() {
     document.addEventListener("dblclick", (e) => {
       if (e.target && (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT")) return;
@@ -1359,6 +1407,7 @@
     bindSetup();
     bindSheet();
     bindUnloadGuard();
+    bindPendingRefresh();
     if (state.mode === "note" && state.openNoteId) openNote(state.openNoteId, true);
     window.addEventListener("resize", () => {
       snapCarousel(false);

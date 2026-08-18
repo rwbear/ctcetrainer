@@ -291,6 +291,13 @@ body.is-note .browse {
   color: var(--mute);
 }
 
+.note.is-queued .note-status {
+  color: color-mix(in srgb, var(--sky) 75%, var(--ink));
+}
+.note.is-error .note-status {
+  color: color-mix(in srgb, var(--play) 70%, var(--ink));
+}
+
 .note-title {
   margin: 0;
   font-size: 1.02rem;
@@ -541,10 +548,16 @@ body.is-note-instant .sheet {
 .sheet-process[data-state="pending"],
 .sheet-process[data-state="processing"] {
   color: color-mix(in srgb, var(--sky) 80%, var(--ink));
+  animation: process-pulse 1.8s var(--ease-soft) infinite;
 }
 
 .sheet-process[data-state="error"] {
   color: color-mix(in srgb, var(--play) 70%, var(--ink));
+}
+
+@keyframes process-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
 }
 
 .sheet-title {
@@ -703,9 +716,20 @@ body.is-note-instant .sheet {
   stroke: none;
 }
 
-.dock-new svg {
-  width: 15px;
-  height: 15px;
+.dock-new {
+  background: #1c1a18;
+  color: #ffffffd0;
+  box-shadow:
+    inset 0 1px #ffffff14,
+    0 3px #080706,
+    0 3px 8px #00000047;
+}
+.dock-new:active,
+.dock-new.is-pressed {
+  background: #121110;
+  box-shadow:
+    inset 0 2px 4px #00000073,
+    0 1px #080706;
 }
 
 @media (max-width: 380px) {
@@ -826,6 +850,9 @@ body.is-note-instant .sheet {
     transition: none !important;
     filter: none !important;
     transform: none !important;
+  }
+  .sheet-process {
+    animation: none !important;
   }
   .urgency-row.is-scanning .chip,
   .chip.is-ignite {
