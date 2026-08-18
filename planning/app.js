@@ -983,6 +983,11 @@
     const token = getToken().trim();
     if (!Object.keys(state.draftDirty).length) return;
     if (!token) {
+      const hasText = Object.keys(state.draftDirty).some((id) => {
+        const d = state.draftDirty[id];
+        return (d.title || "").trim() || (d.notes || "").trim();
+      });
+      if (!hasText) return;
       toast("Set a GitHub token first — tap SET.", 4200);
       openSetup();
       return;
@@ -1022,7 +1027,7 @@
       status: "inbox",
       urgency: null,
       evidence: [],
-      processStatus: "pending",
+      processStatus: null,
       createdAt: now,
       updatedAt: now
     };
@@ -1032,7 +1037,6 @@
     state.createdLocally.add(id);
     cacheBoardLocally(state.board);
     openNote(id);
-    markDraft(id);
     requestAnimationFrame(() => {
       fitTitle();
       if (els.sheetTitle) els.sheetTitle.focus();
