@@ -24,9 +24,18 @@
 
   const els = {
     body: document.body,
+    browse: document.getElementById("browse"),
     carousel: document.getElementById("carousel"),
     stage: document.getElementById("stage"),
     dock: document.getElementById("dock"),
+    sheet: document.getElementById("sheet"),
+    sheetBack: document.getElementById("sheetBack"),
+    sheetId: document.getElementById("sheetId"),
+    sheetStatus: document.getElementById("sheetStatus"),
+    sheetProcess: document.getElementById("sheetProcess"),
+    sheetTitle: document.getElementById("sheetTitle"),
+    sheetNotes: document.getElementById("sheetNotes"),
+    sheetUrgency: document.getElementById("sheetUrgency"),
     toast: document.getElementById("toast"),
     setupBtn: document.getElementById("setupBtn"),
     setupDialog: document.getElementById("setupDialog"),
@@ -42,6 +51,7 @@
     index: 0,
     dragX: 0,
     dragging: false,
+    mode: "browse",
     openNoteId: null,
     pending: new Set(),
     reduceMotion: matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -159,6 +169,118 @@
     return patches;
   }
 
+  function findItem(id) {
+    return (state.board.items || []).find((i) => i.id === id);
+  }
+
+  function processLabel(item) {
+    const s = item && item.processStatus;
+    if (s === "pending") return "Queued for polish";
+    if (s === "processing") return "Polishing…";
+    if (s === "error") return "Polish failed — will retry";
+    return "";
+  }
+
+  function fitTitle() {
+    const el = els.sheetTitle;
+    if (!el) return;
+    el.style.height = "0px";
+    el.style.height = Math.max(el.scrollHeight, 36) + "px";
+  }
+
+  function renderSheetUrgency(item) {
+    const u = item.urgency || "none";
+    els.sheetUrgency.innerHTML = '<span class="urgency-label">tag</span>' + URGENCY.map((opt) => {
+      const on = (opt.id === "none" ? u === "none" || !item.urgency : item.urgency === opt.id);
+      return `<button type="button" class="chip${on ? " is-on" : ""}" data-u="${opt.id}" data-id="${item.id}" title="${opt.title}" aria-label="${opt.title}"></button>`;
+    }).join("");
+    els.sheetUrgency.querySelectorAll(".chip").forEach((chip) => {
+      chip.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setUrgency(chip.getAttribute("data-id"), chip.getAttribute("data-u"));
+      });
+    });
+  }
+
+  function renderSheet() {
+    const item = findItem(state.openNoteId);
+    if (!item || !els.sheet) return;
+    const folder = FOLDERS.find((f) => f.id === item.folder) || FOLDERS[state.index];
+    els.sheetBack.textContent = "←  " + folder.hero;
+    els.sheetId.textContent = item.id;
+    els.sheetStatus.textContent = item.status || "inbox";
+    const proc = processLabel(item);
+    els.sheetProcess.hidden = !proc;
+    els.sheetProcess.textContent = proc;
+    if (proc) els.sheetProcess.setAttribute("data-state", item.processStatus);
+    else els.sheetProcess.removeAttribute("data-state");
+    els.sheetTitle.value = item.title || "";
+    els.sheetNotes.value = item.notes || "";
+    renderSheetUrgency(item);
+    els.sheet.setAttribute("aria-hidden", "false");
+    fitTitle();
+  }
+
+  function openNote(id, instant) {
+    const item = findItem(id);
+    if (!item) return;
+    const fi = FOLDERS.findIndex((f) => f.id === item.folder);
+    if (fi >= 0 && fi !== state.index) goTo(fi, false, { keepNote: true });
+    state.openNoteId = id;
+    state.mode = "note";
+    if (els.browse) els.browse.hidden = false;
+    renderSheet();
+    if (instant) els.body.classList.add("is-note-instant");
+    els.body.classList.add("is-note");
+    clearTimeout(openNote._hideBrowse);
+    const hideMs = instant || state.reduceMotion ? 0 : 540;
+    openNote._hideBrowse = setTimeout(() => {
+      if (state.mode === "note" && els.browse) els.browse.hidden = true;
+    }, hideMs);
+    if (instant) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => els.body.classList.remove("is-note-instant"));
+      });
+    }
+    try {
+      history.replaceState(null, "", "#" + id);
+    } catch (e) {}
+  }
+
+  function closeNote() {
+    if (state.mode !== "note") return;
+    if (els.sheetTitle) els.sheetTitle.blur();
+    if (els.sheetNotes) els.sheetNotes.blur();
+    clearTimeout(openNote._hideBrowse);
+    if (els.browse) els.browse.hidden = false;
+    state.mode = "browse";
+    state.openNoteId = null;
+    els.body.classList.remove("is-note", "is-note-instant");
+    if (els.sheet) els.sheet.setAttribute("aria-hidden", "true");
+    try {
+      history.replaceState(null, "", "#" + FOLDERS[state.index].id);
+    } catch (e) {}
+    renderCarousel();
+    snapCarousel(false);
+  }
+
+  function bindSheet() {
+    els.sheetBack.addEventListener("click", () => closeNote());
+    els.sheetTitle.addEventListener("input", () => {
+      const item = findItem(state.openNoteId);
+      if (!item) return;
+      item.title = els.sheetTitle.value;
+      item.updatedAt = new Date().toISOString();
+      fitTitle();
+    });
+    els.sheetNotes.addEventListener("input", () => {
+      const item = findItem(state.openNoteId);
+      if (!item) return;
+      item.notes = els.sheetNotes.value;
+      item.updatedAt = new Date().toISOString();
+    });
+  }
+
   function glyph(id) {
     const paths = {
       design: '<path d="M3.8 5h12.4v9.2H3.8zm3.4 9.2v2.2h5.6v-2.2z"/>',
@@ -254,23 +376,19 @@
 
   function noteCard(item, staggerIndex) {
     const u = item.urgency || "none";
-    const open = state.openNoteId === item.id;
     const chips = URGENCY.map((opt) => {
       const on = (opt.id === "none" ? u === "none" || !item.urgency : item.urgency === opt.id);
       return `<button type="button" class="chip${on ? " is-on" : ""}" data-u="${opt.id}" data-id="${item.id}" title="${opt.title}" aria-label="${opt.title}"></button>`;
     }).join("");
 
     return `
-      <li class="note${open ? " is-open" : ""}" data-id="${item.id}" style="animation-delay:${Math.min(staggerIndex, 8) * 45}ms">
+      <li class="note" data-id="${item.id}" style="animation-delay:${Math.min(staggerIndex, 8) * 45}ms">
         <div class="note-top">
           <span class="note-id">${escapeHtml(item.id)}</span>
           <span class="note-status">${escapeHtml(item.status || "inbox")}</span>
         </div>
-        <h3 class="note-title" data-toggle="${item.id}">${escapeHtml(item.title)}</h3>
-        <p class="note-preview">${escapeHtml(item.notes || "")}</p>
-        <div class="note-body"><div class="note-body-inner">
-          <p class="note-notes">${escapeHtml(item.notes || "")}</p>
-        </div></div>
+        <h3 class="note-title" data-open="${item.id}">${escapeHtml(item.title)}</h3>
+        <p class="note-preview" data-open="${item.id}">${escapeHtml(item.notes || "")}</p>
         <div class="urgency-row">
           <span class="urgency-label">tag</span>
           ${chips}
@@ -291,14 +409,10 @@
         </section>`;
     }).join("");
 
-    els.carousel.querySelectorAll(".note-title").forEach((el) => {
-      el.addEventListener("click", () => {
-        const id = el.getAttribute("data-toggle");
-        const note = el.closest(".note");
-        const opening = state.openNoteId !== id;
-        state.openNoteId = opening ? id : null;
-        els.carousel.querySelectorAll(".note.is-open").forEach((n) => n.classList.remove("is-open"));
-        if (opening && note) note.classList.add("is-open");
+    els.carousel.querySelectorAll("[data-open]").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openNote(el.getAttribute("data-open"));
       });
     });
 
@@ -363,7 +477,8 @@
     if (theme && bg) theme.setAttribute("content", bg);
   }
 
-  function goTo(index, userInitiated) {
+  function goTo(index, userInitiated, opts) {
+    if (state.mode === "note" && userInitiated && !(opts && opts.keepNote)) closeNote();
     const next = Math.max(0, Math.min(FOLDERS.length - 1, index));
     const changed = next !== state.index;
     state.index = next;
@@ -397,6 +512,7 @@
     let axis = null;
 
     const onDown = (x, y) => {
+      if (state.mode === "note") return;
       startX = x;
       startY = y;
       axis = null;
@@ -440,6 +556,7 @@
     };
 
     els.stage.addEventListener("touchstart", (e) => {
+      if (e.target.closest(".chip, [data-open]")) return;
       const t = e.touches[0];
       onDown(t.clientX, t.clientY);
     }, { passive: true });
@@ -454,6 +571,7 @@
 
     let mouse = false;
     els.stage.addEventListener("mousedown", (e) => {
+      if (e.target.closest(".chip, [data-open]")) return;
       mouse = true;
       onDown(e.clientX, e.clientY);
     });
@@ -468,7 +586,13 @@
     });
 
     window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && state.mode === "note") {
+        e.preventDefault();
+        closeNote();
+        return;
+      }
       if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+      if (state.mode === "note") return;
       if (e.key === "ArrowRight") goTo(state.index + 1, true);
       if (e.key === "ArrowLeft") goTo(state.index - 1, true);
     });
@@ -637,6 +761,7 @@
   }
 
   function noteRow(id) {
+    if (state.mode === "note" && state.openNoteId === id) return els.sheetUrgency;
     const note = els.carousel.querySelector('.note[data-id="' + id + '"]');
     return note && note.querySelector(".urgency-row");
   }
@@ -849,7 +974,10 @@
   }
 
   async function boot() {
-    document.addEventListener("dblclick", (e) => e.preventDefault());
+    document.addEventListener("dblclick", (e) => {
+      if (e.target && (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT")) return;
+      e.preventDefault();
+    });
 
     try {
       await loadBoard();
@@ -877,6 +1005,7 @@
           const fi2 = FOLDERS.findIndex((f) => f.id === item.folder);
           if (fi2 >= 0) {
             state.openNoteId = item.id;
+            state.mode = "note";
             state.index = fi2;
           }
         }
@@ -888,12 +1017,22 @@
     goTo(state.index, false);
     bindSwipe();
     bindSetup();
+    bindSheet();
     bindUnloadGuard();
-    window.addEventListener("resize", () => snapCarousel(false));
+    if (state.mode === "note" && state.openNoteId) openNote(state.openNoteId, true);
+    window.addEventListener("resize", () => {
+      snapCarousel(false);
+      if (state.mode === "note") fitTitle();
+    });
     window.addEventListener("hashchange", () => {
       const name = (location.hash || "").replace(/^#/, "");
       const fi = FOLDERS.findIndex((f) => f.id === name);
-      if (fi >= 0) goTo(fi, true);
+      if (fi >= 0) {
+        goTo(fi, true);
+        return;
+      }
+      const item = (state.board.items || []).find((i) => i.id === name);
+      if (item) openNote(item.id);
     });
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => snapCarousel(false));
