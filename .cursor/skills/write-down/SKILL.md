@@ -59,6 +59,10 @@ Misha locks every decision. At most one light “candidate next” line. Never s
 
 Site patches `urgency` by writing `planning/board.json` on branch `v12` (GitHub Contents API). Token lives in the visitor’s browser via **SET** — never commit a PAT; GitHub revokes tokens in public files. Valid values: `null` / `immediate` / `needed` / `future`. Do not invent other values. Prefer leaving urgency null unless asked.
 
+## D2b drafts (site add/edit)
+
+Site writes raw create/edit drafts to `planning/inbox.json` (and a stub/update on `board.json`). A GitHub Action (`planning-polish.yml`) runs only when that inbox file changes. If any entry is `pending`, it POSTs the Cursor Automation webhook (secrets on the repo). The automation runs this skill against the codebase, writes polished fields back, and must **never** change `urgency` or move notes to `done` without explicit confirmation.
+
 ## Out of scope for now
 
 Telegram bot — phase 2.

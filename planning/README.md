@@ -4,8 +4,9 @@ Public ops board for ctcetrainer.
 
 - **Data:** `board.json` (source of truth for notes + urgency)
 - **UI:** this folder on GitHub Pages → `/ctcetrainer/planning/`
-- **Intake:** Cursor only — type `write-down` (notes are investigated and placed)
-- **Urgency tags:** optional chips on the site (default = none). Chips commit straight to `board.json` on branch `v12`
+- **Intake:** type in the site (New / edit) or Cursor `write-down`
+- **Urgency tags:** chips commit live to `board.json` on `v12` (does **not** wake polish)
+- **Polish:** drafts go to `inbox.json` → GitHub Action → Cursor Automation (only when something is pending)
 
 ## One-time D2 sync setup (you)
 
@@ -17,6 +18,20 @@ Public ops board for ctcetrainer.
 6. On the planning site tap **SET**, paste, Save.
 
 The token stays in that browser only. GitHub deletes tokens that sit in public files — never put it in `write-key.js`.
+
+## One-time polish automation (you)
+
+Drafts should wake Cursor only when `inbox.json` changes — not on a timer.
+
+1. In Cursor: [cursor.com/automations](https://cursor.com/automations) → new automation.
+2. Trigger: **Webhook**. Repo: `ctcetrainer`. Branch: `v12`.
+3. Paste the prompt from `.cursor/automations/write-down-polish.md`.
+4. Save — copy the webhook URL and API key.
+5. GitHub repo → Settings → Secrets and variables → Actions → add:
+   - `CURSOR_AUTOMATION_WEBHOOK_URL`
+   - `CURSOR_AUTOMATION_API_KEY`
+
+Until those secrets exist, the Action still runs but **does not call Cursor** (no crash, no wasted agent).
 
 ## Branch
 

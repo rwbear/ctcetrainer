@@ -1,0 +1,57 @@
+name: Planning polish
+
+# Fires only when planning/inbox.json changes (draft add/edit).
+# If nothing is pending, exits without calling Cursor (no wasted runs).
+# Webhook secrets live on the repo — never in the browser.
+
+on:
+  push:
+    paths:
+      - planning/inbox.json
+  workflow_dispatch:
+
+concurrency:
+  group: planning-polish
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect pending drafts
+        id: pending
+        env:
+          BOARD_REF: v12
+        run: |
+          mkdir -p /tmp/planning
+          node planning/scripts/pending-inbox.js planning/inbox.json --json > /tmp/planning/payload.json
+          COUNT=$(node -p "JSON.parse(require('fs').readFileSync('/tmp/planning/payload.json','utf8')).pending.length")
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Pending drafts: $COUNT"
+
+      - name: Skip empty inbox
+        if: steps.pending.outputs.count == '0'
+        run: echo "No pending drafts — not calling Cursor."
+
+      - name: Trigger Cursor Automation
+        if: steps.pending.outputs.count != '0'
+        env:
+          WEBHOOK_URL: ${{ secrets.CURSOR_AUTOMATION_WEBHOOK_URL }}
+          WEBHOOK_KEY: ${{ secrets.CURSOR_AUTOMATION_API_KEY }}
+        run: |
+          if [ -z "$WEBHOOK_URL" ] || [ -z "$WEBHOOK_KEY" ]; then
+            echo "CURSOR_AUTOMATION_WEBHOOK_URL / CURSOR_AUTOMATION_API_KEY not set."
+            echo "Create the write-down polish automation, then add those repo secrets."
+            exit 0
+          fi
+          curl -fsS -X POST "$WEBHOOK_URL" \
+            -H "Authorization: Bearer $WEBHOOK_KEY" \
+            -H "Content-Type: application/json" \
+            --data-binary @/tmp/planning/payload.json
+          echo "Triggered Cursor polish for ${{ steps.pending.outputs.count }} note(s)."
