@@ -19,8 +19,17 @@
   const STORAGE_TOKEN = "wd_planning_token";
   const STORAGE_REF = "wd_planning_ref";
   const STORAGE_BOARD = "wd_planning_board_v1";
+  const STORAGE_INBOX = "wd_planning_inbox_v1";
   const REPO = { owner: "rwbear", repo: "ctcetrainer" };
   const BOARD_PATH = "planning/board.json";
+  const INBOX_PATH = "planning/inbox.json";
+  const FOLDER_PREFIX = {
+    design: "D",
+    structural: "S",
+    content: "C",
+    unsorted: "U",
+    done: "Z"
+  };
 
   const els = {
     body: document.body,
@@ -57,7 +66,12 @@
     reduceMotion: matchMedia("(prefers-reduced-motion: reduce)").matches,
     writeChain: Promise.resolve(),
     flushPromise: null,
-    queued: Object.create(null)
+    queued: Object.create(null),
+    inbox: null,
+    inboxSha: null,
+    draftDirty: Object.create(null),
+    createdLocally: new Set(),
+    draftTimer: null
   };
 
   function toast(msg, ms) {
@@ -148,7 +162,17 @@
       if (!mine) return;
       if (itemTime(mine) >= itemTime(item)) {
         item.urgency = mine.urgency == null ? null : mine.urgency;
+        item.title = mine.title;
+        item.notes = mine.notes;
+        item.processStatus = mine.processStatus;
+        item.status = mine.status || item.status;
+        item.folder = mine.folder || item.folder;
         item.updatedAt = mine.updatedAt || item.updatedAt;
+      }
+    });
+    (localItems).forEach((mine) => {
+      if (!(next.items || []).some((i) => i.id === mine.id)) {
+        next.items.push(JSON.parse(JSON.stringify(mine)));
       }
     });
     const remoteTs = Date.parse(remote.updatedAt || "") || 0;
@@ -253,6 +277,21 @@
     if (els.sheetNotes) els.sheetNotes.blur();
     clearTimeout(openNote._hideBrowse);
     if (els.browse) els.browse.hidden = false;
+    const closingId = state.openNoteId;
+    const closing = findItem(closingId);
+    const emptyNew = closing
+      && state.createdLocally.has(closingId)
+      && !(closing.title || "").trim()
+      && !(closing.notes || "").trim();
+    if (emptyNew) {
+      state.board.items = (state.board.items || []).filter((i) => i.id !== closingId);
+      delete state.draftDirty[closingId];
+      state.createdLocally.delete(closingId);
+      clearTimeout(state.draftTimer);
+      cacheBoardLocally(state.board);
+    } else {
+      void flushDrafts();
+    }
     state.mode = "browse";
     state.openNoteId = null;
     els.body.classList.remove("is-note", "is-note-instant");
@@ -272,12 +311,14 @@
       item.title = els.sheetTitle.value;
       item.updatedAt = new Date().toISOString();
       fitTitle();
+      markDraft(item.id);
     });
     els.sheetNotes.addEventListener("input", () => {
       const item = findItem(state.openNoteId);
       if (!item) return;
       item.notes = els.sheetNotes.value;
       item.updatedAt = new Date().toISOString();
+      markDraft(item.id);
     });
   }
 
@@ -290,6 +331,10 @@
       done: '<path d="M7.6 13.4 4.2 10l-1.5 1.5 4.9 4.9 9.4-9.4-1.5-1.5z"/>'
     };
     return `<span class="dock-glyph" aria-hidden="true"><svg viewBox="0 0 20 20">${paths[id] || ""}</svg></span>`;
+  }
+
+  function plusGlyph() {
+    return '<span class="dock-glyph" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M9 3.4h2v13.2H9z"/><path d="M3.4 9h13.2v2H3.4z"/></svg></span>';
   }
 
   function renderDock() {
@@ -314,6 +359,14 @@
       btn.addEventListener("click", () => goTo(i, true));
       keys.appendChild(btn);
     });
+    const add = document.createElement("button");
+    add.type = "button";
+    add.className = "dock-key dock-new";
+    add.setAttribute("aria-label", "New note");
+    add.innerHTML = plusGlyph();
+    bindPressable(add);
+    add.addEventListener("click", () => createNote());
+    keys.appendChild(add);
     els.dock.appendChild(keys);
   }
 
@@ -385,9 +438,9 @@
       <li class="note" data-id="${item.id}" style="animation-delay:${Math.min(staggerIndex, 8) * 45}ms">
         <div class="note-top">
           <span class="note-id">${escapeHtml(item.id)}</span>
-          <span class="note-status">${escapeHtml(item.status || "inbox")}</span>
+          <span class="note-status">${escapeHtml(item.status || "inbox")}${item.processStatus === "pending" || item.processStatus === "processing" ? " · queued" : item.processStatus === "error" ? " · error" : ""}</span>
         </div>
-        <h3 class="note-title" data-open="${item.id}">${escapeHtml(item.title)}</h3>
+        <h3 class="note-title" data-open="${item.id}">${escapeHtml(item.title && item.title.trim() ? item.title : "New note")}</h3>
         <p class="note-preview" data-open="${item.id}">${escapeHtml(item.notes || "")}</p>
         <div class="urgency-row">
           <span class="urgency-label">tag</span>
@@ -604,9 +657,9 @@
     return err;
   }
 
-  async function fetchRemoteBoard(token) {
+  async function fetchRemoteJson(token, path, emptyJson) {
     const ref = getRef();
-    const url = `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/${BOARD_PATH}?ref=${encodeURIComponent(ref)}`;
+    const url = `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/${path}?ref=${encodeURIComponent(ref)}`;
     const res = await fetch(url, {
       headers: githubHeaders(token),
       cache: "no-store"
@@ -615,8 +668,11 @@
     if (res.status === 401 || res.status === 403) {
       throw taggedError("bad-token", body.message || "Token rejected");
     }
+    if (res.status === 404 && emptyJson) {
+      return { sha: null, json: JSON.parse(JSON.stringify(emptyJson)) };
+    }
     if (!res.ok) {
-      throw new Error(body.message || `Could not read board.json (${res.status})`);
+      throw new Error(body.message || `Could not read ${path} (${res.status})`);
     }
     return {
       sha: body.sha,
@@ -624,19 +680,20 @@
     };
   }
 
-  async function putBoard(token, json, sha, message, opts) {
+  async function putRemoteJson(token, path, json, sha, message, opts) {
     const ref = getRef();
+    const payload = {
+      message,
+      content: encodeBase64Utf8(JSON.stringify(json, null, 2) + "\n"),
+      branch: ref
+    };
+    if (sha) payload.sha = sha;
     const res = await fetch(
-      `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/${BOARD_PATH}`,
+      `https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/${path}`,
       {
         method: "PUT",
         headers: Object.assign({ "Content-Type": "application/json" }, githubHeaders(token)),
-        body: JSON.stringify({
-          message,
-          content: encodeBase64Utf8(JSON.stringify(json, null, 2) + "\n"),
-          sha,
-          branch: ref
-        }),
+        body: JSON.stringify(payload),
         keepalive: !!(opts && opts.keepalive)
       }
     );
@@ -645,13 +702,25 @@
       throw taggedError("bad-token", body.message || "Token rejected");
     }
     if (res.status === 409 || res.status === 422) {
-      throw taggedError("conflict", body.message || "Board changed");
+      throw taggedError("conflict", body.message || "File changed");
     }
     if (!res.ok) {
       throw new Error(body.message || `Save failed (${res.status})`);
     }
     const newSha = body.content && body.content.sha;
     return { json, sha: newSha || null };
+  }
+
+  function emptyInbox() {
+    return { version: 1, updatedAt: new Date().toISOString(), entries: [] };
+  }
+
+  async function fetchRemoteBoard(token) {
+    return fetchRemoteJson(token, BOARD_PATH);
+  }
+
+  async function putBoard(token, json, sha, message, opts) {
+    return putRemoteJson(token, BOARD_PATH, json, sha, message, opts);
   }
 
   function applyPatchesToBoard(board, patches) {
@@ -672,6 +741,34 @@
     Object.keys(state.queued).forEach((id) => {
       const item = (board.items || []).find((i) => i.id === id);
       if (item) item.urgency = state.queued[id];
+    });
+  }
+
+  function reapplyLocalOverlays(board) {
+    reapplyQueuedOptimism(board);
+    Object.keys(state.draftDirty).forEach((id) => {
+      const d = state.draftDirty[id];
+      let item = (board.items || []).find((i) => i.id === id);
+      if (!item) {
+        board.items = board.items || [];
+        board.items.push({
+          id,
+          folder: d.folder,
+          title: d.title,
+          notes: d.notes,
+          status: "inbox",
+          urgency: null,
+          evidence: [],
+          processStatus: "pending",
+          createdAt: d.updatedAt,
+          updatedAt: d.updatedAt
+        });
+        return;
+      }
+      item.title = d.title;
+      item.notes = d.notes;
+      item.processStatus = "pending";
+      item.updatedAt = d.updatedAt;
     });
   }
 
@@ -698,7 +795,7 @@
         state.board = saved.json;
         state.boardSha = saved.sha;
         // A successful PUT can wipe optimistic values still waiting in the queue
-        reapplyQueuedOptimism(state.board);
+        reapplyLocalOverlays(state.board);
         cacheBoardLocally(state.board);
         return saved.json;
       } catch (err) {
@@ -715,6 +812,231 @@
     const run = state.writeChain.then(job, job);
     state.writeChain = run.catch(() => {});
     return run;
+  }
+
+  function nextIdFor(folderId) {
+    const prefix = (FOLDER_PREFIX[folderId] || "U") + "-";
+    let max = 0;
+    (state.board.items || []).forEach((item) => {
+      if (!item.id || item.id.indexOf(prefix) !== 0) return;
+      const n = parseInt(item.id.slice(prefix.length), 10);
+      if (!isNaN(n) && n > max) max = n;
+    });
+    return prefix + String(max + 1).padStart(3, "0");
+  }
+
+  function markDraft(id) {
+    const item = findItem(id);
+    if (!item) return;
+    const type = state.createdLocally.has(id) ? "create" : "edit";
+    item.processStatus = "pending";
+    item.updatedAt = item.updatedAt || new Date().toISOString();
+    state.board.updatedAt = item.updatedAt;
+    state.draftDirty[id] = {
+      type,
+      noteId: id,
+      folder: item.folder,
+      title: item.title || "",
+      notes: item.notes || "",
+      updatedAt: item.updatedAt
+    };
+    cacheBoardLocally(state.board);
+    if (state.mode === "note" && state.openNoteId === id) renderSheetProcess(item);
+    scheduleDraftFlush();
+  }
+
+  function renderSheetProcess(item) {
+    if (!els.sheetProcess) return;
+    const proc = processLabel(item);
+    els.sheetProcess.hidden = !proc;
+    els.sheetProcess.textContent = proc;
+    if (proc) els.sheetProcess.setAttribute("data-state", item.processStatus);
+    else els.sheetProcess.removeAttribute("data-state");
+  }
+
+  function scheduleDraftFlush() {
+    clearTimeout(state.draftTimer);
+    state.draftTimer = setTimeout(() => { void flushDrafts(); }, 900);
+  }
+
+  function takeDraftDirty() {
+    const snap = Object.create(null);
+    Object.keys(state.draftDirty).forEach((id) => {
+      snap[id] = state.draftDirty[id];
+      delete state.draftDirty[id];
+    });
+    return snap;
+  }
+
+  async function commitDraftSnapshot(token, snapshot) {
+    const ids = Object.keys(snapshot);
+    if (!ids.length) return;
+
+    let lastErr = null;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        let sha = state.boardSha;
+        let remote = state.board;
+        if (!sha || !remote || attempt > 0) {
+          const fetched = await fetchRemoteBoard(token);
+          sha = fetched.sha;
+          remote = fetched.json;
+        }
+        const working = JSON.parse(JSON.stringify(remote));
+        working.items = working.items || [];
+        ids.forEach((id) => {
+          const d = snapshot[id];
+          let item = working.items.find((i) => i.id === id);
+          if (!item) {
+            item = {
+              id,
+              folder: d.folder,
+              title: d.title,
+              notes: d.notes,
+              status: "inbox",
+              urgency: null,
+              evidence: [],
+              processStatus: "pending",
+              createdAt: d.updatedAt,
+              updatedAt: d.updatedAt
+            };
+            working.items.push(item);
+          } else {
+            item.title = d.title;
+            item.notes = d.notes;
+            item.processStatus = "pending";
+            item.updatedAt = d.updatedAt;
+            if (d.folder) item.folder = d.folder;
+          }
+        });
+        working.updatedAt = new Date().toISOString();
+        const label = ids.length === 1
+          ? "planning: draft " + ids[0]
+          : "planning: draft " + ids.join(", ");
+        const saved = await putBoard(token, working, sha, label);
+        state.board = saved.json;
+        state.boardSha = saved.sha;
+        reapplyLocalOverlays(state.board);
+        cacheBoardLocally(state.board);
+        lastErr = null;
+        break;
+      } catch (err) {
+        lastErr = err;
+        state.boardSha = null;
+        if (err && err.code === "conflict") continue;
+        throw err;
+      }
+    }
+    if (lastErr) throw lastErr;
+
+    lastErr = null;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        let sha = state.inboxSha;
+        let remote = state.inbox;
+        if (!sha || !remote || attempt > 0) {
+          const fetched = await fetchRemoteJson(token, INBOX_PATH, emptyInbox());
+          sha = fetched.sha;
+          remote = fetched.json;
+        }
+        const working = JSON.parse(JSON.stringify(remote || emptyInbox()));
+        working.entries = working.entries || [];
+        ids.forEach((id) => {
+          const d = snapshot[id];
+          const existing = working.entries.findIndex((e) => e.noteId === id && e.processStatus === "pending");
+          const entry = {
+            id: "evt_" + Date.now().toString(36) + "_" + id,
+            type: d.type,
+            noteId: id,
+            folder: d.folder,
+            title: d.title,
+            notes: d.notes,
+            updatedAt: d.updatedAt,
+            processStatus: "pending"
+          };
+          if (existing >= 0) working.entries[existing] = entry;
+          else working.entries.push(entry);
+        });
+        working.updatedAt = new Date().toISOString();
+        const saved = await putRemoteJson(
+          token,
+          INBOX_PATH,
+          working,
+          sha,
+          ids.length === 1 ? "planning: inbox " + ids[0] : "planning: inbox " + ids.join(", ")
+        );
+        state.inbox = saved.json;
+        state.inboxSha = saved.sha;
+        return;
+      } catch (err) {
+        lastErr = err;
+        state.inboxSha = null;
+        if (err && err.code === "conflict") continue;
+        throw err;
+      }
+    }
+    throw lastErr || taggedError("conflict", "Inbox kept changing — try again");
+  }
+
+  async function flushDrafts() {
+    clearTimeout(state.draftTimer);
+    const token = getToken().trim();
+    if (!Object.keys(state.draftDirty).length) return;
+    if (!token) {
+      toast("Set a GitHub token first — tap SET.", 4200);
+      openSetup();
+      return;
+    }
+    const snapshot = takeDraftDirty();
+    try {
+      await enqueueWrite(() => commitDraftSnapshot(token, snapshot));
+      toast("Saved", 900);
+    } catch (err) {
+      console.error(err);
+      Object.keys(snapshot).forEach((id) => {
+        if (!state.draftDirty[id]) state.draftDirty[id] = snapshot[id];
+      });
+      if (err && err.code === "bad-token") {
+        localStorage.removeItem(STORAGE_TOKEN);
+        openSetup();
+        toast("Token rejected — paste a new one in SET.", 5200);
+      } else if (err && err.code === "conflict") {
+        toast("Busy — tap once more.", 2800);
+      } else {
+        toast(err.message || "Save failed", 4200);
+      }
+    }
+  }
+
+  function createNote() {
+    if (!state.board) return;
+    if (state.mode === "note") closeNote();
+    const folderId = FOLDERS[state.index].id;
+    const id = nextIdFor(folderId);
+    const now = new Date().toISOString();
+    const item = {
+      id,
+      folder: folderId,
+      title: "",
+      notes: "",
+      status: "inbox",
+      urgency: null,
+      evidence: [],
+      processStatus: "pending",
+      createdAt: now,
+      updatedAt: now
+    };
+    state.board.items = state.board.items || [];
+    state.board.items.push(item);
+    state.board.updatedAt = now;
+    state.createdLocally.add(id);
+    cacheBoardLocally(state.board);
+    openNote(id);
+    markDraft(id);
+    requestAnimationFrame(() => {
+      fitTitle();
+      if (els.sheetTitle) els.sheetTitle.focus();
+    });
   }
 
   function takeQueuedPatches() {
@@ -962,10 +1284,23 @@
     }
   }
 
+  async function loadInbox() {
+    const token = getToken().trim();
+    try {
+      const fetched = await fetchRemoteJson(token || "", INBOX_PATH, emptyInbox());
+      state.inbox = fetched.json;
+      state.inboxSha = fetched.sha;
+    } catch (e) {
+      state.inbox = emptyInbox();
+      state.inboxSha = null;
+    }
+  }
+
   function bindUnloadGuard() {
     window.addEventListener("beforeunload", (e) => {
       const busy = state.pending.size
         || Object.keys(state.queued).length
+        || Object.keys(state.draftDirty).length
         || !!state.flushPromise;
       if (!busy) return;
       e.preventDefault();
@@ -981,6 +1316,7 @@
 
     try {
       await loadBoard();
+      await loadInbox();
     } catch (e) {
       console.error(e);
       document.body.innerHTML = '<p style="padding:24px;font-family:sans-serif">Could not load board.json</p>';

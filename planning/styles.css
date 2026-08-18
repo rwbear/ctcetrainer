@@ -703,12 +703,17 @@ body.is-note-instant .sheet {
   stroke: none;
 }
 
+.dock-new svg {
+  width: 15px;
+  height: 15px;
+}
+
 @media (max-width: 380px) {
   .dock-key {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
-  .dock-keys { gap: 6px; }
+  .dock-keys { gap: 5px; }
 }
 
 @media (min-width: 860px) {
