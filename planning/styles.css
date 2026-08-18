@@ -117,9 +117,34 @@ button, a, input, [role="button"] {
 .field {
   min-height: 0;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  position: relative;
   background: transparent;
   color: var(--ink);
+}
+
+.browse {
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  visibility: visible;
+  transition:
+    opacity var(--dur) var(--ease-soft),
+    transform var(--dur) var(--ease-out),
+    visibility 0s;
+  transform-origin: 50% 18%;
+}
+
+body.is-note .browse {
+  opacity: 0;
+  transform: scale(0.978) translateY(-10px);
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity var(--dur) var(--ease-soft),
+    transform var(--dur) var(--ease-out),
+    visibility 0s linear var(--dur);
 }
 
 .top {
@@ -266,14 +291,30 @@ button, a, input, [role="button"] {
   color: var(--mute);
 }
 
+.note.is-queued .note-status {
+  color: color-mix(in srgb, var(--sky) 75%, var(--ink));
+}
+.note.is-error .note-status {
+  color: color-mix(in srgb, var(--play) 70%, var(--ink));
+}
+
 .note-title {
   margin: 0;
   font-size: 1.02rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.28;
-  cursor: pointer;
   color: var(--ink);
+}
+
+.note-title,
+.note-preview {
+  cursor: pointer;
+}
+
+.note-title:active,
+.note-preview:active {
+  opacity: 0.82;
 }
 
 .note-preview {
@@ -421,6 +462,153 @@ button, a, input, [role="button"] {
   }
 }
 
+/* Full-field note (browse recedes; chin stays) */
+.sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: calc(12px + env(safe-area-inset-top)) var(--pad) 16px;
+  width: min(100%, 720px);
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(28px);
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out),
+    visibility 0s linear var(--dur);
+}
+
+body.is-note .sheet {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  visibility: visible;
+  transition:
+    opacity var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out),
+    visibility 0s;
+}
+
+body.is-note-instant .browse,
+body.is-note-instant .sheet {
+  transition: none !important;
+  filter: none !important;
+}
+
+.sheet-back {
+  align-self: flex-start;
+  border: 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--ink) 82%, transparent);
+  cursor: pointer;
+  font-family: Doto, ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-variation-settings: "ROND" 100;
+  font-synthesis: none;
+  padding: 8px 0 20px;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sheet-back:active {
+  color: var(--ink);
+}
+
+.sheet-id,
+.sheet-status {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.66rem;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
+}
+
+.sheet-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.sheet-process {
+  margin: 8px 0 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.sheet-process[data-state="pending"],
+.sheet-process[data-state="processing"] {
+  color: color-mix(in srgb, var(--sky) 80%, var(--ink));
+  animation: process-pulse 1.8s var(--ease-soft) infinite;
+}
+
+.sheet-process[data-state="error"] {
+  color: color-mix(in srgb, var(--play) 70%, var(--ink));
+}
+
+@keyframes process-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.sheet-title {
+  margin: 18px 0 14px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: clamp(1.28rem, 4.4vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
+  resize: none;
+  overflow: hidden;
+  outline: none;
+  padding: 0;
+  field-sizing: content;
+}
+
+.sheet-notes {
+  flex: 1;
+  min-height: 120px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--ink) 88%, transparent);
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  resize: none;
+  outline: none;
+  padding: 0 0 12px;
+}
+
+.sheet-title::placeholder,
+.sheet-notes::placeholder {
+  color: color-mix(in srgb, var(--ink) 38%, transparent);
+}
+
+.sheet-title,
+.sheet-notes {
+  caret-color: var(--ink);
+}
+
+.sheet .urgency-row {
+  margin-top: auto;
+  padding-top: 14px;
+  flex-shrink: 0;
+}
+
 /* Solid chin — TRACKS player-bar: curved top + soft lift shadow onto the field */
 .chin {
   width: 100%;
@@ -528,12 +716,28 @@ button, a, input, [role="button"] {
   stroke: none;
 }
 
+.dock-new {
+  background: #1c1a18;
+  color: #ffffffd0;
+  box-shadow:
+    inset 0 1px #ffffff14,
+    0 3px #080706,
+    0 3px 8px #00000047;
+}
+.dock-new:active,
+.dock-new.is-pressed {
+  background: #121110;
+  box-shadow:
+    inset 0 2px 4px #00000073,
+    0 1px #080706;
+}
+
 @media (max-width: 380px) {
   .dock-key {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
-  .dock-keys { gap: 6px; }
+  .dock-keys { gap: 5px; }
 }
 
 @media (min-width: 860px) {
@@ -544,6 +748,7 @@ button, a, input, [role="button"] {
   }
 
   .top { width: min(100%, 1100px); }
+  .sheet { width: min(100%, 720px); }
 
   .folder-hero { font-size: 4.2rem; }
   .folder-hero.is-long { font-size: 2.45rem; }
@@ -640,6 +845,15 @@ button, a, input, [role="button"] {
 @media (prefers-reduced-motion: reduce) {
   .folder-panel { filter: none !important; }
   .carousel { transition: none; }
+  .browse,
+  .sheet {
+    transition: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+  .sheet-process {
+    animation: none !important;
+  }
   .urgency-row.is-scanning .chip,
   .chip.is-ignite {
     animation: none !important;

@@ -8,24 +8,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260816c">
+  <link rel="stylesheet" href="styles.css?v=20260818a">
 </head>
 <body data-folder="content">
   <div class="grain" aria-hidden="true"></div>
 
   <div class="app">
     <div class="field">
-      <header class="top">
-        <div class="top-brand">
-          <p class="top-kicker">WRITE-DOWN</p>
-          <p class="top-sub">ops board · ctcetrainer</p>
-        </div>
-        <button type="button" class="setup-btn" id="setupBtn" title="Sync key" aria-label="Sync settings">SET</button>
-      </header>
+      <div class="browse" id="browse">
+        <header class="top">
+          <div class="top-brand">
+            <p class="top-kicker">WRITE-DOWN</p>
+            <p class="top-sub">ops board · ctcetrainer</p>
+          </div>
+          <button type="button" class="setup-btn" id="setupBtn" title="Sync key" aria-label="Sync settings">SET</button>
+        </header>
 
-      <div class="stage" id="stage">
-        <div class="carousel" id="carousel" aria-live="polite"></div>
+        <div class="stage" id="stage">
+          <div class="carousel" id="carousel" aria-live="polite"></div>
+        </div>
       </div>
+
+      <article class="sheet" id="sheet" aria-hidden="true">
+        <button type="button" class="sheet-back" id="sheetBack" aria-label="Back to folder"></button>
+        <div class="sheet-meta">
+          <span class="sheet-id" id="sheetId"></span>
+          <span class="sheet-status" id="sheetStatus"></span>
+        </div>
+        <p class="sheet-process" id="sheetProcess" hidden></p>
+        <textarea class="sheet-title" id="sheetTitle" rows="1" maxlength="180" placeholder="Title" spellcheck="true"></textarea>
+        <textarea class="sheet-notes" id="sheetNotes" placeholder="Write the note…" spellcheck="true"></textarea>
+        <div class="urgency-row" id="sheetUrgency"></div>
+      </article>
     </div>
 
     <nav class="chin" id="dock" aria-label="Folders"></nav>
@@ -57,6 +71,6 @@
   </dialog>
 
   <script src="write-key.js"></script>
-  <script src="app.js?v=20260816c"></script>
+  <script src="app.js?v=20260818a"></script>
 </body>
 </html>
