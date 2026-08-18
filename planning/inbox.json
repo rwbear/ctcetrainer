@@ -1,16 +1,5 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-18T13:48:52.545Z",
-  "entries": [
-    {
-      "id": "evt_test",
-      "type": "create",
-      "noteId": "D-TEST",
-      "folder": "design",
-      "title": "API persist check",
-      "notes": "round-trip",
-      "updatedAt": "2026-08-18T13:48:52.545Z",
-      "processStatus": "pending"
-    }
-  ]
+  "updatedAt": "2026-08-18T00:00:00.000Z",
+  "entries": []
 }
