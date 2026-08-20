@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-18T12:50:47.378Z",
+  "updatedAt": "2026-08-20T14:15:19.601Z",
   "folders": [
     {
       "id": "design",
@@ -115,7 +115,8 @@
       "urgency": null,
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-17T11:43:19.599Z"
+      "updatedAt": "2026-08-20T14:15:18.698Z",
+      "processStatus": "pending"
     }
   ],
   "intakeLog": [
