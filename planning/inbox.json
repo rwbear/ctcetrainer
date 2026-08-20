@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T14:16:13.256Z",
+  "updatedAt": "2026-08-20T21:49:06.322Z",
   "entries": [
     {
       "id": "evt_mt1lrjbd_C-005",
@@ -20,6 +20,16 @@
       "title": "",
       "notes": "",
       "updatedAt": "2026-08-20T14:16:11.217Z",
+      "processStatus": "pending"
+    },
+    {
+      "id": "evt_mt21z2qa_C-002",
+      "type": "edit",
+      "noteId": "C-002",
+      "folder": "content",
+      "title": "Real sell / premium path",
+      "notes": "Premium today = code hash, not checkout. Points buy themes/variants. Cannot cleanly sell to a school cohort without payment or school license + account flow.",
+      "updatedAt": "2026-08-20T21:49:04.332Z",
       "processStatus": "pending"
     }
   ]
