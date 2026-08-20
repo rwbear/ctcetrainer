@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T21:48:57.139Z",
+  "updatedAt": "2026-08-20T21:49:05.207Z",
   "folders": [
     {
       "id": "design",
@@ -82,7 +82,8 @@
       "urgency": null,
       "evidence": [],
       "createdAt": "2026-08-10T12:00:00.000Z",
-      "updatedAt": "2026-08-20T21:48:57.139Z"
+      "updatedAt": "2026-08-20T21:49:04.332Z",
+      "processStatus": "pending"
     },
     {
       "id": "C-003",
