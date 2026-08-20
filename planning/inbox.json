@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T14:15:20.713Z",
+  "updatedAt": "2026-08-20T14:15:52.664Z",
   "entries": [
     {
       "id": "evt_mt1lrjbd_C-005",
@@ -10,6 +10,16 @@
       "title": "Landing conversion pass",
       "notes": "Brand exists; little proof above the fold (counts, phone-ready, what free unlocks). System fonts only.",
       "updatedAt": "2026-08-20T14:15:18.698Z",
+      "processStatus": "pending"
+    },
+    {
+      "id": "evt_mt1ls7yw_D-001",
+      "type": "create",
+      "noteId": "D-001",
+      "folder": "design",
+      "title": "Visual ",
+      "notes": "",
+      "updatedAt": "2026-08-20T14:15:50.882Z",
       "processStatus": "pending"
     }
   ]
