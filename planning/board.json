@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T14:15:58.706Z",
+  "updatedAt": "2026-08-20T14:16:06.567Z",
   "folders": [
     {
       "id": "design",
@@ -121,14 +121,14 @@
     {
       "id": "D-001",
       "folder": "design",
-      "title": "",
+      "title": "Polish the ",
       "notes": "",
       "status": "inbox",
       "urgency": null,
       "evidence": [],
       "processStatus": "pending",
       "createdAt": "2026-08-20T14:15:47.337Z",
-      "updatedAt": "2026-08-20T14:15:57.331Z"
+      "updatedAt": "2026-08-20T14:16:05.664Z"
     }
   ],
   "intakeLog": [
