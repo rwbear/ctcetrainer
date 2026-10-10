@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-10T10:17:47.997Z",
+  "updatedAt": "2026-10-10T10:18:14.123Z",
   "folders": [
     {
       "id": "design",
@@ -130,6 +130,18 @@
       "processStatus": "pending",
       "createdAt": "2026-08-20T14:15:47.337Z",
       "updatedAt": "2026-08-20T14:16:11.217Z"
+    },
+    {
+      "id": "C-006",
+      "folder": "content",
+      "title": "",
+      "notes": "",
+      "status": "inbox",
+      "urgency": "needed",
+      "evidence": [],
+      "processStatus": null,
+      "createdAt": "2026-10-10T10:18:10.715Z",
+      "updatedAt": "2026-10-10T10:18:14.123Z"
     }
   ],
   "intakeLog": [
