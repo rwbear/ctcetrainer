@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-10T10:18:14.123Z",
+  "updatedAt": "2026-10-10T10:18:17.013Z",
   "folders": [
     {
       "id": "design",
@@ -137,11 +137,11 @@
       "title": "",
       "notes": "",
       "status": "inbox",
-      "urgency": "needed",
+      "urgency": "future",
       "evidence": [],
       "processStatus": null,
       "createdAt": "2026-10-10T10:18:10.715Z",
-      "updatedAt": "2026-10-10T10:18:14.123Z"
+      "updatedAt": "2026-10-10T10:18:17.013Z"
     }
   ],
   "intakeLog": [
