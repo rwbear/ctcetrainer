@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T14:12:21.445Z",
+  "updatedAt": "2026-11-12T14:12:24.164Z",
   "folders": [
     {
       "id": "design",
@@ -125,11 +125,11 @@
       "title": "Test",
       "notes": "Complete test",
       "status": "inbox",
-      "urgency": "future",
+      "urgency": "immediate",
       "evidence": [],
       "processStatus": "pending",
       "createdAt": "2026-08-20T14:15:47.337Z",
-      "updatedAt": "2026-11-12T14:12:21.445Z"
+      "updatedAt": "2026-11-12T14:12:24.164Z"
     },
     {
       "id": "C-006",
